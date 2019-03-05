@@ -1,0 +1,19 @@
+language: node_js
+sudo: required
+notifications:
+  email: false
+node_js:
+- '10'
+install:
+  - npm ci
+script:
+  - npm run travis:verify
+  - npx codecov
+after_success:
+- curl -sSL https://raw.githubusercontent.com/RedHatInsights/insights-frontend-builder-common/master/src/bootstrap.sh | bash -s
+env:
+    global:
+    - REPO="git@github.com:RedHatInsights/insights-frontend-starter-app-build"
+    - REPO_DIR="insights-frontend-starter-app-build"
+    - BRANCH=${TRAVIS_PULL_REQUEST_BRANCH:-$TRAVIS_BRANCH}
+    - NODE_OPTIONS="--max-old-space-size=4096 --max_old_space_size=4096"
