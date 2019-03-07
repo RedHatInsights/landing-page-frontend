@@ -1,3 +1,38 @@
-.fdsfjsdklfjsa {
-  // for lint :D
+.ins-c-text__regular-size {
+    font-size: var(--pf-global--FontSize--md) !important;
+}
+
+.ins-m-centered {
+    text-align: center;
+}
+
+.pf-c-content {
+    .ins-m-tech-preview {
+        color: var(--pf-global--success-color--100) !important;
+    }
+}
+
+.pf-c-card {
+    &.ins-c-application-info {
+        height: 100%;
+    }
+
+    .ins-c-navigation {
+        color: var(--pf-global--active-color--100);
+    }
+}
+
+svg.ins-c-icon__active {
+    fill: var(--pf-global--active-color--100);
+}
+
+footer.ins-c-footer {
+    display: flex;
+    justify-content: space-between;
+
+    div {
+        p, nav {
+            display: inline-block;
+        }
+    }
 }
