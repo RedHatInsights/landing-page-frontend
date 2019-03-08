@@ -5,7 +5,7 @@ const Header = () => (
     <Fragment>
         <Bullseye>
             <TextContent>
-                <Text component={ TextVariants.h1 }>
+                <Text component={ TextVariants.h1 } className="ins-m-bold">
                     BUILD HYBRID WITH RED HAT
                 </Text>
             </TextContent>
