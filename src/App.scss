@@ -1,3 +1,5 @@
+@import '~@red-hat-insights/insights-frontend-components/Utilities/_mixins';
+
 .ins-c-text__regular-size {
     font-size: var(--pf-global--FontSize--md) !important;
 }
@@ -17,7 +19,7 @@
         height: 100%;
 
         img.ins-c-application-info__logo {
-            width: 4rem;
+            @include rem('width', 56px);
         }
     }
 
@@ -38,7 +40,7 @@ footer.ins-c-footer .pf-l-level {
     }
 
     svg {
-        margin-top: 10px;
+        @include rem('margin-top', 9px);
     }
 }
 
