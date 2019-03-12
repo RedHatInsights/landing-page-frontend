@@ -21,7 +21,7 @@
     }
   },
   "scripts": {
-    "test": "jest",
+    "test": "jest --passWithNoTests",
     "build": "webpack --config config/prod.webpack.config.js",
     "lint": "npm-run-all lint:*",
     "lint:js": "eslint config src",
