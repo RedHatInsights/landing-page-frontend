@@ -13,7 +13,6 @@ after_success:
 - curl -sSL https://raw.githubusercontent.com/RedHatInsights/insights-frontend-builder-common/master/src/bootstrap.sh | bash -s
 env:
     global:
-    - REPO="git@github.com:RedHatInsights/insights-frontend-starter-app-build"
-    - REPO_DIR="insights-frontend-starter-app-build"
-    - BRANCH=${TRAVIS_PULL_REQUEST_BRANCH:-$TRAVIS_BRANCH}
+    - REPO="git@github.com:RedHatInsights/landing-page-frontend-build.git"
+    - REPO_DIR="landing-page-frontend-build"
     - NODE_OPTIONS="--max-old-space-size=4096 --max_old_space_size=4096"
