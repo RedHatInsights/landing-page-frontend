@@ -1,8 +1,7 @@
-/* global require, module, __dirname */
+/* global require, module, process */
 
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const config = require('./webpack.common.js');
-const pkg = require('../package.json');
 
 const webpackConfig = {
     mode: process.env.NODE_ENV === 'production' ? 'production' : 'development',
