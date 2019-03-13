@@ -19,7 +19,7 @@ class App extends Component {
         this.getRegistry().register({ technologies: technologiesReducer });
         const { loadTechnologies } = this.props;
         insights.chrome.init();
-        insights.chrome.identifyApp('landing');
+        // insights.chrome.identifyApp('landing');
         loadTechnologies(activeTechnologies);
     }
 
