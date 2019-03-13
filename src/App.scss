@@ -1,3 +1,55 @@
-.fdsfjsdklfjsa {
-  // for lint :D
+@import '~@red-hat-insights/insights-frontend-components/Utilities/_mixins';
+
+.ins-c-text__regular-size {
+    font-size: var(--pf-global--FontSize--md) !important;
+}
+
+.ins-m-centered {
+    text-align: center;
+}
+
+.pf-c-content {
+    .ins-m-tech-preview {
+        color: var(--pf-global--success-color--200) !important;
+    }
+}
+
+.pf-c-card {
+    &.ins-c-application-info {
+        height: 100%;
+
+        img.ins-c-application-info__logo {
+            @include rem('width', 56px);
+        }
+    }
+
+    .ins-c-navigation {
+        color: var(--pf-global--active-color--100);
+    }
+}
+
+svg.ins-c-icon__active {
+    fill: var(--pf-global--active-color--100);
+}
+
+footer.ins-c-footer .pf-l-level {
+    width: 100%;
+
+    p, nav {
+        display: inline-block;
+    }
+
+    svg {
+        @include rem('margin-top', 9px);
+    }
+}
+
+.ins-m-bold {
+    font-weight: var(--pf-global--FontWeight--bold) !important;
+}
+
+@media (min-width: 992px) {
+    .ins-c-content__footer .pf-c-card__body {
+        max-width: 80%;
+    }
 }

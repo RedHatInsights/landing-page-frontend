@@ -1,5 +1,3 @@
-/* global require, module, process */
-
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const config = require('./webpack.common.js');
 
