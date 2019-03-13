@@ -2,6 +2,8 @@
 set -e
 set -x
 
+echo DEBUG
+
 # for now in chrome... push everywhere when master updates
 if [ "${TRAVIS_BRANCH}" = "master" ]; then
     for env in ci qa prod
