@@ -69,7 +69,7 @@ class Body extends Component {
                                             >
                                                 <Split gutter="sm" className="ins-c-navigation">
                                                     <SplitItem>
-                                                        Launch
+                                                        Open
                                                     </SplitItem>
                                                     <SplitItem>
                                                         <ArrowRightIcon size="sm" />

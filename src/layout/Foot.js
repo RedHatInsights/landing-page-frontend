@@ -1,60 +1,52 @@
 import React from 'react';
-import { Card, CardBody, Bullseye, Grid, GridItem, TextContent, Text, TextVariants } from '@patternfly/react-core';
-import { BookIcon, OutlinedEnvelopeIcon, ChatIcon } from '@patternfly/react-icons';
+import { Card, CardBody, Bullseye, Grid, GridItem, TextContent, Text, TextVariants, Split, SplitItem } from '@patternfly/react-core';
+import { OutlinedPaperPlaneIcon } from '@patternfly/react-icons';
 
 const Foot = () => (
-    <Card className="ins-c-content__footer">
+    <Card>
         <Bullseye>
             <CardBody>
-                <Bullseye>
-                    <TextContent>
-                        <Text component={ TextVariants.h2 } className="ins-m-bold">
-                            Services &amp; Support
-                        </Text>
-                    </TextContent>
-                </Bullseye>
                 <Grid sm={ 12 } md={ 4 } gutter="lg">
                     <GridItem>
                         <TextContent>
-                            <Bullseye><BookIcon size="xl" className="ins-c-icon__active" /></Bullseye>
-                            <Bullseye><Text component={ TextVariants.h2 }>Get documentation</Text></Bullseye>
-                            <Bullseye>
-                                <Text component={ TextVariants.small } className="ins-c-text__regular-size ins-m-centered">
-                                    This is a statement about docs.
-                                    This is a statement about docs.
-                                    This is a statement about docs.
-                                </Text>
-                            </Bullseye>
-                            <Bullseye><a href="#">View Documentation</a></Bullseye>
+                            <Text component={ TextVariants.h2 }>Support and resources</Text>
+                            <div className="ins-c-navigational-link">
+                                <a href="#">View Documentation</a>
+                            </div>
+                            <div className="ins-c-navigational-link">
+                                <a href="#">Open a support case</a>
+                            </div>
+                            <div className="ins-c-navigational-link">
+                                <a href="#">contact customer service</a>
+                            </div>
                         </TextContent>
                     </GridItem>
                     <GridItem>
                         <TextContent>
-                            <Bullseye><OutlinedEnvelopeIcon size="xl" className="ins-c-icon__active" /></Bullseye>
-                            <Bullseye><Text component={ TextVariants.h2 }>Open a support case</Text></Bullseye>
-                            <Bullseye>
-                                <Text component={ TextVariants.small } className="ins-c-text__regular-size ins-m-centered">
-                                    This is a statement about support cases.
-                                    This is a statement about support cases.
-                                    This is a statement about support cases.
-                                </Text>
-                            </Bullseye>
-                            <Bullseye><a href="#">Open a support case</a></Bullseye>
+                            <Text component={ TextVariants.h2 }>About</Text>
+                            <div className="ins-c-navigational-link">
+                                <a href="#">Red Hat Insights</a>
+                            </div>
+                            <div className="ins-c-navigational-link">
+                                <a href="#">Red Hat Smart Management</a>
+                            </div>
+                            <div className="ins-c-navigational-link">
+                                <a href="#">Red Hat Hybrid CloudManagement</a>
+                            </div>
+                            <div className="ins-c-navigational-link">
+                                <a href="#">Red Hat OpenShift</a>
+                            </div>
                         </TextContent>
                     </GridItem>
                     <GridItem>
                         <TextContent>
-                            <Bullseye><ChatIcon size="xl" className="ins-c-icon__active" /></Bullseye>
-                            <Bullseye><Text component={ TextVariants.h2 }>Contact customer service</Text></Bullseye>
-                            <Bullseye>
-                                <Text component={ TextVariants.small } className="ins-c-text__regular-size ins-m-centered">
-                                    This is a statement about customer service.
-                                    This is a statement about customer service.
-                                    This is a statement about customer service.
-                                </Text>
-                            </Bullseye>
-                            <Bullseye><a href="#">Contact customer service</a></Bullseye>
+                            <Text component={ TextVariants.h2 }>Feedback</Text>
                         </TextContent>
+                        <Split gutter="md">
+                            <SplitItem><OutlinedPaperPlaneIcon size="xl" className="ins-c-icon__active"/></SplitItem>
+                            <SplitItem isMain><a href="#">Tell us about your experience</a> using
+                            Red Hat Cloud Services sofware, and how we can improve.</SplitItem>
+                        </Split>
                     </GridItem>
                 </Grid>
             </CardBody>
