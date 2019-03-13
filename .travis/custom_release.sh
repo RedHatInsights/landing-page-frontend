@@ -2,8 +2,6 @@
 set -e
 set -x
 
-echo DEBUG
-
 # for now in chrome... push everywhere when master updates
 if [ "${TRAVIS_BRANCH}" = "master" ]; then
     for env in ci qa prod
@@ -11,11 +9,11 @@ if [ "${TRAVIS_BRANCH}" = "master" ]; then
         echo
         echo
         echo "PUSHING ${env}-beta"
-        rm -rf ./build/.git
+        rm -rf ./dist/.git
         .travis/release.sh "${env}-beta"
 
         echo "PUSHING ${env}-stable"
-        rm -rf ./build/.git
+        rm -rf ./dist/.git
         .travis/release.sh "${env}-stable"
     done
 fi
