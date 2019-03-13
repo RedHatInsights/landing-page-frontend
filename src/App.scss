@@ -48,6 +48,8 @@ footer.ins-c-footer .pf-l-level {
     font-weight: var(--pf-global--FontWeight--bold) !important;
 }
 
+.ins-c-navigational-link { @include rem('padding-bottom', 15px); }
+
 @media (min-width: 992px) {
     .ins-c-content__footer .pf-c-card__body {
         max-width: 80%;

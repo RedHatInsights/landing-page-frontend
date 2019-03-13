@@ -15,21 +15,21 @@ export const activeTechnologies = [
         name: 'cloud-rhel',
         url: 'rhcs/dashboard',
         icon: rhelCs,
-        title: 'Cloud Services for RHEL',
+        title: 'Red Hat Enterprise Linux management services',
         body: 'Operate and protect your Red Hat plargorms.'
     },
     {
         name: 'openshift-cloud-manager',
         url: 'uhc',
         icon: openshift,
-        title: 'OpenShift Cluster Manager',
+        title: 'Red Hat OpenShift Cluster Manager',
         body: 'Manage your highly available public and private clouds.'
     },
     {
         name: 'hybrid-cloud-management',
         url: 'service-portal',
         icon: hcm,
-        title: 'Hybrid Cloud Management',
+        title: 'Hybrid Cloud Management services',
         body: 'Govern and automate your hybrid infrastructure.',
         isPreview: true
     }
