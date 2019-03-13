@@ -89,7 +89,7 @@ plugins.push(CopyFilesWebpackPlugin);
  */
 const HtmlReplaceWebpackPlugin = new(require('html-replace-webpack-plugin'))([{
     pattern: '@@env',
-    replacement: config.localhost ? config.insightsDeployment : '/insights/static'
+    replacement: config.insightsDeployment
 }]);
 plugins.push(HtmlReplaceWebpackPlugin);
 
