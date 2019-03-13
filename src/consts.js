@@ -6,14 +6,14 @@ import rhelCs from './components/rhel-cs.svg';
 export const activeTechnologies = [
     {
         name: 'insights',
-        url: 'advisor',
+        url: 'insights',
         icon: insights,
         title: 'Red Hat Insights',
         body: 'Predict Risk. Get guidance. Stay secure.'
     },
     {
         name: 'cloud-rhel',
-        url: 'dashboard',
+        url: 'rhcs/dashboard',
         icon: rhelCs,
         title: 'Cloud Services for RHEL',
         body: 'Operate and protect your Red Hat plargorms.'

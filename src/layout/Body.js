@@ -22,7 +22,7 @@ class Body extends Component {
         event.preventDefault();
         localStorage.setItem('cs-app', name);
         localStorage.setItem('cs-app-title', title);
-        window.location.href = `${document.baseURI}platform/${url}`;
+        window.location.href = `${document.baseURI}${url}`;
     }
 
     render() {
