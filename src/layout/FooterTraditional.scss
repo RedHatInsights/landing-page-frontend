@@ -7,15 +7,16 @@ footer.ins-c-footer__traditional {
     svg { @include rem('width', 150px); }
 
     .ins-c-footer__traditional-nav {
-        * { font-size: var(--pf-global--FontSize--sm); }
-
         .copyright {
             color: var(--pf-global--Color--200);
             @include rem('margin-right', 30px);
         }
 
-        * { display: inline-block; }
-        
+        * {
+            display: inline-block;
+            font-size: var(--pf-global--FontSize--sm);
+        }
+
         a + a {
             border-left: 2px solid var(--pf-global--Color--200);
             @include rem('margin-left', 15px);
