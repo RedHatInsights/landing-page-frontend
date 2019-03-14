@@ -1,7 +1,9 @@
-/*global module*/
+/*global module, process*/
+const localhost = (process.env.PLATFORM === 'linux') ? 'localhost' : 'host.docker.internal';
+
 module.exports = {
     routes: {
-        '/apps/landing/': { host: 'https://localhost:8002' },
-        '/': { host: 'https://localhost:8002' }
+        '/apps/landing/': { host: `https://${localhost}:8002` },
+        '/': { host: `https://${localhost}:8002` }
     }
 };
