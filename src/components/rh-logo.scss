@@ -1,0 +1,8 @@
+:root {
+    --ins-c-redhat-red: var(--pf-global--danger-color--100)
+}
+
+#redhat-logo {
+    .st1 { fill: var(--ins-c-redhat-red); }
+    .st2 { fill: white; }
+}
