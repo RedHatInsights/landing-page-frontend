@@ -1,17 +1,16 @@
 @import '~@red-hat-insights/insights-frontend-components/Utilities/_mixins';
 
-.ins-c-text__regular-size {
-    font-size: var(--pf-global--FontSize--md) !important;
+:root {
+    --ins-global--Color--green: #37912f;
 }
 
-.ins-m-centered {
-    text-align: center;
+.ins-c-application-info .ins-m-gray {
+    color: var(--pf-global--Color--200);
 }
 
-.pf-c-content {
-    .ins-m-tech-preview {
-        color: var(--pf-global--success-color--200) !important;
-    }
+.ins-m-tech-preview {
+    @include rem('margin-bottom', 16px);
+    color: var(--ins-global--Color--green);
 }
 
 .pf-c-card {
@@ -30,28 +29,4 @@
 
 svg.ins-c-icon__active {
     fill: var(--pf-global--active-color--100);
-}
-
-footer.ins-c-footer .pf-l-level {
-    width: 100%;
-
-    p, nav {
-        display: inline-block;
-    }
-
-    svg {
-        @include rem('margin-top', 9px);
-    }
-}
-
-.ins-m-bold {
-    font-weight: var(--pf-global--FontWeight--bold) !important;
-}
-
-.ins-c-navigational-link { @include rem('padding-bottom', 15px); }
-
-@media (min-width: 992px) {
-    .ins-c-content__footer .pf-c-card__body {
-        max-width: 80%;
-    }
 }
