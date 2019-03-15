@@ -27,7 +27,7 @@ export const activeTechnologies = [
         url: 'hcm/service-portal',
         icon: hcm,
         title: 'Hybrid Cloud Management services',
-        body: 'Govern and automate your hybrid infrastructure.',
+        body: 'Govern, automate, and manage multicloud environments',
         isPreview: true
     }
 ];
