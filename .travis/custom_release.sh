@@ -3,7 +3,8 @@ set -e
 set -x
 
 # for now in chrome... push everywhere when master updates
-if [ "${TRAVIS_BRANCH}" = "master" ]; then
+if [[ "${TRAVIS_BRANCH}" = "master" || "${TRAVIS_BRANCH}" = "master-stable" ]]
+then
     for env in ci qa prod
     do
         echo
