@@ -9,4 +9,5 @@
         display: block;
         & + a { @include rem('margin-top', 15px); }
     }
+    .ins-m-inline { display: inline; }
 }
