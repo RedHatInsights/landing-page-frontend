@@ -18,7 +18,7 @@
         height: 100%;
 
         img.ins-c-application-info__logo {
-            @include rem('width', 56px);
+            @include rem('height', 56px);
         }
     }
 
