@@ -15,7 +15,7 @@ export const activeTechnologies = [
         url: 'rhcs/dashboard',
         icon: rhelCs,
         title: 'Red Hat Enterprise Linux management services',
-        body: 'Operate and protect your Red Hat plargorms.'
+        body: 'Operate and protect your Red Hat platforms.'
     },
     {
         url: 'uhc',
