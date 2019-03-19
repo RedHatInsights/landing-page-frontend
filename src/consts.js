@@ -24,7 +24,7 @@ export const activeTechnologies = [
         body: 'Manage your highly available public and private clouds.'
     },
     {
-        url: 'hcm/service-portal',
+        url: 'hcm/catalog',
         icon: hcm,
         title: 'Hybrid Cloud Management services',
         body: 'Govern, automate, and manage multicloud environments',
