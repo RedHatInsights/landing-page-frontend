@@ -108,6 +108,6 @@
     "write-file-webpack-plugin": "^4.5.0"
   },
   "insights": {
-    "appname": "landing-page"
+    "appname": "landing"
   }
 }
