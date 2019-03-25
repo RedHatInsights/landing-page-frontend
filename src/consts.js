@@ -26,7 +26,7 @@ export const activeTechnologies = [
     {
         url: 'hcm/catalog',
         icon: hcm,
-        title: 'Hybrid Cloud management services',
+        title: 'Hybrid cloud management services',
         body: 'Govern, automate, and manage multicloud environments.',
         isPreview: true
     }
