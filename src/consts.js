@@ -8,7 +8,7 @@ export const activeTechnologies = [
         name: 'insights',
         url: 'insights/actions',
         icon: insights,
-        title: 'Red Hat Enterprise Linux management services',
+        title: 'Red Hat Insights',
         body: 'Predict Risk. Get guidance. Stay secure.'
     },
     {
@@ -26,8 +26,8 @@ export const activeTechnologies = [
     {
         url: 'hcm/catalog',
         icon: hcm,
-        title: 'Hybrid Cloud Management services',
-        body: 'Govern, automate, and manage multicloud environments',
+        title: 'Hybrid Cloud management services',
+        body: 'Govern, automate, and manage multicloud environments.',
         isPreview: true
     }
 ];
