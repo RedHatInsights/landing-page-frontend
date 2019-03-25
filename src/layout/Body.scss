@@ -1,7 +1,11 @@
 .ins-c-card__link:hover {
     text-decoration: none;
+    .ins-c-open-card {
+        color: var(--pf-global--link--Color--hover);
+        text-decoration: underline;
+    }
 }
 
-.ins-c-card__link:focus article {
-    border: 1px solid red;
+.ins-c-open-card {
+    color: var(--pf-global--link--Color);
 }

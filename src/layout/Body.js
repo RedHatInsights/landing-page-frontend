@@ -49,16 +49,14 @@ const Body = ({ technologies }) => (
                                 </Stack>
                             </CardBody>
                             <CardFooter>
-                                <a href={ `./${url}` } >
-                                    <Split gutter="sm" className="ins-c-navigation">
-                                        <SplitItem>
-                                            Open
-                                        </SplitItem>
-                                        <SplitItem>
-                                            <ArrowRightIcon size="sm" />
-                                        </SplitItem>
-                                    </Split>
-                                </a>
+                                <Split gutter="sm" className="ins-c-open-card">
+                                    <SplitItem>
+                                        Open
+                                    </SplitItem>
+                                    <SplitItem>
+                                        <ArrowRightIcon size="sm" />
+                                    </SplitItem>
+                                </Split>
                             </CardFooter>
                         </Card>
                     </a>
