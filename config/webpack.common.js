@@ -9,21 +9,19 @@ const entry = process.env.NODE_ENV === 'production' ?
     path.resolve(__dirname, '../src/entry.js') :
     path.resolve(__dirname, '../src/entry-dev.js');
 
-let appDeployment = '/apps';
-const gitBranch = process.env.BRANCH || gitRevisionPlugin.branch();
-const betaBranch =
-      gitBranch === 'master' ||
-      gitBranch === 'qa-beta' ||
-      gitBranch === 'prod-beta';
-if (process.env.NODE_ENV === 'production' && betaBranch) {
-    appDeployment = '/beta/apps';
-}
+const gitBranch = process.env.TRAVIS_BRANCH || process.env.BRANCH || gitRevisionPlugin.branch();
+const betaBranhces = [ 'master', 'qa-beta', 'ci-beta', 'prod-beta' ];
+const appDeployment = (process.env.NODE_ENV === 'production' && betaBranhces.includes(gitBranch)) ?
+    '/beta/apps' :
+    '/apps';
 
 const publicPath = `${appDeployment}/landing/`;
 
 /* eslint-disable no-console */
 console.log('~~~Using variables~~~');
 console.log(`Current branch: ${gitBranch}`);
+console.log(`TRAVIS_BRANCH: ${process.env.TRAVIS_BRANCH}`);
+console.log(`BRANCH: ${process.env.BRANCH}`);
 console.log(`Using deployments: ${appDeployment}`);
 console.log(`Public path: ${publicPath}`);
 console.log('~~~~~~~~~~~~~~~~~~~~~');
