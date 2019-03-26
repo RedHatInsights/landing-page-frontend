@@ -9,17 +9,25 @@ const entry = process.env.NODE_ENV === 'production' ?
     path.resolve(__dirname, '../src/entry.js') :
     path.resolve(__dirname, '../src/entry-dev.js');
 
-let insightsDeployment = '/apps';
+let appDeployment = '/apps';
 const gitBranch = process.env.BRANCH || gitRevisionPlugin.branch();
 const betaBranch =
       gitBranch === 'master' ||
       gitBranch === 'qa-beta' ||
       gitBranch === 'prod-beta';
 if (process.env.NODE_ENV === 'production' && betaBranch) {
-    insightsDeployment = '/beta/apps';
+    appDeployment = '/beta/apps';
 }
 
-const publicPath = `${insightsDeployment}/landing/`;
+const publicPath = `${appDeployment}/landing/`;
+
+/* eslint-disable no-console */
+console.log('~~~Using variables~~~');
+console.log(`Current branch: ${gitBranch}`);
+console.log(`Using deployments: ${appDeployment}`);
+console.log(`Public path: ${publicPath}`);
+console.log('~~~~~~~~~~~~~~~~~~~~~');
+/* eslint-enable no-console */
 
 module.exports = {
     paths: {
@@ -30,5 +38,5 @@ module.exports = {
         static: path.resolve(__dirname, '../static'),
         publicPath
     },
-    insightsDeployment
+    appDeployment
 };
