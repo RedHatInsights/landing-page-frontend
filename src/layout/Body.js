@@ -8,9 +8,7 @@ import {
     Stack,
     StackItem,
     GridItem,
-    TextContent,
-    Text,
-    TextVariants,
+    Title,
     CardFooter
 } from '@patternfly/react-core';
 import { ArrowRightIcon, BinocularsIcon } from '@patternfly/react-icons';
@@ -27,22 +25,31 @@ const Body = ({ technologies }) => (
                     <a className='ins-c-card__link' href={ `./${url}` } aria-label={ `Go to ${title}` }>
                         <Card className="ins-c-application-info" application-id={ id }>
                             <CardHeader>
-                                <img className="ins-c-application-info__logo" src={ icon } alt={ `${title} logo` } { ...iconProps } />
+                                <Stack gutter='sm'>
+                                    <StackItem>
+                                        <img
+                                            className="ins-c-application-info__logo"
+                                            aria-hidden
+                                            src={ icon }
+                                            alt={ `${title} logo` }
+                                            { ...iconProps } />
+                                    </StackItem>
+                                    <StackItem>
+                                        <Title headingLevel='h2' size='2xl'>
+                                            { title }
+                                        </Title>
+                                    </StackItem>
+                                </Stack>
                             </CardHeader>
                             <CardBody>
                                 <Stack>
-                                    <StackItem>
-                                        <TextContent>
-                                            <Text component={ TextVariants.h2 }>
-                                                { title }
-                                            </Text>
-                                        </TextContent>
-                                        { isPreview &&
+                                    { isPreview &&
+                                        <StackItem>
                                             <div className="ins-m-tech-preview">
                                                 <BinocularsIcon size="sm" /> Tech Preview
                                             </div>
-                                        }
-                                    </StackItem>
+                                        </StackItem>
+                                    }
                                     <StackItem>
                                         <span className='ins-m-gray'>{ body }</span>
                                     </StackItem>
