@@ -1,6 +1,8 @@
 import React from 'react';
 import { Grid, GridItem, TextContent, Text, TextVariants, Split, SplitItem } from '@patternfly/react-core';
-import { OutlinedPaperPlaneIcon } from '@patternfly/react-icons';
+// import { OutlinedPaperPlaneIcon } from '@patternfly/react-icons';
+
+import Airplane from '../components/Airplane.js';
 
 import './FooterMenu.scss';
 
@@ -29,7 +31,7 @@ const FooterMenu = () => (
                     <Text component={ TextVariants.h2 }>Feedback</Text>
                 </TextContent>
                 <Split gutter="md">
-                    <SplitItem><OutlinedPaperPlaneIcon size="xl" className="ins-c-icon__active"/></SplitItem>
+                    <SplitItem><Airplane className="ins-c-icon__active"/></SplitItem>
                     <SplitItem isMain><a href="#" className='ins-m-inline'>Tell us about your experience</a> using
                     Red Hat Cloud Services software, and how we can improve.</SplitItem>
                 </Split>
