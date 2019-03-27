@@ -11,9 +11,9 @@ const FooterMenu = () => (
                 <TextContent>
                     <Text component={ TextVariants.h2 }>Support and resources</Text>
                 </TextContent>
-                <a href="#">View Documentation</a>
+                <a href="#">View documentation</a>
                 <a href="#">Open a support case</a>
-                <a href="#">contact customer service</a>
+                <a href="#">Contact customer service</a>
             </GridItem>
             <GridItem>
                 <TextContent>
@@ -29,9 +29,9 @@ const FooterMenu = () => (
                     <Text component={ TextVariants.h2 }>Feedback</Text>
                 </TextContent>
                 <Split gutter="md">
-                    <SplitItem><OutlinedPaperPlaneIcon size="xl" className="ins-c-icon__active"/></SplitItem>
+                    <SplitItem><OutlinedPaperPlaneIcon size='xl' className="ins-c-icon__active"/></SplitItem>
                     <SplitItem isMain><a href="#" className='ins-m-inline'>Tell us about your experience</a> using
-                    Red Hat Cloud Services sofware, and how we can improve.</SplitItem>
+                    Red Hat Cloud Services software, and how we can improve.</SplitItem>
                 </Split>
             </GridItem>
         </Grid>

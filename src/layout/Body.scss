@@ -1,0 +1,11 @@
+.ins-c-open-card {
+    color: var(--pf-global--link--Color);
+}
+
+.ins-c-card__link:hover {
+    text-decoration: none;
+    .ins-c-open-card {
+        color: var(--pf-global--link--Color--hover);
+        text-decoration: underline;
+    }
+}

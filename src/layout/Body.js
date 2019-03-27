@@ -8,46 +8,55 @@ import {
     Stack,
     StackItem,
     GridItem,
-    TextContent,
-    Text,
-    TextVariants,
+    Title,
     CardFooter
 } from '@patternfly/react-core';
 import { ArrowRightIcon, BinocularsIcon } from '@patternfly/react-icons';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
+import './Body.scss';
+
 const Body = ({ technologies }) => (
     <Fragment>
         <Grid sm={ 12 } md={ 6 } lg={ 3 } gutter="md">
-            { technologies.map(({ icon, iconProps, title, url, body, isPreview }, key) => (
+            { technologies.map(({ icon, iconProps, title, url, body, isPreview, id }, key) => (
                 <GridItem key={ key }>
-                    <Card className="ins-c-application-info">
-                        <CardHeader>
-                            <img className="ins-c-application-info__logo" src={ icon } alt={ `${title} logo` } { ...iconProps } />
-                        </CardHeader>
-                        <CardBody>
-                            <Stack>
-                                <StackItem>
-                                    <TextContent>
-                                        <Text component={ TextVariants.h2 }>
+                    <a className='ins-c-card__link' href={ `./${url}` } aria-label={ `Go to ${title}` }>
+                        <Card className="ins-c-application-info" application-id={ id }>
+                            <CardHeader>
+                                <Stack gutter='sm'>
+                                    <StackItem>
+                                        <img
+                                            className="ins-c-application-info__logo"
+                                            aria-hidden
+                                            src={ icon }
+                                            alt={ `${title} logo` }
+                                            { ...iconProps } />
+                                    </StackItem>
+                                    <StackItem>
+                                        <Title headingLevel='h2' size='2xl'>
                                             { title }
-                                        </Text>
-                                    </TextContent>
+                                        </Title>
+                                    </StackItem>
+                                </Stack>
+                            </CardHeader>
+                            <CardBody>
+                                <Stack>
                                     { isPreview &&
-                                        <div className="ins-m-tech-preview">
-                                            <BinocularsIcon size="sm" /> Tech Preview
-                                        </div>
+                                        <StackItem>
+                                            <div className="ins-m-tech-preview">
+                                                <BinocularsIcon size="sm" /> Tech Preview
+                                            </div>
+                                        </StackItem>
                                     }
-                                </StackItem>
-                                <StackItem>
-                                    <span className='ins-m-gray'>{ body }</span>
-                                </StackItem>
-                            </Stack>
-                        </CardBody>
-                        <CardFooter>
-                            <a href={ `./${url}` } >
-                                <Split gutter="sm" className="ins-c-navigation">
+                                    <StackItem>
+                                        <span className='ins-m-gray'>{ body }</span>
+                                    </StackItem>
+                                </Stack>
+                            </CardBody>
+                            <CardFooter>
+                                <Split gutter="sm" className="ins-c-open-card">
                                     <SplitItem>
                                         Open
                                     </SplitItem>
@@ -55,9 +64,9 @@ const Body = ({ technologies }) => (
                                         <ArrowRightIcon size="sm" />
                                     </SplitItem>
                                 </Split>
-                            </a>
-                        </CardFooter>
-                    </Card>
+                            </CardFooter>
+                        </Card>
+                    </a>
                 </GridItem>
             )) }
         </Grid>
