@@ -1,5 +1,5 @@
 import React from 'react';
-import { Grid, GridItem, TextContent, Text, TextVariants, Split, SplitItem, List, ListItem } from '@patternfly/react-core';
+import { Grid, GridItem, TextContent, Text, TextVariants, Split, SplitItem } from '@patternfly/react-core';
 import { OutlinedPaperPlaneIcon } from '@patternfly/react-icons';
 
 import './FooterMenu.scss';
@@ -11,11 +11,9 @@ const FooterMenu = () => (
                 <TextContent>
                     <Text component={ TextVariants.h2 }>Support and resources</Text>
                 </TextContent>
-                <List variant='grid'>
-                    <ListItem><a href="#">View documentation</a></ListItem>
-                    <ListItem><a href="#">Open a support case</a></ListItem>
-                    <ListItem><a href="#">Contact customer service</a></ListItem>
-                </List>
+                <a href="#">View documentation</a>
+                <a href="#">Open a support case</a>
+                <a href="#">Contact customer service</a>
             </GridItem>
             <GridItem>
                 <TextContent>
