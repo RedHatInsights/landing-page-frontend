@@ -13,22 +13,22 @@ export const activeTechnologies = [
         body: 'Predict Risk. Get guidance. Stay secure.'
     },
     {
-        id: 'RHCS',
-        url: 'rhcs/dashboard',
+        id: 'RHEL',
+        url: 'rhel/dashboard',
         icon: rhelCs,
         title: 'Red Hat Enterprise Linux management services',
         body: 'Operate and protect your Red Hat platforms.'
     },
     {
-        id: 'UHC',
-        url: 'uhc',
+        id: 'Openshift',
+        url: 'openshift',
         icon: openshift,
         title: 'Red Hat OpenShift Cluster Manager',
         body: 'Manage your highly available public and private clouds.'
     },
     {
-        id: 'HCM',
-        url: 'hcm/catalog',
+        id: 'Hybrid',
+        url: 'hybrid/catalog',
         icon: hcm,
         title: 'Hybrid cloud management services',
         body: 'Govern, automate, and manage multicloud environments.',
