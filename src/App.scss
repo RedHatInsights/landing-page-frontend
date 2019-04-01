@@ -17,8 +17,8 @@
     &.ins-c-application-info {
         height: 100%;
 
-        img.ins-c-application-info__logo {
-            @include rem('height', 56px);
+        img.ins-c-application-info__logo svg {
+            @include rem('height', 70px);
         }
     }
 
