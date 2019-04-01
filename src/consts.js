@@ -35,7 +35,7 @@ export const activeTechnologies = [
             viewBox: '70 87 80 65'
         },
         emptyTitle: 'Do more with your Red Hat Enterprise Linux environment',
-        emptyText: 'Upgrade to Smart Management to keep your Red Hat environmen running efficiently, \
+        emptyText: 'Upgrade to Smart Management to keep your Red Hat environment running efficiently, \
         with security and compliant with various standards.',
         emptyAction: {
             title: 'Learn More'

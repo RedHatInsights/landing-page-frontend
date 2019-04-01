@@ -7,7 +7,7 @@ const config = require('./config/webpack.common.js');
 webpackConfig.devServer = {
     contentBase: config.paths.public,
     hot: true,
-    port: 8003,
+    port: 8002,
     https: true,
     disableHostCheck: true,
     historyApiFallback: true
