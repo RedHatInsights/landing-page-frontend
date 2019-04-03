@@ -17,14 +17,23 @@
     &.ins-c-application-info {
         height: 100%;
 
-        img.ins-c-application-info__logo svg {
+        img.ins-c-application-info__logo {
             @include rem('height', 56px);
+        }
+
+        svg.ins-c-application-info__logo {
+            @include rem('height', 56px);
+            @include rem('width', 56px);
         }
     }
 
     .ins-c-navigation {
         color: var(--pf-global--active-color--100);
     }
+}
+
+.pf-c-modal-box__body .pf-c-empty-state img.ins-c-application-info__logo {
+    @include rem('height', 76px);
 }
 
 svg.ins-c-icon__active {

@@ -64,12 +64,17 @@ class App extends Component {
                     onClose={ this.handleModalToggle }
                 >
                     <EmptyState>
-                        <EmptyStateIcon
+                        { notEntitled.icon && <EmptyStateIcon
                             icon={ notEntitled.icon }
                             className="ins-c-icon__active"
                             { ...notEntitled.iconProps }
-                            { ...notEntitled.emptyProps }
-                        />
+                            size="lg"
+                        /> }
+                        { notEntitled.image && <img
+                            className="ins-c-application-info__logo"
+                            aria-hidden
+                            src={ notEntitled.image }
+                            alt={ `${notEntitled.title} logo` } /> }
                         <Title headingLevel="h5" size="lg">{ notEntitled.emptyTitle }</Title>
                         <EmptyStateBody>
                             { notEntitled.emptyText }

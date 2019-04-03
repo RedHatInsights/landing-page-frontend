@@ -20,19 +20,24 @@ import './Body.scss';
 const Body = ({ technologies }) => (
     <Fragment>
         <Grid sm={ 12 } md={ 6 } lg={ 3 } gutter="md">
-            { technologies.map(({ icon: Icon, iconProps, title, url, body, isPreview, id }, key) => (
+            { technologies.map(({ icon: Icon, image, iconProps, title, url, body, isPreview, id }, key) => (
                 <GridItem key={ key }>
                     <a className='ins-c-card__link' href={ `./${url}` } aria-label={ `Go to ${title}` }>
                         <Card className="ins-c-application-info" application-id={ id }>
                             <CardHeader>
                                 <Stack gutter='sm'>
                                     <StackItem>
-                                        <Icon
+                                        { image && <img
+                                            className="ins-c-application-info__logo"
+                                            aria-hidden
+                                            src={ image }
+                                            alt={ `${title} logo` } /> }
+                                        { Icon && <Icon
                                             className="ins-c-application-info__logo ins-c-icon__active"
                                             aria-hidden
                                             size="xl"
                                             alt={ `${title} logo` }
-                                            { ...iconProps } />
+                                            { ...iconProps } /> }
                                     </StackItem>
                                     <StackItem>
                                         <Title headingLevel='h2' size='2xl'>
