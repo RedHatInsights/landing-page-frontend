@@ -13,18 +13,43 @@ import './App.scss';
 import { activeTechnologies } from './consts';
 import { registry as registryDecorator, Main } from '@red-hat-insights/insights-frontend-components';
 import technologiesReducer from './store/technologiesReducer';
+import {
+    Modal,
+    Button,
+    EmptyState,
+    EmptyStateIcon,
+    Title,
+    EmptyStateBody
+} from '@patternfly/react-core';
 
 @registryDecorator()
 class App extends Component {
+    state = {
+        isModalOpen: false
+    }
+
     componentDidMount () {
         this.getRegistry().register({ technologies: technologiesReducer });
-        const { loadTechnologies } = this.props;
+        const { loadTechnologies, location } = this.props;
         insights.chrome.init();
         insights.chrome.identifyApp('landing');
         loadTechnologies(activeTechnologies);
+        const params = location.search.slice(1).split('&').reduce((acc, curr) => ({
+            ...acc,
+            [curr.split('=')[0]]: Object.values(activeTechnologies).find(item => item.entitlement === curr.split('=')[1])
+        }), {});
+        this.setState({
+            ...params,
+            isModalOpen: params && Object.keys(params).length > 0
+        });
+    }
+
+    handleModalToggle = () => {
+        this.setState({ isModalOpen: false });
     }
 
     render() {
+        const { isModalOpen, not_entitled: notEntitled } = this.state;
         return (
             <Fragment>
                 <Header/>
@@ -33,6 +58,31 @@ class App extends Component {
                 </Main>
                 <FooterMenu />
                 <FooterTraditional/>
+                { notEntitled && <Modal
+                    title={ 'You are not entitled to use this application' }
+                    isOpen={ isModalOpen }
+                    onClose={ this.handleModalToggle }
+                >
+                    <EmptyState>
+                        { notEntitled.icon && <EmptyStateIcon
+                            icon={ notEntitled.icon }
+                            className="ins-c-icon__active"
+                            { ...notEntitled.iconProps }
+                            size="lg"
+                        /> }
+                        { notEntitled.image && <img
+                            className="ins-c-application-info__logo"
+                            aria-hidden
+                            src={ notEntitled.image }
+                            alt={ `${notEntitled.title} logo` } /> }
+                        <Title headingLevel="h5" size="lg">{ notEntitled.emptyTitle }</Title>
+                        <EmptyStateBody>
+                            { notEntitled.emptyText }
+                        </EmptyStateBody>
+                        <Button variant="primary">{ notEntitled.emptyAction.title }</Button>
+                        <Button variant="link" onClick={ this.handleModalToggle }>Close</Button>
+                    </EmptyState>
+                </Modal> }
             </Fragment>
         );
     }
@@ -40,7 +90,10 @@ class App extends Component {
 
 App.propTypes = {
     history: PropTypes.object,
-    loadTechnologies: PropTypes.func
+    loadTechnologies: PropTypes.func,
+    location: PropTypes.shape({
+        search: PropTypes.string
+    })
 };
 
 App.defaultProps = {
