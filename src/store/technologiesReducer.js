@@ -4,7 +4,7 @@ import { TECHOLOGIES } from './action-types';
 function technologiesLoaded(state, { payload }) {
     return {
         ...state,
-        aciveTechnologies: payload
+        activeTechnologies: payload
     };
 }
 

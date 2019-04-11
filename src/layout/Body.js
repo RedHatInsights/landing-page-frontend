@@ -99,10 +99,10 @@ Body.defaultProps = {
 };
 
 function mapStateToProps({ technologies }) {
-    let active = technologies && technologies.aciveTechnologies;
+    let active = technologies && technologies.activeTechnologies;
 
     if (active && active.length) {
-        active = filter(technologies.aciveTechnologies, e => { return !e.disabled; });
+        active = filter(active, e => { return !e.disabled; });
     }
 
     return {
