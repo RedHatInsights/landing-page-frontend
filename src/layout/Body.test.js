@@ -3,7 +3,11 @@
 import { mapStateToProps } from './Body';
 
 function getInput(obj) {
-    return { technologies: { aciveTechnologies: obj } };
+    return {
+        technologies: {
+            aciveTechnologies: obj
+        }
+    };
 }
 
 function getOutput(obj) {
