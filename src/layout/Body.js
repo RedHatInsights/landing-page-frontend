@@ -110,4 +110,5 @@ function mapStateToProps({ technologies }) {
     };
 }
 
+export { mapStateToProps };
 export default connect(mapStateToProps)(Body);
