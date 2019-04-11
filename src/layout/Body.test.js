@@ -5,13 +5,13 @@ import { mapStateToProps } from './Body';
 function getInput(obj) {
     return {
         technologies: {
-            activeTechnologies: obj
+            activeTechnologies: [ obj ]
         }
     };
 }
 
 function getOutput(obj) {
-    return { technologies: obj };
+    return { technologies: [ obj ]};
 }
 
 describe('mapStateToProps', () => {
