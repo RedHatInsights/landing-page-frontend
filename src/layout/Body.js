@@ -11,15 +11,20 @@ import {
     Title,
     CardFooter
 } from '@patternfly/react-core';
+
 import { ArrowRightIcon, BinocularsIcon } from '@patternfly/react-icons';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
 import './Body.scss';
 
+// TODO Chrome should have a function for this
+// something like `window.insights.chrome.isBeta
+const isBeta = window.location.pathname.indexOf('/beta') === 0;
+
 const Body = ({ technologies }) => (
     <Fragment>
-        <Grid sm={ 12 } md={ 6 } lg={ 3 } gutter="md">
+        <Grid sm={ 12 } md={ 6 } lg={ isBeta ? 3 : 4 } gutter="md">
             { technologies.map(({ icon: Icon, image, iconProps, title, url, body, isPreview, id }, key) => (
                 <GridItem key={ key }>
                     <a className='ins-c-card__link' href={ `./${url}` } aria-label={ `Go to ${title}` }>
@@ -92,10 +97,11 @@ Body.defaultProps = {
     technologies: []
 };
 
-function mapStateToProps({ technologies }) {
+function mapStateToProps({ technologies } = { technologies: { activeTechnologies: []}}) {
     return {
-        technologies: technologies && technologies.aciveTechnologies
+        technologies: technologies && technologies.activeTechnologies.filter(({ disabled }) => !disabled)
     };
 }
 
+export { mapStateToProps };
 export default connect(mapStateToProps)(Body);

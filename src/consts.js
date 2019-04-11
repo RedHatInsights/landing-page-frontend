@@ -55,6 +55,7 @@ export const activeTechnologies = [
         id: 'Hybrid',
         url: 'hybrid/catalog',
         entitlement: 'hybrid_cloud',
+        disabled: window.location.pathname.indexOf('/beta') !== 0,
         image: rhelCs,
         emptyTitle: 'Manage your hybrid environment',
         emptyText: 'Govern and automate your Red Hat environment across private and public clouds with \
