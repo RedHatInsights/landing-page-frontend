@@ -44,10 +44,10 @@
   "homepage": "https://github.com/RedHatInsights/landing-page-frontend#readme",
   "dependencies": {
     "@babel/runtime": "7.3.4",
-    "@patternfly/patternfly": "^1.0.218",
-    "@patternfly/react-core": "^2.9.2",
+    "@patternfly/patternfly": "^2.5.0",
+    "@patternfly/react-core": "^3.2.6",
     "@patternfly/react-icons": "^3.7.1",
-    "@red-hat-insights/insights-frontend-components": "^3.37.3",
+    "@red-hat-insights/insights-frontend-components": "^3.41.28",
     "classnames": "^2.2.6",
     "git-revision-webpack-plugin": "^3.0.3",
     "lodash": "^4.17.11",
