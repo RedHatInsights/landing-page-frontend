@@ -79,7 +79,16 @@ class App extends Component {
                         <EmptyStateBody>
                             { notEntitled.emptyText }
                         </EmptyStateBody>
-                        <Button variant="primary">{ notEntitled.emptyAction.title }</Button>
+                        {
+                            notEntitled.emptyAction &&
+                            <Button variant="primary" onClick={ () => {
+                                if (notEntitled.emptyAction.navigate) {
+                                    window.location.href = notEntitled.emptyAction.navigate;
+                                }
+                            } } >
+                                { notEntitled.emptyAction.title }
+                            </Button>
+                        }
                         <Button variant="link" onClick={ this.handleModalToggle }>Close</Button>
                     </EmptyState>
                 </Modal> }
