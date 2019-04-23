@@ -27,7 +27,8 @@ export const activeTechnologies = [
         emptyText: 'Upgrade to Smart Management to keep your Red Hat environment running efficiently, \
         with security and compliant with various standards.',
         emptyAction: {
-            title: 'Learn More'
+            title: 'Learn More',
+            navigate: 'https://www.redhat.com/en/technologies/management/smart-management'
         },
         title: 'Red Hat Enterprise Linux management services',
         body: 'Operate and protect your Red Hat platforms.'
