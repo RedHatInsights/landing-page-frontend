@@ -30,7 +30,7 @@ export const activeTechnologies = [
             title: 'Learn More',
             navigate: 'https://www.redhat.com/en/technologies/management/smart-management'
         },
-        title: 'Red Hat Enterprise Linux management services',
+        title: 'Cloud Management Services for Red Hat Enterprise Linux',
         body: 'Operate and protect your Red Hat platforms.'
     },
     {
