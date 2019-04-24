@@ -21,7 +21,10 @@ const FooterMenu = () => (
                 </TextContent>
                 <a href="#">Red Hat Insights</a>
                 <a href="#">Red Hat Smart Management</a>
-                <a href="#">Red Hat Hybrid CloudManagement</a>
+                { /*
+                    TODO: Unhide at a later point
+                    <a href="#">Red Hat Hybrid CloudManagement</a>
+                */ }
                 <a href="#">Red Hat OpenShift</a>
             </GridItem>
             <GridItem>
