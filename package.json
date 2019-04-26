@@ -47,7 +47,7 @@
     "@patternfly/patternfly": "^2.5.0",
     "@patternfly/react-core": "^3.2.6",
     "@patternfly/react-icons": "^3.7.1",
-    "@red-hat-insights/insights-frontend-components": "^3.41.28",
+    "@red-hat-insights/insights-frontend-components": "^3.41.37",
     "classnames": "^2.2.6",
     "git-revision-webpack-plugin": "^3.0.3",
     "lodash": "^4.17.11",
