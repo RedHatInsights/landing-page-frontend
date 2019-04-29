@@ -25,9 +25,26 @@ plugins.push(WriteFileWebpackPlugin);
 const HtmlWebpackPlugin = new (require('html-webpack-plugin'))({
     title: 'My App',
     filename: 'index.html',
+    chunks: [ 'App', 'vendor' ],
     template: path.resolve(__dirname, '../src/index.html')
 });
 plugins.push(HtmlWebpackPlugin);
+
+const LogoutPage = new (require('html-webpack-plugin'))({
+    title: 'Logout',
+    filename: 'logout.html',
+    chunks: [ 'Logout', 'vendor' ],
+    template: path.resolve(__dirname, '../src/not-signed.html')
+});
+plugins.push(LogoutPage);
+
+const NotFound = new (require('html-webpack-plugin'))({
+    title: '404',
+    filename: '404.html',
+    chunks: [ 'NotFound', 'vendor' ],
+    template: path.resolve(__dirname, '../src/not-signed.html')
+});
+plugins.push(NotFound);
 
 /**
  * Source maps

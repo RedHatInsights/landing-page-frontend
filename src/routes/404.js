@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Main } from '@red-hat-insights/insights-frontend-components';
 import { DungeonIcon } from '@patternfly/react-icons';
 import {
     Title,
@@ -12,27 +11,26 @@ import {
     EmptyStateSecondaryActions
 } from '@patternfly/react-core';
 import { connect } from 'react-redux';
-import { withRouter } from 'react-router-dom';
 
 const onButtonClick = (url) => {
     window.location.href = `./${url}`;
 };
 
-const NotFound = ({ technologies, history }) => (
-    <Main>
+const NotFound = ({ technologies }) => (
+    <div>
         <EmptyState variant={ EmptyStateVariant.full }>
             <EmptyStateIcon icon={ DungeonIcon } />
             <Title headingLevel="h5" size="lg">
-                Page not found
+                    Page not found
             </Title>
             <EmptyStateBody>
-                Looks like you have reached the end of Red Hat Cloud Services.
+                    Looks like you have reached the end of Red Hat Cloud Services.
             </EmptyStateBody>
             <Button
                 variant="primary"
-                onClick={ () => history.push('/') }
+                onClick={ () => onButtonClick('') }
             >
-                Landing page
+                    Take me home
             </Button>
             <EmptyStateSecondaryActions>
                 { technologies && technologies.map((technology, key) => (
@@ -46,7 +44,7 @@ const NotFound = ({ technologies, history }) => (
                 )) }
             </EmptyStateSecondaryActions>
         </EmptyState>
-    </Main>
+    </div>
 );
 
 NotFound.propTypes = {
@@ -72,4 +70,4 @@ function mapStateToProps({ technologies } = { technologies: { activeTechnologies
     };
 }
 
-export default withRouter(connect(mapStateToProps)(NotFound));
+export default connect(mapStateToProps)(NotFound);

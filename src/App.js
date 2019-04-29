@@ -9,13 +9,9 @@ import technologiesReducer from './store/technologiesReducer';
 import { technologiesLoaded } from './store/actions';
 import { activeTechnologies } from './consts';
 import './App.scss';
-import AccountValidation from './routes/AccountValidation';
-import Marketing from './routes/Marketing';
 
 const routes = {
-    landing: '/',
-    accountValidation: '/account-validation',
-    marketing: '/marketing'
+    landing: '/'
 };
 
 const App = ({ loadTechnologies }) => {
@@ -29,8 +25,6 @@ const App = ({ loadTechnologies }) => {
     return (
         <Switch>
             <Route exact path={ routes.landing } component={ Landing } />
-            <Route exact path={ routes.accountValidation } component={ AccountValidation } />
-            <Route exact path={ routes.marketing } component={ Marketing } />
             <Route path="*" component={ NotFound } />
         </Switch>
     );

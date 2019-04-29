@@ -9,6 +9,14 @@ const entry = process.env.NODE_ENV === 'production' ?
     path.resolve(__dirname, '../src/entry.js') :
     path.resolve(__dirname, '../src/entry-dev.js');
 
+const logout = process.env.NODE_ENV === 'production' ?
+    path.resolve(__dirname, '../src/logout.js') :
+    path.resolve(__dirname, '../src/logout-dev.js');
+
+const notFound = process.env.NODE_ENV === 'production' ?
+    path.resolve(__dirname, '../src/not-found.js') :
+    path.resolve(__dirname, '../src/not-found-dev.js');
+
 const gitBranch = process.env.TRAVIS_BRANCH || process.env.BRANCH || gitRevisionPlugin.branch();
 const betaBranhces = [ 'master', 'qa-beta', 'ci-beta', 'prod-beta' ];
 const appDeployment = (process.env.NODE_ENV === 'production' && betaBranhces.includes(gitBranch)) ?
@@ -30,6 +38,8 @@ console.log('~~~~~~~~~~~~~~~~~~~~~');
 module.exports = {
     paths: {
         entry,
+        logout,
+        notFound,
         public: path.resolve(__dirname, '../dist'),
         src: path.resolve(__dirname, '../src'),
         pages: path.resolve(__dirname, '../src/pages'),
