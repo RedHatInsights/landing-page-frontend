@@ -10,4 +10,4 @@ function technologiesLoaded(state, { payload }) {
 
 export default applyReducerHash({
     [TECHOLOGIES]: technologiesLoaded
-}, { loaded: true });
+}, { loaded: true, activeTechnologies: []});
