@@ -11,7 +11,8 @@ import { activeTechnologies } from './consts';
 import './App.scss';
 
 const routes = {
-    landing: '/'
+    landing: '/',
+    landingBeta: '/beta/'
 };
 
 const App = ({ loadTechnologies }) => {
@@ -25,6 +26,7 @@ const App = ({ loadTechnologies }) => {
     return (
         <Switch>
             <Route exact path={ routes.landing } component={ Landing } />
+            <Route exact path={ routes.landingBeta } component={ Landing } />
             <Route path="*" component={ NotFound } />
         </Switch>
     );
