@@ -6,13 +6,12 @@ import { init } from './store';
 import App from './App';
 import logger from 'redux-logger';
 
-/**
- * Hooks up redux to app.
- *  https://redux.js.org/advanced/usage-with-react-router
- */
+const pathName = window.location.pathname.split('/');
+pathName.shift();
+
 ReactDOM.render(
     <Provider store={ init(logger).getStore() }>
-        <Router>
+        <Router basename={ `/${pathName[0] === 'beta' ? 'beta/' : ''}` }>
             <App />
         </Router>
     </Provider>,
