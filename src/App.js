@@ -11,8 +11,7 @@ import { activeTechnologies } from './consts';
 import './App.scss';
 
 const routes = {
-    landing: '/',
-    landingBeta: '/beta/'
+    landing: '/'
 };
 
 const App = ({ loadTechnologies }) => {
