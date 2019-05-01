@@ -27,9 +27,9 @@ const isBeta = window.location.pathname.indexOf('/beta') === 0;
 const Marketing = ({ technologies }) => (
     <React.Fragment>
         <Hero/>
-        <Main className='ins-c-marketing'>
+        <Main className='ins-c-marketing pf-m-no-fill'>
             <Grid sm={ 12 } md={ 6 } lg={ isBeta ? 3 : 4 } gutter="md">
-                { technologies.map(({ marketingImage, title, url, body, isPreview, id }, key) => (
+                { technologies.map(({ marketingImage, title, url, marketingText, isPreview, id }, key) => (
                     <GridItem key={ key }>
                         <a className='ins-c-card__link' href={ `./${url}` } aria-label={ `Go to ${title}` }>
                             <Card className="ins-c-application-info" application-id={ id }>
@@ -54,7 +54,7 @@ const Marketing = ({ technologies }) => (
                                             </StackItem>
                                         }
                                         <StackItem>
-                                            <span className='ins-m-gray'>{ body }</span>
+                                            <span className='ins-m-gray'>{ marketingText }</span>
                                         </StackItem>
                                     </Stack>
                                 </CardBody>

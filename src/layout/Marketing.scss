@@ -5,10 +5,19 @@
 }
 
 .ins-c-marketing {
+
+    padding-top: 40px;
+
     .pf-c-card__header,
     .pf-c-card__body,
     .ins-c-application-logo,
     .pf-c-card__footer { @include center; }
+
+    .pf-c-card {
+        img.ins-c-application-info__logo { min-height: 65px; }
+        padding: 40px 0;
+        .pf-c-card__footer { margin-top: 40px; }
+    }
 
     .pf-l-split.pf-m-gutter > :not(:last-child) { margin-right: 7.5px; }
 

@@ -10,6 +10,7 @@ export const activeTechnologies = [
     {
         entitlement: 'insights',
         marketingImage: insightsMarketing,
+        marketingText: 'Address your vulnerability and compliance changes',
         name: 'insights',
         id: 'insights',
         url: 'insights/actions',
@@ -26,6 +27,7 @@ export const activeTechnologies = [
     {
         entitlement: 'smart_management',
         marketingImage: smartManagementMarketing,
+        marketingText: 'Operate and protect your Red Hat platforms',
         id: 'RHEL',
         url: 'rhel/dashboard',
         image: hcm,
@@ -44,6 +46,7 @@ export const activeTechnologies = [
         url: 'openshift',
         entitlement: 'openshift',
         marketingImage: openShiftMarketing,
+        marketingText: 'Install, register, and manage OpenShift 4 clusters',
         icon: OpenshiftIcon,
         iconProps: {
             style: {

@@ -1,14 +1,23 @@
 @import '~@red-hat-insights/insights-frontend-components/Utilities/_mixins';
+@import '~@patternfly/patternfly/sass-utilities/_all';
 
 .ins-c-hero {
-    @include rem('min-height', 600px);
+
     background: url("/apps/chrome/assets/images/fedora-background-left.svg");
     background-repeat: no-repeat;
     background-size: cover;
-    flex-direction: column;
-    * + * { @include rem('margin-top', 10px); }
-    button { @include rem('margin-top', 40px); }
 
-    h1.pf-c-title { color: white; }
-    h2.pf-c-title { color: var(--pf-global--Color--200); }
+    h1.pf-c-title {
+        color: white;
+        text-align: center;
+        @include rem('font-size', 44px);
+    }
+    h2 {
+        @include rem('font-size', 18px);
+        color: var(--pf-global--Color--200);
+    }
+
+    @media screen and (min-width: $pf-global--breakpoint--xl) {
+        @include rem('min-height', 600px);
+    }
 }
