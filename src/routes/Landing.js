@@ -13,6 +13,7 @@ import {
 
 import Header from '../layout/Header';
 import Body from '../layout/Body';
+// import Marketing from '../layout/Marketing';
 import FooterMenu from '../layout/FooterMenu';
 import FooterTraditional from '../layout/FooterTraditional';
 import { activeTechnologies } from '../consts';
@@ -43,6 +44,7 @@ class Landing extends Component {
         const { isModalOpen, not_entitled: notEntitled } = this.state;
         return (
             <Fragment>
+                { /* <Marketing /> */ }
                 <Header />
                 <Main>
                     <Body />

@@ -22,7 +22,8 @@
   },
   "scripts": {
     "test": "jest --passWithNoTests",
-    "build": "webpack --config config/prod.webpack.config.js",
+    "build": "webpack --config config/prod.webpack.config.js && cpx 'static/images/*' dist/assets/images",
+    "build:images": "cpx 'static/images/*' dist/assets/images",
     "lint": "npm-run-all lint:*",
     "lint:js": "eslint config src",
     "lint:sass": "stylelint 'src/**/*.scss' --config .stylelintrc.json",
@@ -71,6 +72,7 @@
     "babel-plugin-lodash": "^3.3.2",
     "clean-webpack-plugin": "^2.0.0",
     "copy-webpack-plugin": "^5.0.0",
+    "cpx": "^1.5.0",
     "css-loader": "^2.1.0",
     "enzyme": "^3.6.0",
     "enzyme-adapter-react-16": "^1.5.0",

@@ -1,0 +1,24 @@
+@mixin center {
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+
+.ins-c-marketing {
+    .pf-c-card__header,
+    .pf-c-card__body,
+    .ins-c-application-logo,
+    .pf-c-card__footer { @include center; }
+
+    .pf-l-split.pf-m-gutter > :not(:last-child) { margin-right: 7.5px; }
+    .ins-c-card__link:hover { text-decoration: none; }
+    .ins-c-open-card { color: var(--pf-global--link--Color); }
+    
+    .ins-c-card__link:hover {
+        text-decoration: none;
+        .ins-c-open-card {
+            color: var(--pf-global--link--Color--hover);
+            text-decoration: underline;
+        }
+    }
+}

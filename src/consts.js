@@ -2,9 +2,14 @@ import { ChartSpikeIcon, OpenshiftIcon } from '@patternfly/react-icons';
 import hcm from './components/hcm.svg';
 import rhelCs from './components/rhel-cs.svg';
 
+import insightsMarketing from './components/marketing/insightsMarketing.svg';
+import openShiftMarketing from './components/marketing/openShiftMarketing.svg';
+import smartManagementMarketing from './components/marketing/smartManagementMarketing.svg';
+
 export const activeTechnologies = [
     {
         entitlement: 'insights',
+        marketingImage: insightsMarketing,
         name: 'insights',
         id: 'insights',
         url: 'insights/actions',
@@ -20,6 +25,7 @@ export const activeTechnologies = [
     },
     {
         entitlement: 'smart_management',
+        marketingImage: smartManagementMarketing,
         id: 'RHEL',
         url: 'rhel/dashboard',
         image: hcm,
@@ -37,6 +43,7 @@ export const activeTechnologies = [
         id: 'Openshift',
         url: 'openshift',
         entitlement: 'openshift',
+        marketingImage: openShiftMarketing,
         icon: OpenshiftIcon,
         iconProps: {
             style: {
@@ -56,6 +63,7 @@ export const activeTechnologies = [
         id: 'Hybrid',
         url: 'hybrid/catalog',
         entitlement: 'hybrid_cloud',
+        marketingImage: smartManagementMarketing,
         disabled: window.location.pathname.indexOf('/beta') !== 0,
         image: rhelCs,
         emptyTitle: 'Manage your hybrid environment',

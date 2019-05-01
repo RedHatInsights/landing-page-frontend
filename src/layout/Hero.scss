@@ -1,0 +1,14 @@
+@import '~@red-hat-insights/insights-frontend-components/Utilities/_mixins';
+
+.ins-c-hero {
+    @include rem('min-height', 600px);
+    background: url("/apps/chrome/assets/images/fedora-background-left.svg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    flex-direction: column;
+    * + * { @include rem('margin-top', 10px); }
+    button { @include rem('margin-top', 40px); }
+
+    h1.pf-c-title { color: white; }
+    h2.pf-c-title { color: var(--pf-global--Color--200); }
+}
