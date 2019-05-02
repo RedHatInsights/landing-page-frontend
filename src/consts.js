@@ -9,8 +9,10 @@ import smartManagementMarketing from './components/marketing/smartManagementMark
 export const activeTechnologies = [
     {
         entitlement: 'insights',
+        marketing: true,
         marketingImage: insightsMarketing,
         marketingText: 'Address your vulnerability and compliance changes',
+        marketingUrl: 'https://www.redhat.com/en/technologies/management/insights',
         name: 'insights',
         id: 'insights',
         url: 'insights/actions',
@@ -26,8 +28,10 @@ export const activeTechnologies = [
     },
     {
         entitlement: 'smart_management',
+        marketing: true,
         marketingImage: smartManagementMarketing,
         marketingText: 'Operate and protect your Red Hat platforms',
+        marketingUrl: 'https://www.redhat.com/en/technologies/management/smart-management',
         id: 'RHEL',
         url: 'rhel/dashboard',
         image: hcm,
@@ -45,8 +49,10 @@ export const activeTechnologies = [
         id: 'Openshift',
         url: 'openshift',
         entitlement: 'openshift',
+        marketing: true,
         marketingImage: openShiftMarketing,
         marketingText: 'Install, register, and manage OpenShift 4 clusters',
+        marketingUrl: 'https://try.openshift.com/',
         icon: OpenshiftIcon,
         iconProps: {
             style: {
@@ -66,7 +72,7 @@ export const activeTechnologies = [
         id: 'Hybrid',
         url: 'hybrid/catalog',
         entitlement: 'hybrid_cloud',
-        marketingImage: smartManagementMarketing,
+        marketing: false,
         disabled: window.location.pathname.indexOf('/beta') !== 0,
         image: rhelCs,
         emptyTitle: 'Manage your hybrid environment',

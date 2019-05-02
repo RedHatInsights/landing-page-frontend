@@ -13,7 +13,7 @@ import {
 
 import Header from '../layout/Header';
 import Body from '../layout/Body';
-// import Marketing from '../layout/Marketing';
+import Marketing from '../layout/Marketing';
 import FooterMenu from '../layout/FooterMenu';
 import FooterTraditional from '../layout/FooterTraditional';
 import { activeTechnologies } from '../consts';
@@ -40,16 +40,24 @@ class Landing extends Component {
         this.setState({ isModalOpen: false });
     }
 
+    hasAuth = () => {
+        return document.body.classList.contains('unauthed');
+    }
+
     render() {
         const { isModalOpen, not_entitled: notEntitled } = this.state;
         return (
             <Fragment>
-                { /* <Marketing /> */ }
-                <Header />
-                <Main>
-                    <Body />
-                </Main>
-                <FooterMenu />
+                { this.hasAuth
+                    ? <Marketing />
+                    : <Fragment>
+                        <Header />
+                        <Main>
+                            <Body />
+                        </Main>
+                        <FooterMenu />
+                    </Fragment>
+                }
                 <FooterTraditional />
                 { notEntitled && <Modal
                     title={ 'You are not entitled to use this application' }
