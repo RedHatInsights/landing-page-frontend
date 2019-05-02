@@ -1,3 +1,5 @@
+@import '~@red-hat-insights/insights-frontend-components/Utilities/_mixins';
+
 @mixin center {
     margin-left: auto;
     margin-right: auto;
@@ -6,7 +8,7 @@
 
 .ins-c-marketing {
 
-    padding-top: 40px;
+    @include rem('padding-top', 40px);
 
     .pf-c-card__header,
     .pf-c-card__body,
@@ -14,12 +16,13 @@
     .pf-c-card__footer { @include center; }
 
     .pf-c-card {
-        img.ins-c-application-info__logo { min-height: 65px; }
-        padding: 40px 0;
+        @include rem('padding', 40px 0);
+
+        img.ins-c-application-info__logo { @include rem('min-height', 65px); }
         .pf-c-card__footer { margin-top: 40px; }
     }
 
-    .pf-l-split.pf-m-gutter > :not(:last-child) { margin-right: 7.5px; }
+    .pf-l-split.pf-m-gutter > :not(:last-child) { @include rem('margin-right', 7.5px); }
 
     .ins-c-open-card { color: var(--pf-global--link--Color); }
     
