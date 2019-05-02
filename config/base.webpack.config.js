@@ -3,7 +3,7 @@ const config = require('./webpack.common.js');
 
 const rules = [
     { loader: 'source-map-loader' },
-    { loader: 'babel-loader' },
+    { loader: 'babel-loader' }
 ];
 
 if (process.env.NODE_ENV === 'production') {
