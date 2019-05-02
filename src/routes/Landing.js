@@ -51,9 +51,6 @@ class Landing extends Component {
 
     render() {
         const { isModalOpen, not_entitled: notEntitled, unauthed } = this.state;
-        /* eslint-disable */
-        console.log(this.state);
-        /* eslint-enable */
         return (
             <Fragment>
                 { unauthed

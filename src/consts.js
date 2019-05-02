@@ -20,9 +20,10 @@ export const activeTechnologies = [
         title: 'Red Hat Insights',
         emptyTitle: 'Red Hat Insights is included with every Red Hat Enterprise Linux subscription',
         emptyText: 'Proactively identify and remediate threats to security, performance, availability, \
-        and stability with Red Hat Insights. Begin a free evaluation of Red Hat Enterprise Linux to get started today.',
+        and stability with Red Hat Insights. Activate Red Hat Insights to get started today.',
         emptyAction: {
-            title: 'Try it free'
+            title: 'Activate Red Hat Insights',
+            navigate: 'https://www.redhat.com/wapps/eval/index.html?evaluation_id=1036'
         },
         body: 'Identify and remediate configuration issues in your Red Hat environments.'
     },
@@ -35,8 +36,8 @@ export const activeTechnologies = [
         id: 'RHEL',
         url: 'rhel/dashboard',
         image: hcm,
-        emptyTitle: 'Upgrade to get started with cloud management services for Red Hat Enterprise Linux',
-        emptyText: 'Monitor your Red Hat environments to track system compliance, configuration, \
+        emptyTitle: 'Learn how to get started with cloud management services for Red Hat Enterprise Linux',
+        emptyText: 'Monitor your Red Hat environments to track system compliance, configration, \
         security, and efficiency. Upgrade to get started today.',
         emptyAction: {
             title: 'Learn More',
@@ -79,7 +80,7 @@ export const activeTechnologies = [
         emptyText: 'The Red Hat hybrid cloud management services Technology Preview is currently \
         restricted to Red Hat customers.',
         emptyAction: {
-            title: 'Learn More'
+            title: 'Okay'
         },
         title: 'Hybrid cloud management services',
         body: 'Govern, automate, and manage multi-cloud environments.',
