@@ -1,0 +1,10 @@
+@import '~@red-hat-insights/insights-frontend-components/Utilities/_mixins';
+
+.ins-c-page__logout {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+
+    h1 { @include rem('margin-bottom', 30px); }
+}
