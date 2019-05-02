@@ -18,13 +18,13 @@ export const activeTechnologies = [
         url: 'insights/actions',
         icon: ChartSpikeIcon,
         title: 'Red Hat Insights',
-        emptyTitle: 'Get Started with Red Hat Insights',
-        emptyText: 'With predictive analytics, avoid problems and unplanned downtime in your \
-        Red Hat environment. Red Hat Insights is included with your Red Hat Enterprise Linux Subscription.',
+        emptyTitle: 'Red Hat Insights is included with every Red Hat Enterprise Linux subscription',
+        emptyText: 'Proactively identify and remediate threats to security, performance, availability, \
+        and stability with Red Hat Insights. Begin a free evaluation of Red Hat Enterprise Linux to get started today.',
         emptyAction: {
             title: 'Try it free'
         },
-        body: 'Predict Risk. Get guidance. Stay secure.'
+        body: 'Identify and remediate configuration issues in your Red Hat environments.'
     },
     {
         entitlement: 'smart_management',
@@ -35,15 +35,15 @@ export const activeTechnologies = [
         id: 'RHEL',
         url: 'rhel/dashboard',
         image: hcm,
-        emptyTitle: 'Do more with your Red Hat Enterprise Linux environment',
-        emptyText: 'Upgrade to Smart Management to keep your Red Hat environment running efficiently, \
-        with security and compliant with various standards.',
+        emptyTitle: 'Upgrade to get started with cloud management services for Red Hat Enterprise Linux',
+        emptyText: 'Monitor your Red Hat environments to track system compliance, configuration, \
+        security, and efficiency. Upgrade to get started today.',
         emptyAction: {
             title: 'Learn More',
             navigate: 'https://www.redhat.com/en/technologies/management/smart-management'
         },
         title: 'Cloud Management Services for Red Hat Enterprise Linux',
-        body: 'Operate and protect your Red Hat platforms.'
+        body: 'Monitor and manage issues like security and compliance for your Red Hat Enterprise Linux systems.'
     },
     {
         id: 'Openshift',
@@ -66,7 +66,7 @@ export const activeTechnologies = [
             title: 'Try it free'
         },
         title: 'Red Hat OpenShift Cluster Manager',
-        body: 'Manage your highly available public and private clouds.'
+        body: 'Install, register, and manage OpenShift 4 clusters.'
     },
     {
         id: 'Hybrid',
@@ -75,14 +75,14 @@ export const activeTechnologies = [
         marketing: false,
         disabled: window.location.pathname.indexOf('/beta') !== 0,
         image: rhelCs,
-        emptyTitle: 'Manage your hybrid environment',
-        emptyText: 'Govern and automate your Red Hat environment across private and public clouds with \
-        Red Hat Hybrid cloud management.',
+        emptyTitle: 'Hybrid cloud management services Technology Preview access',
+        emptyText: 'The Red Hat hybrid cloud management services Technology Preview is currently \
+        restricted to Red Hat customers.',
         emptyAction: {
             title: 'Learn More'
         },
         title: 'Hybrid cloud management services',
-        body: 'Govern, automate, and manage multicloud environments.',
+        body: 'Govern, automate, and manage multi-cloud environments.',
         isPreview: true
     }
 ];
