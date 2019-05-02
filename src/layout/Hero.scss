@@ -1,0 +1,23 @@
+@import '~@red-hat-insights/insights-frontend-components/Utilities/_mixins';
+@import '~@patternfly/patternfly/sass-utilities/_all';
+
+.ins-c-hero {
+
+    background: url("/apps/chrome/assets/images/fedora-background-left.svg");
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    h1.pf-c-title {
+        color: white;
+        text-align: center;
+        @include rem('font-size', 44px);
+    }
+    h2 {
+        @include rem('font-size', 18px);
+        color: var(--pf-global--Color--200);
+    }
+
+    @media screen and (min-width: $pf-global--breakpoint--xl) {
+        @include rem('min-height', 600px);
+    }
+}

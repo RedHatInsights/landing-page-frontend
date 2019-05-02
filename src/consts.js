@@ -2,9 +2,17 @@ import { ChartSpikeIcon, OpenshiftIcon } from '@patternfly/react-icons';
 import hcm from './components/hcm.svg';
 import rhelCs from './components/rhel-cs.svg';
 
+import insightsMarketing from './components/marketing/insightsMarketing.svg';
+import openShiftMarketing from './components/marketing/openShiftMarketing.svg';
+import smartManagementMarketing from './components/marketing/smartManagementMarketing.svg';
+
 export const activeTechnologies = [
     {
         entitlement: 'insights',
+        marketing: true,
+        marketingImage: insightsMarketing,
+        marketingText: 'Proactively identify and remediate threats to security, performance, and stability',
+        marketingUrl: 'https://access.redhat.com/products/red-hat-insights#getstarted',
         name: 'insights',
         id: 'insights',
         url: 'insights/actions',
@@ -20,6 +28,10 @@ export const activeTechnologies = [
     },
     {
         entitlement: 'smart_management',
+        marketing: true,
+        marketingImage: smartManagementMarketing,
+        marketingText: 'Operate and protect your Red Hat platforms',
+        marketingUrl: 'https://access.redhat.com/products/cloud_management_services_for_red_hat_enterprise_linux/#getstarted',
         id: 'RHEL',
         url: 'rhel/dashboard',
         image: hcm,
@@ -37,6 +49,10 @@ export const activeTechnologies = [
         id: 'Openshift',
         url: 'openshift',
         entitlement: 'openshift',
+        marketing: true,
+        marketingImage: openShiftMarketing,
+        marketingText: 'Install, register, and manage OpenShift 4 clusters',
+        marketingUrl: 'https://try.openshift.com/',
         icon: OpenshiftIcon,
         iconProps: {
             style: {
@@ -56,6 +72,7 @@ export const activeTechnologies = [
         id: 'Hybrid',
         url: 'hybrid/catalog',
         entitlement: 'hybrid_cloud',
+        marketing: false,
         disabled: window.location.pathname.indexOf('/beta') !== 0,
         image: rhelCs,
         emptyTitle: 'Hybrid cloud management services Technology Preview access',

@@ -1,0 +1,36 @@
+@import '~@red-hat-insights/insights-frontend-components/Utilities/_mixins';
+
+@mixin center {
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+
+.ins-c-marketing {
+
+    @include rem('padding-top', 40px);
+
+    .pf-c-card__header,
+    .pf-c-card__body,
+    .ins-c-application-logo,
+    .pf-c-card__footer { @include center; }
+
+    .pf-c-card {
+        @include rem('padding', 40px 0);
+
+        img.ins-c-application-info__logo { @include rem('min-height', 65px); }
+        .pf-c-card__footer { margin-top: 40px; }
+    }
+
+    .pf-l-split.pf-m-gutter > :not(:last-child) { @include rem('margin-right', 7.5px); }
+
+    .ins-c-open-card { color: var(--pf-global--link--Color); }
+    
+    .ins-c-card__link:hover {
+        text-decoration: none;
+        .ins-c-open-card {
+            color: var(--pf-global--link--Color--hover);
+            text-decoration: underline;
+        }
+    }
+}

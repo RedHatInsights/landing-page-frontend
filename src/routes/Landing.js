@@ -13,6 +13,7 @@ import {
 
 import Header from '../layout/Header';
 import Body from '../layout/Body';
+import Marketing from '../layout/Marketing';
 import FooterMenu from '../layout/FooterMenu';
 import FooterTraditional from '../layout/FooterTraditional';
 import { activeTechnologies } from '../consts';
@@ -25,14 +26,23 @@ class Landing extends Component {
 
     componentDidMount() {
         const { location } = this.props;
+
         const params = location.search.slice(1).split('&').reduce((acc, curr) => ({
             ...acc,
             [curr.split('=')[0]]: Object.values(activeTechnologies).find(item => item.entitlement === curr.split('=')[1])
         }), {});
+
         this.setState({
             ...params,
             isModalOpen: params && Object.keys(params).length > 0
         });
+
+        window.insights.chrome.auth.getUser().then(() => {
+            this.setState({ unauthed: false });
+        }).catch(() => {
+            this.setState({ unauthed: true });
+        });
+
     }
 
     handleModalToggle = () => {
@@ -40,14 +50,22 @@ class Landing extends Component {
     }
 
     render() {
-        const { isModalOpen, not_entitled: notEntitled } = this.state;
+        const { isModalOpen, not_entitled: notEntitled, unauthed } = this.state;
+        /* eslint-disable */
+        console.log(this.state);
+        /* eslint-enable */
         return (
             <Fragment>
-                <Header />
-                <Main>
-                    <Body />
-                </Main>
-                <FooterMenu />
+                { unauthed
+                    ? <Marketing />
+                    : <Fragment>
+                        <Header />
+                        <Main>
+                            <Body />
+                        </Main>
+                        <FooterMenu />
+                    </Fragment>
+                }
                 <FooterTraditional />
                 { notEntitled && <Modal
                     title={ 'You are not entitled to use this application' }
