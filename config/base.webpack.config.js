@@ -1,6 +1,15 @@
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const config = require('./webpack.common.js');
 
+const rules = [
+    { loader: 'source-map-loader' },
+    { loader: 'babel-loader' },
+];
+
+if (process.env.NODE_ENV === 'production') {
+    rules.push({ loader: 'eslint-loader' });
+}
+
 const webpackConfig = {
     mode: process.env.NODE_ENV === 'production' ? 'production' : 'development',
     devtool: false,
@@ -32,7 +41,7 @@ const webpackConfig = {
         rules: [{
             test: /src\/.*\.js$/,
             exclude: /(node_modules)/i,
-            use: [{ loader: 'source-map-loader' }, { loader: 'babel-loader' }, { loader: 'eslint-loader' }]
+            use: rules
         }, {
             test: /\.s?[ac]ss$/,
             use: [
