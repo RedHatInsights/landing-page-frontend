@@ -49,10 +49,6 @@ class Landing extends Component {
         this.setState({ isModalOpen: false });
     }
 
-    hasAuth = () => {
-        return document.body.classList.contains('unauthed');
-    }
-
     render() {
         const { isModalOpen, not_entitled: notEntitled, unauthed } = this.state;
         /* eslint-disable */
