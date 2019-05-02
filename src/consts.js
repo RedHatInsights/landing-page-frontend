@@ -11,8 +11,8 @@ export const activeTechnologies = [
         entitlement: 'insights',
         marketing: true,
         marketingImage: insightsMarketing,
-        marketingText: 'Address your vulnerability and compliance changes',
-        marketingUrl: 'https://www.redhat.com/en/technologies/management/insights',
+        marketingText: 'Proactively identify and remediate threats to security, performance, and stability',
+        marketingUrl: 'https://access.redhat.com/products/red-hat-insights#getstarted',
         name: 'insights',
         id: 'insights',
         url: 'insights/actions',
@@ -31,7 +31,7 @@ export const activeTechnologies = [
         marketing: true,
         marketingImage: smartManagementMarketing,
         marketingText: 'Operate and protect your Red Hat platforms',
-        marketingUrl: 'https://www.redhat.com/en/technologies/management/smart-management',
+        marketingUrl: 'https://access.redhat.com/products/cloud_management_services_for_red_hat_enterprise_linux/#getstarted',
         id: 'RHEL',
         url: 'rhel/dashboard',
         image: hcm,
@@ -77,7 +77,7 @@ export const activeTechnologies = [
         image: rhelCs,
         emptyTitle: 'Manage your hybrid environment',
         emptyText: 'Govern and automate your Red Hat environment across private and public clouds with \
-        Red Hat Hybrid cloud managemnt.',
+        Red Hat Hybrid cloud management.',
         emptyAction: {
             title: 'Learn More'
         },
