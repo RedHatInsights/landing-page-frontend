@@ -16,7 +16,7 @@ export const activeTechnologies = [
         emptyAction: {
             title: 'Try it free'
         },
-        body: 'Predict Risk. Get guidance. Stay secure.'
+        body: 'Identify and remediate configuration issues in your Red Hat environments.'
     },
     {
         entitlement: 'smart_management',
@@ -30,8 +30,8 @@ export const activeTechnologies = [
             title: 'Learn More',
             navigate: 'https://www.redhat.com/en/technologies/management/smart-management'
         },
-        title: 'Cloud Management Services for Red Hat Enterprise Linux',
-        body: 'Operate and protect your Red Hat platforms.'
+        title: 'Cloud Services for Red Hat Enterprise Linux',
+        body: 'Monitor and manage issues like security and compliance for your Red Hat Enterprise Linux systems.'
     },
     {
         id: 'Openshift',
@@ -50,7 +50,7 @@ export const activeTechnologies = [
             title: 'Try it free'
         },
         title: 'Red Hat OpenShift Cluster Manager',
-        body: 'Manage your highly available public and private clouds.'
+        body: 'Install, register, and manage OpenShift 4 clusters.'
     },
     {
         id: 'Hybrid',
@@ -65,7 +65,7 @@ export const activeTechnologies = [
             title: 'Learn More'
         },
         title: 'Hybrid cloud management services',
-        body: 'Govern, automate, and manage multicloud environments.',
+        body: 'Govern, automate, and manage multi-cloud environments.',
         isPreview: true
     }
 ];
