@@ -38,7 +38,7 @@ class Landing extends Component {
         });
 
         window.insights.chrome.auth.getUser().then(user => {
-            if(user) {
+            if (user) {
                 this.setState({ unauthed: false });
             } else {
                 this.setState({ unauthed: true });
