@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { Title, Button } from '@patternfly/react-core';
 
 import './Logout.scss';
