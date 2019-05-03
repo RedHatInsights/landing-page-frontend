@@ -13,11 +13,16 @@
         @include rem('font-size', 44px);
     }
     h2 {
+        text-align: center;
         @include rem('font-size', 18px);
         color: var(--pf-global--Color--200);
     }
 
-    @media screen and (min-width: $pf-global--breakpoint--xl) {
-        @include rem('min-height', 600px);
+    @media screen and (min-width: $pf-global--breakpoint--xs) {
+        @include rem('min-height', 400px);
+    }
+
+    @media screen and (min-width: $pf-global--breakpoint--md) {
+        @include rem('min-height', 550px);
     }
 }
