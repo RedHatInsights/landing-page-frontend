@@ -1,5 +1,4 @@
 import React from 'react';
-// import { Level, LevelItem } from '@patternfly/react-core';
 import { RhLogo } from '../components';
 
 import './FooterTraditional.scss';
