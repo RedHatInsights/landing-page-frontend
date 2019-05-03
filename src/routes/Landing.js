@@ -37,8 +37,12 @@ class Landing extends Component {
             isModalOpen: params && Object.keys(params).length > 0
         });
 
-        window.insights.chrome.auth.getUser().then(() => {
-            this.setState({ unauthed: false });
+        window.insights.chrome.auth.getUser().then(user => {
+            if(user) {
+                this.setState({ unauthed: false });
+            } else {
+                this.setState({ unauthed: true });
+            }
         }).catch(() => {
             this.setState({ unauthed: true });
         });
@@ -51,6 +55,7 @@ class Landing extends Component {
 
     render() {
         const { isModalOpen, not_entitled: notEntitled, unauthed } = this.state;
+
         return (
             <Fragment>
                 { unauthed
