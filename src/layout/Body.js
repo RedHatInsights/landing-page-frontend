@@ -12,7 +12,7 @@ import {
     CardFooter
 } from '@patternfly/react-core';
 
-import { ArrowRightIcon, BinocularsIcon } from '@patternfly/react-icons';
+import { ArrowRightIcon, BinocularsIcon, CodeIcon } from '@patternfly/react-icons';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
@@ -25,7 +25,7 @@ const isBeta = window.location.pathname.indexOf('/beta') === 0;
 const Body = ({ technologies }) => (
     <Fragment>
         <Grid sm={ 12 } md={ 6 } lg={ isBeta ? 3 : 4 } gutter="md">
-            { technologies.map(({ icon: Icon, image, iconProps, title, url, body, isPreview, id }, key) => (
+            { technologies.map(({ icon: Icon, image, iconProps, title, url, body, isPreview, isDevPreview, id }, key) => (
                 <GridItem key={ key }>
                     <a className='ins-c-card__link' href={ `./${url}` } aria-label={ `Go to ${title}` }>
                         <Card className="ins-c-application-info" application-id={ id }>
@@ -57,6 +57,13 @@ const Body = ({ technologies }) => (
                                         <StackItem>
                                             <div className="ins-m-tech-preview">
                                                 <BinocularsIcon size="sm" /> Tech Preview
+                                            </div>
+                                        </StackItem>
+                                    }
+                                    { isDevPreview &&
+                                        <StackItem>
+                                            <div className="ins-m-dev-preview">
+                                                <CodeIcon size="sm" /> Developer Preview
                                             </div>
                                         </StackItem>
                                     }

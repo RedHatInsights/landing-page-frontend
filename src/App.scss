@@ -13,6 +13,11 @@
     color: var(--ins-global--Color--green);
 }
 
+.ins-m-dev-preview {
+    @include rem('margin-bottom', 16px);
+    color: #39A5DC;
+}
+
 .pf-c-card {
     &.ins-c-application-info {
         height: 100%;
