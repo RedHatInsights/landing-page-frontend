@@ -67,7 +67,8 @@ export const activeTechnologies = [
             title: 'Try it free'
         },
         title: 'Red Hat OpenShift Cluster Manager',
-        body: 'Install, register, and manage OpenShift 4 clusters.'
+        body: 'Install, register, and manage OpenShift 4 clusters.',
+        isDevPreview: true
     },
     {
         id: 'Hybrid',
