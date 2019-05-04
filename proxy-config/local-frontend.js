@@ -1,11 +1,14 @@
 /*global module, process*/
 
-const localhost = (process.env.PLATFORM === 'linux') ? 'localhost' : 'host.docker.internal';
-
 module.exports = {
     routes: {
-        '/api': { host: 'https://ci.cloud.paas.upshift.redhat.com' },
-        '/apps/landing/': { host: `https://${localhost}:8002` },
-        '/': { host: `https://${localhost}:8002` }
+        '/apps/landing/': { host: 'https://localhost:8002' },
+        '/apps/': { host: 'PORTAL_BACKEND_MARKER' },
+        '/rhev/': { host: 'PORTAL_BACKEND_MARKER' },
+        '/insights/': { host: 'PORTAL_BACKEND_MARKER' },
+        '/openshift/': { host: 'PORTAL_BACKEND_MARKER' },
+        '/hybrid/': { host: 'PORTAL_BACKEND_MARKER' },
+        '/api/': { host: 'PORTAL_BACKEND_MARKER' },
+        '/': { host: 'https://localhost:8002' }
     }
 };
