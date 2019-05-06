@@ -26,7 +26,7 @@ const Marketing = ({ technologies }) => (
         <PageSection className='ins-c-marketing pf-m-no-fill'>
             <Grid sm={ 12 } md={ 6 } lg={ 4 } gutter="md">
                 { technologies.map(({ marketingImage, title, marketingUrl, marketingText, id }, key) => (
-                    <Card className="ins-c-application-info" application-id={ id }>
+                    <Card className="ins-c-application-info pf-m-card-link" application-id={ id }>
                         <CardHeader>
                             <Stack gutter='sm'>
                                 <StackItem className='ins-c-application-logo'>
@@ -55,7 +55,7 @@ const Marketing = ({ technologies }) => (
                                     </SplitItem>
                                 </Split>
                         </CardFooter>
-                        <a className='ins-c-card__link' href={ marketingUrl } aria-label={ `Go to ${title}` }></a>
+                        <a className='pf-c-card__card-link' href={ marketingUrl } aria-label={ `Go to ${title}` }></a>
                     </Card>
                 )) }
             </Grid>

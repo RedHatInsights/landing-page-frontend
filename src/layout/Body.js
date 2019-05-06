@@ -29,7 +29,7 @@ const Body = ({ technologies }) => (
             <Grid md={ 6 } lg={ isBeta ? 3 : 4 } gutter="md">
                 { technologies.map(({ icon: Icon, image, iconProps, title, url, body, isPreview, isDevPreview, id }, key) => (
                     <GridItem key={ key }>
-                        <Card className="ins-c-application-info" application-id={ id }>
+                        <Card className="ins-c-application-info pf-m-card-link" application-id={ id }>
                             <CardHeader>
                                 <Stack gutter='sm'>
                                     <StackItem>
@@ -83,7 +83,7 @@ const Body = ({ technologies }) => (
                                     </SplitItem>
                                 </Split>
                             </CardFooter>
-                            <a className='ins-c-card__link' href={ `./${url}` } aria-label={ `Go to ${title}` }></a>
+                            <a className='pf-c-card__card-link' href={ `./${url}` } aria-label={ `Go to ${title}` }></a>
                         </Card>
                     </GridItem>
                 )) }
