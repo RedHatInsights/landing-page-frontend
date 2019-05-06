@@ -1,7 +1,6 @@
 import PropTypes from 'prop-types';
 import React, { Component, Fragment } from 'react';
 import { withRouter } from 'react-router-dom';
-import { Main } from '@red-hat-insights/insights-frontend-components';
 import {
     Modal,
     Button,

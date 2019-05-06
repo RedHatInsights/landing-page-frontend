@@ -2,12 +2,9 @@ import React from 'react';
 import {
     Card, CardHeader,
     CardBody,
-    Split,
-    SplitItem,
     Grid,
     Stack,
     StackItem,
-    GridItem,
     CardFooter,
     PageSection
 } from '@patternfly/react-core';
@@ -26,7 +23,7 @@ const Marketing = ({ technologies }) => (
         <PageSection className='ins-c-marketing pf-m-no-fill'>
             <Grid sm={ 12 } md={ 6 } lg={ 4 } gutter="md">
                 { technologies.map(({ marketingImage, title, marketingUrl, marketingText, id }, key) => (
-                    <Card className="ins-c-application-info pf-m-card-link" application-id={ id }>
+                    <Card className="ins-c-application-info pf-m-card-link" application-id={ id } key={ key }>
                         <CardHeader>
                             <Stack gutter='sm'>
                                 <StackItem className='ins-c-application-logo'>
@@ -46,14 +43,12 @@ const Marketing = ({ technologies }) => (
                             </Stack>
                         </CardBody>
                         <CardFooter>
-                                <Split gutter="sm" className="ins-c-open-card">
-                                    <SplitItem>
-                                        Get Started
-                                    </SplitItem>
-                                    <SplitItem>
-                                        <ArrowRightIcon size="sm" />
-                                    </SplitItem>
-                                </Split>
+                            <div className="ins-c-open-card pf-l-flex pf-m-align-items-center">
+                                <span>
+                                    Get Started
+                                </span>
+                                <ArrowRightIcon size="sm" />
+                            </div>
                         </CardFooter>
                         <a className='pf-c-card__card-link' href={ marketingUrl } aria-label={ `Go to ${title}` }></a>
                     </Card>

@@ -2,12 +2,9 @@ import React, { Fragment } from 'react';
 import {
     Card, CardHeader,
     CardBody,
-    Split,
-    SplitItem,
     Grid,
     Stack,
     StackItem,
-    GridItem,
     Title,
     CardFooter,
     PageSection
@@ -28,64 +25,60 @@ const Body = ({ technologies }) => (
         <PageSection className='pf-m-fill'>
             <Grid md={ 6 } lg={ isBeta ? 3 : 4 } gutter="md">
                 { technologies.map(({ icon: Icon, image, iconProps, title, url, body, isPreview, isDevPreview, id }, key) => (
-                    <GridItem key={ key }>
-                        <Card className="ins-c-application-info pf-m-card-link" application-id={ id }>
-                            <CardHeader>
-                                <Stack gutter='sm'>
+                    <Card className="ins-c-application-info pf-m-card-link" application-id={ id } key={ key }>
+                        <CardHeader>
+                            <Stack gutter='sm'>
+                                <StackItem>
+                                    { image && <img
+                                        className="ins-c-application-info__logo"
+                                        aria-hidden
+                                        src={ image }
+                                        alt={ `${title} logo` } /> }
+                                    { Icon && <Icon
+                                        className="ins-c-application-info__logo ins-c-icon__active"
+                                        aria-hidden
+                                        size="xl"
+                                        alt={ `${title} logo` }
+                                        { ...iconProps } /> }
+                                </StackItem>
+                                <StackItem>
+                                    <Title headingLevel='h2' size='2xl'>
+                                        { title }
+                                    </Title>
+                                </StackItem>
+                            </Stack>
+                        </CardHeader>
+                        <CardBody>
+                            <Stack>
+                                { isPreview &&
                                     <StackItem>
-                                        { image && <img
-                                            className="ins-c-application-info__logo"
-                                            aria-hidden
-                                            src={ image }
-                                            alt={ `${title} logo` } /> }
-                                        { Icon && <Icon
-                                            className="ins-c-application-info__logo ins-c-icon__active"
-                                            aria-hidden
-                                            size="xl"
-                                            alt={ `${title} logo` }
-                                            { ...iconProps } /> }
+                                        <div className="ins-m-tech-preview">
+                                            <BinocularsIcon size="sm" /> Tech Preview
+                                        </div>
                                     </StackItem>
+                                }
+                                { isDevPreview &&
                                     <StackItem>
-                                        <Title headingLevel='h2' size='2xl'>
-                                            { title }
-                                        </Title>
+                                        <div className="ins-m-dev-preview">
+                                            <CodeIcon size="sm" /> Developer Preview
+                                        </div>
                                     </StackItem>
-                                </Stack>
-                            </CardHeader>
-                            <CardBody>
-                                <Stack>
-                                    { isPreview &&
-                                        <StackItem>
-                                            <div className="ins-m-tech-preview">
-                                                <BinocularsIcon size="sm" /> Tech Preview
-                                            </div>
-                                        </StackItem>
-                                    }
-                                    { isDevPreview &&
-                                        <StackItem>
-                                            <div className="ins-m-dev-preview">
-                                                <CodeIcon size="sm" /> Developer Preview
-                                            </div>
-                                        </StackItem>
-                                    }
-                                    <StackItem>
-                                        <span className='ins-m-gray'>{ body }</span>
-                                    </StackItem>
-                                </Stack>
-                            </CardBody>
-                            <CardFooter>
-                                <Split gutter="sm" className="ins-c-open-card">
-                                    <SplitItem>
-                                        Open
-                                    </SplitItem>
-                                    <SplitItem>
-                                        <ArrowRightIcon size="sm" />
-                                    </SplitItem>
-                                </Split>
-                            </CardFooter>
-                            <a className='pf-c-card__card-link' href={ `./${url}` } aria-label={ `Go to ${title}` }></a>
-                        </Card>
-                    </GridItem>
+                                }
+                                <StackItem>
+                                    <span className='ins-m-gray'>{ body }</span>
+                                </StackItem>
+                            </Stack>
+                        </CardBody>
+                        <CardFooter>
+                            <div className="ins-c-open-card pf-l-flex pf-m-align-items-center pf-m-inline-flex">
+                                <span>
+                                    Open
+                                </span>
+                                <ArrowRightIcon size="sm" />
+                            </div>
+                        </CardFooter>
+                        <a className='pf-c-card__card-link' href={ `./${url}` } aria-label={ `Go to ${title}` }></a>
+                    </Card>
                 )) }
             </Grid>
         </PageSection>
