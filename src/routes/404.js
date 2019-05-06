@@ -14,19 +14,19 @@ const onButtonClick = (url) => {
 };
 
 const NotFound = () => (
-        <section className="pf-l-page__main-section pf-c-page__main-section ins-c-page__404">
-            <Title size='3xl'> 404: It's true. We've lost it. </Title>
-            <Icon404/>
-            <Title size='xl' className='ins-c-text__sorry'>
-                Sorry, we couldn't find what you were looking for.
-                The page you requested may have been changed or moved.
-            </Title>
-            <Button
-                variant="link"
-                onClick={ () => onButtonClick('') }>
-                    Return to homepage
-            </Button>
-        </section>
+    <section className="pf-l-page__main-section pf-c-page__main-section ins-c-page__404">
+        <Title size='3xl'> 404: It&apos;s true. We&apos;ve lost it. </Title>
+        <Icon404/>
+        <Title size='xl' className='ins-c-text__sorry'>
+            Sorry, we couldn&apos;t find what you were looking for.
+            The page you requested may have been changed or moved.
+        </Title>
+        <Button
+            variant="link"
+            onClick={ () => onButtonClick('') }>
+                Return to homepage
+        </Button>
+    </section>
 );
 
 NotFound.propTypes = {
