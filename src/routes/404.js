@@ -22,7 +22,7 @@ const NotFound = () => (
                 The page you requested may have been changed or moved.
             </Title>
             <Button
-                variant="primary"
+                variant="link"
                 onClick={ () => onButtonClick('') }>
                     Return to homepage
             </Button>
