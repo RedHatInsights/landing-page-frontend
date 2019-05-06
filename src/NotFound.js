@@ -12,9 +12,7 @@ const App = ({ loadTechnologies }) => {
     });
 
     return (
-        <section page-type="" className="pf-l-page__main-section pf-c-page__main-section">
-            <NotFound />
-        </section>
+        <NotFound />
     );
 };
 
