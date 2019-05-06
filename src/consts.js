@@ -15,7 +15,7 @@ export const activeTechnologies = [
         marketingUrl: 'https://access.redhat.com/products/red-hat-insights#getstarted',
         name: 'insights',
         id: 'insights',
-        url: 'insights/actions',
+        url: 'insights/overview',
         icon: ChartSpikeIcon,
         title: 'Red Hat Insights',
         emptyTitle: 'Red Hat Insights is included with every Red Hat Enterprise Linux subscription',
