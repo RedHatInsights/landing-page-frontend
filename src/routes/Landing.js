@@ -62,9 +62,7 @@ class Landing extends Component {
                     ? <Marketing />
                     : <Fragment>
                         <Header />
-                        <Main>
-                            <Body />
-                        </Main>
+                        <Body />
                         <FooterMenu />
                     </Fragment>
                 }

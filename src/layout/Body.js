@@ -9,7 +9,8 @@ import {
     StackItem,
     GridItem,
     Title,
-    CardFooter
+    CardFooter,
+    PageSection
 } from '@patternfly/react-core';
 
 import { ArrowRightIcon, BinocularsIcon, CodeIcon } from '@patternfly/react-icons';
@@ -24,10 +25,10 @@ const isBeta = window.location.pathname.indexOf('/beta') === 0;
 
 const Body = ({ technologies }) => (
     <Fragment>
-        <Grid sm={ 12 } md={ 6 } lg={ isBeta ? 3 : 4 } gutter="md">
-            { technologies.map(({ icon: Icon, image, iconProps, title, url, body, isPreview, isDevPreview, id }, key) => (
-                <GridItem key={ key }>
-                    <a className='ins-c-card__link' href={ `./${url}` } aria-label={ `Go to ${title}` }>
+        <PageSection className='pf-m-fill'>
+            <Grid md={ 6 } lg={ isBeta ? 3 : 4 } gutter="md">
+                { technologies.map(({ icon: Icon, image, iconProps, title, url, body, isPreview, isDevPreview, id }, key) => (
+                    <GridItem key={ key }>
                         <Card className="ins-c-application-info" application-id={ id }>
                             <CardHeader>
                                 <Stack gutter='sm'>
@@ -82,11 +83,12 @@ const Body = ({ technologies }) => (
                                     </SplitItem>
                                 </Split>
                             </CardFooter>
+                            <a className='ins-c-card__link' href={ `./${url}` } aria-label={ `Go to ${title}` }></a>
                         </Card>
-                    </a>
-                </GridItem>
-            )) }
-        </Grid>
+                    </GridItem>
+                )) }
+            </Grid>
+        </PageSection>
     </Fragment>
 );
 
@@ -95,7 +97,7 @@ Body.propTypes = {
         name: PropTypes.string,
         icon: PropTypes.oneOfType([ PropTypes.func, PropTypes.string ]),
         body: PropTypes.node,
-        tite: PropTypes.node,
+        title: PropTypes.node,
         isPreview: PropTypes.bool
     }))
 };
