@@ -1,11 +1,20 @@
 import React from 'react';
-import { Grid, GridItem, TextContent, Text, TextVariants, Split, SplitItem } from '@patternfly/react-core';
+import {
+    Grid,
+    GridItem,
+    PageSection,
+    TextContent,
+    Text,
+    TextVariants,
+    Split,
+    SplitItem
+} from '@patternfly/react-core';
 import { PaperPlaneAltIcon } from '@patternfly/react-icons';
 
 import './FooterMenu.scss';
 
 const FooterMenu = () => (
-    <div className='ins-c-footer__menu'>
+    <PageSection className='ins-c-footer__menu pf-m-no-fill'>
         <Grid sm={ 12 } md={ 3 } gutter="lg">
             <GridItem>
                 <TextContent>
@@ -37,7 +46,7 @@ const FooterMenu = () => (
                 </Split>
             </GridItem>
         </Grid>
-    </div>
+    </PageSection>
 );
 
 export default FooterMenu;
