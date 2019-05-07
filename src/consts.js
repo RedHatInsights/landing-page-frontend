@@ -41,7 +41,7 @@ export const activeTechnologies = [
         security, and efficiency. Upgrade to get started today.',
         emptyAction: {
             title: 'Learn More',
-            navigate: 'https://www.redhat.com/en/technologies/management/smart-management'
+            navigate: 'https://access.redhat.com/products/cloud_management_services_for_rhel#getstarted'
         },
         title: 'Cloud Management Services for Red Hat Enterprise Linux',
         body: 'Monitor and manage issues like security and compliance for your Red Hat Enterprise Linux systems.'
