@@ -32,7 +32,7 @@ export const activeTechnologies = [
         marketing: true,
         marketingImage: smartManagementMarketing,
         marketingText: 'Operate and protect your Red Hat platforms.',
-        marketingUrl: 'https://access.redhat.com/products/cloud_management_services_for_red_hat_enterprise_linux/#getstarted',
+        marketingUrl: 'https://access.redhat.com/products/cloud_management_services_for_rhel/#getstarted',
         id: 'RHEL',
         url: 'rhel/dashboard',
         image: hcm,
