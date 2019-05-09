@@ -1,5 +1,3 @@
-import React from 'react';
-
 import { ChartSpikeIcon, OpenshiftIcon } from '@patternfly/react-icons';
 import hcm from './components/hcm.svg';
 import rhelCs from './components/rhel-cs.svg';
