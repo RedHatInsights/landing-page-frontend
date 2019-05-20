@@ -45,7 +45,7 @@ const Marketing = ({ technologies }) => (
                         <CardFooter>
                             <div className="ins-c-open-card pf-l-flex pf-m-align-items-center">
                                 <span>
-                                    Get started
+                                    Learn more
                                 </span>
                                 <ArrowRightIcon size="sm" />
                             </div>

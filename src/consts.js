@@ -12,7 +12,7 @@ export const activeTechnologies = [
         marketing: true,
         marketingImage: insightsMarketing,
         marketingText: 'Proactively identify and remediate threats to security, performance, and stability.',
-        marketingUrl: 'https://access.redhat.com/products/red-hat-insights#getstarted',
+        marketingUrl: 'https://www.redhat.com/en/technologies/management/insights',
         name: 'insights',
         id: 'insights',
         url: 'insights/overview',
@@ -32,7 +32,7 @@ export const activeTechnologies = [
         marketing: true,
         marketingImage: smartManagementMarketing,
         marketingText: 'Operate and protect your Red Hat platforms.',
-        marketingUrl: 'https://access.redhat.com/products/cloud_management_services_for_rhel/#getstarted',
+        marketingUrl: 'https://www.redhat.com/en/technologies/management/smart-management',
         id: 'RHEL',
         url: 'rhel/dashboard',
         image: hcm,
@@ -53,7 +53,7 @@ export const activeTechnologies = [
         marketing: true,
         marketingImage: openShiftMarketing,
         marketingText: 'Install, register, and manage Red Hat® OpenShift 4 clusters.',
-        marketingUrl: 'https://try.openshift.com/',
+        marketingUrl: 'https://www.redhat.com/en/technologies/cloud-computing/openshift',
         icon: OpenshiftIcon,
         iconProps: {
             style: {
