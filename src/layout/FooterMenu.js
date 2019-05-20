@@ -27,13 +27,13 @@ const FooterMenu = () => (
                 <TextContent>
                     <Text component={ TextVariants.h2 }>About</Text>
                 </TextContent>
-                <a href="https://www.redhat.com/en/technologies/management/insights">Red Hat Insights</a>
-                <a href="https://www.redhat.com/en/technologies/management/smart-management">Red Hat Smart Management</a>
+                <a href="https://access.redhat.com/products/red-hat-insights#getstarted">Red Hat Insights</a>
+                <a href="https://access.redhat.com/products/cloud_management_services_for_rhel">Red Hat Smart Management</a>
                 { /*
                     TODO: Unhide at a later point
-                    <a href="#">Red Hat Hybrid CloudManagement</a>
+                    <a href="#">Red Hat Hybrid Cloud Management</a>
                 */ }
-                <a href="https://www.redhat.com/en/technologies/cloud-computing/openshift">Red Hat OpenShift</a>
+                <a href="https://try.openshift.com/">Red Hat OpenShift</a>
             </GridItem>
             <GridItem>
                 <TextContent>
