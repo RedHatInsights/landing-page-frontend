@@ -20,7 +20,7 @@ import './Landing.scss';
 
 class Landing extends Component {
     state = {
-        isModalOpen: false,
+        isModalOpen: false
     }
 
     componentDidMount() {
