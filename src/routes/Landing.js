@@ -20,7 +20,7 @@ import './Landing.scss';
 
 class Landing extends Component {
     state = {
-        isModalOpen: false
+        isModalOpen: false,
     }
 
     componentDidMount() {
@@ -40,7 +40,11 @@ class Landing extends Component {
             if (user) {
                 this.setState({ unauthed: false });
             } else {
-                this.setState({ unauthed: true });
+                if (window.insights.chrome.auth.challengeAuth()) {
+                    this.setState({ unauthed: false });
+                } else {
+                    this.setState({ unauthed: true });
+                }
             }
         }).catch(() => {
             this.setState({ unauthed: true });
