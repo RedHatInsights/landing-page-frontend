@@ -23,6 +23,12 @@ class Landing extends Component {
         isModalOpen: false
     }
 
+    challengeAuth() {
+        window.insights.chrome.auth.login()
+            .then(() => this.setState({ unauthed: false }))
+            .catch(() => this.setState({ unauthed: true }))
+    }
+
     componentDidMount() {
         const { location } = this.props;
 
@@ -40,10 +46,10 @@ class Landing extends Component {
             if (user) {
                 this.setState({ unauthed: false });
             } else {
-                this.setState({ unauthed: true });
+                this.challengeAuth();
             }
         }).catch(() => {
-            this.setState({ unauthed: true });
+            this.setState({ unauthed: true })
         });
 
     }
