@@ -25,8 +25,8 @@ class Landing extends Component {
 
     challengeAuth() {
         window.insights.chrome.auth.login()
-            .then(() => this.setState({ unauthed: false }))
-            .catch(() => this.setState({ unauthed: true }))
+        .then(() => this.setState({ unauthed: false }))
+        .catch(() => this.setState({ unauthed: true }));
     }
 
     componentDidMount() {
@@ -49,7 +49,7 @@ class Landing extends Component {
                 this.challengeAuth();
             }
         }).catch(() => {
-            this.setState({ unauthed: true })
+            this.setState({ unauthed: true });
         });
 
     }
