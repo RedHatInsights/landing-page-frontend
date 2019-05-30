@@ -75,3 +75,7 @@ svg.ins-c-icon__active {
         background: var(--pf-global--link--Color);
     }
 }
+
+sup.ins-c-rball {
+    @include rem('font-size', 10px);
+}
