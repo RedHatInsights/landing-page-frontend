@@ -41,7 +41,7 @@ const FooterMenu = () => (
                 </TextContent>
                 <Split gutter="md">
                     <SplitItem><PaperPlaneAltIcon size='xl' className="ins-c-icon__active"/></SplitItem>
-                    <SplitItem isFilled><a className='ins-m-inline'>Tell us about your experience</a> using
+                    <SplitItem isFilled><a href="javascript:;" className='ins-m-inline' tabIndex='0'>Tell us about your experience</a> using
                     Red Hat Cloud Services software, and how we can improve.</SplitItem>
                 </Split>
             </GridItem>
