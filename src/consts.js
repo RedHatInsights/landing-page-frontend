@@ -6,13 +6,16 @@ import insightsMarketing from './components/marketing/insightsMarketing.svg';
 import openShiftMarketing from './components/marketing/openShiftMarketing.svg';
 import smartManagementMarketing from './components/marketing/smartManagementMarketing.svg';
 
+// isDevPreview for developer previews
+// isPreview for technical previews
+
 export const activeTechnologies = [
     {
         entitlement: 'insights',
         marketing: true,
         marketingImage: insightsMarketing,
         marketingText: 'Proactively identify and remediate threats to security, performance, and stability.',
-        marketingUrl: 'https://access.redhat.com/products/red-hat-insights#getstarted',
+        marketingUrl: 'https://www.redhat.com/en/technologies/management/insights',
         name: 'insights',
         id: 'insights',
         url: 'insights/overview',
@@ -32,7 +35,7 @@ export const activeTechnologies = [
         marketing: true,
         marketingImage: smartManagementMarketing,
         marketingText: 'Operate and protect your Red Hat platforms.',
-        marketingUrl: 'https://access.redhat.com/products/cloud_management_services_for_rhel/#getstarted',
+        marketingUrl: 'https://www.redhat.com/en/technologies/management/smart-management',
         id: 'RHEL',
         url: 'rhel/dashboard',
         image: hcm,
@@ -52,8 +55,8 @@ export const activeTechnologies = [
         entitlement: 'openshift',
         marketing: true,
         marketingImage: openShiftMarketing,
-        marketingText: 'Install, register, and manage OpenShift 4 clusters.',
-        marketingUrl: 'https://try.openshift.com/',
+        marketingText: 'Install, register, and manage Red Hat® OpenShift 4 clusters.',
+        marketingUrl: 'https://www.redhat.com/en/technologies/cloud-computing/openshift',
         icon: OpenshiftIcon,
         iconProps: {
             style: {
@@ -67,8 +70,7 @@ export const activeTechnologies = [
             title: 'Try it free'
         },
         title: 'Red Hat OpenShift Cluster Manager',
-        body: 'Install, register, and manage OpenShift 4 clusters.',
-        isDevPreview: true
+        body: 'Install, register, and manage Red Hat® OpenShift 4 clusters.'
     },
     {
         id: 'Hybrid',
