@@ -6,6 +6,9 @@ import insightsMarketing from './components/marketing/insightsMarketing.svg';
 import openShiftMarketing from './components/marketing/openShiftMarketing.svg';
 import smartManagementMarketing from './components/marketing/smartManagementMarketing.svg';
 
+// isDevPreview for developer previews
+// isPreview for technical previews
+
 export const activeTechnologies = [
     {
         entitlement: 'insights',
@@ -67,8 +70,7 @@ export const activeTechnologies = [
             title: 'Try it free'
         },
         title: 'Red Hat OpenShift Cluster Manager',
-        body: 'Install, register, and manage Red Hat® OpenShift 4 clusters.',
-        isDevPreview: true
+        body: 'Install, register, and manage Red Hat® OpenShift 4 clusters.'
     },
     {
         id: 'Hybrid',
