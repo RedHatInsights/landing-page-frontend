@@ -42,7 +42,7 @@ const NotFound = new (require('html-webpack-plugin'))({
     title: 'Not found',
     filename: '404.html',
     chunks: [ 'NotFound', 'vendor' ],
-    template: path.resolve(__dirname, '../src/not-signed.html'),
+    template: path.resolve(__dirname, '../src/not-signed.html')
 });
 plugins.push(NotFound);
 
@@ -97,7 +97,7 @@ plugins.push(ExtractCssWebpackPlugin);
  */
 const CopyFilesWebpackPlugin = new (require('copy-webpack-plugin'))([
     { from: path.resolve(__dirname, '../static/images'), to: 'images' },
-    { from: path.resolve(__dirname, '../robots.txt')}
+    { from: path.resolve(__dirname, '../robots.txt') }
 ]);
 plugins.push(CopyFilesWebpackPlugin);
 

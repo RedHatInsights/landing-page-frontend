@@ -64,7 +64,7 @@ const webpackConfig = {
             }]
         }, {
             test: /app.*\.html$/,
-            loader: 'raw',
+            loader: 'raw'
         }]
     }
 };
