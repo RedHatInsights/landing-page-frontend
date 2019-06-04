@@ -62,6 +62,9 @@ const webpackConfig = {
                     outputPath: 'fonts/'
                 }
             }]
+        }, {
+            test: /app.*\.html$/,
+            loader: 'raw'
         }]
     }
 };

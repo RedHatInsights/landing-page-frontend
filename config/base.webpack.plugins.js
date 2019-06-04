@@ -23,7 +23,7 @@ plugins.push(WriteFileWebpackPlugin);
  * @type {var}
  */
 const HtmlWebpackPlugin = new (require('html-webpack-plugin'))({
-    title: 'My App',
+    title: 'Home',
     filename: 'index.html',
     chunks: [ 'App', 'vendor' ],
     template: path.resolve(__dirname, '../src/index.html')
@@ -31,7 +31,7 @@ const HtmlWebpackPlugin = new (require('html-webpack-plugin'))({
 plugins.push(HtmlWebpackPlugin);
 
 const LogoutPage = new (require('html-webpack-plugin'))({
-    title: 'Logout',
+    title: 'Logged out',
     filename: 'logout.html',
     chunks: [ 'Logout', 'vendor' ],
     template: path.resolve(__dirname, '../src/not-signed.html')
@@ -39,7 +39,7 @@ const LogoutPage = new (require('html-webpack-plugin'))({
 plugins.push(LogoutPage);
 
 const NotFound = new (require('html-webpack-plugin'))({
-    title: '404',
+    title: 'Not found',
     filename: '404.html',
     chunks: [ 'NotFound', 'vendor' ],
     template: path.resolve(__dirname, '../src/not-signed.html')
@@ -96,7 +96,8 @@ plugins.push(ExtractCssWebpackPlugin);
  * Copies files from the specified locations to the corresponding destinations.
  */
 const CopyFilesWebpackPlugin = new (require('copy-webpack-plugin'))([
-    { from: path.resolve(__dirname, '../static/images'), to: 'images' }
+    { from: path.resolve(__dirname, '../static/images'), to: 'images' },
+    { from: path.resolve(__dirname, '../robots.txt') }
 ]);
 plugins.push(CopyFilesWebpackPlugin);
 
