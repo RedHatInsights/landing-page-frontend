@@ -56,7 +56,7 @@ export const activeTechnologies = [
         marketing: true,
         marketingImage: openShiftMarketing,
         marketingText: 'Install, register, and manage Red Hat® OpenShift 4 clusters.',
-        marketingUrl: 'https://www.redhat.com/en/technologies/cloud-computing/openshift',
+        marketingUrl: 'https://try.openshift.com',
         icon: OpenshiftIcon,
         iconProps: {
             style: {
