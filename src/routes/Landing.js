@@ -35,17 +35,14 @@ class Landing extends Component {
             ...params,
             isModalOpen: params && Object.keys(params).length > 0
         });
-        
         window.insights.chrome.auth.getUser().then(user => {
             if (user) {
                 this.setState({ unauthed: false });
             } else {
-                const authResponse = window.insights.chrome.auth.challengeAuth();
-                if (authResponse) {
-                    this.setState({ unauthed: false });
-                } else {
-                    this.setState({ unauthed: true });
-                }
+                //const authResponse = window.insights.chrome.auth.challengeAuth()
+                //.then((authed)=> this.setState({ unauthed: !authed }))
+                //.catch(() => this.setState({ unauthed: true }));
+                this.setState({unauthed: true});
             }
         }).catch(() => {
             this.setState({ unauthed: true });
@@ -59,7 +56,6 @@ class Landing extends Component {
 
     render() {
         const { isModalOpen, not_entitled: notEntitled, unauthed } = this.state;
-
         return (
             <Fragment>
                 { unauthed
