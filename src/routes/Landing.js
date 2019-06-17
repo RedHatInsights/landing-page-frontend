@@ -42,7 +42,7 @@ class Landing extends Component {
                 const authResponse = window.insights.chrome.auth.challengeAuth()
                 .then((authed)=> this.setState({ unauthed: !authed }))
                 .catch(() => this.setState({ unauthed: true }));
-            }
+            } 
         }).catch(() => {
             this.setState({ unauthed: true });
         });
