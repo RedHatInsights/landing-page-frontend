@@ -39,10 +39,10 @@ class Landing extends Component {
             if (user) {
                 this.setState({ unauthed: false });
             } else {
-                const authResponse = window.insights.chrome.auth.challengeAuth()
+                window.insights.chrome.auth.challengeAuth()
                 .then((authed)=> this.setState({ unauthed: !authed }))
                 .catch(() => this.setState({ unauthed: true }));
-            } 
+            }
         }).catch(() => {
             this.setState({ unauthed: true });
         });
