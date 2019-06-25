@@ -19,11 +19,11 @@ import { activeTechnologies } from '../consts';
 import './Landing.scss';
 
 class Landing extends Component {
-    /*state = {
+    state = {
         isModalOpen: false
-    }*/
+    }
 
-    async componentDidMount() {
+    componentDidMount() {
         alert("componenet just mounted");
         const { location } = this.props;
 
@@ -36,7 +36,7 @@ class Landing extends Component {
             ...params,
             isModalOpen: params && Object.keys(params).length > 0
         });
-        /*await window.insights.chrome.auth.getUser().then(user => {
+        window.insights.chrome.auth.getUser().then(user => {
             if (user) {
                 alert("landing 41");
                 this.setState({ unauthed: false });
@@ -48,11 +48,8 @@ class Landing extends Component {
             }
         }).catch(() => {
             this.setState({ unauthed: true });
-        });*/
+        });
 
-    }
-    state = {
-        isModalOpen: false
     }
 
     handleModalToggle = () => {
