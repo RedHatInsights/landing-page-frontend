@@ -55,7 +55,7 @@ export const activeTechnologies = [
         entitlement: 'openshift',
         marketing: true,
         marketingImage: openShiftMarketing,
-        marketingText: 'Install, register, and manage Red Hat® OpenShift®  4 clusters.',
+        marketingText: 'Install, register, and manage Red Hat® OpenShift® 4 clusters.',
         marketingUrl: 'https://try.openshift.com',
         icon: OpenshiftIcon,
         iconProps: {
@@ -70,7 +70,7 @@ export const activeTechnologies = [
             title: 'Try it free'
         },
         title: 'Red Hat OpenShift Cluster Manager',
-        body: 'Install, register, and manage Red Hat® OpenShift®  4 clusters.'
+        body: 'Install, register, and manage Red Hat® OpenShift® 4 clusters.'
     },
     {
         id: 'Hybrid',
