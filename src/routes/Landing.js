@@ -18,10 +18,31 @@ import FooterTraditional from '../layout/FooterTraditional';
 import { activeTechnologies } from '../consts';
 import './Landing.scss';
 
+
 class Landing extends Component {
     state = {
         isModalOpen: false
     }
+
+    authChall = () => {
+        alert("auth")
+        window.insights.chrome.auth.getUser().then(user => {
+            if (user) {
+                alert("landing 31");
+                this.setState({ unauthed: false });
+            } else {
+                alert("landing 33");
+                window.insights.chrome.auth.challengeAuth()
+                    .then((authed) => { alert("landing 35"); this.setState({ unauthed: !authed }) })
+                    .catch(() => { alert("landing 36"); this.setState({ unauthed: true }) });
+            }
+        }).catch(() => {
+            this.setState({ unauthed: true });
+        });
+    }
+
+
+
 
     componentDidMount() {
         alert("componenet just mounted");
@@ -36,19 +57,18 @@ class Landing extends Component {
             ...params,
             isModalOpen: params && Object.keys(params).length > 0
         });
-        window.insights.chrome.auth.getUser().then(user => {
+        //this.authChall();
+        /*window.insights.chrome.auth.getUser().then(user => {
             if (user) {
-                alert("landing 41");
+                alert("landing 63");
                 this.setState({ unauthed: false });
             } else {
-                alert("landing 43");
-                window.insights.chrome.auth.challengeAuth()
-                .then((authed)=> {alert("landing 45");this.setState({ unauthed: !authed })})
-                .catch(() => {alert("landing 46");this.setState({ unauthed: true })});
+                alert("landing 66");
+                this.setState({ unauthed: true });
             }
         }).catch(() => {
             this.setState({ unauthed: true });
-        });
+        });*/
 
     }
 
@@ -58,9 +78,10 @@ class Landing extends Component {
 
     render() {
         const { isModalOpen, not_entitled: notEntitled, unauthed } = this.state;
+        
         return (
             <Fragment>
-                { unauthed
+                {unauthed
                     ? <Marketing />
                     : <Fragment>
                         <Header />
@@ -69,40 +90,40 @@ class Landing extends Component {
                     </Fragment>
                 }
                 <FooterTraditional />
-                { notEntitled && <Modal
-                    title={ 'You are not entitled to use this application' }
-                    isOpen={ isModalOpen }
-                    onClose={ this.handleModalToggle }
+                {notEntitled && <Modal
+                    title={'You are not entitled to use this application'}
+                    isOpen={isModalOpen}
+                    onClose={this.handleModalToggle}
                 >
                     <EmptyState>
-                        { notEntitled.icon && <EmptyStateIcon
-                            icon={ notEntitled.icon }
+                        {notEntitled.icon && <EmptyStateIcon
+                            icon={notEntitled.icon}
                             className="ins-c-icon__active"
-                            { ...notEntitled.iconProps }
+                            {...notEntitled.iconProps}
                             size="lg"
-                        /> }
-                        { notEntitled.image && <img
+                        />}
+                        {notEntitled.image && <img
                             className="ins-c-application-info__logo"
                             aria-hidden
-                            src={ notEntitled.image }
-                            alt={ `${notEntitled.title} logo` } /> }
-                        <Title headingLevel="h5" size="lg">{ notEntitled.emptyTitle }</Title>
+                            src={notEntitled.image}
+                            alt={`${notEntitled.title} logo`} />}
+                        <Title headingLevel="h5" size="lg">{notEntitled.emptyTitle}</Title>
                         <EmptyStateBody>
-                            { notEntitled.emptyText }
+                            {notEntitled.emptyText}
                         </EmptyStateBody>
                         {
                             notEntitled.emptyAction &&
-                            <Button variant="primary" onClick={ () => {
+                            <Button variant="primary" onClick={() => {
                                 if (notEntitled.emptyAction.navigate) {
                                     window.location.href = notEntitled.emptyAction.navigate;
                                 }
-                            } } >
-                                { notEntitled.emptyAction.title }
+                            }} >
+                                {notEntitled.emptyAction.title}
                             </Button>
                         }
-                        <Button variant="link" onClick={ this.handleModalToggle }>Close</Button>
+                        <Button variant="link" onClick={this.handleModalToggle}>Close</Button>
                     </EmptyState>
-                </Modal> }
+                </Modal>}
             </Fragment>
         );
     }
@@ -116,8 +137,10 @@ Landing.propTypes = {
     })
 };
 
+
 Landing.defaultProps = {
     loadTechnologies: () => undefined
 };
+
 
 export default withRouter(Landing);
