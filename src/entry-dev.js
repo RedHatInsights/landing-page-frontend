@@ -7,6 +7,7 @@ import App from './App';
 import logger from 'redux-logger';
 
 const pathName = window.location.pathname.split('/');
+const rootEl = document.getElementById('root');
 pathName.shift();
 
 ReactDOM.render(
@@ -16,5 +17,6 @@ ReactDOM.render(
         </Router>
     </Provider>,
 
-    document.getElementById('root')
+    rootEl,
+    () => rootEl.setAttribute('data-ouia-safe', true)
 );
