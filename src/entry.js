@@ -6,6 +6,7 @@ import { init } from './store';
 import App from './App';
 
 const pathName = window.location.pathname.split('/');
+const rootEl = document.getElementById('root');
 pathName.shift();
 
 ReactDOM.render(
@@ -14,5 +15,7 @@ ReactDOM.render(
             <App />
         </Router>
     </Provider>,
-    document.getElementById('root')
+
+    rootEl,
+    () => rootEl.setAttribute('data-ouia-safe', true)
 );
