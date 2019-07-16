@@ -29,7 +29,8 @@ const webpackConfig = {
     entry: {
         App: config.paths.entry,
         Logout: config.paths.logout,
-        NotFound: config.paths.notFound
+        NotFound: config.paths.notFound,
+        Login: config.paths.login
     },
     output: {
         filename: 'js/[name].js',

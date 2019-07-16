@@ -37,7 +37,7 @@ class Landing extends Component {
         });
 
         window.insights.chrome.auth.getUser().then(user => {
-            if (user) {
+            if (user && localStorage.getItem('cs_jwt_refresh_token')) {
                 this.setState({ unauthed: false });
             } else {
                 this.setState({ unauthed: true });

@@ -12,7 +12,9 @@ module.exports = {
         '/': { host: 'https://localhost:8002' },
         '/404': { host: 'https://localhost:8002' },
         '/logout': { host: 'https://localhost:8002' },
+        '/login': { host: 'https://localhost:8002' },
         '/apps/landing/404': { host: 'https://localhost:8002' },
+        '/apps/landing/landing': { host: 'https://localhost:8002' },
         '/apps/landing/logout': { host: 'https://localhost:8002' },
     }
 };

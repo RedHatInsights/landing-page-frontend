@@ -46,6 +46,14 @@ const NotFound = new (require('html-webpack-plugin'))({
 });
 plugins.push(NotFound);
 
+const Login = new (require('html-webpack-plugin'))({
+    title: 'Login',
+    filename: 'login.html',
+    chunks: [ 'Login', 'vendor' ],
+    template: path.resolve(__dirname, '../src/not-signed.html')
+});
+plugins.push(Login);
+
 /**
  * Source maps
  * @type {var}
