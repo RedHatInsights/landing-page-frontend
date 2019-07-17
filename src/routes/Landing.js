@@ -44,8 +44,9 @@ class Landing extends Component {
             } else {
                 this.setState({ unauthed: true });
                 //alert("here")
-                //this.setState({ iframeFlag: true });
+                this.setState({ iframeFlag: true });
             }
+            //alert(this.state.iframeFlag)
         }).catch(() => {
             this.setState({ unauthed: true });
         });
@@ -61,10 +62,10 @@ class Landing extends Component {
 
     iframeSrc = <p></p>;
     
-    iFrameChallengeAuth = () =>{
+    iFrameCheckAuth = () =>{
         alert(this.state.iframeFlag)
         if (this.state.iframeFlag) {
-            window.insights.chrome.auth.challengeAuth()
+            window.insights.chrome.auth.checkAuth()
         }
         
     }
@@ -78,7 +79,7 @@ class Landing extends Component {
 
         return (
             <Fragment>
-                <iframe src='login.html' style={this.iframeStyle}></iframe>
+                <iframe src= {this.state.iframeFlag ? 'login.html' : undefined} style={this.iframeStyle}>s</iframe>
                 { unauthed
                     ? <Marketing />
                     : <Fragment>

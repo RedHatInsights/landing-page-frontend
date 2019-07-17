@@ -1,8 +1,9 @@
 import React from 'react';
 
 const Login = () => {
-    alert("test");
-    window.insights.chrome.auth.challengeAuth()
+    window.top.insights.chrome.auth.login();
+
+    return null;
 };
 
 export default Login;

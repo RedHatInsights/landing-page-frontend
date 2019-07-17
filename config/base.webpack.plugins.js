@@ -50,7 +50,7 @@ const Login = new (require('html-webpack-plugin'))({
     title: 'Login',
     filename: 'login.html',
     chunks: [ 'Login', 'vendor' ],
-    template: path.resolve(__dirname, '../src/not-signed.html')
+    template: path.resolve(__dirname, '../src/index.html')
 });
 plugins.push(Login);
 
