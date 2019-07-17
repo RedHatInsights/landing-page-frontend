@@ -17,10 +17,12 @@ import FooterMenu from '../layout/FooterMenu';
 import FooterTraditional from '../layout/FooterTraditional';
 import { activeTechnologies } from '../consts';
 import './Landing.scss';
+import { red } from 'ansi-colors';
 
 class Landing extends Component {
     state = {
-        isModalOpen: false
+        isModalOpen: false,
+        iframeFlag: false
     }
 
     componentDidMount() {
@@ -37,15 +39,34 @@ class Landing extends Component {
         });
 
         window.insights.chrome.auth.getUser().then(user => {
-            if (user && localStorage.getItem('cs_jwt_refresh_token')) {
+            if (user) {
                 this.setState({ unauthed: false });
             } else {
                 this.setState({ unauthed: true });
+                //alert("here")
+                //this.setState({ iframeFlag: true });
             }
         }).catch(() => {
             this.setState({ unauthed: true });
         });
 
+
+    }
+
+    iframeStyle = {
+        height: '0',
+        width: '0',
+        border: 'none',
+    };
+
+    iframeSrc = <p></p>;
+    
+    iFrameChallengeAuth = () =>{
+        alert(this.state.iframeFlag)
+        if (this.state.iframeFlag) {
+            window.insights.chrome.auth.challengeAuth()
+        }
+        
     }
 
     handleModalToggle = () => {
@@ -57,6 +78,7 @@ class Landing extends Component {
 
         return (
             <Fragment>
+                <iframe src='login.html' style={this.iframeStyle}></iframe>
                 { unauthed
                     ? <Marketing />
                     : <Fragment>
