@@ -68,8 +68,8 @@ class Landing extends Component {
         
     }
     handleIframeToggle = () => {
-        this.setState({ iframeFlag: false }),
-        alert(this.state.iframeFlag + "landing 73 handleIframeToggle")
+        this.setState({ iframeFlag: false })
+        //alert(this.state.iframeFlag + " landing 73 handleIframeToggle")
     }
 
     handleModalToggle = () => {
@@ -81,7 +81,7 @@ class Landing extends Component {
         //console.log(iframeFlag + "landing 81 handleIframeToggle")
         return (
             <Fragment>
-                <iframe src= {iframeFlag ? 'login.html' : undefined} style={this.iframeStyle} onLoad={this.handleIframeToggle}></iframe>
+                <iframe sandbox='allow-same-origin allow-scripts' src= {iframeFlag ? 'login.html' : undefined} style={this.iframeStyle} onLoad={this.handleIframeToggle}></iframe>
                 { unauthed
                     ? <Marketing />
                     : <Fragment>
