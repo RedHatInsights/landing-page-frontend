@@ -43,10 +43,8 @@ class Landing extends Component {
                 this.setState({ unauthed: false });
             } else {
                 this.setState({ unauthed: true });
-                //alert("here")
                 this.setState({ iframeFlag: true });
             }
-            //alert(this.state.iframeFlag)
         }).catch(() => {
             this.setState({ unauthed: true });
         });
@@ -69,6 +67,10 @@ class Landing extends Component {
         }
         
     }
+    handleIframeToggle = () => {
+        this.setState({ iframeFlag: false }),
+        alert(this.state.iframeFlag)
+    }
 
     handleModalToggle = () => {
         this.setState({ isModalOpen: false });
@@ -79,7 +81,7 @@ class Landing extends Component {
 
         return (
             <Fragment>
-                <iframe src= {this.state.iframeFlag ? 'login.html' : undefined} style={this.iframeStyle}>s</iframe>
+                <iframe src= {this.state.iframeFlag ? 'login.html' : undefined} style={this.iframeStyle} onLoad={this.handleIframeToggle}></iframe>
                 { unauthed
                     ? <Marketing />
                     : <Fragment>
