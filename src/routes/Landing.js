@@ -69,7 +69,7 @@ class Landing extends Component {
     }
     handleIframeToggle = () => {
         this.setState({ iframeFlag: false }),
-        alert(this.state.iframeFlag)
+        alert(this.state.iframeFlag + "landing 73 handleIframeToggle")
     }
 
     handleModalToggle = () => {
@@ -77,11 +77,11 @@ class Landing extends Component {
     }
 
     render() {
-        const { isModalOpen, not_entitled: notEntitled, unauthed } = this.state;
-
+        const { isModalOpen, not_entitled: notEntitled, unauthed, iframeFlag } = this.state;
+        //console.log(iframeFlag + "landing 81 handleIframeToggle")
         return (
             <Fragment>
-                <iframe src= {this.state.iframeFlag ? 'login.html' : undefined} style={this.iframeStyle} onLoad={this.handleIframeToggle}></iframe>
+                <iframe src= {iframeFlag ? 'login.html' : undefined} style={this.iframeStyle} onLoad={this.handleIframeToggle}></iframe>
                 { unauthed
                     ? <Marketing />
                     : <Fragment>
