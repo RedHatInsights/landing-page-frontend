@@ -1,7 +1,5 @@
-import React from 'react';
-
 const Login = () => {
-    window.top.insights.chrome.auth.login();
+    window.parent.insights.chrome.auth.login();
 
     return null;
 };

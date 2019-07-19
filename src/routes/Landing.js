@@ -10,6 +10,11 @@ import {
     EmptyStateBody
 } from '@patternfly/react-core';
 
+import {
+    Main,
+    Spinner
+} from '@red-hat-insights/insights-frontend-components';
+
 import Header from '../layout/Header';
 import Body from '../layout/Body';
 import Marketing from '../layout/Marketing';
@@ -17,7 +22,6 @@ import FooterMenu from '../layout/FooterMenu';
 import FooterTraditional from '../layout/FooterTraditional';
 import { activeTechnologies } from '../consts';
 import './Landing.scss';
-import { red } from 'ansi-colors';
 
 class Landing extends Component {
     state = {
@@ -47,29 +51,26 @@ class Landing extends Component {
             }
         }).catch(() => {
             this.setState({ unauthed: true });
+            this.setState({ iframeFlag: false });
         });
-
-
     }
 
     iframeStyle = {
         height: '0',
         width: '0',
-        border: 'none',
+        border: 'none'
     };
 
     iframeSrc = <p></p>;
-    
+
     iFrameCheckAuth = () =>{
-        alert(this.state.iframeFlag)
         if (this.state.iframeFlag) {
-            window.insights.chrome.auth.checkAuth()
+            window.insights.chrome.auth.checkAuth();
         }
-        
     }
+
     handleIframeToggle = () => {
-        this.setState({ iframeFlag: false })
-        //alert(this.state.iframeFlag + " landing 73 handleIframeToggle")
+        this.setState({ iframeFlag: false });
     }
 
     handleModalToggle = () => {
@@ -78,18 +79,47 @@ class Landing extends Component {
 
     render() {
         const { isModalOpen, not_entitled: notEntitled, unauthed, iframeFlag } = this.state;
-        //console.log(iframeFlag + "landing 81 handleIframeToggle")
+
+        const authedPage = (
+            <Fragment>
+                <Header />
+                <Body />
+                <FooterMenu />
+            </Fragment>
+        );
+
+        const unauthedPage = (<Marketing />);
+
+        const loadingPage = (
+            <Fragment>
+                <Header/>
+                <Main className='ins-l-landing-page__spinner--wrapper'>
+                    <Spinner centered/>
+                </Main>
+            </Fragment>
+        );
+
+        function generateLandingPage (iframeFlag, unauthed) {
+            console.log(`iframe: ${iframeFlag}, authed: ${!unauthed}`);
+            if (!unauthed) {
+                console.log('auth page');
+                return authedPage;
+            } else {
+                console.log('marketing page');
+                return unauthedPage;
+            }
+        }
+
         return (
             <Fragment>
-                <iframe sandbox='allow-same-origin allow-scripts' src= {iframeFlag ? 'login.html' : undefined} style={this.iframeStyle} onLoad={this.handleIframeToggle}></iframe>
-                { unauthed
-                    ? <Marketing />
-                    : <Fragment>
-                        <Header />
-                        <Body />
-                        <FooterMenu />
+                { iframeFlag
+                    ? <Fragment>
+                        <iframe sandbox='allow-scripts allow-same-origin' src='/login.html' style={ this.iframeStyle } onLoad={ this.handleIframeToggle }/>
+                        { loadingPage }
                     </Fragment>
+                    : generateLandingPage(iframeFlag, unauthed)
                 }
+
                 <FooterTraditional />
                 { notEntitled && <Modal
                     title={ 'You are not entitled to use this application' }
