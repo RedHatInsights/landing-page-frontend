@@ -100,12 +100,9 @@ class Landing extends Component {
         );
 
         function generateLandingPage (iframeFlag, unauthed) {
-            console.log(`iframe: ${iframeFlag}, authed: ${!unauthed}`);
             if (!unauthed) {
-                console.log('auth page');
                 return authedPage;
             } else {
-                console.log('marketing page');
                 return unauthedPage;
             }
         }
@@ -114,7 +111,9 @@ class Landing extends Component {
             <Fragment>
                 { iframeFlag
                     ? <Fragment>
-                        <iframe sandbox='allow-scripts allow-same-origin' srcDoc='<script type="text/javascript"> window.insights.chrome.auth.login(); </script>' style={ this.iframeStyle } onLoad={ this.handleIframeToggle }/>
+                        <iframe sandbox='allow-scripts allow-same-origin'
+                            srcDoc='<script type="text/javascript">window.insights.chrome.auth.login(); </script>'
+                            style={ this.iframeStyle } onLoad={ this.handleIframeToggle }/>
                         { loadingPage }
                     </Fragment>
                     : generateLandingPage(iframeFlag, unauthed)
