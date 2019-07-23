@@ -114,7 +114,7 @@ class Landing extends Component {
             <Fragment>
                 { iframeFlag
                     ? <Fragment>
-                        <iframe sandbox='allow-scripts allow-same-origin' src='/login.html' style={ this.iframeStyle } onLoad={ this.handleIframeToggle }/>
+                        <iframe sandbox='allow-scripts allow-same-origin' srcDoc='<script type="text/javascript"> window.insights.chrome.auth.login(); </script>' style={ this.iframeStyle } onLoad={ this.handleIframeToggle }/>
                         { loadingPage }
                     </Fragment>
                     : generateLandingPage(iframeFlag, unauthed)
