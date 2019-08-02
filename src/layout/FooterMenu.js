@@ -33,7 +33,7 @@ const FooterMenu = () => (
                     TODO: Unhide at a later point
                     <a href="#">Red Hat Hybrid Cloud Management</a>
                 */ }
-                <a href="https://www.redhat.com/en/technologies/cloud-computing/openshift">Red Hat OpenShift</a>
+                <a href="https://www.openshift.com/">Red Hat OpenShift</a>
             </GridItem>
             <GridItem>
                 <TextContent>
