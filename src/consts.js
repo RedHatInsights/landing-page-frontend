@@ -28,7 +28,7 @@ export const activeTechnologies = [
             title: 'Activate Red Hat Insights',
             navigate: 'https://www.redhat.com/wapps/eval/index.html?evaluation_id=1036'
         },
-        body: 'Identify and remediate configuration issues in your Red Hat environments.'
+        body: 'Identify and remediate configuration issues in your Red Hat® environments.'
     },
     {
         entitlement: 'smart_management',
