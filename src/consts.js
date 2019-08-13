@@ -10,6 +10,8 @@ import smartManagementMarketing from './components/marketing/smartManagementMark
 // isPreview for technical previews
 
 export const activeTechnologies = [
+
+    // Big Tiles
     {
         entitlement: 'insights',
         marketing: true,
@@ -28,7 +30,8 @@ export const activeTechnologies = [
             title: 'Activate Red Hat Insights',
             navigate: 'https://www.redhat.com/wapps/eval/index.html?evaluation_id=1036'
         },
-        body: 'Identify and remediate configuration issues in your Red Hat environments.'
+        body: 'Identify and remediate configuration issues in your Red Hat environments.',
+        isTile: true
     },
     {
         entitlement: 'smart_management',
@@ -47,7 +50,8 @@ export const activeTechnologies = [
             navigate: 'https://www.redhat.com/en/technologies/management/smart-management'
         },
         title: 'Cloud Management Services for Red Hat Enterprise Linux',
-        body: 'Monitor and manage issues like security and compliance for your Red Hat Enterprise Linux systems.'
+        body: 'Monitor and manage issues like security and compliance for your Red Hat Enterprise Linux systems.',
+        isTile: true
     },
     {
         id: 'Openshift',
@@ -70,7 +74,8 @@ export const activeTechnologies = [
             title: 'Try it free'
         },
         title: 'Red Hat OpenShift Cluster Manager',
-        body: 'Install, register, and manage Red Hat OpenShift® 4 clusters.'
+        body: 'Install, register, and manage Red Hat OpenShift® 4 clusters.',
+        isTile: true
     },
     {
         id: 'Hybrid',
@@ -87,6 +92,68 @@ export const activeTechnologies = [
         },
         title: 'Hybrid cloud management services',
         body: 'Govern, automate, and manage multi-cloud environments.',
-        isPreview: true
-    }
+        isPreview: true,
+        isTile: true
+    },
+
+    // Small Tiles
+    {
+        entitlement: 'insights',
+        marketingImage: insightsMarketing,
+        marketingText: 'Proactively identify and remediate threats to security, performance, and stability.',
+        marketingUrl: 'https://www.redhat.com/en/technologies/management/insights',
+        name: 'insights',
+        id: 'insights',
+        url: 'insights/overview',
+        icon: ChartSpikeIcon,
+        title: 'Red Hat Insights',
+        emptyTitle: 'Red Hat Insights is included with every Red Hat Enterprise Linux subscription',
+        emptyText: 'Proactively identify and remediate threats to security, performance, availability, \
+        and stability with Red Hat Insights. Activate Red Hat Insights to get started today.',
+        emptyAction: {
+            title: 'Activate Red Hat Insights',
+            navigate: 'https://www.redhat.com/wapps/eval/index.html?evaluation_id=1036'
+        },
+        body: 'Identify and remediate configuration issues in your Red Hat environments.'
+    },
+    {
+        entitlement: 'smart_management',
+        marketingImage: smartManagementMarketing,
+        marketingText: 'Operate and protect your Red Hat platforms.',
+        marketingUrl: 'https://www.redhat.com/en/technologies/management/smart-management',
+        id: 'RHEL',
+        url: 'rhel/dashboard',
+        image: hcm,
+        emptyTitle: 'Learn how to get started with cloud management services for Red Hat Enterprise Linux',
+        emptyText: 'Monitor your Red Hat environments to track system compliance, configration, \
+        security, and efficiency. Upgrade to get started today.',
+        emptyAction: {
+            title: 'Learn More',
+            navigate: 'https://www.redhat.com/en/technologies/management/smart-management'
+        },
+        title: 'Big Testing',
+        body: 'Monitor and manage issues like security and compliance for your Red Hat Enterprise Linux systems.'
+    },
+    {
+        id: 'Openshift',
+        url: 'openshift',
+        entitlement: 'openshift',
+        marketingImage: openShiftMarketing,
+        marketingText: 'Install, register, and manage Red Hat OpenShift® 4 clusters.',
+        marketingUrl: 'https://try.openshift.com',
+        icon: OpenshiftIcon,
+        iconProps: {
+            style: {
+                fill: '#DB242F'
+            }
+        },
+        emptyTitle: 'Get Started with Red Hat Openshift',
+        emptyText: 'Test drive industry\'s leading container application platform in your browser, \
+        and see how easy it is to use Kubernetes in your organization today.',
+        emptyAction: {
+            title: 'Try it free'
+        },
+        title: 'Testing',
+        body: 'Install, register, and manage Red Hat OpenShift® 4 clusters.'
+    },
 ];

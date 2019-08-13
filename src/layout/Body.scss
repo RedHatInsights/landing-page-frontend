@@ -1,3 +1,5 @@
+@import '~@red-hat-insights/insights-frontend-components/Utilities/_mixins';
+
 .ins-c-open-card {
     color: var(--pf-global--link--Color);
 }
@@ -8,4 +10,26 @@
         color: var(--pf-global--link--Color--hover);
         text-decoration: underline;
     }
+}
+
+.ins-c-banner {
+    padding: 50px 0;
+    .ins-c-banner__item {
+        @include rem('padding', 56px);
+        box-shadow: var(--pf-global--BoxShadow--sm);
+        background: white;
+
+    }
+}
+
+.ins-c-card__mini {
+    .ins-c-card__mini--header {
+        margin-bottom: 5px;
+        img { height: 25px; }
+        h4 {
+            margin: 0;
+        }
+    }
+    .ins-c-card__mini--body {}
+    .ins-c-card__mini--footer {}
 }

@@ -4,7 +4,7 @@
     background: white;
     box-shadow: var(--pf-global--BoxShadow--sm);
     z-index: 2;
-    @include rem('padding', 60px);
+    @include rem('padding', 56px);
     a {
         display: block;
         & + a { @include rem('margin-top', 15px); }
