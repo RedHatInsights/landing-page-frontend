@@ -3,7 +3,7 @@ import { PageHeader, PageHeaderTitle } from '@red-hat-insights/insights-frontend
 
 const Header = () => (
     <PageHeader>
-        <PageHeaderTitle title='Manage my Red Hat infrastructure'/>
+        <PageHeaderTitle title='Manage, automate, and optimize your IT'/>
     </PageHeader>
 );
 

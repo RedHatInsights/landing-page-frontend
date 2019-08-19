@@ -1,54 +1,5 @@
 @import '~@red-hat-insights/insights-frontend-components/Utilities/_mixins';
 
-:root {
-    --ins-global--Color--green: #37912f;
-}
-
-.ins-c-application-info .ins-m-gray {
-    color: var(--pf-global--Color--200);
-}
-
-.ins-m-tech-preview {
-    @include rem('margin-bottom', 16px);
-    color: var(--ins-global--Color--green);
-}
-
-.ins-m-dev-preview {
-    @include rem('margin-bottom', 16px);
-    color: #39A5DC;
-}
-
-.pf-c-card {
-    &.ins-c-application-info {
-        height: 100%;
-
-        img.ins-c-application-info__logo {
-            @include rem('height', 56px);
-        }
-
-        svg.ins-c-application-info__logo {
-            @include rem('height', 56px);
-            @include rem('width', 56px);
-        }
-    }
-
-    .ins-c-navigation {
-        color: var(--pf-global--active-color--100);
-    }
-}
-
-.pf-c-modal-box__body .pf-c-empty-state img.ins-c-application-info__logo {
-    @include rem('height', 76px);
-}
-
-svg.ins-c-icon__active {
-    fill: var(--pf-global--active-color--100);
-}
-
-.pf-c-modal-box .pf-c-title {
-    white-space: normal;
-}
-
 .pf-c-card.pf-m-card-link {
     position: relative;
 
@@ -74,8 +25,4 @@ svg.ins-c-icon__active {
         height: 1px;
         background: var(--pf-global--link--Color);
     }
-}
-
-sup.ins-c-rball {
-    @include rem('font-size', 10px);
 }

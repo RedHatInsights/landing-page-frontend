@@ -13,7 +13,6 @@ import {
 import Header from '../layout/Header';
 import Body from '../layout/Body';
 import Marketing from '../layout/Marketing';
-import FooterMenu from '../layout/FooterMenu';
 import FooterTraditional from '../layout/FooterTraditional';
 import { activeTechnologies } from '../consts';
 import './Landing.scss';
@@ -62,7 +61,6 @@ class Landing extends Component {
                     : <Fragment>
                         <Header />
                         <Body />
-                        <FooterMenu />
                     </Fragment>
                 }
                 <FooterTraditional />

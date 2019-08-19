@@ -1,10 +1,12 @@
 import { ChartSpikeIcon, OpenshiftIcon } from '@patternfly/react-icons';
 import hcm from './components/hcm.svg';
 import rhelCs from './components/rhel-cs.svg';
+import ansible from './components/ansible.svg';
 
 import insightsMarketing from './components/marketing/insightsMarketing.svg';
 import openShiftMarketing from './components/marketing/openShiftMarketing.svg';
 import smartManagementMarketing from './components/marketing/smartManagementMarketing.svg';
+import ansibleMarketing from './components/marketing/ansibleMarketing.svg';
 
 // isDevPreview for developer previews
 // isPreview for technical previews
@@ -18,7 +20,11 @@ export const activeTechnologies = [
         marketingUrl: 'https://www.redhat.com/en/technologies/management/insights',
         name: 'insights',
         id: 'insights',
-        url: 'insights/overview',
+        url: 'insights',
+        baseApp: '/overview',
+        apps: {
+            rules: '/rules'
+        },
         icon: ChartSpikeIcon,
         title: 'Red Hat Insights',
         emptyTitle: 'Red Hat Insights is included with every Red Hat Enterprise Linux subscription',
@@ -37,7 +43,13 @@ export const activeTechnologies = [
         marketingText: 'Operate and protect your Red Hat platforms.',
         marketingUrl: 'https://www.redhat.com/en/technologies/management/smart-management',
         id: 'RHEL',
-        url: 'rhel/dashboard',
+        url: 'rhel',
+        baseApp: '/dashboard',
+        apps: {
+            vulnerability: '/rules',
+            compliance: '/compliance',
+            'system comparison': '/drift'
+        },
         image: hcm,
         emptyTitle: 'Learn how to get started with cloud management services for Red Hat Enterprise Linux',
         emptyText: 'Monitor your Red Hat environments to track system compliance, configration, \
@@ -52,6 +64,10 @@ export const activeTechnologies = [
     {
         id: 'Openshift',
         url: 'openshift',
+        baseApp: '/clusters',
+        apps: {
+            'cluster manager': '/clusters'
+        },
         entitlement: 'openshift',
         marketing: true,
         marketingImage: openShiftMarketing,
@@ -74,7 +90,8 @@ export const activeTechnologies = [
     },
     {
         id: 'Hybrid',
-        url: 'hybrid/catalog',
+        url: 'hybrid',
+        baseApp: '/catalog',
         entitlement: 'hybrid_cloud',
         marketing: false,
         disabled: window.location.pathname.indexOf('/beta') !== 0,
@@ -88,5 +105,67 @@ export const activeTechnologies = [
         title: 'Hybrid cloud management services',
         body: 'Govern, automate, and manage multi-cloud environments.',
         isPreview: true
+    },
+    {
+        id: 'Ansible',
+        entitlement: 'ansible',
+        url: 'ansible-automation',
+        baseApp: '/tower-analytics',
+        image: ansible,
+        title: 'Ansible Automation',
+        body: 'todo',
+        apps: {
+            'tower analytics': '/tower-analytics',
+            'automation hub': '/automation-hub',
+            'playbook catalog': '/playbook-catalog'
+        },
+        marketing: true,
+        marketingImage: ansibleMarketing,
+        marketingText: 'todo',
+        marketingUrl: 'todo',
+        emptyTitle: 'Ansible Automation',
+        emptyText: 'todo',
+        emptyAction: {
+            title: 'Learn More',
+            navigate: 'todo'
+        }
+    },
+    {
+        id: 'migration',
+        entitlement: 'migration-analytics',
+        url: 'migration-analytics',
+        image: ansible,
+        title: 'Migration Services',
+        body: 'Get recommendations on migrating your applications and infrastructure to Red Hat',
+        baseApp: '/migration-analytics',
+        apps: {
+            'migration analytics': '/migration-analytics'
+        },
+        marketing: false,
+        emptyTitle: 'Migration Services',
+        emptyText: 'Migration Services requires an evaluation of Red Hat CloudForms',
+        emptyAction: {
+            title: 'Learn More',
+            navigate: 'todo'
+        }
+    },
+    {
+        id: 'subscription',
+        entitlement: 'subscription-reporting',
+        url: 'subscriptions',
+        image: ansible,
+        title: 'Subscription Reporting',
+        body: 'todo',
+        baseApp: '/subscriptions',
+        apps: {
+            'subscription reporting': '/'
+        },
+        marketing: false,
+        emptyTitle: 'Subscription Reporting',
+        emptyText: 'Subscription Reporting requires a valid cloud.redhat.com account',
+        emptyAction: {
+            title: 'Activate Subscription Reporting',
+            navigate: 'https://www.redhat.com/wapps/eval/index.html?evaluation_id=1036'
+        }
     }
 ];
