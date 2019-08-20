@@ -4,17 +4,17 @@ import { Provider } from 'react-redux';
 import configureMockStore from 'redux-mock-store';
 import { mount } from 'enzyme';
 import toJson from 'enzyme-to-json';
-import Landing from '../Landing';
+import App from '../App';
 
 const mockStore = configureMockStore();
 const store = mockStore({});
 
-describe('Landing component renders authenticated page', () => {
+describe('App component', () => {
     it('should render correctly', () => {
         const wrapper = mount(
             <Provider store={ store }>
                 <Router>
-                    <Landing />
+                    <App />
                 </Router>
             </Provider>
         );

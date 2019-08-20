@@ -1,6 +1,6 @@
 import MiddlewareListener from '@red-hat-insights/insights-frontend-components/Utilities/MiddlewareListener';
-import { getRegistry } from '@red-hat-insights/insights-frontend-components';
-import { notificationsMiddleware } from '@red-hat-insights/insights-frontend-components/components/Notifications/';
+import { getRegistry } from '@red-hat-insights/insights-frontend-components/Utilities/Registry';
+import { notificationsMiddleware } from '@red-hat-insights/insights-frontend-components/components/Notifications';
 import promiseMiddleware from 'redux-promise-middleware';
 
 let middlewareListener;

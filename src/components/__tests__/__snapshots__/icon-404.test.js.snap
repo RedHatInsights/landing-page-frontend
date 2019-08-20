@@ -7,7 +7,7 @@ exports[`404 component should render correctly 1`] = `
   id="Icon404"
   viewBox="0 0 131 131"
   xmlns="http://www.w3.org/2000/svg"
-  xmlnsxlink="http://www.w3.org/1999/xlink"
+  xmlnsXlink="http://www.w3.org/1999/xlink"
 >
   <defs>
     <mask
