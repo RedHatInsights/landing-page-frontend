@@ -19,7 +19,7 @@ import PropTypes from 'prop-types';
 import './Body.scss';
 
 const Body = ({ technologies }) => (
-    <PageSection className='pf-m-fill'>
+    <PageSection className='pf-m-fill ins-p-landing__content'>
         <Gallery gutter="md">
             { technologies.map(({ icon: Icon, image, iconProps, title, url, apps, baseApp, body, isPreview, isDevPreview, id }, key) => (
                 <GalleryItem key={ key }>

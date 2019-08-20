@@ -13,9 +13,7 @@
             @include rem('margin-right', 30px);
         }
 
-        * {
-            font-size: var(--pf-global--FontSize--sm);
-        }
+        * { font-size: var(--pf-global--FontSize--sm); }
 
         li + li {
             @media screen and (min-width: $pf-global--breakpoint--lg) {

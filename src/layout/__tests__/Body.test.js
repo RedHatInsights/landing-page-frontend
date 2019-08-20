@@ -1,6 +1,6 @@
 /*global describe, test, expect */
 
-import { mapStateToProps } from './Body';
+import { mapStateToProps } from '../Body';
 
 function getInput(obj) {
     return {

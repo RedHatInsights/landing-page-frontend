@@ -60,11 +60,10 @@ const Marketing = ({ technologies }) => (
 
 Marketing.propTypes = {
     technologies: PropTypes.arrayOf(PropTypes.shape({
-        name: PropTypes.string,
-        icon: PropTypes.oneOfType([ PropTypes.func, PropTypes.string ]),
-        body: PropTypes.node,
-        tite: PropTypes.node,
-        isPreview: PropTypes.bool
+        marketingImage: PropTypes.oneOfType([ PropTypes.func, PropTypes.string ]),
+        marketing: PropTypes.bool,
+        marketingUrl: PropTypes.string,
+        marketingText: PropTypes.string
     }))
 };
 

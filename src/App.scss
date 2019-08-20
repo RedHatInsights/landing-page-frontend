@@ -13,9 +13,7 @@
         height: 100%;
     }
 
-    .ins-c-open-card {
-        position: relative;
-    }
+    .ins-c-open-card { position: relative; }
 
     &:hover .ins-c-open-card::after {
         content: '';

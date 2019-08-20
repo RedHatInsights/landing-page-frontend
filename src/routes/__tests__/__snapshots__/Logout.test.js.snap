@@ -1,0 +1,44 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Logout component should render correctly 1`] = `
+<Logout>
+  <section
+    className="pf-l-page__main-section pf-c-page__main-section ins-c-page__logout"
+  >
+    <Title
+      size="3xl"
+    >
+      <h1
+        className="pf-c-title pf-m-3xl"
+      >
+         You have logged out. 
+      </h1>
+    </Title>
+    <Button
+      aria-label={null}
+      className=""
+      component="button"
+      isActive={false}
+      isBlock={false}
+      isDisabled={false}
+      isFocus={false}
+      isHover={false}
+      onClick={[Function]}
+      type="button"
+      variant="link"
+    >
+      <button
+        aria-disabled={null}
+        aria-label={null}
+        className="pf-c-button pf-m-link"
+        disabled={false}
+        onClick={[Function]}
+        tabIndex={null}
+        type="button"
+      >
+        Take me home
+      </button>
+    </Button>
+  </section>
+</Logout>
+`;

@@ -1,0 +1,52 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Hero component should render correctly 1`] = `
+<PageSection
+  className="ins-c-hero pf-m-fill pf-l-flex pf-m-align-items-center pf-m-justify-content-center"
+  variant="default"
+>
+  <article
+    className="pf-l-flex pf-m-column pf-m-align-items-center"
+  >
+    <Title
+      className="ins-c-hero__title pf-m-spacer-lg"
+      size="3xl"
+    >
+       Explore our open, multicloud tools 
+    </Title>
+    <Title
+      className="pf-m-spacer-xl"
+      headingLevel="h2"
+      size="lg"
+    >
+      Discover Red Hat
+      <sup
+        className="ins-c-rball"
+      >
+        ®
+      </sup>
+       software-as-a-service
+    </Title>
+    <Button
+      aria-label={null}
+      className=""
+      component="button"
+      isActive={false}
+      isBlock={false}
+      isDisabled={false}
+      isFocus={false}
+      isHover={false}
+      onClick={[Function]}
+      type="button"
+      variant="primary"
+    >
+       Log in to your Red Hat account
+    </Button>
+    <a
+      href="https://www.redhat.com/en/customers"
+    >
+       Not a customer? 
+    </a>
+  </article>
+</PageSection>
+`;

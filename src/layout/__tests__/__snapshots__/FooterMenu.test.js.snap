@@ -1,0 +1,161 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Footer Menu component should render correctly 1`] = `
+<PageSection
+  className="ins-c-footer__menu pf-m-no-fill"
+  variant="default"
+>
+  <Grid
+    className=""
+    gutter="lg"
+    lg={null}
+    md={3}
+    sm={12}
+    span={null}
+    xl={null}
+  >
+    <GridItem
+      className=""
+      lg={null}
+      lgOffset={null}
+      lgRowSpan={null}
+      md={null}
+      mdOffset={null}
+      mdRowSpan={null}
+      offset={null}
+      rowSpan={null}
+      sm={null}
+      smOffset={null}
+      smRowSpan={null}
+      span={null}
+      xl={null}
+      xlOffset={null}
+      xlRowSpan={null}
+    >
+      <TextContent
+        className=""
+      >
+        <Text
+          className=""
+          component="h2"
+        >
+          Support and resources
+        </Text>
+      </TextContent>
+      <a
+        href="https://access.redhat.com/support"
+      >
+        Get support
+      </a>
+      <a
+        href="https://access.redhat.com/support/customer-service"
+      >
+        Contact customer service
+      </a>
+    </GridItem>
+    <GridItem
+      className=""
+      lg={null}
+      lgOffset={null}
+      lgRowSpan={null}
+      md={null}
+      mdOffset={null}
+      mdRowSpan={null}
+      offset={null}
+      rowSpan={null}
+      sm={null}
+      smOffset={null}
+      smRowSpan={null}
+      span={null}
+      xl={null}
+      xlOffset={null}
+      xlRowSpan={null}
+    >
+      <TextContent
+        className=""
+      >
+        <Text
+          className=""
+          component="h2"
+        >
+          About
+        </Text>
+      </TextContent>
+      <a
+        href="https://access.redhat.com/products/red-hat-insights#getstarted"
+      >
+        Red Hat Insights
+      </a>
+      <a
+        href="https://access.redhat.com/products/cloud_management_services_for_rhel"
+      >
+        Red Hat Smart Management
+      </a>
+      <a
+        href="https://www.openshift.com/"
+      >
+        Red Hat OpenShift
+      </a>
+    </GridItem>
+    <GridItem
+      className=""
+      lg={null}
+      lgOffset={null}
+      lgRowSpan={null}
+      md={null}
+      mdOffset={null}
+      mdRowSpan={null}
+      offset={null}
+      rowSpan={null}
+      sm={null}
+      smOffset={null}
+      smRowSpan={null}
+      span={null}
+      xl={null}
+      xlOffset={null}
+      xlRowSpan={null}
+    >
+      <TextContent
+        className=""
+      >
+        <Text
+          className=""
+          component="h2"
+        >
+          Feedback
+        </Text>
+      </TextContent>
+      <Split
+        className=""
+        component="div"
+        gutter="md"
+      >
+        <SplitItem
+          className=""
+          isFilled={false}
+        >
+          <PaperPlaneAltIcon
+            className="ins-c-icon__active"
+            color="currentColor"
+            size="xl"
+            title={null}
+          />
+        </SplitItem>
+        <SplitItem
+          className=""
+          isFilled={true}
+        >
+          <a
+            className="ins-m-inline"
+            href="javascript:;"
+            tabIndex="0"
+          >
+            Tell us about your experience
+          </a>
+           using Red Hat Cloud Services software, and how we can improve.
+        </SplitItem>
+      </Split>
+    </GridItem>
+  </Grid>
+</PageSection>
+`;
