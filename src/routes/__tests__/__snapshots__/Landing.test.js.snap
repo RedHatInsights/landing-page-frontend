@@ -141,6 +141,7 @@ exports[`Landing component renders authenticated page should render correctly 1`
                     role="contentinfo"
                   >
                     <a
+                      className="ins-p-footer__logo"
                       href="https://www.redhat.com"
                       rel="noopener noreferrer"
                       target="_blank"
@@ -183,7 +184,7 @@ exports[`Landing component renders authenticated page should render correctly 1`
                         >
                           <li>
                             <a
-                              className="nav-link"
+                              className="nav-link ins-p-footer__privacy-policy"
                               href="https://www.redhat.com/en/about/privacy-policy"
                             >
                               Privacy Policy
@@ -191,7 +192,7 @@ exports[`Landing component renders authenticated page should render correctly 1`
                           </li>
                           <li>
                             <a
-                              className="nav-link"
+                              className="nav-link ins-p-footer__terms"
                               href="https://access.redhat.com/help/terms/"
                             >
                               Terms of Use
@@ -199,7 +200,7 @@ exports[`Landing component renders authenticated page should render correctly 1`
                           </li>
                           <li>
                             <a
-                              className="nav-link"
+                              className="nav-link ins-p-footer__all-policies"
                               href="https://www.redhat.com/en/about/all-policies-guidelines"
                             >
                               All Policies and Guidelines

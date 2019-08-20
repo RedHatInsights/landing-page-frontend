@@ -20,4 +20,16 @@ describe('404 page', () => {
         );
         expect(toJson(wrapper)).toMatchSnapshot();
     });
+
+    it('click: Return to homepage', () => {
+        const wrapper = mount(
+            <Provider store={ store }>
+                <Router>
+                    <NotFound />
+                </Router>
+            </Provider>
+        );
+        wrapper.find('button').simulate('click');
+        expect(window.location.pathname).toBe('/');
+    })
 });

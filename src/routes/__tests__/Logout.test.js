@@ -8,4 +8,10 @@ describe('Logout component', () => {
         const wrapper = mount(<Logout />);
         expect(toJson(wrapper)).toMatchSnapshot();
     });
+
+    it('click: take me home', () => {
+        const wrapper = mount(<Logout />);
+        wrapper.find('button').simulate('click');
+        expect(window.location.pathname).toBe('/');
+    })
 });
