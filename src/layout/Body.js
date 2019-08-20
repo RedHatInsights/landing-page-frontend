@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import {
     Card,
     CardBody,
@@ -22,7 +22,7 @@ const Body = ({ technologies }) => (
     <PageSection className='pf-m-fill'>
         <Gallery gutter="md">
             { technologies.map(({ icon: Icon, image, iconProps, title, url, apps, baseApp, body, isPreview, isDevPreview, id }, key) => (
-                <GalleryItem key={key}>
+                <GalleryItem key={ key }>
                     <Card className="ins-c-application-info" application-id={ id }>
                         <CardHeader>
                             <Stack>
@@ -93,7 +93,10 @@ Body.propTypes = {
         icon: PropTypes.oneOfType([ PropTypes.func, PropTypes.string ]),
         body: PropTypes.node,
         title: PropTypes.node,
-        isPreview: PropTypes.bool
+        isPreview: PropTypes.bool,
+        url: PropTypes.string,
+        apps: PropTypes.object,
+        baseApp: PropTypes.string
     }))
 };
 
