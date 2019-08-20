@@ -2,6 +2,8 @@ import { ChartSpikeIcon, OpenshiftIcon } from '@patternfly/react-icons';
 import hcm from './components/hcm.svg';
 import rhelCs from './components/rhel-cs.svg';
 import ansible from './components/ansible.svg';
+import subscriptions from './components/subscriptions.svg';
+import migrations from './components/migrations.svg';
 
 import insightsMarketing from './components/marketing/insightsMarketing.svg';
 import openShiftMarketing from './components/marketing/openShiftMarketing.svg';
@@ -46,7 +48,7 @@ export const activeTechnologies = [
         url: 'rhel',
         baseApp: '/dashboard',
         apps: {
-            vulnerability: '/rules',
+            vulnerability: '/vulnerability',
             compliance: '/compliance',
             'system comparison': '/drift'
         },
@@ -59,7 +61,7 @@ export const activeTechnologies = [
             navigate: 'https://www.redhat.com/en/technologies/management/smart-management'
         },
         title: 'Cloud Management Services for Red Hat Enterprise Linux',
-        body: 'Monitor and manage issues like security and compliance for your Red Hat Enterprise Linux systems.'
+        body: 'Monitor and manage issues for your Red Hat Enterprise Systems.'
     },
     {
         id: 'Openshift',
@@ -115,7 +117,7 @@ export const activeTechnologies = [
         title: 'Ansible Automation',
         body: 'todo',
         apps: {
-            'tower analytics': '/tower-analytics',
+            'automation analytics': '/tower-analytics',
             'automation hub': '/automation-hub',
             'playbook catalog': '/playbook-catalog'
         },
@@ -134,7 +136,7 @@ export const activeTechnologies = [
         id: 'migration',
         entitlement: 'migration-analytics',
         url: 'migration-analytics',
-        image: ansible,
+        image: migrations,
         title: 'Migration Services',
         body: 'Get recommendations on migrating your applications and infrastructure to Red Hat',
         baseApp: '/migration-analytics',
@@ -153,7 +155,7 @@ export const activeTechnologies = [
         id: 'subscription',
         entitlement: 'subscription-reporting',
         url: 'subscriptions',
-        image: ansible,
+        image: subscriptions,
         title: 'Subscription Reporting',
         body: 'todo',
         baseApp: '/subscriptions',

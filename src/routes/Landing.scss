@@ -1,4 +1,5 @@
 @import '~@red-hat-insights/insights-frontend-components/Utilities/_mixins';
+@import '~@patternfly/patternfly/sass-utilities/_all';
 
 :root {
     --ins-global--Color--green: #37912f;
@@ -25,11 +26,22 @@
             @include rem('height', 56px);
             @include rem('width', 56px);
         }
+
+        h2 { margin-top: 15px; }
+    }
+
+    .ins-c-application-info__open {
+        display: block;
+        span { margin-right: 15px }
     }
     
     .ins-c-application-info__content-applist {
         display: flex;
         flex-direction: column;
+        a {
+            display: block;
+            text-transform: capitalize;
+        }
         a + a { margin-top: 10px; }
     }
 
