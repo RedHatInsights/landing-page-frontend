@@ -73,7 +73,7 @@ Marketing.defaultProps = {
 
 function mapStateToProps({ technologies } = { technologies: { activeTechnologies: []}}) {
     return {
-        technologies: technologies && technologies.activeTechnologies.filter(({ marketing }) => marketing)
+        technologies: technologies && technologies.activeTechnologies.filter(({ marketing, disabled }) => marketing && !disabled)
     };
 }
 
