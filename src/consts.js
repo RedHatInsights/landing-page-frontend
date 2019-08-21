@@ -146,10 +146,11 @@ export const activeTechnologies = [
             'migration analytics': '/migration-analytics'
         },
         marketing: false,
-        emptyTitle: 'Migration Services',
-        emptyText: 'Migration Services requires an evaluation of Red Hat CloudForms.',
+        emptyTitle: 'The Migration Service requires that you request an evaluation.',
+        emptyText: 'To obtain recommendations for your applications and infrastructure, you will need \
+        to first analyze your environment using Red Hat CloudForms.',
         emptyAction: {
-            title: 'Learn More',
+            title: 'Request an evaluation',
             navigate: 'todo'
         },
         isPreview: true
