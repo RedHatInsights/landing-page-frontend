@@ -1,5 +1,5 @@
 import React from 'react';
-import { shallow, render } from 'enzyme';
+import { shallow } from 'enzyme';
 import toJson from 'enzyme-to-json';
 import FooterTraditional from '../FooterTraditional';
 
@@ -12,5 +12,5 @@ describe('Footer Traditional component', () => {
     it('click: Red Hat Logo', () => {
         const wrapper = shallow(<FooterTraditional/>);
         wrapper.find('.ins-p-footer__logo').simulate('click');
-    })
+    });
 });

@@ -20,4 +20,15 @@ describe('App component', () => {
         );
         expect(toJson(wrapper)).toMatchSnapshot();
     });
+
+    it('should render correctly with data', () => {
+        const wrapper = mount(
+            <Provider store={ store }>
+                <Router>
+                    <App technologies={ { foo: 'bar' } }/>
+                </Router>
+            </Provider>
+        );
+        expect(toJson(wrapper)).toMatchSnapshot();
+    });
 });

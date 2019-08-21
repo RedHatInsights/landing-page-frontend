@@ -13,5 +13,5 @@ describe('Logout component', () => {
         const wrapper = mount(<Logout />);
         wrapper.find('button').simulate('click');
         expect(window.location.pathname).toBe('/');
-    })
+    });
 });

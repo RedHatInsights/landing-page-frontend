@@ -1,0 +1,94 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`render Body component should render correctly 1`] = `
+<Provider
+  store={
+    Object {
+      "clearActions": [Function],
+      "dispatch": [Function],
+      "getActions": [Function],
+      "getState": [Function],
+      "replaceReducer": [Function],
+      "subscribe": [Function],
+    }
+  }
+>
+  <BrowserRouter>
+    <Router
+      history={
+        Object {
+          "action": "POP",
+          "block": [Function],
+          "createHref": [Function],
+          "go": [Function],
+          "goBack": [Function],
+          "goForward": [Function],
+          "length": 1,
+          "listen": [Function],
+          "location": Object {
+            "hash": "",
+            "pathname": "/",
+            "search": "",
+            "state": undefined,
+          },
+          "push": [Function],
+          "replace": [Function],
+        }
+      }
+    >
+      <Connect(Body)
+        technologies={
+          Array [
+            Object {
+              "apps": Object {
+                "rules": "/app-test",
+              },
+              "baseApp": "/test",
+              "body": "test",
+              "emptyAction": Object {
+                "navigate": "/empty-action-test",
+                "title": "test",
+              },
+              "emptyText": "test",
+              "emptyTitle": "test",
+              "entitlement": "test",
+              "icon": [Function],
+              "id": "test",
+              "marketing": true,
+              "marketingImage": [Function],
+              "marketingText": "Marketing Test",
+              "marketingUrl": "/marketing-test",
+              "name": "test",
+              "title": "Jest Test",
+              "url": "test",
+            },
+          ]
+        }
+      >
+        <Body
+          dispatch={[Function]}
+          technologies={Array []}
+        >
+          <PageSection
+            className="pf-m-fill ins-p-landing__content"
+            variant="default"
+          >
+            <section
+              className="pf-c-page__main-section pf-m-fill ins-p-landing__content"
+            >
+              <Gallery
+                className=""
+                gutter="md"
+              >
+                <div
+                  className="pf-l-gallery pf-m-gutter"
+                />
+              </Gallery>
+            </section>
+          </PageSection>
+        </Body>
+      </Connect(Body)>
+    </Router>
+  </BrowserRouter>
+</Provider>
+`;

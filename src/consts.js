@@ -98,18 +98,19 @@ export const activeTechnologies = [
         marketing: false,
         disabled: window.location.pathname.indexOf('/beta') !== 0,
         image: rhelCs,
-        emptyTitle: 'Hybrid cloud management services Technology Preview access',
-        emptyText: 'The Red Hat hybrid cloud management services Technology Preview is currently \
+        emptyTitle: 'Hybrid Cloud Management Services Technology Preview access',
+        emptyText: 'The Red Hat Hybrid Cloud Management Services technology preview is currently \
         restricted to Red Hat customers.',
         emptyAction: {
             title: 'Okay'
         },
-        title: 'Hybrid cloud management services',
+        title: 'Hybrid Cloud Management Services',
         body: 'Govern, automate, and manage multi-cloud environments.',
         isPreview: true
     },
     {
         id: 'Ansible',
+        disabled: true,
         entitlement: 'ansible',
         url: 'ansible-automation',
         baseApp: '/tower-analytics',
@@ -135,7 +136,7 @@ export const activeTechnologies = [
     {
         id: 'migration',
         entitlement: 'migration-analytics',
-        url: 'migration-analytics',
+        url: 'migrations',
         image: migrations,
         title: 'Migration Services',
         body: 'Get recommendations on migrating your applications and infrastructure to Red Hat',
@@ -153,6 +154,7 @@ export const activeTechnologies = [
     },
     {
         id: 'subscription',
+        disabled: true,
         entitlement: 'subscription-reporting',
         url: 'subscriptions',
         image: subscriptions,

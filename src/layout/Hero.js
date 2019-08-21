@@ -11,8 +11,8 @@ const Hero = () => (
             <Title size='lg' headingLevel='h2' className='pf-m-spacer-xl'>
                 Discover Red Hat<sup className='ins-c-rball'>®</sup> software-as-a-service
             </Title>
-            <Button onClick={ () => window.insights.chrome.auth.login() }> Log in to your Red Hat account</Button>
-            <a href='https://www.redhat.com/en/customers'> Not a customer? </a>
+            <Button className='ins-c-hero__login' onClick={ () => window.insights.chrome.auth.login() }> Log in to your Red Hat account</Button>
+            <a className='ins-c-hero__new-customer' href='https://www.redhat.com/en/customers'> Not a customer? </a>
         </article>
     </PageSection>
 );

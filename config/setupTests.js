@@ -13,6 +13,8 @@ function initFunc() { return; }
 
 function identifyAppFunc() { return; }
 
+function loginFunc() { return; }
+
 global.window.insights = {
     ...window.insights || {},
     chrome: {
@@ -21,6 +23,7 @@ global.window.insights = {
         identifyApp: identifyAppFunc,
         auth: {
             ...(window.insights && window.insights.chrome && window.insights.chrome) || {},
+            login: loginFunc,
             getUser: () => new Promise((res) => res({
                 identity: {
                     // eslint-disable-next-line camelcase

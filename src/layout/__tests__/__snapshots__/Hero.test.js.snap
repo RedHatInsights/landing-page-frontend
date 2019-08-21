@@ -29,7 +29,7 @@ exports[`Hero component should render correctly 1`] = `
     </Title>
     <Button
       aria-label={null}
-      className=""
+      className="ins-c-hero__login"
       component="button"
       isActive={false}
       isBlock={false}
@@ -43,6 +43,7 @@ exports[`Hero component should render correctly 1`] = `
        Log in to your Red Hat account
     </Button>
     <a
+      className="ins-c-hero__new-customer"
       href="https://www.redhat.com/en/customers"
     >
        Not a customer? 

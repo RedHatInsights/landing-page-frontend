@@ -31,5 +31,5 @@ describe('404 page', () => {
         );
         wrapper.find('button').simulate('click');
         expect(window.location.pathname).toBe('/');
-    })
+    });
 });

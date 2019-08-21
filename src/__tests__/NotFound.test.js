@@ -17,4 +17,13 @@ describe('NotFound component', () => {
         );
         expect(toJson(wrapper)).toMatchSnapshot();
     });
+
+    it('should render correctly with data', () => {
+        const wrapper = mount(
+            <Provider store={ store }>
+                <NotFound technologies={ { foo: 'bar' } }/>
+            </Provider>
+        );
+        expect(toJson(wrapper)).toMatchSnapshot();
+    });
 });

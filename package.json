@@ -8,8 +8,17 @@
     "collectCoverage": true,
     "collectCoverageFrom": [
       "src/**/*.js",
-      "!src/**/stories/*"
+      "!src/**/stories/*",
+      "!src/**/*/index.js"
     ],
+    "coveragePathIgnorePatterns": [
+      "<rootDir>/src/entry.js",
+      "<rootDir>/src/entry-dev.js",
+      "<rootDir>/src/logout.js",
+      "<rootDir>/src/logout-dev.js",
+      "<rootDir>/src/not-found.js",
+      "<rootDir>/src/not-found-dev.js"
+  ],
     "setupFiles": [
       "<rootDir>/config/setupTests.js"
     ],
