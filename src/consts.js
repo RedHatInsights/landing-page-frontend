@@ -135,6 +135,7 @@ export const activeTechnologies = [
     },
     {
         id: 'migrations',
+        disabled: window.location.pathname.indexOf('/beta') !== 0,
         entitlement: 'migrations',
         url: 'migrations',
         image: migrations,
@@ -150,7 +151,8 @@ export const activeTechnologies = [
         emptyAction: {
             title: 'Learn More',
             navigate: 'todo'
-        }
+        },
+        isPreview: true
     },
     {
         id: 'subscriptions',
