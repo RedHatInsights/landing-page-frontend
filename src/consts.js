@@ -134,28 +134,28 @@ export const activeTechnologies = [
         }
     },
     {
-        id: 'migration',
-        entitlement: 'migration-analytics',
+        id: 'migrations',
+        entitlement: 'migrations',
         url: 'migrations',
         image: migrations,
         title: 'Migration Services',
-        body: 'Get recommendations on migrating your applications and infrastructure to Red Hat',
+        body: 'Get recommendations on migrating your applications and infrastructure to Red Hat.',
         baseApp: '/migration-analytics',
         apps: {
             'migration analytics': '/migration-analytics'
         },
         marketing: false,
         emptyTitle: 'Migration Services',
-        emptyText: 'Migration Services requires an evaluation of Red Hat CloudForms',
+        emptyText: 'Migration Services requires an evaluation of Red Hat CloudForms.',
         emptyAction: {
             title: 'Learn More',
             navigate: 'todo'
         }
     },
     {
-        id: 'subscription',
+        id: 'subscriptions',
         disabled: true,
-        entitlement: 'subscription-reporting',
+        entitlement: 'subscriptions',
         url: 'subscriptions',
         image: subscriptions,
         title: 'Subscription Reporting',
