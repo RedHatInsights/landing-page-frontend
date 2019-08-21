@@ -51,7 +51,7 @@ in `src/consts.js`, make a new section with these fields:
     entitlement: // string: what entitlement is this? should be similar to the ID?
     url: // string: your base url. cloud.redhat.com/{url}
     baseApp: // string: your base app. cloud.redhat.com/{url}{baseapp}, should start with '/'
-    image: // oneOfType([ func, string ]): on the authenticaed page, what image/icon should be at the top of your card?
+    image: // oneOfType([ func, string ]): on the authenticated page, what image/icon should be at the top of your card?
     title: // string: title on the top of your card
     body: // string: body text in the middle of your card
     apps: { // object: sub application shown on the card
