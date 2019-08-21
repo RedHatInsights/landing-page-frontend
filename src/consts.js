@@ -53,7 +53,7 @@ export const activeTechnologies = [
             'system comparison': '/drift'
         },
         image: hcm,
-        emptyTitle: 'Learn how to get started with cloud management services for Red Hat Enterprise Linux',
+        emptyTitle: 'Learn how to get started with Cloud Management Services for Red Hat Enterprise Linux',
         emptyText: 'Monitor your Red Hat environments to track system compliance, configration, \
         security, and efficiency. Upgrade to get started today.',
         emptyAction: {
