@@ -6,7 +6,7 @@
 
 There is a [comprehensive quick start guide in the Storybook Documentation](https://github.com/RedHatInsights/insights-frontend-storybook/blob/master/src/docs/welcome/quickStart/DOC.md) to setting up an Insights environment complete with:
 
-- [Insights-Frontend-Starter-App](https://github.com/RedHatInsights/insights-frontend-starter-app)
+- [Insights Frontend Starter App](https://github.com/RedHatInsights/insights-frontend-starter-app)
 - [Insights Chroming](https://github.com/RedHatInsights/insights-chrome)
 - [Insights Proxy](https://github.com/RedHatInsights/insights-proxy)
 
@@ -30,7 +30,7 @@ There is a [comprehensive quick start guide in the Storybook Documentation](http
 
 ### Deploying
 
-The follow six branches are used
+The following four branches are used
 
 - Stable
   - prod-stable -> releases to cloud.redhat.com

@@ -1,4 +1,5 @@
 import { configure, mount, render, shallow } from 'enzyme';
+import { sinon } from 'sinon';
 import Adapter from 'enzyme-adapter-react-16';
 import React from 'react';
 
@@ -8,22 +9,19 @@ global.shallow = shallow;
 global.render = render;
 global.mount = mount;
 global.React = React;
+global.sinon = sinon;
 
-function initFunc() { return; }
-
-function identifyAppFunc() { return; }
-
-function loginFunc() { return; }
+const returnBlank = () => undefined;
 
 global.window.insights = {
     ...window.insights || {},
     chrome: {
         ...(window.insights && window.insights.chrome) || {},
-        init: initFunc,
-        identifyApp: identifyAppFunc,
+        init: returnBlank,
+        identifyApp: returnBlank,
         auth: {
             ...(window.insights && window.insights.chrome && window.insights.chrome) || {},
-            login: loginFunc,
+            login: returnBlank,
             getUser: () => new Promise((res) => res({
                 identity: {
                     // eslint-disable-next-line camelcase

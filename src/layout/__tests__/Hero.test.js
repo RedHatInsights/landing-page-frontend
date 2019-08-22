@@ -1,5 +1,5 @@
 import React from 'react';
-import { shallow } from 'enzyme';
+import { shallow, mount } from 'enzyme';
 import toJson from 'enzyme-to-json';
 import Hero from '../Hero';
 
@@ -9,13 +9,8 @@ describe('Hero component', () => {
         expect(toJson(wrapper)).toMatchSnapshot();
     });
 
-    it('click: Login button', () => {
-        const wrapper = shallow(<Hero/>);
-        wrapper.find('.ins-c-hero__login').simulate('click');
-    });
-
     it('click: Not a customer link', () => {
         const wrapper = shallow(<Hero/>);
-        wrapper.find('a.ins-c-hero__new-customer').simulate('click');
+        expect(wrapper.find('a.ins-c-hero__new-customer').first().props().href).toBe('https://www.redhat.com/en/customers');
     });
 });

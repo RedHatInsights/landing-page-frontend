@@ -66,11 +66,9 @@ const Body = ({ technologies }) => (
                                     <span className='ins-m-gray'>{ body }</span>
                                 </StackItem>
                                 <StackItem className='ins-c-application-info__content-applist'>
-                                    { apps && Object.entries(apps).map(([ appName, appPath ]) => {
-                                        return (
+                                    { apps && Object.entries(apps).map(([ appName, appPath ]) => (
                                             <a key={ appName } href={ `${url}${appPath}` }>{ appName }</a>
-                                        );
-                                    }) }
+                                    ))}
                                 </StackItem>
                             </Stack>
                         </CardBody>

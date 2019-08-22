@@ -1,16 +1,14 @@
 /*global describe, test, expect */
 import React from 'react';
-import { BrowserRouter as Router } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import configureMockStore from 'redux-mock-store';
-import { mount } from 'enzyme';
 import toJson from 'enzyme-to-json';
 import { mapStateToProps } from '../Body';
 import Body from '../Body';
 import { ChartSpikeIcon } from '@patternfly/react-icons';
 
 const mockStore = configureMockStore();
-const store = mockStore({});
+const store = mockStore(activeTechnologiesMock);
 
 const activeTechnologiesMock = [
     {
@@ -79,11 +77,9 @@ describe('mapStateToProps', () => {
 
 describe('render Body component', () => {
     it('should render correctly', () => {
-        const wrapper = mount(
+        const wrapper = shallow(
             <Provider store={ store }>
-                <Router>
-                    <Body technologies={ activeTechnologiesMock }/>
-                </Router>
+                <Body/>
             </Provider>
         );
         expect(toJson(wrapper)).toMatchSnapshot();

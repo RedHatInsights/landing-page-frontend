@@ -54,11 +54,11 @@ export const activeTechnologies = [
             'system comparison': '/drift'
         },
         image: hcm,
-        emptyTitle: 'Upgrade to get started with Cloud Management Services for Red Hat Enterprise Linux',
+        emptyTitle: 'Upgrade to get started with Cloud Management Services for Red Hat Enterprise Linux.',
         emptyText: 'Monitor your Red Hat environments to track system compliance, configration, \
         security, and efficiency. Upgrade to get started today.',
         emptyAction: {
-            title: 'Learn More',
+            title: 'Learn more',
             navigate: 'https://www.redhat.com/en/technologies/management/smart-management',
             close: 'Not now'
         },
@@ -83,7 +83,7 @@ export const activeTechnologies = [
                 fill: '#DB242F'
             }
         },
-        emptyTitle: 'Get Started with Red Hat Openshift',
+        emptyTitle: 'Get Started with Red Hat Openshift.',
         emptyText: 'Test drive industry\'s leading container application platform in your browser, \
         and see how easy it is to use Kubernetes in your organization today.',
         emptyAction: {
@@ -100,7 +100,7 @@ export const activeTechnologies = [
         marketing: false,
         disabled: window.location.pathname.indexOf('/beta') !== 0,
         image: rhelCs,
-        emptyTitle: 'Hybrid Cloud Management Services Technology Preview access',
+        emptyTitle: 'Hybrid Cloud Management Services technology preview access.',
         emptyText: 'The Red Hat Hybrid Cloud Management Services technology preview is currently \
         restricted to Red Hat customers.',
         emptyAction: {
@@ -131,7 +131,7 @@ export const activeTechnologies = [
         emptyTitle: 'Ansible Automation',
         emptyText: 'todo',
         emptyAction: {
-            title: 'Learn More',
+            title: 'Learn more',
             navigate: 'todo'
         }
     },
@@ -172,7 +172,7 @@ export const activeTechnologies = [
         },
         marketing: false,
         emptyTitle: 'Subscription Reporting',
-        emptyText: 'Subscription Reporting requires a valid cloud.redhat.com account',
+        emptyText: 'Subscription Reporting requires a valid cloud.redhat.com account.',
         emptyAction: {
             title: 'Activate Subscription Reporting',
             navigate: 'https://www.redhat.com/wapps/eval/index.html?evaluation_id=1036'

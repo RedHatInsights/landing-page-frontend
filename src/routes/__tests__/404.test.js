@@ -1,5 +1,4 @@
 import React from 'react';
-import { BrowserRouter as Router } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import configureMockStore from 'redux-mock-store';
 import { mount } from 'enzyme';
@@ -13,9 +12,7 @@ describe('404 page', () => {
     it('should render correctly', () => {
         const wrapper = mount(
             <Provider store={ store }>
-                <Router>
-                    <NotFound />
-                </Router>
+                <NotFound />
             </Provider>
         );
         expect(toJson(wrapper)).toMatchSnapshot();
@@ -24,9 +21,7 @@ describe('404 page', () => {
     it('click: Return to homepage', () => {
         const wrapper = mount(
             <Provider store={ store }>
-                <Router>
-                    <NotFound />
-                </Router>
+                <NotFound />
             </Provider>
         );
         wrapper.find('button').simulate('click');

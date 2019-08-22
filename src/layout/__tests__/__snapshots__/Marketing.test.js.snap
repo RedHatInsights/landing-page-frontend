@@ -13,160 +13,135 @@ exports[`render Marketing component should render correctly 1`] = `
     }
   }
 >
-  <BrowserRouter>
-    <Router
-      history={
+  <Connect(Marketing)
+    technologies={
+      Array [
         Object {
-          "action": "POP",
-          "block": [Function],
-          "createHref": [Function],
-          "go": [Function],
-          "goBack": [Function],
-          "goForward": [Function],
-          "length": 1,
-          "listen": [Function],
-          "location": Object {
-            "hash": "",
-            "pathname": "/",
-            "search": "",
-            "state": undefined,
+          "apps": Object {
+            "rules": "/app-test",
           },
-          "push": [Function],
-          "replace": [Function],
-        }
-      }
+          "baseApp": "/test",
+          "body": "test",
+          "emptyAction": Object {
+            "navigate": "/empty-action-test",
+            "title": "test",
+          },
+          "emptyText": "test",
+          "emptyTitle": "test",
+          "entitlement": "test",
+          "icon": [Function],
+          "id": "test",
+          "marketing": true,
+          "marketingImage": [Function],
+          "marketingText": "Marketing Test",
+          "marketingUrl": "/marketing-test",
+          "name": "test",
+          "title": "Jest Test",
+          "url": "test",
+        },
+      ]
+    }
+  >
+    <Marketing
+      dispatch={[Function]}
+      technologies={Array []}
     >
-      <Connect(Marketing)
-        technologies={
-          Array [
-            Object {
-              "apps": Object {
-                "rules": "/app-test",
-              },
-              "baseApp": "/test",
-              "body": "test",
-              "emptyAction": Object {
-                "navigate": "/empty-action-test",
-                "title": "test",
-              },
-              "emptyText": "test",
-              "emptyTitle": "test",
-              "entitlement": "test",
-              "icon": [Function],
-              "id": "test",
-              "marketing": true,
-              "marketingImage": [Function],
-              "marketingText": "Marketing Test",
-              "marketingUrl": "/marketing-test",
-              "name": "test",
-              "title": "Jest Test",
-              "url": "test",
-            },
-          ]
-        }
-      >
-        <Marketing
-          dispatch={[Function]}
-          technologies={Array []}
+      <Hero>
+        <PageSection
+          className="ins-c-hero pf-m-fill pf-l-flex pf-m-align-items-center pf-m-justify-content-center"
+          variant="default"
         >
-          <Hero>
-            <PageSection
-              className="ins-c-hero pf-m-fill pf-l-flex pf-m-align-items-center pf-m-justify-content-center"
-              variant="default"
-            >
-              <section
-                className="pf-c-page__main-section ins-c-hero pf-m-fill pf-l-flex pf-m-align-items-center pf-m-justify-content-center"
-              >
-                <article
-                  className="pf-l-flex pf-m-column pf-m-align-items-center"
-                >
-                  <Title
-                    className="ins-c-hero__title pf-m-spacer-lg"
-                    size="3xl"
-                  >
-                    <h1
-                      className="pf-c-title pf-m-3xl ins-c-hero__title pf-m-spacer-lg"
-                    >
-                       Explore our open, multicloud tools 
-                    </h1>
-                  </Title>
-                  <Title
-                    className="pf-m-spacer-xl"
-                    headingLevel="h2"
-                    size="lg"
-                  >
-                    <h2
-                      className="pf-c-title pf-m-lg pf-m-spacer-xl"
-                    >
-                      Discover Red Hat
-                      <sup
-                        className="ins-c-rball"
-                      >
-                        ®
-                      </sup>
-                       software-as-a-service
-                    </h2>
-                  </Title>
-                  <Button
-                    aria-label={null}
-                    className="ins-c-hero__login"
-                    component="button"
-                    isActive={false}
-                    isBlock={false}
-                    isDisabled={false}
-                    isFocus={false}
-                    isHover={false}
-                    onClick={[Function]}
-                    type="button"
-                    variant="primary"
-                  >
-                    <button
-                      aria-disabled={null}
-                      aria-label={null}
-                      className="pf-c-button pf-m-primary ins-c-hero__login"
-                      disabled={false}
-                      onClick={[Function]}
-                      tabIndex={null}
-                      type="button"
-                    >
-                       Log in to your Red Hat account
-                    </button>
-                  </Button>
-                  <a
-                    className="ins-c-hero__new-customer"
-                    href="https://www.redhat.com/en/customers"
-                  >
-                     Not a customer? 
-                  </a>
-                </article>
-              </section>
-            </PageSection>
-          </Hero>
-          <PageSection
-            className="ins-c-marketing pf-m-no-fill"
-            variant="default"
+          <section
+            className="pf-c-page__main-section ins-c-hero pf-m-fill pf-l-flex pf-m-align-items-center pf-m-justify-content-center"
           >
-            <section
-              className="pf-c-page__main-section ins-c-marketing pf-m-no-fill"
+            <article
+              className="pf-l-flex pf-m-column pf-m-align-items-center"
             >
-              <Grid
-                className=""
-                gutter="md"
-                lg={4}
-                md={6}
-                sm={12}
-                span={null}
-                xl={null}
+              <Title
+                className="ins-c-hero__title pf-m-spacer-lg"
+                size="3xl"
               >
-                <div
-                  className="pf-l-grid pf-m-all-12-col-on-sm pf-m-all-6-col-on-md pf-m-all-4-col-on-lg pf-m-gutter"
-                />
-              </Grid>
-            </section>
-          </PageSection>
-        </Marketing>
-      </Connect(Marketing)>
-    </Router>
-  </BrowserRouter>
+                <h1
+                  className="pf-c-title pf-m-3xl ins-c-hero__title pf-m-spacer-lg"
+                >
+                   Explore our open, multicloud tools 
+                </h1>
+              </Title>
+              <Title
+                className="pf-m-spacer-xl"
+                headingLevel="h2"
+                size="lg"
+              >
+                <h2
+                  className="pf-c-title pf-m-lg pf-m-spacer-xl"
+                >
+                  Discover Red Hat
+                  <sup
+                    className="ins-c-rball"
+                  >
+                    ®
+                  </sup>
+                   software-as-a-service
+                </h2>
+              </Title>
+              <Button
+                aria-label={null}
+                className="ins-c-hero__login"
+                component="button"
+                isActive={false}
+                isBlock={false}
+                isDisabled={false}
+                isFocus={false}
+                isHover={false}
+                onClick={[Function]}
+                type="button"
+                variant="primary"
+              >
+                <button
+                  aria-disabled={null}
+                  aria-label={null}
+                  className="pf-c-button pf-m-primary ins-c-hero__login"
+                  disabled={false}
+                  onClick={[Function]}
+                  tabIndex={null}
+                  type="button"
+                >
+                   Log in to your Red Hat account
+                </button>
+              </Button>
+              <a
+                className="ins-c-hero__new-customer"
+                href="https://www.redhat.com/en/customers"
+              >
+                 Not a customer? 
+              </a>
+            </article>
+          </section>
+        </PageSection>
+      </Hero>
+      <PageSection
+        className="ins-c-marketing pf-m-no-fill"
+        variant="default"
+      >
+        <section
+          className="pf-c-page__main-section ins-c-marketing pf-m-no-fill"
+        >
+          <Grid
+            className=""
+            gutter="md"
+            lg={4}
+            md={6}
+            sm={12}
+            span={null}
+            xl={null}
+          >
+            <div
+              className="pf-l-grid pf-m-all-12-col-on-sm pf-m-all-6-col-on-md pf-m-all-4-col-on-lg pf-m-gutter"
+            />
+          </Grid>
+        </section>
+      </PageSection>
+    </Marketing>
+  </Connect(Marketing)>
 </Provider>
 `;

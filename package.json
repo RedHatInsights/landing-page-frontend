@@ -18,7 +18,7 @@
       "<rootDir>/src/logout-dev.js",
       "<rootDir>/src/not-found.js",
       "<rootDir>/src/not-found-dev.js"
-  ],
+    ],
     "setupFiles": [
       "<rootDir>/config/setupTests.js"
     ],

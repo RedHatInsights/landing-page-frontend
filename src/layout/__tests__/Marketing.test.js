@@ -1,7 +1,6 @@
 /*global describe, test, expect */
 
 import React from 'react';
-import { BrowserRouter as Router } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import configureMockStore from 'redux-mock-store';
 import { mount } from 'enzyme';
@@ -66,9 +65,7 @@ describe('render Marketing component', () => {
     it('should render correctly', () => {
         const wrapper = mount(
             <Provider store={ store }>
-                <Router>
-                    <Body technologies={ activeTechnologiesMock }/>
-                </Router>
+                <Body technologies={ activeTechnologiesMock }/>
             </Provider>
         );
         expect(toJson(wrapper)).toMatchSnapshot();
