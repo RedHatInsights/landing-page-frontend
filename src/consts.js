@@ -29,12 +29,13 @@ export const activeTechnologies = [
         },
         icon: ChartSpikeIcon,
         title: 'Red Hat Insights',
-        emptyTitle: 'Red Hat Insights is included with every Red Hat Enterprise Linux subscription',
+        emptyTitle: 'Red Hat Insights is included with every Red Hat Enterprise Linux subscription.',
         emptyText: 'Proactively identify and remediate threats to security, performance, availability, \
         and stability with Red Hat Insights. Activate Red Hat Insights to get started today.',
         emptyAction: {
-            title: 'Activate Red Hat Insights',
-            navigate: 'https://www.redhat.com/wapps/eval/index.html?evaluation_id=1036'
+            title: 'Get started',
+            navigate: 'https://www.redhat.com/wapps/eval/index.html?evaluation_id=1036',
+            close: 'Not now'
         },
         body: 'Identify and remediate configuration issues in your Red Hat® environments.'
     },
@@ -53,12 +54,13 @@ export const activeTechnologies = [
             'system comparison': '/drift'
         },
         image: hcm,
-        emptyTitle: 'Learn how to get started with Cloud Management Services for Red Hat Enterprise Linux',
+        emptyTitle: 'Upgrade to get started with Cloud Management Services for Red Hat Enterprise Linux',
         emptyText: 'Monitor your Red Hat environments to track system compliance, configration, \
         security, and efficiency. Upgrade to get started today.',
         emptyAction: {
             title: 'Learn More',
-            navigate: 'https://www.redhat.com/en/technologies/management/smart-management'
+            navigate: 'https://www.redhat.com/en/technologies/management/smart-management',
+            close: 'Not now'
         },
         title: 'Cloud Management Services for Red Hat Enterprise Linux',
         body: 'Monitor and manage issues for your Red Hat Enterprise Systems.'
@@ -102,7 +104,7 @@ export const activeTechnologies = [
         emptyText: 'The Red Hat Hybrid Cloud Management Services technology preview is currently \
         restricted to Red Hat customers.',
         emptyAction: {
-            title: 'Okay'
+            title: 'Ok'
         },
         title: 'Hybrid Cloud Management Services',
         body: 'Govern, automate, and manage multi-cloud environments.',
@@ -151,7 +153,8 @@ export const activeTechnologies = [
         to first analyze your environment using Red Hat CloudForms.',
         emptyAction: {
             title: 'Request an evaluation',
-            navigate: 'todo'
+            navigate: 'todo',
+            close: 'Not now'
         },
         isPreview: true
     },

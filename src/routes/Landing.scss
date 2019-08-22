@@ -63,3 +63,31 @@ sup.ins-c-rball { @include rem('font-size', 10px); }
         margin-bottom: 0;
     }
 }
+
+// Unentitled Modal Styles
+.ins-c-error-modal {
+    @include rem('max-width', 700px);
+}
+
+.ins-c-error-state {
+    text-align: center;
+    margin: 0 32px;
+    .ins-c-error-state__title {
+        font-weight: 400;
+        @include rem('margin-top', 15px);
+    }
+    .ins-c-error-state__image {
+        img, svg {
+            @include rem('height', 100px);
+            width: auto;
+        }
+    }
+    .ins-c-error-state__footer {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-top:  var(--pf-c-empty-state--c-button--MarginTop);
+        &-close { @include rem('margin-top', 10px); }
+    }
+
+}
