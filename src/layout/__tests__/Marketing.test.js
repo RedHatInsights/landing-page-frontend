@@ -9,9 +9,6 @@ import { mapStateToProps } from '../Marketing';
 import Body from '../Marketing';
 import { ChartSpikeIcon } from '@patternfly/react-icons';
 
-const mockStore = configureMockStore();
-const store = mockStore(activeTechnologiesMock);
-
 const activeTechnologiesMock = [
     {
         entitlement: 'test',
@@ -37,6 +34,9 @@ const activeTechnologiesMock = [
         body: 'test'
     }
 ];
+
+const mockStore = configureMockStore();
+const store = mockStore(activeTechnologiesMock);
 
 function getInput(obj) {
     return {
