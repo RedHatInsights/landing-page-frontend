@@ -13,35 +13,7 @@ exports[`render Marketing component should render correctly 1`] = `
     }
   }
 >
-  <Connect(Marketing)
-    technologies={
-      Array [
-        Object {
-          "apps": Object {
-            "rules": "/app-test",
-          },
-          "baseApp": "/test",
-          "body": "test",
-          "emptyAction": Object {
-            "navigate": "/empty-action-test",
-            "title": "test",
-          },
-          "emptyText": "test",
-          "emptyTitle": "test",
-          "entitlement": "test",
-          "icon": [Function],
-          "id": "test",
-          "marketing": true,
-          "marketingImage": [Function],
-          "marketingText": "Marketing Test",
-          "marketingUrl": "/marketing-test",
-          "name": "test",
-          "title": "Jest Test",
-          "url": "test",
-        },
-      ]
-    }
-  >
+  <Connect(Marketing)>
     <Marketing
       dispatch={[Function]}
       technologies={Array []}

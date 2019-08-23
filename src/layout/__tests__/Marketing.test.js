@@ -10,7 +10,7 @@ import Body from '../Marketing';
 import { ChartSpikeIcon } from '@patternfly/react-icons';
 
 const mockStore = configureMockStore();
-const store = mockStore({});
+const store = mockStore(activeTechnologiesMock);
 
 const activeTechnologiesMock = [
     {
@@ -65,7 +65,7 @@ describe('render Marketing component', () => {
     it('should render correctly', () => {
         const wrapper = mount(
             <Provider store={ store }>
-                <Body technologies={ activeTechnologiesMock }/>
+                <Body/>
             </Provider>
         );
         expect(toJson(wrapper)).toMatchSnapshot();
