@@ -155,8 +155,7 @@ export const activeTechnologies = [
             title: 'Request an evaluation',
             navigate: 'todo',
             close: 'Not now'
-        },
-        isPreview: true
+        }
     },
     {
         id: 'subscriptions',
