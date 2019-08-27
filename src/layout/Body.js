@@ -73,7 +73,8 @@ const Body = ({ technologies }) => (
                             </Stack>
                         </CardBody>
                         <CardFooter>
-                            <a className='ins-c-application-info__open' href= { baseApp ? `${url}${baseApp}` : `${url}` }>
+                            <a className={ `ins-c-application-info__open ins-c-application-info__open-${url}` }
+                                href= { baseApp ? `${url}${baseApp}` : `${url}` }>
                                 <span> Open </span>
                                 <ArrowRightIcon size="sm" />
                             </a>
