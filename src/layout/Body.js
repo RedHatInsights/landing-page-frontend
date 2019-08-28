@@ -18,6 +18,10 @@ import PropTypes from 'prop-types';
 
 import './Body.scss';
 
+function isBeta() {
+    return (window.insights.chrome.isBeta() === true ? '/beta/' : '/');
+}
+
 const Body = ({ technologies }) => (
     <PageSection className='pf-m-fill ins-p-landing__content'>
         <Gallery gutter="md">
@@ -67,14 +71,14 @@ const Body = ({ technologies }) => (
                                 </StackItem>
                                 <StackItem className='ins-c-application-info__content-applist'>
                                     { apps && Object.entries(apps).map(([ appName, appPath ]) => (
-                                        <a key={ appName } href={ `${url}${appPath}` }>{ appName }</a>
+                                        <a key={ appName } href={ `${isBeta()}${url}${appPath}` }>{ appName }</a>
                                     )) }
                                 </StackItem>
                             </Stack>
                         </CardBody>
                         <CardFooter>
                             <a className={ `ins-c-application-info__open ins-c-application-info__open-${url}` }
-                                href= { baseApp ? `${url}${baseApp}` : `${url}` }>
+                                href= { baseApp ? `${isBeta()}${url}${baseApp}` : `${isBeta()}${url}` }>
                                 <span> Open </span>
                                 <ArrowRightIcon size="sm" />
                             </a>

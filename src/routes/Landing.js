@@ -92,7 +92,7 @@ class Landing extends Component {
                         </StackItem>
                         <StackItem className='ins-c-error-state__footer'>
                             {
-                                notEntitled.emptyAction &&
+                                notEntitled.emptyAction.title &&
                                     <Button variant="primary" className='ins-c-error-state__footer-action' onClick={ () => {
                                         if (notEntitled.emptyAction.navigate) {
                                             window.location.href = notEntitled.emptyAction.navigate;

@@ -152,10 +152,11 @@ export const activeTechnologies = [
         emptyText: 'To obtain recommendations for your applications and infrastructure, you will need \
         to first analyze your environment using Red Hat CloudForms.',
         emptyAction: {
-            title: 'Request an evaluation',
-            navigate: 'todo',
+            // title: 'Request an evaluation',
+            // navigate: 'todo',
             close: 'Not now'
-        }
+        },
+        isPreview: true
     },
     {
         id: 'subscriptions',
