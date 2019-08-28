@@ -1,4 +1,4 @@
-import { technologiesLoaded } from './actions';
+import { technologiesLoaded } from '../actions';
 
 test('should fire correct action', () => {
     expect(technologiesLoaded('some')).toMatchObject({

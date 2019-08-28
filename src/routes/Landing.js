@@ -4,16 +4,14 @@ import { withRouter } from 'react-router-dom';
 import {
     Modal,
     Button,
-    EmptyState,
-    EmptyStateIcon,
     Title,
-    EmptyStateBody
+    Stack,
+    StackItem
 } from '@patternfly/react-core';
 
 import Header from '../layout/Header';
 import Body from '../layout/Body';
 import Marketing from '../layout/Marketing';
-import FooterMenu from '../layout/FooterMenu';
 import FooterTraditional from '../layout/FooterTraditional';
 import { activeTechnologies } from '../consts';
 import './Landing.scss';
@@ -62,43 +60,52 @@ class Landing extends Component {
                     : <Fragment>
                         <Header />
                         <Body />
-                        <FooterMenu />
                     </Fragment>
                 }
                 <FooterTraditional />
                 { notEntitled && <Modal
                     title={ 'You are not entitled to use this application' }
+                    className='ins-c-error-modal'
+                    hideTitle={ true }
                     isOpen={ isModalOpen }
                     onClose={ this.handleModalToggle }
                 >
-                    <EmptyState>
-                        { notEntitled.icon && <EmptyStateIcon
-                            icon={ notEntitled.icon }
-                            className="ins-c-icon__active"
-                            { ...notEntitled.iconProps }
-                            size="lg"
-                        /> }
-                        { notEntitled.image && <img
-                            className="ins-c-application-info__logo"
-                            aria-hidden
-                            src={ notEntitled.image }
-                            alt={ `${notEntitled.title} logo` } /> }
-                        <Title headingLevel="h5" size="lg">{ notEntitled.emptyTitle }</Title>
-                        <EmptyStateBody>
+                    <Stack gutter='md' className='ins-c-error-state'>
+                        <StackItem className='ins-c-error-state__title'>
+                            <Title headingLevel="h3" size="2xl">{ notEntitled.emptyTitle }</Title>
+                        </StackItem>
+                        <StackItem className='ins-c-error-state__image'>
+                            { notEntitled.icon && <notEntitled.icon
+                                className="ins-c-icon__active"
+                                aria-hidden
+                                alt={ `${notEntitled.title} logo` }
+                                { ...notEntitled.iconProps }
+                            /> }
+                            { notEntitled.image && <img
+                                className="ins-c-application-info__logo"
+                                aria-hidden
+                                src={ notEntitled.image }
+                                alt={ `${notEntitled.title} logo` } /> }
+                        </StackItem>
+                        <StackItem className='ins-c-error-state__body'>
                             { notEntitled.emptyText }
-                        </EmptyStateBody>
-                        {
-                            notEntitled.emptyAction &&
-                            <Button variant="primary" onClick={ () => {
-                                if (notEntitled.emptyAction.navigate) {
-                                    window.location.href = notEntitled.emptyAction.navigate;
-                                }
-                            } } >
-                                { notEntitled.emptyAction.title }
+                        </StackItem>
+                        <StackItem className='ins-c-error-state__footer'>
+                            {
+                                notEntitled.emptyAction.title &&
+                                    <Button variant="primary" className='ins-c-error-state__footer-action' onClick={ () => {
+                                        if (notEntitled.emptyAction.navigate) {
+                                            window.location.href = notEntitled.emptyAction.navigate;
+                                        }
+                                    } } >
+                                        { notEntitled.emptyAction.title }
+                                    </Button>
+                            }
+                            <Button variant="link" className='ins-c-error-state__footer-close' onClick={ this.handleModalToggle }>
+                                { notEntitled.emptyAction.close ? `${notEntitled.emptyAction.close }` : 'Close' }
                             </Button>
-                        }
-                        <Button variant="link" onClick={ this.handleModalToggle }>Close</Button>
-                    </EmptyState>
+                        </StackItem>
+                    </Stack>
                 </Modal> }
             </Fragment>
         );

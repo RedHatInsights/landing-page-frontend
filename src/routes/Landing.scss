@@ -1,17 +1,15 @@
 @import '~@red-hat-insights/insights-frontend-components/Utilities/_mixins';
+@import '~@patternfly/patternfly/sass-utilities/_all';
 
 :root {
     --ins-global--Color--green: #37912f;
 }
 
-.ins-c-application-info .ins-m-gray {
-    color: var(--pf-global--Color--200);
-}
+.ins-c-application-info .ins-m-gray { color: var(--pf-global--Color--200); }
 
-.ins-m-tech-preview {
-    @include rem('margin-bottom', 16px);
-    color: var(--ins-global--Color--green);
-}
+.ins-m-tech-preview { color: var(--ins-global--Color--green); }
+
+.ins-m-dev-preview { color: #39A5DC; }
 
 .pf-c-card {
     &.ins-c-application-info {
@@ -19,27 +17,77 @@
 
         img.ins-c-application-info__logo {
             @include rem('height', 56px);
+            max-width: initial;
         }
 
         svg.ins-c-application-info__logo {
             @include rem('height', 56px);
             @include rem('width', 56px);
         }
+
+        h2 { margin-top: 15px; }
     }
 
-    .ins-c-navigation {
-        color: var(--pf-global--active-color--100);
+    .ins-c-application-info__open {
+        display: block;
+        span { margin-right: 15px }
     }
+    
+    .ins-c-application-info__content-applist {
+        display: flex;
+        flex-direction: column;
+        a {
+            display: block;
+            text-transform: capitalize;
+        }
+        a + a { margin-top: 10px; }
+    }
+
+    .ins-c-navigation { color: var(--pf-global--active-color--100); }
 }
 
 .pf-c-modal-box__body .pf-c-empty-state img.ins-c-application-info__logo {
     @include rem('height', 76px);
 }
 
-svg.ins-c-icon__active {
-    fill: var(--pf-global--active-color--100);
+svg.ins-c-icon__active { fill: var(--pf-global--active-color--100); }
+
+.pf-c-modal-box .pf-c-title { white-space: normal; }
+
+sup.ins-c-rball { @include rem('font-size', 10px); }
+
+.ins-c-application-info__split {
+    height: 100%;
+    .ins-c-application-info__open {
+        margin-top: auto;
+        margin-bottom: 0;
+    }
 }
 
-.ins-c-landing-page .pf-c-page__main {
-    overflow: visible;
+// Unentitled Modal Styles
+.ins-c-error-modal {
+    @include rem('max-width', 700px);
+}
+
+.ins-c-error-state {
+    text-align: center;
+    margin: 0 32px;
+    .ins-c-error-state__title {
+        font-weight: 400;
+        @include rem('margin-top', 15px);
+    }
+    .ins-c-error-state__image {
+        img, svg {
+            @include rem('height', 100px);
+            width: auto;
+        }
+    }
+    .ins-c-error-state__footer {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-top:  var(--pf-c-empty-state--c-button--MarginTop);
+        &-close { @include rem('margin-top', 10px); }
+    }
+
 }

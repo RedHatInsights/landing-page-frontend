@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import React, { useEffect } from 'react';
 import { withRouter, Switch, Route } from 'react-router-dom';
-import { getRegistry } from '@red-hat-insights/insights-frontend-components';
+import { getRegistry } from '@red-hat-insights/insights-frontend-components/Utilities/Registry';
 import { connect } from 'react-redux';
 import NotFound from './routes/404';
 import Landing from './routes/Landing';

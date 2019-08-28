@@ -1,12 +1,14 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import {
-    Card, CardHeader,
+    Card,
     CardBody,
-    Grid,
+    CardHeader,
+    CardFooter,
+    Gallery,
+    GalleryItem,
     Stack,
     StackItem,
     Title,
-    CardFooter,
     PageSection
 } from '@patternfly/react-core';
 
@@ -16,18 +18,18 @@ import PropTypes from 'prop-types';
 
 import './Body.scss';
 
-// TODO Chrome should have a function for this
-// something like `window.insights.chrome.isBeta
-const isBeta = window.location.pathname.indexOf('/beta') === 0;
+function isBeta() {
+    return (window.insights.chrome.isBeta() === true ? '/beta/' : '/');
+}
 
 const Body = ({ technologies }) => (
-    <Fragment>
-        <PageSection className='pf-m-fill'>
-            <Grid md={ 6 } lg={ isBeta ? 3 : 4 } gutter="md">
-                { technologies.map(({ icon: Icon, image, iconProps, title, url, body, isPreview, isDevPreview, id }, key) => (
-                    <Card className="ins-c-application-info pf-m-card-link" application-id={ id } key={ key }>
+    <PageSection className='pf-m-fill ins-p-landing__content'>
+        <Gallery gutter="md">
+            { technologies.map(({ icon: Icon, image, iconProps, title, url, apps, baseApp, body, isPreview, isDevPreview, id }, key) => (
+                <GalleryItem key={ key }>
+                    <Card className="ins-c-application-info" application-id={ id }>
                         <CardHeader>
-                            <Stack gutter='sm'>
+                            <Stack>
                                 <StackItem>
                                     { image && <img
                                         className="ins-c-application-info__logo"
@@ -49,40 +51,43 @@ const Body = ({ technologies }) => (
                             </Stack>
                         </CardHeader>
                         <CardBody>
-                            <Stack>
+                            <Stack gutter='md' className='ins-c-application-info__content'>
                                 { isPreview &&
                                     <StackItem>
                                         <div className="ins-m-tech-preview">
-                                            <BinocularsIcon size="sm" /> Tech Preview
+                                            <BinocularsIcon size="sm" /> Tech preview
                                         </div>
                                     </StackItem>
                                 }
                                 { isDevPreview &&
                                     <StackItem>
                                         <div className="ins-m-dev-preview">
-                                            <CodeIcon size="sm" /> Developer Preview
+                                            <CodeIcon size="sm" /> Developer preview
                                         </div>
                                     </StackItem>
                                 }
                                 <StackItem>
                                     <span className='ins-m-gray'>{ body }</span>
                                 </StackItem>
+                                <StackItem className='ins-c-application-info__content-applist'>
+                                    { apps && Object.entries(apps).map(([ appName, appPath ]) => (
+                                        <a key={ appName } href={ `${isBeta()}${url}${appPath}` }>{ appName }</a>
+                                    )) }
+                                </StackItem>
                             </Stack>
                         </CardBody>
                         <CardFooter>
-                            <div className="ins-c-open-card pf-l-flex pf-m-align-items-center pf-m-inline-flex">
-                                <span>
-                                    Open
-                                </span>
+                            <a className={ `ins-c-application-info__open ins-c-application-info__open-${url}` }
+                                href= { baseApp ? `${isBeta()}${url}${baseApp}` : `${isBeta()}${url}` }>
+                                <span> Open </span>
                                 <ArrowRightIcon size="sm" />
-                            </div>
+                            </a>
                         </CardFooter>
-                        <a className='pf-c-card__card-link' href={ `./${url}` } aria-label={ `Go to ${title}` }></a>
                     </Card>
-                )) }
-            </Grid>
-        </PageSection>
-    </Fragment>
+                </GalleryItem>
+            )) }
+        </Gallery>
+    </PageSection>
 );
 
 Body.propTypes = {
@@ -91,7 +96,10 @@ Body.propTypes = {
         icon: PropTypes.oneOfType([ PropTypes.func, PropTypes.string ]),
         body: PropTypes.node,
         title: PropTypes.node,
-        isPreview: PropTypes.bool
+        isPreview: PropTypes.bool,
+        url: PropTypes.string,
+        apps: PropTypes.object,
+        baseApp: PropTypes.string
     }))
 };
 
