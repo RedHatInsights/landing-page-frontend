@@ -46,6 +46,14 @@ const NotFound = new (require('html-webpack-plugin'))({
 });
 plugins.push(NotFound);
 
+const CheckSSO = new (require('html-webpack-plugin'))({
+    title: 'checkSSO',
+    filename: 'silent-check-sso.html',
+    chunks: [ 'vendor' ],
+    template: path.resolve(__dirname, '../src/silent-check-sso.html')
+});
+plugins.push(CheckSSO);
+
 /**
  * Source maps
  * @type {var}
