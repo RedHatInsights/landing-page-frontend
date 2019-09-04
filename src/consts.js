@@ -121,7 +121,7 @@ export const activeTechnologies = [
         body: 'Extend your automation with analytics, policy and governance, and content management.',
         apps: {
             'automation analytics': '/automation-analytics',
-            'automation hub': '/automation-hub',
+            'automation hub': '/automation-hub'
             // 'playbook catalog': '/playbook-catalog'
         },
         marketing: true,
