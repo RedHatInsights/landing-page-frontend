@@ -114,22 +114,22 @@ export const activeTechnologies = [
         id: 'Ansible',
         disabled: true,
         entitlement: 'ansible',
-        url: 'ansible-automation',
-        baseApp: '/tower-analytics',
+        url: 'ansible',
+        baseApp: '/automation-analytics',
         image: ansible,
-        title: 'Ansible Automation',
-        body: 'todo',
+        title: 'Red Hat Ansible Automation',
+        body: 'Extend your automation with analytics, policy and governance, and content management.',
         apps: {
-            'automation analytics': '/tower-analytics',
+            'automation analytics': '/automation-analytics',
             'automation hub': '/automation-hub',
-            'playbook catalog': '/playbook-catalog'
+            // 'playbook catalog': '/playbook-catalog'
         },
         marketing: true,
         marketingImage: ansibleMarketing,
-        marketingText: 'todo',
+        marketingText: 'Extend your automation with analytics, policy and governance, and content management.',
         marketingUrl: 'todo',
-        emptyTitle: 'Ansible Automation',
-        emptyText: 'todo',
+        emptyTitle: 'Red Hat Ansible Automation',
+        emptyText: 'Red Hat Ansible Automation services requires a valid Ansible Automation subscription.',
         emptyAction: {
             title: 'Learn more',
             navigate: 'todo'
