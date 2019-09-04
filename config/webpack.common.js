@@ -17,6 +17,11 @@ const notFound = process.env.NODE_ENV === 'production' ?
     path.resolve(__dirname, '../src/not-found.js') :
     path.resolve(__dirname, '../src/not-found-dev.js');
 
+/*const checkSSO = process.env.NODE_ENV === 'production' ?
+    path.resolve(__dirname, '../src/not-found.js') :
+    path.resolve(__dirname, '../src/not-found-dev.js');
+    */
+
 const gitBranch = process.env.TRAVIS_BRANCH || process.env.BRANCH || gitRevisionPlugin.branch();
 const betaBranhces = [ 'master', 'qa-beta', 'ci-beta', 'prod-beta' ];
 const appDeployment = (process.env.NODE_ENV === 'production' && betaBranhces.includes(gitBranch)) ?
