@@ -122,7 +122,6 @@ export const activeTechnologies = [
         apps: {
             'automation analytics': '/automation-analytics',
             'automation hub': '/automation-hub'
-            // 'playbook catalog': '/playbook-catalog'
         },
         marketing: true,
         marketingImage: ansibleMarketing,
