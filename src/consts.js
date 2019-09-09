@@ -112,7 +112,7 @@ export const activeTechnologies = [
     },
     {
         id: 'Ansible',
-        disabled: true,
+        disabled: window.location.pathname.indexOf('/beta') !== 0,
         entitlement: 'ansible',
         url: 'ansible',
         baseApp: '/automation-analytics',
