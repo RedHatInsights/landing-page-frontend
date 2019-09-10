@@ -123,7 +123,7 @@ export const activeTechnologies = [
             'automation analytics': '/automation-analytics',
             'automation hub': '/automation-hub'
         },
-        marketing: true,
+        marketing: false,
         marketingImage: ansibleMarketing,
         marketingText: 'Extend your automation with analytics, policy and governance, and content management.',
         marketingUrl: 'https://www.redhat.com/en/technologies/management/ansible',
