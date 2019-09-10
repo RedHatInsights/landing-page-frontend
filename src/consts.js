@@ -130,8 +130,6 @@ export const activeTechnologies = [
         emptyTitle: 'Red Hat Ansible Automation',
         emptyText: 'Red Hat Ansible Automation services requires a valid Ansible Automation subscription.',
         emptyAction: {
-            // title: 'Learn more',
-            // navigate: 'todo'
             close: 'Not now'
         },
         isPreview: true
