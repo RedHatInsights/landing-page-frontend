@@ -126,13 +126,13 @@ export const activeTechnologies = [
         marketing: true,
         marketingImage: ansibleMarketing,
         marketingText: 'Extend your automation with analytics, policy and governance, and content management.',
-        marketingUrl: 'todo',
+        marketingUrl: 'https://www.redhat.com/en/technologies/management/ansible',
         emptyTitle: 'Red Hat Ansible Automation',
         emptyText: 'Red Hat Ansible Automation services requires a valid Ansible Automation subscription.',
         emptyAction: {
-            title: 'Learn more',
-            navigate: 'todo'
-        }
+            close: 'Not now'
+        },
+        isPreview: true
     },
     {
         id: 'migrations',
