@@ -49,7 +49,7 @@ plugins.push(NotFound);
 const CheckSSO = new (require('html-webpack-plugin'))({
     title: 'checkSSO',
     filename: 'silent-check-sso.html',
-    chunks: [ 'App', 'vendor' ],
+    chunks: [ '' ],
     template: path.resolve(__dirname, '../src/silent-check-sso.html')
 });
 plugins.push(CheckSSO);
