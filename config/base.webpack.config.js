@@ -30,7 +30,6 @@ const webpackConfig = {
         App: config.paths.entry,
         Logout: config.paths.logout,
         NotFound: config.paths.notFound
-        //,CheckSSO: config.paths.checkSSO
     },
     output: {
         filename: 'js/[name].js',
