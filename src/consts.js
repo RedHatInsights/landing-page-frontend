@@ -68,9 +68,9 @@ export const activeTechnologies = [
     {
         id: 'Openshift',
         url: 'openshift',
-        baseApp: '/clusters',
+        baseApp: '/',
         apps: {
-            'cluster manager': '/clusters'
+            'cluster manager': '/'
         },
         entitlement: 'openshift',
         marketing: true,
