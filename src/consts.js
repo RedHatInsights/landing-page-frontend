@@ -117,7 +117,7 @@ export const activeTechnologies = [
         url: 'ansible',
         baseApp: '/automation-analytics',
         image: ansible,
-        title: 'Red Hat Ansible Automation',
+        title: 'Red Hat Ansible Automation Platform',
         body: 'Extend your automation with analytics, policy and governance, and content management.',
         apps: {
             'automation analytics': '/automation-analytics',
@@ -126,9 +126,9 @@ export const activeTechnologies = [
         marketing: false,
         marketingImage: ansibleMarketing,
         marketingText: 'Extend your automation with analytics, policy and governance, and content management.',
-        marketingUrl: 'https://www.redhat.com/en/technologies/management/ansible',
-        emptyTitle: 'Red Hat Ansible Automation',
-        emptyText: 'Red Hat Ansible Automation services requires a valid Ansible Automation subscription.',
+        marketingUrl: 'http://ansible.com/products/automation-platform',
+        emptyTitle: 'Red Hat Ansible Automation Platform',
+        emptyText: 'Ansible Automation Platform services requires a valid subscription.',
         emptyAction: {
             close: 'Not now'
         },
