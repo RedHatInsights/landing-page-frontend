@@ -1,4 +1,5 @@
 User-agent: *
 Disallow: /404.html
 Disallow: /logout.html
-Disallow: /config/main.yml
+Disallow: /config/*
+Disallow: /beta/*
