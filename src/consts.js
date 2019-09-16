@@ -55,7 +55,7 @@ export const activeTechnologies = [
         },
         image: hcm,
         emptyTitle: 'Upgrade to get started with Cloud Management Services for Red Hat Enterprise Linux.',
-        emptyText: 'Monitor your Red Hat environments to track system compliance, configration, \
+        emptyText: 'Monitor your Red Hat environments to track system compliance, configuration, \
         security, and efficiency. Upgrade to get started today.',
         emptyAction: {
             title: 'Learn more',
