@@ -21,7 +21,7 @@ const Marketing = ({ technologies }) => (
     <React.Fragment>
         <Hero/>
         <PageSection className='ins-c-marketing pf-m-no-fill'>
-            <Grid sm={ 12 } md={ 6 } lg={ 4 } gutter="md">
+            <Grid sm={ 12 } md={ 6 } lg={ 3 } gutter="md">
                 { technologies.map(({ marketingImage, title, marketingUrl, marketingText, id }, key) => (
                     <Card className="ins-c-application-info pf-m-card-link" application-id={ id } key={ key }>
                         <CardHeader>
@@ -73,7 +73,7 @@ Marketing.defaultProps = {
 
 function mapStateToProps({ technologies } = { technologies: { activeTechnologies: []}}) {
     return {
-        technologies: technologies && technologies.activeTechnologies.filter(({ marketing, disabled }) => marketing && !disabled)
+        technologies: technologies && technologies.activeTechnologies.filter(({ marketing, disabled }) => marketing || !disabled)
     };
 }
 

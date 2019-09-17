@@ -123,7 +123,7 @@ export const activeTechnologies = [
             'automation analytics': '/automation-analytics',
             'automation hub': '/automation-hub'
         },
-        marketing: false,
+        marketing: true,
         marketingImage: ansibleMarketing,
         marketingText: 'Extend your automation with analytics, policy and governance, and content management.',
         marketingUrl: 'http://ansible.com/products/automation-platform',
