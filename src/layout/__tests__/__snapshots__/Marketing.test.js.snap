@@ -21,7 +21,6 @@ exports[`render Marketing component should render correctly 1`] = `
       <Hero>
         <PageSection
           className="ins-c-hero pf-m-fill pf-l-flex pf-m-align-items-center pf-m-justify-content-center"
-          variant="default"
         >
           <section
             className="pf-c-page__main-section ins-c-hero pf-m-fill pf-l-flex pf-m-align-items-center pf-m-justify-content-center"
@@ -56,31 +55,45 @@ exports[`render Marketing component should render correctly 1`] = `
                    software-as-a-service
                 </h2>
               </Title>
-              <Button
-                aria-label={null}
+              <Component
                 className="ins-c-hero__login"
-                component="button"
-                isActive={false}
-                isBlock={false}
-                isDisabled={false}
-                isFocus={false}
-                isHover={false}
                 onClick={[Function]}
-                type="button"
-                variant="primary"
               >
-                <button
-                  aria-disabled={null}
-                  aria-label={null}
-                  className="pf-c-button pf-m-primary ins-c-hero__login"
-                  disabled={false}
-                  onClick={[Function]}
-                  tabIndex={null}
-                  type="button"
+                <ComponentWithOuia
+                  component={[Function]}
+                  componentProps={
+                    Object {
+                      "children": " Log in to your Red Hat account",
+                      "className": "ins-c-hero__login",
+                      "onClick": [Function],
+                    }
+                  }
+                  consumerContext={null}
                 >
-                   Log in to your Red Hat account
-                </button>
-              </Button>
+                  <Button
+                    className="ins-c-hero__login"
+                    onClick={[Function]}
+                    ouiaContext={
+                      Object {
+                        "isOuia": false,
+                        "ouiaId": null,
+                      }
+                    }
+                  >
+                    <button
+                      aria-disabled={null}
+                      aria-label={null}
+                      className="pf-c-button pf-m-primary ins-c-hero__login"
+                      disabled={false}
+                      onClick={[Function]}
+                      tabIndex={null}
+                      type="button"
+                    >
+                       Log in to your Red Hat account
+                    </button>
+                  </Button>
+                </ComponentWithOuia>
+              </Component>
               <a
                 className="ins-c-hero__new-customer"
                 href="https://www.redhat.com/en/customers"
@@ -93,22 +106,19 @@ exports[`render Marketing component should render correctly 1`] = `
       </Hero>
       <PageSection
         className="ins-c-marketing pf-m-no-fill"
-        variant="default"
       >
         <section
           className="pf-c-page__main-section ins-c-marketing pf-m-no-fill"
         >
           <Grid
-            className=""
-            gutter="md"
-            lg={null}
+            gutter="sm"
             md={6}
             sm={12}
-            span={null}
-            xl={3}
+            xl={6}
+            xl2={3}
           >
             <div
-              className="pf-l-grid pf-m-all-12-col-on-sm pf-m-all-6-col-on-md pf-m-all-3-col-on-xl pf-m-gutter"
+              className="pf-l-grid pf-m-all-12-col-on-sm pf-m-all-6-col-on-md pf-m-all-6-col-on-xl pf-m-all-3-col-on-2xl pf-m-gutter"
             />
           </Grid>
         </section>

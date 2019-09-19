@@ -3,7 +3,6 @@
 exports[`Hero component should render correctly 1`] = `
 <PageSection
   className="ins-c-hero pf-m-fill pf-l-flex pf-m-align-items-center pf-m-justify-content-center"
-  variant="default"
 >
   <article
     className="pf-l-flex pf-m-column pf-m-align-items-center"
@@ -27,21 +26,12 @@ exports[`Hero component should render correctly 1`] = `
       </sup>
        software-as-a-service
     </Title>
-    <Button
-      aria-label={null}
+    <Component
       className="ins-c-hero__login"
-      component="button"
-      isActive={false}
-      isBlock={false}
-      isDisabled={false}
-      isFocus={false}
-      isHover={false}
       onClick={[Function]}
-      type="button"
-      variant="primary"
     >
        Log in to your Red Hat account
-    </Button>
+    </Component>
     <a
       className="ins-c-hero__new-customer"
       href="https://www.redhat.com/en/customers"

@@ -111,13 +111,11 @@ exports[`Landing component renders authenticated page should render correctly 1`
               >
                 <PageSection
                   className="pf-m-fill ins-p-landing__content"
-                  variant="default"
                 >
                   <section
                     className="pf-c-page__main-section pf-m-fill ins-p-landing__content"
                   >
                     <Gallery
-                      className=""
                       gutter="md"
                     >
                       <div
@@ -131,7 +129,6 @@ exports[`Landing component renders authenticated page should render correctly 1`
             <FooterTraditional>
               <PageSection
                 className="ins-c-footer__traditional pf-m-no-fill"
-                variant="default"
               >
                 <section
                   className="pf-c-page__main-section ins-c-footer__traditional pf-m-no-fill"
