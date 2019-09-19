@@ -101,14 +101,14 @@ exports[`render Marketing component should render correctly 1`] = `
           <Grid
             className=""
             gutter="md"
-            lg={3}
+            lg={null}
             md={6}
             sm={12}
             span={null}
-            xl={null}
+            xl={3}
           >
             <div
-              className="pf-l-grid pf-m-all-12-col-on-sm pf-m-all-6-col-on-md pf-m-all-3-col-on-lg pf-m-gutter"
+              className="pf-l-grid pf-m-all-12-col-on-sm pf-m-all-6-col-on-md pf-m-all-3-col-on-xl pf-m-gutter"
             />
           </Grid>
         </section>
