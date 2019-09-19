@@ -10,6 +10,8 @@
 
     @include rem('padding-top', 40px);
 
+    .pf-l-grid { grid-gap: 1.5rem; }
+
     .pf-c-card__header,
     .pf-c-card__body,
     .ins-c-application-logo,
