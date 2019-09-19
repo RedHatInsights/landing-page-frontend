@@ -289,31 +289,45 @@ exports[`NotFound component should render correctly 1`] = `
                 Sorry, we couldn't find what you were looking for. The page you requested may have been changed or moved.
               </h1>
             </Title>
-            <Button
-              aria-label={null}
-              className=""
-              component="button"
-              isActive={false}
-              isBlock={false}
-              isDisabled={false}
-              isFocus={false}
-              isHover={false}
+            <Component
               onClick={[Function]}
-              type="button"
               variant="link"
             >
-              <button
-                aria-disabled={null}
-                aria-label={null}
-                className="pf-c-button pf-m-link"
-                disabled={false}
-                onClick={[Function]}
-                tabIndex={null}
-                type="button"
+              <ComponentWithOuia
+                component={[Function]}
+                componentProps={
+                  Object {
+                    "children": "Return to homepage",
+                    "onClick": [Function],
+                    "variant": "link",
+                  }
+                }
+                consumerContext={null}
               >
-                Return to homepage
-              </button>
-            </Button>
+                <Button
+                  onClick={[Function]}
+                  ouiaContext={
+                    Object {
+                      "isOuia": false,
+                      "ouiaId": null,
+                    }
+                  }
+                  variant="link"
+                >
+                  <button
+                    aria-disabled={null}
+                    aria-label={null}
+                    className="pf-c-button pf-m-link"
+                    disabled={false}
+                    onClick={[Function]}
+                    tabIndex={null}
+                    type="button"
+                  >
+                    Return to homepage
+                  </button>
+                </Button>
+              </ComponentWithOuia>
+            </Component>
           </section>
         </NotFound>
       </Connect(NotFound)>
@@ -622,31 +636,45 @@ exports[`NotFound component should render correctly with data 1`] = `
                 Sorry, we couldn't find what you were looking for. The page you requested may have been changed or moved.
               </h1>
             </Title>
-            <Button
-              aria-label={null}
-              className=""
-              component="button"
-              isActive={false}
-              isBlock={false}
-              isDisabled={false}
-              isFocus={false}
-              isHover={false}
+            <Component
               onClick={[Function]}
-              type="button"
               variant="link"
             >
-              <button
-                aria-disabled={null}
-                aria-label={null}
-                className="pf-c-button pf-m-link"
-                disabled={false}
-                onClick={[Function]}
-                tabIndex={null}
-                type="button"
+              <ComponentWithOuia
+                component={[Function]}
+                componentProps={
+                  Object {
+                    "children": "Return to homepage",
+                    "onClick": [Function],
+                    "variant": "link",
+                  }
+                }
+                consumerContext={null}
               >
-                Return to homepage
-              </button>
-            </Button>
+                <Button
+                  onClick={[Function]}
+                  ouiaContext={
+                    Object {
+                      "isOuia": false,
+                      "ouiaId": null,
+                    }
+                  }
+                  variant="link"
+                >
+                  <button
+                    aria-disabled={null}
+                    aria-label={null}
+                    className="pf-c-button pf-m-link"
+                    disabled={false}
+                    onClick={[Function]}
+                    tabIndex={null}
+                    type="button"
+                  >
+                    Return to homepage
+                  </button>
+                </Button>
+              </ComponentWithOuia>
+            </Component>
           </section>
         </NotFound>
       </Connect(NotFound)>

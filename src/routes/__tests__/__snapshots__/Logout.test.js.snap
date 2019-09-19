@@ -14,31 +14,45 @@ exports[`Logout component should render correctly 1`] = `
          You have logged out. 
       </h1>
     </Title>
-    <Button
-      aria-label={null}
-      className=""
-      component="button"
-      isActive={false}
-      isBlock={false}
-      isDisabled={false}
-      isFocus={false}
-      isHover={false}
+    <Component
       onClick={[Function]}
-      type="button"
       variant="link"
     >
-      <button
-        aria-disabled={null}
-        aria-label={null}
-        className="pf-c-button pf-m-link"
-        disabled={false}
-        onClick={[Function]}
-        tabIndex={null}
-        type="button"
+      <ComponentWithOuia
+        component={[Function]}
+        componentProps={
+          Object {
+            "children": "Take me home",
+            "onClick": [Function],
+            "variant": "link",
+          }
+        }
+        consumerContext={null}
       >
-        Take me home
-      </button>
-    </Button>
+        <Button
+          onClick={[Function]}
+          ouiaContext={
+            Object {
+              "isOuia": false,
+              "ouiaId": null,
+            }
+          }
+          variant="link"
+        >
+          <button
+            aria-disabled={null}
+            aria-label={null}
+            className="pf-c-button pf-m-link"
+            disabled={false}
+            onClick={[Function]}
+            tabIndex={null}
+            type="button"
+          >
+            Take me home
+          </button>
+        </Button>
+      </ComponentWithOuia>
+    </Component>
   </section>
 </Logout>
 `;

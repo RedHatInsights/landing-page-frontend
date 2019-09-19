@@ -3,7 +3,6 @@
 exports[`Footer Traditional component should render correctly 1`] = `
 <PageSection
   className="ins-c-footer__traditional pf-m-no-fill"
-  variant="default"
 >
   <footer
     className="pf-l-flex pf-m-column pf-m-row-on-lg pf-m-align-items-center-on-lg"

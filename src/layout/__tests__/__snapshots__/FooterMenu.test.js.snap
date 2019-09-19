@@ -3,40 +3,15 @@
 exports[`Footer Menu component should render correctly 1`] = `
 <PageSection
   className="ins-c-footer__menu pf-m-no-fill"
-  variant="default"
 >
   <Grid
-    className=""
     gutter="lg"
-    lg={null}
     md={3}
     sm={12}
-    span={null}
-    xl={null}
   >
-    <GridItem
-      className=""
-      lg={null}
-      lgOffset={null}
-      lgRowSpan={null}
-      md={null}
-      mdOffset={null}
-      mdRowSpan={null}
-      offset={null}
-      rowSpan={null}
-      sm={null}
-      smOffset={null}
-      smRowSpan={null}
-      span={null}
-      xl={null}
-      xlOffset={null}
-      xlRowSpan={null}
-    >
-      <TextContent
-        className=""
-      >
+    <GridItem>
+      <TextContent>
         <Text
-          className=""
           component="h2"
         >
           Support and resources
@@ -53,29 +28,9 @@ exports[`Footer Menu component should render correctly 1`] = `
         Contact customer service
       </a>
     </GridItem>
-    <GridItem
-      className=""
-      lg={null}
-      lgOffset={null}
-      lgRowSpan={null}
-      md={null}
-      mdOffset={null}
-      mdRowSpan={null}
-      offset={null}
-      rowSpan={null}
-      sm={null}
-      smOffset={null}
-      smRowSpan={null}
-      span={null}
-      xl={null}
-      xlOffset={null}
-      xlRowSpan={null}
-    >
-      <TextContent
-        className=""
-      >
+    <GridItem>
+      <TextContent>
         <Text
-          className=""
           component="h2"
         >
           About
@@ -97,43 +52,18 @@ exports[`Footer Menu component should render correctly 1`] = `
         Red Hat OpenShift
       </a>
     </GridItem>
-    <GridItem
-      className=""
-      lg={null}
-      lgOffset={null}
-      lgRowSpan={null}
-      md={null}
-      mdOffset={null}
-      mdRowSpan={null}
-      offset={null}
-      rowSpan={null}
-      sm={null}
-      smOffset={null}
-      smRowSpan={null}
-      span={null}
-      xl={null}
-      xlOffset={null}
-      xlRowSpan={null}
-    >
-      <TextContent
-        className=""
-      >
+    <GridItem>
+      <TextContent>
         <Text
-          className=""
           component="h2"
         >
           Feedback
         </Text>
       </TextContent>
       <Split
-        className=""
-        component="div"
         gutter="md"
       >
-        <SplitItem
-          className=""
-          isFilled={false}
-        >
+        <SplitItem>
           <PaperPlaneAltIcon
             className="ins-c-icon__active"
             color="currentColor"
@@ -142,7 +72,6 @@ exports[`Footer Menu component should render correctly 1`] = `
           />
         </SplitItem>
         <SplitItem
-          className=""
           isFilled={true}
         >
           <a
