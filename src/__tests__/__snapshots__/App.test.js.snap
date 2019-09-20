@@ -253,13 +253,15 @@ exports[`App component should render correctly 1`] = `
                               <section
                                 className="pf-c-page__main-section pf-m-fill ins-p-landing__content"
                               >
-                                <Gallery
+                                <Grid
                                   gutter="md"
+                                  lg={4}
+                                  md={6}
                                 >
                                   <div
-                                    className="pf-l-gallery pf-m-gutter"
+                                    className="pf-l-grid pf-m-all-6-col-on-md pf-m-all-4-col-on-lg pf-m-gutter"
                                   />
-                                </Gallery>
+                                </Grid>
                               </section>
                             </PageSection>
                           </Body>
@@ -631,13 +633,15 @@ exports[`App component should render correctly with data 1`] = `
                               <section
                                 className="pf-c-page__main-section pf-m-fill ins-p-landing__content"
                               >
-                                <Gallery
+                                <Grid
                                   gutter="md"
+                                  lg={4}
+                                  md={6}
                                 >
                                   <div
-                                    className="pf-l-gallery pf-m-gutter"
+                                    className="pf-l-grid pf-m-all-6-col-on-md pf-m-all-4-col-on-lg pf-m-gutter"
                                   />
-                                </Gallery>
+                                </Grid>
                               </section>
                             </PageSection>
                           </Body>

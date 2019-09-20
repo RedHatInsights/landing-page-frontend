@@ -4,8 +4,8 @@ import {
     CardBody,
     CardHeader,
     CardFooter,
-    Gallery,
-    GalleryItem,
+    Grid,
+    GridItem,
     Stack,
     StackItem,
     Title,
@@ -24,9 +24,9 @@ function isBeta() {
 
 const Body = ({ technologies }) => (
     <PageSection className='pf-m-fill ins-p-landing__content'>
-        <Gallery gutter="md">
+        <Grid md={ 6 } lg={ 4 } gutter="md">
             { technologies.map(({ icon: Icon, image, iconProps, title, url, apps, baseApp, body, isPreview, isDevPreview, id }, key) => (
-                <GalleryItem key={ key }>
+                <GridItem key={ key }>
                     <Card className="ins-c-application-info" application-id={ id }>
                         <CardHeader>
                             <Stack>
@@ -84,9 +84,9 @@ const Body = ({ technologies }) => (
                             </a>
                         </CardFooter>
                     </Card>
-                </GalleryItem>
+                </GridItem>
             )) }
-        </Gallery>
+        </Grid>
     </PageSection>
 );
 
