@@ -13,6 +13,6 @@ module.exports = {
         '/ansible/': { host: 'PORTAL_BACKEND_MARKER' },
         '/subscriptions/': { host: 'PORTAL_BACKEND_MARKER' },
         '/': { host: 'https://localhost:8002' },
-        '/config': { host: 'https://ci.cloud.redhat.com' }
+        '/config': { host: 'PORTAL_BACKEND_MARKER' }
     }
 };
