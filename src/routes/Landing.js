@@ -57,7 +57,7 @@ class Landing extends Component {
     render() {
         const { isUserReady, isModalOpen, not_entitled: notEntitled, unauthed } = this.state;
 
-        if(isUserReady) {
+        if (isUserReady) {
             return (
                 <Fragment>
                     { unauthed
@@ -115,7 +115,7 @@ class Landing extends Component {
                 </Fragment>
             );
         } else {
-            return <Loading/>
+            return <Loading/>;
         }
     }
 }
