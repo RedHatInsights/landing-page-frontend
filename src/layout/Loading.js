@@ -1,6 +1,7 @@
 import React from 'react';
 
-import { Main, Spinner } from '@red-hat-insights/insights-frontend-components';
+import { Main } from '@red-hat-insights/insights-frontend-components/components/Main';
+import { Spinner } from  '@red-hat-insights/insights-frontend-components/components/Spinner';
 
 const Loading = () => (
     <Main>
