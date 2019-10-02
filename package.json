@@ -41,7 +41,7 @@
     "travis:build": "NODE_ENV=production webpack --config config/prod.webpack.config.js",
     "travis:verify": "npm-run-all travis:build lint test",
     "verify": "npm-run-all build lint test",
-    "nightly": "npm run travis:verify"
+    "nightly": "npm-run-all build lint && npm run test -- -u"
   },
   "repository": {
     "type": "git",
