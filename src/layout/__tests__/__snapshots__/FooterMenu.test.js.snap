@@ -67,6 +67,7 @@ exports[`Footer Menu component should render correctly 1`] = `
           <PaperPlaneAltIcon
             className="ins-c-icon__active"
             color="currentColor"
+            noVerticalAlign={false}
             size="xl"
             title={null}
           />
