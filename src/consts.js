@@ -95,7 +95,7 @@ export const activeTechnologies = [
     {
         id: 'Hybrid',
         url: 'hybrid',
-        baseApp: '/catalog',
+        baseApp: '/cost-management',
         entitlement: 'hybrid_cloud',
         marketing: false,
         disabled: window.location.pathname.indexOf('/beta') !== 0,
