@@ -32,7 +32,7 @@
   },
   "scripts": {
     "test": "jest --passWithNoTests",
-    "build": "webpack --config config/prod.webpack.config.js",
+    "build": "NODE_ENV=production webpack --config config/prod.webpack.config.js",
     "lint": "npm-run-all lint:*",
     "lint:js": "eslint config src",
     "lint:sass": "stylelint 'src/**/*.scss' --config .stylelintrc.json",
@@ -60,10 +60,9 @@
     "@patternfly/react-icons": "^3.14.9",
     "@red-hat-insights/insights-frontend-components": "^3.41.37",
     "classnames": "^2.2.6",
-    "fsevents": "1.2.9",
     "git-revision-webpack-plugin": "^3.0.3",
     "html-loader": "^0.5.5",
-    "lodash": "^4.17.11",
+    "lodash": "^4.17.15",
     "webpack": "^4.29.6",
     "webpack-cli": "^3.2.3"
   },
