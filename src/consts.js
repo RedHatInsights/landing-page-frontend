@@ -51,7 +51,7 @@ export const activeTechnologies = [
         apps: {
             vulnerability: '/vulnerability',
             compliance: '/compliance',
-            'drift analysis': '/drift'
+            'system comparison': '/drift'
         },
         image: hcm,
         emptyTitle: 'Upgrade to get started with Cloud Management Services for Red Hat Enterprise Linux.',
