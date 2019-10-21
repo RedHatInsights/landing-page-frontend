@@ -95,7 +95,7 @@ export const activeTechnologies = [
     {
         id: 'Cost Management',
         url: 'cost-management',
-        baseApp: '/cost-management',
+        baseApp: '/',
         entitlement: 'cost_management',
         marketing: false,
         disabled: window.location.pathname.indexOf('/beta') !== 0,
