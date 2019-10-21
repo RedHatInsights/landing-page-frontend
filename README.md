@@ -34,11 +34,11 @@ The following four branches are used
 
 - Stable
   - prod-stable -> releases to cloud.redhat.com
-  - master-stable -> releases to qa/ci.cloud.redhat.com
+  - master-stable -> releases to qa/ci.cloud.paas.psi.redhat.com
 
 - Beta
   - prod-beta -> releases to cloud.redhat.com/beta
-  - master -> releases to qa/ci.cloud.redhat.com/beta
+  - master -> releases to qa/ci.cloud.paas.psi.redhat.com/beta
 
 ## Adding a new card/tile
 
