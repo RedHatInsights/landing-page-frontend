@@ -94,21 +94,21 @@ export const activeTechnologies = [
         body: 'Install, register, and manage Red Hat OpenShift® 4 clusters.'
     },
     {
-        id: 'Hybrid',
-        url: 'hybrid',
-        baseApp: '/cost-management',
-        entitlement: 'hybrid_cloud',
+        id: 'Cost Management',
+        url: 'cost-management',
+        baseApp: '/',
+        entitlement: 'cost_management',
         marketing: false,
         disabled: window.location.pathname.indexOf('/beta') !== 0,
         image: costManagement,
-        emptyTitle: 'Hybrid Cloud Management Services technology preview access.',
-        emptyText: 'The Red Hat Hybrid Cloud Management Services technology preview is currently \
+        emptyTitle: 'Cost Management technology preview access.',
+        emptyText: 'Cost Management technology preview is currently \
         restricted to Red Hat customers.',
         emptyAction: {
             title: 'Ok'
         },
-        title: 'Hybrid Cloud Management Services',
-        body: 'Govern, automate, and manage multi-cloud environments.',
+        title: 'Cost Management',
+        body: 'Analyze, forecast and optimize your Red Hat OpenShift cluster costs in hybrid cloud environments',
         isPreview: true
     },
     {
