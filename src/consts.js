@@ -4,6 +4,7 @@ import rhelCs from './components/rhel-cs.svg';
 import ansible from './components/ansible.svg';
 import subscriptions from './components/subscriptions.svg';
 import migrations from './components/migrations.svg';
+import costManagement from './components/cost-management.svg';
 
 import insightsMarketing from './components/marketing/insightsMarketing.svg';
 import openShiftMarketing from './components/marketing/openShiftMarketing.svg';
@@ -99,7 +100,7 @@ export const activeTechnologies = [
         entitlement: 'hybrid_cloud',
         marketing: false,
         disabled: window.location.pathname.indexOf('/beta') !== 0,
-        image: rhelCs,
+        image: costManagement,
         emptyTitle: 'Hybrid Cloud Management Services technology preview access.',
         emptyText: 'The Red Hat Hybrid Cloud Management Services technology preview is currently \
         restricted to Red Hat customers.',
