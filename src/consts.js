@@ -107,7 +107,7 @@ export const activeTechnologies = [
             title: 'Ok'
         },
         title: 'Cost Management',
-        body: 'Analyze, forecast and optimize your Red Hat OpenShift cluster costs in hybrid cloud environments',
+        body: 'Analyze, forecast and optimize your Red Hat OpenShift cluster costs in hybrid cloud environments.',
         isPreview: true
     },
     {
