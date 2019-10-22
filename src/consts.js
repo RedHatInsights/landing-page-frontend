@@ -1,9 +1,9 @@
 import { ChartSpikeIcon, OpenshiftIcon } from '@patternfly/react-icons';
 import hcm from './components/hcm.svg';
-import rhelCs from './components/rhel-cs.svg';
 import ansible from './components/ansible.svg';
 import subscriptions from './components/subscriptions.svg';
 import migrations from './components/migrations.svg';
+import costManagement from './components/cost-management.svg';
 
 import insightsMarketing from './components/marketing/insightsMarketing.svg';
 import openShiftMarketing from './components/marketing/openShiftMarketing.svg';
@@ -99,7 +99,7 @@ export const activeTechnologies = [
         entitlement: 'cost_management',
         marketing: false,
         disabled: window.location.pathname.indexOf('/beta') !== 0,
-        image: rhelCs,
+        image: costManagement,
         emptyTitle: 'Cost Management technology preview access.',
         emptyText: 'Cost Management technology preview is currently \
         restricted to Red Hat customers.',
