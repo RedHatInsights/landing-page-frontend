@@ -60,6 +60,8 @@ export const activeTechnologies = [
         emptyAction: {
             title: 'Request an evaluation',
             navigate: 'https://access.redhat.com/products/cloud_management_services_for_rhel/evaluation',
+            cmsfrhelLearnMore: 'Learn more',
+            cmsfrhelLearnNav: 'https://access.redhat.com/products/cloud_management_services_for_rhel',
             close: 'Not now'
         },
         title: 'Cloud Management Services for Red Hat Enterprise Linux',
