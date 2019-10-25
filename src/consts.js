@@ -54,12 +54,12 @@ export const activeTechnologies = [
             'drift analysis': '/drift'
         },
         image: hcm,
-        emptyTitle: 'Upgrade to get started with Cloud Management Services for Red Hat Enterprise Linux.',
+        emptyTitle: 'Get started with Cloud Management Services for Red Hat Enterprise Linux.',
         emptyText: 'Monitor your Red Hat environments to track system compliance, configuration, \
         security, and efficiency. Upgrade to get started today.',
         emptyAction: {
-            title: 'Learn more',
-            navigate: 'https://www.redhat.com/en/technologies/management/smart-management',
+            title: 'Request an evaluation',
+            navigate: 'https://access.redhat.com/products/cloud_management_services_for_rhel/evaluation',
             close: 'Not now'
         },
         title: 'Cloud Management Services for Red Hat Enterprise Linux',
