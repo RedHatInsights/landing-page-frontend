@@ -113,7 +113,7 @@ class Landing extends Component {
                                         <Level className='ins-c-cmsfrhel-error-state__footer'>
                                             <LevelItem>
                                                 <Button variant="link" className='ins-c-error-state__footer-close' onClick={ () => {
-                                                    if (notEntitled.emptyAction.secondary.title) {
+                                                    if (notEntitled.emptyAction.secondary.navigate) {
                                                         window.location.href = notEntitled.emptyAction.secondary.navigate;
                                                     }
                                                 } }>
