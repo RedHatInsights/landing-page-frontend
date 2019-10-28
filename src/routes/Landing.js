@@ -108,27 +108,28 @@ class Landing extends Component {
                                             { notEntitled.emptyAction.title }
                                         </Button>
                                 }
-                                { 
-                                    notEntitled.entitlement === "smart_management" ?
-                                    <Level className='ins-c-cmsfrhel-error-state__footer'>
-                                        <LevelItem>
-                                            <Button variant="link" className='ins-c-error-state__footer-close' onClick={ () => {
-                                                if (notEntitled.emptyAction.cmsfrhelLearnNav) {
-                                                    window.location.href = notEntitled.emptyAction.cmsfrhelLearnNav;
-                                                }
-                                            } }>
-                                                { notEntitled.emptyAction.cmsfrhelLearnMore ? `${notEntitled.emptyAction.cmsfrhelLearnMore }` : 'Learn More' }
-                                            </Button>
-                                        </LevelItem>
-                                        <LevelItem>
-                                            <Button variant="link" className='ins-c-error-state__footer-close' onClick={ this.handleModalToggle }>
-                                                { notEntitled.emptyAction.close ? `${notEntitled.emptyAction.close }` : 'Close' }
-                                            </Button> 
-                                        </LevelItem>
-                                    </Level> :
-                                    <Button variant="link" className='ins-c-error-state__footer-close' onClick={ this.handleModalToggle }>
-                                        { notEntitled.emptyAction.close ? `${notEntitled.emptyAction.close }` : 'Close' }
-                                    </Button> 
+                                {
+                                    notEntitled.entitlement === 'smart_management' ?
+                                        <Level className='ins-c-cmsfrhel-error-state__footer'>
+                                            <LevelItem>
+                                                <Button variant="link" className='ins-c-error-state__footer-close' onClick={ () => {
+                                                    if (notEntitled.emptyAction.cmsfrhelLearnNav) {
+                                                        window.location.href = notEntitled.emptyAction.cmsfrhelLearnNav;
+                                                    }
+                                                } }>
+                                                    { notEntitled.emptyAction.cmsfrhelLearnMore ?
+                                                        `${notEntitled.emptyAction.cmsfrhelLearnMore }` : 'Learn More' }
+                                                </Button>
+                                            </LevelItem>
+                                            <LevelItem>
+                                                <Button variant="link" className='ins-c-error-state__footer-close' onClick={ this.handleModalToggle }>
+                                                    { notEntitled.emptyAction.close ? `${notEntitled.emptyAction.close }` : 'Close' }
+                                                </Button>
+                                            </LevelItem>
+                                        </Level> :
+                                        <Button variant="link" className='ins-c-error-state__footer-close' onClick={ this.handleModalToggle }>
+                                            { notEntitled.emptyAction.close ? `${notEntitled.emptyAction.close }` : 'Close' }
+                                        </Button>
                                 }
                             </StackItem>
                         </Stack>
