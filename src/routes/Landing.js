@@ -99,36 +99,36 @@ class Landing extends Component {
                             </StackItem>
                             <StackItem className='ins-c-error-state__footer'>
                                 {
-                                    notEntitled.emptyAction.title &&
+                                    notEntitled.emptyAction.primary &&
                                         <Button variant="primary" className='ins-c-error-state__footer-action' onClick={ () => {
-                                            if (notEntitled.emptyAction.navigate) {
-                                                window.location.href = notEntitled.emptyAction.navigate;
+                                            if (notEntitled.emptyAction.primary.navigate) {
+                                                window.location.href = notEntitled.emptyAction.primary.navigate;
                                             }
                                         } } >
-                                            { notEntitled.emptyAction.title }
+                                            { notEntitled.emptyAction.primary.title }
                                         </Button>
                                 }
                                 {
-                                    notEntitled.entitlement === 'smart_management' ?
+                                    notEntitled.emptyAction.secondary ?
                                         <Level className='ins-c-cmsfrhel-error-state__footer'>
                                             <LevelItem>
                                                 <Button variant="link" className='ins-c-error-state__footer-close' onClick={ () => {
-                                                    if (notEntitled.emptyAction.cmsfrhelLearnNav) {
-                                                        window.location.href = notEntitled.emptyAction.cmsfrhelLearnNav;
+                                                    if (notEntitled.emptyAction.secondary.title) {
+                                                        window.location.href = notEntitled.emptyAction.secondary.navigate;
                                                     }
                                                 } }>
-                                                    { notEntitled.emptyAction.cmsfrhelLearnMore ?
-                                                        `${notEntitled.emptyAction.cmsfrhelLearnMore }` : 'Learn More' }
+                                                    { notEntitled.emptyAction.secondary.title ?
+                                                        `${notEntitled.emptyAction.secondary.title }` : 'Learn More' }
                                                 </Button>
                                             </LevelItem>
                                             <LevelItem>
                                                 <Button variant="link" className='ins-c-error-state__footer-close' onClick={ this.handleModalToggle }>
-                                                    { notEntitled.emptyAction.close ? `${notEntitled.emptyAction.close }` : 'Close' }
+                                                    { notEntitled.emptyAction.close ? `${notEntitled.emptyAction.close.title }` : 'Close' }
                                                 </Button>
                                             </LevelItem>
                                         </Level> :
                                         <Button variant="link" className='ins-c-error-state__footer-close' onClick={ this.handleModalToggle }>
-                                            { notEntitled.emptyAction.close ? `${notEntitled.emptyAction.close }` : 'Close' }
+                                            { notEntitled.emptyAction.close ? `${notEntitled.emptyAction.close.title }` : 'Close' }
                                         </Button>
                                 }
                             </StackItem>

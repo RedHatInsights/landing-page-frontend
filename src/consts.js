@@ -33,9 +33,13 @@ export const activeTechnologies = [
         emptyText: 'Proactively identify and remediate threats to security, performance, availability, \
         and stability with Red Hat Insights. Activate Red Hat Insights to get started today.',
         emptyAction: {
-            title: 'Get started',
-            navigate: 'https://www.redhat.com/wapps/eval/index.html?evaluation_id=1036',
-            close: 'Not now'
+            primary: {
+                title: 'Get started',
+                navigate: 'https://www.redhat.com/wapps/eval/index.html?evaluation_id=1036'
+            },
+            close: {
+                title: 'Not now'
+            }
         },
         body: 'Identify and remediate configuration issues in your Red Hat® environments.'
     },
@@ -58,11 +62,17 @@ export const activeTechnologies = [
         emptyText: 'Monitor your Red Hat environments to track system compliance, configuration, \
         security, and efficiency. Upgrade to get started today.',
         emptyAction: {
-            title: 'Request an evaluation',
-            navigate: 'https://access.redhat.com/products/cloud_management_services_for_rhel/evaluation',
-            cmsfrhelLearnMore: 'Learn more',
-            cmsfrhelLearnNav: 'https://access.redhat.com/products/cloud_management_services_for_rhel',
-            close: 'Not now'
+            primary: {
+                title: 'Request an evaluation',
+                navigate: 'https://access.redhat.com/products/cloud_management_services_for_rhel/evaluation'
+            },
+            secondary: {
+                title: 'Learn more',
+                navigate: 'https://access.redhat.com/products/cloud_management_services_for_rhel'
+            },
+            close: {
+                title: 'Not now'
+            }
         },
         title: 'Cloud Management Services for Red Hat Enterprise Linux',
         body: 'Monitor and manage issues for your Red Hat Enterprise Systems.'
@@ -89,7 +99,9 @@ export const activeTechnologies = [
         emptyText: 'Test drive industry\'s leading container application platform in your browser, \
         and see how easy it is to use Kubernetes in your organization today.',
         emptyAction: {
-            title: 'Try it free'
+            primary: {
+                title: 'Try it free'
+            }
         },
         title: 'Red Hat OpenShift Cluster Manager',
         body: 'Install, register, and manage Red Hat OpenShift® 4 clusters.'
@@ -106,7 +118,9 @@ export const activeTechnologies = [
         emptyText: 'Cost Management technology preview is currently \
         restricted to Red Hat customers.',
         emptyAction: {
-            title: 'Ok'
+            primary: {
+                title: 'Ok'
+            }
         },
         title: 'Cost Management',
         body: 'Analyze, forecast and optimize your Red Hat OpenShift cluster costs in hybrid cloud environments.',
@@ -132,7 +146,9 @@ export const activeTechnologies = [
         emptyTitle: 'Red Hat Ansible Automation Platform',
         emptyText: 'Ansible Automation Platform services requires a valid subscription.',
         emptyAction: {
-            close: 'Not now'
+            close: {
+                title: 'Not now'
+            }
         },
         isPreview: true
     },
@@ -155,7 +171,9 @@ export const activeTechnologies = [
         emptyAction: {
             // title: 'Request an evaluation',
             // navigate: 'todo',
-            close: 'Not now'
+            close: {
+                title: 'Not now'
+            }
         },
         isPreview: true
     },
@@ -175,8 +193,10 @@ export const activeTechnologies = [
         emptyTitle: 'Subscription Reporting',
         emptyText: 'Subscription Reporting requires a valid cloud.redhat.com account.',
         emptyAction: {
-            title: 'Activate Subscription Reporting',
-            navigate: 'https://www.redhat.com/wapps/eval/index.html?evaluation_id=1036'
+            primary: {
+                title: 'Activate Subscription Reporting',
+                navigate: 'https://www.redhat.com/wapps/eval/index.html?evaluation_id=1036'
+            }
         }
     }
 ];
