@@ -6,9 +6,7 @@ import {
     Button,
     Title,
     Stack,
-    StackItem,
-    Level,
-    LevelItem
+    StackItem
 } from '@patternfly/react-core';
 
 import Header from '../layout/Header';
@@ -108,29 +106,20 @@ class Landing extends Component {
                                             { notEntitled.emptyAction.primary.title }
                                         </Button>
                                 }
-                                {
-                                    notEntitled.emptyAction.secondary ?
-                                        <Level className='ins-c-cmsfrhel-error-state__footer'>
-                                            <LevelItem>
-                                                <Button variant="link" className='ins-c-error-state__footer-close' onClick={ () => {
-                                                    if (notEntitled.emptyAction.secondary.navigate) {
-                                                        window.location.href = notEntitled.emptyAction.secondary.navigate;
-                                                    }
-                                                } }>
-                                                    { notEntitled.emptyAction.secondary.title ?
-                                                        `${notEntitled.emptyAction.secondary.title }` : 'Learn More' }
-                                                </Button>
-                                            </LevelItem>
-                                            <LevelItem>
-                                                <Button variant="link" className='ins-c-error-state__footer-close' onClick={ this.handleModalToggle }>
-                                                    { notEntitled.emptyAction.close ? `${notEntitled.emptyAction.close.title }` : 'Close' }
-                                                </Button>
-                                            </LevelItem>
-                                        </Level> :
-                                        <Button variant="link" className='ins-c-error-state__footer-close' onClick={ this.handleModalToggle }>
-                                            { notEntitled.emptyAction.close ? `${notEntitled.emptyAction.close.title }` : 'Close' }
-                                        </Button>
-                                }
+                                <section className='ins-c-error-state__footer-action--secondary'>
+                                    {
+                                        notEntitled.emptyAction.secondary && notEntitled.emptyAction.secondary.navigate &&
+                                            <Button variant="link" className='ins-c-error-state__footer-secondary' onClick={ ()=> {
+                                                window.location.href = notEntitled.emptyAction.secondary.navigate; } }>
+                                                { notEntitled.emptyAction.secondary.title ?
+                                                    `${ notEntitled.emptyAction.secondary.title }` : 'Learn More'
+                                                }
+                                            </Button>
+                                    }
+                                    <Button variant="link" className='ins-c-error-state__footer-close' onClick={ this.handleModalToggle }>
+                                        { notEntitled.emptyAction.close ? `${notEntitled.emptyAction.close.title }` : 'Close' }
+                                    </Button>
+                                </section>
                             </StackItem>
                         </Stack>
                     </Modal> }

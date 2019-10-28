@@ -89,12 +89,4 @@ sup.ins-c-rball { @include rem('font-size', 10px); }
         margin-top:  var(--pf-c-empty-state--c-button--MarginTop);
         &-close { @include rem('margin-top', 10px); }
     }
-    .ins-c-cmsfrhel-error-state__footer {
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        margin-top:  var(--pf-c-empty-state--c-button--MarginTop);
-        &-close { @include rem('margin-top', 10px); }
-    }
-
 }
