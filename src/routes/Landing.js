@@ -52,6 +52,7 @@ class Landing extends Component {
 
     handleModalToggle = () => {
         this.setState({ isModalOpen: false });
+        history.pushState(null, '', location.href.split('?')[0]);
     }
 
     render() {
