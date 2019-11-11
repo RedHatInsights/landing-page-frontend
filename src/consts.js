@@ -183,15 +183,16 @@ export const activeTechnologies = [
         entitlement: 'subscriptions',
         url: 'subscriptions',
         image: subscriptions,
-        title: 'Subscription Reporting',
-        body: 'todo',
-        baseApp: '/subscriptions',
+        title: 'Subscription Watch',
+        body: 'Account-level summaries of your Red Hat subscription utilization',
+        baseApp: '/rhel',
         apps: {
-            'subscription reporting': '/'
+            'Red Hat Enterprise Linux': '/rhel',
+            'OpenShift Container Platform': '/ocp'
         },
         marketing: false,
-        emptyTitle: 'Subscription Reporting',
-        emptyText: 'Subscription Reporting requires a valid cloud.redhat.com account.',
+        emptyTitle: 'Subscription Watch',
+        emptyText: 'Subscription Watch requires a valid cloud.redhat.com account.',
         emptyAction: {
             primary: {
                 title: 'Activate Subscription Reporting',
