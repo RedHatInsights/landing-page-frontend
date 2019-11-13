@@ -52,6 +52,7 @@ class Landing extends Component {
 
     handleModalToggle = () => {
         this.setState({ isModalOpen: false });
+        history.pushState(null, '', location.href.split('?')[0]);
     }
 
     render() {
@@ -97,18 +98,29 @@ class Landing extends Component {
                             </StackItem>
                             <StackItem className='ins-c-error-state__footer'>
                                 {
-                                    notEntitled.emptyAction.title &&
+                                    notEntitled.emptyAction.primary &&
                                         <Button variant="primary" className='ins-c-error-state__footer-action' onClick={ () => {
-                                            if (notEntitled.emptyAction.navigate) {
-                                                window.location.href = notEntitled.emptyAction.navigate;
+                                            if (notEntitled.emptyAction.primary.navigate) {
+                                                window.location.href = notEntitled.emptyAction.primary.navigate;
                                             }
                                         } } >
-                                            { notEntitled.emptyAction.title }
+                                            { notEntitled.emptyAction.primary.title }
                                         </Button>
                                 }
-                                <Button variant="link" className='ins-c-error-state__footer-close' onClick={ this.handleModalToggle }>
-                                    { notEntitled.emptyAction.close ? `${notEntitled.emptyAction.close }` : 'Close' }
-                                </Button>
+                                <section className='ins-c-error-state__footer-action--secondary'>
+                                    {
+                                        notEntitled.emptyAction.secondary && notEntitled.emptyAction.secondary.navigate &&
+                                            <Button variant="link" className='ins-c-error-state__footer-secondary' onClick={ ()=> {
+                                                window.location.href = notEntitled.emptyAction.secondary.navigate; } }>
+                                                { notEntitled.emptyAction.secondary.title ?
+                                                    `${ notEntitled.emptyAction.secondary.title }` : 'Learn More'
+                                                }
+                                            </Button>
+                                    }
+                                    <Button variant="link" className='ins-c-error-state__footer-close' onClick={ this.handleModalToggle }>
+                                        { notEntitled.emptyAction.close ? `${notEntitled.emptyAction.close.title }` : 'Close' }
+                                    </Button>
+                                </section>
                             </StackItem>
                         </Stack>
                     </Modal> }

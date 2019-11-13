@@ -16,7 +16,7 @@ There is a [comprehensive quick start guide in the Storybook Documentation](http
 2. Have [insights-proxy](https://github.com/RedHatInsights/insights-proxy) installed under PROXY_PATH and run the following command:
 
     ```shell
-    SPANDX_CONFIG="./config/spandx.config.js" bash $PROXY_PATH/scripts/run.sh
+    SPANDX_CONFIG="./proxy-config/local-frontend.js" bash $PROXY_PATH/scripts/run.sh
     ```
 
 3. `npm run start`
