@@ -142,9 +142,14 @@ export const activeTechnologies = [
         marketingImage: ansibleMarketing,
         marketingText: 'Extend your automation with analytics, policy and governance, and content management.',
         marketingUrl: 'http://ansible.com/products/automation-platform',
-        emptyTitle: 'Red Hat Ansible Automation Platform',
-        emptyText: 'Ansible Automation Platform services requires a valid subscription.',
+        emptyTitle: 'Ansible Automation Platform services requires a valid subscription',
+        emptyText: 'Get analytics and knowledge on your automation, access to certified content, and more with a \
+        Red Hat Ansible Automation Platform subscription.',
         emptyAction: {
+            primary: {
+                title: 'Learn more',
+                navigate: 'https://www.ansible.com/products/automation-platform'
+            },
             close: {
                 title: 'Not now'
             }
