@@ -24,7 +24,7 @@ function isBeta() {
 
 const Body = ({ technologies }) => (
     <PageSection className='pf-m-fill ins-p-landing__content'>
-        <Grid md={ 6 } lg={ 4 } gutter="md">
+        <Grid md={ 6 } lg={ 3 } gutter="md">
             { technologies.map(({ icon: Icon, image, iconProps, title, url, apps, baseApp, body, isPreview, isDevPreview, id }, key) => (
                 <GridItem key={ key }>
                     <Card className="ins-c-application-info" application-id={ id }>
