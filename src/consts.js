@@ -192,11 +192,10 @@ export const activeTechnologies = [
         },
         marketing: false,
         emptyTitle: 'Subscription Watch',
-        emptyText: 'Subscription Watch requires a valid cloud.redhat.com account.',
+        emptyText: 'Subscription Watch is an early access beta',
         emptyAction: {
-            primary: {
-                title: 'Activate Subscription Reporting',
-                navigate: 'https://www.redhat.com/wapps/eval/index.html?evaluation_id=1036'
+            close: {
+                title: 'Not now'
             }
         }
     }
