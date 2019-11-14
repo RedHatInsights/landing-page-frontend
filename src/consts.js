@@ -107,26 +107,6 @@ export const activeTechnologies = [
         body: 'Install, register, and manage Red Hat OpenShift® 4 clusters.'
     },
     {
-        id: 'Cost Management',
-        url: 'cost-management',
-        baseApp: '/',
-        entitlement: 'cost_management',
-        marketing: false,
-        disabled: window.location.pathname.indexOf('/beta') !== 0,
-        image: costManagement,
-        emptyTitle: 'Cost Management technology preview access',
-        emptyText: 'Cost Management technology preview is currently \
-        restricted to Red Hat customers.',
-        emptyAction: {
-            primary: {
-                title: 'Ok'
-            }
-        },
-        title: 'Cost Management',
-        body: 'Analyze, forecast and optimize your Red Hat OpenShift cluster costs in hybrid cloud environments.',
-        isPreview: true
-    },
-    {
         id: 'Ansible',
         entitlement: 'ansible',
         url: 'ansible',
@@ -154,6 +134,26 @@ export const activeTechnologies = [
                 title: 'Not now'
             }
         }
+    },
+    {
+        id: 'Cost Management',
+        url: 'cost-management',
+        baseApp: '/',
+        entitlement: 'cost_management',
+        marketing: false,
+        disabled: window.location.pathname.indexOf('/beta') !== 0,
+        image: costManagement,
+        emptyTitle: 'Cost Management technology preview access',
+        emptyText: 'Cost Management technology preview is currently \
+        restricted to Red Hat customers.',
+        emptyAction: {
+            primary: {
+                title: 'Ok'
+            }
+        },
+        title: 'Cost Management',
+        body: 'Analyze, forecast and optimize your Red Hat OpenShift cluster costs in hybrid cloud environments.',
+        isPreview: true
     },
     {
         id: 'migrations',
