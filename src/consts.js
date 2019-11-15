@@ -30,7 +30,7 @@ export const activeTechnologies = [
         },
         icon: ChartSpikeIcon,
         title: 'Red Hat Insights',
-        emptyTitle: 'Red Hat Insights is included with every Red Hat Enterprise Linux subscription.',
+        emptyTitle: 'Red Hat Insights is included with every Red Hat Enterprise Linux subscription',
         emptyText: 'Proactively identify and remediate threats to security, performance, availability, \
         and stability with Red Hat Insights. Activate Red Hat Insights to get started today.',
         emptyAction: {
@@ -96,7 +96,7 @@ export const activeTechnologies = [
                 fill: '#DB242F'
             }
         },
-        emptyTitle: 'Get Started with Red Hat Openshift.',
+        emptyTitle: 'Get Started with Red Hat Openshift',
         emptyText: 'Test drive industry\'s leading container application platform in your browser, \
         and see how easy it is to use Kubernetes in your organization today.',
         emptyAction: {
@@ -108,28 +108,7 @@ export const activeTechnologies = [
         body: 'Install, register, and manage Red Hat OpenShift® 4 clusters.'
     },
     {
-        id: 'Cost Management',
-        url: 'cost-management',
-        baseApp: '/',
-        entitlement: 'cost_management',
-        marketing: false,
-        disabled: window.location.pathname.indexOf('/beta') !== 0,
-        image: costManagement,
-        emptyTitle: 'Cost Management technology preview access.',
-        emptyText: 'Cost Management technology preview is currently \
-        restricted to Red Hat customers.',
-        emptyAction: {
-            primary: {
-                title: 'Ok'
-            }
-        },
-        title: 'Cost Management',
-        body: 'Analyze, forecast and optimize your Red Hat OpenShift cluster costs in hybrid cloud environments.',
-        isPreview: true
-    },
-    {
         id: 'Ansible',
-        disabled: window.location.pathname.indexOf('/beta') !== 0,
         entitlement: 'ansible',
         url: 'ansible',
         baseApp: '/automation-analytics',
@@ -144,13 +123,37 @@ export const activeTechnologies = [
         marketingImage: ansibleMarketing,
         marketingText: 'Extend your automation with analytics, policy and governance, and content management.',
         marketingUrl: 'http://ansible.com/products/automation-platform',
-        emptyTitle: 'Red Hat Ansible Automation Platform',
-        emptyText: 'Ansible Automation Platform services requires a valid subscription.',
+        emptyTitle: 'Ansible Automation Platform services requires a valid subscription',
+        emptyText: 'Get analytics and knowledge on your automation, access to certified content, and more with a \
+        Red Hat Ansible Automation Platform subscription.',
         emptyAction: {
+            primary: {
+                title: 'Learn more',
+                navigate: 'https://www.ansible.com/products/automation-platform'
+            },
             close: {
                 title: 'Not now'
             }
+        }
+    },
+    {
+        id: 'Cost Management',
+        url: 'cost-management',
+        baseApp: '/',
+        entitlement: 'cost_management',
+        marketing: false,
+        disabled: window.location.pathname.indexOf('/beta') !== 0,
+        image: costManagement,
+        emptyTitle: 'Cost Management technology preview access',
+        emptyText: 'Cost Management technology preview is currently \
+        restricted to Red Hat customers.',
+        emptyAction: {
+            primary: {
+                title: 'Ok'
+            }
         },
+        title: 'Cost Management',
+        body: 'Analyze, forecast and optimize your Red Hat OpenShift cluster costs in hybrid cloud environments.',
         isPreview: true
     },
     {
@@ -166,7 +169,7 @@ export const activeTechnologies = [
             'migration analytics': '/migration-analytics'
         },
         marketing: false,
-        emptyTitle: 'The Migration Service requires that you request an evaluation.',
+        emptyTitle: 'The Migration Service requires that you request an evaluation',
         emptyText: 'To obtain recommendations for your applications and infrastructure, you will need \
         to first analyze your environment using Red Hat CloudForms.',
         emptyAction: {
