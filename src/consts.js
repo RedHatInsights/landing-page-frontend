@@ -12,6 +12,7 @@ import ansibleMarketing from './components/marketing/ansibleMarketing.svg';
 
 // isDevPreview for developer previews
 // isPreview for technical previews
+// isEarlyAccess for limited access early beta
 
 export const activeTechnologies = [
     {
@@ -179,7 +180,7 @@ export const activeTechnologies = [
     },
     {
         id: 'subscriptions',
-        disabled: true,
+        disabled: window.location.pathname.indexOf('/beta') !== 0,
         entitlement: 'subscriptions',
         url: 'subscriptions',
         image: subscriptions,
@@ -197,6 +198,7 @@ export const activeTechnologies = [
             close: {
                 title: 'Not now'
             }
-        }
+        },
+        isEarlyAccess: true
     }
 ];
