@@ -191,8 +191,7 @@ export const activeTechnologies = [
         body: 'Account-level summaries of your Red Hat subscription utilization',
         baseApp: '/rhel',
         apps: {
-            'Red Hat Enterprise Linux': '/rhel',
-            'OpenShift Container Platform': '/ocp'
+            'Red Hat Enterprise Linux': '/rhel-sw'
         },
         marketing: false,
         emptyTitle: 'Subscription Watch',
