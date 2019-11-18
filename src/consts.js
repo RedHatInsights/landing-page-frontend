@@ -12,6 +12,7 @@ import ansibleMarketing from './components/marketing/ansibleMarketing.svg';
 
 // isDevPreview for developer previews
 // isPreview for technical previews
+// isEarlyAccess for limited access early beta
 
 export const activeTechnologies = [
     {
@@ -182,24 +183,25 @@ export const activeTechnologies = [
     },
     {
         id: 'subscriptions',
-        disabled: true,
+        disabled: window.location.pathname.indexOf('/beta') !== 0,
         entitlement: 'subscriptions',
         url: 'subscriptions',
         image: subscriptions,
-        title: 'Subscription Reporting',
-        body: 'todo',
-        baseApp: '/subscriptions',
+        title: 'Subscription Watch',
+        body: 'Account-level summaries of your Red Hat subscription utilization',
+        baseApp: '/rhel',
         apps: {
-            'subscription reporting': '/'
+            'Red Hat Enterprise Linux': '/rhel',
+            'OpenShift Container Platform': '/ocp'
         },
         marketing: false,
-        emptyTitle: 'Subscription Reporting',
-        emptyText: 'Subscription Reporting requires a valid cloud.redhat.com account.',
+        emptyTitle: 'Subscription Watch',
+        emptyText: 'Subscription Watch is an early access beta',
         emptyAction: {
-            primary: {
-                title: 'Activate Subscription Reporting',
-                navigate: 'https://www.redhat.com/wapps/eval/index.html?evaluation_id=1036'
+            close: {
+                title: 'Not now'
             }
-        }
+        },
+        isEarlyAccess: true
     }
 ];

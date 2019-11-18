@@ -9,10 +9,12 @@ import {
     Stack,
     StackItem,
     Title,
-    PageSection
+    PageSection,
+    Tooltip,
+    TooltipPosition
 } from '@patternfly/react-core';
 
-import { ArrowRightIcon, BinocularsIcon, CodeIcon } from '@patternfly/react-icons';
+import { ArrowRightIcon, BinocularsIcon, CodeIcon, OutlinedEyeIcon } from '@patternfly/react-icons';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
@@ -24,8 +26,8 @@ function isBeta() {
 
 const Body = ({ technologies }) => (
     <PageSection className='pf-m-fill ins-p-landing__content'>
-        <Grid md={ 6 } lg={ 3 } gutter="md">
-            { technologies.map(({ icon: Icon, image, iconProps, title, url, apps, baseApp, body, isPreview, isDevPreview, id }, key) => (
+        <Grid md={ 6 } lg={ 4 } gutter="md">
+            { technologies.map(({ icon: Icon, image, iconProps, title, url, apps, baseApp, body, isPreview, isEarlyAccess, isDevPreview, id }, key) => ( // eslint-disable-line max-len
                 <GridItem key={ key }>
                     <Card className="ins-c-application-info" application-id={ id }>
                         <CardHeader>
@@ -66,6 +68,17 @@ const Body = ({ technologies }) => (
                                         </div>
                                     </StackItem>
                                 }
+                                { isEarlyAccess &&
+                                    <StackItem>
+                                        <Tooltip
+                                            position={ TooltipPosition.bottom }
+                                            content={ <span>Available to limited customers</span> }>
+                                            <div className="ins-m-early-preview">
+                                                <OutlinedEyeIcon size="sm" /> Early access preview
+                                            </div>
+                                        </Tooltip>
+                                    </StackItem>
+                                }
                                 <StackItem>
                                     <span className='ins-m-gray'>{ body }</span>
                                 </StackItem>
@@ -97,6 +110,7 @@ Body.propTypes = {
         body: PropTypes.node,
         title: PropTypes.node,
         isPreview: PropTypes.bool,
+        isEarlyAccess: PropTypes.bool,
         url: PropTypes.string,
         apps: PropTypes.object,
         baseApp: PropTypes.string

@@ -11,6 +11,11 @@
 
 .ins-m-dev-preview { color: #39A5DC; }
 
+.ins-m-early-preview {
+    width: max-content;
+    color: var(--pf-global--default-color--200);
+}
+
 .pf-c-card {
     &.ins-c-application-info {
         height: 100%;
