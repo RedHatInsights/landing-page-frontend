@@ -189,7 +189,7 @@ export const activeTechnologies = [
         image: subscriptions,
         title: 'Subscription Watch',
         body: 'Account-level summaries of your Red Hat subscription utilization',
-        baseApp: '/rhel',
+        baseApp: '/rhel-sw',
         apps: {
             'Red Hat Enterprise Linux': '/rhel-sw'
         },
