@@ -27,7 +27,7 @@ function isBeta() {
 const Body = ({ technologies }) => (
     <PageSection className='pf-m-fill ins-p-landing__content'>
         <Grid md={ 6 } lg={ 4 } gutter="md">
-            { technologies.map(({ icon: Icon, image, iconProps, title, url, apps, baseApp, body, isPreview, isEarlyAccess, isDevPreview, id }, key) => (
+            { technologies.map(({ icon: Icon, image, iconProps, title, url, apps, baseApp, body, isPreview, isEarlyAccess, isDevPreview, id }, key) => ( // eslint-disable-line max-len
                 <GridItem key={ key }>
                     <Card className="ins-c-application-info" application-id={ id }>
                         <CardHeader>
@@ -71,8 +71,8 @@ const Body = ({ technologies }) => (
                                 { isEarlyAccess &&
                                     <StackItem>
                                         <Tooltip
-                                        position={ TooltipPosition.bottom }
-                                        content={ <span>Available to limited customers</span> }>
+                                            position={ TooltipPosition.bottom }
+                                            content={ <span>Available to limited customers</span> }>
                                             <div className="ins-m-early-preview">
                                                 <OutlinedEyeIcon size="sm" /> Early access preview
                                             </div>
