@@ -40,7 +40,7 @@ exports[`Hero component should render correctly 1`] = `
       isInline={true}
       variant="link"
     >
-       Not a customer? 
+      Not a customer?
     </Component>
   </article>
 </PageSection>

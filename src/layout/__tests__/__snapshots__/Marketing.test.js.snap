@@ -106,7 +106,7 @@ exports[`render Marketing component should render correctly 1`] = `
                   component={[Function]}
                   componentProps={
                     Object {
-                      "children": " Not a customer? ",
+                      "children": "Not a customer?",
                       "className": "ins-c-hero__new-customer",
                       "component": "a",
                       "href": "https://www.redhat.com/en/customers",
@@ -138,7 +138,7 @@ exports[`render Marketing component should render correctly 1`] = `
                       tabIndex={null}
                       type={null}
                     >
-                       Not a customer? 
+                      Not a customer?
                     </a>
                   </Button>
                 </ComponentWithOuia>
