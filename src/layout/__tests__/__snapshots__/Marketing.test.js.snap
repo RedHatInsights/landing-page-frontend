@@ -30,21 +30,22 @@ exports[`render Marketing component should render correctly 1`] = `
             >
               <Title
                 className="ins-c-hero__title pf-m-spacer-lg"
-                size="3xl"
+                headingLevel="h1"
+                size="4xl"
               >
                 <h1
-                  className="pf-c-title pf-m-3xl ins-c-hero__title pf-m-spacer-lg"
+                  className="pf-c-title pf-m-4xl ins-c-hero__title pf-m-spacer-lg"
                 >
                    Explore our open, multicloud tools 
                 </h1>
               </Title>
               <Title
-                className="pf-m-spacer-xl"
+                className="ins-c-hero__sub-title pf-m-spacer-xl"
                 headingLevel="h2"
-                size="lg"
+                size="xl"
               >
                 <h2
-                  className="pf-c-title pf-m-lg pf-m-spacer-xl"
+                  className="pf-c-title pf-m-xl ins-c-hero__sub-title pf-m-spacer-xl"
                 >
                   Discover Red Hat
                   <sup
@@ -94,12 +95,54 @@ exports[`render Marketing component should render correctly 1`] = `
                   </Button>
                 </ComponentWithOuia>
               </Component>
-              <a
+              <Component
                 className="ins-c-hero__new-customer"
+                component="a"
                 href="https://www.redhat.com/en/customers"
+                isInline={true}
+                variant="link"
               >
-                 Not a customer? 
-              </a>
+                <ComponentWithOuia
+                  component={[Function]}
+                  componentProps={
+                    Object {
+                      "children": " Not a customer? ",
+                      "className": "ins-c-hero__new-customer",
+                      "component": "a",
+                      "href": "https://www.redhat.com/en/customers",
+                      "isInline": true,
+                      "variant": "link",
+                    }
+                  }
+                  consumerContext={null}
+                >
+                  <Button
+                    className="ins-c-hero__new-customer"
+                    component="a"
+                    href="https://www.redhat.com/en/customers"
+                    isInline={true}
+                    ouiaContext={
+                      Object {
+                        "isOuia": false,
+                        "ouiaId": null,
+                      }
+                    }
+                    variant="link"
+                  >
+                    <a
+                      aria-disabled={false}
+                      aria-label={null}
+                      className="pf-c-button pf-m-link pf-m-inline ins-c-hero__new-customer"
+                      disabled={null}
+                      href="https://www.redhat.com/en/customers"
+                      tabIndex={null}
+                      type={null}
+                    >
+                       Not a customer? 
+                    </a>
+                  </Button>
+                </ComponentWithOuia>
+              </Component>
             </article>
           </section>
         </PageSection>
