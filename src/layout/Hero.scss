@@ -7,16 +7,9 @@
     background-repeat: no-repeat;
     background-size: cover;
 
-    h1.pf-c-title {
-        color: white;
-        text-align: center;
-        @include rem('font-size', 44px);
-    }
-    h2 {
-        text-align: center;
-        @include rem('font-size', 18px);
-        color: var(--pf-global--Color--200);
-    }
+    h1.ins-c-hero__title { color: white; }
+
+    h2.ins-c-hero__sub-title { color: var(--pf-global--Color--200); }
 
     @media screen and (min-width: $pf-global--breakpoint--xs) {
         @include rem('min-height', 400px);

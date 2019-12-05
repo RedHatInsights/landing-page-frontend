@@ -46,7 +46,7 @@ const Body = ({ technologies }) => (
                                         { ...iconProps } /> }
                                 </StackItem>
                                 <StackItem>
-                                    <Title headingLevel='h2' size='2xl'>
+                                    <Title headingLevel='h2' size='xl'>
                                         { title }
                                     </Title>
                                 </StackItem>

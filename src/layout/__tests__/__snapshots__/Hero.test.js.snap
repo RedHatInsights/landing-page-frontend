@@ -9,14 +9,15 @@ exports[`Hero component should render correctly 1`] = `
   >
     <Title
       className="ins-c-hero__title pf-m-spacer-lg"
-      size="3xl"
+      headingLevel="h1"
+      size="4xl"
     >
        Explore our open, multicloud tools 
     </Title>
     <Title
-      className="pf-m-spacer-xl"
+      className="ins-c-hero__sub-title pf-m-spacer-xl"
       headingLevel="h2"
-      size="lg"
+      size="xl"
     >
       Discover Red Hat
       <sup
@@ -32,12 +33,15 @@ exports[`Hero component should render correctly 1`] = `
     >
        Log in to your Red Hat account
     </Component>
-    <a
+    <Component
       className="ins-c-hero__new-customer"
+      component="a"
       href="https://www.redhat.com/en/customers"
+      isInline={true}
+      variant="link"
     >
-       Not a customer? 
-    </a>
+      Not a customer?
+    </Component>
   </article>
 </PageSection>
 `;

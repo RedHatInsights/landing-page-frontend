@@ -11,6 +11,6 @@ describe('Hero component', () => {
 
     it('click: Not a customer link', () => {
         const wrapper = shallow(<Hero/>);
-        expect(wrapper.find('a.ins-c-hero__new-customer').first().props().href).toBe('https://www.redhat.com/en/customers');
+        expect(wrapper.find('.ins-c-hero__new-customer').first().props().href).toBe('https://www.redhat.com/en/customers');
     });
 });
