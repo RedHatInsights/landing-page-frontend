@@ -117,7 +117,8 @@ export const activeTechnologies = [
         body: 'Extend your automation with analytics, policy and governance, and content management.',
         apps: {
             'automation analytics': '/automation-analytics',
-            'automation hub': '/automation-hub'
+            'automation hub': '/automation-hub',
+            ...window.insights.chrome.isBeta() && { 'automation service catalog': '/catalog' }
         },
         marketing: true,
         marketingImage: ansibleMarketing,
