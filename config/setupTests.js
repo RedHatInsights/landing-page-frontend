@@ -17,6 +17,7 @@ global.window.insights = {
         ...(window.insights && window.insights.chrome) || {},
         init: returnBlank,
         identifyApp: returnBlank,
+        isBeta: () => false,
         auth: {
             ...(window.insights && window.insights.chrome && window.insights.chrome) || {},
             login: returnBlank,
