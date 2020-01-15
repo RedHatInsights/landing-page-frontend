@@ -1,8 +1,5 @@
-import { ChartSpikeIcon, OpenshiftIcon } from '@patternfly/react-icons';
-import hcm from './components/hcm.svg';
-import ansible from './components/ansible.svg';
+import { ChartSpikeIcon } from '@patternfly/react-icons';
 import subscriptions from './components/subscriptions.svg';
-import migrations from './components/migrations.svg';
 import costManagement from './components/cost-management.svg';
 
 import insightsMarketing from './components/marketing/insightsMarketing.svg';
@@ -58,8 +55,8 @@ export const activeTechnologies = [
             compliance: '/compliance',
             'drift analysis': '/drift'
         },
-        image: hcm,
         emptyTitle: 'Get started with Cloud Management Services for Red Hat Enterprise Linux',
+        image: `${document.baseURI}apps/chrome/assets/images/platform-icons/rhel-cs-namespace.svg`,
         emptyText: 'Monitor your Red Hat environments to track system compliance, configuration, \
         security, and efficiency. Upgrade to get started today.',
         emptyAction: {
@@ -90,13 +87,8 @@ export const activeTechnologies = [
         marketingImage: openShiftMarketing,
         marketingText: 'Install, register, and manage Red Hat OpenShift® 4 clusters.',
         marketingUrl: 'https://try.openshift.com',
-        icon: OpenshiftIcon,
-        iconProps: {
-            style: {
-                fill: '#DB242F'
-            }
-        },
-        emptyTitle: 'Get Started with Red Hat Openshift',
+        image: `${document.baseURI}apps/chrome/assets/images/platform-icons/openshift.svg`,
+        emptyTitle: 'Get Started with Red Hat Openshift.',
         emptyText: 'Test drive industry\'s leading container application platform in your browser, \
         and see how easy it is to use Kubernetes in your organization today.',
         emptyAction: {
@@ -112,7 +104,7 @@ export const activeTechnologies = [
         entitlement: 'ansible',
         url: 'ansible',
         baseApp: '/automation-analytics',
-        image: ansible,
+        image: `${document.baseURI}apps/chrome/assets/images/platform-icons/ansible.svg`,
         title: 'Red Hat Ansible Automation Platform',
         body: 'Extend your automation with analytics, policy and governance, and content management.',
         apps: {
@@ -162,7 +154,7 @@ export const activeTechnologies = [
         disabled: window.location.pathname.indexOf('/beta') !== 0,
         entitlement: 'migrations',
         url: 'migrations',
-        image: migrations,
+        image: `${document.baseURI}apps/chrome/assets/images/platform-icons/migrations-namespace.svg`,
         title: 'Migration Services',
         body: 'Get recommendations on migrating your applications and infrastructure to Red Hat.',
         baseApp: '/migration-analytics',
