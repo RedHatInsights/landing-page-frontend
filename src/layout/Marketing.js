@@ -22,7 +22,7 @@ const Marketing = ({ technologies }) => (
         <Hero/>
         <PageSection className='ins-c-marketing pf-m-no-fill'>
             <Grid sm={ 12 } md={ 6 } xl={ 6 } xl2={ 3 } gutter="sm">
-                { technologies.map(({ marketingImage, title, marketingUrl, marketingText, id }, key) => (
+                { technologies.map(({ marketingImage, title, marketingUrls, marketingText, id }, key) => (
                     <Card className="ins-c-application-info pf-m-card-link" application-id={ id } key={ key }>
                         <CardHeader>
                             <Stack gutter='sm'>
@@ -42,15 +42,12 @@ const Marketing = ({ technologies }) => (
                                 </StackItem>
                             </Stack>
                         </CardBody>
-                        <CardFooter>
-                            <div className="ins-c-open-card pf-l-flex pf-m-align-items-center">
-                                <span>
-                                    Learn more
-                                </span>
-                                <ArrowRightIcon size="sm" />
-                            </div>
+                        <CardFooter className='pf-c-card__card-links'>
+                            <a href={ marketingUrls.learnMore } aria-label={ `Go to ${title}` }>Learn more<ArrowRightIcon size="sm" /></a>
+                            { marketingUrls.tryIt &&
+                                    <a href={ marketingUrls.tryIt } aria-label={ `Go to ${title}` }>Try it<ArrowRightIcon size="sm" /></a>
+                            }
                         </CardFooter>
-                        <a className='pf-c-card__card-link' href={ marketingUrl } aria-label={ `Go to ${title}` }></a>
                     </Card>
                 )) }
             </Grid>
@@ -62,7 +59,7 @@ Marketing.propTypes = {
     technologies: PropTypes.arrayOf(PropTypes.shape({
         marketingImage: PropTypes.oneOfType([ PropTypes.func, PropTypes.string ]),
         marketing: PropTypes.bool,
-        marketingUrl: PropTypes.string,
+        marketingUrls: PropTypes.object,
         marketingText: PropTypes.string
     }))
 };

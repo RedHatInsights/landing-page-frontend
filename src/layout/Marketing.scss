@@ -8,7 +8,7 @@
 
 .ins-c-marketing {
 
-    @include rem('padding-top', 40px);
+    @include rem('padding-top', 32px);
 
     .pf-l-grid { grid-gap: 1.5rem; }
 
@@ -18,7 +18,7 @@
     .pf-c-card__footer { @include center; }
 
     .pf-c-card {
-        @include rem('padding', 40px 0);
+        @include rem('padding', 30px 0);
 
         img.ins-c-application-info__logo { @include rem('min-height', 65px); }
         .pf-c-card__footer { margin-top: 40px; }
@@ -34,5 +34,12 @@
             color: var(--pf-global--link--Color--hover);
             text-decoration: underline;
         }
+    }
+
+    .pf-m-card-link .pf-c-card__card-links {
+        display: grid;
+        grid-template-rows: 1fr 1fr;
+        row-gap: 10px;
+        svg { margin-left: 16px; }
     }
 }
