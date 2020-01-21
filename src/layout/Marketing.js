@@ -45,7 +45,7 @@ const Marketing = ({ technologies }) => (
                         <CardFooter className='pf-c-card__card-links'>
                             <a href={ marketingUrls.learnMore } aria-label={ `Go to ${title}` }>Learn more<ArrowRightIcon size="sm" /></a>
                             { marketingUrls.tryIt &&
-                                <a href={ marketingUrls.tryIt } aria-label={ `Go to ${title}` }>Try it<ArrowRightIcon size="sm" /></a>
+                                <a href={ marketingUrls.tryIt } aria-label='Request an evaluation'>Try it<ArrowRightIcon size="sm" /></a>
                             }
                         </CardFooter>
                     </Card>
