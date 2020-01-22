@@ -15,7 +15,10 @@ const activeTechnologiesMock = [
         marketing: true,
         marketingImage: ChartSpikeIcon,
         marketingText: 'Marketing Test',
-        marketingUrl: '/marketing-test',
+        marketingUrls: {
+            learnMore: '/marketing-test',
+            tryit: '/tryit-test'
+        },
         name: 'test',
         id: 'test',
         url: 'test',

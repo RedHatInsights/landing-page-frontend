@@ -17,7 +17,9 @@ export const activeTechnologies = [
         marketing: true,
         marketingImage: insightsMarketing,
         marketingText: 'Proactively identify and remediate threats to security, performance, and stability.',
-        marketingUrl: 'https://www.redhat.com/en/technologies/management/insights',
+        marketingUrls: {
+            learnMore: 'https://www.redhat.com/en/technologies/management/insights'
+        },
         name: 'insights',
         id: 'insights',
         url: 'insights',
@@ -46,7 +48,9 @@ export const activeTechnologies = [
         marketing: true,
         marketingImage: smartManagementMarketing,
         marketingText: 'Operate and protect your Red Hat platforms.',
-        marketingUrl: 'https://www.redhat.com/en/technologies/management/smart-management',
+        marketingUrls: {
+            learnMore: 'https://www.redhat.com/en/technologies/management/smart-management'
+        },
         id: 'RHEL',
         url: 'rhel',
         baseApp: '/dashboard',
@@ -86,7 +90,9 @@ export const activeTechnologies = [
         marketing: true,
         marketingImage: openShiftMarketing,
         marketingText: 'Install, register, and manage Red Hat OpenShift® 4 clusters.',
-        marketingUrl: 'https://try.openshift.com',
+        marketingUrls: {
+            learnMore: 'https://try.openshift.com'
+        },
         image: `${document.baseURI}apps/chrome/assets/images/platform-icons/openshift.svg`,
         emptyTitle: 'Get Started with Red Hat Openshift.',
         emptyText: 'Test drive industry\'s leading container application platform in your browser, \
@@ -115,12 +121,19 @@ export const activeTechnologies = [
         marketing: true,
         marketingImage: ansibleMarketing,
         marketingText: 'Extend your automation with analytics, policy and governance, and content management.',
-        marketingUrl: 'http://ansible.com/products/automation-platform',
+        marketingUrls: {
+            learnMore: 'http://ansible.com/products/automation-platform',
+            tryIt: 'https://www.redhat.com/en/technologies/management/ansible/try-it'
+        },
         emptyTitle: 'Ansible Automation Platform services requires a valid subscription',
         emptyText: 'Get analytics and knowledge on your automation, access to certified content, and more with a \
         Red Hat Ansible Automation Platform subscription.',
         emptyAction: {
             primary: {
+                title: 'Request an evaluation',
+                navigate: 'https://www.redhat.com/en/technologies/management/ansible/try-it'
+            },
+            secondary: {
                 title: 'Learn more',
                 navigate: 'https://www.ansible.com/products/automation-platform'
             },
