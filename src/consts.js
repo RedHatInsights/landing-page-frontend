@@ -125,7 +125,7 @@ export const activeTechnologies = [
             learnMore: 'http://ansible.com/products/automation-platform',
             tryIt: 'https://www.redhat.com/en/technologies/management/ansible/try-it'
         },
-        emptyTitle: 'Ansible Automation Platform services requires a valid subscription',
+        emptyTitle: 'Get started with Ansible Automation Platform',
         emptyText: 'Get analytics and knowledge on your automation, access to certified content, and more with a \
         Red Hat Ansible Automation Platform subscription.',
         emptyAction: {
