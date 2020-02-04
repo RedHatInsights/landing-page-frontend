@@ -9,12 +9,12 @@ import {
     StackItem
 } from '@patternfly/react-core';
 
-import Header from '../layout/Header';
-import Body from '../layout/Body';
+import Body from '../layout/NewBody';
 import Marketing from '../layout/Marketing';
 import FooterTraditional from '../layout/FooterTraditional';
 import Loading from '../layout/Loading';
-import { activeTechnologies } from '../consts';
+import { activeTechnologies } from '../consts/technologies';
+
 import './Landing.scss';
 
 class Landing extends Component {
@@ -63,10 +63,7 @@ class Landing extends Component {
                 <Fragment>
                     { unauthed
                         ? <Marketing />
-                        : <Fragment>
-                            <Header />
-                            <Body />
-                        </Fragment>
+                        : <Body />
                     }
                     <FooterTraditional />
                     { notEntitled && <Modal

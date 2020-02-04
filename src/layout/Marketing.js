@@ -19,7 +19,7 @@ import './Marketing.scss';
 
 const Marketing = ({ technologies }) => (
     <React.Fragment>
-        <Hero/>
+        <Hero title='Explore our open, multicloud tools' needsCTA className='ins-p-marketing__hero'/>
         <PageSection className='ins-c-marketing pf-m-no-fill'>
             <Grid sm={ 12 } md={ 6 } xl={ 6 } xl2={ 3 } gutter="sm">
                 { technologies.map(({ marketingImage, title, marketingUrls, marketingText, id }, key) => (
@@ -68,9 +68,9 @@ Marketing.defaultProps = {
     technologies: []
 };
 
-function mapStateToProps({ technologies } = { technologies: { activeTechnologies: []}}) {
+function mapStateToProps({ technologies } = { technologies: { marketingTechnologies: []}}) {
     return {
-        technologies: technologies && technologies.activeTechnologies.filter(({ marketing }) => marketing)
+        technologies: technologies.marketingTechnologies
     };
 }
 

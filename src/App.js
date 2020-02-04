@@ -6,17 +6,23 @@ import { connect } from 'react-redux';
 import NotFound from './routes/404';
 import Landing from './routes/Landing';
 import technologiesReducer from './store/technologiesReducer';
-import { technologiesLoaded } from './store/actions';
-import { activeTechnologies } from './consts';
+import marketingTechnologiesReducer from './store/technologiesReducer';
+import { technologiesLoaded, marketingTechnologiesLoaded } from './store/actions';
+import { activeTechnologies } from './consts/technologies';
+import { marketingTechnologies } from './consts/marketing';
 
 const routes = {
     landing: '/'
 };
 
-const App = ({ loadTechnologies }) => {
+const App = ({ loadTechnologies, loadMarketingTechnologies }) => {
     useEffect(() => {
-        getRegistry().register({ technologies: technologiesReducer });
+        getRegistry().register({
+            technologies: technologiesReducer,
+            marketingTechnologies: marketingTechnologiesReducer
+        });
         loadTechnologies(activeTechnologies);
+        loadMarketingTechnologies(marketingTechnologies);
         insights.chrome.init();
         insights.chrome.identifyApp('landing');
     });
@@ -32,13 +38,16 @@ const App = ({ loadTechnologies }) => {
 
 App.propTypes = {
     history: PropTypes.object,
-    loadTechnologies: PropTypes.func
+    loadTechnologies: PropTypes.func,
+    loadMarketingTechnologies: PropTypes.func
 };
 
 App.defaultProps = {
-    loadTechnologies: () => undefined
+    loadTechnologies: () => undefined,
+    loadMarketingTechnologies: () => undefined
 };
 
 export default withRouter(connect(null, (dispatch) => ({
-    loadTechnologies: (technologies) => dispatch(technologiesLoaded(technologies))
+    loadTechnologies: (technologies) => dispatch(technologiesLoaded(technologies)),
+    loadMarketingTechnologies: (marketingTechnologies) => dispatch(marketingTechnologiesLoaded(marketingTechnologies))
 }))(App));
