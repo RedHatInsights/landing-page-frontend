@@ -9,7 +9,7 @@ import {
     StackItem
 } from '@patternfly/react-core';
 
-import Body from '../layout/NewBody';
+import Body from '../layout/Body';
 import Marketing from '../layout/Marketing';
 import FooterTraditional from '../layout/FooterTraditional';
 import Loading from '../layout/Loading';
@@ -30,6 +30,8 @@ class Landing extends Component {
             ...acc,
             [curr.split('=')[0]]: Object.values(activeTechnologies).find(item => item.entitlement === curr.split('=')[1])
         }), {});
+
+        console.log(params);
 
         this.setState({
             ...params,
@@ -63,7 +65,7 @@ class Landing extends Component {
                 <Fragment>
                     { unauthed
                         ? <Marketing />
-                        : <Body />
+                        : <Body location={location}/>
                     }
                     <FooterTraditional />
                     { notEntitled && <Modal
@@ -78,16 +80,10 @@ class Landing extends Component {
                                 <Title headingLevel="h3" size="2xl">{ notEntitled.emptyTitle }</Title>
                             </StackItem>
                             <StackItem className='ins-c-error-state__image'>
-                                { notEntitled.icon && <notEntitled.icon
-                                    className="ins-c-icon__active"
-                                    aria-hidden
-                                    alt={ `${notEntitled.title} logo` }
-                                    { ...notEntitled.iconProps }
-                                /> }
-                                { notEntitled.image && <img
+                                { notEntitled.icon && <img
                                     className="ins-c-application-info__logo"
                                     aria-hidden
-                                    src={ notEntitled.image }
+                                    src={ notEntitled.icon }
                                     alt={ `${notEntitled.title} logo` } /> }
                             </StackItem>
                             <StackItem className='ins-c-error-state__body'>

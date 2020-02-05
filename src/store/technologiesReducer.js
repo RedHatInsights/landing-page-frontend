@@ -12,10 +12,10 @@ export function marketingTechnologiesLoaded(state, { payload }) {
     return {
         ...state,
         marketingTechnologies: payload
-    }
+    };
 }
 
 export default applyReducerHash({
     [TECHOLOGIES]: technologiesLoaded,
     [MARKETINGTECHNOLOGIES]: marketingTechnologiesLoaded
-}, { loaded: true, activeTechnologies: [], marketingTechnologies: [] });
+}, { loaded: true, activeTechnologies: [], marketingTechnologies: []});

@@ -6,21 +6,25 @@ import { PageSection, Title, Button } from '@patternfly/react-core';
 import './Hero.scss';
 
 const Hero = ({ title, needsCTA, className }) => (
-    <PageSection className={classnames(
+    <PageSection className={ classnames(
         'ins-c-hero',
         'pf-m-fill',
         'pf-l-flex',
         'pf-m-align-items-center',
         'pf-m-justify-content-center',
-        className)}>
+        className) }>
         <article className='pf-l-flex pf-m-column pf-m-align-items-center'>
             <Title size='4xl' headingLevel='h1' className='ins-c-hero__title pf-m-spacer-lg'> { title } </Title>
             <Title size='xl' headingLevel='h2' className='ins-c-hero__sub-title pf-m-spacer-xl'>
                 Discover Red Hat<sup className='ins-c-rball'>®</sup> software-as-a-service
             </Title>
-            { needsCTA && 
+            { needsCTA &&
                 <React.Fragment>
-                    <Button className='ins-c-hero__login' onClick={ () => window.insights.chrome.auth.login() }> Log in to your Red Hat account</Button>
+                    <Button
+                        className='ins-c-hero__login'
+                        onClick={ () => window.insights.chrome.auth.login() }>
+                        Log in to your Red Hat account
+                    </Button>
                     <Button
                         component='a'
                         isInline
@@ -39,5 +43,6 @@ export default Hero;
 
 Hero.propTypes = {
     title: PropTypes.string,
-    needsCTA: PropTypes.bool
+    needsCTA: PropTypes.bool,
+    className: PropTypes.string
 };

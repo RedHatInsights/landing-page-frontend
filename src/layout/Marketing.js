@@ -17,7 +17,7 @@ import Hero from './Hero';
 
 import './Marketing.scss';
 
-const Marketing = ({ technologies }) => (
+export const Marketing = ({ technologies }) => (
     <React.Fragment>
         <Hero title='Explore our open, multicloud tools' needsCTA className='ins-p-marketing__hero'/>
         <PageSection className='ins-c-marketing pf-m-no-fill'>

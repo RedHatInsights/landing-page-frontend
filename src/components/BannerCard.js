@@ -13,17 +13,15 @@ const BannerCard = ({ icon, title, description, ...props }) => {
     return (
         <Card className='ins-c-banner-card' { ...props }>
             <CardBody>
-                <Flex className='pf-m-align-items-center' breakpointMods={[
-                        {modifier: FlexModifiers.column}
-                    ]}>
+                <Flex className='pf-m-align-items-center' breakpointMods={ [{ modifier: FlexModifiers.column }] }>
                     <FlexItem className='ins-c-banner-card__icon'>
                         <img
                             aria-hidden
                             src={ icon }
                             alt={ `${title} logo` } />
                     </FlexItem>
-                    <FlexItem className='ins-c-banner-card__title'><Title headingLevel='h4' size='xl'>{title}</Title></FlexItem>
-                    <FlexItem className='ins-c-banner-card__description'> {description} </FlexItem>
+                    <FlexItem className='ins-c-banner-card__title'><Title headingLevel='h4' size='xl'>{ title }</Title></FlexItem>
+                    <FlexItem className='ins-c-banner-card__description'> { description } </FlexItem>
                 </Flex>
             </CardBody>
         </Card>

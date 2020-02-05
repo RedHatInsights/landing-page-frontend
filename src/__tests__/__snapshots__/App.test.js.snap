@@ -97,6 +97,7 @@ exports[`App component should render correctly 1`] = `
                   "replace": [Function],
                 }
               }
+              loadMarketingTechnologies={[Function]}
               loadTechnologies={[Function]}
               location={
                 Object {
@@ -362,6 +363,7 @@ exports[`App component should render correctly with data 1`] = `
                   "replace": [Function],
                 }
               }
+              loadMarketingTechnologies={[Function]}
               loadTechnologies={[Function]}
               location={
                 Object {

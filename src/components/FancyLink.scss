@@ -4,19 +4,24 @@
 
     --ins-c-link__fancy-red: #E80000;
 
+    display: grid;
+    grid-template-columns: auto 1fr;
+    column-gap: var(--pf-global--spacer--md);
+    word-break: break-word;
+
     color: var(--pf-global--Color--100);
 
     border-left: 2px solid var(--ins-c-link__fancy-red);
-    padding-left: 8px;
+    padding-left: var(--pf-global--spacer--sm);
 
-    &:hover, &:hover *{
+    &:hover, &:hover * {
         text-decoration: none;
         font-weight: 700;
         color: var(--pf-global--Color--100);
     }
 
     svg {
+        margin-top: 4px;
         color: var(--pf-global--Color--light-300);
-        margin-left: 8px;
     }
 }

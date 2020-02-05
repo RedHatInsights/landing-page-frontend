@@ -1,23 +1,25 @@
-import platformsAndManagement from '../components/images/platformsAndManagement.svg';
-import ansibleAutomation from '../components/images/ansibleAutomation.svg';
-import itOptimization from '../components/images/itOptimization.svg'
+import PlatformsAndManagement from '../components/images/platformsAndManagement.svg';
+import AnsibleAutomation from '../components/images/ansibleAutomation.svg';
+import ITOptimization from '../components/images/itOptimization.svg';
+
+// TODO make apps show unentitled modal
 
 export const activeTechnologies = [
     {
         entitlement: 'insights',
         title: 'Platforms and Management',
         description: 'this is a description for platforms and management',
-        icon: platformsAndManagement,
+        icon: PlatformsAndManagement,
         apps: [
             {
                 id: 'insights-dashboard',
                 name: 'Insights dashboard',
-                url: 'insights/dashboard',
+                url: 'insights/dashboard'
             },
             {
                 id: 'advisor',
                 name: 'Advisor',
-                url: 'insights/advisor',
+                url: 'insights/advisor'
             },
             {
                 id: 'compliance',
@@ -65,17 +67,17 @@ export const activeTechnologies = [
         entitlement: 'ansible',
         title: 'Ansible Automation',
         description: 'this is a description for ansible automation',
-        icon: ansibleAutomation,
+        icon: AnsibleAutomation,
         apps: [
             {
                 id: 'automation-analytics',
                 name: 'Automation Analytics',
-                url: 'ansible/analytics',
+                url: 'ansible/analytics'
             },
             {
                 id: 'automation-hub',
                 name: 'Automation Hub',
-                url: 'ansible/hub',
+                url: 'ansible/hub'
             },
             {
                 id: 'service-catalog',
@@ -88,12 +90,12 @@ export const activeTechnologies = [
         entitlement: 'migrations',
         title: 'IT Optimization',
         description: 'this is a description for IT optimization',
-        icon: itOptimization,
+        icon: ITOptimization,
         apps: [
             {
                 id: 'migration-services',
                 name: 'Migration Services',
-                url: 'migrations',
+                url: 'migrations'
             }
         ]
     }

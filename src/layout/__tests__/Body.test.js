@@ -9,27 +9,17 @@ import { ChartSpikeIcon } from '@patternfly/react-icons';
 
 const activeTechnologiesMock = [
     {
-        entitlement: 'test',
-        marketing: true,
-        marketingImage: ChartSpikeIcon,
-        marketingText: 'Marketing Test',
-        marketingUrl: '/marketing-test',
-        name: 'test',
-        id: 'test',
-        url: 'test',
-        baseApp: '/test',
-        apps: {
-            rules: '/app-test'
-        },
+        entitlement: 'entitlement',
+        title: 'title',
+        description: 'this is a description',
         icon: ChartSpikeIcon,
-        title: 'Jest Test',
-        emptyTitle: 'test',
-        emptyText: 'test',
-        emptyAction: {
-            title: 'test',
-            navigate: '/empty-action-test'
-        },
-        body: 'test'
+        apps: [
+            {
+                id: 'migration-services',
+                name: 'Migration Services',
+                url: 'migrations'
+            }
+        ]
     }
 ];
 

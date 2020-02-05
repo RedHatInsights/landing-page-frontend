@@ -2,6 +2,7 @@
 @import '~@patternfly/patternfly/sass-utilities/_all';
 
 .ins-c-footer__traditional {
+    margin-top: 32px;
     @include rem('padding', 30px 60px);
     background-color: var(--pf-c-page__main-section--BackgroundColor);
 

@@ -1,172 +1,22 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`render Marketing component should render correctly 1`] = `
-<Provider
-  store={
-    Object {
-      "clearActions": [Function],
-      "dispatch": [Function],
-      "getActions": [Function],
-      "getState": [Function],
-      "replaceReducer": [Function],
-      "subscribe": [Function],
-    }
-  }
->
-  <Connect(Marketing)>
-    <Marketing
-      dispatch={[Function]}
-      technologies={Array []}
-    >
-      <Hero>
-        <PageSection
-          className="ins-c-hero pf-m-fill pf-l-flex pf-m-align-items-center pf-m-justify-content-center"
-        >
-          <section
-            className="pf-c-page__main-section ins-c-hero pf-m-fill pf-l-flex pf-m-align-items-center pf-m-justify-content-center"
-          >
-            <article
-              className="pf-l-flex pf-m-column pf-m-align-items-center"
-            >
-              <Title
-                className="ins-c-hero__title pf-m-spacer-lg"
-                headingLevel="h1"
-                size="4xl"
-              >
-                <h1
-                  className="pf-c-title pf-m-4xl ins-c-hero__title pf-m-spacer-lg"
-                >
-                   Explore our open, multicloud tools 
-                </h1>
-              </Title>
-              <Title
-                className="ins-c-hero__sub-title pf-m-spacer-xl"
-                headingLevel="h2"
-                size="xl"
-              >
-                <h2
-                  className="pf-c-title pf-m-xl ins-c-hero__sub-title pf-m-spacer-xl"
-                >
-                  Discover Red Hat
-                  <sup
-                    className="ins-c-rball"
-                  >
-                    ®
-                  </sup>
-                   software-as-a-service
-                </h2>
-              </Title>
-              <Component
-                className="ins-c-hero__login"
-                onClick={[Function]}
-              >
-                <ComponentWithOuia
-                  component={[Function]}
-                  componentProps={
-                    Object {
-                      "children": " Log in to your Red Hat account",
-                      "className": "ins-c-hero__login",
-                      "onClick": [Function],
-                    }
-                  }
-                  consumerContext={null}
-                >
-                  <Button
-                    className="ins-c-hero__login"
-                    onClick={[Function]}
-                    ouiaContext={
-                      Object {
-                        "isOuia": false,
-                        "ouiaId": null,
-                      }
-                    }
-                  >
-                    <button
-                      aria-disabled={null}
-                      aria-label={null}
-                      className="pf-c-button pf-m-primary ins-c-hero__login"
-                      disabled={false}
-                      onClick={[Function]}
-                      tabIndex={null}
-                      type="button"
-                    >
-                       Log in to your Red Hat account
-                    </button>
-                  </Button>
-                </ComponentWithOuia>
-              </Component>
-              <Component
-                className="ins-c-hero__new-customer"
-                component="a"
-                href="https://www.redhat.com/en/customers"
-                isInline={true}
-                variant="link"
-              >
-                <ComponentWithOuia
-                  component={[Function]}
-                  componentProps={
-                    Object {
-                      "children": "Not a customer?",
-                      "className": "ins-c-hero__new-customer",
-                      "component": "a",
-                      "href": "https://www.redhat.com/en/customers",
-                      "isInline": true,
-                      "variant": "link",
-                    }
-                  }
-                  consumerContext={null}
-                >
-                  <Button
-                    className="ins-c-hero__new-customer"
-                    component="a"
-                    href="https://www.redhat.com/en/customers"
-                    isInline={true}
-                    ouiaContext={
-                      Object {
-                        "isOuia": false,
-                        "ouiaId": null,
-                      }
-                    }
-                    variant="link"
-                  >
-                    <a
-                      aria-disabled={false}
-                      aria-label={null}
-                      className="pf-c-button pf-m-link pf-m-inline ins-c-hero__new-customer"
-                      disabled={null}
-                      href="https://www.redhat.com/en/customers"
-                      tabIndex={null}
-                      type={null}
-                    >
-                      Not a customer?
-                    </a>
-                  </Button>
-                </ComponentWithOuia>
-              </Component>
-            </article>
-          </section>
-        </PageSection>
-      </Hero>
-      <PageSection
-        className="ins-c-marketing pf-m-no-fill"
-      >
-        <section
-          className="pf-c-page__main-section ins-c-marketing pf-m-no-fill"
-        >
-          <Grid
-            gutter="sm"
-            md={6}
-            sm={12}
-            xl={6}
-            xl2={3}
-          >
-            <div
-              className="pf-l-grid pf-m-all-12-col-on-sm pf-m-all-6-col-on-md pf-m-all-6-col-on-xl pf-m-all-3-col-on-2xl pf-m-gutter"
-            />
-          </Grid>
-        </section>
-      </PageSection>
-    </Marketing>
-  </Connect(Marketing)>
-</Provider>
+<Fragment>
+  <Hero
+    className="ins-p-marketing__hero"
+    needsCTA={true}
+    title="Explore our open, multicloud tools"
+  />
+  <PageSection
+    className="ins-c-marketing pf-m-no-fill"
+  >
+    <Grid
+      gutter="sm"
+      md={6}
+      sm={12}
+      xl={6}
+      xl2={3}
+    />
+  </PageSection>
+</Fragment>
 `;
