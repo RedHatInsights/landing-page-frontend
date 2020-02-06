@@ -18,37 +18,36 @@ class Body extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            activeTabKey: 0
+            activeTabKey: 0 // always start in the first category
         };
 
         // Toggle currently active tab
         this.handleTabClick = (event, tabIndex) => {
-            this.setState({
-                activeTabKey: tabIndex
-            });
+            this.setState({ activeTabKey: tabIndex });
         };
     }
 
     render() {
-
         return (
             <React.Fragment>
                 <Hero title='Manage, automate, and optimize your IT' className='ins-c-hero__small'/>
                 <PageSection className='pf-m-fill ins-p-landing__content'>
                     <Tabs activeKey={ this.state.activeTabKey } isSecondary onSelect={ this.handleTabClick }>
-                        { this.props.technologies.map(({ title, description, image, apps }, key) => ( // eslint-disable-line max-len
+                        { this.props.technologies.map(({ title, id, description, image, apps }, key) => ( // map categories
                             <Tab key={ key }
                                 eventKey={ key || 0 }
-                                title={ <BannerCard title={ title } description={ description } image={ image }/> }>
+                                title={ <BannerCard title={ title } category-id={ id } description={ description } image={ image }/> }>
                                 <div className='ins-l-app-grid'>
-                                    { apps.map(({ name, url }, key) => ( // eslint-disable-line max-len
-                                        <FancyLink
+                                    { apps.map(({ name, url, id, disabled }, key) => { // map out individual apps inside categories
+                                        return !disabled && <FancyLink
                                             className='ins-l-app-grid__item'
+                                            application-id={ id }
                                             to={ `${window.location.origin}${window.insights.chrome.isBeta() ? '/beta/' : '/'}${url}` }
                                             key={ key }>
                                             { name }
                                         </FancyLink>
-                                    )) }
+                                        }
+                                    ) }
                                 </div>
                             </Tab>
                         )) }

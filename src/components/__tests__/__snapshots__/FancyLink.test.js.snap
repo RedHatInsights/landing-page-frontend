@@ -1,0 +1,16 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`BannerCard component should render correctly 1`] = `
+<a
+  className="ins-c-link__fancy testClassname"
+  href="#"
+>
+  Test
+  <ArrowRightIcon
+    color="currentColor"
+    noVerticalAlign={false}
+    size="sm"
+    title={null}
+  />
+</a>
+`;

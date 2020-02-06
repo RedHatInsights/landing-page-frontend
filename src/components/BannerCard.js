@@ -31,7 +31,7 @@ const BannerCard = ({ image, title, description, ...props }) => {
 export default BannerCard;
 
 BannerCard.propTypes = {
-    image: propTypes.node,
+    image: propTypes.any,
     title: propTypes.string,
     description: propTypes.string
 };

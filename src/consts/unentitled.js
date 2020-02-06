@@ -1,6 +1,6 @@
 import { ChartSpikeIcon } from '@patternfly/react-icons';
-import subscriptions from '../components/subscriptions.svg';
-import costManagement from '../components/cost-management.svg';
+import subscriptions from '../components/images/subscriptions.svg';
+import costManagement from '../components/images/cost-management.svg';
 
 export const unentitledTechnologies = [
     {

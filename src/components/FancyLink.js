@@ -8,7 +8,13 @@ import './FancyLink.scss';
 
 const FancyLink = ({ to, children, className, ...props }) => {
     return (
-        <a className={ classnames('ins-c-link__fancy', className) } href={ to } { ...props }>{ children }<ArrowRightIcon/></a>
+        <a
+            className={ classnames('ins-c-link__fancy', className) }
+            href={ to }
+            { ...props }>
+                { children }
+                <ArrowRightIcon/>
+        </a>
     );
 };
 

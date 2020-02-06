@@ -1,22 +1,3 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`render Marketing component should render correctly 1`] = `
-<Fragment>
-  <Hero
-    className="ins-p-marketing__hero"
-    needsCTA={true}
-    title="Explore our open, multicloud tools"
-  />
-  <PageSection
-    className="ins-c-marketing pf-m-no-fill"
-  >
-    <Grid
-      gutter="sm"
-      md={6}
-      sm={12}
-      xl={6}
-      xl2={3}
-    />
-  </PageSection>
-</Fragment>
-`;
+exports[`render Body component should render correctly 1`] = `<Connect(Marketing) />`;

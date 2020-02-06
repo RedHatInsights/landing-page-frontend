@@ -2,17 +2,11 @@ import PlatformsAndManagement from '../components/images/platformsAndManagement.
 import AnsibleAutomation from '../components/images/ansibleAutomation.svg';
 import ITOptimization from '../components/images/itOptimization.svg';
 
-/* Entitlements (path -- entitlement)
-    * /insights -- insights
-    * /rhel -- smart_management
-    * /cost-management -- cost_management
-    * /subscriptions -- subscriptions
-    * /ansible -- ansible
-    * /migrations -- migrations
-*/
+// disabled works on top level categories as well as inside of the apps object
 
 export const activeTechnologies = [
     {
+        id: 'platforms-and-management',
         title: 'Platforms and Management',
         description: 'this is a description for platforms and management',
         image: PlatformsAndManagement,
@@ -30,22 +24,22 @@ export const activeTechnologies = [
             {
                 id: 'compliance',
                 name: 'Compliance',
-                url: 'insights/compliance'
+                url: 'rhel/compliance'
             },
             {
                 id: 'custom-policies',
                 name: 'Custom Policies',
-                url: 'TODO'
+                url: '#'
             },
             {
                 id: 'drift',
                 name: 'Drift Analysis',
-                url: 'insights/drift'
+                url: 'rhel/drift'
             },
             {
                 id: 'openshift-clusters',
                 name: 'OpenShift Clusters',
-                url: 'TODO'
+                url: 'openshift'
             },
             {
                 id: 'remediations',
@@ -55,21 +49,22 @@ export const activeTechnologies = [
             {
                 id: 'subscriptions',
                 name: 'Subscriptions',
-                url: 'TODO'
+                url: 'subscriptions/rhel-sw'
             },
             {
                 id: 'system-patching',
                 name: 'System Patching',
-                url: 'TODO'
+                url: '#'
             },
             {
                 id: 'vulnerability',
                 name: 'Vulnerability',
-                url: 'insights/vulnerability'
+                url: 'rhel/vulnerability'
             }
         ]
     },
     {
+        id: 'ansible-automation',
         title: 'Ansible Automation',
         description: 'this is a description for ansible automation',
         image: AnsibleAutomation,
@@ -92,6 +87,7 @@ export const activeTechnologies = [
         ]
     },
     {
+        id: 'IT-optimization',
         title: 'IT Optimization',
         description: 'this is a description for IT optimization',
         image: ITOptimization,
