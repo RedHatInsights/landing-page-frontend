@@ -9,7 +9,7 @@ import {
 
 import './BannerCard.scss';
 
-const BannerCard = ({ icon, title, description, ...props }) => {
+const BannerCard = ({ image, title, description, ...props }) => {
     return (
         <Card className='ins-c-banner-card' { ...props }>
             <CardBody>
@@ -17,7 +17,7 @@ const BannerCard = ({ icon, title, description, ...props }) => {
                     <FlexItem className='ins-c-banner-card__icon'>
                         <img
                             aria-hidden
-                            src={ icon }
+                            src={ image }
                             alt={ `${title} logo` } />
                     </FlexItem>
                     <FlexItem className='ins-c-banner-card__title'><Title headingLevel='h4' size='xl'>{ title }</Title></FlexItem>
@@ -31,7 +31,7 @@ const BannerCard = ({ icon, title, description, ...props }) => {
 export default BannerCard;
 
 BannerCard.propTypes = {
-    icon: propTypes.node,
+    image: propTypes.node,
     title: propTypes.string,
     description: propTypes.string
 };

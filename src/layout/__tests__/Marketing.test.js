@@ -19,7 +19,7 @@ const marketingTechnologiesMock = [
             learnMore: 'https://www.redhat.com/en/technologies/management/insights'
         }
     }
-]
+];
 
 const mockStore = configureMockStore();
 const store = mockStore(marketingTechnologiesMock);

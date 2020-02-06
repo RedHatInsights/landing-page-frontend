@@ -2,14 +2,20 @@ import PlatformsAndManagement from '../components/images/platformsAndManagement.
 import AnsibleAutomation from '../components/images/ansibleAutomation.svg';
 import ITOptimization from '../components/images/itOptimization.svg';
 
-// TODO make apps show unentitled modal
+/* Entitlements (path -- entitlement)
+    * /insights -- insights
+    * /rhel -- smart_management
+    * /cost-management -- cost_management
+    * /subscriptions -- subscriptions
+    * /ansible -- ansible
+    * /migrations -- migrations
+*/
 
 export const activeTechnologies = [
     {
-        entitlement: 'insights',
         title: 'Platforms and Management',
         description: 'this is a description for platforms and management',
-        icon: PlatformsAndManagement,
+        image: PlatformsAndManagement,
         apps: [
             {
                 id: 'insights-dashboard',
@@ -64,10 +70,9 @@ export const activeTechnologies = [
         ]
     },
     {
-        entitlement: 'ansible',
         title: 'Ansible Automation',
         description: 'this is a description for ansible automation',
-        icon: AnsibleAutomation,
+        image: AnsibleAutomation,
         apps: [
             {
                 id: 'automation-analytics',
@@ -87,10 +92,9 @@ export const activeTechnologies = [
         ]
     },
     {
-        entitlement: 'migrations',
         title: 'IT Optimization',
         description: 'this is a description for IT optimization',
-        icon: ITOptimization,
+        image: ITOptimization,
         apps: [
             {
                 id: 'migration-services',

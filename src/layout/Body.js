@@ -36,8 +36,10 @@ class Body extends React.Component {
                 <Hero title='Manage, automate, and optimize your IT' className='ins-c-hero__small'/>
                 <PageSection className='pf-m-fill ins-p-landing__content'>
                     <Tabs activeKey={ this.state.activeTabKey } isSecondary onSelect={ this.handleTabClick }>
-                        { this.props.technologies.map(({ title, description, icon, apps }, key) => ( // eslint-disable-line max-len
-                            <Tab key={ key } eventKey={ key || 0 } title={ <BannerCard title={ title } description={ description } icon={ icon }/> }>
+                        { this.props.technologies.map(({ title, description, image, apps }, key) => ( // eslint-disable-line max-len
+                            <Tab key={ key }
+                                eventKey={ key || 0 }
+                                title={ <BannerCard title={ title } description={ description } image={ image }/> }>
                                 <div className='ins-l-app-grid'>
                                     { apps.map(({ name, url }, key) => ( // eslint-disable-line max-len
                                         <FancyLink

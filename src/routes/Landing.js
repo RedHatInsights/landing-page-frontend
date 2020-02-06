@@ -13,7 +13,7 @@ import Body from '../layout/Body';
 import Marketing from '../layout/Marketing';
 import FooterTraditional from '../layout/FooterTraditional';
 import Loading from '../layout/Loading';
-import { activeTechnologies } from '../consts/technologies';
+import { unentitledTechnologies } from '../consts/unentitled';
 
 import './Landing.scss';
 
@@ -28,10 +28,8 @@ class Landing extends Component {
 
         const params = location.search.slice(1).split('&').reduce((acc, curr) => ({
             ...acc,
-            [curr.split('=')[0]]: Object.values(activeTechnologies).find(item => item.entitlement === curr.split('=')[1])
+            [curr.split('=')[0]]: Object.values(unentitledTechnologies).find(item => item.entitlement === curr.split('=')[1])
         }), {});
-
-        console.log(params);
 
         this.setState({
             ...params,
@@ -65,7 +63,7 @@ class Landing extends Component {
                 <Fragment>
                     { unauthed
                         ? <Marketing />
-                        : <Body location={location}/>
+                        : <Body/>
                     }
                     <FooterTraditional />
                     { notEntitled && <Modal
@@ -80,10 +78,16 @@ class Landing extends Component {
                                 <Title headingLevel="h3" size="2xl">{ notEntitled.emptyTitle }</Title>
                             </StackItem>
                             <StackItem className='ins-c-error-state__image'>
-                                { notEntitled.icon && <img
+                                { notEntitled.icon && <notEntitled.icon
+                                    className="ins-c-icon__active"
+                                    aria-hidden
+                                    alt={ `${notEntitled.title} logo` }
+                                    { ...notEntitled.iconProps }
+                                /> }
+                                { notEntitled.image && <img
                                     className="ins-c-application-info__logo"
                                     aria-hidden
-                                    src={ notEntitled.icon }
+                                    src={ notEntitled.image }
                                     alt={ `${notEntitled.title} logo` } /> }
                             </StackItem>
                             <StackItem className='ins-c-error-state__body'>
