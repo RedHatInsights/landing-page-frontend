@@ -45,9 +45,8 @@ class Body extends React.Component {
                                             to={ `${window.location.origin}${window.insights.chrome.isBeta() ? '/beta/' : '/'}${url}` }
                                             key={ key }>
                                             { name }
-                                        </FancyLink>
-                                        }
-                                    ) }
+                                        </FancyLink>;
+                                    }) }
                                 </div>
                             </Tab>
                         )) }

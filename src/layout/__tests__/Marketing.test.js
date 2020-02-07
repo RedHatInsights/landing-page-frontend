@@ -1,9 +1,8 @@
-/*global describe, test, expect */
+/*global describe, expect */
 import React from 'react';
 import { Provider } from 'react-redux';
 import configureMockStore from 'redux-mock-store';
 import toJson from 'enzyme-to-json';
-import { mapStateToProps } from '../Marketing';
 import Marketing from '../Marketing';
 
 const marketingTechnologiesMock = [

@@ -12,8 +12,8 @@ const FancyLink = ({ to, children, className, ...props }) => {
             className={ classnames('ins-c-link__fancy', className) }
             href={ to }
             { ...props }>
-                { children }
-                <ArrowRightIcon/>
+            { children }
+            <ArrowRightIcon/>
         </a>
     );
 };
