@@ -1,6 +1,6 @@
 .ins-c-link__fancy {
 
-    --ins-c-link__fancy-red: #E80000;
+    --ins-c-link__fancy-red: #E80000; // This is a brand color
 
     display: grid;
     grid-template-columns: auto 1fr;
@@ -14,12 +14,12 @@
 
     &:hover, &:hover * {
         text-decoration: none;
-        font-weight: 700;
+        font-weight: var(--pf-global--FontWeight--redhatfont--bold);
         color: var(--pf-global--Color--100);
     }
 
     svg {
-        margin-top: 4px;
+        margin-top: var(--pf-global--spacer--xs);
         color: var(--pf-global--Color--light-300);
     }
 }

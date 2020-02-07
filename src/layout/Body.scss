@@ -92,6 +92,8 @@
 // --pf-global--breakpoint--xl: 1200px;
 // --pf-global--breakpoint--2xl: 1450px;
 
+// Adjust the number of items per row per devices
+// Small screens 1 per row
 @media only screen and (min-width: 0px) {
     .ins-p-landing__content .ins-l-app-grid {
         width: 95%;
@@ -102,6 +104,7 @@
     }
 }
 
+// Medium screens 2 per row
 @media only screen and (min-width: 576px) {
     .ins-p-landing__content .ins-l-app-grid {
         &__item:nth-child(4n+1) { grid-column: 1; }
@@ -111,6 +114,7 @@
     }
 }
 
+// Large screens 4 per row
 @media only screen and (min-width: 768px) {
     .ins-p-landing__content .ins-l-app-grid {
         &__item:nth-child(4n+1) { grid-column: 1; }
