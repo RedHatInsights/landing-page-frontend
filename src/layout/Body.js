@@ -30,17 +30,22 @@ class Body extends React.Component {
     render() {
         return (
             <React.Fragment>
-                <Hero title='Manage, automate, and optimize your IT' className='ins-c-hero__small'/>
+                <Hero title='Manage, automate, and optimize your IT' className='ins-c-hero__small' data-ouia-component-type='hero'/>
                 <PageSection className='pf-m-fill ins-p-landing__content'>
-                    <Tabs activeKey={ this.state.activeTabKey } isSecondary onSelect={ this.handleTabClick }>
+                    <Tabs data-ouia-navigation='true' activeKey={ this.state.activeTabKey } isSecondary onSelect={ this.handleTabClick }>
                         { this.props.technologies.map(({ title, id, description, image, apps }, key) => ( // map categories
                             <Tab key={ key }
+                                data-ouia-component-type='tab'
+                                data-ouia-component-id={`nav-tab-${id}`}
+                                data-ouia-navigation-name={`Tab ${id}`}
                                 eventKey={ key || 0 }
                                 title={ <BannerCard title={ title } category-id={ id } description={ description } image={ image }/> }>
                                 <div className='ins-l-app-grid'>
                                     { apps.map(({ name, url, id, disabled }, key) => { // map out individual apps inside categories
                                         return !disabled && <FancyLink
                                             className='ins-l-app-grid__item'
+                                            data-ouia-component-type='app-link'
+                                            data-ouia-component-id={`app-link-${id}`}
                                             application-id={ id }
                                             to={ `${window.location.origin}${window.insights.chrome.isBeta() ? '/beta/' : '/'}${url}` }
                                             key={ key }>
