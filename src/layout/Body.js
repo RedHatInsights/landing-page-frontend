@@ -36,8 +36,8 @@ class Body extends React.Component {
                         { this.props.technologies.map(({ title, id, description, image, apps }, key) => ( // map categories
                             <Tab key={ key }
                                 data-ouia-component-type='tab'
-                                data-ouia-component-id={`nav-tab-${id}`}
-                                data-ouia-navigation-name={`Tab ${id}`}
+                                data-ouia-component-id={ `nav-tab-${id}` }
+                                data-ouia-navigation-name={ `Tab ${id}` }
                                 eventKey={ key || 0 }
                                 title={ <BannerCard title={ title } category-id={ id } description={ description } image={ image }/> }>
                                 <div className='ins-l-app-grid'>
@@ -45,7 +45,7 @@ class Body extends React.Component {
                                         return !disabled && <FancyLink
                                             className='ins-l-app-grid__item'
                                             data-ouia-component-type='app-link'
-                                            data-ouia-component-id={`app-link-${id}`}
+                                            data-ouia-component-id={ `app-link-${id}` }
                                             application-id={ id }
                                             to={ `${window.location.origin}${window.insights.chrome.isBeta() ? '/beta/' : '/'}${url}` }
                                             key={ key }>
