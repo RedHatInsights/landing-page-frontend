@@ -21,13 +21,8 @@ exports[`Hero component should render correctly 1`] = `
       headingLevel="h2"
       size="xl"
     >
-      Discover Red Hat
-      <sup
-        className="ins-c-rball"
-      >
-        ®
-      </sup>
-       software-as-a-service
+       
+       
     </Title>
     <Component
       className="ins-c-hero__login"
