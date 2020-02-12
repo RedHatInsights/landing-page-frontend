@@ -1,15 +1,16 @@
-import PlatformsAndManagement from '../components/images/platformsAndManagement.svg';
-import AnsibleAutomation from '../components/images/ansibleAutomation.svg';
-import ITOptimization from '../components/images/itOptimization.svg';
+import hybridCloud from '../components/images/hybridCloud.svg';
+import automation from '../components/images/automation.svg';
+import agile from '../components/images/agile.svg';
+import cloudNative from '../components/images/cloudNative.svg';
 
 // disabled works on top level categories as well as inside of the apps object
 
 export const activeTechnologies = [
     {
-        id: 'platforms-and-management',
-        title: 'Platforms and Management',
-        description: 'this is a description for platforms and management',
-        image: PlatformsAndManagement,
+        id: 'hybrid-cloud-infrastructure',
+        title: 'Hybrid-cloud infrastructure',
+        description: 'Prescriptive and predictive analytics and remediation for your Linux and container environments.',
+        image: hybridCloud,
         apps: [
             {
                 id: 'insights-dashboard',
@@ -27,9 +28,20 @@ export const activeTechnologies = [
                 url: 'rhel/compliance'
             },
             {
+                id: 'vulnerability',
+                name: 'Vulnerability',
+                url: 'rhel/vulnerability'
+            },
+            {
+                id: 'system-patching',
+                name: 'System Patching',
+                url: 'rhel/patch'
+            },
+            {
                 id: 'custom-policies',
                 name: 'Custom Policies',
-                url: '#'
+                url: '#',
+                disabled: true
             },
             {
                 id: 'drift',
@@ -37,37 +49,45 @@ export const activeTechnologies = [
                 url: 'rhel/drift'
             },
             {
-                id: 'openshift-clusters',
-                name: 'OpenShift Clusters',
-                url: 'openshift'
-            },
-            {
                 id: 'remediations',
-                name: 'Remediations',
+                name: 'CVE Remediation',
                 url: 'insights/remediations'
             },
             {
-                id: 'subscriptions',
-                name: 'Subscriptions',
-                url: 'subscriptions/rhel-sw'
-            },
-            {
-                id: 'system-patching',
-                name: 'System Patching',
-                url: '#'
-            },
-            {
-                id: 'vulnerability',
-                name: 'Vulnerability',
-                url: 'rhel/vulnerability'
+                id: 'migration-services',
+                name: 'Migration Services',
+                url: 'migrations'
             }
         ]
     },
     {
-        id: 'ansible-automation',
-        title: 'Ansible Automation',
-        description: 'this is a description for ansible automation',
-        image: AnsibleAutomation,
+        id: 'cloud-native-development',
+        title: 'Cloud Native Development',
+        description: 'Optimize the cost and performance of your OpenShift applications running in any cloud.',
+        image: cloudNative,
+        apps: [
+            {
+                id: 'cost-management',
+                name: 'Cost Management',
+                url: 'cost-management'
+            },
+            {
+                id: 'openshift-cluster-manager',
+                name: 'OpenShift Cluster Manager',
+                url: 'openshift'
+            },
+            {
+                id: 'migration-services',
+                name: 'Migration Services',
+                url: 'migrations/migration-analytics'
+            }
+        ]
+    },
+    {
+        id: 'automation',
+        title: 'Automation',
+        description: 'Gain end-to-end visibility and quicker time to value for critical, repetitive IT operations',
+        image: automation,
         apps: [
             {
                 id: 'automation-analytics',
@@ -76,7 +96,7 @@ export const activeTechnologies = [
             },
             {
                 id: 'automation-hub',
-                name: 'Automation Hub',
+                name: 'Automation Hub & Partner Certified Content',
                 url: 'ansible/hub'
             },
             {
@@ -87,15 +107,15 @@ export const activeTechnologies = [
         ]
     },
     {
-        id: 'IT-optimization',
-        title: 'IT Optimization',
-        description: 'this is a description for IT optimization',
-        image: ITOptimization,
+        id: 'subscription-services',
+        title: 'Subscription Services',
+        description: 'Efficiently manage your Red Hat subscriptions with confidence.',
+        image: agile,
         apps: [
             {
-                id: 'migration-services',
-                name: 'Migration Services',
-                url: 'migrations'
+                id: 'subscription-watch',
+                name: 'Subscription Watch',
+                url: 'subscriptions/rhel-sw'
             }
         ]
     }

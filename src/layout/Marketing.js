@@ -19,7 +19,11 @@ import './Marketing.scss';
 
 export const Marketing = ({ technologies }) => (
     <React.Fragment>
-        <Hero title='Explore our open, multicloud tools' needsCTA className='ins-p-marketing__hero'/>
+        <Hero
+            title='Explore our open, multicloud tools'
+            subtitle={ <span>Discover Red Hat<sup className='ins-c-rball'>®</sup> software-as-a-service</span> }
+            needsCTA
+            className='ins-p-marketing__hero'/>
         <PageSection className='ins-c-marketing pf-m-no-fill'>
             <Grid sm={ 12 } md={ 6 } xl={ 6 } xl2={ 3 } gutter="sm">
                 { technologies.map(({ marketingImage, title, marketingUrls, marketingText, id }, key) => (

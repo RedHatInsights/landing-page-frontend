@@ -22,6 +22,7 @@
     .pf-c-tabs__list {
         margin-left: auto;
         margin-right: auto;
+        margin-bottom: -32px;
         padding: var(--card-hover__height) calc(var(--card-hover__height) * 2); //needs to make space above card for card to go up on hover + size for shadow
         top: -100px;
     }

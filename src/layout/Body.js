@@ -30,7 +30,11 @@ class Body extends React.Component {
     render() {
         return (
             <React.Fragment>
-                <Hero title='Manage, automate, and optimize your IT' className='ins-c-hero__small' data-ouia-component-type='hero'/>
+                <Hero
+                    title='Scale the management and operations of your IT infrastructure'
+                    subtitle='Discover purpose-built services exclusively for Red Hat subscribers'
+                    className='ins-c-hero__small'
+                    data-ouia-component-type='hero'/>
                 <PageSection className='pf-m-fill ins-p-landing__content'>
                     <Tabs data-ouia-navigation='true' activeKey={ this.state.activeTabKey } isSecondary onSelect={ this.handleTabClick }>
                         { this.props.technologies.map(({ title, id, description, image, apps }, key) => ( // map categories

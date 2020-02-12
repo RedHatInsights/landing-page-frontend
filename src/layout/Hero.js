@@ -5,7 +5,7 @@ import { PageSection, Title, Button } from '@patternfly/react-core';
 
 import './Hero.scss';
 
-const Hero = ({ title, needsCTA, className, ...props }) => (
+const Hero = ({ title, subtitle, needsCTA, className, ...props }) => (
     <PageSection
         className={ classnames(
             'ins-c-hero',
@@ -17,9 +17,7 @@ const Hero = ({ title, needsCTA, className, ...props }) => (
         { ...props }>
         <article className='pf-l-flex pf-m-column pf-m-align-items-center'>
             <Title size='4xl' headingLevel='h1' className='ins-c-hero__title pf-m-spacer-lg'> { title } </Title>
-            <Title size='xl' headingLevel='h2' className='ins-c-hero__sub-title pf-m-spacer-xl'>
-                Discover Red Hat<sup className='ins-c-rball'>®</sup> software-as-a-service
-            </Title>
+            <Title size='xl' headingLevel='h2' className='ins-c-hero__sub-title pf-m-spacer-xl'> { subtitle } </Title>
             { needsCTA &&
                 <React.Fragment>
                     <Button
@@ -45,6 +43,7 @@ export default Hero;
 
 Hero.propTypes = {
     title: PropTypes.string,
+    subtitle: PropTypes.any,
     needsCTA: PropTypes.bool,
     className: PropTypes.string
 };
