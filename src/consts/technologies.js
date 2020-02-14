@@ -82,7 +82,8 @@ export const activeTechnologies = [
             {
                 id: 'migration-services',
                 name: 'Migration Services',
-                url: 'migrations/migration-analytics'
+                url: 'migrations/migration-analytics',
+                disabled: disableOnStable
             }
         ]
     },

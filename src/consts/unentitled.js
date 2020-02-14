@@ -59,7 +59,7 @@ export const unentitledTechnologies = [
         entitlement: 'ansible',
         image: `${document.baseURI}apps/chrome/assets/images/platform-icons/ansible.svg`,
         title: 'Get started with Ansible Automation Platform',
-        description: 'Get analytics and knowledge on your automation, access to certified content, and more with a \
+        description: 'Get analytics and knowledge of your automation, access to certified content, and more with a \
         Red Hat Ansible Automation Platform subscription.',
         actions: {
             primary: {
