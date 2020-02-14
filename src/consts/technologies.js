@@ -78,12 +78,6 @@ export const activeTechnologies = [
                 id: 'openshift-cluster-manager',
                 name: 'OpenShift Cluster Manager',
                 url: 'openshift'
-            },
-            {
-                id: 'migration-services',
-                name: 'Migration Services',
-                url: 'migrations/migration-analytics',
-                disabled: disableOnStable
             }
         ]
     },
