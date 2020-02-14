@@ -5,7 +5,7 @@ import cloudNative from '../components/images/cloudNative.svg';
 
 // disabled works on top level categories as well as inside of the apps object
 
-const isBeta = window.location.pathname.indexOf('/beta') !== 0;
+const disableOnStable = window.location.pathname.indexOf('/beta') !== 0;
 
 export const activeTechnologies = [
     {
@@ -57,7 +57,7 @@ export const activeTechnologies = [
             },
             {
                 id: 'migration-services',
-                disabled: isBeta,
+                disabled: disableOnStable,
                 name: 'Migration Services',
                 url: 'migrations'
             }
