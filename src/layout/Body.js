@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import {
     PageSection,
     Tabs, Tab
@@ -13,57 +13,50 @@ import PropTypes from 'prop-types';
 
 import './Body.scss';
 
-class Body extends React.Component {
+export function Body({ technologies }) {
 
-    constructor(props) {
-        super(props);
-        this.state = {
-            activeTabKey: 0 // always start in the first category
-        };
+    const [ activeTabKey, setActiveTabKey ] = useState(0);
 
-        // Toggle currently active tab
-        this.handleTabClick = (event, tabIndex) => {
-            this.setState({ activeTabKey: tabIndex });
-        };
-    }
+    const handleTabClick = (event, tabIndex) => {
+        setActiveTabKey(tabIndex);
+    };
 
-    render() {
-        return (
-            <React.Fragment>
-                <Hero
-                    title='Scale the management and operations of your IT infrastructure'
-                    subtitle='Discover purpose-built services exclusively for Red Hat subscribers'
-                    className='ins-c-hero__small'
-                    data-ouia-component-type='hero'/>
-                <PageSection className='pf-m-fill ins-p-landing__content'>
-                    <Tabs data-ouia-navigation='true' activeKey={ this.state.activeTabKey } isSecondary onSelect={ this.handleTabClick }>
-                        { this.props.technologies.map(({ title, id, description, image, apps }, key) => ( // map categories
-                            <Tab key={ key }
-                                data-ouia-component-type='tab'
-                                data-ouia-component-id={ `nav-tab-${id}` }
-                                data-ouia-navigation-name={ `Tab ${id}` }
-                                eventKey={ key || 0 }
-                                title={ <BannerCard title={ title } category-id={ id } description={ description } image={ image }/> }>
-                                <div className='ins-l-app-grid'>
-                                    { apps.map(({ name, url, id, disabled }, key) => { // map out individual apps inside categories
-                                        return !disabled && <FancyLink
-                                            className='ins-l-app-grid__item'
-                                            data-ouia-component-type='app-link'
-                                            data-ouia-component-id={ `app-link-${id}` }
-                                            application-id={ id }
-                                            to={ `${window.location.origin}${window.insights.chrome.isBeta() ? '/beta/' : '/'}${url}` }
-                                            key={ key }>
-                                            { name }
-                                        </FancyLink>;
-                                    }) }
-                                </div>
-                            </Tab>
-                        )) }
-                    </Tabs>
-                </PageSection>
-            </React.Fragment>
-        );
-    }
+    return (
+        <React.Fragment>
+            <Hero
+                title='Scale the management and operations of your IT infrastructure'
+                subtitle='Discover purpose-built services exclusively for Red Hat subscribers'
+                className='ins-c-hero__small'
+                data-ouia-component-type='hero'/>
+            <PageSection className='pf-m-fill ins-p-landing__content'>
+                <Tabs data-ouia-navigation='true' activeKey={ activeTabKey } isSecondary onSelect={ handleTabClick }>
+                    { technologies.map(({ title, id, description, image, apps }, key) => ( // map categories
+                        <Tab key={ key }
+                            data-ouia-component-type='tab'
+                            data-ouia-component-id={ `nav-tab-${id}` }
+                            data-ouia-navigation-name={ `Tab ${id}` }
+                            eventKey={ key || 0 }
+                            title={ <BannerCard title={ title } category-id={ id } description={ description } image={ image }/> }>
+                            <div className='ins-l-app-grid'>
+                                { apps.map(({ name, url, id, disabled }, key) => (<React.Fragment key={ key }>
+                                    { !disabled && <FancyLink
+                                        className='ins-l-app-grid__item'
+                                        data-ouia-component-type='app-link'
+                                        data-ouia-component-id={ `app-link-${id}` }
+                                        application-id={ id }
+                                        to={ `${window.location.origin}${window.insights.chrome.isBeta() ? '/beta/' : '/'}${url}` }
+                                        key={ key }>
+                                        { name }
+                                    </FancyLink> }
+                                </React.Fragment>
+                                )) }
+                            </div>
+                        </Tab>
+                    )) }
+                </Tabs>
+            </PageSection>
+        </React.Fragment>
+    );
 }
 
 Body.propTypes = {

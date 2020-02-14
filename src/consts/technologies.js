@@ -86,7 +86,7 @@ export const activeTechnologies = [
     {
         id: 'automation',
         title: 'Automation',
-        description: 'Gain end-to-end visibility and quicker time to value for critical, repetitive IT operations',
+        description: 'Gain end-to-end visibility and quicker time to value for critical, repetitive IT operations.',
         image: automation,
         apps: [
             {

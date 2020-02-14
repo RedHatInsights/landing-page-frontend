@@ -1,3 +1,83 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`render Body component should render correctly 1`] = `<Connect(Body) />`;
+exports[`render Body component should render correctly 1`] = `
+<Fragment>
+  <Hero
+    className="ins-c-hero__small"
+    data-ouia-component-type="hero"
+    subtitle="Discover purpose-built services exclusively for Red Hat subscribers"
+    title="Scale the management and operations of your IT infrastructure"
+  />
+  <PageSection
+    className="pf-m-fill ins-p-landing__content"
+  >
+    <Component
+      activeKey={0}
+      data-ouia-navigation="true"
+      isSecondary={true}
+      onSelect={[Function]}
+    >
+      <Tab
+        data-ouia-component-id="nav-tab-1"
+        data-ouia-component-type="tab"
+        data-ouia-navigation-name="Tab 1"
+        eventKey={0}
+        key="0"
+        title={
+          <BannerCard
+            category-id="1"
+            description="this is a description"
+            title="title"
+          />
+        }
+      >
+        <div
+          className="ins-l-app-grid"
+        >
+          <FancyLink
+            application-id="app-1"
+            className="ins-l-app-grid__item"
+            data-ouia-component-id="app-link-app-1"
+            data-ouia-component-type="app-link"
+            key="0"
+            to="http://localhost/app-url-1"
+          >
+            app-name-1
+          </FancyLink>
+        </div>
+      </Tab>
+      <Tab
+        data-ouia-component-id="nav-tab-2"
+        data-ouia-component-type="tab"
+        data-ouia-navigation-name="Tab 2"
+        eventKey={1}
+        key="1"
+        title={
+          <BannerCard
+            category-id="2"
+            description="this is a second description"
+            title="secondtitle"
+          />
+        }
+      >
+        <div
+          className="ins-l-app-grid"
+        >
+          <FancyLink
+            application-id="app-2"
+            className="ins-l-app-grid__item"
+            data-ouia-component-id="app-link-app-2"
+            data-ouia-component-type="app-link"
+            key="0"
+            to="http://localhost/app-url-2"
+          >
+            app-name-2
+          </FancyLink>
+        </div>
+      </Tab>
+    </Component>
+  </PageSection>
+</Fragment>
+`;
+
+exports[`render ConnectedBody component should render correctly 1`] = `<Connect(Body) />`;
