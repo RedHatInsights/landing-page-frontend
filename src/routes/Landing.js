@@ -9,15 +9,15 @@ import {
     StackItem
 } from '@patternfly/react-core';
 
-import Header from '../layout/Header';
 import Body from '../layout/Body';
 import Marketing from '../layout/Marketing';
 import FooterTraditional from '../layout/FooterTraditional';
 import Loading from '../layout/Loading';
-import { activeTechnologies } from '../consts';
+import { unentitledTechnologies } from '../consts/unentitled';
+
 import './Landing.scss';
 
-class Landing extends Component {
+export class Landing extends Component {
     state = {
         isModalOpen: false,
         isUserReady: false
@@ -28,7 +28,7 @@ class Landing extends Component {
 
         const params = location.search.slice(1).split('&').reduce((acc, curr) => ({
             ...acc,
-            [curr.split('=')[0]]: Object.values(activeTechnologies).find(item => item.entitlement === curr.split('=')[1])
+            [curr.split('=')[0]]: Object.values(unentitledTechnologies).find(item => item.entitlement === curr.split('=')[1])
         }), {});
 
         this.setState({
@@ -63,10 +63,7 @@ class Landing extends Component {
                 <Fragment>
                     { unauthed
                         ? <Marketing />
-                        : <Fragment>
-                            <Header />
-                            <Body />
-                        </Fragment>
+                        : <Body/>
                     }
                     <FooterTraditional />
                     { notEntitled && <Modal
@@ -78,7 +75,7 @@ class Landing extends Component {
                     >
                         <Stack gutter='md' className='ins-c-error-state'>
                             <StackItem className='ins-c-error-state__title'>
-                                <Title headingLevel="h3" size="2xl">{ notEntitled.emptyTitle }</Title>
+                                <Title headingLevel="h3" size="2xl">{ notEntitled.title }</Title>
                             </StackItem>
                             <StackItem className='ins-c-error-state__image'>
                                 { notEntitled.icon && <notEntitled.icon
@@ -94,31 +91,31 @@ class Landing extends Component {
                                     alt={ `${notEntitled.title} logo` } /> }
                             </StackItem>
                             <StackItem className='ins-c-error-state__body'>
-                                { notEntitled.emptyText }
+                                { notEntitled.description }
                             </StackItem>
                             <StackItem className='ins-c-error-state__footer'>
                                 {
-                                    notEntitled.emptyAction.primary &&
+                                    notEntitled.actions.primary &&
                                         <Button variant="primary" className='ins-c-error-state__footer-action' onClick={ () => {
-                                            if (notEntitled.emptyAction.primary.navigate) {
-                                                window.location.href = notEntitled.emptyAction.primary.navigate;
+                                            if (notEntitled.actions.primary.navigate) {
+                                                window.location.href = notEntitled.actions.primary.navigate;
                                             }
                                         } } >
-                                            { notEntitled.emptyAction.primary.title }
+                                            { notEntitled.actions.primary.title }
                                         </Button>
                                 }
                                 <section className='ins-c-error-state__footer-action--secondary'>
                                     {
-                                        notEntitled.emptyAction.secondary && notEntitled.emptyAction.secondary.navigate &&
+                                        notEntitled.actions.secondary && notEntitled.actions.secondary.navigate &&
                                             <Button variant="link" className='ins-c-error-state__footer-secondary' onClick={ ()=> {
-                                                window.location.href = notEntitled.emptyAction.secondary.navigate; } }>
-                                                { notEntitled.emptyAction.secondary.title ?
-                                                    `${ notEntitled.emptyAction.secondary.title }` : 'Learn More'
+                                                window.location.href = notEntitled.actions.secondary.navigate; } }>
+                                                { notEntitled.actions.secondary.title ?
+                                                    `${ notEntitled.actions.secondary.title }` : 'Learn More'
                                                 }
                                             </Button>
                                     }
                                     <Button variant="link" className='ins-c-error-state__footer-close' onClick={ this.handleModalToggle }>
-                                        { notEntitled.emptyAction.close ? `${notEntitled.emptyAction.close.title }` : 'Close' }
+                                        { notEntitled.actions.close ? `${notEntitled.actions.close.title }` : 'Close' }
                                     </Button>
                                 </section>
                             </StackItem>

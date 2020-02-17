@@ -4,32 +4,35 @@ import { Provider } from 'react-redux';
 import configureMockStore from 'redux-mock-store';
 import toJson from 'enzyme-to-json';
 import { mapStateToProps } from '../Body';
-import Body from '../Body';
+import ConnectedBody, { Body } from '../Body';
 import { ChartSpikeIcon } from '@patternfly/react-icons';
 
 const activeTechnologiesMock = [
     {
-        entitlement: 'test',
-        marketing: true,
-        marketingImage: ChartSpikeIcon,
-        marketingText: 'Marketing Test',
-        marketingUrl: '/marketing-test',
-        name: 'test',
-        id: 'test',
-        url: 'test',
-        baseApp: '/test',
-        apps: {
-            rules: '/app-test'
-        },
+        title: 'title',
+        id: '1',
+        description: 'this is a description',
         icon: ChartSpikeIcon,
-        title: 'Jest Test',
-        emptyTitle: 'test',
-        emptyText: 'test',
-        emptyAction: {
-            title: 'test',
-            navigate: '/empty-action-test'
-        },
-        body: 'test'
+        apps: [
+            {
+                id: 'app-1',
+                name: 'app-name-1',
+                url: 'app-url-1'
+            }
+        ]
+    },
+    {
+        title: 'secondtitle',
+        id: '2',
+        description: 'this is a second description',
+        icon: ChartSpikeIcon,
+        apps: [
+            {
+                id: 'app-2',
+                name: 'app-name-2',
+                url: 'app-url-2'
+            }
+        ]
     }
 ];
 
@@ -75,12 +78,21 @@ describe('mapStateToProps', () => {
     });
 });
 
-describe('render Body component', () => {
+describe('render ConnectedBody component', () => {
     it('should render correctly', () => {
         const wrapper = shallow(
             <Provider store={ store }>
-                <Body/>
+                <ConnectedBody/>
             </Provider>
+        );
+        expect(toJson(wrapper)).toMatchSnapshot();
+    });
+});
+
+describe('render Body component', () => {
+    it('should render correctly', () => {
+        const wrapper = shallow(
+            <Body technologies={ activeTechnologiesMock }/>
         );
         expect(toJson(wrapper)).toMatchSnapshot();
     });

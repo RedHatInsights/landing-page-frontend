@@ -1,17 +1,130 @@
-.ins-c-open-card { color: var(--pf-global--link--Color); }
+@import '~@red-hat-insights/insights-frontend-components/Utilities/_mixins';
+@import '~@patternfly/patternfly/sass-utilities/_all';
 
-.ins-c-card__link:hover {
-    text-decoration: none;
-    .ins-c-open-card {
-        color: var(--pf-global--link--Color--hover);
-        text-decoration: underline;
+.ins-c-hero.ins-c-hero__small {
+    padding-bottom: 64px;
+
+    @media screen and (min-width: $pf-global--breakpoint--xs) {
+        @include rem('min-height', 350px);
+    }
+
+    @media screen and (min-width: $pf-global--breakpoint--md) {
+        @include rem('min-height', 450px);
     }
 }
 
-.ins-p-landing__content .pf-l-gallery {
-    --pf-l-gallery--GridTemplateColumns: repeat(auto-fill, minmax(350px, 1fr));
+.ins-p-landing__content {
+
+    --card-hover__height: 28px;
+
+    padding-top: 0;
+
+    .pf-c-tabs__list {
+        margin-left: auto;
+        margin-right: auto;
+        margin-bottom: -32px;
+        padding: var(--card-hover__height) calc(var(--card-hover__height) * 2); //needs to make space above card for card to go up on hover + size for shadow
+        top: -100px;
+    }
+
+    .pf-c-tabs .pf-c-tabs__scroll-button{
+        height: 40px;
+        top: 45%;
+    }
+
+    .pf-c-tabs__item {
+        margin-left: var(--pf-global--spacer--sm);
+        margin-right: var(--pf-global--spacer--sm);
+        bottom: 0;
+        transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+        &:hover {
+            box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+        }
+
+        &.pf-m-current{
+            position: relative;
+            bottom: var(--card-hover__height);
+            box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+        }
+    }
+
+    .pf-c-tabs__button {
+        height: 100%;
+        padding: 0;
+    }
+
+    .ins-c-banner-card { width: 250px; }
+
+    .ins-l-app-grid {
+        width: 80%;
+        margin-left: auto;
+        margin-right: auto;
+        display: grid;
+        column-gap: var(.75rem);
+        row-gap: var(--pf-global--gutter);
+        grid-auto-columns: auto;
+        justify-content: space-around;
+        
+        &__item:nth-child(4n+1) {
+            grid-column: 1;
+            grid-row: auto;
+        }
+
+        &__item:nth-child(4n+2) {
+            grid-column: 2;
+            grid-row: auto;
+        }
+        &__item:nth-child(4n+3) {
+            grid-column: 3;
+            grid-row: auto;
+        }
+        &__item:nth-child(4n+4) {
+            grid-column: 4;
+            grid-row: auto;
+        }
+    }
 }
 
-.ins-p-landing__content {
-    .pf-l-grid { grid-gap: 1.5rem; }
+// CSS does not support CSS variables in media queries so hardcoding
+// --pf-global--breakpoint--xs: 0;
+// --pf-global--breakpoint--sm: 576px;
+// --pf-global--breakpoint--md: 768px;
+// --pf-global--breakpoint--lg: 992px;
+// --pf-global--breakpoint--xl: 1200px;
+// --pf-global--breakpoint--2xl: 1450px;
+
+// Adjust the number of items per row per devices
+// Small screens 1 per row
+@media only screen and (min-width: 0px) {
+    .ins-p-landing__content .ins-l-app-grid {
+        width: 95%;
+        &__item:nth-child(4n+1) { grid-column: 1; }
+        &__item:nth-child(4n+2) { grid-column: 1; }
+        &__item:nth-child(4n+3) { grid-column: 1; }
+        &__item:nth-child(4n+4) { grid-column: 1; }
+    }
+}
+
+// Medium screens 2 per row
+@media only screen and (min-width: 576px) {
+    .ins-p-landing__content .ins-l-app-grid {
+        &__item:nth-child(4n+1) { grid-column: 1; }
+        &__item:nth-child(4n+2) { grid-column: 2; }
+        &__item:nth-child(4n+3) { grid-column: 1; }
+        &__item:nth-child(4n+4) { grid-column: 2; }
+    }
+}
+
+// Large screens 4 per row
+@media only screen and (min-width: 768px) {
+    .ins-p-landing__content .ins-l-app-grid {
+        &__item:nth-child(4n+1) { grid-column: 1; }
+        &__item:nth-child(4n+2) { grid-column: 2; }
+        &__item:nth-child(4n+3) { grid-column: 3; }
+        &__item:nth-child(4n+4) { grid-column: 4; }
+    }
+}
+
+@media only screen and (min-width: 1450px) {
+    .ins-p-landing__content .ins-l-app-grid { width: 60% }
 }

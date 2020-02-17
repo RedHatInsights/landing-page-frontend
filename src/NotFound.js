@@ -3,7 +3,7 @@ import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 import NotFound from './routes/404';
 import { technologiesLoaded } from './store/actions';
-import { activeTechnologies } from './consts';
+import { activeTechnologies } from './consts/technologies';
 import './App.scss';
 
 const App = ({ loadTechnologies }) => {

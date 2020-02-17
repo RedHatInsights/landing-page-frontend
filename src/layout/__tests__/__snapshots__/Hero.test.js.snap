@@ -2,7 +2,7 @@
 
 exports[`Hero component should render correctly 1`] = `
 <PageSection
-  className="ins-c-hero pf-m-fill pf-l-flex pf-m-align-items-center pf-m-justify-content-center"
+  className="ins-c-hero pf-m-fill pf-l-flex pf-m-align-items-center pf-m-justify-content-center classname"
 >
   <article
     className="pf-l-flex pf-m-column pf-m-align-items-center"
@@ -12,26 +12,23 @@ exports[`Hero component should render correctly 1`] = `
       headingLevel="h1"
       size="4xl"
     >
-       Explore our open, multicloud tools 
+       
+      test
+       
     </Title>
     <Title
       className="ins-c-hero__sub-title pf-m-spacer-xl"
       headingLevel="h2"
       size="xl"
     >
-      Discover Red Hat
-      <sup
-        className="ins-c-rball"
-      >
-        ®
-      </sup>
-       software-as-a-service
+       
+       
     </Title>
     <Component
       className="ins-c-hero__login"
       onClick={[Function]}
     >
-       Log in to your Red Hat account
+      Log in to your Red Hat account
     </Component>
     <Component
       className="ins-c-hero__new-customer"

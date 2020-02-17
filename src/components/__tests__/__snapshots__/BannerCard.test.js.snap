@@ -1,0 +1,47 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`BannerCard component should render correctly 1`] = `
+<Card
+  className="ins-c-banner-card"
+>
+  <CardBody>
+    <Flex
+      breakpointMods={
+        Array [
+          Object {
+            "modifier": "column",
+          },
+        ]
+      }
+      className="pf-m-align-items-center"
+    >
+      <FlexItem
+        className="ins-c-banner-card__icon"
+      >
+        <img
+          alt="test logo"
+          aria-hidden={true}
+          src=""
+        />
+      </FlexItem>
+      <FlexItem
+        className="ins-c-banner-card__title"
+      >
+        <Title
+          headingLevel="h4"
+          size="xl"
+        >
+          test
+        </Title>
+      </FlexItem>
+      <FlexItem
+        className="ins-c-banner-card__description"
+      >
+         
+        description
+         
+      </FlexItem>
+    </Flex>
+  </CardBody>
+</Card>
+`;

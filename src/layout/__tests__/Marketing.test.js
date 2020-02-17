@@ -1,74 +1,30 @@
-/*global describe, test, expect */
-
+/*global describe, expect */
 import React from 'react';
 import { Provider } from 'react-redux';
 import configureMockStore from 'redux-mock-store';
-import { mount } from 'enzyme';
 import toJson from 'enzyme-to-json';
-import { mapStateToProps } from '../Marketing';
-import Body from '../Marketing';
-import { ChartSpikeIcon } from '@patternfly/react-icons';
+import Marketing from '../Marketing';
 
-const activeTechnologiesMock = [
+const marketingTechnologiesMock = [
     {
-        entitlement: 'test',
-        marketing: true,
-        marketingImage: ChartSpikeIcon,
-        marketingText: 'Marketing Test',
+        title: 'title',
+        id: 'id',
+        marketingImage: '',
+        marketingText: 'marketingtext',
         marketingUrls: {
-            learnMore: '/marketing-test',
-            tryit: '/tryit-test'
-        },
-        name: 'test',
-        id: 'test',
-        url: 'test',
-        baseApp: '/test',
-        apps: {
-            rules: '/app-test'
-        },
-        icon: ChartSpikeIcon,
-        title: 'Jest Test',
-        emptyTitle: 'test',
-        emptyText: 'test',
-        emptyAction: {
-            title: 'test',
-            navigate: '/empty-action-test'
-        },
-        body: 'test'
+            learnMore: 'cloud.redhat.com'
+        }
     }
 ];
 
 const mockStore = configureMockStore();
-const store = mockStore(activeTechnologiesMock);
+const store = mockStore(marketingTechnologiesMock);
 
-function getInput(obj) {
-    return {
-        technologies: {
-            activeTechnologies: [ obj ]
-        }
-    };
-}
-
-function getOutput(obj) {
-    return { technologies: [ obj ]};
-}
-
-describe('mapStateToProps', () => {
-    test('should return the re-wrapped data', () => {
-        const data = {
-            foo: 'bar',
-            marketing: true
-        };
-        const output = mapStateToProps(getInput(data));
-        expect(output).toEqual(getOutput(data));
-    });
-});
-
-describe('render Marketing component', () => {
+describe('render Body component', () => {
     it('should render correctly', () => {
-        const wrapper = mount(
+        const wrapper = shallow(
             <Provider store={ store }>
-                <Body/>
+                <Marketing/>
             </Provider>
         );
         expect(toJson(wrapper)).toMatchSnapshot();

@@ -1,0 +1,25 @@
+.ins-c-link__fancy {
+
+    --ins-c-link__fancy-red: #E80000; // This is a brand color
+
+    display: grid;
+    grid-template-columns: auto 1fr;
+    column-gap: var(--pf-global--spacer--md);
+    word-break: break-word;
+
+    color: var(--pf-global--Color--100);
+
+    border-left: 2px solid var(--ins-c-link__fancy-red);
+    padding-left: var(--pf-global--spacer--sm);
+
+    &:hover, &:hover * {
+        text-decoration: none;
+        font-weight: var(--pf-global--FontWeight--redhatfont--bold);
+        color: var(--pf-global--Color--100);
+    }
+
+    svg {
+        margin-top: var(--pf-global--spacer--xs);
+        color: var(--pf-global--Color--light-300);
+    }
+}

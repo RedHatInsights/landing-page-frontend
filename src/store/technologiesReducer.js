@@ -1,5 +1,5 @@
 import { applyReducerHash } from '@red-hat-insights/insights-frontend-components/Utilities/ReducerRegistry';
-import { TECHOLOGIES } from './action-types';
+import { TECHOLOGIES, MARKETINGTECHNOLOGIES } from './action-types';
 
 export function technologiesLoaded(state, { payload }) {
     return {
@@ -8,6 +8,14 @@ export function technologiesLoaded(state, { payload }) {
     };
 }
 
+export function marketingTechnologiesLoaded(state, { payload }) {
+    return {
+        ...state,
+        marketingTechnologies: payload
+    };
+}
+
 export default applyReducerHash({
-    [TECHOLOGIES]: technologiesLoaded
-}, { loaded: true, activeTechnologies: []});
+    [TECHOLOGIES]: technologiesLoaded,
+    [MARKETINGTECHNOLOGIES]: marketingTechnologiesLoaded
+}, { loaded: true, activeTechnologies: [], marketingTechnologies: []});

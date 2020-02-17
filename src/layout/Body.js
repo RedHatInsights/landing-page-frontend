@@ -1,119 +1,73 @@
-import React from 'react';
+import React, { useState } from 'react';
 import {
-    Card,
-    CardBody,
-    CardHeader,
-    CardFooter,
-    Grid,
-    GridItem,
-    Stack,
-    StackItem,
-    Title,
     PageSection,
-    Tooltip,
-    TooltipPosition
+    Tabs, Tab
 } from '@patternfly/react-core';
 
-import { ArrowRightIcon, BinocularsIcon, CodeIcon, OutlinedEyeIcon } from '@patternfly/react-icons';
+import Hero from './Hero';
+import BannerCard from '../components/BannerCard';
+import FancyLink from '../components/FancyLink';
+
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
 import './Body.scss';
 
-function isBeta() {
-    return (window.insights.chrome.isBeta() === true ? '/beta/' : '/');
-}
+export function Body({ technologies }) {
 
-const Body = ({ technologies }) => (
-    <PageSection className='pf-m-fill ins-p-landing__content'>
-        <Grid md={ 6 } lg={ 3 } gutter="md">
-            { technologies.map(({ icon: Icon, image, iconProps, title, url, apps, baseApp, body, isPreview, isEarlyAccess, isDevPreview, id }, key) => ( // eslint-disable-line max-len
-                <GridItem key={ key }>
-                    <Card className="ins-c-application-info" application-id={ id }>
-                        <CardHeader>
-                            <Stack>
-                                <StackItem>
-                                    { image && <img
-                                        className="ins-c-application-info__logo"
-                                        aria-hidden
-                                        src={ image }
-                                        alt={ `${title} logo` } /> }
-                                    { Icon && <Icon
-                                        className="ins-c-application-info__logo ins-c-icon__active"
-                                        aria-hidden
-                                        size="xl"
-                                        alt={ `${title} logo` }
-                                        { ...iconProps } /> }
-                                </StackItem>
-                                <StackItem>
-                                    <Title headingLevel='h2' size='xl'>
-                                        { title }
-                                    </Title>
-                                </StackItem>
-                            </Stack>
-                        </CardHeader>
-                        <CardBody>
-                            <Stack gutter='md' className='ins-c-application-info__content'>
-                                { isPreview &&
-                                    <StackItem>
-                                        <div className="ins-m-tech-preview">
-                                            <BinocularsIcon size="sm" /> Tech preview
-                                        </div>
-                                    </StackItem>
-                                }
-                                { isDevPreview &&
-                                    <StackItem>
-                                        <div className="ins-m-dev-preview">
-                                            <CodeIcon size="sm" /> Developer preview
-                                        </div>
-                                    </StackItem>
-                                }
-                                { isEarlyAccess &&
-                                    <StackItem>
-                                        <Tooltip
-                                            position={ TooltipPosition.bottom }
-                                            content={ <span>Available to limited customers</span> }>
-                                            <div className="ins-m-early-preview">
-                                                <OutlinedEyeIcon size="sm" /> Early access preview
-                                            </div>
-                                        </Tooltip>
-                                    </StackItem>
-                                }
-                                <StackItem>
-                                    <span className='ins-m-gray'>{ body }</span>
-                                </StackItem>
-                                <StackItem className='ins-c-application-info__content-applist'>
-                                    { apps && Object.entries(apps).map(([ appName, appPath ]) => (
-                                        <a key={ appName } href={ `${isBeta()}${url}${appPath}` }>{ appName }</a>
-                                    )) }
-                                </StackItem>
-                            </Stack>
-                        </CardBody>
-                        <CardFooter>
-                            <a className={ `ins-c-application-info__open ins-c-application-info__open-${url}` }
-                                href= { baseApp ? `${isBeta()}${url}${baseApp}` : `${isBeta()}${url}` }>
-                                <span> Open </span>
-                                <ArrowRightIcon size="sm" />
-                            </a>
-                        </CardFooter>
-                    </Card>
-                </GridItem>
-            )) }
-        </Grid>
-    </PageSection>
-);
+    const [ activeTabKey, setActiveTabKey ] = useState(0);
+
+    const handleTabClick = (event, tabIndex) => {
+        setActiveTabKey(tabIndex);
+    };
+
+    return (
+        <React.Fragment>
+            <Hero
+                title='Scale the management and operations of your IT infrastructure'
+                subtitle='Discover purpose-built services exclusively for Red Hat subscribers'
+                className='ins-c-hero__small'
+                data-ouia-component-type='hero'/>
+            <PageSection className='pf-m-fill ins-p-landing__content'>
+                <Tabs data-ouia-navigation='true' activeKey={ activeTabKey } isSecondary onSelect={ handleTabClick }>
+                    { technologies.map(({ title, id, description, image, apps }, key) => ( // map categories
+                        <Tab key={ key }
+                            data-ouia-component-type='tab'
+                            data-ouia-component-id={ `nav-tab-${id}` }
+                            data-ouia-navigation-name={ `Tab ${id}` }
+                            eventKey={ key || 0 }
+                            title={ <BannerCard title={ title } category-id={ id } description={ description } image={ image }/> }>
+                            <div className='ins-l-app-grid'>
+                                { apps.map(({ name, url, id, disabled }, key) => (<React.Fragment key={ key }>
+                                    { !disabled && <FancyLink
+                                        className='ins-l-app-grid__item'
+                                        data-ouia-component-type='app-link'
+                                        data-ouia-component-id={ `app-link-${id}` }
+                                        application-id={ id }
+                                        to={ `${window.location.origin}${window.insights.chrome.isBeta() ? '/beta/' : '/'}${url}` }
+                                        key={ key }>
+                                        { name }
+                                    </FancyLink> }
+                                </React.Fragment>
+                                )) }
+                            </div>
+                        </Tab>
+                    )) }
+                </Tabs>
+            </PageSection>
+        </React.Fragment>
+    );
+}
 
 Body.propTypes = {
     technologies: PropTypes.arrayOf(PropTypes.shape({
-        name: PropTypes.string,
-        icon: PropTypes.oneOfType([ PropTypes.func, PropTypes.string ]),
-        body: PropTypes.node,
-        title: PropTypes.node,
-        isPreview: PropTypes.bool,
-        isEarlyAccess: PropTypes.bool,
-        url: PropTypes.string,
-        apps: PropTypes.object,
-        baseApp: PropTypes.string
+        title: PropTypes.string,
+        description: PropTypes.string,
+        apps: PropTypes.arrayOf(PropTypes.shape({
+            id: PropTypes.string,
+            name: PropTypes.string,
+            url: PropTypes.string
+        }))
     }))
 };
 

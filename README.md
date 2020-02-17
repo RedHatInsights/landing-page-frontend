@@ -42,32 +42,80 @@ The following four branches are used
 
 ## Adding a new card/tile
 
-in `src/consts.js`, make a new section with these fields:
+### Marketing Page
+
+in `src/consts/marketing.js`, fill out the appropriate fields:
 
 ```js
 {
-    id: // string: ID of your app.
-    disabled: // bool: does it need to be disabled? - this could be only on prod, only on beta, etc.
-    entitlement: // string: what entitlement is this? should be similar to the ID?
-    url: // string: your base url. cloud.redhat.com/{url}
-    baseApp: // string: your base app. cloud.redhat.com/{url}{baseapp}, should start with '/'
-    image: // oneOfType([ func, string ]): on the authenticated page, what image/icon should be at the top of your card?
-    title: // string: title on the top of your card
-    body: // string: body text in the middle of your card
-    apps: { // object: sub application shown on the card
-        'string to show on the card': '/path',
-        'foo': '/foo',
-        'bar': '/bar'
-    },
-    marketing: // bool: do you want a tile on the unauthenticated page? If not, remove all instances of "marketing"
-    marketingImage: // oneOfType([ func, string ]): on the marketing page, what image/icon should be at the top of your card?
-    marketingText: // string: title in the middle of your card
-    marketingUrl: // string: "Learn more" url to redirect to your app's marketing material
-    emptyTitle: // string: if unentitled, the top title in the unentitled modal
-    emptyText: // string: if unentitled, the middle text in the unentitled modal
-    emptyAction: { // object: Button to redirect to an eval or to sign up for sku
-        title: 'Learn More', // string: title of button
-        navigate: 'www.redhat.com' // string: where the button will link to
+    title: 'Tile Title',
+    id: 'tile-id',
+    marketingImage: marketingImage,
+    marketingText: 'marketing-description',
+    marketingUrls: {
+        learnMore: 'https://www.redhat.com/en/technologies/marketing-link',
+        tryIt: 'https://www.redhat.com/en/technologies/try-it-link'
     }
-}
+},
+```
+
+### Authenticated Page
+
+in `src/consts/technologies.js` you have two options:
+
+1. Place your app info inside a pre-existing category:
+
+    ```js
+        {
+            id: 'app-id',
+            name: 'App Title',
+            url: '{bundle}/{app-path}'
+        }
+    ```
+
+2. Create a new category:
+
+    ```js
+        {
+            id: 'category-id',
+            title: 'Category Title',
+            description: 'This is the category description',
+            image: imagePath,
+            apps: [
+                {
+                    id: 'app-id',
+                    name: 'App Title',
+                    url: '{bundle}/{app-path}'
+                }
+            ]
+        }
+    ```
+
+### Unentitled Modal
+
+If a user is not entitled, they will hit an unentitled modal when trying to access a bundle, these can be seen at cloud.redhat.com/?not_entitled=bundle_name
+
+You can create a modal in `src/consts/unentitled.js`
+
+```js
+    {
+        id: 'id',
+        entitlement: 'bundle_entitlement',
+        image: `${document.baseURI}apps/chrome/assets/images/platform-icons/icon.svg`,
+        title: 'Unentitled Title',
+        description: 'Unentitled Description',
+        actions: {
+            primary: { // Primary CTA (blue button)
+                title: 'Request an evaluation',
+                navigate: 'https://access.redhat.com/products/eval_link'
+            },
+            secondary: { // Secondary Action (link button)
+                title: 'Learn more',
+                navigate: 'https://access.redhat.com/products/learn_more_link'
+            },
+            close: { // Closes Modal (link button)
+                title: 'Not now'
+            }
+        }
+    }
 ```

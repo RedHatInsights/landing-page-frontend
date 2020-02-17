@@ -1,0 +1,15 @@
+.ins-c-banner-card {
+    text-align: center;
+    border-radius: 2px;
+    height: 100%;
+    .pf-c-card__body {
+        padding: var(--pf-global--spacer--xl) var(--pf-global--spacer--md) var(--pf-global--spacer--3xl);
+    }
+    &__icon {
+        margin-bottom: 4px;
+        img { height: 100px; }
+    }
+    &__description {
+        color: var(--pf-global--Color--200);
+    }
+}
