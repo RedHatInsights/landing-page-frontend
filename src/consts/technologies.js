@@ -17,7 +17,7 @@ export const activeTechnologies = [
             {
                 id: 'insights-dashboard',
                 name: 'Insights dashboard',
-                url: 'insights/dashboard'
+                url: 'rhel/dashboard'
             },
             {
                 id: 'advisor',
