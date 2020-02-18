@@ -92,12 +92,18 @@ export const unentitledTechnologies = [
         id: 'migrations',
         entitlement: 'migrations',
         image: `${document.baseURI}apps/chrome/assets/images/platform-icons/migrations-namespace.svg`,
-        title: 'The Migration Service requires that you request an evaluation',
-        description: 'To obtain recommendations for your applications and infrastructure, you will need \
-        to first analyze your environment using Red Hat CloudForms.',
+        title: 'Migration Analytics requires a CloudForms subscription.',
+        description: 'Migration Analytics lets you examine workloads in your environment and evaluate \
+        the effort needed to migrate or modernize each. Learn more to request a free CloudForms evaluation subscription.',
         actions: {
-            // title: 'Request an evaluation',
-            // navigate: 'todo',
+            primary: {
+                title: 'Learn more',
+                navigate: 'https://access.redhat.com/products/migration-analytics'
+            },
+            secondary: {
+                title: 'Take a tour',
+                navigate: 'migrations/migration-analytics/getting-started'
+            },
             close: {
                 title: 'Not now'
             }
