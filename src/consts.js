@@ -129,11 +129,11 @@ export const activeTechnologies = [
         emptyText: 'Get analytics and knowledge on your automation, access to certified content, and more with a \
         Red Hat Ansible Automation Platform subscription.',
         emptyAction: {
+            // primary: {
+            //     title: 'Request an evaluation',
+            //     navigate: 'https://www.redhat.com/en/technologies/management/ansible/try-it'
+            // },
             primary: {
-                title: 'Request an evaluation',
-                navigate: 'https://www.redhat.com/en/technologies/management/ansible/try-it'
-            },
-            secondary: {
                 title: 'Learn more',
                 navigate: 'https://www.ansible.com/products/automation-platform'
             },
