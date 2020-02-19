@@ -175,12 +175,18 @@ export const activeTechnologies = [
             'migration analytics': '/migration-analytics'
         },
         marketing: false,
-        emptyTitle: 'The Migration Service requires that you request an evaluation',
-        emptyText: 'To obtain recommendations for your applications and infrastructure, you will need \
-        to first analyze your environment using Red Hat CloudForms.',
+        emptyTitle: 'Migration Analytics requires a CloudForms subscription.',
+        emptyText: 'Migration Analytics lets you examine workloads in your environment and evaluate \
+        the effort needed to migrate or modernize each. Learn more to request a free CloudForms evaluation subscription',
         emptyAction: {
-            // title: 'Request an evaluation',
-            // navigate: 'todo',
+            primary: {
+                title: 'Learn more',
+                navigate: 'https://access.redhat.com/products/migration-analytics'
+            },
+            secondary: {
+                title: 'Take a tour',
+                navigate: 'migrations/migration-analytics/getting-started'
+            },
             close: {
                 title: 'Not now'
             }
