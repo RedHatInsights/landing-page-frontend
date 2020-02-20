@@ -36,7 +36,7 @@ export function Body({ technologies }) {
                             data-ouia-component-id={ `nav-tab-${id}` }
                             data-ouia-navigation-name={ `Tab ${id}` }
                             eventKey={ key || 0 }
-                            title={ <BannerCard title={ title } category-id={ id } description={ description } image={ image }/> }>
+                            title={<BannerCard title={ title } category-id={ id } description={ description } image={ image }/> }>
                             <div className='ins-l-app-grid'>
                                 { apps.map(({ name, url, id, disabled }, key) => (<React.Fragment key={ key }>
                                     { !disabled && <FancyLink

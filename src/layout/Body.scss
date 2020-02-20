@@ -16,20 +16,30 @@
 .ins-p-landing__content {
 
     --card-hover__height: 28px;
+    --card-width: 250px;
+    --active-arrow-size: 15px;
 
-    padding-top: 0;
+    padding: 0 24px;
+    position: relative;
+    background: none;
+    top: -100px;
 
     .pf-c-tabs__list {
         margin-left: auto;
         margin-right: auto;
-        margin-bottom: -32px;
         padding: var(--card-hover__height) calc(var(--card-hover__height) * 2); //needs to make space above card for card to go up on hover + size for shadow
-        top: -100px;
     }
 
     .pf-c-tabs .pf-c-tabs__scroll-button{
         height: 40px;
         top: 45%;
+    }
+
+    .pf-c-tab-content {
+        padding: 24px;
+        max-width: max-content;
+        margin-left: auto;
+        margin-right: auto;
     }
 
     .pf-c-tabs__item {
@@ -44,7 +54,20 @@
         &.pf-m-current{
             position: relative;
             bottom: var(--card-hover__height);
+            border-top: 3px solid #E80000;
+            border-radius: 2px;
             box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+            .pf-c-card { box-shadow: none; }
+            &:after {
+                content: '';
+                width: 0; 
+                height: 0; 
+                display: block;
+                margin-left: calc((var(--card-width)/2) - var(--active-arrow-size));
+                border-left: var(--active-arrow-size) solid transparent;
+                border-right: var(--active-arrow-size) solid transparent;
+                border-top: var(--active-arrow-size) solid #fff;
+            }
         }
     }
 
@@ -53,15 +76,11 @@
         padding: 0;
     }
 
-    .ins-c-banner-card { width: 250px; }
+    .ins-c-banner-card { width: var(--card-width); }
 
     .ins-l-app-grid {
-        width: 80%;
-        margin-left: auto;
-        margin-right: auto;
         display: grid;
-        column-gap: var(.75rem);
-        row-gap: var(--pf-global--gutter);
+        gap: 1rem;
         grid-auto-columns: auto;
         justify-content: space-around;
         
@@ -97,7 +116,6 @@
 // Small screens 1 per row
 @media only screen and (min-width: 0px) {
     .ins-p-landing__content .ins-l-app-grid {
-        width: 95%;
         &__item:nth-child(4n+1) { grid-column: 1; }
         &__item:nth-child(4n+2) { grid-column: 1; }
         &__item:nth-child(4n+3) { grid-column: 1; }
@@ -125,6 +143,6 @@
     }
 }
 
-@media only screen and (min-width: 1450px) {
-    .ins-p-landing__content .ins-l-app-grid { width: 60% }
-}
+// @media only screen and (min-width: 1450px) {
+//     .ins-p-landing__content .ins-l-app-grid { max-width: 60% }
+// }
