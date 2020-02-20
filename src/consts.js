@@ -32,6 +32,7 @@ export const activeTechnologies = [
         emptyTitle: 'Red Hat Insights is included with every Red Hat Enterprise Linux subscription',
         emptyText: 'Proactively identify and remediate threats to security, performance, availability, \
         and stability with Red Hat Insights. Activate Red Hat Insights to get started today.',
+        emptyID: 'insights',
         emptyAction: {
             primary: {
                 title: 'Get started',
@@ -60,6 +61,7 @@ export const activeTechnologies = [
             'drift analysis': '/drift'
         },
         emptyTitle: 'Get started with Cloud Management Services for Red Hat Enterprise Linux',
+        emptyID: 'smart_management',
         image: `${document.baseURI}apps/chrome/assets/images/platform-icons/rhel-cs-namespace.svg`,
         emptyText: 'Monitor your Red Hat environments to track system compliance, configuration, \
         security, and efficiency. Upgrade to get started today.',
@@ -95,6 +97,7 @@ export const activeTechnologies = [
         },
         image: `${document.baseURI}apps/chrome/assets/images/platform-icons/openshift.svg`,
         emptyTitle: 'Get Started with Red Hat Openshift.',
+        emptyID: 'openshift',
         emptyText: 'Test drive industry\'s leading container application platform in your browser, \
         and see how easy it is to use Kubernetes in your organization today.',
         emptyAction: {
@@ -128,6 +131,7 @@ export const activeTechnologies = [
         emptyTitle: 'Ansible Automation Platform services requires a valid subscription',
         emptyText: 'Get analytics and knowledge on your automation, access to certified content, and more with a \
         Red Hat Ansible Automation Platform subscription.',
+        emptyID: 'ansible',
         emptyAction: {
             // primary: {
             //     title: 'Request an evaluation',
@@ -151,6 +155,7 @@ export const activeTechnologies = [
         disabled: window.location.pathname.indexOf('/beta') !== 0,
         image: costManagement,
         emptyTitle: 'Cost Management technology preview access',
+        emptyID: 'cost-management',
         emptyText: 'Cost Management technology preview is currently \
         restricted to Red Hat customers.',
         emptyAction: {
@@ -176,6 +181,7 @@ export const activeTechnologies = [
         },
         marketing: false,
         emptyTitle: 'Migration Analytics requires a CloudForms subscription.',
+        emptyID: 'migration-analytics',
         emptyText: 'Migration Analytics lets you examine workloads in your environment and evaluate \
         the effort needed to migrate or modernize each. Learn more to request a free CloudForms evaluation subscription',
         emptyAction: {
@@ -184,8 +190,7 @@ export const activeTechnologies = [
                 navigate: 'https://access.redhat.com/products/migration-analytics'
             },
             secondary: {
-                title: 'Take a tour',
-                navigate: 'migrations/migration-analytics/getting-started'
+                title: 'Take a tour'
             },
             close: {
                 title: 'Not now'
@@ -207,6 +212,7 @@ export const activeTechnologies = [
         },
         marketing: false,
         emptyTitle: 'Subscription Watch',
+        emptyID: 'subscription-watch',
         emptyText: 'Subscription Watch is an early access beta',
         emptyAction: {
             close: {

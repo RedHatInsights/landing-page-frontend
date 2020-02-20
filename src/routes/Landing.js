@@ -72,6 +72,7 @@ class Landing extends Component {
                     { notEntitled && <Modal
                         title={ 'You are not entitled to use this application' }
                         className='ins-c-error-modal'
+                        app-entitlement={ notEntitled.emptyID }
                         hideTitle={ true }
                         isOpen={ isModalOpen }
                         onClose={ this.handleModalToggle }
@@ -112,6 +113,14 @@ class Landing extends Component {
                                         notEntitled.emptyAction.secondary && notEntitled.emptyAction.secondary.navigate &&
                                             <Button variant="link" className='ins-c-error-state__footer-secondary' onClick={ ()=> {
                                                 window.location.href = notEntitled.emptyAction.secondary.navigate; } }>
+                                                { notEntitled.emptyAction.secondary.title ?
+                                                    `${ notEntitled.emptyAction.secondary.title }` : 'Learn More'
+                                                }
+                                            </Button>
+                                    }
+                                    {
+                                        notEntitled.emptyAction.secondary && !notEntitled.emptyAction.secondary.navigate &&
+                                            <Button variant="link" className='ins-c-error-state__footer-secondary'>
                                                 { notEntitled.emptyAction.secondary.title ?
                                                     `${ notEntitled.emptyAction.secondary.title }` : 'Learn More'
                                                 }
