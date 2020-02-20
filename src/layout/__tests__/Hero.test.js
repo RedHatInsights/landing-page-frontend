@@ -5,7 +5,7 @@ import Hero from '../Hero';
 
 describe('Hero component', () => {
     it('should render correctly', () => {
-        const wrapper = shallow(<Hero title='test' needsCTA className='classname'/>);
+        const wrapper = shallow(<Hero title='test' needsCTA className='classname' suptitle='sup' subtitle='sub'/>);
         expect(toJson(wrapper)).toMatchSnapshot();
     });
 

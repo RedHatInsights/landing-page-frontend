@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import {
     PageSection,
     Tabs, Tab
@@ -16,16 +16,23 @@ import './Body.scss';
 export function Body({ technologies }) {
 
     const [ activeTabKey, setActiveTabKey ] = useState(0);
+    const [ activeUser, setActiveUser ] = useState('');
 
     const handleTabClick = (event, tabIndex) => {
         setActiveTabKey(tabIndex);
     };
 
+    useEffect(() => {
+        window.insights.chrome.auth.getUser().then(
+            (user) => setActiveUser(`${user.identity.user.first_name} ${user.identity.user.last_name}`)
+        );
+    });
+
     return (
         <React.Fragment>
             <Hero
                 title='Scale the management and operations of your IT infrastructure'
-                subtitle='Discover purpose-built services exclusively for Red Hat subscribers'
+                suptitle={ `Welcome, ${activeUser}` }
                 className='ins-c-hero__small'
                 data-ouia-component-type='hero'/>
             <PageSection className='pf-m-fill ins-p-landing__content'>
@@ -36,7 +43,7 @@ export function Body({ technologies }) {
                             data-ouia-component-id={ `nav-tab-${id}` }
                             data-ouia-navigation-name={ `Tab ${id}` }
                             eventKey={ key || 0 }
-                            title={<BannerCard title={ title } category-id={ id } description={ description } image={ image }/> }>
+                            title={ <BannerCard title={ title } category-id={ id } description={ description } image={ image }/> }>
                             <div className='ins-l-app-grid'>
                                 { apps.map(({ name, url, id, disabled }, key) => (<React.Fragment key={ key }>
                                     { !disabled && <FancyLink

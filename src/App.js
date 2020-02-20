@@ -11,6 +11,8 @@ import { technologiesLoaded, marketingTechnologiesLoaded } from './store/actions
 import { activeTechnologies } from './consts/technologies';
 import { marketingTechnologies } from './consts/marketing';
 
+import './App.scss';
+
 const routes = {
     landing: '/'
 };

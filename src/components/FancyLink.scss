@@ -1,18 +1,17 @@
 .ins-c-link__fancy {
 
-    --ins-c-link__fancy-red: #E80000; // This is a brand color
-
     display: flex;
     justify-content: center;
     align-items: center;
     word-break: break-word;
 
     padding: 12px;
+    border-radius: 2px;
     background: white;
-    width: 250px;
+
+    width: var(--ins-c-landing-page-card__width);
 
     svg {
-        margin-top: var(--pf-global--spacer--xs);
         margin-left: var(--pf-global--spacer--md);
         color: var(--pf-global--Color--light-300);
     }

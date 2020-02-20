@@ -16,10 +16,10 @@
 .ins-p-landing__content {
 
     --card-hover__height: 28px;
-    --card-width: 250px;
+    --card-width: var(--ins-c-landing-page-card__width);
     --active-arrow-size: 15px;
 
-    padding: 0 24px;
+    padding: 0 var(--pf-global--spacer--md);
     position: relative;
     background: none;
     top: -100px;
@@ -36,7 +36,7 @@
     }
 
     .pf-c-tab-content {
-        padding: 24px;
+        padding: var(--pf-global--spacer--md);
         max-width: max-content;
         margin-left: auto;
         margin-right: auto;
@@ -142,7 +142,3 @@
         &__item:nth-child(4n+4) { grid-column: 4; }
     }
 }
-
-// @media only screen and (min-width: 1450px) {
-//     .ins-p-landing__content .ins-l-app-grid { max-width: 60% }
-// }

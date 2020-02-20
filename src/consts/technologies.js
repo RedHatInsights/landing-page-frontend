@@ -9,8 +9,8 @@ const disableOnStable = window.location.pathname.indexOf('/beta') !== 0;
 
 export const activeTechnologies = [
     {
-        id: 'hybrid-cloud-infrastructure',
-        title: 'Hybrid-cloud infrastructure',
+        id: 'red-hat-enterprise-linux-management',
+        title: 'Red Hat Enterprise Linux Management',
         description: 'Prescriptive and predictive analytics and remediation for your Linux and container environments.',
         image: hybridCloud,
         apps: [
@@ -64,8 +64,8 @@ export const activeTechnologies = [
         ]
     },
     {
-        id: 'cloud-native-development',
-        title: 'Cloud Native Development',
+        id: 'red-hat-openshift-management',
+        title: 'Red Hat OpenShift Management',
         description: 'Optimize the cost and performance of your OpenShift applications running in any cloud.',
         image: cloudNative,
         apps: [
@@ -82,8 +82,8 @@ export const activeTechnologies = [
         ]
     },
     {
-        id: 'automation',
-        title: 'Automation',
+        id: 'ansible-automation',
+        title: 'Ansible Automation Platform',
         description: 'Gain end-to-end visibility and quicker time to value for critical, repetitive IT operations.',
         image: automation,
         apps: [
