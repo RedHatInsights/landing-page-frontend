@@ -5,7 +5,7 @@ exports[`render Body component should render correctly 1`] = `
   <Hero
     className="ins-c-hero__small"
     data-ouia-component-type="hero"
-    subtitle="Discover purpose-built services exclusively for Red Hat subscribers"
+    suptitle="Welcome, "
     title="Scale the management and operations of your IT infrastructure"
   />
   <PageSection

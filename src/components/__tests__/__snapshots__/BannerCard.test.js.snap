@@ -3,6 +3,7 @@
 exports[`BannerCard component should render correctly 1`] = `
 <Card
   className="ins-c-banner-card"
+  description="description"
 >
   <CardBody>
     <Flex
@@ -33,13 +34,6 @@ exports[`BannerCard component should render correctly 1`] = `
         >
           test
         </Title>
-      </FlexItem>
-      <FlexItem
-        className="ins-c-banner-card__description"
-      >
-         
-        description
-         
       </FlexItem>
     </Flex>
   </CardBody>

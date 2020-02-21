@@ -9,7 +9,7 @@ import {
 
 import './BannerCard.scss';
 
-const BannerCard = ({ image, title, description, ...props }) => {
+const BannerCard = ({ image, title, ...props }) => {
     return (
         <Card className='ins-c-banner-card' { ...props }>
             <CardBody>
@@ -21,7 +21,6 @@ const BannerCard = ({ image, title, description, ...props }) => {
                             alt={ `${title} logo` } />
                     </FlexItem>
                     <FlexItem className='ins-c-banner-card__title'><Title headingLevel='h4' size='xl'>{ title }</Title></FlexItem>
-                    <FlexItem className='ins-c-banner-card__description'> { description } </FlexItem>
                 </Flex>
             </CardBody>
         </Card>

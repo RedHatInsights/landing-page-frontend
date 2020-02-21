@@ -1,25 +1,20 @@
 .ins-c-link__fancy {
 
-    --ins-c-link__fancy-red: #E80000; // This is a brand color
-
-    display: grid;
-    grid-template-columns: auto 1fr;
-    column-gap: var(--pf-global--spacer--md);
+    display: flex;
+    justify-content: center;
+    align-items: center;
     word-break: break-word;
 
-    color: var(--pf-global--Color--100);
+    text-align: center;
 
-    border-left: 2px solid var(--ins-c-link__fancy-red);
-    padding-left: var(--pf-global--spacer--sm);
+    padding: 12px;
+    border-radius: 2px;
+    background: white;
 
-    &:hover, &:hover * {
-        text-decoration: none;
-        font-weight: var(--pf-global--FontWeight--redhatfont--bold);
-        color: var(--pf-global--Color--100);
-    }
+    width: var(--ins-c-landing-page-card__width);
 
     svg {
-        margin-top: var(--pf-global--spacer--xs);
+        margin-left: var(--pf-global--spacer--md);
         color: var(--pf-global--Color--light-300);
     }
 }
