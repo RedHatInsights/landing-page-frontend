@@ -42,7 +42,7 @@ const FooterTraditional = () => {
                 </footer>
             </PageSection>
             <Modal
-            title="Browser Support"
+            title="Browser support"
             isOpen={ isModalOpen }
             isSmall
             className='ins-p-browser-support'
@@ -60,7 +60,7 @@ const FooterTraditional = () => {
                     <li> The browser must be configured to accept cookies </li>
                     <li> The browser must be configured to execute JavaScript </li>
                 </ul>
-                <Title headingLevel="h4" size="xl"> Specific Browser Support </Title>
+                <Title headingLevel="h4" size="xl"> Specific browser support </Title>
                 <p> We validate against and fully support our customers' use of the past two major releases of the following browsers: </p>
                 <ul>
                     <li> Mozilla Firefox </li>

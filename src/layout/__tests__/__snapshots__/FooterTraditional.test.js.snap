@@ -79,7 +79,7 @@ exports[`Footer Traditional component should render correctly 1`] = `
     isSmall={true}
     onClose={[Function]}
     showClose={true}
-    title="Browser Support"
+    title="Browser support"
   >
     <p>
       Red Hat captures and regularly reviews statistical data from our actual web visitors and registered users, rather than generic industry data, to identify the browsers we need to support in alignment with our customers’ needs. Additionally, to safeguard customer data, only browsers which receive security updates from the browser manufacturer are considered for support. We have implemented this policy to ensure that we can provide an excellent experience to a wide user base.
@@ -105,7 +105,7 @@ exports[`Footer Traditional component should render correctly 1`] = `
       headingLevel="h4"
       size="xl"
     >
-       Specific Browser Support 
+       Specific browser support 
     </Title>
     <p>
        We validate against and fully support our customers' use of the past two major releases of the following browsers: 
