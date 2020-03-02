@@ -1,3 +1,4 @@
+import React from 'react';
 import { ChartSpikeIcon } from '@patternfly/react-icons';
 import subscriptions from './components/subscriptions.svg';
 import costManagement from './components/cost-management.svg';
@@ -211,10 +212,22 @@ export const activeTechnologies = [
             'Red Hat Enterprise Linux': '/rhel-sw'
         },
         marketing: false,
-        emptyTitle: 'Subscription Watch',
+        emptyTitle: 'Subscription Watch is an early access beta',
         emptyID: 'subscription-watch',
-        emptyText: 'Subscription Watch is an early access beta',
+        emptyText: [
+            'Subscription Watch helps you understand your total subscription usage and capacity over time. Take a quick tour to learn more.',
+            <br key="sw1" />,
+            <br key="sw2" />,
+            'If you are interested in trying Subscription Watch, your Red Hat account team can help.'
+        ],
         emptyAction: {
+            primary: {
+                title: 'Take a tour'
+            },
+            secondary: {
+                title: 'Contact us',
+                navigate: 'https://access.redhat.com/account-team'
+            },
             close: {
                 title: 'Not now'
             }
