@@ -1,60 +1,129 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Footer Traditional component should render correctly 1`] = `
-<PageSection
-  className="ins-c-footer__traditional pf-m-no-fill"
->
-  <footer
-    className="pf-l-flex pf-m-column pf-m-row-on-lg pf-m-align-items-center-on-lg"
-    role="contentinfo"
+<Fragment>
+  <PageSection
+    className="ins-c-footer__traditional pf-m-no-fill"
   >
-    <a
-      className="ins-p-footer__logo"
-      href="https://www.redhat.com"
-      rel="noopener noreferrer"
-      target="_blank"
+    <footer
+      className="pf-l-flex pf-m-column pf-m-row-on-lg pf-m-align-items-center-on-lg"
+      role="contentinfo"
     >
-      <RhLogo />
-    </a>
-    <div
-      className="ins-c-footer__traditional-nav pf-l-flex pf-m-column pf-m-row-on-lg pf-m-flex-1-on-lg pf-m-justify-content-flex-end-on-lg"
-    >
-      <p
-        className="copyright pf-m-spacer-xl-on-lg"
+      <a
+        className="ins-p-footer__logo"
+        href="https://www.redhat.com"
+        rel="noopener noreferrer"
+        target="_blank"
       >
-        Copyright © 2019 Red Hat, Inc.
-      </p>
-      <nav>
-        <ul
-          className="pf-l-flex pf-m-column pf-m-row-on-md"
+        <RhLogo />
+      </a>
+      <div
+        className="ins-c-footer__traditional-nav pf-l-flex pf-m-column pf-m-row-on-lg pf-m-flex-1-on-lg pf-m-justify-content-flex-end-on-lg"
+      >
+        <p
+          className="copyright pf-m-spacer-xl-on-lg"
         >
-          <li>
-            <a
-              className="nav-link ins-p-footer__privacy-policy"
-              href="https://www.redhat.com/en/about/privacy-policy"
-            >
-              Privacy Policy
-            </a>
-          </li>
-          <li>
-            <a
-              className="nav-link ins-p-footer__terms"
-              href="https://access.redhat.com/help/terms/"
-            >
-              Terms of Use
-            </a>
-          </li>
-          <li>
-            <a
-              className="nav-link ins-p-footer__all-policies"
-              href="https://www.redhat.com/en/about/all-policies-guidelines"
-            >
-              All Policies and Guidelines
-            </a>
-          </li>
-        </ul>
-      </nav>
-    </div>
-  </footer>
-</PageSection>
+          Copyright © 2019 Red Hat, Inc.
+        </p>
+        <nav>
+          <ul
+            className="pf-l-flex pf-m-column pf-m-row-on-md"
+          >
+            <li>
+              <Component
+                className="nav-link ins-p-footer__browser-support"
+                onClick={[Function]}
+                variant="link"
+              >
+                Browser Support
+              </Component>
+            </li>
+            <li>
+              <a
+                className="nav-link ins-p-footer__privacy-policy"
+                href="https://www.redhat.com/en/about/privacy-policy"
+              >
+                Privacy Policy
+              </a>
+            </li>
+            <li>
+              <a
+                className="nav-link ins-p-footer__terms"
+                href="https://access.redhat.com/help/terms/"
+              >
+                Terms of Use
+              </a>
+            </li>
+            <li>
+              <a
+                className="nav-link ins-p-footer__all-policies"
+                href="https://www.redhat.com/en/about/all-policies-guidelines"
+              >
+                All Policies and Guidelines
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </footer>
+  </PageSection>
+  <Modal
+    actions={Array []}
+    appendTo={<body />}
+    ariaDescribedById=""
+    className="ins-p-browser-support"
+    hideTitle={false}
+    isFooterLeftAligned={true}
+    isLarge={false}
+    isOpen={false}
+    isSmall={true}
+    onClose={[Function]}
+    showClose={true}
+    title="Browser Support"
+  >
+    <p>
+      Red Hat captures and regularly reviews statistical data from our actual web visitors and registered users, rather than generic industry data, to identify the browsers we need to support in alignment with our customers’ needs. Additionally, to safeguard customer data, only browsers which receive security updates from the browser manufacturer are considered for support. We have implemented this policy to ensure that we can provide an excellent experience to a wide user base.
+    </p>
+    <Title
+      headingLevel="h4"
+      size="xl"
+    >
+       Cookies and Javascript 
+    </Title>
+    <p>
+       To successfully interact with our websites and services, your browser must meet the following feature requirements: 
+    </p>
+    <ul>
+      <li>
+         The browser must be configured to accept cookies 
+      </li>
+      <li>
+         The browser must be configured to execute JavaScript 
+      </li>
+    </ul>
+    <Title
+      headingLevel="h4"
+      size="xl"
+    >
+       Specific Browser Support 
+    </Title>
+    <p>
+       We validate against and fully support our customers' use of the past two major releases of the following browsers: 
+    </p>
+    <ul>
+      <li>
+         Mozilla Firefox 
+      </li>
+      <li>
+         Google Chrome 
+      </li>
+      <li>
+         Apple Safari 
+      </li>
+      <li>
+         Microsoft Edge 
+      </li>
+    </ul>
+  </Modal>
+</Fragment>
 `;

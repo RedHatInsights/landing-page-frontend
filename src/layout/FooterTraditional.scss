@@ -7,6 +7,13 @@
 
     svg { @include rem('width', 150px); }
 
+    .ins-p-footer__browser-support {
+        padding: 0;
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+
     .ins-c-footer__traditional-nav {
         .copyright {
             color: var(--pf-global--Color--200);
@@ -24,5 +31,19 @@
                 }
             }
         }
+    }
+}
+
+.ins-p-browser-support {
+    .pf-c-title {
+        margin-top: var(--pf-global--spacer--md);
+        margin-bottom: var(--pf-global--spacer--xs);
+    }
+    p {
+        margin: var(--pf-global--spacer--xs) 0;
+    }
+    li {
+        margin-left: var(--pf-global--spacer--md);
+        list-style: disc;
     }
 }
