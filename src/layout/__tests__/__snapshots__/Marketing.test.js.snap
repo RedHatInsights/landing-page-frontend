@@ -149,9 +149,11 @@ exports[`render Marketing component should render correctly 1`] = `
       </Hero>
       <PageSection
         className="ins-c-marketing pf-m-no-fill"
+        landing-page-type="unauthenticated"
       >
         <section
           className="pf-c-page__main-section ins-c-marketing pf-m-no-fill"
+          landing-page-type="unauthenticated"
         >
           <Grid
             gutter="sm"

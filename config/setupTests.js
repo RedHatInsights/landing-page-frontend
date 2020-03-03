@@ -9,6 +9,8 @@ global.render = render;
 global.mount = mount;
 global.React = React;
 
+global.fetch = require('jest-fetch-mock');
+
 const returnBlank = () => undefined;
 
 global.window.insights = {

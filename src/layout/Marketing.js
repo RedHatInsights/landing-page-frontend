@@ -20,7 +20,7 @@ import './Marketing.scss';
 const Marketing = ({ technologies }) => (
     <React.Fragment>
         <Hero/>
-        <PageSection className='ins-c-marketing pf-m-no-fill'>
+        <PageSection className='ins-c-marketing pf-m-no-fill' landing-page-type='unauthenticated'>
             <Grid sm={ 12 } md={ 6 } xl={ 6 } xl2={ 3 } gutter="sm">
                 { technologies.map(({ marketingImage, title, marketingUrls, marketingText, id }, key) => (
                     <Card className="ins-c-application-info pf-m-card-link" application-id={ id } key={ key }>
