@@ -31,7 +31,8 @@ const Body = ({ technologies }) => {
         .then(response => response.json())
         .then(entitlements => {
             !entitlements.insights.is_entitled && entitlements.openshift.is_entitled ? setNeedsRBACTour(false) : setNeedsRBACTour(true);
-        });
+        })
+        .catch(setNeedsRBACTour(false));
     }, []);
 
     return (
