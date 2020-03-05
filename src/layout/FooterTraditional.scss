@@ -1,6 +1,18 @@
 @import '~@red-hat-insights/insights-frontend-components/Utilities/_mixins';
 @import '~@patternfly/patternfly/sass-utilities/_all';
 
+.ins-p-browser-support {
+    .pf-c-title {
+        margin-top: var(--pf-global--spacer--md);
+        margin-bottom: var(--pf-global--spacer--xs);
+    }
+    p { margin: var(--pf-global--spacer--xs) 0; }
+    li {
+        margin-left: var(--pf-global--spacer--md);
+        list-style: disc;
+    }
+}
+
 .ins-c-footer__traditional {
     @include rem('padding', 30px 60px);
     background-color: var(--pf-c-page__main-section--BackgroundColor);
@@ -31,19 +43,5 @@
                 }
             }
         }
-    }
-}
-
-.ins-p-browser-support {
-    .pf-c-title {
-        margin-top: var(--pf-global--spacer--md);
-        margin-bottom: var(--pf-global--spacer--xs);
-    }
-    p {
-        margin: var(--pf-global--spacer--xs) 0;
-    }
-    li {
-        margin-left: var(--pf-global--spacer--md);
-        list-style: disc;
     }
 }
