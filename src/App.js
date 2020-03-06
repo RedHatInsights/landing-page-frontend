@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import React, { useEffect } from 'react';
+import React, { useEffect, useState, createContext } from 'react';
 import { withRouter, Switch, Route } from 'react-router-dom';
 import { getRegistry } from '@red-hat-insights/insights-frontend-components/Utilities/Registry';
 import { connect } from 'react-redux';
@@ -13,20 +13,28 @@ const routes = {
     landing: '/'
 };
 
+export const PermissionContext = createContext();
+
 const App = ({ loadTechnologies }) => {
+
+    const [ isOrgAdmin, setIsOrgAdmin ] = useState();
+
     useEffect(() => {
         getRegistry().register({ technologies: technologiesReducer });
         loadTechnologies(activeTechnologies);
         insights.chrome.init();
         insights.chrome.identifyApp('landing');
+        window.insights.chrome.auth.getUser().then((user) => user && setIsOrgAdmin(user.identity.user.is_org_admin));
     });
 
     return (
-        <Switch>
-            <Route exact path={ routes.landing } component={ Landing } />
-            <Route exact path={ routes.landingBeta } component={ Landing } />
-            <Route path="*" component={ NotFound } />
-        </Switch>
+        <PermissionContext.Provider value={ { isOrgAdmin } }>
+            <Switch>
+                <Route exact path={ routes.landing } component={ Landing } />
+                <Route exact path={ routes.landingBeta } component={ Landing } />
+                <Route path="*" component={ NotFound } />
+            </Switch>
+        </PermissionContext.Provider>
     );
 };
 
