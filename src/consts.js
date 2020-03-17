@@ -1,11 +1,12 @@
 import React from 'react';
-import { ChartSpikeIcon } from '@patternfly/react-icons';
-import subscriptions from './components/subscriptions.svg';
-import costManagement from './components/cost-management.svg';
+import Automation from './components/Automation.svg';
+import Subscriptions from './components/Subscriptions.svg';
+import Cost from './components/Cost.svg';
+import Insights from './components/Insights.svg';
+import Migrations from './components/Migrations.svg';
 
 import insightsMarketing from './components/marketing/insightsMarketing.svg';
 import openShiftMarketing from './components/marketing/openShiftMarketing.svg';
-import smartManagementMarketing from './components/marketing/smartManagementMarketing.svg';
 import ansibleMarketing from './components/marketing/ansibleMarketing.svg';
 
 // isDevPreview for developer previews
@@ -24,11 +25,16 @@ export const activeTechnologies = [
         name: 'insights',
         id: 'insights',
         url: 'insights',
-        baseApp: '/overview',
+        baseApp: '/dashboard',
         apps: {
-            rules: '/rules'
+            advisor: '/advisor',
+            'system patch manager': '/patch',
+            vulnerability: '/vulnerability',
+            'custom policies': '/custom-policies',
+            compliance: '/compliance',
+            'drift analysis': '/drift'
         },
-        icon: ChartSpikeIcon,
+        image: Insights,
         title: 'Red Hat Insights',
         emptyTitle: 'Red Hat Insights is included with every Red Hat Enterprise Linux subscription',
         emptyText: 'Proactively identify and remediate threats to security, performance, availability, \
@@ -44,43 +50,6 @@ export const activeTechnologies = [
             }
         },
         body: 'Identify and remediate configuration issues in your Red Hat® environments.'
-    },
-    {
-        entitlement: 'smart_management',
-        marketing: true,
-        marketingImage: smartManagementMarketing,
-        marketingText: 'Operate and protect your Red Hat platforms.',
-        marketingUrls: {
-            learnMore: 'https://www.redhat.com/en/technologies/management/smart-management'
-        },
-        id: 'RHEL',
-        url: 'rhel',
-        baseApp: '/dashboard',
-        apps: {
-            vulnerability: '/vulnerability',
-            compliance: '/compliance',
-            'drift analysis': '/drift'
-        },
-        emptyTitle: 'Get started with Cloud Management Services for Red Hat Enterprise Linux',
-        emptyID: 'smart_management',
-        image: `${document.baseURI}apps/chrome/assets/images/platform-icons/rhel-cs-namespace.svg`,
-        emptyText: 'Monitor your Red Hat environments to track system compliance, configuration, \
-        security, and efficiency. Upgrade to get started today.',
-        emptyAction: {
-            primary: {
-                title: 'Request an evaluation',
-                navigate: 'https://access.redhat.com/products/cloud_management_services_for_rhel/evaluation'
-            },
-            secondary: {
-                title: 'Learn more',
-                navigate: 'https://access.redhat.com/products/cloud_management_services_for_rhel'
-            },
-            close: {
-                title: 'Not now'
-            }
-        },
-        title: 'Cloud Management Services for Red Hat Enterprise Linux',
-        body: 'Monitor and manage issues for your Red Hat Enterprise Systems.'
     },
     {
         id: 'Openshift',
@@ -114,13 +83,13 @@ export const activeTechnologies = [
         entitlement: 'ansible',
         url: 'ansible',
         baseApp: '/automation-analytics',
-        image: `${document.baseURI}apps/chrome/assets/images/platform-icons/ansible.svg`,
+        image: Automation,
         title: 'Red Hat Ansible Automation Platform',
         body: 'Extend your automation with analytics, policy and governance, and content management.',
         apps: {
             'automation analytics': '/automation-analytics',
             'automation hub': '/automation-hub',
-            ...window.location.pathname.indexOf('/beta') === 0 && { 'automation service catalog': '/catalog' }
+            'automation service catalog': '/catalog'
         },
         marketing: true,
         marketingImage: ansibleMarketing,
@@ -153,8 +122,7 @@ export const activeTechnologies = [
         baseApp: '/',
         entitlement: 'cost_management',
         marketing: false,
-        disabled: window.location.pathname.indexOf('/beta') !== 0,
-        image: costManagement,
+        image: Cost,
         emptyTitle: 'Cost Management technology preview access',
         emptyID: 'cost-management',
         emptyText: 'Cost Management technology preview is currently \
@@ -165,15 +133,13 @@ export const activeTechnologies = [
             }
         },
         title: 'Cost Management',
-        body: 'Analyze, forecast and optimize your Red Hat OpenShift cluster costs in hybrid cloud environments.',
-        isPreview: true
+        body: 'Analyze, forecast and optimize your Red Hat OpenShift cluster costs in hybrid cloud environments.'
     },
     {
         id: 'migrations',
-        disabled: window.location.pathname.indexOf('/beta') !== 0,
         entitlement: 'migrations',
         url: 'migrations',
-        image: `${document.baseURI}apps/chrome/assets/images/platform-icons/migrations-namespace.svg`,
+        image: Migrations,
         title: 'Migration Services',
         body: 'Get recommendations on migrating your applications and infrastructure to Red Hat.',
         baseApp: '/migration-analytics',
@@ -196,15 +162,13 @@ export const activeTechnologies = [
             close: {
                 title: 'Not now'
             }
-        },
-        isPreview: true
+        }
     },
     {
         id: 'subscriptions',
-        disabled: window.location.pathname.indexOf('/beta') !== 0,
         entitlement: 'subscriptions',
         url: 'subscriptions',
-        image: subscriptions,
+        image: Subscriptions,
         title: 'Subscription Watch',
         body: 'Account-level summaries of your Red Hat subscription utilization',
         baseApp: '/rhel-sw',
@@ -231,7 +195,6 @@ export const activeTechnologies = [
             close: {
                 title: 'Not now'
             }
-        },
-        isEarlyAccess: true
+        }
     }
 ];

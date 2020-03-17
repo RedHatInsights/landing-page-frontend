@@ -1,17 +1,21 @@
-.ins-c-open-card { color: var(--pf-global--link--Color); }
+// Body.scss
+.ins-p-landing__content[landing-page-type="authenticated"] {
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
 
-.ins-c-card__link:hover {
-    text-decoration: none;
-    .ins-c-open-card {
-        color: var(--pf-global--link--Color--hover);
-        text-decoration: underline;
+    @media screen and (min-width: 1200px) {
+        width: 80%;
+    }
+
+    [application-id="insights"] .ins-c-application-info__content-applist {
+        display: grid;
+        grid-template-columns: auto;
+        @media screen and (min-width: 992px) {
+            grid-template-columns: auto auto;
+            gap: 10px;
+            a { margin-top: 0; }
+        }
     }
 }
 
-.ins-p-landing__content .pf-l-gallery {
-    --pf-l-gallery--GridTemplateColumns: repeat(auto-fill, minmax(350px, 1fr));
-}
-
-.ins-p-landing__content {
-    .pf-l-grid { grid-gap: 1.5rem; }
-}
