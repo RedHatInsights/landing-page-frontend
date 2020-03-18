@@ -170,7 +170,6 @@ export const activeTechnologies = [
     },
     {
         id: 'migrations',
-        disabled: window.location.pathname.indexOf('/beta') !== 0,
         entitlement: 'migrations',
         url: 'migrations',
         image: `${document.baseURI}apps/chrome/assets/images/platform-icons/migrations-namespace.svg`,
@@ -197,7 +196,6 @@ export const activeTechnologies = [
                 title: 'Not now'
             }
         },
-        isPreview: true
     },
     {
         id: 'subscriptions',
