@@ -210,7 +210,7 @@ export const activeTechnologies = [
         baseApp: '/rhel-sw',
         apps: {
             'Red Hat Enterprise Linux': '/rhel-sw',
-            'Red Hat Openshift': '/openshift-sw'
+            'Red Hat OpenShift': '/openshift-sw'
         },
         marketing: false,
         emptyTitle: 'Subscription Watch is an early access beta',
