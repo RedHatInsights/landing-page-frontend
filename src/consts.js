@@ -195,7 +195,7 @@ export const activeTechnologies = [
             close: {
                 title: 'Not now'
             }
-        },
+        }
     },
     {
         id: 'subscriptions',
