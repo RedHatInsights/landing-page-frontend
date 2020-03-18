@@ -17,7 +17,7 @@
 }
 
 .pf-c-card {
-    padding: 8px;
+    padding: var(--pf-global--spacer--md);
 
     &.ins-c-application-info {
         height: 100%;
