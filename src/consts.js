@@ -209,7 +209,8 @@ export const activeTechnologies = [
         body: 'Account-level summaries of your Red Hat subscription utilization',
         baseApp: '/rhel-sw',
         apps: {
-            'Red Hat Enterprise Linux': '/rhel-sw'
+            'Red Hat Enterprise Linux': '/rhel-sw',
+            'Red Hat Openshift': '/openshift-sw'
         },
         marketing: false,
         emptyTitle: 'Subscription Watch is an early access beta',
