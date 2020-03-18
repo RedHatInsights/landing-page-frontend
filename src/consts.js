@@ -89,7 +89,7 @@ export const activeTechnologies = [
         apps: {
             'automation analytics': '/automation-analytics',
             'automation hub': '/automation-hub',
-            'automation service catalog': '/catalog'
+            ...window.location.pathname.indexOf('/beta') === 0 && { 'automation service catalog': '/catalog' }
         },
         marketing: true,
         marketingImage: ansibleMarketing,
@@ -173,7 +173,8 @@ export const activeTechnologies = [
         body: 'Account-level summaries of your Red Hat subscription utilization',
         baseApp: '/rhel-sw',
         apps: {
-            'Red Hat Enterprise Linux': '/rhel-sw'
+            'Red Hat Enterprise Linux': '/rhel-sw',
+            'Red Hat OpenShift': '/openshift-sw'
         },
         marketing: false,
         emptyTitle: 'Subscription Watch is an early access beta',
