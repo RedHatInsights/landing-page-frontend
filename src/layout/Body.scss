@@ -11,11 +11,9 @@
     [application-id="insights"] .ins-c-application-info__content-applist {
         display: grid;
         grid-template-columns: auto;
-        @media screen and (min-width: 992px) {
-            grid-template-columns: auto auto;
-            gap: 10px;
-            a { margin-top: 0; }
-        }
+        grid-template-columns: auto auto;
+        gap: 10px;
+        a { margin-top: 0; }
     }
 }
 
