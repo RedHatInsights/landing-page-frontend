@@ -27,12 +27,13 @@ export const activeTechnologies = [
         url: 'insights',
         baseApp: '/dashboard',
         apps: {
+            dashboard: '/dashboard',
+            patch: '/patch',
             advisor: '/advisor',
-            'system patch manager': '/patch',
+            drift: '/drift',
             vulnerability: '/vulnerability',
-            'custom policies': '/custom-policies',
-            compliance: '/compliance',
-            'drift analysis': '/drift'
+            policies: '/custom-policies',
+            compliance: '/compliance'
         },
         image: Insights,
         title: 'Red Hat Insights',
@@ -123,6 +124,9 @@ export const activeTechnologies = [
         entitlement: 'cost_management',
         marketing: false,
         image: Cost,
+        apps: {
+            'cost management': '/'
+        },
         emptyTitle: 'Cost Management technology preview access',
         emptyID: 'cost-management',
         emptyText: 'Cost Management technology preview is currently \
