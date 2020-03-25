@@ -186,8 +186,8 @@ export const activeTechnologies = [
         the effort needed to migrate or modernize each. Learn more to request a free CloudForms evaluation subscription',
         emptyAction: {
             primary: {
-                title: 'Learn more',
-                navigate: 'https://access.redhat.com/products/migration-analytics'
+                title: 'Request an evaluation',
+                navigate: 'https://access.redhat.com/products/red-hat-cloudforms-migrations/evaluation'
             },
             secondary: {
                 title: 'Take a tour'
