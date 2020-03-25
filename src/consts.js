@@ -32,7 +32,7 @@ export const activeTechnologies = [
             advisor: '/advisor',
             drift: '/drift',
             vulnerability: '/vulnerability',
-            policies: '/custom-policies',
+            policies: '/policies',
             compliance: '/compliance'
         },
         image: Insights,
