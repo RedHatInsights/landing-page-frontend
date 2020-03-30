@@ -94,6 +94,6 @@ sup.ins-c-rball { @include rem('font-size', 10px); }
         flex-direction: column;
         align-items: center;
         margin-top:  var(--pf-c-empty-state--c-button--MarginTop);
-        &-close { @include rem('margin-top', 10px); }
+        &-close { margin-top: var(--pf-global--spacer--sm); }
     }
 }
