@@ -90,7 +90,7 @@ export const activeTechnologies = [
         apps: {
             'automation analytics': '/automation-analytics',
             'automation hub': '/automation-hub',
-            ...window.location.pathname.indexOf('/beta') === 0 && { 'automation services catalog': '/catalog' }
+            'automation services catalog': '/catalog'
         },
         marketing: true,
         marketingImage: ansibleMarketing,
