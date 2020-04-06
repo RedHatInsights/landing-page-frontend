@@ -4,6 +4,7 @@ import Subscriptions from './components/Subscriptions.svg';
 import Cost from './components/Cost.svg';
 import Insights from './components/Insights.svg';
 import Migrations from './components/Migrations.svg';
+import Openshift from './components/Openshift.svg';
 
 import insightsMarketing from './components/marketing/insightsMarketing.svg';
 import openShiftMarketing from './components/marketing/openShiftMarketing.svg';
@@ -66,7 +67,7 @@ export const activeTechnologies = [
         marketingUrls: {
             learnMore: 'https://try.openshift.com'
         },
-        image: `${document.baseURI}apps/chrome/assets/images/platform-icons/openshift.svg`,
+        image: Openshift,
         emptyTitle: 'Get Started with Red Hat Openshift.',
         emptyID: 'openshift',
         emptyText: 'Test drive industry\'s leading container application platform in your browser, \
