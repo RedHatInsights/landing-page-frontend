@@ -319,7 +319,11 @@ exports[`404 page should render correctly 1`] = `
                 tabIndex={null}
                 type="button"
               >
-                Return to homepage
+                <span
+                  className="pf-c-button__text"
+                >
+                  Return to homepage
+                </span>
               </button>
             </Button>
           </ComponentWithOuia>
