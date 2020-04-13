@@ -128,10 +128,10 @@ export const activeTechnologies = [
         apps: {
             'cost management': '/'
         },
-        emptyTitle: 'Cost management for Red Hat OpenShift',
+        emptyTitle: 'Cost Management for Red Hat OpenShift',
         emptyID: 'cost-management',
-        emptyText: 'Cost management provides visibility and analysis for your Red Hat OpenShift \
-        and cloud costs. To obtain access to cost management, become a Red Hat OpenShift customer.',
+        emptyText: 'Cost Management provides visibility and analysis for your Red Hat OpenShift \
+        and cloud costs. To obtain access to Cost Management, become a Red Hat OpenShift customer.',
         emptyAction: {
             primary: {
                 title: 'Learn more',
