@@ -128,13 +128,17 @@ export const activeTechnologies = [
         apps: {
             'cost management': '/'
         },
-        emptyTitle: 'Cost Management technology preview access',
+        emptyTitle: 'Cost management for Red Hat OpenShift',
         emptyID: 'cost-management',
-        emptyText: 'Cost Management technology preview is currently \
-        restricted to Red Hat customers.',
+        emptyText: 'Cost management provides visibility and analysis for your Red Hat OpenShift \
+        and cloud costs. To obtain access to cost management, become a Red Hat OpenShift customer.',
         emptyAction: {
             primary: {
-                title: 'Ok'
+                title: 'Learn more',
+                navigate: 'https://www.redhat.com/en/technologies/cloud-computing/openshift'
+            },
+            close: {
+                title: 'Not now'
             }
         },
         title: 'Cost Management',
