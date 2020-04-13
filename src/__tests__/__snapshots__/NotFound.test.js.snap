@@ -323,11 +323,7 @@ exports[`NotFound component should render correctly 1`] = `
                     tabIndex={null}
                     type="button"
                   >
-                    <span
-                      className="pf-c-button__text"
-                    >
-                      Return to homepage
-                    </span>
+                    Return to homepage
                   </button>
                 </Button>
               </ComponentWithOuia>
@@ -674,11 +670,7 @@ exports[`NotFound component should render correctly with data 1`] = `
                     tabIndex={null}
                     type="button"
                   >
-                    <span
-                      className="pf-c-button__text"
-                    >
-                      Return to homepage
-                    </span>
+                    Return to homepage
                   </button>
                 </Button>
               </ComponentWithOuia>

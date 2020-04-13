@@ -48,11 +48,7 @@ exports[`Logout component should render correctly 1`] = `
             tabIndex={null}
             type="button"
           >
-            <span
-              className="pf-c-button__text"
-            >
-              Take me home
-            </span>
+            Take me home
           </button>
         </Button>
       </ComponentWithOuia>
