@@ -156,7 +156,6 @@ export const activeTechnologies = [
             'migration analytics': '/migration-analytics'
         },
         marketing: false,
-        disabled: true,
         emptyTitle: 'Migration Analytics requires a CloudForms subscription.',
         emptyID: 'migration-analytics',
         emptyText: 'Migration Analytics lets you examine workloads in your environment and evaluate \
