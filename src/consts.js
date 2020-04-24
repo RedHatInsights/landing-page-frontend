@@ -186,19 +186,16 @@ export const activeTechnologies = [
             'Red Hat OpenShift': '/openshift-sw'
         },
         marketing: false,
-        emptyTitle: 'Subscription Watch is an early access beta',
+        emptyTitle: 'Subscription Watch',
         emptyID: 'subscription-watch',
         emptyText: [
-            'Subscription Watch helps you understand your total subscription usage and capacity over time. Take a quick tour to learn more.',
+            'Subscription Watch enables you to understand your total subscription usage and capacity across your hybrid infrastructure over time.',
             <br key="sw1" />,
             <br key="sw2" />,
             'If you are interested in trying Subscription Watch, your Red Hat account team can help.'
         ],
         emptyAction: {
             primary: {
-                title: 'Take a tour'
-            },
-            secondary: {
                 title: 'Contact us',
                 navigate: 'https://access.redhat.com/account-team'
             },
