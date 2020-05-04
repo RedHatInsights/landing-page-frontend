@@ -9,8 +9,11 @@ import { connect } from 'react-redux';
 
 import './404.scss';
 
+// Chrome is not on this page, so do the isBeta here
 const onButtonClick = (url) => {
-    window.location.href = `./${url}`;
+    const isBeta = window.location.pathname.split('/')[1] === 'beta' ? '/beta' : ''
+
+    window.location.href = `${window.location.origin}${isBeta}`;
 };
 
 const NotFound = () => (
