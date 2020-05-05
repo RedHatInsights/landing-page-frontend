@@ -291,16 +291,7 @@ exports[`NotFound component should render correctly 1`] = `
             </Title>
             <Component
               component="a"
-              href="http://localhostfunction isBeta() {
-  /* istanbul ignore next */
-  cov_i5xuva68h.f[0]++;
-  cov_i5xuva68h.s[1]++;
-  return window.location.pathname.split('/')[1] === 'beta' ?
-  /* istanbul ignore next */
-  (cov_i5xuva68h.b[0][0]++, '/beta') :
-  /* istanbul ignore next */
-  (cov_i5xuva68h.b[0][1]++, '');
-}"
+              href="http://localhost"
               variant="link"
             >
               <ComponentWithOuia
@@ -309,16 +300,7 @@ exports[`NotFound component should render correctly 1`] = `
                   Object {
                     "children": "Return to homepage",
                     "component": "a",
-                    "href": "http://localhostfunction isBeta() {
-  /* istanbul ignore next */
-  cov_i5xuva68h.f[0]++;
-  cov_i5xuva68h.s[1]++;
-  return window.location.pathname.split('/')[1] === 'beta' ?
-  /* istanbul ignore next */
-  (cov_i5xuva68h.b[0][0]++, '/beta') :
-  /* istanbul ignore next */
-  (cov_i5xuva68h.b[0][1]++, '');
-}",
+                    "href": "http://localhost",
                     "variant": "link",
                   }
                 }
@@ -326,16 +308,7 @@ exports[`NotFound component should render correctly 1`] = `
               >
                 <Button
                   component="a"
-                  href="http://localhostfunction isBeta() {
-  /* istanbul ignore next */
-  cov_i5xuva68h.f[0]++;
-  cov_i5xuva68h.s[1]++;
-  return window.location.pathname.split('/')[1] === 'beta' ?
-  /* istanbul ignore next */
-  (cov_i5xuva68h.b[0][0]++, '/beta') :
-  /* istanbul ignore next */
-  (cov_i5xuva68h.b[0][1]++, '');
-}"
+                  href="http://localhost"
                   ouiaContext={
                     Object {
                       "isOuia": false,
@@ -349,16 +322,7 @@ exports[`NotFound component should render correctly 1`] = `
                     aria-label={null}
                     className="pf-c-button pf-m-link"
                     disabled={null}
-                    href="http://localhostfunction isBeta() {
-  /* istanbul ignore next */
-  cov_i5xuva68h.f[0]++;
-  cov_i5xuva68h.s[1]++;
-  return window.location.pathname.split('/')[1] === 'beta' ?
-  /* istanbul ignore next */
-  (cov_i5xuva68h.b[0][0]++, '/beta') :
-  /* istanbul ignore next */
-  (cov_i5xuva68h.b[0][1]++, '');
-}"
+                    href="http://localhost"
                     tabIndex={null}
                     type={null}
                   >
@@ -677,16 +641,7 @@ exports[`NotFound component should render correctly with data 1`] = `
             </Title>
             <Component
               component="a"
-              href="http://localhostfunction isBeta() {
-  /* istanbul ignore next */
-  cov_i5xuva68h.f[0]++;
-  cov_i5xuva68h.s[1]++;
-  return window.location.pathname.split('/')[1] === 'beta' ?
-  /* istanbul ignore next */
-  (cov_i5xuva68h.b[0][0]++, '/beta') :
-  /* istanbul ignore next */
-  (cov_i5xuva68h.b[0][1]++, '');
-}"
+              href="http://localhost"
               variant="link"
             >
               <ComponentWithOuia
@@ -695,16 +650,7 @@ exports[`NotFound component should render correctly with data 1`] = `
                   Object {
                     "children": "Return to homepage",
                     "component": "a",
-                    "href": "http://localhostfunction isBeta() {
-  /* istanbul ignore next */
-  cov_i5xuva68h.f[0]++;
-  cov_i5xuva68h.s[1]++;
-  return window.location.pathname.split('/')[1] === 'beta' ?
-  /* istanbul ignore next */
-  (cov_i5xuva68h.b[0][0]++, '/beta') :
-  /* istanbul ignore next */
-  (cov_i5xuva68h.b[0][1]++, '');
-}",
+                    "href": "http://localhost",
                     "variant": "link",
                   }
                 }
@@ -712,16 +658,7 @@ exports[`NotFound component should render correctly with data 1`] = `
               >
                 <Button
                   component="a"
-                  href="http://localhostfunction isBeta() {
-  /* istanbul ignore next */
-  cov_i5xuva68h.f[0]++;
-  cov_i5xuva68h.s[1]++;
-  return window.location.pathname.split('/')[1] === 'beta' ?
-  /* istanbul ignore next */
-  (cov_i5xuva68h.b[0][0]++, '/beta') :
-  /* istanbul ignore next */
-  (cov_i5xuva68h.b[0][1]++, '');
-}"
+                  href="http://localhost"
                   ouiaContext={
                     Object {
                       "isOuia": false,
@@ -735,16 +672,7 @@ exports[`NotFound component should render correctly with data 1`] = `
                     aria-label={null}
                     className="pf-c-button pf-m-link"
                     disabled={null}
-                    href="http://localhostfunction isBeta() {
-  /* istanbul ignore next */
-  cov_i5xuva68h.f[0]++;
-  cov_i5xuva68h.s[1]++;
-  return window.location.pathname.split('/')[1] === 'beta' ?
-  /* istanbul ignore next */
-  (cov_i5xuva68h.b[0][0]++, '/beta') :
-  /* istanbul ignore next */
-  (cov_i5xuva68h.b[0][1]++, '');
-}"
+                    href="http://localhost"
                     tabIndex={null}
                     type={null}
                   >
