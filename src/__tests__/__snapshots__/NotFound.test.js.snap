@@ -290,7 +290,17 @@ exports[`NotFound component should render correctly 1`] = `
               </h1>
             </Title>
             <Component
-              onClick={[Function]}
+              component="a"
+              href="http://localhostfunction isBeta() {
+  /* istanbul ignore next */
+  cov_i5xuva68h.f[0]++;
+  cov_i5xuva68h.s[1]++;
+  return window.location.pathname.split('/')[1] === 'beta' ?
+  /* istanbul ignore next */
+  (cov_i5xuva68h.b[0][0]++, '/beta') :
+  /* istanbul ignore next */
+  (cov_i5xuva68h.b[0][1]++, '');
+}"
               variant="link"
             >
               <ComponentWithOuia
@@ -298,14 +308,34 @@ exports[`NotFound component should render correctly 1`] = `
                 componentProps={
                   Object {
                     "children": "Return to homepage",
-                    "onClick": [Function],
+                    "component": "a",
+                    "href": "http://localhostfunction isBeta() {
+  /* istanbul ignore next */
+  cov_i5xuva68h.f[0]++;
+  cov_i5xuva68h.s[1]++;
+  return window.location.pathname.split('/')[1] === 'beta' ?
+  /* istanbul ignore next */
+  (cov_i5xuva68h.b[0][0]++, '/beta') :
+  /* istanbul ignore next */
+  (cov_i5xuva68h.b[0][1]++, '');
+}",
                     "variant": "link",
                   }
                 }
                 consumerContext={null}
               >
                 <Button
-                  onClick={[Function]}
+                  component="a"
+                  href="http://localhostfunction isBeta() {
+  /* istanbul ignore next */
+  cov_i5xuva68h.f[0]++;
+  cov_i5xuva68h.s[1]++;
+  return window.location.pathname.split('/')[1] === 'beta' ?
+  /* istanbul ignore next */
+  (cov_i5xuva68h.b[0][0]++, '/beta') :
+  /* istanbul ignore next */
+  (cov_i5xuva68h.b[0][1]++, '');
+}"
                   ouiaContext={
                     Object {
                       "isOuia": false,
@@ -314,17 +344,26 @@ exports[`NotFound component should render correctly 1`] = `
                   }
                   variant="link"
                 >
-                  <button
-                    aria-disabled={null}
+                  <a
+                    aria-disabled={false}
                     aria-label={null}
                     className="pf-c-button pf-m-link"
-                    disabled={false}
-                    onClick={[Function]}
+                    disabled={null}
+                    href="http://localhostfunction isBeta() {
+  /* istanbul ignore next */
+  cov_i5xuva68h.f[0]++;
+  cov_i5xuva68h.s[1]++;
+  return window.location.pathname.split('/')[1] === 'beta' ?
+  /* istanbul ignore next */
+  (cov_i5xuva68h.b[0][0]++, '/beta') :
+  /* istanbul ignore next */
+  (cov_i5xuva68h.b[0][1]++, '');
+}"
                     tabIndex={null}
-                    type="button"
+                    type={null}
                   >
                     Return to homepage
-                  </button>
+                  </a>
                 </Button>
               </ComponentWithOuia>
             </Component>
@@ -637,7 +676,17 @@ exports[`NotFound component should render correctly with data 1`] = `
               </h1>
             </Title>
             <Component
-              onClick={[Function]}
+              component="a"
+              href="http://localhostfunction isBeta() {
+  /* istanbul ignore next */
+  cov_i5xuva68h.f[0]++;
+  cov_i5xuva68h.s[1]++;
+  return window.location.pathname.split('/')[1] === 'beta' ?
+  /* istanbul ignore next */
+  (cov_i5xuva68h.b[0][0]++, '/beta') :
+  /* istanbul ignore next */
+  (cov_i5xuva68h.b[0][1]++, '');
+}"
               variant="link"
             >
               <ComponentWithOuia
@@ -645,14 +694,34 @@ exports[`NotFound component should render correctly with data 1`] = `
                 componentProps={
                   Object {
                     "children": "Return to homepage",
-                    "onClick": [Function],
+                    "component": "a",
+                    "href": "http://localhostfunction isBeta() {
+  /* istanbul ignore next */
+  cov_i5xuva68h.f[0]++;
+  cov_i5xuva68h.s[1]++;
+  return window.location.pathname.split('/')[1] === 'beta' ?
+  /* istanbul ignore next */
+  (cov_i5xuva68h.b[0][0]++, '/beta') :
+  /* istanbul ignore next */
+  (cov_i5xuva68h.b[0][1]++, '');
+}",
                     "variant": "link",
                   }
                 }
                 consumerContext={null}
               >
                 <Button
-                  onClick={[Function]}
+                  component="a"
+                  href="http://localhostfunction isBeta() {
+  /* istanbul ignore next */
+  cov_i5xuva68h.f[0]++;
+  cov_i5xuva68h.s[1]++;
+  return window.location.pathname.split('/')[1] === 'beta' ?
+  /* istanbul ignore next */
+  (cov_i5xuva68h.b[0][0]++, '/beta') :
+  /* istanbul ignore next */
+  (cov_i5xuva68h.b[0][1]++, '');
+}"
                   ouiaContext={
                     Object {
                       "isOuia": false,
@@ -661,17 +730,26 @@ exports[`NotFound component should render correctly with data 1`] = `
                   }
                   variant="link"
                 >
-                  <button
-                    aria-disabled={null}
+                  <a
+                    aria-disabled={false}
                     aria-label={null}
                     className="pf-c-button pf-m-link"
-                    disabled={false}
-                    onClick={[Function]}
+                    disabled={null}
+                    href="http://localhostfunction isBeta() {
+  /* istanbul ignore next */
+  cov_i5xuva68h.f[0]++;
+  cov_i5xuva68h.s[1]++;
+  return window.location.pathname.split('/')[1] === 'beta' ?
+  /* istanbul ignore next */
+  (cov_i5xuva68h.b[0][0]++, '/beta') :
+  /* istanbul ignore next */
+  (cov_i5xuva68h.b[0][1]++, '');
+}"
                     tabIndex={null}
-                    type="button"
+                    type={null}
                   >
                     Return to homepage
-                  </button>
+                  </a>
                 </Button>
               </ComponentWithOuia>
             </Component>
