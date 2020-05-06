@@ -290,7 +290,8 @@ exports[`NotFound component should render correctly 1`] = `
               </h1>
             </Title>
             <Component
-              onClick={[Function]}
+              component="a"
+              href="http://localhost"
               variant="link"
             >
               <ComponentWithOuia
@@ -298,14 +299,16 @@ exports[`NotFound component should render correctly 1`] = `
                 componentProps={
                   Object {
                     "children": "Return to homepage",
-                    "onClick": [Function],
+                    "component": "a",
+                    "href": "http://localhost",
                     "variant": "link",
                   }
                 }
                 consumerContext={null}
               >
                 <Button
-                  onClick={[Function]}
+                  component="a"
+                  href="http://localhost"
                   ouiaContext={
                     Object {
                       "isOuia": false,
@@ -314,17 +317,17 @@ exports[`NotFound component should render correctly 1`] = `
                   }
                   variant="link"
                 >
-                  <button
-                    aria-disabled={null}
+                  <a
+                    aria-disabled={false}
                     aria-label={null}
                     className="pf-c-button pf-m-link"
-                    disabled={false}
-                    onClick={[Function]}
+                    disabled={null}
+                    href="http://localhost"
                     tabIndex={null}
-                    type="button"
+                    type={null}
                   >
                     Return to homepage
-                  </button>
+                  </a>
                 </Button>
               </ComponentWithOuia>
             </Component>
@@ -637,7 +640,8 @@ exports[`NotFound component should render correctly with data 1`] = `
               </h1>
             </Title>
             <Component
-              onClick={[Function]}
+              component="a"
+              href="http://localhost"
               variant="link"
             >
               <ComponentWithOuia
@@ -645,14 +649,16 @@ exports[`NotFound component should render correctly with data 1`] = `
                 componentProps={
                   Object {
                     "children": "Return to homepage",
-                    "onClick": [Function],
+                    "component": "a",
+                    "href": "http://localhost",
                     "variant": "link",
                   }
                 }
                 consumerContext={null}
               >
                 <Button
-                  onClick={[Function]}
+                  component="a"
+                  href="http://localhost"
                   ouiaContext={
                     Object {
                       "isOuia": false,
@@ -661,17 +667,17 @@ exports[`NotFound component should render correctly with data 1`] = `
                   }
                   variant="link"
                 >
-                  <button
-                    aria-disabled={null}
+                  <a
+                    aria-disabled={false}
                     aria-label={null}
                     className="pf-c-button pf-m-link"
-                    disabled={false}
-                    onClick={[Function]}
+                    disabled={null}
+                    href="http://localhost"
                     tabIndex={null}
-                    type="button"
+                    type={null}
                   >
                     Return to homepage
-                  </button>
+                  </a>
                 </Button>
               </ComponentWithOuia>
             </Component>

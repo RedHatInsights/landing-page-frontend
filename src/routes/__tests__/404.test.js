@@ -24,7 +24,7 @@ describe('404 page', () => {
                 <NotFound />
             </Provider>
         );
-        wrapper.find('button').simulate('click');
+        wrapper.find('a').simulate('click');
         expect(window.location.pathname).toBe('/');
     });
 });
