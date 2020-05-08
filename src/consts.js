@@ -13,7 +13,9 @@ import ansibleMarketing from './components/marketing/ansibleMarketing.svg';
 // isDevPreview for developer previews
 // isPreview for technical previews
 // isEarlyAccess for limited access early beta
-// isUnderMaintenance for apps going under maintenance
+
+// isUnderMaintenance to disable all apps in a bundle
+// isUnderMaintenanceApps list of apps to disable in a bundle
 
 export const activeTechnologies = [
     {
@@ -53,7 +55,10 @@ export const activeTechnologies = [
             }
         },
         body: 'Identify and remediate configuration issues in your Red Hat® environments.',
-        isUnderMaintenance: true
+        isUnderMaintenanceApps: [
+            'vulnerability',
+            'compliance'
+        ]
     },
     {
         id: 'Openshift',

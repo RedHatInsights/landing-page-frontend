@@ -26,6 +26,10 @@ function isBeta() {
     return (window.insights.chrome.isBeta() === true ? '/beta/' : '/');
 }
 
+const checkIfUnderMaintenance = (appName, isUnderMaintenanceApps) => {
+    return isUnderMaintenanceApps && isUnderMaintenanceApps.includes(appName) ? true : false;
+};
+
 const Body = ({ technologies }) => {
     const [ needsRBACTour, setNeedsRBACTour ] = useState();
     const permission = useContext(PermissionContext);
@@ -45,7 +49,7 @@ const Body = ({ technologies }) => {
             landing-page-type='authenticated'
             needs-rbac-tour={ permission.isOrgAdmin ? `${needsRBACTour}` : 'false' }>
             <Grid md={ 6 } lg={ 4 } gutter="md">
-                { technologies.map(({ icon: Icon, image, iconProps, title, url, apps, baseApp, body, isPreview, isEarlyAccess, isDevPreview, isUnderMaintenance, id }, key) => ( // eslint-disable-line max-len
+                { technologies.map(({ icon: Icon, image, iconProps, title, url, apps, baseApp, body, isPreview, isEarlyAccess, isDevPreview, isUnderMaintenance, isUnderMaintenanceApps, id }, key) => ( // eslint-disable-line max-len
                     <GridItem key={ key } className='ins-c-application-card'>
                         <Card className="ins-c-application-info" application-id={ id }>
                             <CardHeader>
@@ -104,7 +108,7 @@ const Body = ({ technologies }) => {
                                         { apps && Object.entries(apps).map(([ appName, appPath ]) => (
                                             <Button
                                                 component='a'
-                                                isDisabled={ isUnderMaintenance }
+                                                isDisabled={ isUnderMaintenance || checkIfUnderMaintenance(appName, isUnderMaintenanceApps) }
                                                 isInline
                                                 variant="link"
                                                 key={ appName }
@@ -146,7 +150,8 @@ Body.propTypes = {
         url: PropTypes.string,
         apps: PropTypes.object,
         baseApp: PropTypes.string,
-        isUnderMaintenance: PropTypes.bool
+        isUnderMaintenance: PropTypes.bool,
+        isUnderMaintenanceApps: PropTypes.array
     }))
 };
 
