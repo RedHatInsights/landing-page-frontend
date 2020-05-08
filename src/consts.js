@@ -13,6 +13,7 @@ import ansibleMarketing from './components/marketing/ansibleMarketing.svg';
 // isDevPreview for developer previews
 // isPreview for technical previews
 // isEarlyAccess for limited access early beta
+// isUnderMaintenance for apps going under maintenance
 
 export const activeTechnologies = [
     {
@@ -51,7 +52,8 @@ export const activeTechnologies = [
                 title: 'Not now'
             }
         },
-        body: 'Identify and remediate configuration issues in your Red Hat® environments.'
+        body: 'Identify and remediate configuration issues in your Red Hat® environments.',
+        isUnderMaintenance: true
     },
     {
         id: 'Openshift',
@@ -116,7 +118,8 @@ export const activeTechnologies = [
             close: {
                 title: 'Not now'
             }
-        }
+        },
+        isUnderMaintenance: true
     },
     {
         id: 'Cost Management',
@@ -142,7 +145,8 @@ export const activeTechnologies = [
             }
         },
         title: 'Cost Management',
-        body: 'Analyze, forecast and optimize your Red Hat OpenShift cluster costs in hybrid cloud environments.'
+        body: 'Analyze, forecast and optimize your Red Hat OpenShift cluster costs in hybrid cloud environments.',
+        isUnderMaintenance: true
     },
     {
         id: 'migrations',
@@ -202,6 +206,7 @@ export const activeTechnologies = [
             close: {
                 title: 'Not now'
             }
-        }
+        },
+        isUnderMaintenance: true
     }
 ];
