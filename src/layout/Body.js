@@ -104,7 +104,7 @@ const Body = ({ technologies }) => {
                                         { apps && Object.entries(apps).map(([ appName, appPath ]) => (
                                             <Button
                                                 component='a'
-                                                isDisabled={isUnderMaintenance}
+                                                isDisabled={ isUnderMaintenance }
                                                 isInline
                                                 variant="link"
                                                 key={ appName }
@@ -119,7 +119,7 @@ const Body = ({ technologies }) => {
                                 <Button
                                     component='a'
                                     isInline
-                                    isDisabled={isUnderMaintenance}
+                                    isDisabled={ isUnderMaintenance }
                                     variant="link"
                                     className={ `ins-c-application-info__open ins-c-application-info__open-${url}` }
                                     href= { baseApp ? `${isBeta()}${url}${baseApp}` : `${isBeta()}${url}` }>
