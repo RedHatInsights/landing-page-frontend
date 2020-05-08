@@ -15,7 +15,15 @@ import ansibleMarketing from './components/marketing/ansibleMarketing.svg';
 // isEarlyAccess for limited access early beta
 
 // isUnderMaintenance to disable all apps in a bundle
+// example: isUnderMaintenance: true
+
 // isUnderMaintenanceApps list of apps to disable in a bundle
+/* example:
+    isUnderMaintenanceApps: [
+        'vulnerability',
+        'compliance'
+    ]
+*/
 
 export const activeTechnologies = [
     {
@@ -54,11 +62,7 @@ export const activeTechnologies = [
                 title: 'Not now'
             }
         },
-        body: 'Identify and remediate configuration issues in your Red Hat® environments.',
-        isUnderMaintenanceApps: [
-            'vulnerability',
-            'compliance'
-        ]
+        body: 'Identify and remediate configuration issues in your Red Hat® environments.'
     },
     {
         id: 'Openshift',
@@ -123,8 +127,7 @@ export const activeTechnologies = [
             close: {
                 title: 'Not now'
             }
-        },
-        isUnderMaintenance: true
+        }
     },
     {
         id: 'Cost Management',
@@ -150,8 +153,7 @@ export const activeTechnologies = [
             }
         },
         title: 'Cost Management',
-        body: 'Analyze, forecast and optimize your Red Hat OpenShift cluster costs in hybrid cloud environments.',
-        isUnderMaintenance: true
+        body: 'Analyze, forecast and optimize your Red Hat OpenShift cluster costs in hybrid cloud environments.'
     },
     {
         id: 'migrations',
@@ -211,7 +213,6 @@ export const activeTechnologies = [
             close: {
                 title: 'Not now'
             }
-        },
-        isUnderMaintenance: true
+        }
     }
 ];
