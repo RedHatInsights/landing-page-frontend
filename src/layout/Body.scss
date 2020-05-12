@@ -8,6 +8,11 @@
         width: 80%;
     }
 
+    .pf-c-button.pf-m-link.pf-m-inline {
+        text-align: left;
+        width: min-content;
+    }
+
     [application-id="insights"] .ins-c-application-info__content-applist {
         display: grid;
         grid-template-columns: auto;

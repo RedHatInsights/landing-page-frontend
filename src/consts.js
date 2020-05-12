@@ -14,6 +14,17 @@ import ansibleMarketing from './components/marketing/ansibleMarketing.svg';
 // isPreview for technical previews
 // isEarlyAccess for limited access early beta
 
+// isUnderMaintenance to disable all apps in a bundle
+// example: isUnderMaintenance: true
+
+// isUnderMaintenanceApps list of apps to disable in a bundle
+/* example:
+    isUnderMaintenanceApps: [
+        'vulnerability',
+        'compliance'
+    ]
+*/
+
 export const activeTechnologies = [
     {
         entitlement: 'insights',

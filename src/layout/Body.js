@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useContext } from 'react';
 import {
+    Button,
     Card,
     CardBody,
     CardHeader,
@@ -25,6 +26,10 @@ function isBeta() {
     return (window.insights.chrome.isBeta() === true ? '/beta/' : '/');
 }
 
+const checkIfUnderMaintenance = (appName, isUnderMaintenanceApps) => {
+    return isUnderMaintenanceApps && isUnderMaintenanceApps.includes(appName) ? true : false;
+};
+
 const Body = ({ technologies }) => {
     const [ needsRBACTour, setNeedsRBACTour ] = useState();
     const permission = useContext(PermissionContext);
@@ -44,7 +49,7 @@ const Body = ({ technologies }) => {
             landing-page-type='authenticated'
             needs-rbac-tour={ permission.isOrgAdmin ? `${needsRBACTour}` : 'false' }>
             <Grid md={ 6 } lg={ 4 } gutter="md">
-                { technologies.map(({ icon: Icon, image, iconProps, title, url, apps, baseApp, body, isPreview, isEarlyAccess, isDevPreview, id }, key) => ( // eslint-disable-line max-len
+                { technologies.map(({ icon: Icon, image, iconProps, title, url, apps, baseApp, body, isPreview, isEarlyAccess, isDevPreview, isUnderMaintenance, isUnderMaintenanceApps, id }, key) => ( // eslint-disable-line max-len
                     <GridItem key={ key } className='ins-c-application-card'>
                         <Card className="ins-c-application-info" application-id={ id }>
                             <CardHeader>
@@ -101,17 +106,30 @@ const Body = ({ technologies }) => {
                                     </StackItem>
                                     <StackItem className='ins-c-application-info__content-applist'>
                                         { apps && Object.entries(apps).map(([ appName, appPath ]) => (
-                                            <a key={ appName } href={ `${isBeta()}${url}${appPath}` }>{ appName }</a>
+                                            <Button
+                                                component='a'
+                                                isDisabled={ isUnderMaintenance || checkIfUnderMaintenance(appName, isUnderMaintenanceApps) }
+                                                isInline
+                                                variant="link"
+                                                key={ appName }
+                                                href={ `${isBeta()}${url}${appPath}` }>
+                                                { appName }
+                                            </Button>
                                         )) }
                                     </StackItem>
                                 </Stack>
                             </CardBody>
                             <CardFooter>
-                                <a className={ `ins-c-application-info__open ins-c-application-info__open-${url}` }
+                                <Button
+                                    component='a'
+                                    isInline
+                                    isDisabled={ isUnderMaintenance }
+                                    variant="link"
+                                    className={ `ins-c-application-info__open ins-c-application-info__open-${url}` }
                                     href= { baseApp ? `${isBeta()}${url}${baseApp}` : `${isBeta()}${url}` }>
                                     <span> Open </span>
                                     <ArrowRightIcon size="sm" />
-                                </a>
+                                </Button>
                             </CardFooter>
                         </Card>
                     </GridItem>
@@ -131,7 +149,9 @@ Body.propTypes = {
         isEarlyAccess: PropTypes.bool,
         url: PropTypes.string,
         apps: PropTypes.object,
-        baseApp: PropTypes.string
+        baseApp: PropTypes.string,
+        isUnderMaintenance: PropTypes.bool,
+        isUnderMaintenanceApps: PropTypes.array
     }))
 };
 

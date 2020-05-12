@@ -138,7 +138,11 @@ exports[`render Marketing component should render correctly 1`] = `
                       tabIndex={null}
                       type={null}
                     >
-                      Not a customer?
+                      <span
+                        className="pf-c-button__text"
+                      >
+                        Not a customer?
+                      </span>
                     </a>
                   </Button>
                 </ComponentWithOuia>
