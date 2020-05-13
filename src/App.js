@@ -5,12 +5,14 @@ import { getRegistry } from '@red-hat-insights/insights-frontend-components/Util
 import { connect } from 'react-redux';
 import NotFound from './routes/404';
 import Landing from './routes/Landing';
+import Maintenance from './routes/Maintenance';
 import technologiesReducer from './store/technologiesReducer';
 import { technologiesLoaded } from './store/actions';
 import { activeTechnologies } from './consts';
 
 const routes = {
-    landing: '/'
+    landing: '/',
+    maintenance: '/maintenance'
 };
 
 export const PermissionContext = createContext();
@@ -32,6 +34,7 @@ const App = ({ loadTechnologies }) => {
             <Switch>
                 <Route exact path={ routes.landing } component={ Landing } />
                 <Route exact path={ routes.landingBeta } component={ Landing } />
+                <Route exact path={ routes.maintenance } component={ Maintenance } />
                 <Route path="*" component={ NotFound } />
             </Switch>
         </PermissionContext.Provider>
