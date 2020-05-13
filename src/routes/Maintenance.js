@@ -20,8 +20,8 @@ const isBeta = () => {
 const Maintenance = () => {
     return (
         <section className="pf-l-page__main-section pf-c-page__main-section ins-c-page__maintenance">
-            <EmptyState variant={EmptyStateVariant.large}>
-                <EmptyStateIcon icon={IconHourglass} />
+            <EmptyState variant={ EmptyStateVariant.large }>
+                <EmptyStateIcon icon={ IconHourglass } />
                 <Title headingLevel="h5" size="lg">
                     Maintenance in progress
                 </Title>
