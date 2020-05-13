@@ -27,7 +27,7 @@ const Maintenance = () => {
                 </Title>
                 <EmptyStateBody>
                     <p>cloud.redhat.com is currently undergoing scheduled maintenance and will be unavailable
-                    from 16:00 - 22:00 UTC (12:00PM - 6:00PM EST).</p>
+                    from 16:00 - 22:00 UTC (12:00 PM - 6:00 PM EST).</p>
                     <p>For more information visit <a href='http://status.redhat.com/incidents/qw4mmmyzwzdg'>status.redhat.com.</a></p>
                     <p>We will be back soon. Thank you for your patience!</p>
                 </EmptyStateBody>
