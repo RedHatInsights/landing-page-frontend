@@ -46,6 +46,14 @@ const NotFound = new (require('html-webpack-plugin'))({
 });
 plugins.push(NotFound);
 
+const Maintenance = new (require('html-webpack-plugin'))({
+    title: 'Maintenance',
+    filename: 'maintenance.html',
+    chunks: [ 'Maintenance', 'vendor' ],
+    template: path.resolve(__dirname, '../src/not-signed.html')
+});
+plugins.push(Maintenance);
+
 const CheckSSO = new (require('html-webpack-plugin'))({
     title: 'checkSSO',
     filename: 'silent-check-sso.html',

@@ -1,0 +1,12 @@
+.ins-c-page__maintenance {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+
+    .pf-c-empty-state { margin-top: 64px; }
+
+    svg {
+        margin-bottom: var(--pf-c-empty-state__icon--MarginBottom);
+        height: 100px;
+    }
+}

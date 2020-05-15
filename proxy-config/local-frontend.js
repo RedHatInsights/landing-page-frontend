@@ -13,9 +13,11 @@ module.exports = {
         '/ansible/': { host: 'PORTAL_BACKEND_MARKER' },
         '/subscriptions/': { host: 'PORTAL_BACKEND_MARKER' },
         '/': { host: 'https://localhost:8002' },
+        '/maintenance': { host: 'https://localhost:8002' },
+        '/404': { host: 'https://localhost:8002' },
         '/beta/': { host: 'PORTAL_BACKEND_MARKER' },
         '/beta/apps/': { host: 'PORTAL_BACKEND_MARKER' },
         '/config/': { host: 'PORTAL_BACKEND_MARKER' },
-        '/beta/config/': { host: 'PORTAL_BACKEND_MARKER' }
+        '/beta/config/': { host: 'PORTAL_BACKEND_MARKER' },
     }
 };
