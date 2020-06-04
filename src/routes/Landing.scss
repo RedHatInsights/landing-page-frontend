@@ -1,6 +1,7 @@
 @import '~@red-hat-insights/insights-frontend-components/Utilities/_mixins';
 @import '~@patternfly/patternfly/sass-utilities/_all';
-
+@import '~@redhat-cloud-services/frontend-components-notifications/index.css';
+@import '~@patternfly/patternfly/components/Alert/alert.scss';
 :root {
     --ins-global--Color--green: #37912f;
 }
@@ -74,6 +75,7 @@ sup.ins-c-rball { @include rem('font-size', 10px); }
 // Unentitled Modal Styles
 .ins-c-error-modal {
     @include rem('max-width', 700px);
+    .pf-c-modal-box__header { text-align: center; }
 }
 
 .ins-c-error-state {
@@ -95,5 +97,18 @@ sup.ins-c-rball { @include rem('font-size', 10px); }
         align-items: center;
         margin-top:  var(--pf-c-empty-state--c-button--MarginTop);
         &-close { margin-top: var(--pf-global--spacer--sm); }
+    }
+}
+
+// Alert message
+.notifications-portal .pf-c-alert{
+    .pf-c-alert__description { display: none; }
+    .pf-c-alert__title {
+        padding: unset;
+    }
+
+    .pf-c-alert__icon {
+        padding: unset;
+        background-color: unset;
     }
 }

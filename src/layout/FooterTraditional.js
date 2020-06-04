@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { RhLogo } from '../components';
-import { Title, Modal, Button, PageSection } from '@patternfly/react-core';
+import { Title, Modal, Button, PageSection, ModalVariant } from '@patternfly/react-core';
 import './FooterTraditional.scss';
 
 const FooterTraditional = () => {
@@ -47,7 +47,7 @@ const FooterTraditional = () => {
             <Modal
                 title="Browser support"
                 isOpen={ isModalOpen }
-                isSmall
+                variant={ModalVariant.small}
                 className='ins-p-browser-support'
                 onClose={ () => setIsModalOpen(false) }
                 isFooterLeftAligned>
@@ -59,13 +59,13 @@ const FooterTraditional = () => {
                     only browsers which receive security updates from the browser manufacturer are considered for support.
                     We have implemented this policy to ensure that we can provide an excellent experience to a wide user base.
                 </p>
-                <Title headingLevel="h4" size="xl"> Cookies and Javascript </Title>
+                <Title headingLevel="h4"> Cookies and Javascript </Title>
                 <p> To successfully interact with our websites and services, your browser must meet the following feature requirements: </p>
                 <ul>
                     <li> The browser must be configured to accept cookies </li>
                     <li> The browser must be configured to execute JavaScript </li>
                 </ul>
-                <Title headingLevel="h4" size="xl"> Specific browser support </Title>
+                <Title headingLevel="h4"> Specific browser support </Title>
                 <p> We validate against and fully support our customers&#39; use of the past two major releases of the following browsers: </p>
                 <ul>
                     <li> Mozilla Firefox </li>

@@ -15,7 +15,7 @@ import './FooterMenu.scss';
 
 const FooterMenu = () => (
     <PageSection className='ins-c-footer__menu pf-m-no-fill'>
-        <Grid sm={ 12 } md={ 3 } gutter="lg">
+        <Grid sm={ 12 } md={ 3 } hasGutter>
             <GridItem>
                 <TextContent>
                     <Text component={ TextVariants.h2 }>Support and resources</Text>
