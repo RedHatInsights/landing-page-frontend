@@ -47,7 +47,7 @@ const FooterTraditional = () => {
             <Modal
                 title="Browser support"
                 isOpen={ isModalOpen }
-                variant={ModalVariant.small}
+                variant={ ModalVariant.small }
                 className='ins-p-browser-support'
                 onClose={ () => setIsModalOpen(false) }
                 isFooterLeftAligned>

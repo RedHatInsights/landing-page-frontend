@@ -21,10 +21,10 @@ import './Landing.scss';
 
 const Landing = () => {
 
-    const [isModalOpen, setIsModalOpen] = useState(false);
-    const [isUserReady, setIsUserReady ] = useState(false);
-    const [isUnauthed, setIsUnauthed] = useState(true);
-    const [notEntitled, setIsNotEntitled] = useState();
+    const [ isModalOpen, setIsModalOpen ] = useState(false);
+    const [ isUserReady, setIsUserReady ] = useState(false);
+    const [ isUnauthed, setIsUnauthed ] = useState(true);
+    const [ notEntitled, setIsNotEntitled ] = useState();
     const dispatch = useDispatch();
 
     useEffect(() => {
@@ -36,34 +36,34 @@ const Landing = () => {
 
         setIsNotEntitled(params.not_entitled);
         setIsModalOpen(params && Object.keys(params).length > 0);
-    
+
         window.insights.chrome.auth.getUser().then(user => {
             if (user) {
                 setIsUnauthed(false);
             } else {
-                setIsUnauthed(true);;
+                setIsUnauthed(true);
             }
         }).catch(() => {
-            setIsUnauthed(true);;
+            setIsUnauthed(true);
         })
         .then(() =>
             setIsUserReady(true)
         );
-    },[])
+    }, []);
 
     const handleModalToggle = () => {
         setIsModalOpen(false);
         history.pushState(null, '', location.href.split('?')[0]);
-    }
+    };
 
     const renderAlert = (title) => {
         dispatch(
             addNotification({
                 variant: 'danger',
-                title: title
+                title
             })
         );
-    }
+    };
 
     if (isUserReady) {
         return (
@@ -85,7 +85,7 @@ const Landing = () => {
                     isOpen={ isModalOpen }
                     onClose={ handleModalToggle }
                     aria-title={ notEntitled.emptyTitle }
-                    header={<Title headingLevel="h2">{ notEntitled.emptyTitle }</Title>}
+                    header={ <Title headingLevel="h2">{ notEntitled.emptyTitle }</Title> }
                 >
                     <Stack hasGutter className='ins-c-error-state'>
                         <StackItem className='ins-c-error-state__image'>
@@ -145,7 +145,7 @@ const Landing = () => {
     } else {
         return <Loading/>;
     }
-}
+};
 
 Landing.propTypes = {
     history: PropTypes.object,

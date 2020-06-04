@@ -1,22 +1,22 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Footer Menu component should render correctly 1`] = `
-<PageSection
+<Component
   className="ins-c-footer__menu pf-m-no-fill"
 >
-  <Grid
-    gutter="lg"
+  <Component
+    hasGutter={true}
     md={3}
     sm={12}
   >
-    <GridItem>
-      <TextContent>
-        <Text
+    <Component>
+      <Component>
+        <Component
           component="h2"
         >
           Support and resources
-        </Text>
-      </TextContent>
+        </Component>
+      </Component>
       <a
         href="https://access.redhat.com/support"
       >
@@ -27,15 +27,15 @@ exports[`Footer Menu component should render correctly 1`] = `
       >
         Contact customer service
       </a>
-    </GridItem>
-    <GridItem>
-      <TextContent>
-        <Text
+    </Component>
+    <Component>
+      <Component>
+        <Component
           component="h2"
         >
           About
-        </Text>
-      </TextContent>
+        </Component>
+      </Component>
       <a
         href="https://access.redhat.com/products/red-hat-insights#getstarted"
       >
@@ -51,19 +51,19 @@ exports[`Footer Menu component should render correctly 1`] = `
       >
         Red Hat OpenShift
       </a>
-    </GridItem>
-    <GridItem>
-      <TextContent>
-        <Text
+    </Component>
+    <Component>
+      <Component>
+        <Component
           component="h2"
         >
           Feedback
-        </Text>
-      </TextContent>
-      <Split
+        </Component>
+      </Component>
+      <Component
         gutter="md"
       >
-        <SplitItem>
+        <Component>
           <PaperPlaneAltIcon
             className="ins-c-icon__active"
             color="currentColor"
@@ -71,8 +71,8 @@ exports[`Footer Menu component should render correctly 1`] = `
             size="xl"
             title={null}
           />
-        </SplitItem>
-        <SplitItem
+        </Component>
+        <Component
           isFilled={true}
         >
           <a
@@ -83,9 +83,9 @@ exports[`Footer Menu component should render correctly 1`] = `
             Tell us about your experience
           </a>
            using Red Hat Cloud Services software, and how we can improve.
-        </SplitItem>
-      </Split>
-    </GridItem>
-  </Grid>
-</PageSection>
+        </Component>
+      </Component>
+    </Component>
+  </Component>
+</Component>
 `;
