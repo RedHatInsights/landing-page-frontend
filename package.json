@@ -17,7 +17,9 @@
       "<rootDir>/src/logout.js",
       "<rootDir>/src/logout-dev.js",
       "<rootDir>/src/not-found.js",
-      "<rootDir>/src/not-found-dev.js"
+      "<rootDir>/src/not-found-dev.js",
+      "<rootDir>/src/maintenance.js",
+      "<rootDir>/src/maintenance-dev.js"
     ],
     "setupFiles": [
       "<rootDir>/config/setupTests.js"
