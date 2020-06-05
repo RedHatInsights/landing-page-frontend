@@ -16,7 +16,7 @@ import Marketing from '../layout/Marketing';
 import FooterTraditional from '../layout/FooterTraditional';
 import Loading from '../layout/Loading';
 import { activeTechnologies } from '../consts';
-import { addNotification } from '@redhat-cloud-services/frontend-components-notifications';
+import { addNotification } from '@redhat-cloud-services/frontend-components-notifications/';
 import './Landing.scss';
 
 const Landing = () => {
