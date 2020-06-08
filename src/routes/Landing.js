@@ -85,7 +85,7 @@ const Landing = () => {
                     isOpen={ isModalOpen }
                     onClose={ handleModalToggle }
                     aria-title={ notEntitled.emptyTitle }
-                    header={ <Title headingLevel="h2">{ notEntitled.emptyTitle }</Title> }
+                    header={ <Title headingLevel="h2" size='2xl'>{ notEntitled.emptyTitle }</Title> }
                 >
                     <Stack hasGutter className='ins-c-error-state'>
                         <StackItem className='ins-c-error-state__image'>

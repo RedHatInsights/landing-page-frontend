@@ -7,7 +7,10 @@
     background-repeat: no-repeat;
     background-size: cover;
 
-    h1.ins-c-hero__title { color: white; }
+    h1.ins-c-hero__title {
+        color: white;
+        font-size: var(--pf-c-title--m-4xl--FontSize);
+    }
 
     h2.ins-c-hero__sub-title { color: var(--pf-global--Color--200); }
 

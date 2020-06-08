@@ -13,6 +13,10 @@ const mapper = {
   TooltipPosition: 'Tooltip'
 };
 
+const IconMapper = {
+  ChartSpikeIcon: 'chartSpike-icon'
+};
+
 const FECMapper = {
     SkeletonSize: 'Skeleton',
     PageHeaderTitle: 'PageHeader'
@@ -59,10 +63,10 @@ module.exports = {
             {
               '@patternfly/react-icons': {
                 transform: (importName) =>
-                  `@patternfly/react-icons/dist/js/icons/${importName
-                  .split(/(?=[A-Z])/)
-                  .join('-')
-                  .toLowerCase()}`,
+                    `@patternfly/react-icons/dist/js/icons/${IconMapper[importName] || importName
+                    .split(/(?=[A-Z])/)
+                    .join('-')
+                    .toLowerCase()}.js`,
                 preventFullImport: true
               }
             },

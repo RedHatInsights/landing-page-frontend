@@ -10,6 +10,8 @@ import technologiesReducer from './store/technologiesReducer';
 import { technologiesLoaded } from './store/actions';
 import { activeTechnologies } from './consts';
 
+import './App.scss';
+
 const routes = {
     landing: '/',
     maintenance: '/maintenance'

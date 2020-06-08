@@ -5,13 +5,14 @@ import configureMockStore from 'redux-mock-store';
 import toJson from 'enzyme-to-json';
 import { mapStateToProps } from '../Body';
 import Body from '../Body';
-import { ChartSpikeIcon } from '@patternfly/react-icons';
+import insightsMarketing from '../../components/marketing/insightsMarketing.svg';
+import Insights from '../../components/Insights.svg';
 
 const activeTechnologiesMock = [
     {
         entitlement: 'test',
         marketing: true,
-        marketingImage: ChartSpikeIcon,
+        marketingImage: insightsMarketing,
         marketingText: 'Marketing Test',
         marketingUrl: '/marketing-test',
         name: 'test',
@@ -21,7 +22,7 @@ const activeTechnologiesMock = [
         apps: {
             rules: '/app-test'
         },
-        icon: ChartSpikeIcon,
+        icon: Insights,
         title: 'Jest Test',
         emptyTitle: 'test',
         emptyText: 'test',

@@ -75,7 +75,13 @@ sup.ins-c-rball { @include rem('font-size', 10px); }
 // Unentitled Modal Styles
 .ins-c-error-modal {
     @include rem('max-width', 700px);
-    .pf-c-modal-box__header { text-align: center; }
+    .pf-c-modal-box__header {
+        text-align: center;
+        max-width: 75%;
+        margin-left: auto;
+        margin-right: auto;
+        padding-bottom: var(--pf-global--spacer--md);
+    }
 }
 
 .ins-c-error-state {
