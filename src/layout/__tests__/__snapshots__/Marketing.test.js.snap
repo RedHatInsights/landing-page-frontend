@@ -31,9 +31,10 @@ exports[`render Marketing component should render correctly 1`] = `
               <Component
                 className="ins-c-hero__title pf-m-spacer-lg"
                 headingLevel="h1"
+                size="4xl"
               >
                 <h1
-                  className="pf-c-title pf-m-2xl ins-c-hero__title pf-m-spacer-lg"
+                  className="pf-c-title pf-m-4xl ins-c-hero__title pf-m-spacer-lg"
                 >
                    Explore our open, multicloud tools 
                 </h1>

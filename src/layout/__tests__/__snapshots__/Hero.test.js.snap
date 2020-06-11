@@ -10,6 +10,7 @@ exports[`Hero component should render correctly 1`] = `
     <Component
       className="ins-c-hero__title pf-m-spacer-lg"
       headingLevel="h1"
+      size="4xl"
     >
        Explore our open, multicloud tools 
     </Component>
