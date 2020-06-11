@@ -178,9 +178,10 @@ exports[`Maintenance page should render correctly 1`] = `
             </Component>
             <Component
               headingLevel="h5"
+              size="lg"
             >
               <h5
-                className="pf-c-title pf-m-md"
+                className="pf-c-title pf-m-lg"
               >
                 Maintenance in progress
               </h5>
