@@ -38,7 +38,7 @@ exports[`App component should render correctly 1`] = `
     >
       <withRouter(Connect(App))>
         <Route>
-          <Connect(App)
+          <ConnectFunction
             history={
               Object {
                 "action": "POP",
@@ -76,57 +76,49 @@ exports[`App component should render correctly 1`] = `
               }
             }
           >
-            <App
-              history={
-                Object {
-                  "action": "POP",
-                  "block": [Function],
-                  "createHref": [Function],
-                  "go": [Function],
-                  "goBack": [Function],
-                  "goForward": [Function],
-                  "length": 1,
-                  "listen": [Function],
-                  "location": Object {
+            <Switch>
+              <Route
+                component={[Function]}
+                computedMatch={
+                  Object {
+                    "isExact": true,
+                    "params": Object {},
+                    "path": "/",
+                    "url": "/",
+                  }
+                }
+                exact={true}
+                location={
+                  Object {
                     "hash": "",
                     "pathname": "/",
                     "search": "",
                     "state": undefined,
-                  },
-                  "push": [Function],
-                  "replace": [Function],
+                  }
                 }
-              }
-              loadTechnologies={[Function]}
-              location={
-                Object {
-                  "hash": "",
-                  "pathname": "/",
-                  "search": "",
-                  "state": undefined,
-                }
-              }
-              match={
-                Object {
-                  "isExact": true,
-                  "params": Object {},
-                  "path": "/",
-                  "url": "/",
-                }
-              }
-            >
-              <Switch>
-                <Route
-                  component={[Function]}
-                  computedMatch={
+                path="/"
+              >
+                <withRouter(Landing)
+                  history={
                     Object {
-                      "isExact": true,
-                      "params": Object {},
-                      "path": "/",
-                      "url": "/",
+                      "action": "POP",
+                      "block": [Function],
+                      "createHref": [Function],
+                      "go": [Function],
+                      "goBack": [Function],
+                      "goForward": [Function],
+                      "length": 1,
+                      "listen": [Function],
+                      "location": Object {
+                        "hash": "",
+                        "pathname": "/",
+                        "search": "",
+                        "state": undefined,
+                      },
+                      "push": [Function],
+                      "replace": [Function],
                     }
                   }
-                  exact={true}
                   location={
                     Object {
                       "hash": "",
@@ -135,118 +127,86 @@ exports[`App component should render correctly 1`] = `
                       "state": undefined,
                     }
                   }
-                  path="/"
+                  match={
+                    Object {
+                      "isExact": true,
+                      "params": Object {},
+                      "path": "/",
+                      "url": "/",
+                    }
+                  }
                 >
-                  <withRouter(Landing)
-                    history={
-                      Object {
-                        "action": "POP",
-                        "block": [Function],
-                        "createHref": [Function],
-                        "go": [Function],
-                        "goBack": [Function],
-                        "goForward": [Function],
-                        "length": 1,
-                        "listen": [Function],
-                        "location": Object {
-                          "hash": "",
-                          "pathname": "/",
-                          "search": "",
-                          "state": undefined,
-                        },
-                        "push": [Function],
-                        "replace": [Function],
-                      }
-                    }
-                    location={
-                      Object {
-                        "hash": "",
-                        "pathname": "/",
-                        "search": "",
-                        "state": undefined,
-                      }
-                    }
-                    match={
-                      Object {
-                        "isExact": true,
-                        "params": Object {},
-                        "path": "/",
-                        "url": "/",
-                      }
-                    }
-                  >
-                    <Route>
-                      <Landing
-                        history={
-                          Object {
-                            "action": "POP",
-                            "block": [Function],
-                            "createHref": [Function],
-                            "go": [Function],
-                            "goBack": [Function],
-                            "goForward": [Function],
-                            "length": 1,
-                            "listen": [Function],
-                            "location": Object {
-                              "hash": "",
-                              "pathname": "/",
-                              "search": "",
-                              "state": undefined,
-                            },
-                            "push": [Function],
-                            "replace": [Function],
-                          }
-                        }
-                        loadTechnologies={[Function]}
-                        location={
-                          Object {
+                  <Route>
+                    <Landing
+                      history={
+                        Object {
+                          "action": "POP",
+                          "block": [Function],
+                          "createHref": [Function],
+                          "go": [Function],
+                          "goBack": [Function],
+                          "goForward": [Function],
+                          "length": 1,
+                          "listen": [Function],
+                          "location": Object {
                             "hash": "",
                             "pathname": "/",
                             "search": "",
                             "state": undefined,
-                          }
+                          },
+                          "push": [Function],
+                          "replace": [Function],
                         }
-                        match={
-                          Object {
-                            "isExact": true,
-                            "params": Object {},
-                            "path": "/",
-                            "url": "/",
-                          }
+                      }
+                      loadTechnologies={[Function]}
+                      location={
+                        Object {
+                          "hash": "",
+                          "pathname": "/",
+                          "search": "",
+                          "state": undefined,
                         }
-                      >
-                        <Loading>
-                          <Connect(Main)>
-                            <Main>
-                              <section
-                                className="pf-l-page__main-section pf-c-page__main-section"
-                                page-type=""
+                      }
+                      match={
+                        Object {
+                          "isExact": true,
+                          "params": Object {},
+                          "path": "/",
+                          "url": "/",
+                        }
+                      }
+                    >
+                      <Loading>
+                        <ConnectFunction>
+                          <Main>
+                            <section
+                              className="pf-l-page__main-section pf-c-page__main-section"
+                              page-type=""
+                            >
+                              <Spinner
+                                centered={true}
                               >
-                                <Spinner
-                                  centered={true}
+                                <div
+                                  className="ins-c-spinner ins-m-center"
+                                  role="status"
                                 >
-                                  <div
-                                    className="ins-c-spinner ins-m-center"
-                                    role="status"
+                                  <span
+                                    className="pf-u-screen-reader"
                                   >
-                                    <span
-                                      className="pf-u-screen-reader"
-                                    >
-                                      Loading...
-                                    </span>
-                                  </div>
-                                </Spinner>
-                              </section>
-                            </Main>
-                          </Connect(Main)>
-                        </Loading>
-                      </Landing>
-                    </Route>
-                  </withRouter(Landing)>
-                </Route>
-              </Switch>
-            </App>
-          </Connect(App)>
+                                    Loading...
+                                  </span>
+                                </div>
+                              </Spinner>
+                            </section>
+                          </Main>
+                        </ConnectFunction>
+                      </Loading>
+                    </Landing>
+                  </Route>
+                </withRouter(Landing)>
+              </Route>
+            </Switch>
+          </ConnectFunction>
         </Route>
       </withRouter(Connect(App))>
     </Router>
@@ -298,7 +258,7 @@ exports[`App component should render correctly with data 1`] = `
         }
       >
         <Route>
-          <Connect(App)
+          <ConnectFunction
             history={
               Object {
                 "action": "POP",
@@ -341,62 +301,49 @@ exports[`App component should render correctly with data 1`] = `
               }
             }
           >
-            <App
-              history={
-                Object {
-                  "action": "POP",
-                  "block": [Function],
-                  "createHref": [Function],
-                  "go": [Function],
-                  "goBack": [Function],
-                  "goForward": [Function],
-                  "length": 1,
-                  "listen": [Function],
-                  "location": Object {
+            <Switch>
+              <Route
+                component={[Function]}
+                computedMatch={
+                  Object {
+                    "isExact": true,
+                    "params": Object {},
+                    "path": "/",
+                    "url": "/",
+                  }
+                }
+                exact={true}
+                location={
+                  Object {
                     "hash": "",
                     "pathname": "/",
                     "search": "",
                     "state": undefined,
-                  },
-                  "push": [Function],
-                  "replace": [Function],
+                  }
                 }
-              }
-              loadTechnologies={[Function]}
-              location={
-                Object {
-                  "hash": "",
-                  "pathname": "/",
-                  "search": "",
-                  "state": undefined,
-                }
-              }
-              match={
-                Object {
-                  "isExact": true,
-                  "params": Object {},
-                  "path": "/",
-                  "url": "/",
-                }
-              }
-              technologies={
-                Object {
-                  "foo": "bar",
-                }
-              }
-            >
-              <Switch>
-                <Route
-                  component={[Function]}
-                  computedMatch={
+                path="/"
+              >
+                <withRouter(Landing)
+                  history={
                     Object {
-                      "isExact": true,
-                      "params": Object {},
-                      "path": "/",
-                      "url": "/",
+                      "action": "POP",
+                      "block": [Function],
+                      "createHref": [Function],
+                      "go": [Function],
+                      "goBack": [Function],
+                      "goForward": [Function],
+                      "length": 1,
+                      "listen": [Function],
+                      "location": Object {
+                        "hash": "",
+                        "pathname": "/",
+                        "search": "",
+                        "state": undefined,
+                      },
+                      "push": [Function],
+                      "replace": [Function],
                     }
                   }
-                  exact={true}
                   location={
                     Object {
                       "hash": "",
@@ -405,118 +352,86 @@ exports[`App component should render correctly with data 1`] = `
                       "state": undefined,
                     }
                   }
-                  path="/"
+                  match={
+                    Object {
+                      "isExact": true,
+                      "params": Object {},
+                      "path": "/",
+                      "url": "/",
+                    }
+                  }
                 >
-                  <withRouter(Landing)
-                    history={
-                      Object {
-                        "action": "POP",
-                        "block": [Function],
-                        "createHref": [Function],
-                        "go": [Function],
-                        "goBack": [Function],
-                        "goForward": [Function],
-                        "length": 1,
-                        "listen": [Function],
-                        "location": Object {
-                          "hash": "",
-                          "pathname": "/",
-                          "search": "",
-                          "state": undefined,
-                        },
-                        "push": [Function],
-                        "replace": [Function],
-                      }
-                    }
-                    location={
-                      Object {
-                        "hash": "",
-                        "pathname": "/",
-                        "search": "",
-                        "state": undefined,
-                      }
-                    }
-                    match={
-                      Object {
-                        "isExact": true,
-                        "params": Object {},
-                        "path": "/",
-                        "url": "/",
-                      }
-                    }
-                  >
-                    <Route>
-                      <Landing
-                        history={
-                          Object {
-                            "action": "POP",
-                            "block": [Function],
-                            "createHref": [Function],
-                            "go": [Function],
-                            "goBack": [Function],
-                            "goForward": [Function],
-                            "length": 1,
-                            "listen": [Function],
-                            "location": Object {
-                              "hash": "",
-                              "pathname": "/",
-                              "search": "",
-                              "state": undefined,
-                            },
-                            "push": [Function],
-                            "replace": [Function],
-                          }
-                        }
-                        loadTechnologies={[Function]}
-                        location={
-                          Object {
+                  <Route>
+                    <Landing
+                      history={
+                        Object {
+                          "action": "POP",
+                          "block": [Function],
+                          "createHref": [Function],
+                          "go": [Function],
+                          "goBack": [Function],
+                          "goForward": [Function],
+                          "length": 1,
+                          "listen": [Function],
+                          "location": Object {
                             "hash": "",
                             "pathname": "/",
                             "search": "",
                             "state": undefined,
-                          }
+                          },
+                          "push": [Function],
+                          "replace": [Function],
                         }
-                        match={
-                          Object {
-                            "isExact": true,
-                            "params": Object {},
-                            "path": "/",
-                            "url": "/",
-                          }
+                      }
+                      loadTechnologies={[Function]}
+                      location={
+                        Object {
+                          "hash": "",
+                          "pathname": "/",
+                          "search": "",
+                          "state": undefined,
                         }
-                      >
-                        <Loading>
-                          <Connect(Main)>
-                            <Main>
-                              <section
-                                className="pf-l-page__main-section pf-c-page__main-section"
-                                page-type=""
+                      }
+                      match={
+                        Object {
+                          "isExact": true,
+                          "params": Object {},
+                          "path": "/",
+                          "url": "/",
+                        }
+                      }
+                    >
+                      <Loading>
+                        <ConnectFunction>
+                          <Main>
+                            <section
+                              className="pf-l-page__main-section pf-c-page__main-section"
+                              page-type=""
+                            >
+                              <Spinner
+                                centered={true}
                               >
-                                <Spinner
-                                  centered={true}
+                                <div
+                                  className="ins-c-spinner ins-m-center"
+                                  role="status"
                                 >
-                                  <div
-                                    className="ins-c-spinner ins-m-center"
-                                    role="status"
+                                  <span
+                                    className="pf-u-screen-reader"
                                   >
-                                    <span
-                                      className="pf-u-screen-reader"
-                                    >
-                                      Loading...
-                                    </span>
-                                  </div>
-                                </Spinner>
-                              </section>
-                            </Main>
-                          </Connect(Main)>
-                        </Loading>
-                      </Landing>
-                    </Route>
-                  </withRouter(Landing)>
-                </Route>
-              </Switch>
-            </App>
-          </Connect(App)>
+                                    Loading...
+                                  </span>
+                                </div>
+                              </Spinner>
+                            </section>
+                          </Main>
+                        </ConnectFunction>
+                      </Loading>
+                    </Landing>
+                  </Route>
+                </withRouter(Landing)>
+              </Route>
+            </Switch>
+          </ConnectFunction>
         </Route>
       </withRouter(Connect(App))>
     </Router>

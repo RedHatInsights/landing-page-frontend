@@ -17,7 +17,9 @@
       "<rootDir>/src/logout.js",
       "<rootDir>/src/logout-dev.js",
       "<rootDir>/src/not-found.js",
-      "<rootDir>/src/not-found-dev.js"
+      "<rootDir>/src/not-found-dev.js",
+      "<rootDir>/src/maintenance.js",
+      "<rootDir>/src/maintenance-dev.js"
     ],
     "setupFiles": [
       "<rootDir>/config/setupTests.js"
@@ -28,7 +30,10 @@
     "moduleNameMapper": {
       "\\.(css|scss)$": "identity-obj-proxy",
       ".+\\.(svg|png|jpg)$": "identity-obj-proxy"
-    }
+    },
+    "transformIgnorePatterns": [
+      "/node_modules/(?!@redhat-cloud-services)"
+    ]
   },
   "scripts": {
     "test": "jest --passWithNoTests",
@@ -55,10 +60,13 @@
   "homepage": "https://github.com/RedHatInsights/landing-page-frontend#readme",
   "dependencies": {
     "@babel/runtime": "7.3.4",
-    "@patternfly/patternfly": "^2.71.6",
-    "@patternfly/react-core": "^3.153.13",
-    "@patternfly/react-icons": "^3.14.9",
-    "@red-hat-insights/insights-frontend-components": "^3.41.37",
+    "@patternfly/patternfly": "^4.10.29",
+    "@patternfly/react-core": "^4.18.5",
+    "@patternfly/react-icons": "^4.3.3",
+    "@redhat-cloud-services/frontend-components": "^2.0.6",
+    "@redhat-cloud-services/frontend-components-notifications": "^2.0.3",
+    "@redhat-cloud-services/frontend-components-utilities": "^2.0.2",
+    "babel-plugin-transform-imports": "^2.0.0",
     "classnames": "^2.2.6",
     "git-revision-webpack-plugin": "^3.0.3",
     "html-loader": "^0.5.5",
@@ -107,7 +115,7 @@
     "prop-types": "^15.6.2",
     "react": "^16.4.2",
     "react-dom": "^16.8.6",
-    "react-redux": "^5.0.7",
+    "react-redux": "^7.2.0",
     "react-router-dom": "^5.0.0",
     "redux": "^3.7.2",
     "redux-logger": "^3.0.6",

@@ -16,9 +16,9 @@ const isBeta = () => {
 
 const NotFound = () => (
     <section className="pf-l-page__main-section pf-c-page__main-section ins-c-page__404">
-        <Title size='3xl'> 404: It&apos;s true. We&apos;ve lost it. </Title>
+        <Title headingLevel='h1' size='3xl'> 404: It&apos;s true. We&apos;ve lost it. </Title>
         <Icon404/>
-        <Title size='xl' className='ins-c-text__sorry'>
+        <Title headingLevel='h2' className='ins-c-text__sorry'>
             Sorry, we couldn&apos;t find what you were looking for.
             The page you requested may have been changed or moved.
         </Title>

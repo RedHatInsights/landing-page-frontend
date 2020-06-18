@@ -48,7 +48,7 @@ const Body = ({ technologies }) => {
             className='pf-m-fill ins-p-landing__content'
             landing-page-type='authenticated'
             needs-rbac-tour={ permission.isOrgAdmin ? `${needsRBACTour}` : 'false' }>
-            <Grid md={ 6 } lg={ 4 } gutter="md">
+            <Grid md={ 6 } lg={ 4 } hasGutter>
                 { technologies.map(({ icon: Icon, image, iconProps, title, url, apps, baseApp, body, isPreview, isEarlyAccess, isDevPreview, isUnderMaintenance, isUnderMaintenanceApps, id }, key) => ( // eslint-disable-line max-len
                     <GridItem key={ key } className='ins-c-application-card'>
                         <Card className="ins-c-application-info" application-id={ id }>
@@ -68,14 +68,14 @@ const Body = ({ technologies }) => {
                                             { ...iconProps } /> }
                                     </StackItem>
                                     <StackItem>
-                                        <Title headingLevel='h2' size='xl'>
+                                        <Title headingLevel='h2'>
                                             { title }
                                         </Title>
                                     </StackItem>
                                 </Stack>
                             </CardHeader>
                             <CardBody>
-                                <Stack gutter='md' className='ins-c-application-info__content'>
+                                <Stack hasGutter className='ins-c-application-info__content'>
                                     { isPreview &&
                                         <StackItem>
                                             <div className="ins-m-tech-preview">

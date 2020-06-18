@@ -78,7 +78,7 @@ exports[`Landing component renders authenticated page should render correctly 1`
             }
           >
             <Loading>
-              <Connect(Main)>
+              <ConnectFunction>
                 <Main>
                   <section
                     className="pf-l-page__main-section pf-c-page__main-section"
@@ -100,7 +100,7 @@ exports[`Landing component renders authenticated page should render correctly 1`
                     </Spinner>
                   </section>
                 </Main>
-              </Connect(Main)>
+              </ConnectFunction>
             </Loading>
           </Landing>
         </Route>

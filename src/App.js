@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import React, { useEffect, useState, createContext } from 'react';
 import { withRouter, Switch, Route } from 'react-router-dom';
-import { getRegistry } from '@red-hat-insights/insights-frontend-components/Utilities/Registry';
+import { getRegistry } from '@redhat-cloud-services/frontend-components-utilities/files/Registry';
 import { connect } from 'react-redux';
 import NotFound from './routes/404';
 import Landing from './routes/Landing';
@@ -9,6 +9,8 @@ import Maintenance from './routes/Maintenance';
 import technologiesReducer from './store/technologiesReducer';
 import { technologiesLoaded } from './store/actions';
 import { activeTechnologies } from './consts';
+
+import './App.scss';
 
 const routes = {
     landing: '/',

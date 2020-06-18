@@ -15,4 +15,12 @@ describe('Footer Traditional component', () => {
         expect(logo.getDOMNode().getAttribute('target')).toBe('_blank');
         expect(logo.getDOMNode().getAttribute('href')).toBe('https://www.redhat.com');
     });
+
+    it('Click browser support link', () => {
+        const wrapper = mount(<FooterTraditional/>);
+        const browserSupport = wrapper.find('.ins-p-footer__browser-support').at(0);
+        browserSupport.simulate('click');
+        const browserSupportModal = wrapper.find('.ins-p-browser-support .pf-c-button').at(0);
+        browserSupportModal.simulate('click');
+    });
 });

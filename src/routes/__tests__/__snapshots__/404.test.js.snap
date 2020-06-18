@@ -13,7 +13,7 @@ exports[`404 page should render correctly 1`] = `
     }
   }
 >
-  <Connect(NotFound)>
+  <ConnectFunction>
     <NotFound
       dispatch={[Function]}
       history={
@@ -26,7 +26,8 @@ exports[`404 page should render correctly 1`] = `
       <section
         className="pf-l-page__main-section pf-c-page__main-section ins-c-page__404"
       >
-        <Title
+        <Component
+          headingLevel="h1"
           size="3xl"
         >
           <h1
@@ -34,7 +35,7 @@ exports[`404 page should render correctly 1`] = `
           >
              404: It's true. We've lost it. 
           </h1>
-        </Title>
+        </Component>
         <Icon404>
           <svg
             className="Icon404"
@@ -275,64 +276,38 @@ exports[`404 page should render correctly 1`] = `
             </g>
           </svg>
         </Icon404>
-        <Title
+        <Component
           className="ins-c-text__sorry"
-          size="xl"
+          headingLevel="h2"
         >
-          <h1
+          <h2
             className="pf-c-title pf-m-xl ins-c-text__sorry"
           >
             Sorry, we couldn't find what you were looking for. The page you requested may have been changed or moved.
-          </h1>
-        </Title>
+          </h2>
+        </Component>
         <Component
           component="a"
           href="http://localhost"
           variant="link"
         >
-          <ComponentWithOuia
-            component={[Function]}
-            componentProps={
-              Object {
-                "children": "Return to homepage",
-                "component": "a",
-                "href": "http://localhost",
-                "variant": "link",
-              }
-            }
-            consumerContext={null}
+          <a
+            aria-disabled={false}
+            aria-label={null}
+            className="pf-c-button pf-m-link"
+            data-ouia-component-id={null}
+            data-ouia-component-type="PF4/Button"
+            data-ouia-safe={true}
+            disabled={null}
+            href="http://localhost"
+            tabIndex={null}
+            type={null}
           >
-            <Button
-              component="a"
-              href="http://localhost"
-              ouiaContext={
-                Object {
-                  "isOuia": false,
-                  "ouiaId": null,
-                }
-              }
-              variant="link"
-            >
-              <a
-                aria-disabled={false}
-                aria-label={null}
-                className="pf-c-button pf-m-link"
-                disabled={null}
-                href="http://localhost"
-                tabIndex={null}
-                type={null}
-              >
-                <span
-                  className="pf-c-button__text"
-                >
-                  Return to homepage
-                </span>
-              </a>
-            </Button>
-          </ComponentWithOuia>
+            Return to homepage
+          </a>
         </Component>
       </section>
     </NotFound>
-  </Connect(NotFound)>
+  </ConnectFunction>
 </Provider>
 `;

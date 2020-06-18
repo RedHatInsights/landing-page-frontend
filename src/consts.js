@@ -214,5 +214,19 @@ export const activeTechnologies = [
                 title: 'Not now'
             }
         }
+    },
+    {
+        id: 'settings',
+        entitlement: 'settings',
+        url: 'settings',
+        disabled: true,
+        emptyAlertTitle: 'You need an account number to access this page'
+    },
+    {
+        id: 'user-preferences',
+        entitlement: 'user-preferences',
+        url: 'user-preferences',
+        disabled: true,
+        emptyAlertTitle: 'You need an account number to access this page'
     }
 ];
