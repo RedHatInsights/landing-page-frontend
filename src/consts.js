@@ -224,7 +224,7 @@ export const activeTechnologies = [
     },
     {
         id: 'user-preferences',
-        entitlement: 'user-preferences',
+        entitlement: 'user_preferences',
         url: 'user-preferences',
         disabled: true,
         emptyAlertTitle: 'You need an account number to access this page'
