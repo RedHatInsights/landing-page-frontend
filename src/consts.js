@@ -98,7 +98,7 @@ export const activeTechnologies = [
         baseApp: '/automation-analytics',
         image: Automation,
         title: 'Red Hat Ansible Automation Platform',
-        body: 'Extend your automation with analytics, policy and governance, and content management.',
+        body: 'Extend your automation with analytics, content management, and policy and governance.',
         apps: {
             'automation analytics': '/automation-analytics',
             'automation hub': '/automation-hub',
