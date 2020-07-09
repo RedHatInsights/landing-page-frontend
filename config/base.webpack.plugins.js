@@ -113,7 +113,8 @@ plugins.push(ExtractCssWebpackPlugin);
  */
 const CopyFilesWebpackPlugin = new (require('copy-webpack-plugin'))([
     { from: path.resolve(__dirname, '../static/images'), to: 'images' },
-    { from: path.resolve(__dirname, '../robots.txt') }
+    { from: path.resolve(__dirname, '../robots.txt') },
+    { from: path.resolve(__dirname, '../src/consts.js'), to: 'data' }
 ]);
 plugins.push(CopyFilesWebpackPlugin);
 
