@@ -23,15 +23,16 @@ plugins.push(WriteFileWebpackPlugin);
  * @type {var}
  */
 const HtmlWebpackPlugin = new (require('html-webpack-plugin'))({
-    title: 'Home',
+    title: 'cloud.redhat.com - Home',
     filename: 'index.html',
     chunks: [ 'App', 'vendor' ],
     template: path.resolve(__dirname, '../src/index.html')
 });
 plugins.push(HtmlWebpackPlugin);
 
+// this page is deprecated for now
 const LogoutPage = new (require('html-webpack-plugin'))({
-    title: 'Logged out',
+    title: 'Logged out - cloud.redhat.com',
     filename: 'logout.html',
     chunks: [ 'Logout', 'vendor' ],
     template: path.resolve(__dirname, '../src/not-signed.html')
@@ -39,7 +40,7 @@ const LogoutPage = new (require('html-webpack-plugin'))({
 plugins.push(LogoutPage);
 
 const NotFound = new (require('html-webpack-plugin'))({
-    title: 'Not found',
+    title: 'Page not found - cloud.redhat.com',
     filename: '404.html',
     chunks: [ 'NotFound', 'vendor' ],
     template: path.resolve(__dirname, '../src/not-signed.html')
@@ -47,7 +48,7 @@ const NotFound = new (require('html-webpack-plugin'))({
 plugins.push(NotFound);
 
 const Maintenance = new (require('html-webpack-plugin'))({
-    title: 'Maintenance',
+    title: 'Maintenance in progress - cloud.redhat.com',
     filename: 'maintenance.html',
     chunks: [ 'Maintenance', 'vendor' ],
     template: path.resolve(__dirname, '../src/not-signed.html')
@@ -55,7 +56,7 @@ const Maintenance = new (require('html-webpack-plugin'))({
 plugins.push(Maintenance);
 
 const CheckSSO = new (require('html-webpack-plugin'))({
-    title: 'checkSSO',
+    title: 'Authenticating - cloud.redhat.com',
     filename: 'silent-check-sso.html',
     chunks: [ '' ],
     template: path.resolve(__dirname, '../src/silent-check-sso.html')
