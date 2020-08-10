@@ -23,7 +23,7 @@ plugins.push(WriteFileWebpackPlugin);
  * @type {var}
  */
 const HtmlWebpackPlugin = new (require('html-webpack-plugin'))({
-    title: 'cloud.redhat.com - Home',
+    title: 'Home - cloud.redhat.com',
     filename: 'index.html',
     chunks: [ 'App', 'vendor' ],
     template: path.resolve(__dirname, '../src/index.html')
