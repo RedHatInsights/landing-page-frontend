@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import React, { useEffect, useState, createContext } from 'react';
+import React, { useEffect, useState, createContext, lazy, Suspense, Fragment } from 'react';
 import { withRouter, Switch, Route } from 'react-router-dom';
 import { getRegistry } from '@redhat-cloud-services/frontend-components-utilities/files/Registry';
 import { connect } from 'react-redux';
@@ -9,6 +9,10 @@ import Maintenance from './routes/Maintenance';
 import technologiesReducer from './store/technologiesReducer';
 import { technologiesLoaded } from './store/actions';
 import { activeTechnologies } from './consts';
+
+const Landing = lazy(() => import('./routes/Landing'));
+const Maintenance = lazy(() => import('./routes/Maintenance'));
+const NotFound = lazy(() => import('./routes/404'));
 
 import './App.scss';
 

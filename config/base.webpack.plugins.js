@@ -8,6 +8,8 @@ const path = require('path');
 const webpack = require('webpack');
 const config = require('./webpack.common.js');
 const plugins = [];
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
+const ESLintPlugin = require('eslint-webpack-plugin');
 
 /**
  * Writes bundles to distribution folder.
@@ -128,5 +130,13 @@ const HtmlReplaceWebpackPlugin = new(require('html-replace-webpack-plugin'))([{
     replacement: config.appDeployment
 }]);
 plugins.push(HtmlReplaceWebpackPlugin);
+
+if (process.env.ANALYZE === 'true') {
+    plugins.push(new BundleAnalyzerPlugin());
+}
+
+if (process.env.NODE_ENV === 'production') {
+    plugins.push(new ESLintPlugin());
+}
 
 module.exports = { plugins };

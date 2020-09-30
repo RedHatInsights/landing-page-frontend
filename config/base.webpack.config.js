@@ -6,26 +6,8 @@ const rules = [
     { loader: 'babel-loader' }
 ];
 
-if (process.env.NODE_ENV === 'production') {
-    rules.push({ loader: 'eslint-loader' });
-}
-
 const webpackConfig = {
-    mode: process.env.NODE_ENV === 'production' ? 'production' : 'development',
     devtool: false,
-    optimization: {
-        minimize: process.env.NODE_ENV === 'production',
-        splitChunks: {
-            cacheGroups: {
-                vendors: false,
-                commons: {
-                    test: /[\\/]node_modules[\\/]/,
-                    name: 'vendor',
-                    chunks: 'initial'
-                }
-            }
-        }
-    },
     entry: {
         App: config.paths.entry,
         Logout: config.paths.logout,
@@ -33,10 +15,10 @@ const webpackConfig = {
         Maintenance: config.paths.maintenance
     },
     output: {
-        filename: 'js/[name].js',
+        filename: 'js/[name].[hash].js',
         path: config.paths.public,
         publicPath: config.paths.publicPath,
-        chunkFilename: 'js/[name].js'
+        chunkFilename: 'js/[name].[hash].js'
     },
     module: {
         rules: [{
