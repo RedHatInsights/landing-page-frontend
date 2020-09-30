@@ -1,6 +1,8 @@
 import React from 'react';
 
-import { PageSection, Title, Button } from '@patternfly/react-core';
+import { PageSection } from '@patternfly/react-core/dist/js/components/Page/PageSection';
+import { Title } from '@patternfly/react-core/dist/js/components/Title/Title';
+import { Button } from '@patternfly/react-core/dist/js/components/Button/Button';
 
 import './Hero.scss';
 

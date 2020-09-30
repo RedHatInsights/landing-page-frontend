@@ -1,6 +1,10 @@
 import React, { useState } from 'react';
 import { RhLogo } from '../components';
-import { Title, Modal, Button, PageSection, ModalVariant } from '@patternfly/react-core';
+import { Title } from '@patternfly/react-core/dist/js/components/Title/Title';
+import { Modal, ModalVariant } from '@patternfly/react-core/dist/js/components/Modal/Modal';
+import { Button } from '@patternfly/react-core/dist/js/components/Button/Button';
+import { PageSection } from '@patternfly/react-core/dist/js/components/Page/PageSection';
+
 import './FooterTraditional.scss';
 
 const FooterTraditional = () => {

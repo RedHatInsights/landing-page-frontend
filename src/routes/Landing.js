@@ -2,13 +2,12 @@ import PropTypes from 'prop-types';
 import React, { useEffect, useState, Fragment } from 'react';
 import { useDispatch } from 'react-redux';
 import { withRouter } from 'react-router-dom';
-import {
-    Modal,
-    Button,
-    Title,
-    Stack,
-    StackItem
-} from '@patternfly/react-core';
+
+import { Modal } from '@patternfly/react-core/dist/js/components/Modal/Modal';
+import { Button } from '@patternfly/react-core/dist/js/components/Button/Button';
+import { Title } from '@patternfly/react-core/dist/js/components/Title/Title';
+import { Stack } from '@patternfly/react-core/dist/js/layouts/Stack/Stack';
+import { StackItem } from '@patternfly/react-core/dist/js/layouts/Stack/StackItem';
 
 import Header from '../layout/Header';
 import Body from '../layout/Body';
@@ -16,7 +15,7 @@ import Marketing from '../layout/Marketing';
 import FooterTraditional from '../layout/FooterTraditional';
 import Loading from '../layout/Loading';
 import { activeTechnologies } from '../consts';
-import { addNotification } from '@redhat-cloud-services/frontend-components-notifications/';
+import { addNotification } from '@redhat-cloud-services/frontend-components-notifications/cjs/actions';
 import './Landing.scss';
 
 const Landing = () => {
