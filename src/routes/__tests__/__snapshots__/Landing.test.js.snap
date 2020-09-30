@@ -37,73 +37,71 @@ exports[`Landing component renders authenticated page should render correctly 1`
       }
     >
       <withRouter(Landing)>
-        <Route>
-          <Landing
-            history={
-              Object {
-                "action": "POP",
-                "block": [Function],
-                "createHref": [Function],
-                "go": [Function],
-                "goBack": [Function],
-                "goForward": [Function],
-                "length": 1,
-                "listen": [Function],
-                "location": Object {
-                  "hash": "",
-                  "pathname": "/",
-                  "search": "",
-                  "state": undefined,
-                },
-                "push": [Function],
-                "replace": [Function],
-              }
-            }
-            loadTechnologies={[Function]}
-            location={
-              Object {
+        <Landing
+          history={
+            Object {
+              "action": "POP",
+              "block": [Function],
+              "createHref": [Function],
+              "go": [Function],
+              "goBack": [Function],
+              "goForward": [Function],
+              "length": 1,
+              "listen": [Function],
+              "location": Object {
                 "hash": "",
                 "pathname": "/",
                 "search": "",
                 "state": undefined,
-              }
+              },
+              "push": [Function],
+              "replace": [Function],
             }
-            match={
-              Object {
-                "isExact": true,
-                "params": Object {},
-                "path": "/",
-                "url": "/",
-              }
+          }
+          loadTechnologies={[Function]}
+          location={
+            Object {
+              "hash": "",
+              "pathname": "/",
+              "search": "",
+              "state": undefined,
             }
-          >
-            <Loading>
-              <ConnectFunction>
-                <Main>
-                  <section
-                    className="pf-l-page__main-section pf-c-page__main-section"
-                    page-type=""
+          }
+          match={
+            Object {
+              "isExact": true,
+              "params": Object {},
+              "path": "/",
+              "url": "/",
+            }
+          }
+        >
+          <Loading>
+            <Connect(Main)>
+              <Main>
+                <section
+                  className="pf-l-page__main-section pf-c-page__main-section"
+                  page-type=""
+                >
+                  <Spinner
+                    centered={true}
                   >
-                    <Spinner
-                      centered={true}
+                    <div
+                      className="ins-c-spinner ins-m-center"
+                      role="status"
                     >
-                      <div
-                        className="ins-c-spinner ins-m-center"
-                        role="status"
+                      <span
+                        className="pf-u-screen-reader"
                       >
-                        <span
-                          className="pf-u-screen-reader"
-                        >
-                          Loading...
-                        </span>
-                      </div>
-                    </Spinner>
-                  </section>
-                </Main>
-              </ConnectFunction>
-            </Loading>
-          </Landing>
-        </Route>
+                        Loading...
+                      </span>
+                    </div>
+                  </Spinner>
+                </section>
+              </Main>
+            </Connect(Main)>
+          </Loading>
+        </Landing>
       </withRouter(Landing)>
     </Router>
   </BrowserRouter>

@@ -13,7 +13,7 @@ exports[`render Marketing component should render correctly 1`] = `
     }
   }
 >
-  <ConnectFunction>
+  <Connect(Marketing)>
     <Marketing
       dispatch={[Function]}
       technologies={Array []}
@@ -123,6 +123,6 @@ exports[`render Marketing component should render correctly 1`] = `
         </section>
       </Component>
     </Marketing>
-  </ConnectFunction>
+  </Connect(Marketing)>
 </Provider>
 `;

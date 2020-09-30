@@ -13,7 +13,7 @@ exports[`404 page should render correctly 1`] = `
     }
   }
 >
-  <ConnectFunction>
+  <Connect(NotFound)>
     <NotFound
       dispatch={[Function]}
       history={
@@ -308,6 +308,6 @@ exports[`404 page should render correctly 1`] = `
         </Component>
       </section>
     </NotFound>
-  </ConnectFunction>
+  </Connect(NotFound)>
 </Provider>
 `;
