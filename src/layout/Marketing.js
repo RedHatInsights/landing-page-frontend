@@ -1,13 +1,6 @@
 import React from 'react';
-import { Card } from '@patternfly/react-core/dist/js/components/Card/Card';
-import { CardHeader } from '@patternfly/react-core/dist/js/components/Card/CardHeader';
-import { CardBody } from '@patternfly/react-core/dist/js/components/Card/CardBody';
-import { Grid } from '@patternfly/react-core/dist/js/layouts/Grid/Grid';
-import { Stack } from '@patternfly/react-core/dist/js/layouts/Stack/Stack';
-import { StackItem } from '@patternfly/react-core/dist/js/layouts/Stack/StackItem';
-import { CardFooter } from '@patternfly/react-core/dist/js/components/Card/CardFooter';
-import { PageSection } from '@patternfly/react-core/dist/js/components/Page/PageSection';
-import ArrowRightIcon from '@patternfly/react-icons/dist/js/icons/arrow-right-icon';
+import { Card, CardBody, CardFooter, CardHeader, Grid, PageSection, Stack, StackItem } from '@patternfly/react-core';
+import { ArrowRightIcon } from '@patternfly/react-icons';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 

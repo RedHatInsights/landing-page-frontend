@@ -1,8 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { Button, Title } from '@patternfly/react-core';
 import Icon404 from '../components/icon-404';
-import { Button } from '@patternfly/react-core/dist/js/components/Button/Button';
-import { Title } from '@patternfly/react-core/dist/js/components/Title/Title';
 import { connect } from 'react-redux';
 
 import './404.scss';

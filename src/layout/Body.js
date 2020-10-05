@@ -1,20 +1,20 @@
 import React, { useState, useEffect, useContext } from 'react';
-import { Button } from '@patternfly/react-core/dist/js/components/Button/Button';
-import { Card } from '@patternfly/react-core/dist/js/components/Card/Card';
-import { CardBody } from '@patternfly/react-core/dist/js/components/Card/CardBody';
-import { CardHeader } from '@patternfly/react-core/dist/js/components/Card/CardHeader';
-import { CardFooter } from '@patternfly/react-core/dist/js/components/Card/CardFooter';
-import { Grid } from '@patternfly/react-core/dist/js/layouts/Grid/Grid';
-import { GridItem } from '@patternfly/react-core/dist/js/layouts/Grid/GridItem';
-import { Stack } from '@patternfly/react-core/dist/js/layouts/Stack/Stack';
-import { StackItem } from '@patternfly/react-core/dist/js/layouts/Stack/StackItem';
-import { Title } from '@patternfly/react-core/dist/js/components/Title/Title';
-import { PageSection } from '@patternfly/react-core/dist/js/components/Page/PageSection';
-import { Tooltip, TooltipPosition } from '@patternfly/react-core/dist/js/components/Tooltip/Tooltip';
-import ArrowRightIcon from '@patternfly/react-icons/dist/js/icons/arrow-right-icon';
-import BinocularsIcon from '@patternfly/react-icons/dist/js/icons/binoculars-icon';
-import CodeIcon from '@patternfly/react-icons/dist/js/icons/code-icon';
-import OutlinedEyeIcon from '@patternfly/react-icons/dist/js/icons/outlined-eye-icon';
+import {
+    Button,
+    Card,
+    CardBody,
+    CardFooter,
+    CardHeader,
+    Grid,
+    GridItem,
+    PageSection,
+    Stack,
+    StackItem,
+    Title,
+    Tooltip,
+    TooltipPosition
+} from '@patternfly/react-core';
+import { ArrowRightIcon, BinocularsIcon, CodeIcon, OutlinedEyeIcon } from '@patternfly/react-icons';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 

@@ -115,7 +115,13 @@ exports[`App component should render correctly 1`] = `
             }
           >
             <Suspense
-              fallback={<React.Fragment />}
+              fallback={
+                <Unknown>
+                  <Unknown
+                    size="xl"
+                  />
+                </Unknown>
+              }
             >
               <Switch>
                 <Route
@@ -147,6 +153,31 @@ exports[`App component should render correctly 1`] = `
                   path="/"
                 />
               </Switch>
+              <Component>
+                <div
+                  className="pf-l-bullseye"
+                >
+                  <Component
+                    size="xl"
+                  >
+                    <span
+                      aria-valuetext="Loading..."
+                      className="pf-c-spinner pf-m-xl"
+                      role="progressbar"
+                    >
+                      <span
+                        className="pf-c-spinner__clipper"
+                      />
+                      <span
+                        className="pf-c-spinner__lead-ball"
+                      />
+                      <span
+                        className="pf-c-spinner__tail-ball"
+                      />
+                    </span>
+                  </Component>
+                </div>
+              </Component>
             </Suspense>
           </App>
         </Connect(App)>
@@ -287,7 +318,13 @@ exports[`App component should render correctly with data 1`] = `
             }
           >
             <Suspense
-              fallback={<React.Fragment />}
+              fallback={
+                <Unknown>
+                  <Unknown
+                    size="xl"
+                  />
+                </Unknown>
+              }
             >
               <Switch>
                 <Route

@@ -1,8 +1,9 @@
 import PropTypes from 'prop-types';
-import React, { useEffect, useState, createContext, lazy, Suspense, Fragment } from 'react';
+import React, { useEffect, useState, createContext, lazy, Suspense } from 'react';
 import { withRouter, Switch, Route } from 'react-router-dom';
 import { getRegistry } from '@redhat-cloud-services/frontend-components-utilities/files/cjs/Registry';
 import { connect } from 'react-redux';
+import { Bullseye, Spinner } from '@patternfly/react-core';
 import technologiesReducer from './store/technologiesReducer';
 import { technologiesLoaded } from './store/actions';
 import { activeTechnologies } from './consts';
@@ -34,7 +35,7 @@ const App = ({ loadTechnologies }) => {
 
     return (
         <PermissionContext.Provider value={ { isOrgAdmin } }>
-            <Suspense fallback={ <Fragment></Fragment> }>
+            <Suspense fallback={ <Bullseye><Spinner size="xl" /></Bullseye> }>
                 <Switch>
                     <Route exact path={ routes.landing } component={ Landing } />
                     <Route exact path={ routes.landingBeta } component={ Landing } />

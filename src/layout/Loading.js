@@ -1,7 +1,6 @@
 import React from 'react';
 
-import { Main } from '@redhat-cloud-services/frontend-components/components/cjs/Main';
-import { Spinner } from '@redhat-cloud-services/frontend-components/components/cjs/Spinner';
+import { Main, Spinner } from '@redhat-cloud-services/frontend-components';
 
 const Loading = () => (
     <Main>

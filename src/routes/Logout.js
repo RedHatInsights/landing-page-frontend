@@ -1,6 +1,5 @@
+import { Button, Title } from '@patternfly/react-core';
 import React from 'react';
-import { Button } from '@patternfly/react-core/dist/js/components/Button/Button';
-import { Title } from '@patternfly/react-core/dist/js/components/Title/Title';
 
 import './Logout.scss';
 

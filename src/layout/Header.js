@@ -1,5 +1,5 @@
 import React from 'react';
-import { PageHeader, PageHeaderTitle } from '@redhat-cloud-services/frontend-components/components/cjs/PageHeader';
+import { PageHeader, PageHeaderTitle } from '@redhat-cloud-services/frontend-components';
 
 const Header = () => (
     <PageHeader>

@@ -2,13 +2,7 @@ import PropTypes from 'prop-types';
 import React, { useEffect, useState, Fragment } from 'react';
 import { useDispatch } from 'react-redux';
 import { withRouter } from 'react-router-dom';
-
-import { Modal } from '@patternfly/react-core/dist/js/components/Modal/Modal';
-import { Button } from '@patternfly/react-core/dist/js/components/Button/Button';
-import { Title } from '@patternfly/react-core/dist/js/components/Title/Title';
-import { Stack } from '@patternfly/react-core/dist/js/layouts/Stack/Stack';
-import { StackItem } from '@patternfly/react-core/dist/js/layouts/Stack/StackItem';
-
+import { Button, Modal, Stack, StackItem, Title } from '@patternfly/react-core';
 import Header from '../layout/Header';
 import Body from '../layout/Body';
 import Marketing from '../layout/Marketing';
