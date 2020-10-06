@@ -1,14 +1,5 @@
+import { Button, EmptyState, EmptyStateBody, EmptyStateIcon, EmptyStateVariant, Title } from '@patternfly/react-core';
 import React from 'react';
-
-import {
-    Title,
-    Button,
-    EmptyState,
-    EmptyStateVariant,
-    EmptyStateIcon,
-    EmptyStateBody
-} from '@patternfly/react-core';
-
 import IconHourglass from '../components/icon-hourglass';
 
 import './Maintenance.scss';

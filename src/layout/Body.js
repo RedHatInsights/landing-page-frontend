@@ -3,18 +3,17 @@ import {
     Button,
     Card,
     CardBody,
-    CardHeader,
     CardFooter,
+    CardHeader,
     Grid,
     GridItem,
+    PageSection,
     Stack,
     StackItem,
     Title,
-    PageSection,
     Tooltip,
     TooltipPosition
 } from '@patternfly/react-core';
-
 import { ArrowRightIcon, BinocularsIcon, CodeIcon, OutlinedEyeIcon } from '@patternfly/react-icons';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';

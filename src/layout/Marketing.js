@@ -1,14 +1,5 @@
 import React from 'react';
-import {
-    Card, CardHeader,
-    CardBody,
-    Grid,
-    Stack,
-    StackItem,
-    CardFooter,
-    PageSection
-} from '@patternfly/react-core';
-
+import { Card, CardBody, CardFooter, CardHeader, Grid, PageSection, Stack, StackItem } from '@patternfly/react-core';
 import { ArrowRightIcon } from '@patternfly/react-icons';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';

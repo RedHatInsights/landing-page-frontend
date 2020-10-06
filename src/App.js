@@ -1,14 +1,16 @@
 import PropTypes from 'prop-types';
-import React, { useEffect, useState, createContext } from 'react';
+import React, { useEffect, useState, createContext, lazy, Suspense } from 'react';
 import { withRouter, Switch, Route } from 'react-router-dom';
-import { getRegistry } from '@redhat-cloud-services/frontend-components-utilities/files/Registry';
+import { getRegistry } from '@redhat-cloud-services/frontend-components-utilities/files/cjs/Registry';
 import { connect } from 'react-redux';
-import NotFound from './routes/404';
-import Landing from './routes/Landing';
-import Maintenance from './routes/Maintenance';
+import { Bullseye, Spinner } from '@patternfly/react-core';
 import technologiesReducer from './store/technologiesReducer';
 import { technologiesLoaded } from './store/actions';
 import { activeTechnologies } from './consts';
+
+const Landing = lazy(() => import('./routes/Landing'));
+const Maintenance = lazy(() => import('./routes/Maintenance'));
+const NotFound = lazy(() => import('./routes/404'));
 
 import './App.scss';
 
@@ -33,12 +35,14 @@ const App = ({ loadTechnologies }) => {
 
     return (
         <PermissionContext.Provider value={ { isOrgAdmin } }>
-            <Switch>
-                <Route exact path={ routes.landing } component={ Landing } />
-                <Route exact path={ routes.landingBeta } component={ Landing } />
-                <Route exact path={ routes.maintenance } component={ Maintenance } />
-                <Route path="*" component={ NotFound } />
-            </Switch>
+            <Suspense fallback={ <Bullseye><Spinner size="xl" /></Bullseye> }>
+                <Switch>
+                    <Route exact path={ routes.landing } component={ Landing } />
+                    <Route exact path={ routes.landingBeta } component={ Landing } />
+                    <Route exact path={ routes.maintenance } component={ Maintenance } />
+                    <Route path="*" component={ NotFound } />
+                </Switch>
+            </Suspense>
         </PermissionContext.Provider>
     );
 };

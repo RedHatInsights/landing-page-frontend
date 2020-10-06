@@ -32,6 +32,6 @@ exports[`render Body component should render correctly 1`] = `
     }
   }
 >
-  <Component />
+  <Connect(Body) />
 </ContextProvider>
 `;

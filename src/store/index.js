@@ -1,6 +1,7 @@
-import MiddlewareListener from '@redhat-cloud-services/frontend-components-utilities/files/MiddlewareListener';
-import { getRegistry } from '@redhat-cloud-services/frontend-components-utilities/files/Registry';
-import { notificationsMiddleware, notifications } from '@redhat-cloud-services/frontend-components-notifications/';
+import MiddlewareListener from '@redhat-cloud-services/frontend-components-utilities/files/cjs/MiddlewareListener';
+import { getRegistry } from '@redhat-cloud-services/frontend-components-utilities/files/cjs/Registry';
+import notificationsMiddleware from '@redhat-cloud-services/frontend-components-notifications/cjs/notificationsMiddleware';
+import notifications from '@redhat-cloud-services/frontend-components-notifications/cjs/notifications';
 import promiseMiddleware from 'redux-promise-middleware';
 
 let middlewareListener;
