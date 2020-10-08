@@ -28,6 +28,10 @@
             max-width: initial;
         }
 
+        &[application-id="sap"] img.ins-c-application-info__logo {
+            @include rem('width', 72px); // this icon looks huge and we want to keep alignment, so change width
+        }
+
         svg.ins-c-application-info__logo {
             @include rem('height', 56px);
             @include rem('width', 56px);
