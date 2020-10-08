@@ -47,7 +47,7 @@ const Body = ({ technologies }) => {
             className='pf-m-fill ins-p-landing__content'
             landing-page-type='authenticated'
             needs-rbac-tour={ permission.isOrgAdmin ? `${needsRBACTour}` : 'false' }>
-            <Grid md={ 6 } lg={ 4 } hasGutter>
+            <Grid md={ 6 } lg={ 4 } xl={ 3 } hasGutter>
                 { technologies.map(({ icon: Icon, image, iconProps, title, url, apps, baseApp, body, isPreview, isEarlyAccess, isDevPreview, isUnderMaintenance, isUnderMaintenanceApps, id }, key) => ( // eslint-disable-line max-len
                     <GridItem key={ key } className='ins-c-application-card'>
                         <Card className="ins-c-application-info" application-id={ id } ouiaId={ title.toLowerCase().replace(' ', '_') }>
