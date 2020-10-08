@@ -50,7 +50,7 @@ const Body = ({ technologies }) => {
             <Grid md={ 6 } lg={ 4 } hasGutter>
                 { technologies.map(({ icon: Icon, image, iconProps, title, url, apps, baseApp, body, isPreview, isEarlyAccess, isDevPreview, isUnderMaintenance, isUnderMaintenanceApps, id }, key) => ( // eslint-disable-line max-len
                     <GridItem key={ key } className='ins-c-application-card'>
-                        <Card className="ins-c-application-info" application-id={ id }>
+                        <Card className="ins-c-application-info" application-id={ id } ouiaId={ title.toLowerCase().replace(' ', '_') }>
                             <CardHeader>
                                 <Stack>
                                     <StackItem>
