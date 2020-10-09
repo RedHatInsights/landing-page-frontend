@@ -167,7 +167,6 @@ export const activeTechnologies = [
         baseApp: '/sap',
         entitlement: 'insights',
         marketing: false,
-        image: SAP,
         apps: {
             dashboard: '/sap'
         },
