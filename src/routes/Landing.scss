@@ -17,6 +17,10 @@
     color: var(--pf-global--default-color--200);
 }
 
+.pf-c-modal-box__body .pf-c-empty-state img.ins-c-application-info__logo {
+    @include rem('height', 76px);
+}
+
 .pf-c-card {
     padding: var(--pf-global--spacer--md);
 
@@ -31,6 +35,10 @@
         svg.ins-c-application-info__logo {
             @include rem('height', 56px);
             @include rem('width', 56px);
+        }
+
+        &[application-id="sap"] img.ins-c-application-info__logo {
+            @include rem('width', 72px); // this icon looks huge and we want to keep alignment, so change width
         }
 
         h2 { margin-top: 15px; }
@@ -52,10 +60,6 @@
     }
 
     .ins-c-navigation { color: var(--pf-global--active-color--100); }
-}
-
-.pf-c-modal-box__body .pf-c-empty-state img.ins-c-application-info__logo {
-    @include rem('height', 76px);
 }
 
 svg.ins-c-icon__active { fill: var(--pf-global--active-color--100); }
