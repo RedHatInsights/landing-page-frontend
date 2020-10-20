@@ -5,3 +5,4 @@ Disallow: /config/*
 Disallow: /beta/*
 Disallow: /docs/storybook
 Disallow: /docs/storybook/*
+Disallow: /internal/*
