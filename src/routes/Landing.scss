@@ -37,10 +37,6 @@
             @include rem('width', 56px);
         }
 
-        &[application-id="sap"] img.ins-c-application-info__logo {
-            @include rem('width', 72px); // this icon looks huge and we want to keep alignment, so change width
-        }
-
         h2 { margin-top: 15px; }
     }
 
