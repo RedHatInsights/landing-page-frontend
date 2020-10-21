@@ -5,6 +5,7 @@ import Cost from './components/Cost.svg';
 import Insights from './components/Insights.svg';
 import Migrations from './components/Migrations.svg';
 import Openshift from './components/Openshift.svg';
+import SAP from './components/SAP.svg';
 
 import insightsMarketing from './components/marketing/insightsMarketing.svg';
 import openShiftMarketing from './components/marketing/openShiftMarketing.svg';
@@ -166,6 +167,7 @@ export const activeTechnologies = [
         baseApp: '/sap',
         entitlement: 'insights',
         marketing: false,
+        image: SAP,
         apps: {
             dashboard: '/sap'
         },
