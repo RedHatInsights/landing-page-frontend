@@ -242,5 +242,12 @@ export const activeTechnologies = [
         url: 'user-preferences',
         disabled: true,
         emptyAlertTitle: 'You need an account number to access this page'
+    },
+    {
+        id: 'internal',
+        entitlement: 'internal',
+        url: 'internal',
+        disabled: true,
+        emptyAlertTitle: 'You do not have access to this page'
     }
 ];
