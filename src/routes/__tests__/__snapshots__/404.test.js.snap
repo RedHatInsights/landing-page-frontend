@@ -33,7 +33,7 @@ exports[`404 page should render correctly 1`] = `
           <h1
             className="pf-c-title pf-m-3xl"
           >
-             404: It's true. We've lost it. 
+            404: It's true. We've lost it.
           </h1>
         </Component>
         <Icon404>

@@ -1,1 +1,1 @@
-export { default }  from '../routes/Logout';
+export { default } from '../routes/Logout';

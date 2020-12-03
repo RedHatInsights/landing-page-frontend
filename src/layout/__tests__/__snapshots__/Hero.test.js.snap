@@ -12,7 +12,7 @@ exports[`Hero component should render correctly 1`] = `
       headingLevel="h1"
       size="4xl"
     >
-       Explore our open, multicloud tools 
+      Explore our open, multicloud tools
     </Component>
     <Component
       className="ins-c-hero__sub-title pf-m-spacer-xl"
@@ -24,13 +24,13 @@ exports[`Hero component should render correctly 1`] = `
       >
         ®
       </sup>
-       software-as-a-service
+      software-as-a-service
     </Component>
     <Component
       className="ins-c-hero__login"
       onClick={[Function]}
     >
-       Log in to your Red Hat account
+      Log in to your Red Hat account
     </Component>
     <Component
       className="ins-c-hero__new-customer"

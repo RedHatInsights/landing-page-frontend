@@ -10,14 +10,14 @@ const mockStore = configureMockStore();
 const store = mockStore({});
 
 describe('Landing component renders authenticated page', () => {
-    it('should render correctly', () => {
-        const wrapper = mount(
-            <Provider store={ store }>
-                <Router>
-                    <Landing />
-                </Router>
-            </Provider>
-        );
-        expect(toJson(wrapper)).toMatchSnapshot();
-    });
+  it('should render correctly', () => {
+    const wrapper = mount(
+      <Provider store={store}>
+        <Router>
+          <Landing />
+        </Router>
+      </Provider>
+    );
+    expect(toJson(wrapper)).toMatchSnapshot();
+  });
 });

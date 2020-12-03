@@ -12,7 +12,7 @@ exports[`Logout component should render correctly 1`] = `
       <h1
         className="pf-c-title pf-m-3xl"
       >
-         You have logged out. 
+        You have logged out.
       </h1>
     </Component>
     <Component

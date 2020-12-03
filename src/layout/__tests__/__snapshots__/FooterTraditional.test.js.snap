@@ -91,7 +91,7 @@ exports[`Footer Traditional component should render correctly 1`] = `
        Cookies and Javascript 
     </Component>
     <p>
-       To successfully interact with our websites and services, your browser must meet the following feature requirements: 
+      To successfully interact with our websites and services, your browser must meet the following feature requirements:
     </p>
     <ul>
       <li>
@@ -107,7 +107,7 @@ exports[`Footer Traditional component should render correctly 1`] = `
        Specific browser support 
     </Component>
     <p>
-       We validate against and fully support our customers' use of the past two major releases of the following browsers: 
+      We validate against and fully support our customers' use of the past two major releases of the following browsers:
     </p>
     <ul>
       <li>

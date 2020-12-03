@@ -10,25 +10,25 @@ const mockStore = configureMockStore();
 const store = mockStore({});
 
 describe('App component', () => {
-    it('should render correctly', () => {
-        const wrapper = mount(
-            <Provider store={ store }>
-                <Router>
-                    <App />
-                </Router>
-            </Provider>
-        );
-        expect(toJson(wrapper)).toMatchSnapshot();
-    });
+  it('should render correctly', () => {
+    const wrapper = mount(
+      <Provider store={store}>
+        <Router>
+          <App />
+        </Router>
+      </Provider>
+    );
+    expect(toJson(wrapper)).toMatchSnapshot();
+  });
 
-    it('should render correctly with data', () => {
-        const wrapper = mount(
-            <Provider store={ store }>
-                <Router>
-                    <App technologies={ { foo: 'bar' } }/>
-                </Router>
-            </Provider>
-        );
-        expect(toJson(wrapper)).toMatchSnapshot();
-    });
+  it('should render correctly with data', () => {
+    const wrapper = mount(
+      <Provider store={store}>
+        <Router>
+          <App technologies={{ foo: 'bar' }} />
+        </Router>
+      </Provider>
+    );
+    expect(toJson(wrapper)).toMatchSnapshot();
+  });
 });

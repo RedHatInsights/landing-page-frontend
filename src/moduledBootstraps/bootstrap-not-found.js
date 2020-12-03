@@ -6,8 +6,12 @@ import { createStore, combineReducers } from 'redux';
 import technologiesReducer from '../store/technologiesReducer';
 
 ReactDOM.render(
-    <Provider store={ createStore(combineReducers({ technologies: technologiesReducer }, {})) }>
-        <NotFound />
-    </Provider>,
-    document.getElementById('root')
+  <Provider
+    store={createStore(
+      combineReducers({ technologies: technologiesReducer }, {})
+    )}
+  >
+    <NotFound />
+  </Provider>,
+  document.getElementById('root')
 );

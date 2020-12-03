@@ -8,21 +8,21 @@ let middlewareListener;
 let registry;
 
 export function init(...middleware) {
-    middlewareListener = new MiddlewareListener();
-    registry = getRegistry({}, [
-        middlewareListener.getMiddleware(),
-        promiseMiddleware,
-        notificationsMiddleware(),
-        ...middleware.filter(item => typeof item === 'function')
-    ]);
+  middlewareListener = new MiddlewareListener();
+  registry = getRegistry({}, [
+    middlewareListener.getMiddleware(),
+    promiseMiddleware,
+    notificationsMiddleware(),
+    ...middleware.filter((item) => typeof item === 'function'),
+  ]);
 
-    registry.register({ notifications });
-    return registry;
+  registry.register({ notifications });
+  return registry;
 }
 
 export function addNewListener({ actionType, callback }) {
-    return middlewareListener.addNew({
-        on: actionType,
-        callback
-    });
+  return middlewareListener.addNew({
+    on: actionType,
+    callback,
+  });
 }

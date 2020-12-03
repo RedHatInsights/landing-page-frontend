@@ -10,18 +10,18 @@ const pathName = window.location.pathname.split('/');
 pathName.shift();
 
 const AppRoot = ({ logger }) => (
-    <Provider store={ init(logger).getStore() }>
-        <React.Fragment>
-            <Router basename={ `/${pathName[0] === 'beta' ? 'beta/' : ''}` }>
-                <App />
-            </Router>
-            <NotificationsPortal/>
-        </React.Fragment>
-    </Provider>
+  <Provider store={init(logger).getStore()}>
+    <React.Fragment>
+      <Router basename={`/${pathName[0] === 'beta' ? 'beta/' : ''}`}>
+        <App />
+      </Router>
+      <NotificationsPortal />
+    </React.Fragment>
+  </Provider>
 );
 
 AppRoot.propTypes = {
-    logger: PropTypes.func
+  logger: PropTypes.func,
 };
 
 export default AppRoot;
