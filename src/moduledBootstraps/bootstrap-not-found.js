@@ -1,14 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
-import NotFound from './NotFound';
+import NotFound from '../moduleEntries/NotFoundEntry';
 import { createStore, combineReducers } from 'redux';
-import technologiesReducer from './store/technologiesReducer';
+import technologiesReducer from '../store/technologiesReducer';
 
-/**
- * Hooks up redux to app.
- *  https://redux.js.org/advanced/usage-with-react-router
- */
 ReactDOM.render(
     <Provider store={ createStore(combineReducers({ technologies: technologiesReducer }, {})) }>
         <NotFound />

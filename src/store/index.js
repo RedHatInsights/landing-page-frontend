@@ -13,7 +13,7 @@ export function init(...middleware) {
         middlewareListener.getMiddleware(),
         promiseMiddleware,
         notificationsMiddleware(),
-        ...middleware
+        ...middleware.filter(item => typeof item === 'function')
     ]);
 
     registry.register({ notifications });

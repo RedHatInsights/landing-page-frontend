@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Maintenance from './routes/Maintenance';
+import Maintenance from '../moduleEntries/MaintenanceEntry';
 
 ReactDOM.render(
     <Maintenance />,
