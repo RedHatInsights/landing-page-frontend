@@ -36,7 +36,7 @@ exports[`render Marketing component should render correctly 1`] = `
                 <h1
                   className="pf-c-title pf-m-4xl ins-c-hero__title pf-m-spacer-lg"
                 >
-                   Explore our open, multicloud tools 
+                  Explore our open, multicloud tools
                 </h1>
               </Component>
               <Component
@@ -52,7 +52,7 @@ exports[`render Marketing component should render correctly 1`] = `
                   >
                     ®
                   </sup>
-                   software-as-a-service
+                  software-as-a-service
                 </h2>
               </Component>
               <Component
@@ -71,7 +71,7 @@ exports[`render Marketing component should render correctly 1`] = `
                   tabIndex={null}
                   type="button"
                 >
-                   Log in to your Red Hat account
+                  Log in to your Red Hat account
                 </button>
               </Component>
               <Component

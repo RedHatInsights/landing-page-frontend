@@ -7,24 +7,23 @@ import { activeTechnologies } from './consts';
 import './App.scss';
 
 const App = ({ loadTechnologies }) => {
-    useEffect(() => {
-        loadTechnologies(activeTechnologies);
-    });
+  useEffect(() => {
+    loadTechnologies(activeTechnologies);
+  });
 
-    return (
-        <NotFound />
-    );
+  return <NotFound />;
 };
 
 App.propTypes = {
-    history: PropTypes.object,
-    loadTechnologies: PropTypes.func
+  history: PropTypes.object,
+  loadTechnologies: PropTypes.func,
 };
 
 App.defaultProps = {
-    loadTechnologies: () => undefined
+  loadTechnologies: () => undefined,
 };
 
 export default connect(null, (dispatch) => ({
-    loadTechnologies: (technologies) => dispatch(technologiesLoaded(technologies))
+  loadTechnologies: (technologies) =>
+    dispatch(technologiesLoaded(technologies)),
 }))(App);

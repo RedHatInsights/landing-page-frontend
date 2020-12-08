@@ -9,22 +9,22 @@ const mockStore = configureMockStore();
 const store = mockStore({});
 
 describe('404 page', () => {
-    it('should render correctly', () => {
-        const wrapper = mount(
-            <Provider store={ store }>
-                <NotFound />
-            </Provider>
-        );
-        expect(toJson(wrapper)).toMatchSnapshot();
-    });
+  it('should render correctly', () => {
+    const wrapper = mount(
+      <Provider store={store}>
+        <NotFound />
+      </Provider>
+    );
+    expect(toJson(wrapper)).toMatchSnapshot();
+  });
 
-    it('click: Return to homepage', () => {
-        const wrapper = mount(
-            <Provider store={ store }>
-                <NotFound />
-            </Provider>
-        );
-        wrapper.find('a').simulate('click');
-        expect(window.location.pathname).toBe('/');
-    });
+  it('click: Return to homepage', () => {
+    const wrapper = mount(
+      <Provider store={store}>
+        <NotFound />
+      </Provider>
+    );
+    wrapper.find('a').simulate('click');
+    expect(window.location.pathname).toBe('/');
+  });
 });

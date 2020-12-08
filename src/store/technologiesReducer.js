@@ -2,12 +2,15 @@ import { applyReducerHash } from '@redhat-cloud-services/frontend-components-uti
 import { TECHOLOGIES } from './action-types';
 
 export function technologiesLoaded(state, { payload }) {
-    return {
-        ...state,
-        activeTechnologies: payload
-    };
+  return {
+    ...state,
+    activeTechnologies: payload,
+  };
 }
 
-export default applyReducerHash({
-    [TECHOLOGIES]: technologiesLoaded
-}, { loaded: true, activeTechnologies: []});
+export default applyReducerHash(
+  {
+    [TECHOLOGIES]: technologiesLoaded,
+  },
+  { loaded: true, activeTechnologies: [] }
+);

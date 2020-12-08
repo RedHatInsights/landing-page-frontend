@@ -9,23 +9,22 @@ const mockStore = configureMockStore();
 const store = mockStore({});
 
 describe('Maintenance page', () => {
+  it('should render correctly', () => {
+    const wrapper = mount(
+      <Provider store={store}>
+        <Maintenance />
+      </Provider>
+    );
+    expect(toJson(wrapper)).toMatchSnapshot();
+  });
 
-    it('should render correctly', () => {
-        const wrapper = mount(
-            <Provider store={ store }>
-                <Maintenance />
-            </Provider>
-        );
-        expect(toJson(wrapper)).toMatchSnapshot();
-    });
-
-    it('Maintenance: go home', () => {
-        const wrapper = mount(
-            <Provider store={ store }>
-                <Maintenance />
-            </Provider>
-        );
-        wrapper.find('a').at(1).simulate('click');
-        expect(window.location.pathname).toBe('/');
-    });
+  it('Maintenance: go home', () => {
+    const wrapper = mount(
+      <Provider store={store}>
+        <Maintenance />
+      </Provider>
+    );
+    wrapper.find('a').at(1).simulate('click');
+    expect(window.location.pathname).toBe('/');
+  });
 });
