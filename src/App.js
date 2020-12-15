@@ -14,9 +14,15 @@ import technologiesReducer from './store/technologiesReducer';
 import { technologiesLoaded } from './store/actions';
 import { activeTechnologies } from './consts';
 
-const Landing = lazy(() => import('./routes/Landing'));
-const Maintenance = lazy(() => import('./routes/Maintenance'));
-const NotFound = lazy(() => import('./routes/404'));
+const Landing = lazy(() =>
+  import(/* webpackCunkName: "Landing" */ './routes/Landing')
+);
+const Maintenance = lazy(() =>
+  import(/* webpackCunkName: "Maintenance" */ './routes/Maintenance')
+);
+const NotFound = lazy(() =>
+  import(/* webpackCunkName: "NotFound" */ './routes/404')
+);
 
 import './App.scss';
 
