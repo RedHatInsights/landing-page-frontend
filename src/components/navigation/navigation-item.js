@@ -3,9 +3,9 @@ import PropTypes from 'prop-types';
 import { NavItem } from '@patternfly/react-core';
 import classnames from 'classnames';
 import NavigationContext from './navigation-context';
-import { SET_ACTIVE_SECTION } from '.';
 
 import './navigation-item.scss';
+import { SET_ACTIVE_SECTION } from './navigation-reducer';
 
 // eslint-disable-next-line react/display-name
 const NavigationItem = memo(
