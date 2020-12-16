@@ -2,7 +2,7 @@
 
 exports[`Footer Traditional component should render correctly 1`] = `
 <Fragment>
-  <Component
+  <PageSection
     className="ins-c-footer__traditional pf-m-no-fill"
   >
     <footer
@@ -30,13 +30,13 @@ exports[`Footer Traditional component should render correctly 1`] = `
             className="pf-l-flex pf-m-column pf-m-row-on-md"
           >
             <li>
-              <Component
+              <Button
                 className="nav-link ins-p-footer__browser-support"
                 onClick={[Function]}
                 variant="link"
               >
                 Browser Support
-              </Component>
+              </Button>
             </li>
             <li>
               <a
@@ -66,10 +66,10 @@ exports[`Footer Traditional component should render correctly 1`] = `
         </nav>
       </div>
     </footer>
-  </Component>
+  </PageSection>
   <Modal
     actions={Array []}
-    appendTo={<body />}
+    appendTo={[Function]}
     aria-describedby=""
     aria-label=""
     aria-labelledby=""
@@ -78,18 +78,21 @@ exports[`Footer Traditional component should render correctly 1`] = `
     isFooterLeftAligned={true}
     isOpen={false}
     onClose={[Function]}
+    ouiaSafe={true}
     showClose={true}
     title="Browser support"
+    titleIconVariant={null}
+    titleLabel=""
     variant="small"
   >
     <p>
       Red Hat captures and regularly reviews statistical data from our actual web visitors and registered users, rather than generic industry data, to identify the browsers we need to support in alignment with our customers’ needs. Additionally, to safeguard customer data, only browsers which receive security updates from the browser manufacturer are considered for support. We have implemented this policy to ensure that we can provide an excellent experience to a wide user base.
     </p>
-    <Component
+    <Title
       headingLevel="h4"
     >
        Cookies and Javascript 
-    </Component>
+    </Title>
     <p>
       To successfully interact with our websites and services, your browser must meet the following feature requirements:
     </p>
@@ -101,11 +104,11 @@ exports[`Footer Traditional component should render correctly 1`] = `
          The browser must be configured to execute JavaScript 
       </li>
     </ul>
-    <Component
+    <Title
       headingLevel="h4"
     >
        Specific browser support 
-    </Component>
+    </Title>
     <p>
       We validate against and fully support our customers' use of the past two major releases of the following browsers:
     </p>

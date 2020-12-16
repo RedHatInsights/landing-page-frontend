@@ -19,7 +19,7 @@ exports[`render Marketing component should render correctly 1`] = `
       technologies={Array []}
     >
       <Hero>
-        <Component
+        <PageSection
           className="ins-c-hero pf-m-fill pf-l-flex pf-m-align-items-center pf-m-justify-content-center"
         >
           <section
@@ -28,7 +28,7 @@ exports[`render Marketing component should render correctly 1`] = `
             <article
               className="pf-l-flex pf-m-column pf-m-align-items-center"
             >
-              <Component
+              <Title
                 className="ins-c-hero__title pf-m-spacer-lg"
                 headingLevel="h1"
                 size="4xl"
@@ -38,8 +38,8 @@ exports[`render Marketing component should render correctly 1`] = `
                 >
                   Explore our open, multicloud tools
                 </h1>
-              </Component>
-              <Component
+              </Title>
+              <Title
                 className="ins-c-hero__sub-title pf-m-spacer-xl"
                 headingLevel="h2"
               >
@@ -54,27 +54,27 @@ exports[`render Marketing component should render correctly 1`] = `
                   </sup>
                   software-as-a-service
                 </h2>
-              </Component>
-              <Component
+              </Title>
+              <Button
                 className="ins-c-hero__login"
                 onClick={[Function]}
               >
                 <button
-                  aria-disabled={null}
+                  aria-disabled={false}
                   aria-label={null}
                   className="pf-c-button pf-m-primary ins-c-hero__login"
-                  data-ouia-component-id={null}
+                  data-ouia-component-id="OUIA-Generated-Button-primary-1"
                   data-ouia-component-type="PF4/Button"
                   data-ouia-safe={true}
                   disabled={false}
                   onClick={[Function]}
-                  tabIndex={null}
+                  role={null}
                   type="button"
                 >
                   Log in to your Red Hat account
                 </button>
-              </Component>
-              <Component
+              </Button>
+              <Button
                 className="ins-c-hero__new-customer"
                 component="a"
                 href="https://www.redhat.com/en/customers"
@@ -85,22 +85,22 @@ exports[`render Marketing component should render correctly 1`] = `
                   aria-disabled={false}
                   aria-label={null}
                   className="pf-c-button pf-m-link pf-m-inline ins-c-hero__new-customer"
-                  data-ouia-component-id={null}
+                  data-ouia-component-id="OUIA-Generated-Button-link-1"
                   data-ouia-component-type="PF4/Button"
                   data-ouia-safe={true}
                   disabled={null}
                   href="https://www.redhat.com/en/customers"
-                  tabIndex={null}
+                  role={null}
                   type={null}
                 >
                   Not a customer?
                 </a>
-              </Component>
+              </Button>
             </article>
           </section>
-        </Component>
+        </PageSection>
       </Hero>
-      <Component
+      <PageSection
         className="ins-c-marketing pf-m-no-fill"
         landing-page-type="unauthenticated"
       >
@@ -108,7 +108,7 @@ exports[`render Marketing component should render correctly 1`] = `
           className="pf-c-page__main-section ins-c-marketing pf-m-no-fill"
           landing-page-type="unauthenticated"
         >
-          <Component
+          <Grid
             gutter="sm"
             md={6}
             sm={12}
@@ -119,9 +119,9 @@ exports[`render Marketing component should render correctly 1`] = `
               className="pf-l-grid pf-m-all-12-col-on-sm pf-m-all-6-col-on-md pf-m-all-6-col-on-xl pf-m-all-4-col-on-2xl"
               gutter="sm"
             />
-          </Component>
+          </Grid>
         </section>
-      </Component>
+      </PageSection>
     </Marketing>
   </Connect(Marketing)>
 </Provider>
