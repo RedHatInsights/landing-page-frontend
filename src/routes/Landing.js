@@ -82,13 +82,13 @@ const Landing = () => {
   if (isUserReady) {
     return (
       <Split className="ins-c-page__landing-layout">
-        <SplitItem
-          className={isUnauthed ? '' : 'ins-c-page__landing-navigation'}
-        >
-          <NavigationContext.Provider value={{ state, internalDispatch }}>
-            <Navigation />
-          </NavigationContext.Provider>
-        </SplitItem>
+        {!isUnauthed && (
+          <SplitItem className="ins-c-page__landing-navigation">
+            <NavigationContext.Provider value={{ state, internalDispatch }}>
+              <Navigation />
+            </NavigationContext.Provider>
+          </SplitItem>
+        )}
         <SplitItem>
           {isUnauthed ? (
             <Marketing />
