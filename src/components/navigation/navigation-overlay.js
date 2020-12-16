@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from 'react';
+import React, { useContext, useEffect, useRef, useState } from 'react';
 import { createPortal } from 'react-dom';
 import PropTypes from 'prop-types';
 
@@ -7,7 +7,6 @@ import './navigation-overlay.scss';
 import { useSelector, shallowEqual } from 'react-redux';
 import {
   Divider,
-  Split,
   SplitItem,
   Text,
   Stack,
@@ -15,7 +14,43 @@ import {
 } from '@patternfly/react-core';
 import { SET_ACTIVE_SECTION } from './navigation-reducer';
 
-const OverlayContent = ({ activeSection, handleCloseOverlay }) => {
+const computeStyle = (navElement, contentElement) => {
+  const { y } = navElement.getBoundingClientRect();
+  const { height } = contentElement.getBoundingClientRect();
+  const clientHeight = document.documentElement.clientHeight;
+
+  /**
+   * Catch if overflow is higher than client.
+   * If it true, set the heign to match the client and add scrollbar overflow property.
+   */
+  if (height > clientHeight) {
+    return {
+      height: clientHeight,
+      overflow: 'auto',
+      top: 0,
+    };
+  }
+  /**
+   * Catch if the overlay would overflow the current client height.
+   * Align it to the bottom of the screen.
+   */
+  if (y + height > clientHeight) {
+    return {
+      bottom: -1,
+    };
+  }
+
+  /**
+   * Align the overflow top edge to corresponding link edge.
+   */
+  return {
+    top: y - 1,
+  };
+};
+
+const OverlayContent = ({ activeSection, handleCloseOverlay, activeRef }) => {
+  const contentRef = useRef(null);
+  const [style, setStyle] = useState({});
   const technology = useSelector(({ technologies }) =>
     technologies?.activeTechnologies.find(
       ({ id }) => id === activeSection,
@@ -33,9 +68,26 @@ const OverlayContent = ({ activeSection, handleCloseOverlay }) => {
       document.removeEventListener('click', eventHandler);
     };
   }, []);
+  /**
+   * Get the Y position of the overlay
+   */
+  useEffect(() => {
+    const resizePopoverHandler = () => {
+      setStyle(computeStyle(activeRef.current, contentRef.current));
+    };
+    window.addEventListener('resize', resizePopoverHandler);
+    setStyle(computeStyle(activeRef.current, contentRef.current));
+    return () => {
+      window.removeEventListener('resize', resizePopoverHandler);
+    };
+  }, [activeRef.current, contentRef.current]);
   return (
-    <div className="ins-c-navigation-overlay">
-      <Split hasGutter className="ins-c-navigation-overlay__content pf-u-p-md">
+    <div className="ins-c-navigation-overlay" style={style}>
+      {/* PF does not propagate refs to the Split component */}
+      <div
+        ref={contentRef}
+        className="pf-l-split pf-m-gutter ins-c-navigation-overlay__content pf-u-p-md"
+      >
         <SplitItem className="pf-u-mr-lg">
           <Stack hasGutter>
             <StackItem>
@@ -66,7 +118,7 @@ const OverlayContent = ({ activeSection, handleCloseOverlay }) => {
           <Text>Where to get this content?</Text>
           <Text>Technical resource</Text>
         </SplitItem>
-      </Split>
+      </div>
     </div>
   );
 };
@@ -74,11 +126,13 @@ const OverlayContent = ({ activeSection, handleCloseOverlay }) => {
 OverlayContent.propTypes = {
   activeSection: PropTypes.string.isRequired,
   handleCloseOverlay: PropTypes.func.isRequired,
+  activeRef: PropTypes.shape({ current: PropTypes.object.isRequired })
+    .isRequired,
 };
 
 const NavigationOverlay = () => {
   const {
-    state: { isOpen, activeSection },
+    state: { isOpen, activeSection, activeRef },
     internalDispatch,
   } = useContext(NavigationContext);
   const handleCloseOverlay = () =>
@@ -92,6 +146,7 @@ const NavigationOverlay = () => {
         <OverlayContent
           handleCloseOverlay={handleCloseOverlay}
           activeSection={activeSection}
+          activeRef={activeRef}
         />,
         document.body
       )

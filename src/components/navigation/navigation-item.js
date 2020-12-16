@@ -19,10 +19,10 @@ const NavigationItem = memo(
           <a
             {...props}
             onMouseEnter={() => {
-              handlePopoverTrigger();
+              handlePopoverTrigger(true, ref);
             }}
             onFocus={() => {
-              handlePopoverTrigger();
+              handlePopoverTrigger(true, ref);
               /**
                * Focus event has to be put on the end of the vene que to prevet "double focus requirement".
                * Witouth this, user will have to double tap "tab" to focus the next element and the link won't be
@@ -64,11 +64,12 @@ const NavigationItemConnector = (props) => {
     state: { activeSection },
     internalDispatch,
   } = useContext(NavigationContext);
-  const handlePopoverTrigger = (isOpen = true) => {
+  const handlePopoverTrigger = (isOpen = true, ref) => {
     internalDispatch({
       type: SET_ACTIVE_SECTION,
       activeSection: isOpen ? props.id : undefined,
       isOpen,
+      activeRef: isOpen ? ref : { current: null },
     });
   };
   return (

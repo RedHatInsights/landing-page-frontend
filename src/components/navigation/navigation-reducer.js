@@ -1,11 +1,13 @@
 export const SET_ACTIVE_SECTION = 'set-active-section';
 export const SET_IS_OPEN = 'set-is-open';
 
-const navigationReducer = (state, { type, activeSection, isOpen }) => {
-  console.log('dispatch', type);
+const navigationReducer = (
+  state,
+  { type, activeSection, isOpen, activeRef }
+) => {
   switch (type) {
     case SET_ACTIVE_SECTION:
-      return { ...state, activeSection, isOpen };
+      return { ...state, activeSection, isOpen, activeRef };
     case SET_IS_OPEN:
       return { ...state, isOpen };
   }

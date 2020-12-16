@@ -2,30 +2,14 @@
   position: fixed;
   z-index: 1000;
   left: 18.125rem; // can't use sidebar width variable. That only works inside tge page sidebar
-  top: 80px;
-  right: 0;
-  bottom: 0;
-  background: transparent;
-  pointer-events: none;
   .pf-c-list {
     list-style: none;
   }
   .ins-c-navigation-overlay__content {
     background-color: var(--pf-global--BackgroundColor--100);
     width: fit-content;
-    box-shadow: var(--pf-global--BoxShadow--sm);
     border: 1px solid var(--pf-global--BorderColor--100);
     border-left: none;
-    &::before {
-      /*Hide the left box shadow style for seamless nav expansion*/
-      position: absolute;
-      left: -1px;
-      top: 0;
-      bottom: 0;
-      width: 1px;
-      background-color: var(--pf-global--BackgroundColor--100);
-      content: "";
-    }
   }
 
   .ins-c-navigation-overlay__link:first-letter {
