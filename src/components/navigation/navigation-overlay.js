@@ -86,12 +86,12 @@ const OverlayContent = ({ activeSection, handleCloseOverlay, activeRef }) => {
       {/* PF does not propagate refs to the Split component */}
       <div
         ref={contentRef}
-        className="pf-l-split pf-m-gutter ins-c-navigation-overlay__content pf-u-p-md"
+        className="pf-l-split pf-m-gutter ins-c-navigation-overlay__content pf-u-p-md pf-u-pr-xl pf-u-pl-xl"
       >
         <SplitItem className="pf-u-mr-lg">
           <Stack hasGutter>
             <StackItem>
-              <Text>By application</Text>
+              <Text className="pf-u-mb-lg">By application</Text>
             </StackItem>
             {technology.apps
               ? Object.entries(technology.apps).map(([title, link]) => (
@@ -104,19 +104,17 @@ const OverlayContent = ({ activeSection, handleCloseOverlay, activeRef }) => {
                     </a>
                   </StackItem>
                 ))
-              : 'foo'}
+              : 'No applications'}
           </Stack>
         </SplitItem>
         <SplitItem className="pf-u-mr-lg">
-          <Text>By featured use case</Text>
+          <Text className="pf-u-mb-lg">By featured use case</Text>
           <Text>Where to get this content?</Text>
         </SplitItem>
-        <SplitItem className="pf-u-mr-lg">
-          <Divider isVertical />
-        </SplitItem>
+        <Divider isVertical />
         <SplitItem>
+          <Text className="pf-u-mb-lg">Technical resource</Text>
           <Text>Where to get this content?</Text>
-          <Text>Technical resource</Text>
         </SplitItem>
       </div>
     </div>
