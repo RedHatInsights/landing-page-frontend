@@ -4,3 +4,21 @@
   margin-left: 24px;
   margin-right: 24px;
 }
+
+.ins-c-landing-grouping {
+  margin-right: 24px;
+  margin-left: 24px;
+
+  .ins-c-landing-separator {
+    margin-bottom: var(--ins-global-spacer--xl);
+  }
+
+  .ins-c-landing-grouping__title {
+    margin-bottom: var(--ins-global-spacer--xl);
+    
+  }
+
+  .ins-c-landing-grouping__title--spacing {
+    color: #ffffff;
+  }
+}

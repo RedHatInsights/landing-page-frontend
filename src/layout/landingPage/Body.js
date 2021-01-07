@@ -7,10 +7,10 @@ const Body = () => {
   return (
     <Flex className="ins-c-landing-body">
       <Flex
-        className="ins-c-landing-body--grouping"
+        className="ins-c-landing-grouping"
         direction={{ default: 'column' }}
       >
-        <FlexItem className="ins-c-landing--grouping--title">
+        <FlexItem className="ins-c-landing-grouping__title">
           <Title headingLevel="h1" size="xl">
             Application Services Recommendations
           </Title>
@@ -18,10 +18,10 @@ const Body = () => {
         <FlexItem>
           <BodyTile />
         </FlexItem>
-        <FlexItem>
+        <FlexItem className="ins-c-landing-grouping--separator">
           <BodyTile />
         </FlexItem>
-        <FlexItem className="ins-c-landing--grouping--title">
+        <FlexItem className="ins-c-landing-grouping__title">
           <Title headingLevel="h1" size="xl">
             Automation recommendations
           </Title>
@@ -34,10 +34,10 @@ const Body = () => {
         </FlexItem>
       </Flex>
       <Flex
-        className="ins-c-body-tile-grouping"
+        className="ins-c-landing-grouping"
         direction={{ default: 'column' }}
       >
-        <FlexItem>
+        <FlexItem className="ins-c-landing-grouping__title">
           <Title headingLevel="h1" size="xl">
             Platform insights
           </Title>
@@ -56,9 +56,14 @@ const Body = () => {
         </FlexItem>
       </Flex>
       <Flex
-        className="ins-c-body-tile-grouping"
+        className="ins-c-landing-grouping"
         direction={{ default: 'column' }}
       >
+        <FlexItem className="ins-c-landing-grouping__title ins-c-landing-grouping__title--spacing">
+          <Title headingLevel="h1" size="xl">
+            Space
+          </Title>
+        </FlexItem>
         <FlexItem>
           <BodyTile title="Security" />
         </FlexItem>

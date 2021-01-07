@@ -22,18 +22,21 @@ const BodyTile = ({ title, bodyText, buttonLabel, tileItems }) => { //eslint-dis
 
   return (
     <Stack>
-      <StackItem>
+      <StackItem className="ins-c-tile ins-c-tile__title">
         <Title headingLevel="h1" size="md">
           {title}
         </Title>
       </StackItem>
       <StackItem>
-        <Flex>
+        <Flex className="ins-c-body-tile-content">
           {/* <FlexItem>{renderTileItems(tileItems)}</FlexItem> */}
           <FlexItem>
             <Text>{bodyText}</Text>
           </FlexItem>
-          <FlexItem>
+          <FlexItem
+            alight={{ default: 'alignRight' }}
+            justifyContent={{ default: 'justifyContentFlexEnd' }}
+          >
             <Button
               variant="secondary"
               isSmall={true}
