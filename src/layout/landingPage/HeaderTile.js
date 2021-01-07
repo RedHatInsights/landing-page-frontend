@@ -26,7 +26,7 @@ const HeaderTile = ({ header, title, labelText, labelColor, labelType }) => {
         <Label
           icon={<CheckCircleIcon />}
           variant="outline"
-          className="ins-c-header-tile-label"
+          className="ins-c-header-tile--label"
           color={labelColor}
         >
           {labelText}
@@ -37,7 +37,7 @@ const HeaderTile = ({ header, title, labelText, labelColor, labelType }) => {
 };
 
 HeaderTile.defaultProps = {
-  labelText: ' lorem ipsum duis   aute dolor  ',
+  labelText: ' lorem ipsum duis aute dolor ',
   labelColor: 'green',
   labelType: 'info',
 };

@@ -13,6 +13,7 @@ import './Landing.scss';
 // Mockup console landing page
 import Body from '../layout/landingPage/Body';
 import Header from '../layout/landingPage/Header';
+import Footer from '../layout/landingPage/Footer';
 
 const Landing = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -76,6 +77,7 @@ const Landing = () => {
           <Fragment>
             <Header />
             <Body />
+            <Footer />
           </Fragment>
         )}
         <FooterTraditional />
