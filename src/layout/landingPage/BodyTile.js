@@ -1,39 +1,48 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import {
-  Level,
-  LevelItem,
+  Flex,
+  FlexItem,
   Stack,
   StackItem,
   Title,
   Text,
   Button,
 } from '@patternfly/react-core';
+import './styles/BodyTile.scss';
 
-const BodyTile = ({ title, bodyText, buttonLabel, tileItems }) => {
-  const renderTileItems = (tileItems) => {
-    <div>
-      {tileItems.map(() => {
-        console.log('Try me: ', tileItems);
-      })}
-    </div>;
-  };
+const BodyTile = ({ title, bodyText, buttonLabel, tileItems }) => { //eslint-disable-line
+  // const renderTileItems = (tileItems) => {
+  //   <div>
+  //     {tileItems.map(() => {
+  //       console.log('Try me: ', tileItems);
+  //     })}
+  //   </div>;
+  // };
 
   return (
     <Stack>
       <StackItem>
-        <Title headingLevel="h1" size="md">{title}</Title>
+        <Title headingLevel="h1" size="md">
+          {title}
+        </Title>
       </StackItem>
       <StackItem>
-        <Level>
-          <LevelItem>{renderTileItems(tileItems)}</LevelItem>
-          <LevelItem>
+        <Flex>
+          {/* <FlexItem>{renderTileItems(tileItems)}</FlexItem> */}
+          <FlexItem>
             <Text>{bodyText}</Text>
-          </LevelItem>
-          <LevelItem>
-            <Button>{buttonLabel}</Button>
-          </LevelItem>
-        </Level>
+          </FlexItem>
+          <FlexItem>
+            <Button
+              variant="secondary"
+              isSmall={true}
+              className="ins-c-tile-button"
+            >
+              {buttonLabel}
+            </Button>
+          </FlexItem>
+        </Flex>
       </StackItem>
     </Stack>
   );
@@ -41,9 +50,9 @@ const BodyTile = ({ title, bodyText, buttonLabel, tileItems }) => {
 
 BodyTile.defaultProps = {
   tileItems: [],
-  bodyText: '',
+  bodyText: 'Lorem ipsum dolor sit amet',
   title: '',
-  buttonLabel: '',
+  buttonLabel: 'Action',
 };
 
 BodyTile.propTypes = {

@@ -1,37 +1,72 @@
 import React from 'react';
-import {
-  Level,
-  LevelItem,
-  Stack,
-  StackItem,
-  Title,
-} from '@patternfly/react-core';
+import { Flex, FlexItem, Title } from '@patternfly/react-core';
+import BodyTile from './BodyTile';
+import './styles/Body.scss';
 
 const Body = () => {
-  const ascTitle = 'Application Services Recommendations';
-
   return (
-    <Level>
-      <LevelItem>
-        <Stack className="ins-c-body-tile-grouping">
-          <StackItem>
-            <Title headingLevel="h1" size="xl">
-              Hello
-            </Title>
-          </StackItem>
-          <StackItem>
-            <h1>{ascTitle}</h1>
-          </StackItem>
-        </Stack>
-      </LevelItem>
-      <LevelItem>
-        <Stack className="ins-c-body-tile-grouping">
-          <StackItem>
-            <h1>Platform Insights</h1>
-          </StackItem>
-        </Stack>
-      </LevelItem>
-    </Level>
+    <Flex className="ins-c-landing-body">
+      <Flex
+        className="ins-c-landing-body--grouping"
+        direction={{ default: 'column' }}
+      >
+        <FlexItem className="ins-c-landing--grouping--title">
+          <Title headingLevel="h1" size="xl">
+            Application Services Recommendations
+          </Title>
+        </FlexItem>
+        <FlexItem>
+          <BodyTile />
+        </FlexItem>
+        <FlexItem>
+          <BodyTile />
+        </FlexItem>
+        <FlexItem className="ins-c-landing--grouping--title">
+          <Title headingLevel="h1" size="xl">
+            Automation recommendations
+          </Title>
+        </FlexItem>
+        <FlexItem>
+          <BodyTile />
+        </FlexItem>
+        <FlexItem>
+          <BodyTile />
+        </FlexItem>
+      </Flex>
+      <Flex
+        className="ins-c-body-tile-grouping"
+        direction={{ default: 'column' }}
+      >
+        <FlexItem>
+          <Title headingLevel="h1" size="xl">
+            Platform insights
+          </Title>
+        </FlexItem>
+        <FlexItem>
+          <BodyTile title="Operational" />
+        </FlexItem>
+        <FlexItem>
+          <BodyTile />
+        </FlexItem>
+        <FlexItem>
+          <BodyTile title="Financial" />
+        </FlexItem>
+        <FlexItem>
+          <BodyTile />
+        </FlexItem>
+      </Flex>
+      <Flex
+        className="ins-c-body-tile-grouping"
+        direction={{ default: 'column' }}
+      >
+        <FlexItem>
+          <BodyTile title="Security" />
+        </FlexItem>
+        <FlexItem>
+          <BodyTile />
+        </FlexItem>
+      </Flex>
+    </Flex>
   );
 };
 
