@@ -4,6 +4,16 @@
 @import '~@patternfly/patternfly/components/Alert/alert.scss';
 :root {
     --ins-global--Color--green: #37912f;
+    --ins-global--label-font-size: 12px;
+    --ins-global-spacer--sm: var(--pf-global--spacer--sm);
+    --ins-global-spacer--md: var(--pf-global--spacer--md);
+    --ins-global-spacer--lg: var(--pf-global--spacer--lg);
+    --ins-global-spacer--xl: var(--pf-global--spacer--xl);
+    --ins-global-spacer--2xl: var(--pf-global--spacer--2xl);
+    --ins-header-background-color: var(--pf-global--primary-color--200);
+    --ins-header-font-color: var(--pf-global--palette--white);
+    --ins-header-title--md: 16px;
+    --inst-header-tittle--lg: 28px;
 }
 
 .ins-c-application-info .ins-m-gray { color: var(--pf-global--Color--200); }

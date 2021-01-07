@@ -3,14 +3,16 @@ import React, { useEffect, useState, Fragment } from 'react';
 import { useDispatch } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import { Button, Modal, Stack, StackItem, Title } from '@patternfly/react-core';
-import Header from '../layout/Header';
-import Body from '../layout/Body';
 import Marketing from '../layout/Marketing';
 import FooterTraditional from '../layout/FooterTraditional';
 import Loading from '../layout/Loading';
 import { activeTechnologies } from '../consts';
 import { addNotification } from '@redhat-cloud-services/frontend-components-notifications/cjs/actions';
 import './Landing.scss';
+
+// Mockup console landing page
+// import Body from '../layout/landingPage/Body';
+import Header from '../layout/landingPage/Header';
 
 const Landing = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -73,7 +75,7 @@ const Landing = () => {
         ) : (
           <Fragment>
             <Header />
-            <Body />
+            {/* <Body /> */}
           </Fragment>
         )}
         <FooterTraditional />
