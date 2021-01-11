@@ -59,10 +59,8 @@ const Body = () => {
         className="ins-c-landing-grouping"
         direction={{ default: 'column' }}
       >
-        <FlexItem className="ins-c-landing-grouping__title ins-c-landing-grouping__title--spacing">
-          <Title headingLevel="h1" size="xl">
-            Space
-          </Title>
+        <FlexItem className="ins-c-landing-grouping__title">
+          <div style={{ marginBottom: '32px' }} />
         </FlexItem>
         <FlexItem>
           <BodyTile title="Security" />

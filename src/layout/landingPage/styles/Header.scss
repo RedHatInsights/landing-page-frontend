@@ -1,11 +1,12 @@
 .ins-c-landing-header {
   background-color: var(--pf-global--primary-color--200);
   height: 20vh;
-  // margin-bottom: var(--ins-global-spacer--xl);
+  // margin-bottom: 32px;
   color: #ffffff;
 
   .ins-c-landing-header__grouping {
     margin-top: var(--ins-global-spacer--2xl);
     margin-left: var(--ins-global-spacer--lg);
+    margin-bottom: 32px;
   }
 }
