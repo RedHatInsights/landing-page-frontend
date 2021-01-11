@@ -3,13 +3,13 @@ import React from 'react';
 import { Flex, FlexItem, Title } from '@patternfly/react-core'; //eslint-disable-line
 import FooterTile from './FooterTile'; //eslint-disable-line
 import './styles/Footer.scss';
-import { 
-  FlagIcon,
-  UsersIcon,
-  OutlinedQuestionCircleIcon,
-  PlayCircleIcon, 
-  OutlinedWindowRestoreIcon
-} from '@patternfly/react-icons';
+// import { 
+//   FlagIcon,
+//   UsersIcon,
+//   OutlinedQuestionCircleIcon,
+//   PlayCircleIcon, 
+//   OutlinedWindowRestoreIcon
+// } from '@patternfly/react-icons';
 
 const Footer = () => {
   return (

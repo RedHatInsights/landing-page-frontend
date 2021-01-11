@@ -4,11 +4,11 @@ import PropTypes from 'prop-types';
 import { Flex, FlexItem, Text, Title } from '@patternfly/react-core';
 import './styles/FooterTile.scss';
 
-const FooterTile = ({ title, bodyText, link, children }) => {
+const FooterTile = ({ title, bodyText, link, icon }) => {
   return (
     <Flex>
       <FlexItem className="ins-c-footer-tile__icon">
-        {children}
+        {icon}
       </FlexItem>
       <FlexItem>
         <Title className="ins-c-footer-tile__title">
