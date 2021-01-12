@@ -118,3 +118,14 @@ sup.ins-c-rball { @include rem('font-size', 10px); }
         background-color: unset;
     }
 }
+
+// Adjust PF layout to be able to display witouth header
+.ins-c-page__landing-layout {
+    height: 100%;
+    .ins-c-page__landing-navigation {
+        flex-shrink: 0;
+    }
+    .pf-l-split__item {
+        overflow-y: auto;
+    }
+}

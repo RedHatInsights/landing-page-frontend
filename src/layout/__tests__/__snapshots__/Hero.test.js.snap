@@ -1,20 +1,20 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Hero component should render correctly 1`] = `
-<Component
+<PageSection
   className="ins-c-hero pf-m-fill pf-l-flex pf-m-align-items-center pf-m-justify-content-center"
 >
   <article
     className="pf-l-flex pf-m-column pf-m-align-items-center"
   >
-    <Component
+    <Title
       className="ins-c-hero__title pf-m-spacer-lg"
       headingLevel="h1"
       size="4xl"
     >
       Explore our open, multicloud tools
-    </Component>
-    <Component
+    </Title>
+    <Title
       className="ins-c-hero__sub-title pf-m-spacer-xl"
       headingLevel="h2"
     >
@@ -25,14 +25,14 @@ exports[`Hero component should render correctly 1`] = `
         ®
       </sup>
       software-as-a-service
-    </Component>
-    <Component
+    </Title>
+    <Button
       className="ins-c-hero__login"
       onClick={[Function]}
     >
       Log in to your Red Hat account
-    </Component>
-    <Component
+    </Button>
+    <Button
       className="ins-c-hero__new-customer"
       component="a"
       href="https://www.redhat.com/en/customers"
@@ -40,7 +40,7 @@ exports[`Hero component should render correctly 1`] = `
       variant="link"
     >
       Not a customer?
-    </Component>
+    </Button>
   </article>
-</Component>
+</PageSection>
 `;

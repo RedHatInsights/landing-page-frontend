@@ -26,7 +26,7 @@ exports[`404 page should render correctly 1`] = `
       <section
         className="pf-l-page__main-section pf-c-page__main-section ins-c-page__404"
       >
-        <Component
+        <Title
           headingLevel="h1"
           size="3xl"
         >
@@ -35,7 +35,7 @@ exports[`404 page should render correctly 1`] = `
           >
             404: It's true. We've lost it.
           </h1>
-        </Component>
+        </Title>
         <Icon404>
           <svg
             className="Icon404"
@@ -276,7 +276,7 @@ exports[`404 page should render correctly 1`] = `
             </g>
           </svg>
         </Icon404>
-        <Component
+        <Title
           className="ins-c-text__sorry"
           headingLevel="h2"
         >
@@ -285,8 +285,8 @@ exports[`404 page should render correctly 1`] = `
           >
             Sorry, we couldn't find what you were looking for. The page you requested may have been changed or moved.
           </h2>
-        </Component>
-        <Component
+        </Title>
+        <Button
           component="a"
           href="http://localhost"
           variant="link"
@@ -295,17 +295,17 @@ exports[`404 page should render correctly 1`] = `
             aria-disabled={false}
             aria-label={null}
             className="pf-c-button pf-m-link"
-            data-ouia-component-id={null}
+            data-ouia-component-id="OUIA-Generated-Button-link-1"
             data-ouia-component-type="PF4/Button"
             data-ouia-safe={true}
             disabled={null}
             href="http://localhost"
-            tabIndex={null}
+            role={null}
             type={null}
           >
             Return to homepage
           </a>
-        </Component>
+        </Button>
       </section>
     </NotFound>
   </Connect(NotFound)>
