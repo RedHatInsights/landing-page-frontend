@@ -1,75 +1,146 @@
-/* eslint-disable */
 import React from 'react';
-import { Flex, FlexItem, Title } from '@patternfly/react-core'; //eslint-disable-line
-import FooterTile from './FooterTile'; //eslint-disable-line
+import {
+  Gallery,
+  GalleryItem,
+  Split,
+  SplitItem,
+  Stack,
+  StackItem,
+  TextContent,
+  Text,
+  Title,
+} from '@patternfly/react-core'; //eslint-disable-line
+import {
+  AutomationIcon,
+  BlueprintIcon,
+  CogIcon,
+  DomainIcon,
+  FilterIcon,
+  IntegrationIcon,
+} from '@patternfly/react-icons';
 import './styles/Footer.scss';
-// import { 
-//   FlagIcon,
-//   UsersIcon,
-//   OutlinedQuestionCircleIcon,
-//   PlayCircleIcon, 
-//   OutlinedWindowRestoreIcon
-// } from '@patternfly/react-icons';
 
 const Footer = () => {
   return (
-    <Flex className="ins-c-footer">
-      <FlexItem>
-        <Title className="ins-c-footer__title" headingLevel="h1" size="xl">
-          Configure
-        </Title>
-        <Flex
-          className="ins-c-footer__grouping"
-          direction={{ default: 'column' }}
-        >
-          {/* <FooterTile
-            icon={
-              <FlagIcon className="--pf-global--icon--FontSize--lg"/>
-            }
-          /> */}
-        </Flex>
-      </FlexItem>
-      <Flex
-        className="ins-c-footer__grouping"
-        direction={{ default: 'column' }}
-      >
-        <FlexItem>
-          <Title className="ins-c-footer__title" headingLevel="h1" size="xl">
-            Try
-          </Title>
-        </FlexItem>
-        <FlexItem>
-          <Title headingLevel="h3" size="lg">
-            Lorem Ipsum dolor sin mate ir
-          </Title>
-        </FlexItem>
-        <FlexItem>
-          <Title headingLevel="h3" size="lg">
-            Lorem Dolor ipsum
-          </Title>
-        </FlexItem>
-      </Flex>
-      <Flex
-        className="ins-c-footer__grouping"
-        direction={{ default: 'column' }}
-      >
-        <FlexItem>
-          <Title className="ins-c-footer__title" headingLevel="h1" size="xl">
-            Learn
-          </Title>
-        </FlexItem>
-        <FlexItem>
-          <Title headingLevel="h3" size="lg">
-            Lorem Ipsum dolor sin mate ir
-          </Title>
-        </FlexItem>
-        <FlexItem>
-          <Title headingLevel="h3" size="lg">
-            Lorem Dolor ipsum
-          </Title>
-        </FlexItem>
-      </Flex>
-    </Flex>
+    <Gallery hasGutter>
+      <GalleryItem>
+        <Stack hasGutter>
+          <StackItem>
+            <Title headingLevel="h2" size="xl">
+              Configure
+            </Title>
+          </StackItem>
+          <StackItem>
+            <Split>
+              <SplitItem>
+                <div className="footer-icon">
+                  <CogIcon />
+                </div>
+              </SplitItem>
+              <SplitItem>
+                <TextContent>
+                  <Text component="h4">Lorem Dolor ipsum</Text>
+                  <Text component="p">Lorem Dolor ipsum Lorem Dolor ipsum</Text>
+                </TextContent>
+              </SplitItem>
+            </Split>
+          </StackItem>
+          <StackItem>
+            <Split>
+              <SplitItem>
+                <div className="footer-icon">
+                  <FilterIcon />
+                </div>
+              </SplitItem>
+              <SplitItem>
+                <TextContent>
+                  <Text component="h4">Lorem Dolor ipsum</Text>
+                  <Text component="p">Lorem Dolor ipsum Lorem Dolor ipsum</Text>
+                </TextContent>
+              </SplitItem>
+            </Split>
+          </StackItem>
+        </Stack>
+      </GalleryItem>
+      <GalleryItem>
+        <Stack hasGutter>
+          <StackItem>
+            <Title headingLevel="h2" size="xl">
+              Try
+            </Title>
+          </StackItem>
+          <StackItem>
+            <Split>
+              <SplitItem>
+                <div className="footer-icon">
+                  <AutomationIcon />
+                </div>
+              </SplitItem>
+              <SplitItem>
+                <TextContent>
+                  <Text component="h4">Lorem Dolor ipsum</Text>
+                  <Text component="p">Lorem Dolor ipsum Lorem Dolor ipsum</Text>
+                </TextContent>
+              </SplitItem>
+            </Split>
+          </StackItem>
+          <StackItem>
+            <Split>
+              <SplitItem>
+                <div className="footer-icon">
+                  <IntegrationIcon />
+                </div>
+              </SplitItem>
+              <SplitItem>
+                <TextContent>
+                  <Text component="h4">Lorem Dolor ipsum</Text>
+                  <Text component="p">Lorem Dolor ipsum Lorem Dolor ipsum</Text>
+                </TextContent>
+              </SplitItem>
+            </Split>
+          </StackItem>
+        </Stack>
+      </GalleryItem>
+      <GalleryItem>
+        <Stack hasGutter>
+          <StackItem>
+            <Title headingLevel="h2" size="xl">
+              Learn
+            </Title>
+          </StackItem>
+          <StackItem>
+            <Split>
+              <SplitItem>
+                <div className="footer-icon">
+                  <BlueprintIcon />
+                </div>
+              </SplitItem>
+              <SplitItem>
+                <TextContent>
+                  <Text component="h4">Lorem Dolor ipsum</Text>
+                  <Text component="p">Lorem Dolor ipsum Lorem Dolor ipsum</Text>
+                </TextContent>
+              </SplitItem>
+            </Split>
+          </StackItem>
+          <StackItem>
+            <Split>
+              <SplitItem>
+                <div className="footer-icon">
+                  <DomainIcon />
+                </div>
+              </SplitItem>
+              <SplitItem>
+                <TextContent>
+                  <Text component="h4">Lorem Dolor ipsum</Text>
+                  <Text component="p">Lorem Dolor ipsum Lorem Dolor ipsum</Text>
+                </TextContent>
+              </SplitItem>
+            </Split>
+          </StackItem>
+        </Stack>
+      </GalleryItem>
+    </Gallery>
   );
 };
 
