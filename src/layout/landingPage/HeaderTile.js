@@ -37,7 +37,7 @@ const HeaderTile = ({ header, title, labelText, labelColor, labelType }) => {
 };
 
 HeaderTile.defaultProps = {
-  labelText: ' lorem ipsum duis aute dolor ',
+  labelText: ' lorem ipsum',
   labelColor: 'green',
   labelType: 'info',
 };

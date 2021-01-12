@@ -1,17 +1,17 @@
 .ins-c-tile {
-  margin-right: 48px;
+  width: 432px;
   
   .ins-c-tile__title {
     margin-bottom: var(--ins-c-global-spacer--xl);
   }
 
   .inc-c-tile--button {
-    margin-top: 16px;
+    // margin-top: 16px;
     width: 200px;
   }
 
   .ins-c-tile__content {
-    margin-bottom: var(--ins-c-global-spacer--sm);
+    margin-bottom: 8px;
   }
 
 }

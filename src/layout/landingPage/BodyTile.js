@@ -34,7 +34,7 @@ const BodyTile = ({ title, bodyText, buttonLabel, tileItems }) => { //eslint-dis
             <Text>{bodyText}</Text>
           </FlexItem>
           <FlexItem
-            alight={{ default: 'alignRight' }}
+            align={{ default: 'alignRight' }}
             justifyContent={{ default: 'justifyContentFlexEnd' }}
           >
             <Button
