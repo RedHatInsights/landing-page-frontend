@@ -6,8 +6,8 @@ import {
   Stack,
   StackItem,
 } from '@patternfly/react-core';
-import BodyTile from './BodyTile';
-import './styles/FirstPanel.scss';
+import SecondPanelTile from './SecondPanelTile';
+import './styles/SecondPanel.scss';
 
 const FirstPanel = () => {
   return (
@@ -20,10 +20,10 @@ const FirstPanel = () => {
             </Title>
           </StackItem>
           <StackItem>
-            <BodyTile />
+            <SecondPanelTile />
           </StackItem>
           <StackItem className="ins-c-landing-grouping--separator">
-            <BodyTile />
+            <SecondPanelTile />
           </StackItem>
           <StackItem className="ins-c-landing-grouping__title">
             <Title headingLevel="h1" size="xl">
@@ -31,10 +31,10 @@ const FirstPanel = () => {
             </Title>
           </StackItem>
           <StackItem>
-            <BodyTile />
+            <SecondPanelTile />
           </StackItem>
           <StackItem>
-            <BodyTile />
+            <SecondPanelTile />
           </StackItem>
         </Stack>
       </GalleryItem>
@@ -45,16 +45,16 @@ const FirstPanel = () => {
           </Title>
         </StackItem>
         <StackItem>
-          <BodyTile title="Operational" />
+          <SecondPanelTile title="Operational" />
         </StackItem>
         <StackItem>
-          <BodyTile />
+          <SecondPanelTile />
         </StackItem>
         <StackItem>
-          <BodyTile title="Financial" />
+          <SecondPanelTile title="Financial" />
         </StackItem>
         <StackItem>
-          <BodyTile />
+          <SecondPanelTile />
         </StackItem>
       </Stack>
       <Stack className="ins-c-landing-grouping">
@@ -62,10 +62,10 @@ const FirstPanel = () => {
           <div style={{ marginBottom: '32px' }} />
         </StackItem>
         <StackItem>
-          <BodyTile title="Security" />
+          <SecondPanelTile title="Security" />
         </StackItem>
         <StackItem>
-          <BodyTile />
+          <SecondPanelTile />
         </StackItem>
       </Stack>
     </Gallery>

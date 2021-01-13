@@ -9,7 +9,7 @@ import {
   Text,
   Button,
 } from '@patternfly/react-core';
-import './styles/BodyTile.scss';
+import './styles/SecondPanelTile.scss';
 
 const BodyTile = ({ title, bodyText, buttonLabel, tileItems }) => { //eslint-disable-line
   // const renderTileItems = (tileItems) => {
