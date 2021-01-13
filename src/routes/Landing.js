@@ -11,7 +11,7 @@ import { addNotification } from '@redhat-cloud-services/frontend-components-noti
 import './Landing.scss';
 
 // Mockup console landing page
-import Body from '../layout/landingPage/Body';
+import FirstPanel from '../layout/landingPage/FirstPanel';
 import Header from '../layout/landingPage/Header';
 import Footer from '../layout/landingPage/Footer';
 
@@ -76,7 +76,7 @@ const Landing = () => {
         ) : (
           <Fragment>
             <Header />
-            <Body />
+            <FirstPanel />
             <Footer />
           </Fragment>
         )}
