@@ -11,7 +11,6 @@ const FirstPanelTile = ({
   labelColor,
   labelType,
 }) => {
-  // const [itemCount, setItemCount] = useState(0);
   useEffect(() => {
     console.log('This is my type: ', labelType);
   });
