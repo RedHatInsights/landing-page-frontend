@@ -9,7 +9,7 @@ import {
 import SecondPanelTile from './SecondPanelTile';
 import './styles/SecondPanel.scss';
 
-const FirstPanel = () => {
+const SecondPanel = () => {
   return (
     <Gallery hasGutter className="ins-c-landing-body">
       <GalleryItem>
@@ -72,4 +72,4 @@ const FirstPanel = () => {
   );
 };
 
-export default FirstPanel;
+export default SecondPanel;
