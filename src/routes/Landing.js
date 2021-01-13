@@ -12,7 +12,7 @@ import './Landing.scss';
 
 // Mockup console landing page
 import SecondPanel from '../layout/landingPage/SecondPanel';
-import Header from '../layout/landingPage/Header';
+import FirstPanel from '../layout/landingPage/FirstPanel';
 import Footer from '../layout/landingPage/Footer';
 
 const Landing = () => {
@@ -75,7 +75,7 @@ const Landing = () => {
           <Marketing />
         ) : (
           <Fragment>
-            <Header />
+            <FirstPanel />
             <SecondPanel />
             <Footer />
           </Fragment>

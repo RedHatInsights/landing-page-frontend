@@ -1,9 +1,18 @@
+/* eslint-disable */
 import React from 'react';
-import HeaderTile from './HeaderTile';
-import { Title, Flex, FlexItem } from '@patternfly/react-core'; //eslint-disable-line
-import './styles/Header.scss';
+import FirstPanelTile from './FirstPanelTile';
+import { 
+  Title, 
+  Flex, 
+  FlexItem, 
+  Gallery, 
+  GalleryItem, 
+  Stack, 
+  StackItem 
+} from '@patternfly/react-core'; 
+import './styles/FirstPanel.scss';
 
-const Header = () => {
+const FirstPanel = () => {
   return (
     <>
       <Flex className="ins-c-landing-header">
@@ -22,13 +31,13 @@ const Header = () => {
           </FlexItem>
           <Flex>
             <FlexItem>
-              <HeaderTile header="###" title="Kafka Clusters" />
+              <FirstPanelTile header="###" title="Kafka Clusters" />
             </FlexItem>
             <FlexItem>
-              <HeaderTile header="###" title="API Objects" />
+              <FirstPanelTile header="###" title="API Objects" />
             </FlexItem>
             <FlexItem>
-              <HeaderTile header="###" title="OpenDataHub Objects" />
+              <FirstPanelTile header="###" title="OpenDataHub Objects" />
             </FlexItem>
           </Flex>
         </Flex>
@@ -43,10 +52,10 @@ const Header = () => {
           </FlexItem>
           <Flex className="ins-c-tile-grouping">
             <FlexItem>
-              <HeaderTile header="###" title="API Objects" />
+              <FirstPanelTile header="###" title="API Objects" />
             </FlexItem>
             <FlexItem>
-              <HeaderTile header="###" title="API Objects" />
+              <FirstPanelTile header="###" title="API Objects" />
             </FlexItem>
           </Flex>
         </Flex>
@@ -61,7 +70,7 @@ const Header = () => {
           </FlexItem>
           <Flex>
             <FlexItem>
-              <HeaderTile header="###" title="API Objects" />
+              <FirstPanelTile header="###" title="API Objects" />
             </FlexItem>
           </Flex>
         </Flex>
@@ -70,4 +79,4 @@ const Header = () => {
   );
 };
 
-export default Header;
+export default FirstPanel;

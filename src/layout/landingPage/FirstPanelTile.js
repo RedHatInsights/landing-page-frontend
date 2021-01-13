@@ -2,9 +2,15 @@ import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { Stack, StackItem, Title, Label } from '@patternfly/react-core';
 import CheckCircleIcon from '@patternfly/react-icons/dist/js/icons/check-circle-icon';
-import './styles/HeaderTile.scss';
+import './styles/FirstPanelTile.scss';
 
-const HeaderTile = ({ header, title, labelText, labelColor, labelType }) => {
+const FirstPanelTile = ({
+  header,
+  title,
+  labelText,
+  labelColor,
+  labelType,
+}) => {
   // const [itemCount, setItemCount] = useState(0);
   useEffect(() => {
     console.log('This is my type: ', labelType);
@@ -36,13 +42,13 @@ const HeaderTile = ({ header, title, labelText, labelColor, labelType }) => {
   );
 };
 
-HeaderTile.defaultProps = {
+FirstPanelTile.defaultProps = {
   labelText: ' lorem ipsum',
   labelColor: 'green',
   labelType: 'info',
 };
 
-HeaderTile.propTypes = {
+FirstPanelTile.propTypes = {
   labelColor: PropTypes.string,
   labelType: PropTypes.string,
   title: PropTypes.string,
@@ -50,4 +56,4 @@ HeaderTile.propTypes = {
   labelText: PropTypes.string,
 };
 
-export default HeaderTile;
+export default FirstPanelTile;
