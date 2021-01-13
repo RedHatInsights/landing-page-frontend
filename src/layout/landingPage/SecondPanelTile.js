@@ -1,42 +1,30 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import {
-  Flex,
-  FlexItem,
   Stack,
   StackItem,
   Title,
   Text,
   Button,
+  Split,
+  SplitItem,
 } from '@patternfly/react-core';
 import './styles/SecondPanelTile.scss';
 
-const BodyTile = ({ title, bodyText, buttonLabel, tileItems }) => { //eslint-disable-line
-  // const renderTileItems = (tileItems) => {
-  //   <div>
-  //     {tileItems.map(() => {
-  //       console.log('Try me: ', tileItems);
-  //     })}
-  //   </div>;
-  // };
-
+const SecondPanelTile = ({ title, bodyText, buttonLabel }) => {
   return (
-    <Stack>
+    <Stack className="ins-c-tile">
       <StackItem className="ins-c-tile ins-c-tile__title">
         <Title headingLevel="h1" size="md">
           {title}
         </Title>
       </StackItem>
       <StackItem>
-        <Flex className="ins-c-body-tile-content">
-          {/* <FlexItem>{renderTileItems(tileItems)}</FlexItem> */}
-          <FlexItem>
+        <Split className="ins-c-body-tile-content">
+          <SplitItem isFilled>
             <Text>{bodyText}</Text>
-          </FlexItem>
-          <FlexItem
-            align={{ default: 'alignRight' }}
-            justifyContent={{ default: 'justifyContentFlexEnd' }}
-          >
+          </SplitItem>
+          <SplitItem>
             <Button
               variant="secondary"
               isSmall={true}
@@ -44,25 +32,24 @@ const BodyTile = ({ title, bodyText, buttonLabel, tileItems }) => { //eslint-dis
             >
               {buttonLabel}
             </Button>
-          </FlexItem>
-        </Flex>
+          </SplitItem>
+        </Split>
       </StackItem>
     </Stack>
   );
 };
 
-BodyTile.defaultProps = {
+SecondPanelTile.defaultProps = {
   tileItems: [],
   bodyText: 'Lorem ipsum dolor sit amet',
   title: '',
   buttonLabel: 'Action',
 };
 
-BodyTile.propTypes = {
-  tileItems: PropTypes.array,
+SecondPanelTile.propTypes = {
   title: PropTypes.string,
   bodyText: PropTypes.string,
   buttonLabel: PropTypes.string,
 };
 
-export default BodyTile;
+export default SecondPanelTile;
