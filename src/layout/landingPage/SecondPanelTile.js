@@ -1,30 +1,21 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import {
-  Stack,
-  StackItem,
-  Title,
-  Text,
-  Button,
-  Split,
-  SplitItem,
-} from '@patternfly/react-core';
-import './styles/SecondPanelTile.scss';
+import { Flex, FlexItem, Title, Text, Button } from '@patternfly/react-core';
 
 const SecondPanelTile = ({ title, bodyText, buttonLabel }) => {
   return (
-    <Stack className="ins-c-tile">
-      <StackItem className="ins-c-tile ins-c-tile__title">
-        <Title headingLevel="h1" size="md">
+    <Flex className="ins-c-tile">
+      <FlexItem className="ins-c-tile__title">
+        <Title headingLevel="h2" size="md">
           {title}
         </Title>
-      </StackItem>
-      <StackItem>
-        <Split className="ins-c-body-tile-content">
-          <SplitItem isFilled>
+      </FlexItem>
+      <FlexItem>
+        <Flex className="test">
+          <FlexItem>
             <Text>{bodyText}</Text>
-          </SplitItem>
-          <SplitItem>
+          </FlexItem>
+          <FlexItem>
             <Button
               variant="secondary"
               isSmall={true}
@@ -32,10 +23,10 @@ const SecondPanelTile = ({ title, bodyText, buttonLabel }) => {
             >
               {buttonLabel}
             </Button>
-          </SplitItem>
-        </Split>
-      </StackItem>
-    </Stack>
+          </FlexItem>
+        </Flex>
+      </FlexItem>
+    </Flex>
   );
 };
 

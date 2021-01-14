@@ -1,7 +1,7 @@
 import React from 'react';
 import {
-  Gallery,
-  GalleryItem,
+  Flex,
+  FlexItem,
   Split,
   SplitItem,
   Stack,
@@ -18,12 +18,12 @@ import {
   FilterIcon,
   IntegrationIcon,
 } from '@patternfly/react-icons';
-import './styles/Footer.scss';
+import './styles/ThirdPanel.scss';
 
 const Footer = () => {
   return (
-    <Gallery hasGutter>
-      <GalleryItem>
+    <Flex className="ins-p-console-landing-third-level" hasGutter>
+      <FlexItem>
         <Stack hasGutter>
           <StackItem>
             <Title headingLevel="h2" size="xl">
@@ -61,8 +61,8 @@ const Footer = () => {
             </Split>
           </StackItem>
         </Stack>
-      </GalleryItem>
-      <GalleryItem>
+      </FlexItem>
+      <FlexItem>
         <Stack hasGutter>
           <StackItem>
             <Title headingLevel="h2" size="xl">
@@ -100,8 +100,8 @@ const Footer = () => {
             </Split>
           </StackItem>
         </Stack>
-      </GalleryItem>
-      <GalleryItem>
+      </FlexItem>
+      <FlexItem>
         <Stack hasGutter>
           <StackItem>
             <Title headingLevel="h2" size="xl">
@@ -139,8 +139,8 @@ const Footer = () => {
             </Split>
           </StackItem>
         </Stack>
-      </GalleryItem>
-    </Gallery>
+      </FlexItem>
+    </Flex>
   );
 };
 

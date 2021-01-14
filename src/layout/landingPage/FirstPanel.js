@@ -15,7 +15,7 @@ import './styles/FirstPanel.scss';
 const FirstPanel = () => {
   return (
     <>
-      <Flex className="ins-c-landing-header">
+      <Flex className="ins-p-console-landing-first-level">
         <Flex
           className="ins-c-landing-header__grouping"
           direction={{ default: 'column' }}

@@ -1,10 +1,25 @@
-.ins-c-landing-header {
+.pf-l-flex.ins-p-console-landing-first-level {
   background-color: var(--pf-global--primary-color--200);
+  padding-top: var(--pf-global--spacer--xl);
+  padding-bottom: var(--pf-global--spacer--xl);
+  padding-right: var(--pf-global--spacer--xl);
+  padding-left: var(--pf-global--spacer--xl);
   color: #ffffff;
+
+  > .pf-l-flex {
+     padding-right: 24px;
+  }
 
   .ins-c-landing-header__grouping {
     margin-top: var(--ins-global-spacer--2xl);
     margin-left: var(--ins-global-spacer--lg);
     margin-bottom: var(--ins-global-spacer--xl);
+  }
+  .ins-c-header-tile {
+    margin-right: var(--ins-c-global--spacer--md);
+  }
+
+  .ins-c-header-tile--label {
+    margin-top: var(--pf-global--spacer--md);
   }
 }
