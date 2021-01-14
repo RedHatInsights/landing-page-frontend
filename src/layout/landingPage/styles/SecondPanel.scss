@@ -5,7 +5,12 @@
     padding-right: var(--pf-global--spacer--xl);
     padding-left: var(--pf-global--spacer--xl);
 
-    > div { width: 400px;}
+    > div { width: 425px;}
+
+
+    .test {
+      width: 425px;
+    }
 
     div > .pf-l-flex { 
         flex-direction: column;
