@@ -17,17 +17,13 @@ const FirstPanel = () => {
     <>
       <Flex className="ins-p-console-landing-first-level">
         <Flex
-          className="ins-c-landing-header__grouping"
+          className="grouping"
           direction={{ default: 'column' }}
         >
           <FlexItem>
-            <Title
-              className="ins-c-landing-header__groupingTitle"
-              headingLevel="h1"
-              size="lg"
-            >
+            <p className="title">
               Application Services
-            </Title>
+            </p>
           </FlexItem>
           <Flex>
             <FlexItem>
@@ -42,13 +38,13 @@ const FirstPanel = () => {
           </Flex>
         </Flex>
         <Flex
-          className="ins-c-landing-header__grouping"
+          className="grouping"
           direction={{ default: 'column' }}
         >
           <FlexItem>
-            <Title className="ins-c-header--title" headingLevel="h1" size="lg">
+            <p className="title">
               Platforms
-            </Title>
+            </p>
           </FlexItem>
           <Flex className="ins-c-tile-grouping">
             <FlexItem>
@@ -60,13 +56,13 @@ const FirstPanel = () => {
           </Flex>
         </Flex>
         <Flex
-          className="ins-c-landing-header__grouping"
+          className="grouping"
           direction={{ default: 'column' }}
         >
           <FlexItem>
-            <Title className="ins-c-header--title" headingLevel="h1" size="lg">
+            <p className="title">
               Automation
-            </Title>
+            </p>
           </FlexItem>
           <Flex>
             <FlexItem>

@@ -61,8 +61,8 @@
   "homepage": "https://github.com/RedHatInsights/landing-page-frontend#readme",
   "dependencies": {
     "@babel/runtime": "^7.11.2",
-    "@patternfly/patternfly": "^4.10.29",
-    "@patternfly/react-core": "^4.18.5",
+    "@patternfly/patternfly": "^4.70.2",
+    "@patternfly/react-core": "^4.84.4",
     "@patternfly/react-icons": "^4.3.3",
     "@redhat-cloud-services/frontend-components": "^2.4.13",
     "@redhat-cloud-services/frontend-components-notifications": "^2.2.3",

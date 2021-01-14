@@ -60,7 +60,7 @@ const SecondPanel = () => {
         <Flex>
           <FlexItem className="ins-c-landing-grouping__title">
             <Title headingLevel="h1" size="xl">
-              .
+              &nbsp;
             </Title>
           </FlexItem>
           <FlexItem>
