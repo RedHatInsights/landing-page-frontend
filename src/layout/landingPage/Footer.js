@@ -18,11 +18,11 @@ import {
   FilterIcon,
   IntegrationIcon,
 } from '@patternfly/react-icons';
-import './styles/Footer.scss';
+import './styles/ThirdPanel.scss';
 
 const Footer = () => {
   return (
-    <Gallery hasGutter>
+    <Gallery className="ins-p-console-landing-third-level" hasGutter>
       <GalleryItem>
         <Stack hasGutter>
           <StackItem>

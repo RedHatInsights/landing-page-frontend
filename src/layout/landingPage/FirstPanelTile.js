@@ -2,7 +2,6 @@ import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { Stack, StackItem, Title, Label } from '@patternfly/react-core';
 import CheckCircleIcon from '@patternfly/react-icons/dist/js/icons/check-circle-icon';
-import './styles/FirstPanelTile.scss';
 
 const FirstPanelTile = ({
   header,
