@@ -6,6 +6,10 @@
   padding-left: var(--pf-global--spacer--xl);
   color: #ffffff;
 
+  > div > .pf-l-flex > div {
+    width: 190px;
+  }
+
   > .pf-l-flex {
      padding-right: 24px;
   }

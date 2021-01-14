@@ -11,7 +11,7 @@ const SecondPanelTile = ({ title, bodyText, buttonLabel }) => {
         </Title>
       </FlexItem>
       <FlexItem>
-        <Flex>
+        <Flex className="test">
           <FlexItem>
             <Text>{bodyText}</Text>
           </FlexItem>

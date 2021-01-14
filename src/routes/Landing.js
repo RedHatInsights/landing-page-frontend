@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import React, { useEffect, useState, Fragment } from 'react';
 import { useDispatch } from 'react-redux';
 import { withRouter } from 'react-router-dom';
-import { Button, Modal, Title } from '@patternfly/react-core';
+import { Button, Modal, Stack, StackItem, Title } from '@patternfly/react-core';
 import Marketing from '../layout/Marketing';
 import FooterTraditional from '../layout/FooterTraditional';
 import Loading from '../layout/Loading';
