@@ -11,7 +11,6 @@ import {
   SplitItem,
   Split,
 } from '@patternfly/react-core';
-import Body from '../layout/Body';
 import Marketing from '../layout/Marketing';
 import FooterTraditional from '../layout/FooterTraditional';
 import Loading from '../layout/Loading';
@@ -94,7 +93,7 @@ const Landing = () => {
             </NavigationContext.Provider>
           </SplitItem>
         )}
-        <SplitItem>
+        <SplitItem className="ins-c-page__landing-content">
           {isUnauthed ? (
             <Marketing />
           ) : (
