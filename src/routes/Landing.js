@@ -25,6 +25,7 @@ import Footer from '../layout/landingPage/Footer';
 import Navigation from '../components/navigation';
 import navigationReducer from '../components/navigation/navigation-reducer';
 import NavigationContext from '../components/navigation/navigation-context';
+import NavigationOverlay from '../components/navigation/navigation-overlay';
 
 const Landing = () => {
   const [state, internalDispatch] = useReducer(navigationReducer, {
@@ -98,6 +99,7 @@ const Landing = () => {
             <Marketing />
           ) : (
             <NavigationContext.Provider value={{ state, internalDispatch }}>
+              <NavigationOverlay />
               <FirstPanel />
               <SecondPanel />
               <Footer />
