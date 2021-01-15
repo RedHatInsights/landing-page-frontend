@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Flex, FlexItem, Title, Text, Button } from '@patternfly/react-core';
+import { Flex, FlexItem, Title, Button } from '@patternfly/react-core';
 
 const SecondPanelTile = ({ title, bodyText, buttonLabel }) => {
   return (
@@ -13,14 +13,10 @@ const SecondPanelTile = ({ title, bodyText, buttonLabel }) => {
       <FlexItem>
         <Flex className="test">
           <FlexItem>
-            <Text>{bodyText}</Text>
+            <p className="test__title">{bodyText}</p>
           </FlexItem>
           <FlexItem>
-            <Button
-              variant="secondary"
-              isSmall={true}
-              className="ins-c-tile-button"
-            >
+            <Button variant="secondary" isSmall={true}>
               {buttonLabel}
             </Button>
           </FlexItem>

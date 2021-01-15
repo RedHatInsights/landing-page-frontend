@@ -10,6 +10,7 @@
 
     .test {
       width: 425px;
+      font: var(--pf-global--FontSize--md);
     }
 
     div > .pf-l-flex { 
@@ -31,11 +32,9 @@
     .ins-c-tile {
       .ins-c-tile__title {
         margin-bottom: var(--ins-c-global-spacer--xl);
+        font:(--pf-global--FontSize--sm);
       }
-      .inc-c-tile--button {
-        width: 200px;
-      }
-
+     
       .ins-c-tile__content {
         margin-bottom: var(--pf-global--spacer--sm);
       }
