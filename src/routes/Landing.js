@@ -16,7 +16,7 @@ import FooterTraditional from '../layout/FooterTraditional';
 import Loading from '../layout/Loading';
 import { activeTechnologies } from '../consts';
 import { addNotification } from '@redhat-cloud-services/frontend-components-notifications/cjs/actions';
-// import './Landing.scss';
+import './Landing.scss';
 
 // Mockup console landing page
 import SecondPanel from '../layout/landingPage/SecondPanel';
