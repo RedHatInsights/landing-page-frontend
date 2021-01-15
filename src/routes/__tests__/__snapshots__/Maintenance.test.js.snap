@@ -17,7 +17,7 @@ exports[`Maintenance page should render correctly 1`] = `
     <section
       className="pf-l-page__main-section pf-c-page__main-section ins-c-page__maintenance"
     >
-      <Component
+      <EmptyState
         variant="large"
       >
         <div
@@ -26,7 +26,7 @@ exports[`Maintenance page should render correctly 1`] = `
           <div
             className="pf-c-empty-state__content"
           >
-            <Component
+            <EmptyStateIcon
               icon={[Function]}
             >
               <IconHourglass
@@ -175,8 +175,8 @@ exports[`Maintenance page should render correctly 1`] = `
                   </g>
                 </svg>
               </IconHourglass>
-            </Component>
-            <Component
+            </EmptyStateIcon>
+            <Title
               headingLevel="h5"
               size="lg"
             >
@@ -185,8 +185,8 @@ exports[`Maintenance page should render correctly 1`] = `
               >
                 Maintenance in progress
               </h5>
-            </Component>
-            <Component>
+            </Title>
+            <EmptyStateBody>
               <div
                 className="pf-c-empty-state__body"
               >
@@ -205,8 +205,8 @@ exports[`Maintenance page should render correctly 1`] = `
                   We will be back soon. Thank you for your patience!
                 </p>
               </div>
-            </Component>
-            <Component
+            </EmptyStateBody>
+            <Button
               component="a"
               href="http://localhost"
               variant="primary"
@@ -215,20 +215,20 @@ exports[`Maintenance page should render correctly 1`] = `
                 aria-disabled={false}
                 aria-label={null}
                 className="pf-c-button pf-m-primary"
-                data-ouia-component-id={null}
+                data-ouia-component-id="OUIA-Generated-Button-primary-1"
                 data-ouia-component-type="PF4/Button"
                 data-ouia-safe={true}
                 disabled={null}
                 href="http://localhost"
-                tabIndex={null}
+                role={null}
                 type={null}
               >
                 Return to homepage
               </a>
-            </Component>
+            </Button>
           </div>
         </div>
-      </Component>
+      </EmptyState>
     </section>
   </Maintenance>
 </Provider>

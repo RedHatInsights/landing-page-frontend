@@ -116,11 +116,11 @@ exports[`App component should render correctly 1`] = `
           >
             <Suspense
               fallback={
-                <Unknown>
-                  <Unknown
+                <Bullseye>
+                  <Spinner
                     size="xl"
                   />
-                </Unknown>
+                </Bullseye>
               }
             >
               <Switch>
@@ -153,11 +153,11 @@ exports[`App component should render correctly 1`] = `
                   path="/"
                 />
               </Switch>
-              <Component>
+              <Bullseye>
                 <div
                   className="pf-l-bullseye"
                 >
-                  <Component
+                  <Spinner
                     size="xl"
                   >
                     <span
@@ -175,9 +175,9 @@ exports[`App component should render correctly 1`] = `
                         className="pf-c-spinner__tail-ball"
                       />
                     </span>
-                  </Component>
+                  </Spinner>
                 </div>
-              </Component>
+              </Bullseye>
             </Suspense>
           </App>
         </Connect(App)>
@@ -319,11 +319,11 @@ exports[`App component should render correctly with data 1`] = `
           >
             <Suspense
               fallback={
-                <Unknown>
-                  <Unknown
+                <Bullseye>
+                  <Spinner
                     size="xl"
                   />
-                </Unknown>
+                </Bullseye>
               }
             >
               <Switch>
