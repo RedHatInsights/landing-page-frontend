@@ -11,13 +11,17 @@ import {
   SplitItem,
   Split,
 } from '@patternfly/react-core';
-import Body from '../layout/Body';
 import Marketing from '../layout/Marketing';
 import FooterTraditional from '../layout/FooterTraditional';
 import Loading from '../layout/Loading';
 import { activeTechnologies } from '../consts';
 import { addNotification } from '@redhat-cloud-services/frontend-components-notifications/cjs/actions';
 import './Landing.scss';
+
+// Mockup console landing page
+import SecondPanel from '../layout/landingPage/SecondPanel';
+import FirstPanel from '../layout/landingPage/FirstPanel';
+import Footer from '../layout/landingPage/Footer';
 import Navigation from '../components/navigation';
 import navigationReducer from '../components/navigation/navigation-reducer';
 import NavigationContext from '../components/navigation/navigation-context';
@@ -89,12 +93,14 @@ const Landing = () => {
             </NavigationContext.Provider>
           </SplitItem>
         )}
-        <SplitItem>
+        <SplitItem className="ins-c-page__landing-content">
           {isUnauthed ? (
             <Marketing />
           ) : (
             <NavigationContext.Provider value={{ state, internalDispatch }}>
-              <Body />
+              <FirstPanel />
+              <SecondPanel />
+              <Footer />
             </NavigationContext.Provider>
           )}
           <FooterTraditional />

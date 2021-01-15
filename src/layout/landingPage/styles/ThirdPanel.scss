@@ -1,0 +1,69 @@
+.pf-l-flex.ins-p-console-landing-third-level {
+    background-color: var(--pf-global--Color--light-200);
+    padding-top: var(--pf-global--spacer--xl);
+    padding-right: var(--pf-global--spacer--xl);
+    padding-left: var(--pf-global--spacer--xl);
+
+    > div > .pf-l-stack {
+      width: 375px;
+    }
+
+      h2 {
+        color: #151515;
+        font-size: 20px !important;
+        font-weight:  var(--pf-global--FontWeight--normal) !important;
+      }
+
+        .pf-l-split {
+            h4 {
+                color: #151515;
+                font: "RedHatDisplay", "Overpass", overpass, helvetica, arial, sans-serif; //--pf-global--FontFamily--heading--sans-serif
+                font-weight:  var(--pf-global--FontWeight--normal);
+                font-size: 16px;
+                margin-bottom: var(--pf-global--spacer--md);
+            }
+            p { 
+                color: #151515;  
+                font: "RedHatDisplay", "Overpass", overpass, helvetica, arial, sans-serif; //--pf-global--FontFamily--heading--sans-serif
+                font-size: 14px;
+                font-weight:  var(--pf-global--FontWeight--normal);
+                margin-bottom: var(--pf-global--spacer--md);
+            }
+            a {
+                color: var(--pf-global--active-color--100);
+            }
+
+
+        .pf-l-split__item:first-of-type {
+            margin-right: var(--pf-global--spacer--lg);
+            width: var(--pf-global--spacer--2xl);
+        
+          .footer-icon {
+            border-radius: 50%;
+            background-color: var(--pf-global--disabled-color--200);
+            color: #000;
+            height: 50px;
+            padding: 10px;
+            width: 50px;
+            border: 2px solid #d2d2d2;
+            
+            svg {
+              height: 26px;
+              width: 26px;
+            }
+          }
+        }
+      }
+
+  // @media (max-width: 768px) {
+  //   .pf-l-gallery {
+  //     column-count: 1;
+  //   }
+  // }
+  // @media (min-width: 769px) and  (max-width: 1200px) {
+  //   .pf-l-gallery {
+  //     column-count: 2;
+  //   }
+  // }
+}
+
