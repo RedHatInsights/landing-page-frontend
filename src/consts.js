@@ -50,12 +50,12 @@ export const activeTechnologies = [
       compliance: '/compliance',
     },
     image: Insights,
-    title: 'Red Hat Insights',
+    title: 'Insights',
     emptyTitle:
-      'Red Hat Insights is included with every Red Hat Enterprise Linux subscription',
+      'Insights is included with every Red Hat Enterprise Linux subscription',
     emptyText:
       'Proactively identify and remediate threats to security, performance, availability, \
-        and stability with Red Hat Insights. Activate Red Hat Insights to get started today.',
+        and stability with Insights. Activate Insights to get started today.',
     emptyID: 'insights',
     emptyAction: {
       primary: {
@@ -80,13 +80,12 @@ export const activeTechnologies = [
     entitlement: 'openshift',
     marketing: true,
     marketingImage: openShiftMarketing,
-    marketingText:
-      'Install, register, and manage Red Hat OpenShift® 4 clusters.',
+    marketingText: 'Install, register, and manage OpenShift® 4 clusters.',
     marketingUrls: {
       learnMore: 'https://try.openshift.com',
     },
     image: Openshift,
-    emptyTitle: 'Get Started with Red Hat Openshift.',
+    emptyTitle: 'Get Started with Openshift.',
     emptyID: 'openshift',
     emptyText:
       "Test drive industry's leading container application platform in your browser, \
@@ -96,8 +95,8 @@ export const activeTechnologies = [
         title: 'Try it free',
       },
     },
-    title: 'Red Hat OpenShift Cluster Manager',
-    body: 'Install, register, and manage Red Hat OpenShift® 4 clusters.',
+    title: 'OpenShift Cluster Manager',
+    body: 'Install, register, and manage OpenShift® 4 clusters.',
   },
   {
     id: 'Ansible',
@@ -105,7 +104,7 @@ export const activeTechnologies = [
     url: 'ansible',
     baseApp: '/automation-analytics',
     image: Automation,
-    title: 'Red Hat Ansible Automation Platform',
+    title: 'Ansible Automation Platform',
     body:
       'Extend your automation with analytics, content management, and policy and governance.',
     apps: {
@@ -125,7 +124,7 @@ export const activeTechnologies = [
       'Ansible Automation Platform services requires a valid subscription',
     emptyText:
       'Get analytics and knowledge on your automation, access to certified content, and more with a \
-        Red Hat Ansible Automation Platform subscription.',
+        Ansible Automation Platform subscription.',
     emptyID: 'ansible',
     emptyAction: {
       // primary: {
@@ -151,7 +150,7 @@ export const activeTechnologies = [
     baseApp: '/rhel-sw',
     apps: {
       'Red Hat Enterprise Linux': '/rhel-sw',
-      'Red Hat OpenShift': '/openshift-sw',
+      OpenShift: '/openshift-sw',
     },
     marketing: false,
     emptyTitle: 'Subscription Watch',
@@ -184,7 +183,7 @@ export const activeTechnologies = [
     },
     title: 'Insights for SAP',
     body:
-      'Leverage Red Hat Insights to manage, optimize and remediate risks to your SAP landscape.',
+      'Leverage Insights to manage, optimize and remediate risks to your SAP landscape.',
   },
   {
     id: 'Cost Management',
@@ -196,11 +195,11 @@ export const activeTechnologies = [
     apps: {
       'cost management': '/',
     },
-    emptyTitle: 'Cost Management for Red Hat OpenShift',
+    emptyTitle: 'Cost Management for OpenShift',
     emptyID: 'cost-management',
     emptyText:
-      'Cost Management provides visibility and analysis for your Red Hat OpenShift \
-        and cloud costs. To obtain access to Cost Management, become a Red Hat OpenShift customer.',
+      'Cost Management provides visibility and analysis for your OpenShift \
+        and cloud costs. To obtain access to Cost Management, become an OpenShift customer.',
     emptyAction: {
       primary: {
         title: 'Learn more',
@@ -213,7 +212,7 @@ export const activeTechnologies = [
     },
     title: 'Cost Management',
     body:
-      'Analyze, forecast and optimize your Red Hat OpenShift cluster costs in hybrid cloud environments.',
+      'Analyze, forecast and optimize your OpenShift cluster costs in hybrid cloud environments.',
   },
   {
     id: 'migrations',
