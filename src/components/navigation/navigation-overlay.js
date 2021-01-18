@@ -98,7 +98,9 @@ const OverlayContent = ({ activeSection, handleCloseOverlay, activeRef }) => {
                   <StackItem key={title}>
                     <a
                       className="ins-c-navigation-overlay__link"
-                      href={`/${technology.url}${link}`}
+                      href={`/${
+                        window.insights.chrome.isBeta() ? 'beta/' : ''
+                      }${technology.url}${link}`}
                     >
                       {title}
                     </a>
