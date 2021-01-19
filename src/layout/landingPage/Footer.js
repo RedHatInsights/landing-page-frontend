@@ -11,22 +11,23 @@ import {
   Title,
 } from '@patternfly/react-core'; //eslint-disable-line
 import {
+  ArrowRightIcon,
   AutomationIcon,
   BlueprintIcon,
   CogIcon,
   DomainIcon,
+  ExternalLinkAltIcon,
   FilterIcon,
   IntegrationIcon,
 } from '@patternfly/react-icons';
-import './styles/ThirdPanel.scss';
 
 const Footer = () => {
   return (
-    <Flex className="ins-p-console-landing-third-level" hasGutter>
+    <Flex className="third-level" hasGutter>
       <FlexItem>
         <Stack hasGutter>
           <StackItem>
-            <Title headingLevel="h2" size="xl">
+            <Title headingLevel="h2" size="xl" className="title1">
               Configure
             </Title>
           </StackItem>
@@ -41,6 +42,10 @@ const Footer = () => {
                 <TextContent>
                   <Text component="h4">Lorem Dolor ipsum</Text>
                   <Text component="p">Lorem Dolor ipsum Lorem Dolor ipsum</Text>
+                  <Text component="a">
+                    Lorem&nbsp;
+                    <ArrowRightIcon size="sm" />
+                  </Text>
                 </TextContent>
               </SplitItem>
             </Split>
@@ -56,6 +61,10 @@ const Footer = () => {
                 <TextContent>
                   <Text component="h4">Lorem Dolor ipsum</Text>
                   <Text component="p">Lorem Dolor ipsum Lorem Dolor ipsum</Text>
+                  <Text component="a">
+                    Lorem&nbsp;
+                    <ArrowRightIcon size="sm" />
+                  </Text>
                 </TextContent>
               </SplitItem>
             </Split>
@@ -65,7 +74,7 @@ const Footer = () => {
       <FlexItem>
         <Stack hasGutter>
           <StackItem>
-            <Title headingLevel="h2" size="xl">
+            <Title headingLevel="h2" size="xl" className="title1">
               Try
             </Title>
           </StackItem>
@@ -80,6 +89,10 @@ const Footer = () => {
                 <TextContent>
                   <Text component="h4">Lorem Dolor ipsum</Text>
                   <Text component="p">Lorem Dolor ipsum Lorem Dolor ipsum</Text>
+                  <Text component="a">
+                    Ipsum&nbsp;
+                    <ArrowRightIcon size="sm" />
+                  </Text>
                 </TextContent>
               </SplitItem>
             </Split>
@@ -95,6 +108,10 @@ const Footer = () => {
                 <TextContent>
                   <Text component="h4">Lorem Dolor ipsum</Text>
                   <Text component="p">Lorem Dolor ipsum Lorem Dolor ipsum</Text>
+                  <Text component="a">
+                    Ipsum&nbsp;
+                    <ArrowRightIcon size="sm" />
+                  </Text>
                 </TextContent>
               </SplitItem>
             </Split>
@@ -104,7 +121,7 @@ const Footer = () => {
       <FlexItem>
         <Stack hasGutter>
           <StackItem>
-            <Title headingLevel="h2" size="xl">
+            <Title headingLevel="h2" size="xl" className="title1">
               Learn
             </Title>
           </StackItem>
@@ -119,6 +136,10 @@ const Footer = () => {
                 <TextContent>
                   <Text component="h4">Lorem Dolor ipsum</Text>
                   <Text component="p">Lorem Dolor ipsum Lorem Dolor ipsum</Text>
+                  <Text component="a">
+                    Ipsum&nbsp;
+                    <ExternalLinkAltIcon size="sm" />
+                  </Text>
                 </TextContent>
               </SplitItem>
             </Split>
@@ -134,6 +155,10 @@ const Footer = () => {
                 <TextContent>
                   <Text component="h4">Lorem Dolor ipsum</Text>
                   <Text component="p">Lorem Dolor ipsum Lorem Dolor ipsum</Text>
+                  <Text component="a">
+                    Ipsum&nbsp;
+                    <ExternalLinkAltIcon size="sm" />
+                  </Text>
                 </TextContent>
               </SplitItem>
             </Split>

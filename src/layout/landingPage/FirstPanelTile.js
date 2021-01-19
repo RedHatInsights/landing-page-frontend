@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
-import { Stack, StackItem, Label } from '@patternfly/react-core';
+import { Flex, FlexItem, Label, Title } from '@patternfly/react-core';
 import CheckCircleIcon from '@patternfly/react-icons/dist/js/icons/check-circle-icon';
 
 const FirstPanelTile = ({
@@ -15,24 +15,19 @@ const FirstPanelTile = ({
   });
 
   return (
-    <Stack className="tile">
-      <StackItem>
-        <p className="count">{header}</p>
-      </StackItem>
-      <StackItem>
-        <p className="name">{title}</p>
-      </StackItem>
-      <StackItem>
-        <Label
-          icon={<CheckCircleIcon />}
-          variant="outline"
-          className="label"
-          color={labelColor}
-        >
+    <Flex className="tile">
+      <FlexItem>
+        <Title headingLevel="h6">{header}</Title>
+      </FlexItem>
+      <FlexItem className="name">
+        <p>{title}</p>
+      </FlexItem>
+      <FlexItem className="label">
+        <Label icon={<CheckCircleIcon />} variant="outline" color={labelColor}>
           {labelText}
         </Label>
-      </StackItem>
-    </Stack>
+      </FlexItem>
+    </Flex>
   );
 };
 

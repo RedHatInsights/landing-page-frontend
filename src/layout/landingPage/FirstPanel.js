@@ -1,49 +1,37 @@
 import React from 'react';
 import FirstPanelTile from './FirstPanelTile';
 import { Flex, FlexItem } from '@patternfly/react-core';
-import './styles/FirstPanel.scss';
+import './styles/Panels.scss';
 
 const FirstPanel = () => {
   return (
     <>
-      <Flex className="ins-p-console-landing-first-level">
-        <Flex className="grouping" direction={{ default: 'column' }}>
+      <Flex className="first-level">
+        <Flex className="section">
           <FlexItem>
             <p className="title">Application Services</p>
           </FlexItem>
-          <Flex>
-            <FlexItem>
-              <FirstPanelTile header="###" title="Kafka Clusters" />
-            </FlexItem>
-            <FlexItem>
-              <FirstPanelTile header="###" title="API Objects" />
-            </FlexItem>
-            <FlexItem>
-              <FirstPanelTile header="###" title="OpenDataHub Objects" />
-            </FlexItem>
+          <Flex className="tileContainer">
+            <FirstPanelTile header="###" title="Kafka Clusters" />
+            <FirstPanelTile header="###" title="API Objects" />
+            <FirstPanelTile header="###" title="OpenDataHub Objects" />
           </Flex>
         </Flex>
-        <Flex className="grouping" direction={{ default: 'column' }}>
+        <Flex className="section">
           <FlexItem>
             <p className="title">Platforms</p>
           </FlexItem>
-          <Flex className="ins-c-tile-grouping">
-            <FlexItem>
-              <FirstPanelTile header="###" title="API Objects" />
-            </FlexItem>
-            <FlexItem>
-              <FirstPanelTile header="###" title="API Objects" />
-            </FlexItem>
+          <Flex className="tileContainer">
+            <FirstPanelTile header="###" title="API Objects" />
+            <FirstPanelTile header="###" title="API Objects" />
           </Flex>
         </Flex>
-        <Flex className="grouping" direction={{ default: 'column' }}>
+        <Flex className="section">
           <FlexItem>
             <p className="title">Automation</p>
           </FlexItem>
-          <Flex>
-            <FlexItem>
-              <FirstPanelTile header="###" title="API Objects" />
-            </FlexItem>
+          <Flex className="tileContainer">
+            <FirstPanelTile header="###" title="API Objects" />
           </Flex>
         </Flex>
       </Flex>

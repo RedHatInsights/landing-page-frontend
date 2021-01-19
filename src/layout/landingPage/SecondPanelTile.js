@@ -4,23 +4,17 @@ import { Flex, FlexItem, Title, Button } from '@patternfly/react-core';
 
 const SecondPanelTile = ({ title, bodyText, buttonLabel }) => {
   return (
-    <Flex className="ins-c-tile">
-      <FlexItem className="ins-c-tile__title">
-        <Title headingLevel="h2" size="md">
+    <Flex className="tile">
+      <FlexItem>
+        <Title headingLevel="h5" size="sm">
+          {bodyText}
           {title}
         </Title>
       </FlexItem>
-      <FlexItem>
-        <Flex className="test">
-          <FlexItem>
-            <p className="test__title">{bodyText}</p>
-          </FlexItem>
-          <FlexItem>
-            <Button variant="secondary" isSmall={true}>
-              {buttonLabel}
-            </Button>
-          </FlexItem>
-        </Flex>
+      <FlexItem align={{ default: 'alignRight' }}>
+        <Button variant="secondary" isSmall={true}>
+          {buttonLabel}
+        </Button>
       </FlexItem>
     </Flex>
   );
