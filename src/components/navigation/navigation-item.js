@@ -13,7 +13,7 @@ const NavigationItem = memo(
     const ref = useRef();
     return (
       <NavItem
-        to={`/${url}`}
+        to={`/${window.insights.chrome.isBeta() ? 'beta/' : ''}${url}`}
         id={url}
         component={({ children, className, ...props }) => (
           <a
