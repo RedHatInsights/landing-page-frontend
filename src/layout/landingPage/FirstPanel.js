@@ -1,6 +1,6 @@
 import React from 'react';
 import FirstPanelTile from './FirstPanelTile';
-import { Flex, FlexItem } from '@patternfly/react-core';
+import { Flex, FlexItem, Text } from '@patternfly/react-core';
 import './styles/Panels.scss';
 
 const FirstPanel = () => {
@@ -9,7 +9,9 @@ const FirstPanel = () => {
       <Flex className="first-level">
         <Flex className="section">
           <FlexItem>
-            <p className="title">Application Services</p>
+            <Text component="p" className="title">
+              Application Services
+            </Text>
           </FlexItem>
           <Flex className="tileContainer">
             <FirstPanelTile header="###" title="Kafka Clusters" />
@@ -19,7 +21,9 @@ const FirstPanel = () => {
         </Flex>
         <Flex className="section">
           <FlexItem>
-            <p className="title">Platforms</p>
+            <Text component="p" className="title">
+              Platforms
+            </Text>
           </FlexItem>
           <Flex className="tileContainer">
             <FirstPanelTile header="###" title="API Objects" />
@@ -28,7 +32,9 @@ const FirstPanel = () => {
         </Flex>
         <Flex className="section">
           <FlexItem>
-            <p className="title">Automation</p>
+            <Text component="p" className="title">
+              Automation
+            </Text>
           </FlexItem>
           <Flex className="tileContainer">
             <FirstPanelTile header="###" title="API Objects" />

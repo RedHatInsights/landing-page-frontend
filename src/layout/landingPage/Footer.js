@@ -8,7 +8,6 @@ import {
   StackItem,
   TextContent,
   Text,
-  Title,
 } from '@patternfly/react-core'; //eslint-disable-line
 import {
   ArrowRightIcon,
@@ -24,46 +23,58 @@ import {
 const Footer = () => {
   return (
     <Flex className="third-level" hasGutter>
-      <FlexItem>
-        <Stack hasGutter>
+      <FlexItem className="section">
+        <Stack>
           <StackItem>
-            <Title headingLevel="h2" size="xl" className="title1">
+            <Text component="p" className="section-title">
               Configure
-            </Title>
+            </Text>
           </StackItem>
           <StackItem>
-            <Split>
+            <Split className="tile">
               <SplitItem>
-                <div className="footer-icon">
+                <div className="tile-icon">
                   <CogIcon />
                 </div>
               </SplitItem>
               <SplitItem>
                 <TextContent>
-                  <Text component="h4">Lorem Dolor ipsum</Text>
-                  <Text component="p">Lorem Dolor ipsum Lorem Dolor ipsum</Text>
-                  <Text component="a">
-                    Lorem&nbsp;
-                    <ArrowRightIcon size="sm" />
+                  <Text component="h4" className="tile-title">
+                    Lorem Dolor ipsum
+                  </Text>
+                  <Text component="h4" className="tile-description">
+                    Lorem Dolor ipsum Lorem Dolor ipsum
+                  </Text>
+                  <Text component="h4" className="tile-link">
+                    <a>
+                      Lorem&nbsp;
+                      <ArrowRightIcon size="sm" />
+                    </a>
                   </Text>
                 </TextContent>
               </SplitItem>
             </Split>
           </StackItem>
           <StackItem>
-            <Split>
+            <Split className="tile">
               <SplitItem>
-                <div className="footer-icon">
+                <div className="tile-icon">
                   <FilterIcon />
                 </div>
               </SplitItem>
               <SplitItem>
                 <TextContent>
-                  <Text component="h4">Lorem Dolor ipsum</Text>
-                  <Text component="p">Lorem Dolor ipsum Lorem Dolor ipsum</Text>
-                  <Text component="a">
-                    Lorem&nbsp;
-                    <ArrowRightIcon size="sm" />
+                  <Text component="h4" className="tile-title">
+                    Lorem Dolor ipsum
+                  </Text>
+                  <Text component="h4" className="tile-description">
+                    Lorem Dolor ipsum Lorem Dolor ipsum
+                  </Text>
+                  <Text component="h4" className="tile-link">
+                    <a>
+                      Lorem&nbsp;
+                      <ArrowRightIcon size="sm" />
+                    </a>
                   </Text>
                 </TextContent>
               </SplitItem>
@@ -71,46 +82,58 @@ const Footer = () => {
           </StackItem>
         </Stack>
       </FlexItem>
-      <FlexItem>
-        <Stack hasGutter>
+      <FlexItem className="section">
+        <Stack>
           <StackItem>
-            <Title headingLevel="h2" size="xl" className="title1">
+            <Text component="p" className="section-title">
               Try
-            </Title>
+            </Text>
           </StackItem>
           <StackItem>
-            <Split>
+            <Split className="tile">
               <SplitItem>
-                <div className="footer-icon">
+                <div className="tile-icon">
                   <AutomationIcon />
                 </div>
               </SplitItem>
               <SplitItem>
                 <TextContent>
-                  <Text component="h4">Lorem Dolor ipsum</Text>
-                  <Text component="p">Lorem Dolor ipsum Lorem Dolor ipsum</Text>
-                  <Text component="a">
-                    Ipsum&nbsp;
-                    <ArrowRightIcon size="sm" />
+                  <Text component="h4" className="tile-title">
+                    Lorem Dolor ipsum
+                  </Text>
+                  <Text component="h4" className="tile-description">
+                    Lorem Dolor ipsum Lorem Dolor ipsum
+                  </Text>
+                  <Text component="h4" className="tile-link">
+                    <a>
+                      Lorem&nbsp;
+                      <ArrowRightIcon size="sm" />
+                    </a>
                   </Text>
                 </TextContent>
               </SplitItem>
             </Split>
           </StackItem>
           <StackItem>
-            <Split>
+            <Split className="tile">
               <SplitItem>
-                <div className="footer-icon">
+                <div className="tile-icon">
                   <IntegrationIcon />
                 </div>
               </SplitItem>
               <SplitItem>
                 <TextContent>
-                  <Text component="h4">Lorem Dolor ipsum</Text>
-                  <Text component="p">Lorem Dolor ipsum Lorem Dolor ipsum</Text>
-                  <Text component="a">
-                    Ipsum&nbsp;
-                    <ArrowRightIcon size="sm" />
+                  <Text component="h4" className="tile-title">
+                    Lorem Dolor ipsum
+                  </Text>
+                  <Text component="h4" className="tile-description">
+                    Lorem Dolor ipsum Lorem Dolor ipsum
+                  </Text>
+                  <Text component="h4" className="tile-link">
+                    <a>
+                      Lorem&nbsp;
+                      <ArrowRightIcon size="sm" />
+                    </a>
                   </Text>
                 </TextContent>
               </SplitItem>
@@ -118,46 +141,58 @@ const Footer = () => {
           </StackItem>
         </Stack>
       </FlexItem>
-      <FlexItem>
-        <Stack hasGutter>
+      <FlexItem className="section">
+        <Stack>
           <StackItem>
-            <Title headingLevel="h2" size="xl" className="title1">
+            <Text component="p" className="section-title">
               Learn
-            </Title>
+            </Text>
           </StackItem>
           <StackItem>
-            <Split>
+            <Split className="tile">
               <SplitItem>
-                <div className="footer-icon">
+                <div className="tile-icon">
                   <BlueprintIcon />
                 </div>
               </SplitItem>
               <SplitItem>
                 <TextContent>
-                  <Text component="h4">Lorem Dolor ipsum</Text>
-                  <Text component="p">Lorem Dolor ipsum Lorem Dolor ipsum</Text>
-                  <Text component="a">
-                    Ipsum&nbsp;
-                    <ExternalLinkAltIcon size="sm" />
+                  <Text component="h4" className="tile-title">
+                    Lorem Dolor ipsum
+                  </Text>
+                  <Text component="h4" className="tile-description">
+                    Lorem Dolor ipsum Lorem Dolor ipsum
+                  </Text>
+                  <Text component="h4" className="tile-link">
+                    <a>
+                      Lorem&nbsp;
+                      <ExternalLinkAltIcon size="sm" />
+                    </a>
                   </Text>
                 </TextContent>
               </SplitItem>
             </Split>
           </StackItem>
           <StackItem>
-            <Split>
+            <Split className="tile">
               <SplitItem>
-                <div className="footer-icon">
+                <div className="tile-icon">
                   <DomainIcon />
                 </div>
               </SplitItem>
               <SplitItem>
                 <TextContent>
-                  <Text component="h4">Lorem Dolor ipsum</Text>
-                  <Text component="p">Lorem Dolor ipsum Lorem Dolor ipsum</Text>
-                  <Text component="a">
-                    Ipsum&nbsp;
-                    <ExternalLinkAltIcon size="sm" />
+                  <Text component="h4" className="tile-title">
+                    Lorem Dolor ipsum
+                  </Text>
+                  <Text component="h4" className="tile-description">
+                    Lorem Dolor ipsum Lorem Dolor ipsum
+                  </Text>
+                  <Text component="h4" className="tile-link">
+                    <a>
+                      Lorem&nbsp;
+                      <ExternalLinkAltIcon size="sm" />
+                    </a>
                   </Text>
                 </TextContent>
               </SplitItem>
