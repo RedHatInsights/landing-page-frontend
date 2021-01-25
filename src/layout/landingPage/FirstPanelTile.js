@@ -17,7 +17,9 @@ const FirstPanelTile = ({
   return (
     <Flex className="tile">
       <FlexItem>
-        <Title headingLevel="h6">{header}</Title>
+        <Title headingLevel="h6" className="count">
+          {header}
+        </Title>
       </FlexItem>
       <FlexItem className="name">
         <p>{title}</p>
