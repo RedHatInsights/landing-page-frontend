@@ -5,7 +5,7 @@ import SecondPanelTile from './SecondPanelTile';
 const SecondPanel = () => {
   return (
     <Flex className="second-level">
-      <Flex className="section col1" hasGutter>
+      <Flex className="section" hasGutter>
         <Flex className="subsection">
           <FlexItem>
             <Text component="h1">Application Services Recommendations</Text>
@@ -27,7 +27,7 @@ const SecondPanel = () => {
           </FlexItem>
         </Flex>
       </Flex>
-      <Flex className="section col2">
+      <Flex className="section">
         <Flex className="subsection">
           <FlexItem>
             <Text component="h1">Platform insights</Text>
@@ -48,7 +48,7 @@ const SecondPanel = () => {
           </FlexItem>
         </Flex>
       </Flex>
-      <Flex className="section col3">
+      <Flex className="section">
         <Flex className="subsection">
           <FlexItem>
             <Text component="h1">&nbsp;</Text>

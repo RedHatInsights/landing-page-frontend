@@ -38,7 +38,24 @@
       }
     }
   }
-  @media screen and (max-width: 1100px) {
+
+  @media screen and (min-width: 1176px) and (max-width: 1450px) {
+    .first-level {
+      .section {
+        --pf-l-flex--spacer: 0;
+        .tile {
+          width: 238px;
+          flex-direction: column;
+          --pf-l-flex--spacer: var(--pf-global--spacer--md);
+          &:last-child {
+            --pf-l-flex--spacer: var(--pf-global--spacer--md);
+          }
+        }
+      }
+    }
+  }
+
+  @media screen and (max-width: 1175px) {
     .first-level {
       flex-direction: column;
       padding-right: var(--pf-global--spacer--lg);
@@ -76,12 +93,12 @@
     color: var(--pf-global--Color--100);
     padding: var(--pf-global--spacer--2xl) var(--pf-global--spacer--lg) 0 var(--pf-global--spacer--lg);
     flex-direction: row;
-    .pf-l-flex.section.col1{width: 370px;}
-    .pf-l-flex.section.col2{width: 320px;}
-    .pf-l-flex.section.col3{width: 320px;}
     .section {
       flex-direction: column;
       --pf-l-flex--spacer: var(--pf-global--spacer--2xl);
+      &:nth-of-type(1){width: 370px;}
+      &:nth-of-type(2){width: 320px;}
+      &:nth-of-type(3){width: 320px;}
       &:last-child {
         --pf-l-flex--spacer: 0; 
       }
@@ -107,8 +124,9 @@
             margin-bottom: var(--pf-global--spacer--md);
           }
           .tile {
-            width: 100%;
+            flex-wrap: nowrap;
             margin-bottom: var(--pf-global--spacer--md);
+            width: 100%;
             &:last-child {
               margin-bottom: 0;
             }
@@ -122,32 +140,36 @@
     }
   }
 
-  @media screen and (max-width: 1100px) {
+  @media screen and (min-width: 1176px) and (max-width: 1450px) {
+    .second-level {
+      .section {
+        &:nth-of-type(3) { 
+          margin-left: 418px;
+          .subsection > div > h1 {
+            display: none;
+          }
+        }
+      }
+    }
+  }
+
+  @media screen and (max-width: 1175px) {
     .second-level {
       flex-direction: column;
       padding-right: var(--pf-global--spacer--lg);
       .pf-l-flex.section {
         flex-direction: column;
       }
-      .pf-l-flex.section.col1,
-      .pf-l-flex.section.col2,
-      .pf-l-flex.section.col3 {
-        width: 100%;
+      .section {
+        &:nth-of-type(1){width: 100%;}
+        &:nth-of-type(2){width: 100%;}
+        &:nth-of-type(3){width: 100%;}
       }
       .pf-l-flex.section.col3 {
         .subsection > div > h1 {
           display: none;
         }
       }
-    }
-  }
-
-  @media screen and (min-width: 1101px) and (max-width: 1450px) {
-    .second-level .pf-l-flex.section.col3 .subsection > div > h1 {
-      display: none;
-    }
-    .second-level .pf-l-flex.section.col3 {
-      width: 370px;
     }
   }
 
