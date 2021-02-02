@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import React, { useEffect, useReducer, useState } from 'react';
+import React, { Fragment, useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import {
@@ -22,16 +22,8 @@ import './Landing.scss';
 import SecondPanel from '../layout/landingPage/SecondPanel';
 import FirstPanel from '../layout/landingPage/FirstPanel';
 import Footer from '../layout/landingPage/Footer';
-import Navigation from '../components/navigation';
-import navigationReducer from '../components/navigation/navigation-reducer';
-import NavigationContext from '../components/navigation/navigation-context';
-import NavigationOverlay from '../components/navigation/navigation-overlay';
 
 const Landing = () => {
-  const [state, internalDispatch] = useReducer(navigationReducer, {
-    isOpen: false,
-    activeSection: undefined,
-  });
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isUserReady, setIsUserReady] = useState(false);
   const [isUnauthed, setIsUnauthed] = useState(true);
@@ -87,23 +79,15 @@ const Landing = () => {
   if (isUserReady) {
     return (
       <Split className="ins-c-page__landing-layout">
-        {!isUnauthed && (
-          <SplitItem className="ins-c-page__landing-navigation">
-            <NavigationContext.Provider value={{ state, internalDispatch }}>
-              <Navigation />
-            </NavigationContext.Provider>
-          </SplitItem>
-        )}
         <SplitItem className="ins-c-page__landing-content">
           {isUnauthed ? (
             <Marketing />
           ) : (
-            <NavigationContext.Provider value={{ state, internalDispatch }}>
-              <NavigationOverlay />
+            <Fragment>
               <FirstPanel />
               <SecondPanel />
               <Footer />
-            </NavigationContext.Provider>
+            </Fragment>
           )}
           <FooterTraditional />
           {notEntitled &&
