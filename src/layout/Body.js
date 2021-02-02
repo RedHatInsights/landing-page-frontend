@@ -25,7 +25,6 @@ import PropTypes from 'prop-types';
 
 import './Body.scss';
 import { PermissionContext } from '../App';
-import NavigationOverlay from '../components/navigation/navigation-overlay';
 
 function isBeta() {
   return window.insights.chrome.isBeta() === true ? '/beta/' : '/';
@@ -58,7 +57,6 @@ const Body = ({ technologies }) => {
       landing-page-type="authenticated"
       needs-rbac-tour={permission.isOrgAdmin ? `${needsRBACTour}` : 'false'}
     >
-      <NavigationOverlay />
       <Grid md={6} lg={4} xl={3} hasGutter>
         {technologies.map((
           {
