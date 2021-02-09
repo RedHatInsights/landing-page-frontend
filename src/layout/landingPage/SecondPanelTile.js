@@ -22,7 +22,7 @@ const SecondPanelTile = ({ title, bodyText, buttonLabel }) => {
 
 SecondPanelTile.defaultProps = {
   tileItems: [],
-  bodyText: 'Lorem ipsum dolor sit amet, conse ctetur adipiscing elit',
+  bodyText: 'Lorem ipsum dolor sit amet, con se cte tur adip iscing elit',
   title: '',
   buttonLabel: 'Action',
 };

@@ -1,10 +1,11 @@
 import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
-import { Flex, FlexItem, Label, Title } from '@patternfly/react-core';
+import { Flex, FlexItem, Label, Text, Title } from '@patternfly/react-core';
 import CheckCircleIcon from '@patternfly/react-icons/dist/js/icons/check-circle-icon';
 
 const FirstPanelTile = ({
-  header,
+  count,
+  section,
   title,
   labelText,
   labelColor,
@@ -17,12 +18,18 @@ const FirstPanelTile = ({
   return (
     <Flex className="tile">
       <FlexItem>
+        <Text component="p" className="title">
+          {section}
+        </Text>
+      </FlexItem>
+      <FlexItem className="break" /> {/*break for mobile layout*/}
+      <FlexItem className="count">
         <Title headingLevel="h6" className="count">
-          {header}
+          {count}
         </Title>
       </FlexItem>
       <FlexItem className="name">
-        <p>{title}</p>
+        <Text component="p">{title}</Text>
       </FlexItem>
       <FlexItem className="label">
         <Label icon={<CheckCircleIcon />} variant="outline" color={labelColor}>
@@ -43,7 +50,8 @@ FirstPanelTile.propTypes = {
   labelColor: PropTypes.string,
   labelType: PropTypes.string,
   title: PropTypes.string,
-  header: PropTypes.string,
+  count: PropTypes.string,
+  section: PropTypes.string,
   labelText: PropTypes.string,
 };
 
