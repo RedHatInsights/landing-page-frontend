@@ -44,7 +44,7 @@ const App = ({ loadTechnologies }) => {
     window.insights.chrome.auth
       .getUser()
       .then((user) => user && setIsOrgAdmin(user.identity.user.is_org_admin));
-  });
+  }, []);
 
   return (
     <PermissionContext.Provider value={{ isOrgAdmin }}>
