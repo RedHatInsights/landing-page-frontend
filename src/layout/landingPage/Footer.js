@@ -9,14 +9,15 @@ import {
 } from '@patternfly/react-core'; //eslint-disable-line
 import {
   ArrowRightIcon,
-  AutomationIcon,
-  BlueprintIcon,
+  BuilderImageIcon,
+  CloudSecurityIcon,
   CloudTenantIcon,
-  DomainIcon,
+  ConnectedIcon,
   ExternalLinkAltIcon,
-  FilterIcon,
-  IntegrationIcon,
+  PencilAltIcon,
 } from '@patternfly/react-icons';
+
+import ansible from '../../../static/images/landing-page-icons/ansible.svg';
 
 const Footer = () => {
   return (
@@ -32,20 +33,20 @@ const Footer = () => {
           <Split className="tile">
             <SplitItem>
               <div className="tile-icon">
-                <CloudTenantIcon />
+                <ConnectedIcon />
               </div>
             </SplitItem>
             <SplitItem>
               <TextContent>
                 <Text component="h4" className="tile-title">
-                  Manage your Red Hat products in the cloud
+                  Connect your cloud resources
                 </Text>
                 <Text component="h4" className="tile-description">
-                  Connect to Red Hat applications and public cloud providers
+                  Lorem Dolor ipsum Lorem Dolor ipsum
                 </Text>
                 <Text component="h4" className="tile-link">
                   <a href="/settings/sources">
-                    Connect to Sources&nbsp;
+                    Configure Sources&nbsp;
                     <ArrowRightIcon size="sm" />
                   </a>
                 </Text>
@@ -55,20 +56,20 @@ const Footer = () => {
           <Split className="tile">
             <SplitItem>
               <div className="tile-icon">
-                <FilterIcon />
+                <PencilAltIcon />
               </div>
             </SplitItem>
             <SplitItem>
               <TextContent>
                 <Text component="h4" className="tile-title">
-                  Lorem Dolor ipsum
+                  Register with Insights
                 </Text>
                 <Text component="h4" className="tile-description">
                   Lorem Dolor ipsum Lorem Dolor ipsum
                 </Text>
                 <Text component="h4" className="tile-link">
                   <a>
-                    Lorem&nbsp;
+                    Registration Assistant&nbsp;
                     <ArrowRightIcon size="sm" />
                   </a>
                 </Text>
@@ -86,20 +87,20 @@ const Footer = () => {
           <Split className="tile">
             <SplitItem>
               <div className="tile-icon">
-                <AutomationIcon />
+                <BuilderImageIcon />
               </div>
             </SplitItem>
             <SplitItem>
               <TextContent>
                 <Text component="h4" className="tile-title">
-                  Lorem Dolor ipsum
+                  Image Builder
                 </Text>
                 <Text component="h4" className="tile-description">
                   Lorem Dolor ipsum Lorem Dolor ipsum
                 </Text>
                 <Text component="h4" className="tile-link">
                   <a>
-                    Lorem&nbsp;
+                    Try it&nbsp;
                     <ArrowRightIcon size="sm" />
                   </a>
                 </Text>
@@ -109,20 +110,20 @@ const Footer = () => {
           <Split className="tile">
             <SplitItem>
               <div className="tile-icon">
-                <IntegrationIcon />
+                <CloudTenantIcon />
               </div>
             </SplitItem>
             <SplitItem>
               <TextContent>
                 <Text component="h4" className="tile-title">
-                  Lorem Dolor ipsum
+                  Remediate from the cloud
                 </Text>
                 <Text component="h4" className="tile-description">
                   Lorem Dolor ipsum Lorem Dolor ipsum
                 </Text>
                 <Text component="h4" className="tile-link">
                   <a>
-                    Lorem&nbsp;
+                    Try it&nbsp;
                     <ArrowRightIcon size="sm" />
                   </a>
                 </Text>
@@ -140,20 +141,20 @@ const Footer = () => {
           <Split className="tile">
             <SplitItem>
               <div className="tile-icon">
-                <BlueprintIcon />
+                <CloudSecurityIcon />
               </div>
             </SplitItem>
             <SplitItem>
               <TextContent>
                 <Text component="h4" className="tile-title">
-                  Lorem Dolor ipsum
+                  Trust & Security
                 </Text>
                 <Text component="h4" className="tile-description">
                   Lorem Dolor ipsum Lorem Dolor ipsum
                 </Text>
                 <Text component="h4" className="tile-link">
                   <a>
-                    Lorem&nbsp;
+                    Learn more&nbsp;
                     <ExternalLinkAltIcon size="sm" />
                   </a>
                 </Text>
@@ -163,20 +164,20 @@ const Footer = () => {
           <Split className="tile">
             <SplitItem>
               <div className="tile-icon">
-                <DomainIcon />
+                <img src={ansible} alt="Automation Logo" />
               </div>
             </SplitItem>
             <SplitItem>
               <TextContent>
                 <Text component="h4" className="tile-title">
-                  Lorem Dolor ipsum
+                  Ansible Automation Hub
                 </Text>
                 <Text component="h4" className="tile-description">
                   Lorem Dolor ipsum Lorem Dolor ipsum
                 </Text>
                 <Text component="h4" className="tile-link">
                   <a>
-                    Lorem&nbsp;
+                    Learn more&nbsp;
                     <ExternalLinkAltIcon size="sm" />
                   </a>
                 </Text>

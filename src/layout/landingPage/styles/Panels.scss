@@ -8,6 +8,19 @@
     flex-basis: 100%;
     height: 0;
   }
+  .error {
+    color: var(--pf-global--danger-color--100);
+  }
+  .warning {
+    color: var(--pf-global--warning-color--100);
+  }
+  .green {
+    color: var(--pf-global--success-color--100);
+  }
+  .info {
+    color: var(--pf-global--info-color--100);
+  }
+
   .ins-c-footer__traditional{
     padding-top: var(--pf-global--spacer--sm);
   }
@@ -44,22 +57,22 @@
     }
   }
 
-  @media screen and (min-width: 1200px) and (max-width: 1449px) {
-    .first-level {
-      .level-wrapper {
-        flex-basis: 100%;
-        justify-content: space-between;
-        .tile {
-          flex-basis: 30%;
-          --pf-l-flex--spacer: var(--pf-global--spacer--lg);
-          &:nth-of-type(3n+0) { --pf-l-flex--spacer: var(--pf-l-flex--spacer--none); }
-          &:nth-of-type(n+4) { padding-top: var(--pf-global--spacer--lg); }
-        }
-      }
-    }
-  }
+  // @media screen and (min-width: 1200px) and (max-width: 1449px) {
+  //   .first-level {
+  //     .level-wrapper {
+  //       flex-basis: 100%;
+  //       justify-content: space-between;
+  //       .tile {
+  //         flex-basis: 30%;
+  //         --pf-l-flex--spacer: var(--pf-global--spacer--lg);
+  //         &:nth-of-type(3n+0) { --pf-l-flex--spacer: var(--pf-l-flex--spacer--none); }
+  //         &:nth-of-type(n+4) { padding-top: var(--pf-global--spacer--lg); }
+  //       }
+  //     }
+  //   }
+  // }
 
-  @media screen and (max-width: 1199px) {
+  @media screen and (max-width: 1449px) {
     .first-level {
       padding-right: var(--pf-global--spacer--lg);
       .level-wrapper {
@@ -102,16 +115,16 @@
     .level-wrapper {
       .section {
         &:nth-of-type(1){ // left column
-          flex-basis: calc(38% - 48px );
-          margin-right: var(--pf-global--spacer--2xl)
+          flex-basis: calc(38% - var(--pf-global--spacer--xl));
+          margin-right: var(--pf-global--spacer--xl)
         }
         &:nth-of-type(2){ // center and right columns
           flex-basis: calc(62%);
           flex-direction: row;
           .subsection {
             &:nth-of-type(1){ // center column
-              flex-basis: calc(52% - 48px);
-              margin-right: var(--pf-global--spacer--2xl)
+              flex-basis: calc(52% - var(--pf-global--spacer--xl));
+              margin-right: var(--pf-global--spacer--xl);
             }
             &:nth-of-type(2){ // right column
               flex-basis: 48%;
@@ -131,8 +144,9 @@
             padding-bottom: var(--pf-global--spacer--lg);
           }
           .tile-group {
+            align-self: stretch;
             margin-right: 0;
-            margin-bottom: var(--pf-global--spacer--xl);
+            margin-bottom: var(--pf-global--spacer--lg);
             &:last-child {
               margin-bottom: 0;
             }
@@ -147,9 +161,23 @@
               &:last-child {
                 margin-bottom: 0;
               }
-              h5 {
-                font-size: var(--pf-global--FontSize--sm);
-                font-weight:  300;
+              .icon {
+                flex-grow: 0;
+                margin-right: 8px;
+              }
+              .title {
+                flex-grow: 1;
+                margin-right: 4px;
+                h5 {
+                  font-size: var(--pf-global--FontSize--sm);
+                  font-weight:  300;
+                }
+              }
+              .button {
+                flex-grow: 0;
+                button {
+                  width: 90px;
+                }
               }
             }
           }
@@ -161,7 +189,7 @@
   @media screen and (min-width: 1200px) and (max-width: 1449px) {
     .second-level {
       .level-wrapper {
-        flex-basis: auto;
+        flex-basis: 100%;
         .section {
           &:nth-of-type(1){flex-basis: calc(40% - 48px);}
           &:nth-of-type(2){
@@ -253,7 +281,7 @@
               padding: 10px;
               width: 48px;
               border: 2px solid #d2d2d2;
-              svg {
+              svg, img {
                 height: 26px;
                 width: 26px;
               }
