@@ -302,10 +302,11 @@
         .section {
           align-self:stretch;
           flex-direction: row;
+          margin-right: 0;
           .tile {
-            flex-basis: auto;
-            flex-basis: 50%;
+            flex-basis: 48%;
             align-self:stretch;
+            margin-bottom: var(--pf-global--spacer--md);
             .section-title { 
               padding-top: var(--pf-global--spacer--md);
               padding-bottom: 0;
