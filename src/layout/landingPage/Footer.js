@@ -17,7 +17,8 @@ import {
   PencilAltIcon,
 } from '@patternfly/react-icons';
 
-import ansible from '../../../static/images/landing-page-icons/ansible.svg';
+// import IconInsights from '../../components/icon-insights';
+import IconAnsible from '../../components/icon-ansible';
 
 const Footer = () => {
   return (
@@ -164,7 +165,7 @@ const Footer = () => {
           <Split className="tile">
             <SplitItem>
               <div className="tile-icon">
-                <img src={ansible} alt="Automation Logo" />
+                <IconAnsible />
               </div>
             </SplitItem>
             <SplitItem>
