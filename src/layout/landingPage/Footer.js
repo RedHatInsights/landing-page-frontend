@@ -41,9 +41,9 @@ const Footer = () => {
                 <Text component="h4" className="tile-title">
                   Connect your cloud resources
                 </Text>
-                <Text component="h4" className="tile-description">
+                {/*                <Text component="h4" className="tile-description">
                   Lorem Dolor ipsum Lorem Dolor ipsum
-                </Text>
+                </Text>*/}
                 <Text component="h4" className="tile-link">
                   <a href="/settings/sources">
                     Configure Sources&nbsp;
@@ -64,9 +64,9 @@ const Footer = () => {
                 <Text component="h4" className="tile-title">
                   Register with Insights
                 </Text>
-                <Text component="h4" className="tile-description">
+                {/*                <Text component="h4" className="tile-description">
                   Lorem Dolor ipsum Lorem Dolor ipsum
-                </Text>
+                </Text>*/}
                 <Text component="h4" className="tile-link">
                   <a>
                     Registration Assistant&nbsp;
@@ -95,9 +95,9 @@ const Footer = () => {
                 <Text component="h4" className="tile-title">
                   Image Builder
                 </Text>
-                <Text component="h4" className="tile-description">
+                {/*                <Text component="h4" className="tile-description">
                   Lorem Dolor ipsum Lorem Dolor ipsum
-                </Text>
+                </Text>*/}
                 <Text component="h4" className="tile-link">
                   <a>
                     Try it&nbsp;
@@ -118,9 +118,9 @@ const Footer = () => {
                 <Text component="h4" className="tile-title">
                   Remediate from the cloud
                 </Text>
-                <Text component="h4" className="tile-description">
+                {/*                <Text component="h4" className="tile-description">
                   Lorem Dolor ipsum Lorem Dolor ipsum
-                </Text>
+                </Text>*/}
                 <Text component="h4" className="tile-link">
                   <a>
                     Try it&nbsp;
@@ -149,9 +149,9 @@ const Footer = () => {
                 <Text component="h4" className="tile-title">
                   Trust & Security
                 </Text>
-                <Text component="h4" className="tile-description">
+                {/*                <Text component="h4" className="tile-description">
                   Lorem Dolor ipsum Lorem Dolor ipsum
-                </Text>
+                </Text>*/}
                 <Text component="h4" className="tile-link">
                   <a>
                     Learn more&nbsp;
@@ -172,9 +172,9 @@ const Footer = () => {
                 <Text component="h4" className="tile-title">
                   Ansible Automation Hub
                 </Text>
-                <Text component="h4" className="tile-description">
+                {/*                <Text component="h4" className="tile-description">
                   Lorem Dolor ipsum Lorem Dolor ipsum
-                </Text>
+                </Text>*/}
                 <Text component="h4" className="tile-link">
                   <a>
                     Learn more&nbsp;
