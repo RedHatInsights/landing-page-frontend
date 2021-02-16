@@ -4,6 +4,7 @@ import './icon-ansible.scss';
 const IconAnsible = () => (
   // eslint-disable-next-line max-len
   <svg
+    className="IconAnsible"
     xmlns="http://www.w3.org/2000/svg"
     id="svg1459"
     version="1.1"

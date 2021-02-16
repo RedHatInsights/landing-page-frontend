@@ -4,6 +4,7 @@ import './icon-insights.scss';
 const IconInsights = () => (
   // eslint-disable-next-line max-len
   <svg
+    className="IconInsights"
     width="56px"
     height="49px"
     viewBox="0 0 56 49"
