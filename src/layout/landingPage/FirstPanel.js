@@ -10,18 +10,22 @@ const FirstPanel = () => {
         <Flex className="level-wrapper">
           <FirstPanelTile
             section="Application Services"
-            count="###"
-            title="Kafka Clusters"
-          />
-          <FirstPanelTile count="###" title="API Objects" />
-          <FirstPanelTile count="###" title="OpenDataHub Objects" />
-          <FirstPanelTile section="Platforms" count="###" title="API Objects" />
-          <FirstPanelTile count="###" title="API Objects" />
-          <FirstPanelTile
-            section="Automation"
-            count="###"
+            count="149"
             title="API Objects"
           />
+          <FirstPanelTile count="331" title="ODH Projects" />
+          <FirstPanelTile
+            section="Platforms"
+            count="12,302"
+            title="RHEL Systems"
+          />
+          <FirstPanelTile count="8" title="OpenShift Clusters" />
+          <FirstPanelTile
+            section="Automation"
+            count="4"
+            title="Tower Clusters"
+          />
+          <FirstPanelTile count="" title="" />
         </Flex>
       </Flex>
     </>

@@ -1,16 +1,10 @@
 import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
-import { Flex, FlexItem, Label, Text, Title } from '@patternfly/react-core';
-import CheckCircleIcon from '@patternfly/react-icons/dist/js/icons/check-circle-icon';
+import { Flex, FlexItem, Label, Text, Title } from '@patternfly/react-core'; // eslint-disable-line
+// import { Flex, FlexItem, Label, Text, Title } from '@patternfly/react-core';
+// import CheckCircleIcon from '@patternfly/react-icons/dist/js/icons/check-circle-icon';
 
-const FirstPanelTile = ({
-  count,
-  section,
-  title,
-  labelText,
-  labelColor,
-  labelType,
-}) => {
+const FirstPanelTile = ({ count, section, title, labelText, labelType }) => { // eslint-disable-line
   useEffect(() => {
     console.log('This is my type: ', labelType);
   });
@@ -31,23 +25,23 @@ const FirstPanelTile = ({
       <FlexItem className="name">
         <Text component="p">{title}</Text>
       </FlexItem>
-      <FlexItem className="label">
+      {/*      <FlexItem className="label">
         <Label icon={<CheckCircleIcon />} variant="outline" color={labelColor}>
           {labelText}
         </Label>
-      </FlexItem>
+      </FlexItem>*/}
     </Flex>
   );
 };
 
 FirstPanelTile.defaultProps = {
   labelText: ' lorem ipsum',
-  labelColor: 'green',
+  // labelColor: 'green',
   labelType: 'info',
 };
 
 FirstPanelTile.propTypes = {
-  labelColor: PropTypes.string,
+  // labelColor: PropTypes.string,
   labelType: PropTypes.string,
   title: PropTypes.string,
   count: PropTypes.string,
