@@ -14,11 +14,9 @@ import {
   CloudTenantIcon,
   ConnectedIcon,
   ExternalLinkAltIcon,
-  PencilAltIcon,
 } from '@patternfly/react-icons';
-// import IconInsights from '../../components/icon-insights';
-// import IconAnsible from '../../components/icon-ansible';
-import ansible from '../../../static/images/landing-page-icons/ansible.svg';
+import IconInsights from '../../components/icon-insights';
+import IconAnsible from '../../components/icon-ansible';
 
 const Footer = () => {
   return (
@@ -57,7 +55,7 @@ const Footer = () => {
           <Split className="tile">
             <SplitItem>
               <div className="tile-icon">
-                <PencilAltIcon />
+                <IconInsights size="sm" />
               </div>
             </SplitItem>
             <SplitItem>
@@ -165,7 +163,7 @@ const Footer = () => {
           <Split className="tile">
             <SplitItem>
               <div className="tile-icon">
-                <img src={ansible} alt="Automation Logo" />
+                <IconAnsible size="sm" />
               </div>
             </SplitItem>
             <SplitItem>
