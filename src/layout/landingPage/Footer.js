@@ -16,7 +16,8 @@ import {
   ExternalLinkAltIcon,
   PencilAltIcon,
 } from '@patternfly/react-icons';
-
+// import IconInsights from '../../components/icon-insights';
+// import IconAnsible from '../../components/icon-ansible';
 import ansible from '../../../static/images/landing-page-icons/ansible.svg';
 
 const Footer = () => {
