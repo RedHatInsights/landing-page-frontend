@@ -14,11 +14,10 @@ import {
   CloudTenantIcon,
   ConnectedIcon,
   ExternalLinkAltIcon,
-  PencilAltIcon,
 } from '@patternfly/react-icons';
-// import IconInsights from '../../components/icon-insights';
-// import IconAnsible from '../../components/icon-ansible';
-import ansible from '../../../static/images/landing-page-icons/ansible.svg';
+
+import IconInsights from '../../components/icon-insights';
+import IconAnsible from '../../components/icon-ansible';
 
 const Footer = () => {
   return (
@@ -42,9 +41,9 @@ const Footer = () => {
                 <Text component="h4" className="tile-title">
                   Connect your cloud resources
                 </Text>
-                {/*                <Text component="h4" className="tile-description">
+                <Text component="h4" className="tile-description">
                   Lorem Dolor ipsum Lorem Dolor ipsum
-                </Text>*/}
+                </Text>
                 <Text component="h4" className="tile-link">
                   <a href="/settings/sources">
                     Configure Sources&nbsp;
@@ -57,7 +56,7 @@ const Footer = () => {
           <Split className="tile">
             <SplitItem>
               <div className="tile-icon">
-                <PencilAltIcon />
+                <IconInsights />
               </div>
             </SplitItem>
             <SplitItem>
@@ -65,9 +64,9 @@ const Footer = () => {
                 <Text component="h4" className="tile-title">
                   Register with Insights
                 </Text>
-                {/*                <Text component="h4" className="tile-description">
+                <Text component="h4" className="tile-description">
                   Lorem Dolor ipsum Lorem Dolor ipsum
-                </Text>*/}
+                </Text>
                 <Text component="h4" className="tile-link">
                   <a>
                     Registration Assistant&nbsp;
@@ -165,7 +164,7 @@ const Footer = () => {
           <Split className="tile">
             <SplitItem>
               <div className="tile-icon">
-                <img src={ansible} alt="Automation Logo" />
+                <IconAnsible alt="Automation Logo" />
               </div>
             </SplitItem>
             <SplitItem>

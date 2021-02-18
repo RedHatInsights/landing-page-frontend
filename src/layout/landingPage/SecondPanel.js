@@ -131,7 +131,7 @@ const SecondPanel = () => {
                   </FlexItem>
                   <FlexItem className="title">
                     <Title headingLevel="h5" size="sm">
-                      9 Active Incidents Detected
+                      9 active incidents detected
                     </Title>
                   </FlexItem>
                   <FlexItem
@@ -152,7 +152,7 @@ const SecondPanel = () => {
                   </FlexItem>
                   <FlexItem className="title">
                     <Title headingLevel="h5" size="sm">
-                      140 Systems Available for Registration
+                      140 systems available for registration
                     </Title>
                   </FlexItem>
                   <FlexItem
@@ -198,7 +198,7 @@ const SecondPanel = () => {
                   </FlexItem>
                   <FlexItem className="title">
                     <Title headingLevel="h5" size="sm">
-                      41 Under Utilized Cloud Resources
+                      41 under-utilized cloud resources
                     </Title>
                   </FlexItem>
                   <FlexItem
@@ -231,7 +231,7 @@ const SecondPanel = () => {
                   </FlexItem>
                   <FlexItem className="title">
                     <Title headingLevel="h5" size="sm">
-                      37 Critical CVEs Identified
+                      37 critical CVEs identified
                     </Title>
                   </FlexItem>
                   <FlexItem
@@ -252,7 +252,7 @@ const SecondPanel = () => {
                   </FlexItem>
                   <FlexItem className="title">
                     <Title headingLevel="h5" size="sm">
-                      12 Systems out of compliance
+                      12 systems out of compliance
                     </Title>
                   </FlexItem>
                   <FlexItem

@@ -2,7 +2,7 @@
 .ins-c-page__landing-content {
   .level-wrapper { 
     flex-basis: 1160px; // set max width for desktop at 1450px total
-    padding: var(--pf-global--spacer--2xl) var(--pf-global--spacer--lg) 0 var(--pf-global--spacer--lg);
+    padding: var(--pf-global--spacer--xl) var(--pf-global--spacer--lg) 0 var(--pf-global--spacer--lg);
   }
   .break {
     flex-basis: 100%;
@@ -57,22 +57,22 @@
     }
   }
 
-  // @media screen and (min-width: 1200px) and (max-width: 1449px) {
-  //   .first-level {
-  //     .level-wrapper {
-  //       flex-basis: 100%;
-  //       justify-content: space-between;
-  //       .tile {
-  //         flex-basis: 30%;
-  //         --pf-l-flex--spacer: var(--pf-global--spacer--lg);
-  //         &:nth-of-type(3n+0) { --pf-l-flex--spacer: var(--pf-l-flex--spacer--none); }
-  //         &:nth-of-type(n+4) { padding-top: var(--pf-global--spacer--lg); }
-  //       }
-  //     }
-  //   }
-  // }
+@media screen and (min-width: 1200px) and (max-width: 1449px) {
+     .first-level {
+       .level-wrapper {
+         flex-basis: 100%;
+         justify-content: space-between;
+         .tile {
+           flex-basis: 30%;
+           --pf-l-flex--spacer: var(--pf-global--spacer--lg);
+           &:nth-of-type(3n+0) { --pf-l-flex--spacer: var(--pf-l-flex--spacer--none); }
+           &:nth-of-type(n+4) { padding-top: var(--pf-global--spacer--lg); }
+         }
+       }
+     }
+   }
 
-  @media screen and (max-width: 1449px) {
+  @media screen and (max-width: 1199px) {
     .first-level {
       padding-right: var(--pf-global--spacer--lg);
       .level-wrapper {
@@ -101,7 +101,7 @@
             flex-wrap: nowrap;
           }
           .label {
-            flex: 1;
+            flex-basis: 30%;
           }
         }
       }
@@ -253,7 +253,7 @@
           .pf-l-split__item {
             flex-shrink: 1;
             .tile-title {
-              font-size: var(--pf-global--FontSize--md);
+              font-size: 14px;
               font-weight:  var(--pf-global--FontWeight--normal);
               margin-bottom: var(--pf-global--spacer--sm);
             }
@@ -267,7 +267,7 @@
               margin: 0;
               a {
                 color: var(--pf-global--active-color--100);
-                font-size: var(--pf-global--FontSize--sm);
+                font-size: 14px;
               }
             }
           }
@@ -281,7 +281,7 @@
               padding: 10px;
               width: 48px;
               border: 2px solid #d2d2d2;
-              svg, img {
+              svg {
                 height: 26px;
                 width: 26px;
               }
