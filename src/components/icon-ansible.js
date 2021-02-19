@@ -1,6 +1,5 @@
 import React from 'react';
 
-import './icon-ansible.scss';
 const IconAnsible = () => (
   // eslint-disable-next-line max-len
   <svg

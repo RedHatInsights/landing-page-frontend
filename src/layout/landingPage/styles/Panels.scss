@@ -284,6 +284,9 @@
               svg {
                 height: 26px;
                 width: 26px;
+                path {
+                  fill: #000000;
+                }
               }
             }
           }
@@ -320,11 +323,12 @@
   @media screen and (max-width: 1199px) {
     .third-level {
       .level-wrapper {
-        width: 100%;
+        flex-basis: 100%;
         flex-direction: column;
         align-self: stretch;
         .section {
           align-self:stretch;
+          flex-basis: auto;
           flex-direction: row;
           > div:nth-of-type(2){flex-basis: 100%;}
           > div:nth-of-type(3){flex-basis: 100%;}

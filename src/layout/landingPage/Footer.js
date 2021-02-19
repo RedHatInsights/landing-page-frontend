@@ -41,9 +41,9 @@ const Footer = () => {
                 <Text component="h4" className="tile-title">
                   Connect your cloud resources
                 </Text>
-                <Text component="h4" className="tile-description">
+{/*                <Text component="h4" className="tile-description">
                   Lorem Dolor ipsum Lorem Dolor ipsum
-                </Text>
+                </Text>*/}
                 <Text component="h4" className="tile-link">
                   <a href="/settings/sources">
                     Configure Sources&nbsp;
@@ -64,9 +64,9 @@ const Footer = () => {
                 <Text component="h4" className="tile-title">
                   Register with Insights
                 </Text>
-                <Text component="h4" className="tile-description">
+{/*                <Text component="h4" className="tile-description">
                   Lorem Dolor ipsum Lorem Dolor ipsum
-                </Text>
+                </Text>*/}
                 <Text component="h4" className="tile-link">
                   <a>
                     Registration Assistant&nbsp;
@@ -172,7 +172,7 @@ const Footer = () => {
                 <Text component="h4" className="tile-title">
                   Ansible Automation Hub
                 </Text>
-                {/*                <Text component="h4" className="tile-description">
+{/*                <Text component="h4" className="tile-description">
                   Lorem Dolor ipsum Lorem Dolor ipsum
                 </Text>*/}
                 <Text component="h4" className="tile-link">
