@@ -41,7 +41,7 @@ const Footer = () => {
                 <Text component="h4" className="tile-title">
                   Connect your cloud resources
                 </Text>
-{/*                <Text component="h4" className="tile-description">
+                {/*                <Text component="h4" className="tile-description">
                   Lorem Dolor ipsum Lorem Dolor ipsum
                 </Text>*/}
                 <Text component="h4" className="tile-link">
@@ -64,7 +64,7 @@ const Footer = () => {
                 <Text component="h4" className="tile-title">
                   Register with Insights
                 </Text>
-{/*                <Text component="h4" className="tile-description">
+                {/*                <Text component="h4" className="tile-description">
                   Lorem Dolor ipsum Lorem Dolor ipsum
                 </Text>*/}
                 <Text component="h4" className="tile-link">
@@ -164,7 +164,7 @@ const Footer = () => {
           <Split className="tile">
             <SplitItem>
               <div className="tile-icon">
-                <IconAnsible alt="Automation Logo" />
+                <IconAnsible size="sm" />
               </div>
             </SplitItem>
             <SplitItem>
@@ -172,7 +172,7 @@ const Footer = () => {
                 <Text component="h4" className="tile-title">
                   Ansible Automation Hub
                 </Text>
-{/*                <Text component="h4" className="tile-description">
+                {/*                <Text component="h4" className="tile-description">
                   Lorem Dolor ipsum Lorem Dolor ipsum
                 </Text>*/}
                 <Text component="h4" className="tile-link">
