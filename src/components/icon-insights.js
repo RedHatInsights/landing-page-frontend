@@ -1,6 +1,5 @@
 import React from 'react';
 
-import './icon-insights.scss';
 const IconInsights = () => (
   // eslint-disable-next-line max-len
   <svg

@@ -15,6 +15,7 @@ import {
   ConnectedIcon,
   ExternalLinkAltIcon,
 } from '@patternfly/react-icons';
+
 import IconInsights from '../../components/icon-insights';
 import IconAnsible from '../../components/icon-ansible';
 
@@ -55,7 +56,7 @@ const Footer = () => {
           <Split className="tile">
             <SplitItem>
               <div className="tile-icon">
-                <IconInsights size="sm" />
+                <IconInsights />
               </div>
             </SplitItem>
             <SplitItem>
