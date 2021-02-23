@@ -238,7 +238,16 @@ const SecondPanel = () => {
                     className="button"
                     align={{ default: 'alignRight' }}
                   >
-                    <Button variant="secondary" isSmall={true}>
+                    <Button
+                      component="a"
+                      href={`${
+                        window.insights.chrome.isBeta() === true
+                          ? '/beta/'
+                          : '/'
+                      }insights/vulnerability`}
+                      variant="secondary"
+                      isSmall={true}
+                    >
                       Respond
                     </Button>
                   </FlexItem>
