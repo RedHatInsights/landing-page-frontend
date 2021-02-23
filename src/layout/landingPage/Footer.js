@@ -45,7 +45,11 @@ const Footer = () => {
                   Lorem Dolor ipsum Lorem Dolor ipsum
                 </Text>*/}
                 <Text component="h4" className="tile-link">
-                  <a href="/settings/sources">
+                  <a
+                    href={`${
+                      window.insights.chrome.isBeta() === true ? '/beta/' : '/'
+                    }settings/sources`}
+                  >
                     Configure Sources&nbsp;
                     <ArrowRightIcon size="sm" />
                   </a>
