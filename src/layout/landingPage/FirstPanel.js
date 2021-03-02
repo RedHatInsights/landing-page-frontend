@@ -19,12 +19,16 @@ const FirstPanel = () => {
             section="Platforms"
             count="12,302"
             title="RHEL systems"
+            variant="danger"
+            labelText="Needs Attention"
           />
           <FirstPanelTile count="8" title="OpenShift clusters" />
           <FirstPanelTile
             section="Automation"
             count="4"
             title="Tower clusters"
+            variant="danger"
+            labelText="Needs Attention"
           />
         </Flex>
       </Flex>
