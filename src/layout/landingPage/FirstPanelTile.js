@@ -1,19 +1,28 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import { Flex, FlexItem, Label, Text, Title } from '@patternfly/react-core'; //
 import CheckCircleIcon from '@patternfly/react-icons/dist/js/icons/check-circle-icon';
+import ExclamationTriangleIcon from '@patternfly/react-icons/dist/js/icons/exclamation-triangle-icon';
+import ExclamationCircleIcon from '@patternfly/react-icons/dist/js/icons/exclamation-circle-icon';
 
-const FirstPanelTile = ({
-  count,
-  section,
-  title,
-  labelColor,
-  labelText,
-  labelType,
-}) => {
-  useEffect(() => {
-    console.log('This is my type: ', labelType);
-  });
+const FirstPanelTile = ({ count, section, title, labelText, variant }) => {
+  let color;
+  let icon;
+
+  switch (variant) {
+    case 'success':
+      color = 'green';
+      icon = <CheckCircleIcon />;
+      break;
+    case 'warning':
+      color = 'orange';
+      icon = <ExclamationTriangleIcon />;
+      break;
+    case 'danger':
+      color = 'red';
+      icon = <ExclamationCircleIcon />;
+      break;
+  }
 
   return (
     <Flex className="tile">
@@ -32,7 +41,7 @@ const FirstPanelTile = ({
         <Text component="p">{title}</Text>
       </FlexItem>
       <FlexItem className="label">
-        <Label icon={<CheckCircleIcon />} variant="outline" color={labelColor}>
+        <Label icon={icon} variant="outline" color={color}>
           {labelText}
         </Label>
       </FlexItem>
@@ -42,17 +51,15 @@ const FirstPanelTile = ({
 
 FirstPanelTile.defaultProps = {
   labelText: ' OK',
-  labelColor: 'green',
-  labelType: 'info',
+  variant: 'success',
 };
 
 FirstPanelTile.propTypes = {
-  labelColor: PropTypes.string,
-  labelType: PropTypes.string,
   title: PropTypes.string,
   count: PropTypes.string,
   section: PropTypes.string,
   labelText: PropTypes.string,
+  variant: PropTypes.oneOf(['success', 'danger', 'warning']),
 };
 
 export default FirstPanelTile;
