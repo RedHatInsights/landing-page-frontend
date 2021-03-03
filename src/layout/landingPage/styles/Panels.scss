@@ -53,6 +53,9 @@
             --pf-c-label--FontSize: var(--pf-global--FontSize--xs);
           }
         }
+        .ins-m-hidden {
+          display: none !important;
+        }
       }
     }
   }
