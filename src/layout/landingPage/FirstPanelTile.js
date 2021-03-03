@@ -40,7 +40,7 @@ const FirstPanelTile = ({ count, section, title, labelText, variant }) => {
       <FlexItem className="name">
         <Text component="p">{title}</Text>
       </FlexItem>
-      <FlexItem className="label">
+      <FlexItem className="label ins-m-hidden">
         <Label icon={icon} variant="outline" color={color}>
           {labelText}
         </Label>
