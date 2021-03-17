@@ -1,4 +1,3 @@
-import PropTypes from 'prop-types';
 import React, {
   useEffect,
   useState,
@@ -6,12 +5,18 @@ import React, {
   lazy,
   Suspense,
 } from 'react';
-import { withRouter, Switch, Route } from 'react-router-dom';
+import { Switch, Route } from 'react-router-dom';
 import { getRegistry } from '@redhat-cloud-services/frontend-components-utilities/files/cjs/Registry';
-import { connect } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { Bullseye, Spinner } from '@patternfly/react-core';
 import technologiesReducer from './store/technologiesReducer';
-import { technologiesLoaded } from './store/actions';
+import contentStore from './store/contentReducer';
+import {
+  technologiesLoaded,
+  loadEndpoints,
+  loadCarousel,
+  loadSections,
+} from './store/actions';
 import { activeTechnologies } from './consts';
 
 const Landing = lazy(() =>
@@ -33,12 +38,20 @@ const routes = {
 
 export const PermissionContext = createContext();
 
-const App = ({ loadTechnologies }) => {
+const App = () => {
   const [isOrgAdmin, setIsOrgAdmin] = useState();
+  const dispatch = useDispatch();
 
   useEffect(() => {
-    getRegistry().register({ technologies: technologiesReducer });
-    loadTechnologies(activeTechnologies);
+    getRegistry().register({ technologies: technologiesReducer, contentStore });
+    dispatch(technologiesLoaded(activeTechnologies));
+    const endpointsAction = loadEndpoints();
+    dispatch(endpointsAction);
+    (async () => {
+      await endpointsAction.payload;
+      dispatch(loadCarousel());
+      dispatch(loadSections());
+    })();
     insights.chrome.init();
     insights.chrome.identifyApp('landing');
     window.insights.chrome.auth
@@ -66,18 +79,4 @@ const App = ({ loadTechnologies }) => {
   );
 };
 
-App.propTypes = {
-  history: PropTypes.object,
-  loadTechnologies: PropTypes.func,
-};
-
-App.defaultProps = {
-  loadTechnologies: () => undefined,
-};
-
-export default withRouter(
-  connect(null, (dispatch) => ({
-    loadTechnologies: (technologies) =>
-      dispatch(technologiesLoaded(technologies)),
-  }))(App)
-);
+export default App;
