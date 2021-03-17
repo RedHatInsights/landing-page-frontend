@@ -5,7 +5,7 @@ import React, {
   lazy,
   Suspense,
 } from 'react';
-import { withRouter, Switch, Route } from 'react-router-dom';
+import { Switch, Route } from 'react-router-dom';
 import { getRegistry } from '@redhat-cloud-services/frontend-components-utilities/files/cjs/Registry';
 import { useDispatch } from 'react-redux';
 import { Bullseye, Spinner } from '@patternfly/react-core';
@@ -79,4 +79,4 @@ const App = () => {
   );
 };
 
-export default withRouter(App);
+export default App;
