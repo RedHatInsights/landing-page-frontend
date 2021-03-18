@@ -4,7 +4,7 @@ set -x
 
 if [ "${TRAVIS_BRANCH}" = "master" ]
 then
-    for env in ci #qa
+    for env in ci qa
     do
         echo "PUSHING ${env}-beta"
         rm -rf ./dist/.git
