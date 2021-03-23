@@ -15,7 +15,7 @@ import Marketing from '../layout/Marketing';
 import FooterTraditional from '../layout/FooterTraditional';
 import Loading from '../layout/Loading';
 import { activeTechnologies } from '../consts';
-import { addNotification } from '@redhat-cloud-services/frontend-components-notifications/cjs/actions';
+import { addNotification } from '@redhat-cloud-services/frontend-components-notifications/redux';
 import './Landing.scss';
 
 // Mockup console landing page

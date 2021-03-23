@@ -1,7 +1,7 @@
 import React from 'react';
 import { BrowserRouter as Router } from 'react-router-dom';
 import { Provider } from 'react-redux';
-import NotificationsPortal from '@redhat-cloud-services/frontend-components-notifications/cjs/NotificationPortal';
+import NotificationsPortal from '@redhat-cloud-services/frontend-components-notifications/NotificationPortal';
 import { init } from '../store';
 import App from '../App';
 import PropTypes from 'prop-types';

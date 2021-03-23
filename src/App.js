@@ -6,7 +6,7 @@ import React, {
   Suspense,
 } from 'react';
 import { Switch, Route } from 'react-router-dom';
-import { getRegistry } from '@redhat-cloud-services/frontend-components-utilities/files/cjs/Registry';
+import { getRegistry } from '@redhat-cloud-services/frontend-components-utilities/Registry';
 import { useDispatch } from 'react-redux';
 import { Bullseye, Spinner } from '@patternfly/react-core';
 import technologiesReducer from './store/technologiesReducer';

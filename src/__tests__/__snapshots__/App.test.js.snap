@@ -51,9 +51,11 @@ exports[`App component should render correctly 1`] = `
               component={
                 Object {
                   "$$typeof": Symbol(react.lazy),
-                  "_ctor": [Function],
-                  "_result": Promise {},
-                  "_status": 0,
+                  "_init": [Function],
+                  "_payload": Object {
+                    "_result": Promise {},
+                    "_status": 0,
+                  },
                 }
               }
               computedMatch={
@@ -165,9 +167,11 @@ exports[`App component should render correctly with data 1`] = `
               component={
                 Object {
                   "$$typeof": Symbol(react.lazy),
-                  "_ctor": [Function],
-                  "_result": [Function],
-                  "_status": 1,
+                  "_init": [Function],
+                  "_payload": Object {
+                    "_result": [Function],
+                    "_status": 1,
+                  },
                 }
               }
               computedMatch={

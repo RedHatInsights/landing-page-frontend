@@ -6,6 +6,8 @@ const { config: webpackConfig, plugins } = config({
   rootFolder: resolve(__dirname, '../'),
   debug: true,
   https: true,
+  skipChrome2: true,
+  ...(process.env.BETA ? { deployment: 'beta/apps' } : {}),
   htmlPlugin: {
     title: 'Home - cloud.redhat.com',
     filename: 'index.html',
