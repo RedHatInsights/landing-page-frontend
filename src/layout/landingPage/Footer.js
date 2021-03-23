@@ -1,195 +1,82 @@
 import React from 'react';
-import {
-  Flex,
-  FlexItem,
-  Split,
-  SplitItem,
-  TextContent,
-  Text,
-} from '@patternfly/react-core'; //eslint-disable-line
-import {
-  ArrowRightIcon,
-  BuilderImageIcon,
-  CloudSecurityIcon,
-  CloudTenantIcon,
-  ConnectedIcon,
-  ExternalLinkAltIcon,
-} from '@patternfly/react-icons';
+import { Flex } from '@patternfly/react-core';
+import configTryLearnRenderer from '../../components/app-content-renderer/config-try-learn-renderer';
 
-import IconInsights from '../../components/icon-insights';
-import IconAnsible from '../../components/icon-ansible';
+const mockData = [
+  {
+    id: 'configure',
+    title: 'Configure',
+    items: [
+      {
+        icon: 'connected',
+        title: 'Connect your cloud resources',
+        link: {
+          title: 'Configure Sources',
+          href: `${
+            window.insights.chrome.isBeta() === true ? '/beta/' : '/'
+          }settings/sources`,
+        },
+      },
+      {
+        icon: 'insights',
+        title: 'Register with Insights',
+        link: {
+          title: 'Registration Assistant',
+          href: `./#`,
+        },
+      },
+    ],
+  },
+  {
+    id: 'try',
+    title: 'Try',
+    items: [
+      {
+        icon: 'builderImage',
+        title: 'Image Builder',
+        link: {
+          title: 'Try it',
+          href: './#',
+        },
+      },
+      {
+        icon: 'couldTenant',
+        title: 'Remediate from the cloud',
+        link: {
+          title: 'Try it',
+          href: `./#`,
+        },
+      },
+    ],
+  },
+  {
+    id: 'learn',
+    title: 'Learn',
+    items: [
+      {
+        icon: 'cloudSecurity',
+        title: 'Trust & Security',
+        link: {
+          title: 'Learn more',
+          href: './#',
+        },
+      },
+      {
+        icon: 'ansible',
+        title: 'Ansible Automation Hub',
+        link: {
+          title: 'Learn more',
+          href: `./#`,
+        },
+      },
+    ],
+  },
+];
 
 const Footer = () => {
   return (
     <Flex className="third-level">
-      <Flex className="level-wrapper">
-        <Flex className="section">
-          <FlexItem>
-            <Text component="p" className="section-title">
-              Configure
-            </Text>
-          </FlexItem>
-          <FlexItem className="break" /> {/*break for mobile layout*/}
-          <Split className="tile">
-            <SplitItem>
-              <div className="tile-icon">
-                <ConnectedIcon />
-              </div>
-            </SplitItem>
-            <SplitItem>
-              <TextContent>
-                <Text component="h4" className="tile-title">
-                  Connect your cloud resources
-                </Text>
-                {/*                <Text component="h4" className="tile-description">
-                  Lorem Dolor ipsum Lorem Dolor ipsum
-                </Text>*/}
-                <Text component="h4" className="tile-link">
-                  <a
-                    href={`${
-                      window.insights.chrome.isBeta() === true ? '/beta/' : '/'
-                    }settings/sources`}
-                  >
-                    Configure Sources&nbsp;
-                    <ArrowRightIcon size="sm" />
-                  </a>
-                </Text>
-              </TextContent>
-            </SplitItem>
-          </Split>
-          <Split className="tile">
-            <SplitItem>
-              <div className="tile-icon">
-                <IconInsights />
-              </div>
-            </SplitItem>
-            <SplitItem>
-              <TextContent>
-                <Text component="h4" className="tile-title">
-                  Register with Insights
-                </Text>
-                {/*                <Text component="h4" className="tile-description">
-                  Lorem Dolor ipsum Lorem Dolor ipsum
-                </Text>*/}
-                <Text component="h4" className="tile-link">
-                  <a>
-                    Registration Assistant&nbsp;
-                    <ArrowRightIcon size="sm" />
-                  </a>
-                </Text>
-              </TextContent>
-            </SplitItem>
-          </Split>
-        </Flex>
-        <Flex className="section">
-          <FlexItem>
-            <Text component="p" className="section-title">
-              Try
-            </Text>
-          </FlexItem>
-          <FlexItem className="break" /> {/*break for mobile layout*/}
-          <Split className="tile">
-            <SplitItem>
-              <div className="tile-icon">
-                <BuilderImageIcon />
-              </div>
-            </SplitItem>
-            <SplitItem>
-              <TextContent>
-                <Text component="h4" className="tile-title">
-                  Image Builder
-                </Text>
-                {/*                <Text component="h4" className="tile-description">
-                  Lorem Dolor ipsum Lorem Dolor ipsum
-                </Text>*/}
-                <Text component="h4" className="tile-link">
-                  <a>
-                    Try it&nbsp;
-                    <ArrowRightIcon size="sm" />
-                  </a>
-                </Text>
-              </TextContent>
-            </SplitItem>
-          </Split>
-          <Split className="tile">
-            <SplitItem>
-              <div className="tile-icon">
-                <CloudTenantIcon />
-              </div>
-            </SplitItem>
-            <SplitItem>
-              <TextContent>
-                <Text component="h4" className="tile-title">
-                  Remediate from the cloud
-                </Text>
-                {/*                <Text component="h4" className="tile-description">
-                  Lorem Dolor ipsum Lorem Dolor ipsum
-                </Text>*/}
-                <Text component="h4" className="tile-link">
-                  <a>
-                    Try it&nbsp;
-                    <ArrowRightIcon size="sm" />
-                  </a>
-                </Text>
-              </TextContent>
-            </SplitItem>
-          </Split>
-        </Flex>
-        <Flex className="section">
-          <FlexItem>
-            <Text component="p" className="section-title">
-              Learn
-            </Text>
-          </FlexItem>
-          <FlexItem className="break" /> {/*break for mobile layout*/}
-          <Split className="tile">
-            <SplitItem>
-              <div className="tile-icon">
-                <CloudSecurityIcon />
-              </div>
-            </SplitItem>
-            <SplitItem>
-              <TextContent>
-                <Text component="h4" className="tile-title">
-                  Trust & Security
-                </Text>
-                {/*                <Text component="h4" className="tile-description">
-                  Lorem Dolor ipsum Lorem Dolor ipsum
-                </Text>*/}
-                <Text component="h4" className="tile-link">
-                  <a>
-                    Learn more&nbsp;
-                    <ExternalLinkAltIcon size="sm" />
-                  </a>
-                </Text>
-              </TextContent>
-            </SplitItem>
-          </Split>
-          <Split className="tile">
-            <SplitItem>
-              <div className="tile-icon">
-                <IconAnsible size="sm" />
-              </div>
-            </SplitItem>
-            <SplitItem>
-              <TextContent>
-                <Text component="h4" className="tile-title">
-                  Ansible Automation Hub
-                </Text>
-                {/*                <Text component="h4" className="tile-description">
-                  Lorem Dolor ipsum Lorem Dolor ipsum
-                </Text>*/}
-                <Text component="h4" className="tile-link">
-                  <a>
-                    Learn more&nbsp;
-                    <ExternalLinkAltIcon size="sm" />
-                  </a>
-                </Text>
-              </TextContent>
-            </SplitItem>
-          </Split>
-        </Flex>
-      </Flex>
+      <Flex className="level-wrapper">{configTryLearnRenderer(mockData)}</Flex>
     </Flex>
   );
 };

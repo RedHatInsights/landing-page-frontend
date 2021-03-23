@@ -55,8 +55,8 @@ FirstPanelTile.defaultProps = {
 };
 
 FirstPanelTile.propTypes = {
-  title: PropTypes.string,
-  count: PropTypes.string,
+  title: PropTypes.string.isRequired,
+  count: PropTypes.string.isRequired,
   section: PropTypes.string,
   labelText: PropTypes.string,
   variant: PropTypes.oneOf(['success', 'danger', 'warning']),
