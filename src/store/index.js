@@ -1,7 +1,7 @@
-import MiddlewareListener from '@redhat-cloud-services/frontend-components-utilities/files/cjs/MiddlewareListener';
-import { getRegistry } from '@redhat-cloud-services/frontend-components-utilities/files/cjs/Registry';
-import notificationsMiddleware from '@redhat-cloud-services/frontend-components-notifications/cjs/notificationsMiddleware';
-import notifications from '@redhat-cloud-services/frontend-components-notifications/cjs/notifications';
+import MiddlewareListener from '@redhat-cloud-services/frontend-components-utilities/MiddlewareListener';
+import { getRegistry } from '@redhat-cloud-services/frontend-components-utilities/Registry';
+import notificationsMiddleware from '@redhat-cloud-services/frontend-components-notifications/notificationsMiddleware';
+import { notificationsReducer } from '@redhat-cloud-services/frontend-components-notifications/redux';
 import promiseMiddleware from 'redux-promise-middleware';
 
 let middlewareListener;
@@ -16,7 +16,7 @@ export function init(...middleware) {
     ...middleware.filter((item) => typeof item === 'function'),
   ]);
 
-  registry.register({ notifications });
+  registry.register({ notifications: notificationsReducer });
   return registry;
 }
 
