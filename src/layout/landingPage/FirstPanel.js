@@ -1,5 +1,5 @@
 import React from 'react';
-import { Flex } from '@patternfly/react-core';
+import { DescriptionList } from '@patternfly/react-core';
 import { shallowEqual, useSelector } from 'react-redux';
 
 import estateRenderer from '../../components/app-content-renderer/estate-renderer';
@@ -12,9 +12,10 @@ const FirstPanel = () => {
     shallowEqual
   );
   return (
-    <Flex className="first-level">
-      <Flex className="level-wrapper">{estateRenderer(estate)}</Flex>
-    </Flex>
+    // To customize breakpoints etc use https://www.patternfly.org/v4/components/description-list#examples
+    <DescriptionList isAutoFit className="first-level pf-u-p-lg">
+      {estateRenderer(estate)}
+    </DescriptionList>
   );
 };
 

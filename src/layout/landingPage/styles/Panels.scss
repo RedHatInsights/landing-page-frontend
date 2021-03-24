@@ -27,89 +27,9 @@
   .first-level {
     background-color: var(--pf-global--primary-color--200);
     color: var(--pf-global--Color--light-100);
-    .level-wrapper {
-      flex-direction: row;
-      justify-content: space-between;
-      padding-bottom: var(--pf-global--spacer--xl);
-      .tile {
-        flex-basis: 15%;
-        flex-direction: column;
-        margin-top: auto; // adjust for missing secton titles
-        .title {
-          font-size: var(--pf-global--FontSize--md);
-          padding-bottom: var(--pf-global--spacer--md);
-        }
-        .count {
-          font-size: var(--pf-global--FontSize--3xl);    
-        }
-        .name {
-          font-size: var(--pf-global--FontSize--sm);
-          margin-bottom: var(--pf-global--spacer--sm);
-        }
-        .label {
-          align-self:stretch;
-          .pf-c-label {
-            width: 100%;
-            --pf-c-label--FontSize: var(--pf-global--FontSize--xs);
-          }
-        }
-        .ins-m-hidden {
-          display: none !important;
-        }
-      }
-    }
   }
 
-@media screen and (min-width: 1200px) and (max-width: 1449px) {
-     .first-level {
-       .level-wrapper {
-         flex-basis: 100%;
-         justify-content: space-between;
-         .tile {
-           flex-basis: 30%;
-           --pf-l-flex--spacer: var(--pf-global--spacer--lg);
-           &:nth-of-type(3n+0) { --pf-l-flex--spacer: var(--pf-l-flex--spacer--none); }
-           &:nth-of-type(n+4) { padding-top: var(--pf-global--spacer--lg); }
-         }
-       }
-     }
-   }
 
-  @media screen and (max-width: 1199px) {
-    .first-level {
-      padding-right: var(--pf-global--spacer--lg);
-      .level-wrapper {
-        flex-direction: column;
-        width: 100%;
-        .tile {
-          flex-direction: row;
-          width: 100%;
-          &:first-of-type .title {
-            padding-top: var(--pf-global--spacer--none);
-          }
-          .title {
-            font-size: var(--pf-global--FontSize--xl);
-            padding-bottom: var(--pf-global--spacer--md);
-            padding-top: var(--pf-global--spacer--md);
-            &:empty {
-              display: none;
-            }
-          }
-          .count {
-            font-size: var(--pf-global--FontSize--xl);
-            padding-bottom: var(--pf-global--spacer--none);      
-          }
-          .name {
-            flex: 2;
-            flex-wrap: nowrap;
-          }
-          .label {
-            flex-basis: 30%;
-          }
-        }
-      }
-    }
-  }
 
   .second-level {
     background-color: var(--pf-global--BackgroundColor--100);
