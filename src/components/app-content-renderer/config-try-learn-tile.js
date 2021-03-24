@@ -14,6 +14,7 @@ import {
   CloudSecurityIcon,
   CloudTenantIcon,
   ConnectedIcon,
+  QuestionCircleIcon,
 } from '@patternfly/react-icons';
 import IconInsights from '../icon-insights';
 import IconAnsible from '../icon-ansible';
@@ -25,6 +26,7 @@ const iconMapper = {
   couldTenant: CloudTenantIcon,
   cloudSecurity: CloudSecurityIcon,
   ansible: IconAnsible,
+  unknown: QuestionCircleIcon,
 };
 
 const NoIcon = () => <div>No icon</div>;

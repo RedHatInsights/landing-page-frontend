@@ -7,6 +7,7 @@ import {
   ExclamationTriangleIcon,
   InfoCircleIcon,
   ProcessAutomationIcon,
+  QuestionCircleIcon,
   SecurityIcon,
 } from '@patternfly/react-icons';
 import { Button, Flex, FlexItem, Text, Title } from '@patternfly/react-core';
@@ -20,6 +21,7 @@ const groupIconMapper = {
   infoCircle: InfoCircleIcon,
   checkCircle: CheckCircleIcon,
   security: SecurityIcon,
+  unknown: QuestionCircleIcon,
   // eslint-disable-next-line react/display-name
   default: () => <div>No icon</div>,
 };
