@@ -3,6 +3,7 @@ import {
   CALCULATE_ENDPOINTS,
   LOAD_CAROUSEL,
   LOAD_SECTIONS,
+  LOAD_DATA,
 } from './action-types';
 import { endpoints, carousel, sections } from '../utils/config.json';
 import { calculateEndpoints } from '../utils/content-generator';
@@ -25,4 +26,9 @@ export const loadCarousel = () => ({
 export const loadSections = () => ({
   type: LOAD_SECTIONS,
   payload: sections,
+});
+
+export const loadData = (data) => ({
+  type: LOAD_DATA,
+  payload: data,
 });

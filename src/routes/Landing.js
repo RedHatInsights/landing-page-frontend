@@ -22,6 +22,8 @@ import './Landing.scss';
 import SecondPanel from '../layout/landingPage/SecondPanel';
 import FirstPanel from '../layout/landingPage/FirstPanel';
 import Footer from '../layout/landingPage/Footer';
+import { loadData } from '../store/actions';
+import createContentData from '../contentApi/create-content-data';
 
 const Landing = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -60,6 +62,9 @@ const Landing = () => {
         setIsUnauthed(true);
       })
       .then(() => setIsUserReady(true));
+    createContentData().then((data) => {
+      dispatch(loadData(data));
+    });
   }, []);
 
   const handleModalToggle = () => {
