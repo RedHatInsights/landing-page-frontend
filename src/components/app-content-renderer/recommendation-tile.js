@@ -10,7 +10,15 @@ import {
   QuestionCircleIcon,
   SecurityIcon,
 } from '@patternfly/react-icons';
-import { Button, Flex, FlexItem, Text, Title } from '@patternfly/react-core';
+import {
+  Button,
+  Flex,
+  FlexItem,
+  GridItem,
+  Title,
+  Text,
+  TextContent,
+} from '@patternfly/react-core';
 
 const NoIcon = () => <div>No icon</div>;
 
@@ -37,38 +45,35 @@ const RecommendationGroup = ({
   const GroupIcon = groupIconMapper[icon] || NoIcon;
   if (component === 'title') {
     return (
-      <div>
-        <Title headingLevel="h2" size="md">
-          {title}
-        </Title>
-      </div>
+      <Title headingLevel="h2" size="md">
+        {title}
+      </Title>
     );
   }
   return (
-    <FlexItem className="tile-group">
-      <Flex className="tile">
-        <FlexItem className="icon">
-          <GroupIcon
-            className={classnames({
-              error: state === 'error',
-              warning: state === 'warning',
-              info: state === 'info',
-              green: state === 'success',
-            })}
-          />
-        </FlexItem>
-        <FlexItem className="title">
-          <Title headingLevel="h5" size="sm">
-            {description}
-          </Title>
-        </FlexItem>
-        <FlexItem className="button" align={{ default: 'alignRight' }}>
-          <Button component="a" href={action.url} variant="secondary" isSmall>
-            {action.title}
-          </Button>
-        </FlexItem>
-      </Flex>
-    </FlexItem>
+    <Flex flexWrap={{ default: 'nowrap' }} className="whole-row">
+      <FlexItem className="group-icon">
+        <GroupIcon
+          className={classnames({
+            error: state === 'error',
+            warning: state === 'warning',
+            info: state === 'info',
+            green: state === 'success',
+          })}
+        />
+      </FlexItem>
+      <FlexItem className="pf-mr-lg">
+        <TextContent>
+          {title && <Text component="h5">{title}</Text>}
+          <Text>{description}</Text>
+        </TextContent>
+      </FlexItem>
+      <FlexItem align={{ default: 'alignRight' }}>
+        <Button component="a" href={action.url} variant="secondary" isSmall>
+          {action.title}
+        </Button>
+      </FlexItem>
+    </Flex>
   );
 };
 
@@ -89,16 +94,14 @@ RecommendationGroup.defaultProps = {
 };
 
 const RecommendationSection = ({ groups, title }) => (
-  <Flex className="subsection">
-    <FlexItem>
-      <Text component="h1" className="title">
-        {title}
-      </Text>
-    </FlexItem>
+  <React.Fragment>
+    <Title headingLevel="h1" className="pf-u-mb-md">
+      {title}
+    </Title>
     {groups.map((group) => (
       <RecommendationGroup key={group.id} {...group} />
     ))}
-  </Flex>
+  </React.Fragment>
 );
 
 RecommendationSection.propTypes = {
@@ -111,24 +114,21 @@ RecommendationSection.defaultProps = {
   title: '',
 };
 
-const RecommendationTile = ({ groups, sections }) => (
-  <Flex className="section">
-    {groups.length > 0 && (
-      <Flex className="subsection">
-        {groups.map((group) => (
-          <RecommendationGroup key={group.id} {...group} />
-        ))}
-      </Flex>
-    )}
+const RecommendationTile = ({ groups, sections, countOfReccomentations }) => (
+  <GridItem md={12} lg={countOfReccomentations > 2 ? 4 : 12} xs={12}>
+    {groups.map((group) => (
+      <RecommendationGroup key={group.id} {...group} />
+    ))}
     {sections.map((section) => (
       <RecommendationSection key={section.id} {...section} />
     ))}
-  </Flex>
+  </GridItem>
 );
 
 RecommendationTile.propTypes = {
   groups: PropTypes.arrayOf(PropTypes.shape(RecommendationGroup.propTypes)),
   sections: PropTypes.arrayOf(PropTypes.shape(RecommendationSection.propTypes)),
+  countOfReccomentations: PropTypes.number.isRequired,
 };
 
 RecommendationTile.defaultProps = {
