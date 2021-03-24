@@ -7,13 +7,13 @@ import estateRenderer from '../../components/app-content-renderer/estate-rendere
 import './styles/Panels.scss';
 
 const FirstPanel = () => {
-  const firstPanel = useSelector(
-    ({ contentStore: { firstPanel } }) => firstPanel,
+  const estate = useSelector(
+    ({ contentStore: { estate } }) => estate,
     shallowEqual
   );
   return (
     <Flex className="first-level">
-      <Flex className="level-wrapper">{estateRenderer(firstPanel)}</Flex>
+      <Flex className="level-wrapper">{estateRenderer(estate)}</Flex>
     </Flex>
   );
 };

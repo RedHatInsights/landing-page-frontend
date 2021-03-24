@@ -4,13 +4,13 @@ import recommendationRenderer from '../../components/app-content-renderer/recomm
 import { useSelector } from 'react-redux';
 
 const SecondPanel = () => {
-  const secondPanel = useSelector(
-    ({ contentStore: { secondPanel } }) => secondPanel
+  const recommendations = useSelector(
+    ({ contentStore: { recommendations } }) => recommendations
   );
   return (
     <Flex className="second-level">
       <Flex className="level-wrapper">
-        {recommendationRenderer(secondPanel)}
+        {recommendationRenderer(recommendations)}
       </Flex>
     </Flex>
   );

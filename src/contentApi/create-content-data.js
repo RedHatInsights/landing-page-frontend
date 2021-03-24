@@ -8,7 +8,6 @@ const createContentData = async () => {
     createAnsibleSchema(),
     createRhelSchema(),
   ]);
-  console.log({ cost, ansible, rhel });
   const configTryLearn = [
     {
       id: 'configure',

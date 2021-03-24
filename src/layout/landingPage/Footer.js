@@ -4,10 +4,14 @@ import configTryLearnRenderer from '../../components/app-content-renderer/config
 import { useSelector } from 'react-redux';
 
 const Footer = () => {
-  const footer = useSelector(({ contentStore: { footer } }) => footer);
+  const configTryLearn = useSelector(
+    ({ contentStore: { configTryLearn } }) => configTryLearn
+  );
   return (
     <Flex className="third-level">
-      <Flex className="level-wrapper">{configTryLearnRenderer(footer)}</Flex>
+      <Flex className="level-wrapper">
+        {configTryLearnRenderer(configTryLearn)}
+      </Flex>
     </Flex>
   );
 };
