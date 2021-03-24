@@ -272,6 +272,7 @@ export const getCatalogPortfolios = async () => {
     } = await instance.get('/api/catalog/v1/portfolios?limit=1');
     return {
       count,
+      section: 'Catalog', // don't know no data
       title: 'Portfolios',
       href: './ansible/catalog/portfolios',
     };
@@ -297,41 +298,43 @@ export const getCatalogAdminEstateItems = () =>
   );
 
 export const getCatalogAdminRecommendationsItems = async () =>
-  Promise.resolve({
-    title: 'Catalog',
-    id: 'catalog',
-    groups: [
-      {
-        id: 'products',
-        description: `Last added products (5)`,
-        icon: 'unknown',
-        action: {
-          url:
-            'https://cloud.stage.redhat.com/docs/api/catalog#operations-PortfolioItem-listPortfolioItems',
-          title: 'Products',
+  Promise.resolve([
+    {
+      title: 'Catalog',
+      id: 'catalog',
+      groups: [
+        {
+          id: 'products',
+          description: `Last added products (5)`,
+          icon: 'unknown',
+          action: {
+            url:
+              'https://cloud.stage.redhat.com/docs/api/catalog#operations-PortfolioItem-listPortfolioItems',
+            title: 'Products',
+          },
         },
-      },
-      {
-        id: 'orders',
-        description: `Last orders (5)`,
-        icon: 'unknown',
-        action: {
-          url:
-            'https://cloud.stage.redhat.com/docs/api/catalog#operations-Order-listOrders',
-          title: 'Orders',
+        {
+          id: 'orders',
+          description: `Last orders (5)`,
+          icon: 'unknown',
+          action: {
+            url:
+              'https://cloud.stage.redhat.com/docs/api/catalog#operations-Order-listOrders',
+            title: 'Orders',
+          },
         },
-      },
-      {
-        id: 'approvals',
-        description: `Approvals`,
-        icon: 'unknown',
-        action: {
-          url: './ansible/catalog/approval/requests',
-          title: 'Approvals',
+        {
+          id: 'approvals',
+          description: `Approvals`,
+          icon: 'unknown',
+          action: {
+            url: './ansible/catalog/approval/requests',
+            title: 'Approvals',
+          },
         },
-      },
-    ],
-  });
+      ],
+    },
+  ]);
 
 const CATALOG_ADMIN_CONFIGRE_TRY_LEARN = {
   configure: [
@@ -407,8 +410,21 @@ export const getCatalogAdminData = () =>
     getCatalogAdminEstateItems(),
     getCatalogAdminRecommendationsItems(),
     getCatalogConfigureTryLearn(),
-  ]).then(([estate, recommendations, configTryLear]) => ({
+  ]).then(([estate, recommendations, configTryLearn]) => ({
     estate,
     recommendations,
-    configTryLear,
+    configTryLearn,
   }));
+
+export const createAnsibleSchema = () => {
+  /**
+   * We don't know how to switch personas yet. Using catalog for now, because they have the most data.
+   */
+  return getCatalogAdminData().then(
+    ({ estate, recommendations, configTryLearn }) => ({
+      firstPanel: estate,
+      secondPanel: recommendations,
+      configTryLearn,
+    })
+  );
+};

@@ -3,6 +3,7 @@ import {
   CALCULATE_ENDPOINTS,
   LOAD_CAROUSEL,
   LOAD_SECTIONS,
+  LOAD_DATA,
 } from './action-types';
 import flatMap from 'lodash/flatMap';
 
@@ -65,16 +66,35 @@ export function carouselLoader(state, { payload }) {
   };
 }
 
+/**
+ * This is here temporarily to quickly store and use content data before we optimize and split it
+ */
+export function loadAllContent(
+  state,
+  { payload: { estate, recommendations, configTryLearn } }
+) {
+  return {
+    ...state,
+    estate,
+    recommendations,
+    configTryLearn,
+  };
+}
+
 export default applyReducerHash(
   {
     [`${CALCULATE_ENDPOINTS}_FULFILLED`]: endpointsLoaded,
     [LOAD_SECTIONS]: sectionsLoader,
     [LOAD_CAROUSEL]: carouselLoader,
+    [LOAD_DATA]: loadAllContent,
   },
   {
     loaded: false,
     endpoints: [],
     carousel: [],
     sections: [],
+    estate: [],
+    recommendations: [],
+    configTryLearn: [],
   }
 );

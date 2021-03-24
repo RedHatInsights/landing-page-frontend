@@ -38,69 +38,77 @@ export const getCostAppId = () =>
           ?.id
     );
 
-const createCostSourcesLink = (type) =>
+const createCostSourcesLink = (type, costAppId) =>
   `${sourcesURL}?filter[source_type_id][]=${
     getSourceTypesIDs()[type]
-  }&filter[applications][application_type_id][eq][]=${getCostAppId()}`;
+  }&filter[applications][application_type_id][eq][]=${costAppId}`;
 
-export const createCostSchema = () => ({
-  firstPanel: [
+export const createCostSchema = async () => {
+  const params = ['OCP', 'AWS', 'Azure', 'GCP'];
+  const linkParams = ['openshift', 'amazon', 'azure', 'google'];
+  const [OCP, AWS, Azure, GCP] = await Promise.all(
+    params.map((param) => costRequest(param))
+  );
+  const costAppId = await getCostAppId();
+  const [openshiftLink, amazonLink, azureLink, googleLink] = await Promise.all(
+    linkParams.map((param) => createCostSourcesLink(param, costAppId))
+  );
+  const firstPanelItems = [
     {
       // permissions: entitlements && cost.openshift.permissions
       section: 'Cost Management',
       title: 'OpenShift Sources',
-      api: costRequest('OCP'), // if false then hide
-      href: createCostSourcesLink('openshift'),
+      count: OCP,
+      href: openshiftLink,
     },
     {
       // permissions: entitlements && cost.aws.permissions
       title: 'Amazon Web Services Sources',
-      api: costRequest('AWS'),
-      href: createCostSourcesLink('amazon'),
+      count: AWS,
+      href: amazonLink,
     },
     {
       // permissions: entitlements && cost.azure.permissions
       title: 'Microsoft Azure Sources',
-      api: costRequest('Azure'),
-      href: createCostSourcesLink('azure'),
+      count: Azure,
+      href: azureLink,
     },
     {
       // permissions: entitlements && cost.gcp.permissions
       title: 'Google Cloud Platform Sources',
-      api: costRequest('GCP'),
-      href: createCostSourcesLink('google'),
+      count: GCP,
+      href: googleLink,
     },
-  ],
-  secondPanel: [
-    {
-      title: 'Cost management recommendations',
-      id: 'cost-recommendations',
-      sections: [
-        {
-          title: 'Cost management recommendations',
-          groups: [
-            {
-              // permissions: entitlements for openshift && costRequest('OCP') === 0,
-              //icon: 'automation',
-              id: 'cost-ocp',
-              title: 'Gain Business Insights for your OpenShift Clusters',
-              description:
-                'Install the Cost Operator on your OpenShift cluster to get started',
-              action: {
-                title: 'Learn more',
-                href: installCostOperator,
+  ].filter(({ count }) => count !== false);
+  return {
+    firstPanel: firstPanelItems,
+    secondPanel: [
+      {
+        title: 'Cost management recommendations',
+        id: 'cost-recommendations',
+        sections: [
+          {
+            title: 'Cost management recommendations',
+            groups: [
+              {
+                // permissions: entitlements for openshift && costRequest('OCP') === 0,
+                //icon: 'automation',
+                id: 'cost-ocp',
+                title: 'Gain Business Insights for your OpenShift Clusters',
+                description:
+                  'Install the Cost Operator on your OpenShift cluster to get started',
+                action: {
+                  title: 'Learn more',
+                  href: installCostOperator,
+                },
               },
-            },
-          ],
-        },
-      ],
-    },
-  ],
-  footer: [
-    {
-      id: 'configure',
-      title: 'Configure',
-      items: [
+            ],
+          },
+        ],
+      },
+    ],
+    configTryLearn: {
+      configure: [
         {
           // icon: 'connected',
           // permissions: (entitlements && org admin) || cost permissions
@@ -112,11 +120,7 @@ export const createCostSchema = () => ({
           },
         },
       ],
-    },
-    {
-      id: 'try',
-      title: 'Try',
-      items: [
+      try: [
         {
           // icon: 'builderImage',
           // permissions: (entitlements && org admin) || cost permissions
@@ -140,11 +144,7 @@ export const createCostSchema = () => ({
           },
         },
       ],
-    },
-    {
-      id: 'learn',
-      title: 'Learn',
-      items: [
+      learn: [
         {
           // icon: 'cloudSecurity',
           title:
@@ -164,5 +164,5 @@ export const createCostSchema = () => ({
         },
       ],
     },
-  ],
-});
+  };
+};
