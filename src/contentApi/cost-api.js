@@ -38,10 +38,10 @@ export const getCostAppId = () =>
           ?.id
     );
 
-const createCostSourcesLink = (type) =>
+const createCostSourcesLink = (type, costAppId) =>
   `${sourcesURL}?filter[source_type_id][]=${
     getSourceTypesIDs()[type]
-  }&filter[applications][application_type_id][eq][]=${getCostAppId()}`;
+  }&filter[applications][application_type_id][eq][]=${costAppId}`;
 
 export const createCostSchema = async () => {
   const params = ['OCP', 'AWS', 'Azure', 'GCP'];
@@ -49,8 +49,9 @@ export const createCostSchema = async () => {
   const [OCP, AWS, Azure, GCP] = await Promise.all(
     params.map((param) => costRequest(param))
   );
+  const costAppId = await getCostAppId();
   const [openshiftLink, amazonLink, azureLink, googleLink] = await Promise.all(
-    linkParams.map((param) => createCostSourcesLink(param))
+    linkParams.map((param) => createCostSourcesLink(param, costAppId))
   );
   const firstPanelItems = [
     {
