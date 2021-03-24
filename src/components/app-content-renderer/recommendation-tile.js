@@ -33,12 +33,6 @@ const RecommendationGroup = ({
   action,
 }) => {
   const GroupIcon = groupIconMapper[icon] || NoIcon;
-  console.log({
-    icon,
-    action,
-    description,
-    component,
-  });
   if (component === 'title') {
     return (
       <div>
