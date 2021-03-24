@@ -27,12 +27,9 @@ const iconMapper = {
   ansible: IconAnsible,
 };
 
-console.log({ iconMapper });
-
 const NoIcon = () => <div>No icon</div>;
 const TileItem = ({ icon, title, link: { href, title: linkTitle } = {} }) => {
   const Icon = iconMapper[icon] || NoIcon;
-  console.log(Icon, icon);
   return (
     <Split className="tile">
       <SplitItem>
@@ -67,7 +64,6 @@ TileItem.propTypes = {
 };
 
 const ConfigTryLearnTile = ({ title, items }) => {
-  console.log(items);
   return (
     <Flex className="section">
       <FlexItem>
