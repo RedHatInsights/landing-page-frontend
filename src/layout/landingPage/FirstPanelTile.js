@@ -1,65 +1,47 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Flex, FlexItem, Label, Text, Title } from '@patternfly/react-core'; //
-import CheckCircleIcon from '@patternfly/react-icons/dist/js/icons/check-circle-icon';
-import ExclamationTriangleIcon from '@patternfly/react-icons/dist/js/icons/exclamation-triangle-icon';
-import ExclamationCircleIcon from '@patternfly/react-icons/dist/js/icons/exclamation-circle-icon';
+import classnames from 'classnames';
+import {
+  DescriptionListDescription,
+  DescriptionListGroup,
+  DescriptionListTerm,
+  Text,
+  Title,
+} from '@patternfly/react-core';
 
-const FirstPanelTile = ({ count, section, title, labelText, variant }) => {
-  let color;
-  let icon;
-
-  switch (variant) {
-    case 'success':
-      color = 'green';
-      icon = <CheckCircleIcon />;
-      break;
-    case 'warning':
-      color = 'orange';
-      icon = <ExclamationTriangleIcon />;
-      break;
-    case 'danger':
-      color = 'red';
-      icon = <ExclamationCircleIcon />;
-      break;
-  }
-
+const FirstPanelTile = ({ count, section, title }) => {
   return (
-    <Flex className="tile">
-      <FlexItem>
-        <Text component="p" className="title">
-          {section}
+    <DescriptionListGroup className="estate-group">
+      <DescriptionListDescription
+        className={classnames('estate-section', {
+          'is-empty': section.length === 0,
+        })}
+      >
+        <Text component="p">
+          {section}&nbsp;
+          {/** empty line char is required to keep proper horizontal alignment. Empty "p" tag does not have height */}
         </Text>
-      </FlexItem>
-      <FlexItem className="break" /> {/*break for mobile layout*/}
-      <FlexItem className="count">
-        <Title headingLevel="h6" className="count">
+      </DescriptionListDescription>
+      <DescriptionListTerm className="estate-count">
+        <Title headingLevel="h5" size="3xl">
           {count}
         </Title>
-      </FlexItem>
-      <FlexItem className="name">
+      </DescriptionListTerm>
+      <DescriptionListDescription className="estate-title">
         <Text component="p">{title}</Text>
-      </FlexItem>
-      <FlexItem className="label ins-m-hidden">
-        <Label icon={icon} variant="outline" color={color}>
-          {labelText}
-        </Label>
-      </FlexItem>
-    </Flex>
+      </DescriptionListDescription>
+    </DescriptionListGroup>
   );
 };
 
 FirstPanelTile.defaultProps = {
-  labelText: ' OK',
-  variant: 'success',
+  section: '',
 };
 
 FirstPanelTile.propTypes = {
   title: PropTypes.string.isRequired,
   count: PropTypes.string.isRequired,
   section: PropTypes.string,
-  labelText: PropTypes.string,
-  variant: PropTypes.oneOf(['success', 'danger', 'warning']),
 };
 
 export default FirstPanelTile;
