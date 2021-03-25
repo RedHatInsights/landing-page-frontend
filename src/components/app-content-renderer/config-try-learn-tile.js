@@ -3,10 +3,13 @@ import PropTypes from 'prop-types';
 import {
   Flex,
   FlexItem,
+  Grid,
+  GridItem,
   Split,
   SplitItem,
   Text,
   TextContent,
+  Title,
 } from '@patternfly/react-core';
 import {
   ArrowRightIcon,
@@ -29,22 +32,25 @@ const iconMapper = {
   unknown: QuestionCircleIcon,
 };
 
-const NoIcon = () => <div>No icon</div>;
-const TileItem = ({ icon, title, link: { href, title: linkTitle } = {} }) => {
-  const Icon = iconMapper[icon] || NoIcon;
+const TileItem = ({
+  icon,
+  title,
+  description,
+  link: { href, title: linkTitle } = {},
+}) => {
+  const Icon = iconMapper[icon] || QuestionCircleIcon;
   return (
-    <Split className="tile">
-      <SplitItem>
-        <div className="tile-icon">
-          <Icon />
-        </div>
+    <Split className="pf-u-mb-xl">
+      <SplitItem className="pf-u-mr-md icon-wrapper">
+        <Icon size="xl" className="tile-icon" />
       </SplitItem>
       <SplitItem>
         <TextContent>
-          <Text component="h4" className="tile-title">
+          <Text component="p" className="tile-text pf-u-mb-sm">
             {title}
           </Text>
-          <Text component="h4" className="tile-link">
+          {description && <Text component="small">{description}</Text>}
+          <Text component="p" className="tile-text">
             <a href={href}>
               {linkTitle}&nbsp;
               <ArrowRightIcon size="sm" />
@@ -59,6 +65,7 @@ const TileItem = ({ icon, title, link: { href, title: linkTitle } = {} }) => {
 TileItem.propTypes = {
   icon: PropTypes.oneOf(['connected', 'insights']).isRequired,
   title: PropTypes.string.isRequired,
+  description: PropTypes.string,
   link: PropTypes.shape({
     href: PropTypes.string.isRequired,
     title: PropTypes.string.isRequired,
@@ -67,16 +74,21 @@ TileItem.propTypes = {
 
 const ConfigTryLearnTile = ({ title, items }) => {
   return (
-    <Flex className="section">
-      <FlexItem>
-        <Text component="p" className="section-title">
+    <Flex direction={{ default: 'column', md: 'column', lg: 'row' }}>
+      <FlexItem className="pf-u-mb-0 title-wrapper">
+        <Title headingLevel="h4" size="xl" className="pf-u-pb-xl section-title">
           {title}
-        </Text>
+        </Title>
       </FlexItem>
-      <FlexItem className="break" /> {/*break for mobile layout*/}
-      {items.map((item) => (
-        <TileItem key={item.title} {...item} />
-      ))}
+      <FlexItem>
+        <Grid hasGutter>
+          {items.map((item) => (
+            <GridItem md={6} lg={6} xl={12} sm={12} key={item.title}>
+              <TileItem {...item} />
+            </GridItem>
+          ))}
+        </Grid>
+      </FlexItem>
     </Flex>
   );
 };
