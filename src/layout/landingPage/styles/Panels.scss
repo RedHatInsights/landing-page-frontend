@@ -114,6 +114,11 @@
   .third-level {
     background-color: var(--pf-global--Color--light-200);
     color: var(--pf-global--Color--100);
+    .title-wrapper {
+      @media screen and (min-width: 992px) and (max-width: 1449px){
+        width: 100%;
+      }
+    }
     .section-title {
       font-weight: var(--pf-global--FontWeight--normal) !important;
     }
@@ -128,10 +133,6 @@
     .icon-wrapper {
       /** prevent icons scrollbars */
       flex-shrink: 0;
-    }
-    .tile-content {
-      /** vertically align icon with text */
-      align-items: center;
     }
   }
 }
