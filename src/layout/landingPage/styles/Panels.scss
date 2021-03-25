@@ -230,13 +230,24 @@
 
   .whole-row {
     width: 100%;
+    grid-template-columns: 1fr fit-content(20%)
   }
 
   .whole-row:not(:last-child) {
     margin-bottom: 16px;
   }
 
+  .custom-grid {
+    display: grid;
+    grid-template-columns: 1fr fit-content(100%);
+  }
+
   .group-icon {
     max-width: 16px;
+  }
+
+  .recommendation-button {
+    width: 100%;
+    height: fit-content;
   }
 }

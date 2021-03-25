@@ -20,7 +20,7 @@ import {
   TextContent,
 } from '@patternfly/react-core';
 
-const NoIcon = () => <div>No icon</div>;
+const NoIcon = () => <span>No icon</span>;
 
 const groupIconMapper = {
   automation: ProcessAutomationIcon,
@@ -30,8 +30,7 @@ const groupIconMapper = {
   checkCircle: CheckCircleIcon,
   security: SecurityIcon,
   unknown: QuestionCircleIcon,
-  // eslint-disable-next-line react/display-name
-  default: () => <div>No icon</div>,
+  default: NoIcon,
 };
 
 const RecommendationGroup = ({
@@ -51,29 +50,35 @@ const RecommendationGroup = ({
     );
   }
   return (
-    <Flex flexWrap={{ default: 'nowrap' }} className="whole-row">
-      <FlexItem className="group-icon">
-        <GroupIcon
-          className={classnames({
-            error: state === 'error',
-            warning: state === 'warning',
-            info: state === 'info',
-            green: state === 'success',
-          })}
-        />
-      </FlexItem>
-      <FlexItem className="pf-mr-lg">
-        <TextContent>
-          {title && <Text component="h5">{title}</Text>}
-          <Text>{description}</Text>
-        </TextContent>
-      </FlexItem>
-      <FlexItem align={{ default: 'alignRight' }}>
-        <Button component="a" href={action.url} variant="secondary" isSmall>
-          {action.title}
-        </Button>
-      </FlexItem>
-    </Flex>
+    <React.Fragment>
+      <Flex flexWrap={{ default: 'nowrap' }} className="whole-row">
+        <FlexItem>
+          <GroupIcon
+            className={classnames({
+              error: state === 'error',
+              warning: state === 'warning',
+              info: state === 'info',
+              green: state === 'success',
+            })}
+          />
+        </FlexItem>
+        <FlexItem>
+          <TextContent>
+            {title && <Text component="h5">{title}</Text>}
+            <Text>{description}</Text>
+          </TextContent>
+        </FlexItem>
+      </Flex>
+      <Button
+        component="a"
+        className="recommendation-button"
+        href={action.url}
+        variant="secondary"
+        isSmall
+      >
+        {action.title}
+      </Button>
+    </React.Fragment>
   );
 };
 
@@ -98,9 +103,11 @@ const RecommendationSection = ({ groups, title }) => (
     <Title headingLevel="h1" className="pf-u-mb-md">
       {title}
     </Title>
-    {groups.map((group) => (
-      <RecommendationGroup key={group.id} {...group} />
-    ))}
+    <div className="custom-grid">
+      {groups.map((group) => (
+        <RecommendationGroup key={group.id} {...group} />
+      ))}
+    </div>
   </React.Fragment>
 );
 
