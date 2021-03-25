@@ -8,7 +8,7 @@ import './styles/Panels.scss';
 
 const FirstPanel = () => {
   const estate = useSelector(
-    ({ contentStore: { estate } }) => estate,
+    ({ contentStore: { estate } }) => estate.slice(0, 6),
     shallowEqual
   );
   return (
