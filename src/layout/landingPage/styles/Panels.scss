@@ -111,127 +111,6 @@
     }
   }
 
-  .second-level {
-    background-color: var(--pf-global--BackgroundColor--100);
-    color: var(--pf-global--Color--100);
-    flex-direction: row;
-    .level-wrapper {
-      .section {
-        &:nth-of-type(1){ // left column
-          flex-basis: calc(38% - var(--pf-global--spacer--xl));
-          margin-right: var(--pf-global--spacer--xl)
-        }
-        &:nth-of-type(2){ // center and right columns
-          flex-basis: calc(62%);
-          flex-direction: row;
-          .subsection {
-            &:nth-of-type(1){ // center column
-              flex-basis: calc(52% - var(--pf-global--spacer--xl));
-              margin-right: var(--pf-global--spacer--xl);
-            }
-            &:nth-of-type(2){ // right column
-              flex-basis: 48%;
-              h1 {
-                color: #fff;
-              }
-            }
-          }
-        }
-
-        .subsection {
-          flex-direction: column;
-          padding-bottom: var(--pf-global--spacer--xl);
-          margin-right: 0;
-          h1 {
-            font-size: var(--pf-global--FontSize--xl);
-            padding-bottom: var(--pf-global--spacer--lg);
-          }
-          .tile-group {
-            align-self: stretch;
-            margin-right: 0;
-            margin-bottom: var(--pf-global--spacer--lg);
-            &:last-child {
-              margin-bottom: 0;
-            }
-            h2 {
-              font-size: var(--pf-global--FontSize--md);
-              margin-bottom: var(--pf-global--spacer--md);
-            }
-            .tile {
-              flex-wrap: nowrap;
-              margin-bottom: var(--pf-global--spacer--md);
-              width: 100%;
-              &:last-child {
-                margin-bottom: 0;
-              }
-              .icon {
-                flex-grow: 0;
-                margin-right: 8px;
-              }
-              .title {
-                flex-grow: 1;
-                margin-right: 4px;
-                h5 {
-                  font-size: var(--pf-global--FontSize--sm);
-                  font-weight:  300;
-                }
-              }
-              .button {
-                flex-grow: 0;
-                button, a {
-                  width: 90px;
-                }
-              }
-            }
-          }
-        }
-      }
-    }
-  }
-
-  @media screen and (min-width: 1200px) and (max-width: 1449px) {
-    .second-level {
-      .level-wrapper {
-        flex-basis: 100%;
-        .section {
-          &:nth-of-type(1){flex-basis: calc(40% - 48px);}
-          &:nth-of-type(2){
-            flex-basis: 60%;
-            flex-direction: column;
-            .subsection {
-              width: 100%;
-              .security {
-                display: none;
-              }
-            }
-            .tile-group {
-              width: 100%;
-            }
-          }
-        }
-      }
-    }
-  }
-
-  @media screen and (max-width: 1199px) {
-    .second-level {
-      padding-right: var(--pf-global--spacer--lg);
-      .level-wrapper {
-        flex-direction: column;
-         align-items: stretch;
-        .pf-l-flex.section {
-          flex-direction: column;
-        }
-        .section { align-items: stretch; }
-        .section:nth-of-type(1) { margin-right: 0 }
-        .section:nth-of-type(2) { margin-right: 0 }
-        .section:nth-of-type(2) .subsection:nth-of-type(1) { margin-right: 0 }
-        .subsection { align-items: stretch; }
-        .security {display: none;}
-      }
-    }
-  }
-
   .third-level {
     background-color: var(--pf-global--Color--light-200);
     color: var(--pf-global--Color--100);
@@ -342,5 +221,33 @@
         }
       }
     }
+  }
+}
+
+.second-panel {
+  background-color: var(--pf-global--BackgroundColor--100);
+  color: var(--pf-global--Color--100);
+
+  .whole-row {
+    width: 100%;
+    grid-template-columns: 1fr fit-content(20%)
+  }
+
+  .whole-row:not(:last-child) {
+    margin-bottom: 16px;
+  }
+
+  .custom-grid {
+    display: grid;
+    grid-template-columns: 1fr fit-content(100%);
+  }
+
+  .group-icon {
+    max-width: 16px;
+  }
+
+  .recommendation-button {
+    width: 100%;
+    height: fit-content;
   }
 }
