@@ -27,6 +27,42 @@
   .first-level {
     background-color: var(--pf-global--primary-color--200);
     color: var(--pf-global--Color--light-100);
+    /**
+    * to keep the 6 columns on line
+    */
+    grid-template-columns: repeat(auto-fill, calc(100% / 6 - var(--pf-c-description-list--ColumnGap)));
+    @media (max-width: 992px) {
+      /**
+      * Have 3 columns
+      */
+      grid-template-columns: repeat(auto-fill, calc(100% / 3 - var(--pf-c-description-list--ColumnGap)));
+    }
+    @media (max-width: 576px) {
+      /**
+      * Only one column
+      */
+      grid-template-columns: repeat(auto-fill, calc(100% - var(--pf-c-description-list--ColumnGap)));
+      row-gap: 0;
+      .estate-group {
+        display: flex;
+        flex-wrap: wrap;
+        .estate-section {
+          padding-top: var(--pf-global--spacer--md);
+          padding-bottom: var(--pf-global--spacer--md);
+          &.is-empty {
+            display: none;
+          }
+          font-size: var(--pf-global--FontSize--xl) !important;
+          width: 100%;
+        }
+        .estate-count {
+          font-size: var(--pf-global--FontSize--xl) !important;
+        }
+        .estate-title {
+          font-size: var(--pf-global--FontSize--sm) !important;
+        }
+      }
+    }
   }
 
 

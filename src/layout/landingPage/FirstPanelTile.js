@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import classnames from 'classnames';
 import {
   DescriptionListDescription,
   DescriptionListGroup,
@@ -10,19 +11,23 @@ import {
 
 const FirstPanelTile = ({ count, section, title }) => {
   return (
-    <DescriptionListGroup>
-      <DescriptionListDescription>
+    <DescriptionListGroup className="estate-group">
+      <DescriptionListDescription
+        className={classnames('estate-section', {
+          'is-empty': section.length === 0,
+        })}
+      >
         <Text component="p">
           {section}&nbsp;
           {/** empty line char is required to keep proper horizontal alignment. Empty "p" tag does not have height */}
         </Text>
       </DescriptionListDescription>
-      <DescriptionListTerm>
-        <Title headingLevel="h6" size="2xl">
+      <DescriptionListTerm className="estate-count">
+        <Title headingLevel="h5" size="3xl">
           {count}
         </Title>
       </DescriptionListTerm>
-      <DescriptionListDescription>
+      <DescriptionListDescription className="estate-title">
         <Text component="p">{title}</Text>
       </DescriptionListDescription>
     </DescriptionListGroup>
@@ -30,8 +35,7 @@ const FirstPanelTile = ({ count, section, title }) => {
 };
 
 FirstPanelTile.defaultProps = {
-  labelText: ' OK',
-  variant: 'success',
+  section: '',
 };
 
 FirstPanelTile.propTypes = {
