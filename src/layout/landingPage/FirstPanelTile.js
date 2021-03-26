@@ -14,7 +14,7 @@ const FirstPanelTile = ({ count, section, title }) => {
     <DescriptionListGroup className="estate-group">
       <DescriptionListDescription
         className={classnames('estate-section', {
-          'is-empty': section.length === 0,
+          'is-empty': section?.length === 0,
         })}
       >
         <Text component="p">
@@ -34,13 +34,9 @@ const FirstPanelTile = ({ count, section, title }) => {
   );
 };
 
-FirstPanelTile.defaultProps = {
-  section: '',
-};
-
 FirstPanelTile.propTypes = {
   title: PropTypes.string.isRequired,
-  count: PropTypes.string.isRequired,
+  count: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
   section: PropTypes.string,
 };
 

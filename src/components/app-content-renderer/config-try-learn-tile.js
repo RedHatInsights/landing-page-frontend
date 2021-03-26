@@ -63,7 +63,7 @@ const TileItem = ({
 };
 
 TileItem.propTypes = {
-  icon: PropTypes.oneOf(['connected', 'insights']).isRequired,
+  icon: PropTypes.oneOf(Object.keys(iconMapper)),
   title: PropTypes.string.isRequired,
   description: PropTypes.string,
   link: PropTypes.shape({
@@ -95,16 +95,7 @@ const ConfigTryLearnTile = ({ title, items }) => {
 
 ConfigTryLearnTile.propTypes = {
   title: PropTypes.string.isRequired,
-  items: PropTypes.arrayOf(
-    PropTypes.shape({
-      icon: PropTypes.oneOf(['connected', 'insights']).isRequired,
-      title: PropTypes.string.isRequired,
-      link: PropTypes.shape({
-        title: PropTypes.string.isRequired,
-        href: PropTypes.string.isRequired,
-      }).isRequired,
-    })
-  ),
+  items: PropTypes.arrayOf(PropTypes.shape(TileItem.propTypes)),
 };
 
 ConfigTryLearnTile.defaultProps = {

@@ -83,7 +83,7 @@ export const createRhelSchema = () =>
                 // permissions: If there is a security rule released in the last 14 days
                 //icon: 'automation',
                 // api: ?,
-                id: 'rhel-2',
+                id: 'rhel-3',
                 title: 'Newly released security rule: [Security rule name]',
                 action: {
                   title: 'View rule',
@@ -94,7 +94,7 @@ export const createRhelSchema = () =>
                 // permissions: If they have compliance; If a policy is reporting less than 100% compliance
                 //icon: 'automation',
                 // api: ?,
-                id: 'rhel-3',
+                id: 'rhel-4',
                 title:
                   '[count]% of systems for policy [Policy name] do not meet compliance.',
                 action: {
@@ -105,7 +105,7 @@ export const createRhelSchema = () =>
               {
                 // permissions: any user
                 //icon: 'automation',
-                id: 'rhel-4',
+                id: 'rhel-5',
                 title:
                   'Create a remediation playbook to fix issues identified by Insights on your systems',
                 action: {
@@ -117,7 +117,7 @@ export const createRhelSchema = () =>
                 // permissions: no systems
                 //icon: 'automation',
                 api: '/api/inventory/v1/hosts',
-                id: 'rhel-5',
+                id: 'rhel-6',
                 title: 'Get Insights for your systems',
                 action: {
                   title: 'Register systems',

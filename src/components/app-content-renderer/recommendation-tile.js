@@ -72,7 +72,7 @@ const RecommendationGroup = ({
       <Button
         component="a"
         className="recommendation-button"
-        href={action.url}
+        href={action.href}
         variant="secondary"
         isSmall
       >
@@ -83,12 +83,12 @@ const RecommendationGroup = ({
 };
 
 RecommendationGroup.propTypes = {
-  icon: PropTypes.string.isRequired,
+  icon: PropTypes.string,
   state: PropTypes.oneOf(['error', 'warning', 'info']),
-  description: PropTypes.string.isRequired,
+  description: PropTypes.string,
   action: PropTypes.shape({
-    url: PropTypes.string.isRequired,
-    title: PropTypes.string.isRequired,
+    href: PropTypes.string,
+    title: PropTypes.string,
   }).isRequired,
   component: PropTypes.string,
   title: PropTypes.string,
@@ -104,8 +104,8 @@ const RecommendationSection = ({ groups, title }) => (
       {title}
     </Title>
     <div className="custom-grid">
-      {groups.map((group) => (
-        <RecommendationGroup key={group.id} {...group} />
+      {groups.map((group, index) => (
+        <RecommendationGroup key={group.id || index} {...group} />
       ))}
     </div>
   </React.Fragment>
@@ -118,16 +118,15 @@ RecommendationSection.propTypes = {
 
 RecommendationSection.defaultProps = {
   groups: [],
-  title: '',
 };
 
 const RecommendationTile = ({ groups, sections, countOfReccomentations }) => (
   <GridItem md={12} lg={countOfReccomentations > 2 ? 4 : 12} xs={12}>
-    {groups.map((group) => (
-      <RecommendationGroup key={group.id} {...group} />
+    {groups.map((group, index) => (
+      <RecommendationGroup key={group.id || index} {...group} />
     ))}
-    {sections.map((section) => (
-      <RecommendationSection key={section.id} {...section} />
+    {sections.map((section, index) => (
+      <RecommendationSection key={section.id || index} {...section} />
     ))}
   </GridItem>
 );
