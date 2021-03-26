@@ -9,7 +9,7 @@ const HUB_USER_CONFIGRE_TRY_LEARN = {
         'Configure access to sync collections to Private Automation Hub',
       link: {
         title: 'Configure',
-        link: './ansible/automation-hub/token',
+        href: './ansible/automation-hub/token',
       },
     },
     {
@@ -19,7 +19,7 @@ const HUB_USER_CONFIGRE_TRY_LEARN = {
         'Manage user access to content and features in Private Automation Hub ',
       link: {
         title: 'Learn more',
-        link:
+        href:
           'https://access.redhat.com/documentation/en-us/red_hat_ansible_automation_platform/1.2/html/managing_user_access_in_private_automation_hub/index',
       },
     },
@@ -30,7 +30,7 @@ const HUB_USER_CONFIGRE_TRY_LEARN = {
       title: 'Install Private Automation Hub',
       link: {
         title: 'Get started',
-        link:
+        href:
           'https://access.redhat.com/documentation/en-us/red_hat_ansible_automation_platform/1.2/html/installing_and_upgrading_private_automation_hub/index',
       },
     },
@@ -41,7 +41,7 @@ const HUB_USER_CONFIGRE_TRY_LEARN = {
         'Add community and privately developed collections to your Private Automation Hub',
       link: {
         title: 'Get started',
-        link:
+        href:
           'https://access.redhat.com/documentation/en-us/red_hat_ansible_automation_platform/1.2/html/publishing_proprietary_content_collections_in_automation_hub/index',
       },
     },
@@ -52,7 +52,7 @@ const HUB_USER_CONFIGRE_TRY_LEARN = {
       title: 'How to connect Automation Hub to your automation infrastructure',
       link: {
         title: 'Learn more',
-        link:
+        href:
           'https://docs.ansible.com/ansible-tower/latest/html/userguide/projects.html?extIdCarryOver=true&sc_cid=701f2000001Css5AAC#using-collections-in-tower',
       },
     },
@@ -62,7 +62,7 @@ const HUB_USER_CONFIGRE_TRY_LEARN = {
       description: '',
       link: {
         title: 'Learn more',
-        link:
+        href:
           'https://access.redhat.com/documentation/en-us/red_hat_ansible_automation_platform/1.2/html/curating_collections_using_namespaces_in_automation_hub/index',
       },
     },
@@ -71,7 +71,7 @@ const HUB_USER_CONFIGRE_TRY_LEARN = {
       title: 'Explore Red Hat certified collections',
       link: {
         title: 'Explore',
-        link: 'https://www.ansible.com/partners',
+        href: 'https://www.ansible.com/partners',
       },
     },
   ],
@@ -136,7 +136,7 @@ const CATALOG_ADMIN_CONFIGuRE_TRY_LEARN = {
       title: 'Configure Automation Services Catalog',
       description: 'Connect platforms, share portfolios, and offer products',
       link: {
-        link:
+        href:
           'https://access.redhat.com/documentation/en-us/red_hat_ansible_automation_platform/1.2/html/getting_started_with_automation_services_catalog/index',
         title: 'Get started',
       },
@@ -146,7 +146,7 @@ const CATALOG_ADMIN_CONFIGuRE_TRY_LEARN = {
       title: 'Setup user access',
       description: 'Create user groups for Automation Services Catalog',
       link: {
-        link: './settings/rbac/groups',
+        href: './settings/rbac/groups',
         title: 'Create',
       },
     },
@@ -157,7 +157,7 @@ const CATALOG_ADMIN_CONFIGuRE_TRY_LEARN = {
       title: 'Create a new portfolio',
       description: 'Add products and share with your group',
       link: {
-        link: './ansible/catalog/portfolios',
+        href: './ansible/catalog/portfolios',
         title: 'Get started',
       },
     },
@@ -166,7 +166,7 @@ const CATALOG_ADMIN_CONFIGuRE_TRY_LEARN = {
       title: 'Connect to your infrastructure',
       description: 'Source playbooks and workflow templates to use as products',
       link: {
-        link: './#', // not in doc
+        href: './#', // not in doc
         title: 'Connect',
       },
     },
@@ -178,7 +178,7 @@ const CATALOG_ADMIN_CONFIGuRE_TRY_LEARN = {
       description:
         'Restrict product orders and apply approval processes to portfolios and platforms',
       link: {
-        link:
+        href:
           'https://access.redhat.com/documentation/en-us/red_hat_ansible_automation_platform/1.2/html/getting_started_with_automation_services_catalog/configuring_approval',
         title: 'Learn more',
       },
@@ -187,7 +187,7 @@ const CATALOG_ADMIN_CONFIGuRE_TRY_LEARN = {
       icon: 'unknown',
       title: 'Integrate Automation Services Catalog with your ITSM system',
       link: {
-        link:
+        href:
           'https://access.redhat.com/documentation/en-us/red_hat_ansible_automation_platform/1.2/html/integrating_automation_services_catalog_with_your_it_service_management_itsm_systems/index',
         title: 'Learn more',
       },
