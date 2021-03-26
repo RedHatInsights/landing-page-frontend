@@ -1,13 +1,49 @@
 import { instance } from '@redhat-cloud-services/frontend-components-utilities/interceptors';
+import processRequest from './request-processor';
 
-// OCP | AWS | Azure | GCP
-const costRequest = (type) =>
-  instance
-    .get(`/api/cost-management/v1/sources/?source_type=${type}`)
-    .then((data) => data?.meta?.count || false)
-    .catch(() => false);
-
-export default costRequest;
+const createCostEstateRequests = ({
+  openshiftLink,
+  amazonLink,
+  azureLink,
+  googleLink,
+}) => [
+  {
+    // permissions: entitlements && cost.openshift.permissions
+    url: '/api/cost-management/v1/sources/?source_type=OCP',
+    accessor: 'meta.count',
+    shape: {
+      title: 'OpenShift Sources',
+      href: openshiftLink,
+    },
+  },
+  {
+    // permissions: entitlements && cost.aws.permissions
+    url: '/api/cost-management/v1/sources/?source_type=AWS',
+    accessor: 'meta.count',
+    shape: {
+      title: 'Amazon Web Services Sources',
+      href: amazonLink,
+    },
+  },
+  {
+    // permissions: entitlements && cost.azure.permissions
+    url: '/api/cost-management/v1/sources/?source_type=Azure',
+    accessor: 'meta.count',
+    shape: {
+      title: 'Microsoft Azure Sources',
+      href: azureLink,
+    },
+  },
+  {
+    // permissions: entitlements && cost.gcp.permissions
+    url: '/api/cost-management/v1/sources/?source_type=GCP',
+    accessor: 'meta.count',
+    shape: {
+      title: 'Google Cloud Platform Sources',
+      href: googleLink,
+    },
+  },
+];
 
 const sourcesURL = `${
   window.insights.chrome.isBeta() === true ? '/beta/' : '/'
@@ -43,43 +79,26 @@ const createCostSourcesLink = (type, costAppId) =>
     getSourceTypesIDs()[type]
   }&filter[applications][application_type_id][eq][]=${costAppId}`;
 
-export const createCostSchema = async () => {
-  const params = ['OCP', 'AWS', 'Azure', 'GCP'];
+export const getCostDataSchema = async () => {
   const linkParams = ['openshift', 'amazon', 'azure', 'google'];
-  const [OCP, AWS, Azure, GCP] = await Promise.all(
-    params.map((param) => costRequest(param))
-  );
   const costAppId = await getCostAppId();
   const [openshiftLink, amazonLink, azureLink, googleLink] = await Promise.all(
     linkParams.map((param) => createCostSourcesLink(param, costAppId))
   );
-  const firstPanelItems = [
-    {
-      // permissions: entitlements && cost.openshift.permissions
-      section: 'Cost Management',
-      title: 'OpenShift Sources',
-      count: OCP,
-      href: openshiftLink,
-    },
-    {
-      // permissions: entitlements && cost.aws.permissions
-      title: 'Amazon Web Services Sources',
-      count: AWS,
-      href: amazonLink,
-    },
-    {
-      // permissions: entitlements && cost.azure.permissions
-      title: 'Microsoft Azure Sources',
-      count: Azure,
-      href: azureLink,
-    },
-    {
-      // permissions: entitlements && cost.gcp.permissions
-      title: 'Google Cloud Platform Sources',
-      count: GCP,
-      href: googleLink,
-    },
-  ].filter(({ count }) => count !== false);
+  const costRequests = createCostEstateRequests({
+    openshiftLink,
+    amazonLink,
+    azureLink,
+    googleLink,
+  });
+  const firstPanelItems = (
+    await Promise.all(costRequests.map(processRequest))
+  ).filter(({ count } = { count: 0 }) => count > 0);
+  if (firstPanelItems.length > 0) {
+    /**Add section title to first item */
+    firstPanelItems[0].section = 'Cost Management';
+  }
+
   return {
     firstPanel: firstPanelItems,
     secondPanel: [
