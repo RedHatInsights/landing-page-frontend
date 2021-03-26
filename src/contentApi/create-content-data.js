@@ -1,51 +1,55 @@
-import { createAnsibleSchema } from './ansible-api';
-import { createCostSchema } from './cost-api';
+import { getAnsibleDataSchema } from './ansible-api';
+import { getCostDataSchema } from './cost-api';
 import { createRhelSchema } from './rhel';
 
 const createContentData = async () => {
-  const [cost, ansible, rhel] = await Promise.all([
-    createCostSchema(),
-    createAnsibleSchema(),
+  const data = await Promise.all([
+    getCostDataSchema(),
+    getAnsibleDataSchema(),
     createRhelSchema(),
   ]);
-  const configTryLearn = [
-    {
-      id: 'configure',
-      title: 'Configure',
-      items: [
-        ...cost.configTryLearn.configure,
-        ...ansible.configTryLearn.configure,
-        ...rhel.configTryLearn.configure,
+  const landingPageContent = data.reduce(
+    (acc, { firstPanel, secondPanel, configTryLearn }) => ({
+      estate: [...acc.estate, ...firstPanel],
+      recommendations: [...acc.recommendations, ...secondPanel],
+      configTryLearn: [
+        {
+          ...acc.configTryLearn[0],
+          items: [...acc.configTryLearn[0].items, ...configTryLearn.configure],
+        },
+        {
+          ...acc.configTryLearn[1],
+          items: [...acc.configTryLearn[1].items, ...configTryLearn.try],
+        },
+        {
+          ...acc.configTryLearn[2],
+          items: [...acc.configTryLearn[2].items, ...configTryLearn.learn],
+        },
       ],
-    },
+    }),
     {
-      id: 'try',
-      title: 'Try',
-      items: [
-        ...cost.configTryLearn.try,
-        ...ansible.configTryLearn.try,
-        ...rhel.configTryLearn.try,
+      estate: [],
+      recommendations: [],
+      configTryLearn: [
+        {
+          id: 'configure',
+          title: 'Configure',
+          items: [],
+        },
+        {
+          id: 'try',
+          title: 'Try',
+          items: [],
+        },
+        {
+          id: 'learn',
+          title: 'Learn',
+          items: [],
+        },
       ],
-    },
-    {
-      id: 'learn',
-      title: 'Learn',
-      items: [
-        ...cost.configTryLearn.learn,
-        ...ansible.configTryLearn.learn,
-        ...rhel.configTryLearn.learn,
-      ],
-    },
-  ];
-  return {
-    estate: [...cost.firstPanel, ...ansible.firstPanel, ...rhel.firstPanel],
-    recommendations: [
-      ...cost.secondPanel,
-      { id: 'ansible', title: 'Ansible', sections: ansible.secondPanel },
-      ...rhel.secondPanel,
-    ],
-    configTryLearn,
-  };
+    }
+  );
+  return landingPageContent;
 };
 
 export default createContentData;
