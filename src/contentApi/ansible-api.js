@@ -156,6 +156,12 @@ const CATALOG_ADMIN_CONFIGuRE_TRY_LEARN = {
       icon: 'unknown',
       title: 'Create a new portfolio',
       description: 'Add products and share with your group',
+      permissions: [
+        {
+          method: 'hasPermissions',
+          args: [['catalog:portfolios:create']],
+        },
+      ],
       link: {
         href: './ansible/catalog/portfolios',
         title: 'Get started',
@@ -164,6 +170,11 @@ const CATALOG_ADMIN_CONFIGuRE_TRY_LEARN = {
     {
       icon: 'unknown',
       title: 'Connect to your infrastructure',
+      permissions: [
+        {
+          method: 'isOrgAdmin',
+        },
+      ],
       description: 'Source playbooks and workflow templates to use as products',
       link: {
         href: './#', // not in doc
@@ -226,17 +237,22 @@ const createNoDataResponse = (error, shape) => {
 
 const CLUSTERS_TITLE = 'Ansible Platform Clusters';
 const PAST_WEEK_JOBS_TITLE = 'Jobs in the past week';
-const MANAGED_HOSTS_TITLE = 'Ansible managed hosts';
+// const MANAGED_HOSTS_TITLE = 'Ansible managed hosts';
 
 const ansibleEstateRequests = [
   {
     url: '/api/tower-analytics/v0/clusters/',
     accessor: 'templates.length',
     shape: {
-      section: 'AAP',
       title: CLUSTERS_TITLE,
       href: './ansible/automation-analytics/clusters',
     },
+    permissions: [
+      {
+        method: 'isEntitled',
+        args: ['ansible'],
+      },
+    ],
     errorProcessor: createNoDataResponse,
   },
   {
@@ -249,6 +265,12 @@ const ansibleEstateRequests = [
         attributes: ['total_count'],
       },
     ],
+    permissions: [
+      {
+        method: 'isEntitled',
+        args: ['ansible'],
+      },
+    ],
     shape: {
       title: PAST_WEEK_JOBS_TITLE,
       href:
@@ -256,22 +278,23 @@ const ansibleEstateRequests = [
     },
     errorProcessor: createNoDataResponse,
   },
-  {
-    url: '/api/tower-analytics/v1/host_explorer_summary/',
-    method: 'post',
-    accessor: 'data.total_unique_host_count',
-    args: [
-      {
-        quick_date_range: 'last_2_years',
-        granularity: 'yearly',
-        attributes: ['total_unique_host_count'],
-      },
-    ],
-    shape: {
-      title: MANAGED_HOSTS_TITLE,
-    },
-    errorProcessor: createNoDataResponse,
-  },
+  // Acorrding to the docs, this request is no longer requried. Keep it here for reference byt should be deleted before the summit release if not re-introduced
+  // {
+  //   url: '/api/tower-analytics/v1/host_explorer_summary/',
+  //   method: 'post',
+  //   accessor: 'data.total_unique_host_count',
+  //   args: [
+  //     {
+  //       quick_date_range: 'last_2_years',
+  //       granularity: 'yearly',
+  //       attributes: ['total_unique_host_count'],
+  //     },
+  //   ],
+  //   shape: {
+  //     title: MANAGED_HOSTS_TITLE,
+  //   },
+  //   errorProcessor: createNoDataResponse,
+  // },
   {
     url: '/api/automation-hub/v3/collections',
     accessor: 'meta.count',
@@ -279,6 +302,12 @@ const ansibleEstateRequests = [
       title: 'Collections',
       href: './ansible/automation-hub/',
     },
+    permissions: [
+      {
+        method: 'isEntitled',
+        args: ['ansible'],
+      },
+    ],
   },
   {
     url: '/api/automation-hub/v3/namespaces',
@@ -287,12 +316,38 @@ const ansibleEstateRequests = [
       title: 'Partners',
       href: './ansible/automation-hub/partners',
     },
+    permissions: [
+      {
+        method: 'isEntitled',
+        args: ['ansible'],
+      },
+    ],
+  },
+  {
+    url:
+      '/api/sources/v3.1/applications?filter[application_type][name][contains]=catalog',
+    accessor: 'meta.count',
+    shape: {
+      section: 'Catalog', // don't know no data
+      title: 'Platforms',
+      href: './ansible/catalog/platforms',
+    },
+    permissions: [
+      {
+        method: 'isOrgAdmin',
+      },
+    ],
   },
   {
     url: '/api/catalog/v1/portfolios?limit=1',
     accessor: 'meta.count',
+    permissions: [
+      {
+        method: 'hasPermissions',
+        args: [['catalog:portfolios:read']],
+      },
+    ],
     shape: {
-      section: 'Catalog', // don't know no data
       title: 'Portfolios',
       href: './ansible/catalog/portfolios',
     },
@@ -300,6 +355,12 @@ const ansibleEstateRequests = [
   {
     url: '/api/catalog/v1/portfolio_items?limit=1',
     accessor: 'meta.count',
+    permissions: [
+      {
+        method: 'hasPermissions',
+        args: [['catalog:portfolio_items:read']],
+      },
+    ],
     shape: {
       title: 'Products',
       href: './ansible/catalog/products',
@@ -320,6 +381,12 @@ export const RECOMMENDATIONS_ITEMS = [
             id: 'products',
             description: `Last added products (5)`,
             icon: 'unknown',
+            permissions: [
+              {
+                method: 'hasPermissions',
+                args: [['catalog:portfolio_items:read']],
+              },
+            ],
             action: {
               url:
                 'https://cloud.stage.redhat.com/docs/api/catalog#operations-PortfolioItem-listPortfolioItems',
@@ -330,6 +397,12 @@ export const RECOMMENDATIONS_ITEMS = [
             id: 'orders',
             description: `Last orders (5)`,
             icon: 'unknown',
+            permissions: [
+              {
+                method: 'hasPermissions',
+                args: [['catalog:orders:read', 'catalog:order_items:read']],
+              },
+            ],
             action: {
               url:
                 'https://cloud.stage.redhat.com/docs/api/catalog#operations-Order-listOrders',
@@ -340,6 +413,12 @@ export const RECOMMENDATIONS_ITEMS = [
             id: 'approvals',
             description: `Approvals`,
             icon: 'unknown',
+            permissions: [
+              {
+                method: 'hasPermissions',
+                args: [['approval:requests:read']],
+              },
+            ],
             action: {
               url: './ansible/catalog/approval/requests',
               title: 'Approvals',
@@ -361,8 +440,18 @@ export const getAnsibleDataSchema = () =>
     getEstateItems(),
     Promise.resolve(RECOMMENDATIONS_ITEMS),
     Promise.resolve(CONFIGURE_TRY_LEARN),
-  ]).then(([estate, recommendations, configTryLearn]) => ({
-    firstPanel: estate,
-    secondPanel: recommendations,
-    configTryLearn,
-  }));
+  ])
+    .then(([estate, recommendations, configTryLearn]) => ({
+      firstPanel: estate,
+      secondPanel: recommendations,
+      configTryLearn,
+    }))
+    .then(({ firstPanel, ...rest }) => {
+      if (firstPanel[0] && !firstPanel[0].section) {
+        firstPanel[0].section = 'Ansible Automation Platform';
+      }
+      return {
+        firstPanel,
+        ...rest,
+      };
+    });
