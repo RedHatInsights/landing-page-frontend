@@ -23,7 +23,7 @@ const createCostSourcesLink = async (type, costAppId) => {
 };
 
 const estateResponseProcessor = async (response) => {
-  if (response.count === 0) {
+  if (response?.meta?.count === 0) {
     throw 'No data, do not show';
   }
   if (!costAppId) {
@@ -38,49 +38,53 @@ const estateResponseProcessor = async (response) => {
 
 const estateRequests = [
   {
-    // permissions: entitlements && cost.openshift.permissions
-    id: 'cost-ocp-sources',
-    url: '/api/cost-management/v1/sources/?source_type=OCP',
-    accessor: 'meta.count',
-    responseProcessor: estateResponseProcessor,
-    shape: {
-      section: 'Cost Management',
-      title: 'OpenShift Sources',
-      href: 'openshift',
-    },
-  },
-  {
-    // permissions: entitlements && cost.aws.permissions
-    id: 'cost-aws-sources',
-    url: '/api/cost-management/v1/sources/?source_type=AWS',
-    accessor: 'meta.count',
-    responseProcessor: estateResponseProcessor,
-    shape: {
-      title: 'Amazon Web Services Sources',
-      href: 'amazon',
-    },
-  },
-  {
-    // permissions: entitlements && cost.azure.permissions
-    id: 'cost-azure-sources',
-    url: '/api/cost-management/v1/sources/?source_type=Azure',
-    accessor: 'meta.count',
-    responseProcessor: estateResponseProcessor,
-    shape: {
-      title: 'Microsoft Azure Sources',
-      href: 'azure',
-    },
-  },
-  {
-    // permissions: entitlements && cost.gcp.permissions
-    id: 'cost-gcp-sources',
-    url: '/api/cost-management/v1/sources/?source_type=GCP',
-    accessor: 'meta.count',
-    responseProcessor: estateResponseProcessor,
-    shape: {
-      title: 'Google Cloud Platform Sources',
-      href: 'google',
-    },
+    section: 'Cost management',
+    items: [
+      {
+        // permissions: entitlements && cost.openshift.permissions
+        id: 'cost-ocp-sources',
+        url: '/api/cost-management/v1/sources/?source_type=OCP',
+        accessor: 'meta.count',
+        responseProcessor: estateResponseProcessor,
+        shape: {
+          title: 'OpenShift Sources',
+          href: 'openshift',
+        },
+      },
+      {
+        // permissions: entitlements && cost.aws.permissions
+        id: 'cost-aws-sources',
+        url: '/api/cost-management/v1/sources/?source_type=AWS',
+        accessor: 'meta.count',
+        responseProcessor: estateResponseProcessor,
+        shape: {
+          title: 'Amazon Web Services Sources',
+          href: 'amazon',
+        },
+      },
+      {
+        // permissions: entitlements && cost.azure.permissions
+        id: 'cost-azure-sources',
+        url: '/api/cost-management/v1/sources/?source_type=Azure',
+        accessor: 'meta.count',
+        responseProcessor: estateResponseProcessor,
+        shape: {
+          title: 'Microsoft Azure Sources',
+          href: 'azure',
+        },
+      },
+      {
+        // permissions: entitlements && cost.gcp.permissions
+        id: 'cost-gcp-sources',
+        url: '/api/cost-management/v1/sources/?source_type=GCP',
+        accessor: 'meta.count',
+        responseProcessor: estateResponseProcessor,
+        shape: {
+          title: 'Google Cloud Platform Sources',
+          href: 'google',
+        },
+      },
+    ],
   },
 ];
 

@@ -112,80 +112,85 @@ const RECOMMENDATIONS_ITEMS = [
 
 const ESTATE_CONFIG = [
   {
-    id: 'rhel-connected-systems',
-    url: '/api/inventory/v1/hosts',
-    accessor: 'total',
-    shape: {
-      section: 'RHEL',
-      title: 'Connected systems',
-      href: inventoryLink,
-    },
-    permissions: [
+    section: 'RHEL',
+    items: [
       {
-        method: 'hasPermissions',
-        args: [['inventory:*:*']],
+        id: 'rhel-connected-systems',
+        url: '/api/inventory/v1/hosts',
+        accessor: 'total',
+        shape: {
+          section: 'RHEL',
+          title: 'Connected systems',
+          href: inventoryLink,
+        },
+        permissions: [
+          {
+            method: 'hasPermissions',
+            args: [['inventory:*:*']],
+          },
+        ],
+      },
+      {
+        id: 'rhel-stale-systems',
+        title: 'Stale systems',
+        accessor: 'total',
+        url: '/api/inventory/v1/hosts?staleness=stale',
+        shape: {
+          title: 'Stale systems',
+          href: `${inventoryLink}/?status=stale&source=insights&page=1&per_page=50`,
+        },
+        permissions: [
+          {
+            method: 'hasPermissions',
+            args: [['inventory:*:*']],
+          },
+        ],
+      },
+      {
+        id: 'rhel-vuln-ves',
+        permissions: [
+          {
+            method: 'hasPermissions',
+            args: [['vulnerability:*:*']],
+          },
+        ],
+        shape: {
+          title: 'Systems exposed to CVEs with security rules',
+        },
+        accessor: 'system_count',
+        url:
+          '/api/vulnerability/v1/dashboard?tags=vulnerability%2Fusage%3Dserver&sap_sids=ABC%2CCDE',
+      },
+      {
+        // permissions: sap systems > 0
+        id: 'rhel-sap-systems',
+        permissions: [
+          {
+            method: 'hasPermissions',
+            args: [['inventory:*:*']],
+          },
+        ],
+        responseProcessor: totalResponseProcessor,
+        shape: {
+          title: 'SAP systems',
+          href: `${inventoryLink}/?status=fresh&status=stale&source=insights&page=1&per_page=50#workloads=SAP&SIDs=&tags=`,
+        },
+        accessor: 'total',
+        url: '/api/inventory/v1/system_profile/sap_system',
+      },
+      {
+        // permissions: systems that are not registered to insights in your inventory
+        id: 'rhel-notconnected-systems',
+        title: 'Systems not yet registered to Insights',
+        permissions: [
+          {
+            method: 'hasPermissions',
+            args: [['inventory:*:*']],
+          },
+        ],
+        // api: TBD,
       },
     ],
-  },
-  {
-    id: 'rhel-stale-systems',
-    title: 'Stale systems',
-    accessor: 'total',
-    url: '/api/inventory/v1/hosts?staleness=stale',
-    shape: {
-      title: 'Stale systems',
-      href: `${inventoryLink}/?status=stale&source=insights&page=1&per_page=50`,
-    },
-    permissions: [
-      {
-        method: 'hasPermissions',
-        args: [['inventory:*:*']],
-      },
-    ],
-  },
-  {
-    id: 'rhel-vuln-ves',
-    permissions: [
-      {
-        method: 'hasPermissions',
-        args: [['vulnerability:*:*']],
-      },
-    ],
-    shape: {
-      title: 'Systems exposed to CVEs with security rules',
-    },
-    accessor: 'system_count',
-    url:
-      '/api/vulnerability/v1/dashboard?tags=vulnerability%2Fusage%3Dserver&sap_sids=ABC%2CCDE',
-  },
-  {
-    // permissions: sap systems > 0
-    id: 'rhel-sap-systems',
-    permissions: [
-      {
-        method: 'hasPermissions',
-        args: [['inventory:*:*']],
-      },
-    ],
-    responseProcessor: totalResponseProcessor,
-    shape: {
-      title: 'SAP systems',
-      href: `${inventoryLink}/?status=fresh&status=stale&source=insights&page=1&per_page=50#workloads=SAP&SIDs=&tags=`,
-    },
-    accessor: 'total',
-    url: '/api/inventory/v1/system_profile/sap_system',
-  },
-  {
-    // permissions: systems that are not registered to insights in your inventory
-    id: 'rhel-notconnected-systems',
-    title: 'Systems not yet registered to Insights',
-    permissions: [
-      {
-        method: 'hasPermissions',
-        args: [['inventory:*:*']],
-      },
-    ],
-    // api: TBD,
   },
 ];
 

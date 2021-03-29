@@ -85,7 +85,10 @@ export function loadAllContent(
 export function removeEstateTile(state, { payload }) {
   return {
     ...state,
-    estate: state.estate.filter(({ id }) => id !== payload),
+    estate: state.estate.map(({ items, ...rest }) => ({
+      ...rest,
+      items: items.filter(({ id }) => id !== payload),
+    })),
   };
 }
 

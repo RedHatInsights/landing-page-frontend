@@ -14,7 +14,7 @@ import { useDispatch } from 'react-redux';
 import { removeEstateTile } from '../../store/actions';
 
 const FirstPanelTile = ({ id, ...tile }) => {
-  const [{ loaded, title, count, section }, setData] = useState({
+  const [{ loaded, title, count }, setData] = useState({
     loaded: false,
   });
   const dispatch = useDispatch();
@@ -32,11 +32,11 @@ const FirstPanelTile = ({ id, ...tile }) => {
     <DescriptionListGroup className="estate-group">
       <DescriptionListDescription
         className={classnames('estate-section', {
-          'is-empty': section?.length === 0,
+          'is-empty': tile?.shape?.section?.length === 0,
         })}
       >
         <Text component="p">
-          {section}&nbsp;
+          {tile?.shape?.section}&nbsp;
           {/** empty line char is required to keep proper horizontal alignment. Empty "p" tag does not have height */}
         </Text>
       </DescriptionListDescription>
