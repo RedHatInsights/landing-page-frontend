@@ -9,6 +9,7 @@ export const processRequest = async ({
   accessor,
   shape,
   errorProcessor,
+  responseProcessor,
   permissions,
 }) => {
   if (!ALLOWED_API_METHODS.includes(method)) {
@@ -19,7 +20,10 @@ export const processRequest = async ({
     return undefined;
   }
   try {
-    const response = await instance[method](url, ...args);
+    let response = await instance[method](url, ...args);
+    if (typeof responseProcessor === 'function') {
+      response = responseProcessor(response);
+    }
     return {
       ...shape,
       count: accessor ? get(response, accessor) : response,
