@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import {
   Flex,
@@ -21,6 +21,7 @@ import {
 } from '@patternfly/react-icons';
 import IconInsights from '../icon-insights';
 import IconAnsible from '../icon-ansible';
+import { permissionProcessor } from '../../contentApi/request-processor';
 
 const iconMapper = {
   connected: ConnectedIcon,
@@ -70,9 +71,32 @@ TileItem.propTypes = {
     href: PropTypes.string.isRequired,
     title: PropTypes.string.isRequired,
   }).isRequired,
+  permissions: PropTypes.arrayOf(
+    PropTypes.shape({
+      method: PropTypes.string.isRequired,
+      args: PropTypes.array,
+    })
+  ),
 };
 
 const ConfigTryLearnTile = ({ title, items }) => {
+  const [tiles, setTiles] = useState([]);
+
+  useEffect(async () => {
+    let tiles = items.map(async ({ permissions, ...item }) => {
+      const hasPermission = await permissionProcessor(permissions);
+      return { ...item, hasPermission };
+    });
+    tiles = await Promise.all(tiles).then((data) =>
+      data.filter(({ hasPermission }) => hasPermission === true)
+    );
+    setTiles(tiles);
+  }, []);
+
+  if (tiles.length === 0) {
+    return null;
+  }
+
   return (
     <Flex direction={{ default: 'column', md: 'column', lg: 'row' }}>
       <FlexItem className="pf-u-mb-0 title-wrapper">
@@ -82,7 +106,7 @@ const ConfigTryLearnTile = ({ title, items }) => {
       </FlexItem>
       <FlexItem>
         <Grid hasGutter>
-          {items.map((item) => (
+          {tiles.map((item) => (
             <GridItem md={6} lg={6} xl={12} sm={12} key={item.title}>
               <TileItem {...item} />
             </GridItem>
