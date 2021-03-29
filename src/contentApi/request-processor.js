@@ -22,7 +22,7 @@ export const processRequest = async ({
     }
     let response = await instance[method](url, ...args);
     if (typeof responseProcessor === 'function') {
-      response = responseProcessor(response);
+      response = await responseProcessor(response);
     }
     return {
       ...shape,
