@@ -4,6 +4,7 @@ import {
   LOAD_CAROUSEL,
   LOAD_SECTIONS,
   LOAD_DATA,
+  REMOVE_ESTATE_TILE,
 } from './action-types';
 import flatMap from 'lodash/flatMap';
 
@@ -81,12 +82,20 @@ export function loadAllContent(
   };
 }
 
+export function removeEstateTile(state, { payload }) {
+  return {
+    ...state,
+    estate: state.estate.filter(({ id }) => id !== payload),
+  };
+}
+
 export default applyReducerHash(
   {
     [`${CALCULATE_ENDPOINTS}_FULFILLED`]: endpointsLoaded,
     [LOAD_SECTIONS]: sectionsLoader,
     [LOAD_CAROUSEL]: carouselLoader,
     [LOAD_DATA]: loadAllContent,
+    [REMOVE_ESTATE_TILE]: removeEstateTile,
   },
   {
     loaded: false,
