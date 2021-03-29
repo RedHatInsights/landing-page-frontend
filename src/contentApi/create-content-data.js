@@ -1,13 +1,7 @@
-import { getAnsibleDataSchema } from './ansible-api';
-import { getCostDataSchema } from './cost-api';
-import { createRhelSchema } from './rhel';
+import getAppsData from './get-apps-data';
 
 const createContentData = async () => {
-  const data = await Promise.all([
-    getCostDataSchema(),
-    getAnsibleDataSchema(),
-    createRhelSchema(),
-  ]);
+  const data = await getAppsData();
   const landingPageContent = data.reduce(
     (acc, { firstPanel, secondPanel, configTryLearn }) => ({
       estate: [...acc.estate, ...firstPanel],
