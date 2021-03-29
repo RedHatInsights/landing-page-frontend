@@ -1,8 +1,6 @@
-import processRequest from './request-processor';
-
 const prefix = window.insights.chrome.isBeta() === true ? '/beta/' : '/';
 
-const totalResponseProcessor = (response) => {
+const totalResponseProcessor = async (response) => {
   if (!response?.total) {
     throw 'RHEL systems total count has to be truthy';
   }
@@ -114,6 +112,7 @@ const RECOMMENDATIONS_ITEMS = [
 
 const ESTATE_CONFIG = [
   {
+    id: 'rhel-connected-systems',
     url: '/api/inventory/v1/hosts',
     accessor: 'total',
     shape: {
@@ -129,6 +128,7 @@ const ESTATE_CONFIG = [
     ],
   },
   {
+    id: 'rhel-stale-systems',
     title: 'Stale systems',
     accessor: 'total',
     url: '/api/inventory/v1/hosts?staleness=stale',
@@ -144,6 +144,7 @@ const ESTATE_CONFIG = [
     ],
   },
   {
+    id: 'rhel-vuln-ves',
     permissions: [
       {
         method: 'hasPermissions',
@@ -159,6 +160,7 @@ const ESTATE_CONFIG = [
   },
   {
     // permissions: sap systems > 0
+    id: 'rhel-sap-systems',
     permissions: [
       {
         method: 'hasPermissions',
@@ -175,6 +177,7 @@ const ESTATE_CONFIG = [
   },
   {
     // permissions: systems that are not registered to insights in your inventory
+    id: 'rhel-notconnected-systems',
     title: 'Systems not yet registered to Insights',
     permissions: [
       {
@@ -186,23 +189,12 @@ const ESTATE_CONFIG = [
   },
 ];
 
-const createEstateItems = () =>
-  Promise.all(ESTATE_CONFIG.map(processRequest)).then((items) =>
-    items.filter((item) => typeof item !== 'undefined')
-  );
-
-export const createRhelSchema = () => {
-  return Promise.all([
-    createEstateItems(),
-    Promise.resolve(RECOMMENDATIONS_ITEMS),
-    Promise.resolve({
-      configure: [],
-      try: [],
-      learn: [],
-    }),
-  ]).then(([firstPanel, secondPanel, configTryLearn]) => ({
-    firstPanel,
-    secondPanel,
-    configTryLearn,
-  }));
-};
+export const createRhelSchema = () => ({
+  firstPanel: ESTATE_CONFIG,
+  secondPanel: RECOMMENDATIONS_ITEMS,
+  configTryLearn: {
+    configure: [],
+    try: [],
+    learn: [],
+  },
+});

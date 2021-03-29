@@ -241,9 +241,11 @@ const PAST_WEEK_JOBS_TITLE = 'Jobs in the past week';
 
 const ansibleEstateRequests = [
   {
+    id: 'ansible-platform-clusters',
     url: '/api/tower-analytics/v0/clusters/',
     accessor: 'templates.length',
     shape: {
+      section: 'Ansible Automation Platform',
       title: CLUSTERS_TITLE,
       href: './ansible/automation-analytics/clusters',
     },
@@ -256,6 +258,7 @@ const ansibleEstateRequests = [
     errorProcessor: createNoDataResponse,
   },
   {
+    id: 'ansible-past-jobs',
     url: '/api/tower-analytics/v1/job_explorer_summary/',
     accessor: 'data.total_count',
     method: 'post',
@@ -296,6 +299,7 @@ const ansibleEstateRequests = [
   //   errorProcessor: createNoDataResponse,
   // },
   {
+    id: 'ansible-collections',
     url: '/api/automation-hub/v3/collections',
     accessor: 'meta.count',
     shape: {
@@ -310,6 +314,7 @@ const ansibleEstateRequests = [
     ],
   },
   {
+    id: 'ansible-partners',
     url: '/api/automation-hub/v3/namespaces',
     accessor: 'meta.count',
     shape: {
@@ -324,6 +329,7 @@ const ansibleEstateRequests = [
     ],
   },
   {
+    id: 'ansible-platforms',
     url:
       '/api/sources/v3.1/applications?filter[application_type][name][contains]=catalog',
     accessor: 'meta.count',
@@ -339,6 +345,7 @@ const ansibleEstateRequests = [
     ],
   },
   {
+    id: 'ansible-portfolios',
     url: '/api/catalog/v1/portfolios?limit=1',
     accessor: 'meta.count',
     permissions: [
@@ -353,6 +360,7 @@ const ansibleEstateRequests = [
     },
   },
   {
+    id: 'ansible-portfolio-items',
     url: '/api/catalog/v1/portfolio_items?limit=1',
     accessor: 'meta.count',
     permissions: [
@@ -430,28 +438,8 @@ export const RECOMMENDATIONS_ITEMS = [
   },
 ];
 
-export const getEstateItems = () =>
-  Promise.all(ansibleEstateRequests.map(processRequest)).then((items) =>
-    items.filter((item) => typeof item !== 'undefined')
-  );
-
-export const getAnsibleDataSchema = () =>
-  Promise.all([
-    getEstateItems(),
-    Promise.resolve(RECOMMENDATIONS_ITEMS),
-    Promise.resolve(CONFIGURE_TRY_LEARN),
-  ])
-    .then(([estate, recommendations, configTryLearn]) => ({
-      firstPanel: estate,
-      secondPanel: recommendations,
-      configTryLearn,
-    }))
-    .then(({ firstPanel, ...rest }) => {
-      if (firstPanel[0] && !firstPanel[0].section) {
-        firstPanel[0].section = 'Ansible Automation Platform';
-      }
-      return {
-        firstPanel,
-        ...rest,
-      };
-    });
+export const getAnsibleDataSchema = () => ({
+  firstPanel: ansibleEstateRequests,
+  secondPanel: RECOMMENDATIONS_ITEMS,
+  configTryLearn: CONFIGURE_TRY_LEARN,
+});
