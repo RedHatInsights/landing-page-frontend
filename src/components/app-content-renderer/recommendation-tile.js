@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import {
@@ -19,6 +19,7 @@ import {
   Text,
   TextContent,
 } from '@patternfly/react-core';
+import { permissionProcessor } from '../../contentApi/request-processor';
 
 const NoIcon = () => <span>No icon</span>;
 
@@ -40,8 +41,19 @@ const RecommendationGroup = ({
   state,
   description,
   action,
+  permissions,
 }) => {
   const GroupIcon = groupIconMapper[icon] || NoIcon;
+  const [hasPermission, setHasPermission] = useState(false);
+  useEffect(async () => {
+    const hasPermission = await permissionProcessor(permissions);
+    setHasPermission(hasPermission);
+  }, []);
+
+  if (!hasPermission) {
+    return null;
+  }
+
   if (component === 'title') {
     return (
       <Title headingLevel="h2" size="md">
@@ -92,6 +104,12 @@ RecommendationGroup.propTypes = {
   }).isRequired,
   component: PropTypes.string,
   title: PropTypes.string,
+  permissions: PropTypes.arrayOf(
+    PropTypes.shape({
+      method: PropTypes.string.isRequired,
+      args: PropTypes.array,
+    })
+  ),
 };
 
 RecommendationGroup.defaultProps = {
@@ -130,7 +148,6 @@ const RecommendationTile = ({ groups, sections, countOfReccomentations }) => (
     ))}
   </GridItem>
 );
-
 RecommendationTile.propTypes = {
   groups: PropTypes.arrayOf(PropTypes.shape(RecommendationGroup.propTypes)),
   sections: PropTypes.arrayOf(PropTypes.shape(RecommendationSection.propTypes)),
