@@ -15,14 +15,14 @@ export const processRequest = async ({
   if (!ALLOWED_API_METHODS.includes(method)) {
     throw `Invalid request method ${method}. Expected one of ${ALLOWED_API_METHODS}`;
   }
-  const hasPermission = await permissionProcessor(permissions);
-  if (!hasPermission) {
-    return undefined;
-  }
   try {
+    const hasPermission = await permissionProcessor(permissions);
+    if (!hasPermission) {
+      throw 'User does not have permissions';
+    }
     let response = await instance[method](url, ...args);
     if (typeof responseProcessor === 'function') {
-      response = responseProcessor(response);
+      response = await responseProcessor(response);
     }
     return {
       ...shape,
@@ -32,7 +32,7 @@ export const processRequest = async ({
     if (errorProcessor) {
       return errorProcessor(error, shape);
     }
-    return undefined;
+    throw error;
   }
 };
 

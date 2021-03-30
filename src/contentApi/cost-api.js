@@ -1,47 +1,90 @@
 import { instance } from '@redhat-cloud-services/frontend-components-utilities/interceptors';
-import processRequest from './request-processor';
 
-const createCostEstateRequests = ({
-  openshiftLink,
-  amazonLink,
-  azureLink,
-  googleLink,
-}) => [
+let costAppId;
+export const getCostAppId = () =>
+  instance
+    .get('/api/sources/v3.1/application_types')
+    .then(
+      ({ data }) =>
+        data.find(({ name }) => name === '/insights/platform/cost-management')
+          ?.id
+    );
+
+export const getSourceTypesIDs = () =>
+  instance
+    .get('/api/sources/v3.1/source_types')
+    .then(({ data }) =>
+      data.reduce((acc, curr) => ({ ...acc, [curr.name]: curr.id }), {})
+    );
+
+const createCostSourcesLink = async (type, costAppId) => {
+  const sourceTypeId = await getSourceTypesIDs()[type];
+  return `${sourcesURL}?filter[source_type_id][]=${sourceTypeId}&filter[applications][application_type_id][eq][]=${costAppId}`;
+};
+
+const estateResponseProcessor = async (response) => {
+  if (response?.meta?.count === 0) {
+    throw 'No data, do not show';
+  }
+  if (!costAppId) {
+    costAppId = await getCostAppId();
+  }
+  const href = createCostSourcesLink(response.href, costAppId);
+  return {
+    ...response,
+    href,
+  };
+};
+
+const estateRequests = [
   {
-    // permissions: entitlements && cost.openshift.permissions
-    url: '/api/cost-management/v1/sources/?source_type=OCP',
-    accessor: 'meta.count',
-    shape: {
-      title: 'OpenShift Sources',
-      href: openshiftLink,
-    },
-  },
-  {
-    // permissions: entitlements && cost.aws.permissions
-    url: '/api/cost-management/v1/sources/?source_type=AWS',
-    accessor: 'meta.count',
-    shape: {
-      title: 'Amazon Web Services Sources',
-      href: amazonLink,
-    },
-  },
-  {
-    // permissions: entitlements && cost.azure.permissions
-    url: '/api/cost-management/v1/sources/?source_type=Azure',
-    accessor: 'meta.count',
-    shape: {
-      title: 'Microsoft Azure Sources',
-      href: azureLink,
-    },
-  },
-  {
-    // permissions: entitlements && cost.gcp.permissions
-    url: '/api/cost-management/v1/sources/?source_type=GCP',
-    accessor: 'meta.count',
-    shape: {
-      title: 'Google Cloud Platform Sources',
-      href: googleLink,
-    },
+    section: 'Cost management',
+    items: [
+      {
+        // permissions: entitlements && cost.openshift.permissions
+        id: 'cost-ocp-sources',
+        url: '/api/cost-management/v1/sources/?source_type=OCP',
+        accessor: 'meta.count',
+        responseProcessor: estateResponseProcessor,
+        shape: {
+          title: 'OpenShift Sources',
+          href: 'openshift',
+        },
+      },
+      {
+        // permissions: entitlements && cost.aws.permissions
+        id: 'cost-aws-sources',
+        url: '/api/cost-management/v1/sources/?source_type=AWS',
+        accessor: 'meta.count',
+        responseProcessor: estateResponseProcessor,
+        shape: {
+          title: 'Amazon Web Services Sources',
+          href: 'amazon',
+        },
+      },
+      {
+        // permissions: entitlements && cost.azure.permissions
+        id: 'cost-azure-sources',
+        url: '/api/cost-management/v1/sources/?source_type=Azure',
+        accessor: 'meta.count',
+        responseProcessor: estateResponseProcessor,
+        shape: {
+          title: 'Microsoft Azure Sources',
+          href: 'azure',
+        },
+      },
+      {
+        // permissions: entitlements && cost.gcp.permissions
+        id: 'cost-gcp-sources',
+        url: '/api/cost-management/v1/sources/?source_type=GCP',
+        accessor: 'meta.count',
+        responseProcessor: estateResponseProcessor,
+        shape: {
+          title: 'Google Cloud Platform Sources',
+          href: 'google',
+        },
+      },
+    ],
   },
 ];
 
@@ -58,49 +101,9 @@ const offlineSource =
 const costManagementApiMedium =
   'https://medium.com/@chargio/using-cost-management-through-the-api-with-a-token-1d0f4c3d349a';
 
-export const getSourceTypesIDs = () =>
-  instance
-    .get('/api/sources/v3.1/source_types')
-    .then(({ data }) =>
-      data.reduce((acc, curr) => ({ ...acc, [curr.name]: curr.id }), {})
-    );
-
-export const getCostAppId = () =>
-  instance
-    .get('/api/sources/v3.1/application_types')
-    .then(
-      ({ data }) =>
-        data.find(({ name }) => name === '/insights/platform/cost-management')
-          ?.id
-    );
-
-const createCostSourcesLink = (type, costAppId) =>
-  `${sourcesURL}?filter[source_type_id][]=${
-    getSourceTypesIDs()[type]
-  }&filter[applications][application_type_id][eq][]=${costAppId}`;
-
-export const getCostDataSchema = async () => {
-  const linkParams = ['openshift', 'amazon', 'azure', 'google'];
-  const costAppId = await getCostAppId();
-  const [openshiftLink, amazonLink, azureLink, googleLink] = await Promise.all(
-    linkParams.map((param) => createCostSourcesLink(param, costAppId))
-  );
-  const costRequests = createCostEstateRequests({
-    openshiftLink,
-    amazonLink,
-    azureLink,
-    googleLink,
-  });
-  const firstPanelItems = (
-    await Promise.all(costRequests.map(processRequest))
-  ).filter(({ count } = { count: 0 }) => count > 0);
-  if (firstPanelItems.length > 0) {
-    /**Add section title to first item */
-    firstPanelItems[0].section = 'Cost Management';
-  }
-
+export const getCostDataSchema = () => {
   return {
-    firstPanel: firstPanelItems,
+    firstPanel: estateRequests,
     secondPanel: [
       {
         title: 'Cost management recommendations',

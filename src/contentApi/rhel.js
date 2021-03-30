@@ -1,8 +1,6 @@
-import processRequest from './request-processor';
-
 const prefix = window.insights.chrome.isBeta() === true ? '/beta/' : '/';
 
-const totalResponseProcessor = (response) => {
+const totalResponseProcessor = async (response) => {
   if (!response?.total) {
     throw 'RHEL systems total count has to be truthy';
   }
@@ -114,95 +112,94 @@ const RECOMMENDATIONS_ITEMS = [
 
 const ESTATE_CONFIG = [
   {
-    url: '/api/inventory/v1/hosts',
-    accessor: 'total',
-    shape: {
-      section: 'RHEL',
-      title: 'Connected systems',
-      href: inventoryLink,
-    },
-    permissions: [
+    section: 'RHEL',
+    items: [
       {
-        method: 'hasPermissions',
-        args: [['inventory:*:*']],
+        id: 'rhel-connected-systems',
+        url: '/api/inventory/v1/hosts',
+        accessor: 'total',
+        shape: {
+          section: 'RHEL',
+          title: 'Connected systems',
+          href: inventoryLink,
+        },
+        permissions: [
+          {
+            method: 'hasPermissions',
+            args: [['inventory:*:*']],
+          },
+        ],
+      },
+      {
+        id: 'rhel-stale-systems',
+        title: 'Stale systems',
+        accessor: 'total',
+        url: '/api/inventory/v1/hosts?staleness=stale',
+        shape: {
+          title: 'Stale systems',
+          href: `${inventoryLink}/?status=stale&source=insights&page=1&per_page=50`,
+        },
+        permissions: [
+          {
+            method: 'hasPermissions',
+            args: [['inventory:*:*']],
+          },
+        ],
+      },
+      {
+        id: 'rhel-vuln-ves',
+        permissions: [
+          {
+            method: 'hasPermissions',
+            args: [['vulnerability:*:*']],
+          },
+        ],
+        shape: {
+          title: 'Systems exposed to CVEs with security rules',
+        },
+        accessor: 'system_count',
+        url:
+          '/api/vulnerability/v1/dashboard?tags=vulnerability%2Fusage%3Dserver&sap_sids=ABC%2CCDE',
+      },
+      {
+        // permissions: sap systems > 0
+        id: 'rhel-sap-systems',
+        permissions: [
+          {
+            method: 'hasPermissions',
+            args: [['inventory:*:*']],
+          },
+        ],
+        responseProcessor: totalResponseProcessor,
+        shape: {
+          title: 'SAP systems',
+          href: `${inventoryLink}/?status=fresh&status=stale&source=insights&page=1&per_page=50#workloads=SAP&SIDs=&tags=`,
+        },
+        accessor: 'total',
+        url: '/api/inventory/v1/system_profile/sap_system',
+      },
+      {
+        // permissions: systems that are not registered to insights in your inventory
+        id: 'rhel-notconnected-systems',
+        title: 'Systems not yet registered to Insights',
+        permissions: [
+          {
+            method: 'hasPermissions',
+            args: [['inventory:*:*']],
+          },
+        ],
+        // api: TBD,
       },
     ],
-  },
-  {
-    title: 'Stale systems',
-    accessor: 'total',
-    url: '/api/inventory/v1/hosts?staleness=stale',
-    shape: {
-      title: 'Stale systems',
-      href: `${inventoryLink}/?status=stale&source=insights&page=1&per_page=50`,
-    },
-    permissions: [
-      {
-        method: 'hasPermissions',
-        args: [['inventory:*:*']],
-      },
-    ],
-  },
-  {
-    permissions: [
-      {
-        method: 'hasPermissions',
-        args: [['vulnerability:*:*']],
-      },
-    ],
-    shape: {
-      title: 'Systems exposed to CVEs with security rules',
-    },
-    accessor: 'system_count',
-    url:
-      '/api/vulnerability/v1/dashboard?tags=vulnerability%2Fusage%3Dserver&sap_sids=ABC%2CCDE',
-  },
-  {
-    // permissions: sap systems > 0
-    permissions: [
-      {
-        method: 'hasPermissions',
-        args: [['inventory:*:*']],
-      },
-    ],
-    responseProcessor: totalResponseProcessor,
-    shape: {
-      title: 'SAP systems',
-      href: `${inventoryLink}/?status=fresh&status=stale&source=insights&page=1&per_page=50#workloads=SAP&SIDs=&tags=`,
-    },
-    accessor: 'total',
-    url: '/api/inventory/v1/system_profile/sap_system',
-  },
-  {
-    // permissions: systems that are not registered to insights in your inventory
-    title: 'Systems not yet registered to Insights',
-    permissions: [
-      {
-        method: 'hasPermissions',
-        args: [['inventory:*:*']],
-      },
-    ],
-    // api: TBD,
   },
 ];
 
-const createEstateItems = () =>
-  Promise.all(ESTATE_CONFIG.map(processRequest)).then((items) =>
-    items.filter((item) => typeof item !== 'undefined')
-  );
-
-export const createRhelSchema = () => {
-  return Promise.all([
-    createEstateItems(),
-    Promise.resolve(RECOMMENDATIONS_ITEMS),
-    Promise.resolve({
-      configure: [],
-      try: [],
-      learn: [],
-    }),
-  ]).then(([firstPanel, secondPanel, configTryLearn]) => ({
-    firstPanel,
-    secondPanel,
-    configTryLearn,
-  }));
-};
+export const createRhelSchema = () => ({
+  firstPanel: ESTATE_CONFIG,
+  secondPanel: RECOMMENDATIONS_ITEMS,
+  configTryLearn: {
+    configure: [],
+    try: [],
+    learn: [],
+  },
+});

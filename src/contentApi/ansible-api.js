@@ -1,5 +1,3 @@
-import processRequest from './request-processor';
-
 const HUB_USER_CONFIGRE_TRY_LEARN = {
   configure: [
     {
@@ -241,130 +239,148 @@ const PAST_WEEK_JOBS_TITLE = 'Jobs in the past week';
 
 const ansibleEstateRequests = [
   {
-    url: '/api/tower-analytics/v0/clusters/',
-    accessor: 'templates.length',
-    shape: {
-      title: CLUSTERS_TITLE,
-      href: './ansible/automation-analytics/clusters',
-    },
-    permissions: [
+    section: 'Ansible Automation Platform',
+    items: [
       {
-        method: 'isEntitled',
-        args: ['ansible'],
+        id: 'ansible-platform-clusters',
+        url: '/api/tower-analytics/v0/clusters/',
+        accessor: 'templates.length',
+        shape: {
+          section: 'Ansible Automation Platform',
+          title: CLUSTERS_TITLE,
+          href: './ansible/automation-analytics/clusters',
+        },
+        permissions: [
+          {
+            method: 'isEntitled',
+            args: ['ansible'],
+          },
+        ],
+        errorProcessor: createNoDataResponse,
       },
-    ],
-    errorProcessor: createNoDataResponse,
-  },
-  {
-    url: '/api/tower-analytics/v1/job_explorer_summary/',
-    accessor: 'data.total_count',
-    method: 'post',
-    args: [
       {
-        quick_date_range: 'last_week',
-        attributes: ['total_count'],
+        id: 'ansible-past-jobs',
+        url: '/api/tower-analytics/v1/job_explorer_summary/',
+        accessor: 'data.total_count',
+        method: 'post',
+        args: [
+          {
+            quick_date_range: 'last_week',
+            attributes: ['total_count'],
+          },
+        ],
+        permissions: [
+          {
+            method: 'isEntitled',
+            args: ['ansible'],
+          },
+        ],
+        shape: {
+          title: PAST_WEEK_JOBS_TITLE,
+          href:
+            'https://cloud.redhat.com/ansible/automation-analytics/job-explorer?attributes[]=id&attributes[]=status&attributes[]=job_type&attributes[]=started&attributes[]=finished&attributes[]=elapsed&attributes[]=created&attributes[]=cluster_name&attributes[]=org_name&attributes[]=most_failed_tasks&limit=5&quick_date_range=last_30_days&sort_by=created%3Adesc',
+        },
+        errorProcessor: createNoDataResponse,
       },
-    ],
-    permissions: [
+      // Acorrding to the docs, this request is no longer requried. Keep it here for reference byt should be deleted before the summit release if not re-introduced
+      // {
+      //   url: '/api/tower-analytics/v1/host_explorer_summary/',
+      //   method: 'post',
+      //   accessor: 'data.total_unique_host_count',
+      //   args: [
+      //     {
+      //       quick_date_range: 'last_2_years',
+      //       granularity: 'yearly',
+      //       attributes: ['total_unique_host_count'],
+      //     },
+      //   ],
+      //   shape: {
+      //     title: MANAGED_HOSTS_TITLE,
+      //   },
+      //   errorProcessor: createNoDataResponse,
+      // },
       {
-        method: 'isEntitled',
-        args: ['ansible'],
+        id: 'ansible-collections',
+        url: '/api/automation-hub/v3/collections',
+        accessor: 'meta.count',
+        shape: {
+          title: 'Collections',
+          href: './ansible/automation-hub/',
+        },
+        permissions: [
+          {
+            method: 'isEntitled',
+            args: ['ansible'],
+          },
+        ],
       },
-    ],
-    shape: {
-      title: PAST_WEEK_JOBS_TITLE,
-      href:
-        'https://cloud.redhat.com/ansible/automation-analytics/job-explorer?attributes[]=id&attributes[]=status&attributes[]=job_type&attributes[]=started&attributes[]=finished&attributes[]=elapsed&attributes[]=created&attributes[]=cluster_name&attributes[]=org_name&attributes[]=most_failed_tasks&limit=5&quick_date_range=last_30_days&sort_by=created%3Adesc',
-    },
-    errorProcessor: createNoDataResponse,
-  },
-  // Acorrding to the docs, this request is no longer requried. Keep it here for reference byt should be deleted before the summit release if not re-introduced
-  // {
-  //   url: '/api/tower-analytics/v1/host_explorer_summary/',
-  //   method: 'post',
-  //   accessor: 'data.total_unique_host_count',
-  //   args: [
-  //     {
-  //       quick_date_range: 'last_2_years',
-  //       granularity: 'yearly',
-  //       attributes: ['total_unique_host_count'],
-  //     },
-  //   ],
-  //   shape: {
-  //     title: MANAGED_HOSTS_TITLE,
-  //   },
-  //   errorProcessor: createNoDataResponse,
-  // },
-  {
-    url: '/api/automation-hub/v3/collections',
-    accessor: 'meta.count',
-    shape: {
-      title: 'Collections',
-      href: './ansible/automation-hub/',
-    },
-    permissions: [
       {
-        method: 'isEntitled',
-        args: ['ansible'],
-      },
-    ],
-  },
-  {
-    url: '/api/automation-hub/v3/namespaces',
-    accessor: 'meta.count',
-    shape: {
-      title: 'Partners',
-      href: './ansible/automation-hub/partners',
-    },
-    permissions: [
-      {
-        method: 'isEntitled',
-        args: ['ansible'],
-      },
-    ],
-  },
-  {
-    url:
-      '/api/sources/v3.1/applications?filter[application_type][name][contains]=catalog',
-    accessor: 'meta.count',
-    shape: {
-      section: 'Catalog', // don't know no data
-      title: 'Platforms',
-      href: './ansible/catalog/platforms',
-    },
-    permissions: [
-      {
-        method: 'isOrgAdmin',
+        id: 'ansible-partners',
+        url: '/api/automation-hub/v3/namespaces',
+        accessor: 'meta.count',
+        shape: {
+          title: 'Partners',
+          href: './ansible/automation-hub/partners',
+        },
+        permissions: [
+          {
+            method: 'isEntitled',
+            args: ['ansible'],
+          },
+        ],
       },
     ],
   },
   {
-    url: '/api/catalog/v1/portfolios?limit=1',
-    accessor: 'meta.count',
-    permissions: [
+    section: 'Catalog',
+    items: [
       {
-        method: 'hasPermissions',
-        args: [['catalog:portfolios:read']],
+        id: 'ansible-platforms',
+        url:
+          '/api/sources/v3.1/applications?filter[application_type][name][contains]=catalog',
+        accessor: 'meta.count',
+        shape: {
+          section: 'Catalog', // don't know no data
+          title: 'Platforms',
+          href: './ansible/catalog/platforms',
+        },
+        permissions: [
+          {
+            method: 'isOrgAdmin',
+          },
+        ],
+      },
+      {
+        id: 'ansible-portfolios',
+        url: '/api/catalog/v1/portfolios?limit=1',
+        accessor: 'meta.count',
+        permissions: [
+          {
+            method: 'hasPermissions',
+            args: [['catalog:portfolios:read']],
+          },
+        ],
+        shape: {
+          title: 'Portfolios',
+          href: './ansible/catalog/portfolios',
+        },
+      },
+      {
+        id: 'ansible-portfolio-items',
+        url: '/api/catalog/v1/portfolio_items?limit=1',
+        accessor: 'meta.count',
+        permissions: [
+          {
+            method: 'hasPermissions',
+            args: [['catalog:portfolio_items:read']],
+          },
+        ],
+        shape: {
+          title: 'Products',
+          href: './ansible/catalog/products',
+        },
       },
     ],
-    shape: {
-      title: 'Portfolios',
-      href: './ansible/catalog/portfolios',
-    },
-  },
-  {
-    url: '/api/catalog/v1/portfolio_items?limit=1',
-    accessor: 'meta.count',
-    permissions: [
-      {
-        method: 'hasPermissions',
-        args: [['catalog:portfolio_items:read']],
-      },
-    ],
-    shape: {
-      title: 'Products',
-      href: './ansible/catalog/products',
-    },
   },
 ];
 
@@ -430,28 +446,8 @@ export const RECOMMENDATIONS_ITEMS = [
   },
 ];
 
-export const getEstateItems = () =>
-  Promise.all(ansibleEstateRequests.map(processRequest)).then((items) =>
-    items.filter((item) => typeof item !== 'undefined')
-  );
-
-export const getAnsibleDataSchema = () =>
-  Promise.all([
-    getEstateItems(),
-    Promise.resolve(RECOMMENDATIONS_ITEMS),
-    Promise.resolve(CONFIGURE_TRY_LEARN),
-  ])
-    .then(([estate, recommendations, configTryLearn]) => ({
-      firstPanel: estate,
-      secondPanel: recommendations,
-      configTryLearn,
-    }))
-    .then(({ firstPanel, ...rest }) => {
-      if (firstPanel[0] && !firstPanel[0].section) {
-        firstPanel[0].section = 'Ansible Automation Platform';
-      }
-      return {
-        firstPanel,
-        ...rest,
-      };
-    });
+export const getAnsibleDataSchema = () => ({
+  firstPanel: ansibleEstateRequests,
+  secondPanel: RECOMMENDATIONS_ITEMS,
+  configTryLearn: CONFIGURE_TRY_LEARN,
+});
