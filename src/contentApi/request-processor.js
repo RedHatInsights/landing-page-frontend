@@ -1,5 +1,12 @@
 import { instance } from '@redhat-cloud-services/frontend-components-utilities/interceptors/interceptors';
-import { get } from 'lodash';
+import get from 'lodash/get';
+
+import { hasPermissions as hasPermissionsEnhanced } from '../utils/allPermissions';
+
+const enhancedFunctions = {
+  ...window.insights.chrome.visibilityFunctions,
+  hasPermissions: hasPermissionsEnhanced,
+};
 
 const ALLOWED_API_METHODS = ['get', 'post'];
 export const processRequest = async ({
@@ -41,7 +48,7 @@ export const permissionProcessor = async (permissions = []) => {
     return true;
   }
   const hasPermission = permissions.map(({ method, args = [] }) =>
-    window.insights.chrome.visibilityFunctions[method](...args)
+    enhancedFunctions[method](...args)
   );
   return (await Promise.all(hasPermission)).every((result) => result === true);
 };
