@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useReducer } from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import {
@@ -19,7 +19,10 @@ import {
   Text,
   TextContent,
 } from '@patternfly/react-core';
+import { useIntl } from 'react-intl';
+import get from 'lodash/get';
 import { permissionProcessor } from '../../contentApi/request-processor';
+import { instance } from '@redhat-cloud-services/frontend-components-utilities/interceptors';
 
 const NoIcon = () => <span>No icon</span>;
 
@@ -34,6 +37,14 @@ const groupIconMapper = {
   default: NoIcon,
 };
 
+const reducer = (state, payload) => ({ ...state, ...payload });
+
+const calculateCondition = (data, condition) => {
+  const value = get(data, condition.when);
+
+  return value === condition.is;
+};
+
 const RecommendationGroup = ({
   component,
   title,
@@ -42,15 +53,43 @@ const RecommendationGroup = ({
   description,
   action,
   permissions,
+  api,
+  condition,
+  accessor,
 }) => {
+  const intl = useIntl();
+  const [{ count, data, show }, setState] = useReducer(reducer, {});
+
+  const text = (message) =>
+    typeof message === 'object'
+      ? intl.formatMessage(message, { count, data })
+      : message;
+
   const GroupIcon = groupIconMapper[icon] || NoIcon;
-  const [hasPermission, setHasPermission] = useState(false);
+
   useEffect(async () => {
     const hasPermission = await permissionProcessor(permissions);
-    setHasPermission(hasPermission);
+
+    if (hasPermission && api) {
+      try {
+        const data = await instance.get(api);
+
+        setState({
+          count: get(data, accessor),
+          data,
+          show: condition ? calculateCondition(data, condition) : true,
+        });
+      } catch (e) {
+        console.error(e);
+      }
+    } else {
+      setState({
+        show: true,
+      });
+    }
   }, []);
 
-  if (!hasPermission) {
+  if (!show) {
     return null;
   }
 
@@ -76,8 +115,8 @@ const RecommendationGroup = ({
         </FlexItem>
         <FlexItem>
           <TextContent>
-            {title && <Text component="h5">{title}</Text>}
-            <Text>{description}</Text>
+            {title && <Text component="h5">{text(title)}</Text>}
+            <Text>{text(description)}</Text>
           </TextContent>
         </FlexItem>
       </Flex>
@@ -88,7 +127,7 @@ const RecommendationGroup = ({
         variant="secondary"
         isSmall
       >
-        {action.title}
+        {text(action.title)}
       </Button>
     </React.Fragment>
   );
@@ -110,6 +149,12 @@ RecommendationGroup.propTypes = {
       args: PropTypes.array,
     })
   ),
+  api: PropTypes.string,
+  condition: PropTypes.shape({
+    when: PropTypes.string,
+    is: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+  }),
+  accessor: PropTypes.string,
 };
 
 RecommendationGroup.defaultProps = {

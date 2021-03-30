@@ -9,6 +9,7 @@ import { Switch, Route } from 'react-router-dom';
 import { getRegistry } from '@redhat-cloud-services/frontend-components-utilities/Registry';
 import { useDispatch } from 'react-redux';
 import { Bullseye, Spinner } from '@patternfly/react-core';
+import { IntlProvider } from 'react-intl';
 import technologiesReducer from './store/technologiesReducer';
 import contentStore from './store/contentReducer';
 import {
@@ -60,22 +61,24 @@ const App = () => {
   }, []);
 
   return (
-    <PermissionContext.Provider value={{ isOrgAdmin }}>
-      <Suspense
-        fallback={
-          <Bullseye>
-            <Spinner size="xl" />
-          </Bullseye>
-        }
-      >
-        <Switch>
-          <Route exact path={routes.landing} component={Landing} />
-          <Route exact path={routes.landingBeta} component={Landing} />
-          <Route exact path={routes.maintenance} component={Maintenance} />
-          <Route path="*" component={NotFound} />
-        </Switch>
-      </Suspense>
-    </PermissionContext.Provider>
+    <IntlProvider locale="en">
+      <PermissionContext.Provider value={{ isOrgAdmin }}>
+        <Suspense
+          fallback={
+            <Bullseye>
+              <Spinner size="xl" />
+            </Bullseye>
+          }
+        >
+          <Switch>
+            <Route exact path={routes.landing} component={Landing} />
+            <Route exact path={routes.landingBeta} component={Landing} />
+            <Route exact path={routes.maintenance} component={Maintenance} />
+            <Route path="*" component={NotFound} />
+          </Switch>
+        </Suspense>
+      </PermissionContext.Provider>
+    </IntlProvider>
   );
 };
 

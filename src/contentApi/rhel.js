@@ -97,6 +97,7 @@ const RECOMMENDATIONS_ITEMS = [
           },
           {
             api: '/api/inventory/v1/hosts',
+            condition: { when: 'total', is: 0 },
             id: 'rhel-6',
             title: 'Get Insights for your systems',
             action: {
