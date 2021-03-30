@@ -25,6 +25,8 @@ import Footer from '../layout/landingPage/Footer';
 import { loadData } from '../store/actions';
 import createContentData from '../contentApi/create-content-data';
 
+import { loadPermissions } from '../utils/allPermissions';
+
 const Landing = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isUserReady, setIsUserReady] = useState(false);
@@ -61,7 +63,7 @@ const Landing = () => {
       .catch(() => {
         setIsUnauthed(true);
       })
-      .then(() => setIsUserReady(true));
+      .then(() => loadPermissions().then(() => setIsUserReady(true)));
     createContentData().then((data) => {
       dispatch(loadData(data));
     });
