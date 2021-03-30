@@ -12,7 +12,4 @@ export const loadPermissions = async (retries = 5) => {
 };
 
 export const hasPermissions = (requestedPermissions = []) =>
-  requestedPermissions.reduce(
-    (acc, curr) => acc || permissions.includes(curr),
-    false
-  );
+  requestedPermissions.every((permission) => permissions.includes(permission));

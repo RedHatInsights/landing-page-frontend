@@ -1,3 +1,6 @@
+import catalogAdminPermissions from '../utils/catalog-admin-permissions.json';
+import approvalAdminPermissions from '../utils/approval-admin-permissions.json';
+
 const HUB_USER_CONFIGRE_TRY_LEARN = {
   configure: [
     {
@@ -133,6 +136,12 @@ const CATALOG_ADMIN_CONFIGuRE_TRY_LEARN = {
       icon: 'unknown',
       title: 'Configure Automation Services Catalog',
       description: 'Connect platforms, share portfolios, and offer products',
+      permissions: [
+        {
+          method: 'hasPermissions',
+          args: [catalogAdminPermissions],
+        },
+      ],
       link: {
         href:
           'https://access.redhat.com/documentation/en-us/red_hat_ansible_automation_platform/1.2/html/getting_started_with_automation_services_catalog/index',
@@ -143,6 +152,12 @@ const CATALOG_ADMIN_CONFIGuRE_TRY_LEARN = {
       icon: 'unknown',
       title: 'Setup user access',
       description: 'Create user groups for Automation Services Catalog',
+      permissions: [
+        {
+          method: 'hasPermissions',
+          args: [catalogAdminPermissions],
+        },
+      ],
       link: {
         href: './settings/rbac/groups',
         title: 'Create',
@@ -186,6 +201,12 @@ const CATALOG_ADMIN_CONFIGuRE_TRY_LEARN = {
       title: 'Govern access with Approval',
       description:
         'Restrict product orders and apply approval processes to portfolios and platforms',
+      permissions: [
+        {
+          method: 'hasPermissions',
+          args: [approvalAdminPermissions],
+        },
+      ],
       link: {
         href:
           'https://access.redhat.com/documentation/en-us/red_hat_ansible_automation_platform/1.2/html/getting_started_with_automation_services_catalog/configuring_approval',
@@ -195,6 +216,12 @@ const CATALOG_ADMIN_CONFIGuRE_TRY_LEARN = {
     {
       icon: 'unknown',
       title: 'Integrate Automation Services Catalog with your ITSM system',
+      permissions: [
+        {
+          method: 'hasPermissions',
+          args: [catalogAdminPermissions],
+        },
+      ],
       link: {
         href:
           'https://access.redhat.com/documentation/en-us/red_hat_ansible_automation_platform/1.2/html/integrating_automation_services_catalog_with_your_it_service_management_itsm_systems/index',
