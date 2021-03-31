@@ -96,7 +96,7 @@ const RECOMMENDATIONS_ITEMS = [
             ],
           },
           {
-            api: '/api/inventory/v1/hosts',
+            url: '/api/inventory/v1/hosts',
             condition: { when: 'total', is: 0 },
             id: 'rhel-6',
             title: 'Get Insights for your systems',
@@ -182,7 +182,10 @@ const ESTATE_CONFIG = [
       {
         // permissions: systems that are not registered to insights in your inventory
         id: 'rhel-notconnected-systems',
-        title: 'Systems not yet registered to Insights',
+        shape: {
+          title: 'Systems not yet registered to Insights',
+          // href: `${inventoryLink}/?status=fresh&status=stale&source=insights&page=1&per_page=50#workloads=SAP&SIDs=&tags=`,
+        },
         permissions: [
           {
             method: 'hasPermissions',
