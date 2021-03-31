@@ -82,7 +82,7 @@ const RecommendationGroup = ({
       } catch (e) {
         console.error(e);
       }
-    } else {
+    } else if (hasPermission) {
       setState({
         show: true,
       });
