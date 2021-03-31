@@ -2,6 +2,7 @@ import { instance } from '@redhat-cloud-services/frontend-components-utilities/i
 import get from 'lodash/get';
 
 import { hasPermissions as hasPermissionsEnhanced } from '../utils/allPermissions';
+import conditionProcessor from './condition-processor';
 
 const enhancedFunctions = {
   ...window.insights.chrome.visibilityFunctions,
@@ -18,6 +19,7 @@ export const processRequest = async ({
   errorProcessor,
   responseProcessor,
   permissions,
+  condition,
 }) => {
   if (!ALLOWED_API_METHODS.includes(method)) {
     throw `Invalid request method ${method}. Expected one of ${ALLOWED_API_METHODS}`;
@@ -27,13 +29,18 @@ export const processRequest = async ({
     if (!hasPermission) {
       throw 'User does not have permissions';
     }
-    let response = await instance[method](url, ...args);
+    let response;
+    if (url) {
+      response = await instance[method](url, ...args);
+    }
     if (typeof responseProcessor === 'function') {
       response = await responseProcessor(response);
     }
     return {
       ...shape,
+      response,
       count: accessor ? get(response, accessor) : response,
+      show: condition ? conditionProcessor(response, condition) : true,
     };
   } catch (error) {
     if (errorProcessor) {

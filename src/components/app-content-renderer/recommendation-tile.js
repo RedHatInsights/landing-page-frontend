@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import {
@@ -19,7 +19,8 @@ import {
   Text,
   TextContent,
 } from '@patternfly/react-core';
-import { permissionProcessor } from '../../contentApi/request-processor';
+import { useIntl } from 'react-intl';
+import useRequest from './use-request';
 
 const NoIcon = () => <span>No icon</span>;
 
@@ -34,30 +35,25 @@ const groupIconMapper = {
   default: NoIcon,
 };
 
-const RecommendationGroup = ({
-  component,
-  title,
-  icon,
-  state,
-  description,
-  action,
-  permissions,
-}) => {
-  const GroupIcon = groupIconMapper[icon] || NoIcon;
-  const [hasPermission, setHasPermission] = useState(false);
-  useEffect(async () => {
-    const hasPermission = await permissionProcessor(permissions);
-    setHasPermission(hasPermission);
-  }, []);
+const RecommendationGroup = (recommendation) => {
+  const intl = useIntl();
+  const [{ count, response, show }] = useRequest(recommendation);
 
-  if (!hasPermission) {
+  const text = (message) =>
+    typeof message === 'object'
+      ? intl.formatMessage(message, { count, response })
+      : message;
+
+  const GroupIcon = groupIconMapper[recommendation.icon] || NoIcon;
+
+  if (!show) {
     return null;
   }
 
-  if (component === 'title') {
+  if (recommendation.component === 'title') {
     return (
       <Title headingLevel="h2" size="md">
-        {title}
+        {recommendation.title}
       </Title>
     );
   }
@@ -67,28 +63,30 @@ const RecommendationGroup = ({
         <FlexItem>
           <GroupIcon
             className={classnames({
-              error: state === 'error',
-              warning: state === 'warning',
-              info: state === 'info',
-              green: state === 'success',
+              error: recommendation.state === 'error',
+              warning: recommendation.state === 'warning',
+              info: recommendation.state === 'info',
+              green: recommendation.state === 'success',
             })}
           />
         </FlexItem>
         <FlexItem>
           <TextContent>
-            {title && <Text component="h5">{title}</Text>}
-            <Text>{description}</Text>
+            {recommendation.title && (
+              <Text component="h5">{text(recommendation.title)}</Text>
+            )}
+            <Text>{text(recommendation.description)}</Text>
           </TextContent>
         </FlexItem>
       </Flex>
       <Button
         component="a"
         className="recommendation-button"
-        href={action.href}
+        href={recommendation.action.href}
         variant="secondary"
         isSmall
       >
-        {action.title}
+        {text(recommendation.action.title)}
       </Button>
     </React.Fragment>
   );
@@ -110,10 +108,18 @@ RecommendationGroup.propTypes = {
       args: PropTypes.array,
     })
   ),
+  url: PropTypes.string,
+  condition: PropTypes.shape({
+    when: PropTypes.string,
+    is: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+  }),
+  accessor: PropTypes.string,
+  method: PropTypes.oneOf(['get', 'post']),
 };
 
 RecommendationGroup.defaultProps = {
   icon: 'default',
+  method: 'get',
 };
 
 const RecommendationSection = ({ groups, title }) => (
