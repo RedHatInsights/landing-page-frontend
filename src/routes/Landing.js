@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import React, { Fragment, useEffect, useState } from 'react';
+import React, { Fragment, useEffect, useReducer } from 'react';
 import { useDispatch } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import {
@@ -30,50 +30,71 @@ import createContentData from '../contentApi/create-content-data';
 
 import { loadPermissions } from '../utils/allPermissions';
 
+const init = (initialState) => {
+  const params = location.search
+    .slice(1)
+    .split('&')
+    .reduce(
+      (acc, curr) => ({
+        ...acc,
+        [curr.split('=')[0]]: Object.values(activeTechnologies).find(
+          (item) => item.entitlement === curr.split('=')[1]
+        ),
+      }),
+      {}
+    );
+
+  return {
+    ...initialState,
+    notEntitled: params.not_entitled,
+    isModalOpen: params && Object.keys(params).length > 0,
+  };
+};
+
+const initialState = {
+  isModalOpen: false,
+  isUserReady: false,
+  isUnauthed: true,
+  notEntitled: undefined,
+};
+
+const reducer = (state, { type, user }) => {
+  switch (type) {
+    case 'finishLoading':
+      return { ...state, isUnauthed: user ? false : true, isUserReady: true };
+    case 'closeModal':
+      return { ...state, isModalOpen: false };
+    default:
+      return state;
+  }
+};
+
 const Landing = () => {
-  const [isModalOpen, setIsModalOpen] = useState(false);
-  const [isUserReady, setIsUserReady] = useState(false);
-  const [isUnauthed, setIsUnauthed] = useState(true);
-  const [notEntitled, setIsNotEntitled] = useState();
+  const [
+    { isModalOpen, isUserReady, isUnauthed, notEntitled },
+    stateDispatch,
+  ] = useReducer(reducer, initialState, init);
   const dispatch = useDispatch();
 
-  useEffect(() => {
-    const params = location.search
-      .slice(1)
-      .split('&')
-      .reduce(
-        (acc, curr) => ({
-          ...acc,
-          [curr.split('=')[0]]: Object.values(activeTechnologies).find(
-            (item) => item.entitlement === curr.split('=')[1]
-          ),
-        }),
-        {}
-      );
+  useEffect(async () => {
+    try {
+      createContentData().then((data) => {
+        dispatch(loadData(data));
+      });
 
-    setIsNotEntitled(params.not_entitled);
-    setIsModalOpen(params && Object.keys(params).length > 0);
+      const [user] = await Promise.all([
+        insights.chrome.auth.getUser(),
+        loadPermissions(),
+      ]);
 
-    window.insights.chrome.auth
-      .getUser()
-      .then((user) => {
-        if (user) {
-          setIsUnauthed(false);
-        } else {
-          setIsUnauthed(true);
-        }
-      })
-      .catch(() => {
-        setIsUnauthed(true);
-      })
-      .then(() => loadPermissions().then(() => setIsUserReady(true)));
-    createContentData().then((data) => {
-      dispatch(loadData(data));
-    });
+      stateDispatch({ type: 'finishLoading', user });
+    } catch {
+      stateDispatch({ type: 'finishLoading' });
+    }
   }, []);
 
   const handleModalToggle = () => {
-    setIsModalOpen(false);
+    stateDispatch({ type: 'closeModal' });
     history.pushState(null, '', location.href.split('?')[0]);
   };
 
