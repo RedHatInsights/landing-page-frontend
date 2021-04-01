@@ -83,7 +83,6 @@ const FooterTraditional = () => {
         variant={ModalVariant.small}
         className="ins-p-browser-support"
         onClose={() => setIsModalOpen(false)}
-        isFooterLeftAligned
       >
         <p>
           Red Hat captures and regularly reviews statistical data from our

@@ -20,11 +20,11 @@ import {
   CodeIcon,
   OutlinedEyeIcon,
 } from '@patternfly/react-icons';
-import { connect } from 'react-redux';
-import PropTypes from 'prop-types';
+
+import { PermissionContext } from '../App';
+import { activeTechnologies as technologies } from '../consts';
 
 import './Body.scss';
-import { PermissionContext } from '../App';
 
 function isBeta() {
   return window.insights.chrome.isBeta() === true ? '/beta/' : '/';
@@ -36,7 +36,7 @@ const checkIfUnderMaintenance = (appName, isUnderMaintenanceApps) => {
     : false;
 };
 
-const Body = ({ technologies }) => {
+const Body = () => {
   const [needsRBACTour, setNeedsRBACTour] = useState();
   const permission = useContext(PermissionContext);
 
@@ -188,37 +188,4 @@ const Body = ({ technologies }) => {
   );
 };
 
-Body.propTypes = {
-  technologies: PropTypes.arrayOf(
-    PropTypes.shape({
-      name: PropTypes.string,
-      icon: PropTypes.oneOfType([PropTypes.func, PropTypes.string]),
-      body: PropTypes.node,
-      title: PropTypes.node,
-      isPreview: PropTypes.bool,
-      isEarlyAccess: PropTypes.bool,
-      url: PropTypes.string,
-      apps: PropTypes.object,
-      baseApp: PropTypes.string,
-      isUnderMaintenance: PropTypes.bool,
-      isUnderMaintenanceApps: PropTypes.array,
-    })
-  ),
-};
-
-Body.defaultProps = {
-  technologies: [],
-};
-
-function mapStateToProps(
-  { technologies } = { technologies: { activeTechnologies: [] } }
-) {
-  return {
-    technologies:
-      technologies &&
-      technologies.activeTechnologies.filter(({ disabled }) => !disabled),
-  };
-}
-
-export { mapStateToProps };
-export default connect(mapStateToProps)(Body);
+export default Body;

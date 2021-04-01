@@ -32,6 +32,9 @@ global.window.insights = {
             identity: {
               account_number: '0',
               type: 'User',
+              user: {
+                is_org_admin: true,
+              },
             },
           })
         ),

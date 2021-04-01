@@ -7,18 +7,9 @@ import React, {
 } from 'react';
 import { Switch, Route } from 'react-router-dom';
 import { getRegistry } from '@redhat-cloud-services/frontend-components-utilities/Registry';
-import { useDispatch } from 'react-redux';
 import { Bullseye, Spinner } from '@patternfly/react-core';
 import { IntlProvider } from 'react-intl';
-import technologiesReducer from './store/technologiesReducer';
 import contentStore from './store/contentReducer';
-import {
-  technologiesLoaded,
-  loadEndpoints,
-  loadCarousel,
-  loadSections,
-} from './store/actions';
-import { activeTechnologies } from './consts';
 
 const Landing = lazy(() =>
   import(/* webpackCunkName: "Landing" */ './routes/Landing')
@@ -41,18 +32,9 @@ export const PermissionContext = createContext();
 
 const App = () => {
   const [isOrgAdmin, setIsOrgAdmin] = useState();
-  const dispatch = useDispatch();
 
   useEffect(() => {
-    getRegistry().register({ technologies: technologiesReducer, contentStore });
-    dispatch(technologiesLoaded(activeTechnologies));
-    const endpointsAction = loadEndpoints();
-    dispatch(endpointsAction);
-    (async () => {
-      await endpointsAction.payload;
-      dispatch(loadCarousel());
-      dispatch(loadSections());
-    })();
+    getRegistry().register({ contentStore });
     insights.chrome.init();
     insights.chrome.identifyApp('landing');
     window.insights.chrome.auth
