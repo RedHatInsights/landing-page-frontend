@@ -1,7 +1,8 @@
 import React from 'react';
 import { Grid } from '@patternfly/react-core';
-import recommendationRenderer from '../../components/app-content-renderer/recommendation-renderer';
 import { useSelector } from 'react-redux';
+
+import recommendationRenderer from './recommendation-renderer';
 
 const SecondPanel = () => {
   const recommendations = useSelector(

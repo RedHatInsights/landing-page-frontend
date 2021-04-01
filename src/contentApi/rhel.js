@@ -179,6 +179,7 @@ const ESTATE_CONFIG = [
         accessor: 'total',
         url: '/api/inventory/v1/system_profile/sap_system',
       },
+      /*
       {
         // permissions: systems that are not registered to insights in your inventory
         id: 'rhel-notconnected-systems',
@@ -194,6 +195,7 @@ const ESTATE_CONFIG = [
         ],
         // api: TBD,
       },
+      */
     ],
   },
 ];

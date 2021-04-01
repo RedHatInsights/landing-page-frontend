@@ -20,6 +20,7 @@ import {
   TextContent,
 } from '@patternfly/react-core';
 import { useIntl } from 'react-intl';
+
 import useRequest from './use-request';
 
 const NoIcon = () => <span>No icon</span>;

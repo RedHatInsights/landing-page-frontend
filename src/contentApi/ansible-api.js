@@ -93,6 +93,7 @@ const APP_USER_CONFIGRE_TRY_LEARN = {
     {
       icon: 'unknown',
       title: 'Setup user access',
+      key: 'setup-1',
       link: {
         title: 'Create',
         href: './settings/rbac/users',
@@ -130,7 +131,7 @@ const APP_USER_CONFIGRE_TRY_LEARN = {
   ],
 };
 
-const CATALOG_ADMIN_CONFIGuRE_TRY_LEARN = {
+const CATALOG_ADMIN_CONFIGURE_TRY_LEARN = {
   configure: [
     {
       icon: 'unknown',
@@ -151,6 +152,7 @@ const CATALOG_ADMIN_CONFIGuRE_TRY_LEARN = {
     {
       icon: 'unknown',
       title: 'Setup user access',
+      key: 'setup-2',
       description: 'Create user groups for Automation Services Catalog',
       permissions: [
         {
@@ -235,17 +237,17 @@ const CONFIGURE_TRY_LEARN = {
   configure: [
     ...HUB_USER_CONFIGRE_TRY_LEARN.configure,
     ...APP_USER_CONFIGRE_TRY_LEARN.configure,
-    ...CATALOG_ADMIN_CONFIGuRE_TRY_LEARN.configure,
+    ...CATALOG_ADMIN_CONFIGURE_TRY_LEARN.configure,
   ],
   try: [
     ...HUB_USER_CONFIGRE_TRY_LEARN.try,
     ...APP_USER_CONFIGRE_TRY_LEARN.try,
-    ...CATALOG_ADMIN_CONFIGuRE_TRY_LEARN.try,
+    ...CATALOG_ADMIN_CONFIGURE_TRY_LEARN.try,
   ],
   learn: [
     ...HUB_USER_CONFIGRE_TRY_LEARN.learn,
     ...APP_USER_CONFIGRE_TRY_LEARN.learn,
-    ...CATALOG_ADMIN_CONFIGuRE_TRY_LEARN.learn,
+    ...CATALOG_ADMIN_CONFIGURE_TRY_LEARN.learn,
   ],
 };
 

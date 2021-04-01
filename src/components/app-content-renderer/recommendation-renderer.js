@@ -1,4 +1,5 @@
 import React from 'react';
+
 import RecommendationTile from './recommendation-tile';
 
 const recommendationRenderer = (recommendations) => {

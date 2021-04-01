@@ -1,5 +1,6 @@
-import { Grid, GridItem } from '@patternfly/react-core';
 import React from 'react';
+import { Grid, GridItem } from '@patternfly/react-core';
+
 import ConfigTryLearnTile from './config-try-learn-tile';
 
 const configTryLearnRenderer = (sections) => (
