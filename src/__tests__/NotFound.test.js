@@ -1,20 +1,11 @@
 import React from 'react';
 import { mount } from 'enzyme';
-import { Provider } from 'react-redux';
-import configureMockStore from 'redux-mock-store';
 import toJson from 'enzyme-to-json';
 import NotFound from '../NotFound';
 
-const mockStore = configureMockStore();
-const store = mockStore({});
-
 describe('NotFound component', () => {
   it('should render correctly', () => {
-    const wrapper = mount(
-      <Provider store={store}>
-        <NotFound />
-      </Provider>
-    );
+    const wrapper = mount(<NotFound />);
     expect(toJson(wrapper)).toMatchSnapshot();
   });
 });
