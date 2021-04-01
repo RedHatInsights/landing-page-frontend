@@ -23,7 +23,7 @@ import '../components/app-content-renderer/styles/panels.scss';
 // Mockup console landing page
 import FirstPanel from '../components/app-content-renderer/first-panel';
 import SecondPanel from '../components/app-content-renderer/second-panel';
-import Footer from '../components/app-content-renderer/Footer';
+import Footer from '../components/app-content-renderer/footer';
 
 import { loadData } from '../store/actions';
 import createContentData from '../contentApi/create-content-data';
