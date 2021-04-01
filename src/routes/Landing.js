@@ -1,7 +1,5 @@
-import PropTypes from 'prop-types';
 import React, { Fragment, useEffect, useReducer } from 'react';
 import { useDispatch } from 'react-redux';
-import { withRouter } from 'react-router-dom';
 import {
   Button,
   Modal,
@@ -223,16 +221,4 @@ const Landing = () => {
   }
 };
 
-Landing.propTypes = {
-  history: PropTypes.object,
-  loadTechnologies: PropTypes.func,
-  location: PropTypes.shape({
-    search: PropTypes.string,
-  }),
-};
-
-Landing.defaultProps = {
-  loadTechnologies: () => undefined,
-};
-
-export default withRouter(Landing);
+export default Landing;

@@ -75,7 +75,6 @@ exports[`Footer Traditional component should render correctly 1`] = `
     aria-labelledby=""
     className="ins-p-browser-support"
     hasNoBodyWrapper={false}
-    isFooterLeftAligned={true}
     isOpen={false}
     onClose={[Function]}
     ouiaSafe={true}
