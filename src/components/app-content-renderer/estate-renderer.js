@@ -1,5 +1,6 @@
 import React from 'react';
-import FirstPanelTile from '../../layout/landingPage/FirstPanelTile';
+
+import FirstPanelTile from './first-panel-tile';
 
 const EstateRenderer = ({ sections }) =>
   sections.map((tile) => <FirstPanelTile {...tile} key={tile.id} />);

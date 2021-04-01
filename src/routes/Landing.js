@@ -16,12 +16,15 @@ import FooterTraditional from '../layout/FooterTraditional';
 import Loading from '../layout/Loading';
 import { activeTechnologies } from '../consts';
 import { addNotification } from '@redhat-cloud-services/frontend-components-notifications/redux';
+
 import './Landing.scss';
+import '../components/app-content-renderer/styles/panels.scss';
 
 // Mockup console landing page
-import SecondPanel from '../layout/landingPage/SecondPanel';
-import FirstPanel from '../layout/landingPage/FirstPanel';
-import Footer from '../layout/landingPage/Footer';
+import FirstPanel from '../components/app-content-renderer/first-panel';
+import SecondPanel from '../components/app-content-renderer/second-panel';
+import Footer from '../components/app-content-renderer/Footer';
+
 import { loadData } from '../store/actions';
 import createContentData from '../contentApi/create-content-data';
 

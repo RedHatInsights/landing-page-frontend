@@ -1,5 +1,6 @@
-import configTryLearnRenderer from '../../components/app-content-renderer/config-try-learn-renderer';
 import { useSelector } from 'react-redux';
+
+import configTryLearnRenderer from './config-try-learn-renderer';
 
 const Footer = () => {
   const configTryLearn = useSelector(

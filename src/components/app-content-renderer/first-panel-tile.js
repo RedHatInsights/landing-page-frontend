@@ -10,9 +10,9 @@ import {
   Title,
 } from '@patternfly/react-core';
 import { useDispatch } from 'react-redux';
-import { removeEstateTile } from '../../store/actions';
 
-import useRequest from '../../components/app-content-renderer/use-request';
+import { removeEstateTile } from '../../store/actions';
+import useRequest from './use-request';
 
 const FirstPanelTile = ({ id, ...tile }) => {
   const dispatch = useDispatch();

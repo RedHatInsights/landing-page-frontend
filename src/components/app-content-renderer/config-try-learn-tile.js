@@ -19,6 +19,7 @@ import {
   ConnectedIcon,
   QuestionCircleIcon,
 } from '@patternfly/react-icons';
+
 import IconInsights from '../icon-insights';
 import IconAnsible from '../icon-ansible';
 import { permissionProcessor } from '../../contentApi/request-processor';

@@ -1,9 +1,8 @@
 import React from 'react';
 import { DescriptionList } from '@patternfly/react-core';
 import { shallowEqual, useSelector } from 'react-redux';
-import EstateRenderer from '../../components/app-content-renderer/estate-renderer';
 
-import './styles/Panels.scss';
+import EstateRenderer from './estate-renderer';
 
 const flattenSections = (estates) =>
   estates
