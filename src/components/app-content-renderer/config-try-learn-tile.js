@@ -108,7 +108,13 @@ const ConfigTryLearnTile = ({ title, items }) => {
       <FlexItem>
         <Grid hasGutter>
           {tiles.map((item) => (
-            <GridItem md={6} lg={6} xl={12} sm={12} key={item.title}>
+            <GridItem
+              md={6}
+              lg={6}
+              xl={12}
+              sm={12}
+              key={item.key || item.title}
+            >
               <TileItem {...item} />
             </GridItem>
           ))}
