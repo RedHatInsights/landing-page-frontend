@@ -1,0 +1,19 @@
+@import '~@redhat-cloud-services/frontend-components-utilities/styles/_mixins';
+@import '~@patternfly/patternfly/sass-utilities/_all';
+
+.ins-c-key-features {
+    --pf-c-page__main-section--PaddingBottom: var(--pf-global--spacer--xl);
+
+    @media screen and (min-width: $pf-global--breakpoint--xl) {
+        --pf-c-page__main-section--PaddingBottom: #{pf-size-prem(120px)};
+    }
+
+    .pf-l-grid {
+        --pf-l-grid--m-gutter--GridGap: var(--pf-global--spacer--xl);
+    }
+
+    .pf-c-card__header .ins-c-icon {
+        width: 100%;
+        max-width: #{pf-size-prem(80px)};
+    }
+}

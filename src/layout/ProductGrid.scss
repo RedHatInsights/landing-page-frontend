@@ -1,0 +1,98 @@
+@import '~@patternfly/patternfly/sass-utilities/_all';
+
+$ins-c-product-grid--breakpoint: $pf-global--breakpoint--md;
+$ins-c-product-grid--border--breakpoint: (pf-size-prem(1600px) + (pf-size-prem($pf-global--BorderWidth--sm) * 2));
+
+.ins-c-product-grid {
+    --pf-c-page__main-section--PaddingTop: var(--pf-global--spacer--xl);
+    --pf-c-page__main-section--PaddingRight: 0;
+    --pf-c-page__main-section--PaddingBottom: var(--pf-global--spacer--xl);
+    --pf-c-page__main-section--PaddingLeft: 0;
+
+    @media screen and (min-width: $pf-global--breakpoint--md) {
+        --pf-c-page__main-section--PaddingTop: var(--pf-global--spacer--2xl);
+        --pf-c-page__main-section--PaddingBottom: var(--pf-global--spacer--2xl);
+    }
+
+    @media screen and (min-width: $pf-global--breakpoint--xl) {
+        --pf-c-page__main-section--PaddingBottom: var(--pf-global--spacer--xl);
+    }
+
+    @media screen and (min-width: #{$ins-c-product-grid--border--breakpoint}) {
+        --pf-c-page__main-section--PaddingBottom: var(--pf-global--spacer--3xl);
+    }
+}
+
+.ins-c-product-grid__section-title {
+    padding-right: var(--pf-global--spacer--xl);
+    padding-left: var(--pf-global--spacer--xl);
+}
+
+.ins-c-product-grid__layout {
+    margin: 0 auto;
+    max-width: var(--ins-c-landing--m-display-lg--MaxWidth);
+    border-top: var(--pf-global--BorderWidth--sm) solid var(--pf-global--BorderColor--100);
+
+    @media screen and (min-width: #{$ins-c-product-grid--border--breakpoint}) {
+        border: var(--pf-global--BorderWidth--sm) solid var(--pf-global--BorderColor--100);
+    }
+}
+
+.ins-c-product-grid__layout {
+    > * {
+        border-bottom: var(--pf-global--BorderWidth--sm) solid var(--pf-global--BorderColor--100);
+
+        &:nth-child(odd) {
+            @media screen and (min-width: #{$ins-c-product-grid--breakpoint}) {
+                border-right: var(--pf-global--BorderWidth--sm) solid var(--pf-global--BorderColor--100);
+            }
+        }
+
+        &.ins-m-featured {
+            border: none;
+
+            @media screen and (min-width: #{$ins-c-product-grid--border--breakpoint}) {
+                padding-bottom: var(--pf-global--spacer--xl);
+            }
+
+
+            .ins-c-marketing-card__header-logo {
+                @media screen and (min-width: $pf-global--breakpoint--md) {
+                    height: #{pf-size-prem(65px)};
+                }
+            }
+        }
+    }
+
+    .pf-c-card {
+        --pf-c-card--first-child--PaddingTop: var(--pf-global--spacer--2xl);
+        --pf-c-card--child--PaddingBottom: var(--pf-global--spacer--xl);
+        --pf-c-card--child--PaddingRight: var(--pf-global--spacer--2xl);
+        --pf-c-card--child--PaddingLeft: var(--pf-global--spacer--2xl);
+
+        @media screen and (min-width: $pf-global--breakpoint--2xl) {
+            --pf-c-card--child--PaddingRight: var(--pf-global--spacer--4xl);
+            --pf-c-card--child--PaddingLeft: var(--pf-global--spacer--4xl);
+        }
+
+    }
+}
+
+.ins-c-product-grid__split-item {
+    display: flex;
+    flex: 1;
+    align-items: center;
+    padding-right: var(--pf-global--spacer--2xl);
+    padding-left: var(--pf-global--spacer--2xl);
+
+    @media screen and (min-width: $pf-global--breakpoint--lg) {
+        padding-right: #{pf-size-prem(84px)};
+        padding-left: 0;
+    }
+
+    .ins-c-card-video {
+        @media screen and (min-width: $pf-global--breakpoint--xl) {
+            margin: 0 auto;
+        }
+    }
+}

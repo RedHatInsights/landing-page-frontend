@@ -1,38 +1,71 @@
-import { Button, PageSection, Title } from '@patternfly/react-core';
 import React from 'react';
 
+import {
+  Button,
+  Flex,
+  FlexItem,
+  PageSection,
+  Title,
+} from '@patternfly/react-core';
+import IconCloud from './images/icon__cloud-red.svg';
+import WidthLimiter from '../components/WidthLimiter.js';
+import HeroIcon from '../components/HeroIcon.js';
 import './Hero.scss';
 
+import { heroContent as heroContent } from '../consts';
+
 const Hero = () => (
-  <PageSection className="ins-c-hero pf-m-fill pf-l-flex pf-m-align-items-center pf-m-justify-content-center">
-    <article className="pf-l-flex pf-m-column pf-m-align-items-center">
-      <Title
-        headingLevel="h1"
-        size="4xl"
-        className="ins-c-hero__title pf-m-spacer-lg"
+  <PageSection
+    className="ins-c-hero pf-m-center ins-m-display-md"
+    isWidthLimited
+  >
+    <Flex className="pf-m-column" spaceItems={{ default: 'spaceItemsXl' }}>
+      <FlexItem spacer={{ default: 'spacerMd', md: 'spacerXl' }}>
+        <HeroIcon src={IconCloud} alt="Insights Smart Management" />
+      </FlexItem>
+      <WidthLimiter
+        style={{
+          '--pf-c-width-limiter--MaxWidth-on-md': '40ch',
+          '--pf-c-width-limiter--MaxWidth-on-lg': '45ch',
+          '--pf-c-width-limiter--MaxWidth-on-xl': '54ch',
+        }}
       >
-        Explore our open, multicloud tools
-      </Title>
-      <Title headingLevel="h2" className="ins-c-hero__sub-title pf-m-spacer-xl">
-        Discover Red Hat<sup className="ins-c-rball">®</sup>
-        software-as-a-service
-      </Title>
-      <Button
-        className="ins-c-hero__login"
-        onClick={() => window.insights.chrome.auth.login()}
-      >
-        Log in to your Red Hat account
-      </Button>
-      <Button
-        component="a"
-        isInline
-        variant="link"
-        className="ins-c-hero__new-customer"
-        href="https://www.redhat.com/en/customers"
-      >
-        Not a customer?
-      </Button>
-    </article>
+        <Flex
+          direction={{ default: 'column' }}
+          spaceItems={{ default: 'spaceItemsLg' }}
+        >
+          <Title
+            headingLevel="h1"
+            className="ins-c-hero__title pf-u-font-weight-light"
+          >
+            {heroContent.title}
+          </Title>
+          <Title headingLevel="h2" size="xl" className="pf-u-font-weight-light">
+            {heroContent.subTitle}
+          </Title>
+        </Flex>
+      </WidthLimiter>
+      <Flex spaceItems={{ default: 'spaceItemsXl' }}>
+        <Button
+          className="ins-m-marketing"
+          variant="primary"
+          isLarge
+          onClick={() => window.insights.chrome.auth.login()}
+        >
+          {heroContent.primaryCTAtext}
+        </Button>
+        {/* Activate when support is available
+        <Button
+          className="ins-m-marketing"
+          variant="secondary"
+          component="a"
+          isLarge
+          href={heroContent.secondaryCTAurl}
+        >
+          {heroContent.secondaryCTAtext}
+        </Button> */}
+      </Flex>
+    </Flex>
   </PageSection>
 );
 

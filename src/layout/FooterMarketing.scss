@@ -1,0 +1,42 @@
+@import '~@redhat-cloud-services/frontend-components-utilities/styles/_mixins';
+@import '~@patternfly/patternfly/sass-utilities/_all';
+
+.ins-c-footer-marketing {
+  --pf-c-page--section--m-limit-width--MaxWidth: #{pf-size-prem(1140px)};
+  --pf-c-page__main-section--PaddingTop: var(--pf-global--spacer--md);
+  --pf-c-page__main-section--PaddingRight: var(--pf-global--spacer--md);
+  --pf-c-page__main-section--PaddingBottom: var(--pf-global--spacer--md);
+  --pf-c-page__main-section--PaddingLeft: var(--pf-global--spacer--md);
+
+  background-color: #1a1a1a;
+  font-size: #{pf-size-prem(12px)};
+
+  .pf-c-page__main-body {
+    @media screen and (min-width: $pf-global--breakpoint--lg) {
+      margin: 0 auto;
+      width: 100%;
+    }
+  }
+
+  .ins-c-footer-marketing__logo-link {
+    display: flex;
+  }
+
+  *,
+  a {
+    color: #aaa;
+  }
+
+  a {
+    text-decoration: underline;
+  }
+
+  a:hover {
+    color: #fff;
+  }
+
+  .ins-c-footer-marketing__logo {
+    width: 138px;
+    min-width: 0;
+  }
+}

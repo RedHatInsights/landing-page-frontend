@@ -1,0 +1,17 @@
+@import '~@patternfly/patternfly/sass-utilities/_all';
+
+.ins-c-content-product-explanation {
+  --pf-c-page__main-section--PaddingTop: #{pf-size-prem(95px)};
+  --pf-c-page__main-section--PaddingBottom: #{pf-size-prem(72px)};
+  --ins-c-content-product-explanation__image--MaxWidth: 100%;
+  --ins-c-content-product-explanation__image--xl--MaxWidth: #{pf-size-prem(500px)};
+}
+
+.ins-c-content-product-explanation__image {
+  max-width: var(--ins-c-content-product-explanation__image--MaxWidth);
+  justify-self: center;
+
+  @media screen and (min-width: $pf-global--breakpoint--xl) {
+    --ins-c-content-product-explanation__image--MaxWidth: var(--ins-c-content-product-explanation__image--xl--MaxWidth);
+  }
+}

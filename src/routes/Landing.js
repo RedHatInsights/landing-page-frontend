@@ -9,13 +9,22 @@ import {
   SplitItem,
   Split,
 } from '@patternfly/react-core';
-import Marketing from '../layout/Marketing';
+
+import FooterMarketing from '../layout/FooterMarketing';
 import FooterTraditional from '../layout/FooterTraditional';
 import Loading from '../layout/Loading';
 import { activeTechnologies } from '../consts';
 import { addNotification } from '@redhat-cloud-services/frontend-components-notifications/redux';
 
+// Sections
+import Hero from '../layout/Hero';
+import ProductGrid from '../layout/ProductGrid';
+import KeyFeatures from '../layout/KeyFeatures';
+import ProductDetail from '../layout/ProductDetail';
+import GetStarted from '../layout/GetStarted';
+
 import './Landing.scss';
+import '../layout/Marketing.scss';
 import '../components/app-content-renderer/styles/panels.scss';
 
 // Mockup console landing page
@@ -110,15 +119,25 @@ const Landing = () => {
       <Split className="ins-c-page__landing-layout">
         <SplitItem className="ins-c-page__landing-content">
           {isUnauthed ? (
-            <Marketing />
+            <div
+              className="ins-c-marketing"
+              landing-page-type="unauthenticated"
+            >
+              <Hero />
+              <ProductGrid />
+              <ProductDetail />
+              <KeyFeatures />
+              <GetStarted />
+              <FooterMarketing />
+            </div>
           ) : (
             <Fragment>
               <FirstPanel />
               <SecondPanel />
               <Footer />
+              <FooterTraditional />
             </Fragment>
           )}
-          <FooterTraditional />
           {notEntitled &&
             notEntitled.emptyAlertTitle &&
             renderAlert(notEntitled.emptyAlertTitle)}

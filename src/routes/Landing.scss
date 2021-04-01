@@ -1,5 +1,6 @@
 @import '~@redhat-cloud-services/frontend-components-utilities/styles/_mixins';
 @import '~@patternfly/patternfly/sass-utilities/_all';
+
 :root {
     --ins-global--Color--green: #37912f;
 }
@@ -20,7 +21,6 @@
 }
 
 .pf-c-card {
-    padding: var(--pf-global--spacer--md);
 
     &.ins-c-application-info {
         height: 100%;
@@ -42,14 +42,16 @@
         display: block;
         span { margin-right: 15px }
     }
-    
+
     .ins-c-application-info__content-applist {
         display: flex;
         flex-direction: column;
+
         a {
             display: block;
             text-transform: capitalize;
         }
+
         a + a { margin-top: 10px; }
     }
 
@@ -117,9 +119,10 @@ sup.ins-c-rball { @include rem('font-size', 10px); }
     }
 }
 
-// Adjust PF layout to be able to display witouth header
+// Adjust PF layout to be able to display whithout header
 .ins-c-page__landing-layout {
     height: 100%;
+
     .ins-c-page__landing-navigation {
         flex-shrink: 0;
     }
