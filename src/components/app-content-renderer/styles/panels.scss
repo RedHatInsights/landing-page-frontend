@@ -29,7 +29,7 @@
     background-position: right;
     background-repeat: no-repeat;
     padding: var(--pf-global--spacer--xl) var(--pf-global--spacer--lg) var(--pf-global--spacer--lg) var(--pf-global--spacer--lg);
-    overflow: scroll;
+    overflow-x: scroll;
 
     @media only screen and (min-width: 1200px) {
       background-size: 60%;
@@ -51,7 +51,7 @@
                 &::after {
                   content: '\00a0';
                 }
-              } 
+              }
             }
           }
           .estate-title {
@@ -77,13 +77,18 @@
           display: flex;
           flex-wrap: wrap;
           .estate-section {
-            .pf-c-description-list__text {
+            >.pf-c-description-list__text {
               p {
                 font-size: var(--pf-global--FontSize--md);
+                margin-bottom: var(--pf-global--spacer--md);
+                margin-top: var(--pf-global--spacer--md);
               }
-            }
-            &.is-empty {
-              display: none;
+              &::after {
+                content: '';
+              }
+              p:empty {
+                margin: 0;
+              }
             }
             font-size: var(--pf-global--FontSize--xl) !important;
             width: 100%;
@@ -137,10 +142,6 @@
     .custom-grid {
       display: grid;
       grid-template-columns: 1fr fit-content(100%);
-    }
-
-    .group-icon {
-      max-width: 16px;
     }
 
     .recommendation-button {
