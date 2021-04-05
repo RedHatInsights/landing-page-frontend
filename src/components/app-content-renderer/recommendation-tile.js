@@ -146,7 +146,7 @@ RecommendationSection.defaultProps = {
 };
 
 const RecommendationTile = ({ groups, sections, countOfReccomentations }) => (
-  <GridItem md={12} lg={countOfReccomentations > 2 ? 4 : 12} xs={12}>
+  <GridItem md={12} xl={countOfReccomentations > 2 ? 4 : 12} xs={12}>
     {groups.map((group, index) => (
       <RecommendationGroup key={group.id || index} {...group} />
     ))}

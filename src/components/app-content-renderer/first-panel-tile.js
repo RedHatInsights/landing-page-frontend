@@ -5,10 +5,15 @@ import {
   DescriptionListDescription,
   DescriptionListGroup,
   DescriptionListTerm,
-  Skeleton,
   Text,
   Title,
 } from '@patternfly/react-core';
+
+import {
+  Skeleton,
+  SkeletonSize,
+} from '@redhat-cloud-services/frontend-components/Skeleton';
+
 import { useDispatch } from 'react-redux';
 
 import { removeEstateTile } from '../../store/actions';
@@ -31,21 +36,30 @@ const FirstPanelTile = ({ id, ...tile }) => {
           'is-empty': tile?.shape?.section?.length === 0,
         })}
       >
-        <Text component="p">
-          {tile?.shape?.section}&nbsp;
-          {/** empty line char is required to keep proper horizontal alignment. Empty "p" tag does not have height */}
-        </Text>
+        <Text component="p">{tile?.shape?.section}</Text>
       </DescriptionListDescription>
       <DescriptionListTerm className="estate-count">
         <Title headingLevel="h5" size="3xl">
-          {loaded ? count : <Skeleton screenreaderText="Loading data" />}
+          {loaded ? (
+            count
+          ) : (
+            <Skeleton
+              size={SkeletonSize.md}
+              className="ins-m-dark"
+              screenreaderText="Loading data"
+            />
+          )}
         </Title>
       </DescriptionListTerm>
       <DescriptionListDescription className="estate-title">
         {loaded ? (
           <Text component="p">{title}</Text>
         ) : (
-          <Skeleton screenreaderText="Loading title" />
+          <Skeleton
+            size={SkeletonSize.lg}
+            className="ins-m-dark"
+            screenreaderText="Loading title"
+          />
         )}
       </DescriptionListDescription>
     </DescriptionListGroup>

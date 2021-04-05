@@ -1,7 +1,6 @@
 /* stylelint-disable no-descending-specificity */
 .ins-c-page__landing-content {
   .level-wrapper {
-    flex-basis: 1160px; // set max width for desktop at 1450px total
     padding: var(--pf-global--spacer--xl) var(--pf-global--spacer--lg) 0 var(--pf-global--spacer--lg);
   }
   .break {
@@ -20,56 +19,146 @@
   .info {
     color: var(--pf-global--info-color--100);
   }
-
   .ins-c-footer__traditional{
     padding-top: var(--pf-global--spacer--sm);
   }
-  .first-level {
-    background-color: var(--pf-global--primary-color--200);
+
+  .first-panel {
     color: var(--pf-global--Color--light-100);
-    /**
-    * to keep the 6 columns on line
-    */
-    grid-template-columns: repeat(auto-fill, calc(100% / 6 - var(--pf-c-description-list--ColumnGap)));
-    @media (max-width: 992px) {
-      /**
-      * Have 3 columns
-      */
-      grid-template-columns: repeat(auto-fill, calc(100% / 3 - var(--pf-c-description-list--ColumnGap)));
-    }
-    @media (max-width: 576px) {
-      /**
-      * Only one column
-      */
-      grid-template-columns: repeat(auto-fill, calc(100% - var(--pf-c-description-list--ColumnGap)));
-      row-gap: 0;
-      .estate-group {
+    background: #000 url(https://raw.githubusercontent.com/RedHatInsights/frontend-assets/master/src/background-images/new-landing-page/black_back2.svg) ;
+    background-position: right;
+    background-repeat: no-repeat;
+    padding: var(--pf-global--spacer--xl) var(--pf-global--spacer--lg) var(--pf-global--spacer--lg) var(--pf-global--spacer--lg);
+    overflow: scroll;
+
+    @media only screen and (min-width: 1200px) {
+      background-size: 60%;
+      .pf-c-description-list {
         display: flex;
-        flex-wrap: wrap;
-        .estate-section {
-          padding-top: var(--pf-global--spacer--md);
-          padding-bottom: var(--pf-global--spacer--md);
-          &.is-empty {
-            display: none;
+        align-items: normal;
+        .estate-group {
+          width: 190px;
+          margin-right: var(--pf-global--spacer--md);
+          .estate-section {
+            .pf-c-description-list__text {
+              width: 140px;
+              p {
+                font-size: var(--pf-global--FontSize--md);
+                padding-bottom: var(--pf-global--spacer--md);
+                overflow: hidden;
+                text-overflow: ellipsis;
+                white-space: nowrap;
+                &::after {
+                  content: '\00a0';
+                }
+              } 
+            }
           }
-          font-size: var(--pf-global--FontSize--xl) !important;
-          width: 100%;
+          .estate-title {
+            .pf-c-description-list__text {
+              width: 140px;
+              p {
+                white-space: nowrap; 
+                overflow: hidden;
+                text-overflow: ellipsis;
+              }
+            }
+          }
         }
-        .estate-count {
-          font-size: var(--pf-global--FontSize--xl) !important;
-        }
-        .estate-title {
-          font-size: var(--pf-global--FontSize--sm) !important;
+      }
+    }
+
+    @media only screen and (max-width: 1199px) {
+      background-size: cover;
+      .pf-c-description-list {
+        grid-template-columns: repeat(calc(100% - var(--pf-c-description-list--ColumnGap)));
+        row-gap: 0;
+        .estate-group {
+          display: flex;
+          flex-wrap: wrap;
+          .estate-section {
+            .pf-c-description-list__text {
+              p {
+                font-size: var(--pf-global--FontSize--md);
+              }
+            }
+            &.is-empty {
+              display: none;
+            }
+            font-size: var(--pf-global--FontSize--xl) !important;
+            width: 100%;
+          }
+          .estate-count {
+            h5 {
+              font-size: var(--pf-global--FontSize--md) !important;
+              padding-right: var(--pf-global--spacer--sm);
+            }
+          }
+          .estate-title {
+            p {
+              font-size: var(--pf-global--FontSize--md) !important;
+            }
+          }
         }
       }
     }
   }
 
+  .second-panel {
+    background-color: var(--pf-global--BackgroundColor--100);
+    color: var(--pf-global--Color--100);
 
+    @media screen and (min-width: 1450px) {
+      .pf-l-grid {
+        max-width: 1160px;
+        // grid-template-columns: repeat(auto-fill, calc(100% / 3 - var(--pf-c-description-list--ColumnGap)));
+      }
+    }
 
-  .third-level {
+    h1 {
+      font-size: var(--pf-global--FontSize--xl);
+      padding-bottom: var(--pf-global--spacer--lg);
+    }
+
+    h5 {
+      font-size: var(--pf-global--FontSize--sm);
+      font-weight:  300;
+    }
+
+    .whole-row {
+      width: 100%;
+      grid-template-columns: 1fr fit-content(20%)
+    }
+
+    .whole-row:not(:last-child) {
+      margin-bottom: 16px;
+    }
+
+    .custom-grid {
+      display: grid;
+      grid-template-columns: 1fr fit-content(100%);
+    }
+
+    .group-icon {
+      max-width: 16px;
+    }
+
+    .recommendation-button {
+      width: 100%;
+      height: fit-content;
+    }
+  }
+
+  .third-panel {
     background-color: var(--pf-global--Color--light-200);
     color: var(--pf-global--Color--100);
+
+    @media screen and (min-width: 1450px) {
+      .pf-l-grid {
+        max-width: 1160px;
+      }
+    }
+
     .title-wrapper {
       @media screen and (min-width: 992px) and (max-width: 1449px){
         width: 100%;
@@ -93,30 +182,3 @@
   }
 }
 
-.second-panel {
-  background-color: var(--pf-global--BackgroundColor--100);
-  color: var(--pf-global--Color--100);
-
-  .whole-row {
-    width: 100%;
-    grid-template-columns: 1fr fit-content(20%)
-  }
-
-  .whole-row:not(:last-child) {
-    margin-bottom: 16px;
-  }
-
-  .custom-grid {
-    display: grid;
-    grid-template-columns: 1fr fit-content(100%);
-  }
-
-  .group-icon {
-    max-width: 16px;
-  }
-
-  .recommendation-button {
-    width: 100%;
-    height: fit-content;
-  }
-}

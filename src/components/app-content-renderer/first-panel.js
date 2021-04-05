@@ -33,9 +33,7 @@ const flattenSections = (estates) =>
         );
       }
       return result;
-    })
-    /** Limit to only 6 items */
-    .slice(0, 6);
+    });
 
 const FirstPanel = () => {
   const estate = useSelector(
@@ -43,9 +41,11 @@ const FirstPanel = () => {
     shallowEqual
   );
   return (
-    <DescriptionList isAutoFit className="first-level pf-u-p-lg">
-      <EstateRenderer sections={flattenSections(estate)} />
-    </DescriptionList>
+    <div className="first-panel">
+      <DescriptionList>
+        <EstateRenderer sections={flattenSections(estate)} />
+      </DescriptionList>
+    </div>
   );
 };
 
