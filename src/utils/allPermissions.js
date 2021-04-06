@@ -6,6 +6,10 @@ export const loadPermissions = async (retries = 5) => {
       const userPermissions = await window.insights.chrome.getUserPermissions();
       permissions = userPermissions?.map(({ permission }) => permission) || [];
     }
+
+    if (retries === 0) {
+      permissions = [];
+    }
   } catch {
     await loadPermissions(retries - 1);
   }

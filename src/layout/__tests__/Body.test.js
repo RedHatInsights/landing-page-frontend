@@ -1,15 +1,27 @@
 import React from 'react';
-import toJson from 'enzyme-to-json';
+import { act } from 'react-dom/test-utils';
+import { mount } from 'enzyme';
+
 import Body from '../Body';
 import { PermissionContext } from '../../App';
+import {
+  Card,
+  CardBody,
+  CardFooter,
+  CardHeader,
+  PageSection,
+} from '@patternfly/react-core';
 
 jest.mock('../../consts', () => {
   const insightsMarketing = require('../../components/marketing/insightsMarketing.svg')
     .default;
-  const Insights = require('../../components/Insights.svg').default;
 
   return {
     activeTechnologies: [
+      {
+        entitlement: 'test-disabled',
+        disabled: true,
+      },
       {
         entitlement: 'test',
         marketing: true,
@@ -23,7 +35,8 @@ jest.mock('../../consts', () => {
         apps: {
           rules: '/app-test',
         },
-        icon: Insights,
+        // eslint-disable-next-line react/display-name
+        icon: () => <span id="fake-icon">fake Icon</span>,
         title: 'Jest Test',
         emptyTitle: 'test',
         emptyText: 'test',
@@ -38,12 +51,63 @@ jest.mock('../../consts', () => {
 });
 
 describe('render Body component', () => {
-  it('should render correctly', () => {
-    const wrapper = shallow(
-      <PermissionContext.Provider value={{ isOrgAdmin: true }}>
-        <Body />
-      </PermissionContext.Provider>
+  let wrapper;
+
+  it('should render correctly when it is entitled', async () => {
+    fetch.mockResponseOnce(
+      JSON.stringify({
+        insights: { is_entitled: false },
+        openshift: { is_entitled: true },
+      })
     );
-    expect(toJson(wrapper)).toMatchSnapshot();
+
+    await act(async () => {
+      wrapper = mount(
+        <PermissionContext.Provider value={{ isOrgAdmin: true }}>
+          <Body />
+        </PermissionContext.Provider>
+      );
+    });
+    wrapper.update();
+
+    // filter disabled apps
+    expect(wrapper.find(Card)).toHaveLength(1);
+
+    expect(wrapper.find(PageSection).props()['needs-rbac-tour']).toEqual(
+      'false'
+    );
+
+    expect(wrapper.find(CardHeader).text()).toEqual('fake IconJest Test');
+    expect(wrapper.find(CardBody).text()).toEqual('testrules');
+    expect(wrapper.find(CardFooter).text()).toEqual(' Open ');
+  });
+
+  it('should render correctly when it is not entitled', async () => {
+    fetch.mockResponseOnce(
+      JSON.stringify({
+        insights: { is_entitled: true },
+        openshift: { is_entitled: true },
+      })
+    );
+
+    await act(async () => {
+      wrapper = mount(
+        <PermissionContext.Provider value={{ isOrgAdmin: true }}>
+          <Body />
+        </PermissionContext.Provider>
+      );
+    });
+    wrapper.update();
+
+    // filter disabled apps
+    expect(wrapper.find(Card)).toHaveLength(1);
+
+    expect(wrapper.find(PageSection).props()['needs-rbac-tour']).toEqual(
+      'true'
+    );
+
+    expect(wrapper.find(CardHeader).text()).toEqual('fake IconJest Test');
+    expect(wrapper.find(CardBody).text()).toEqual('testrules');
+    expect(wrapper.find(CardFooter).text()).toEqual(' Open ');
   });
 });
