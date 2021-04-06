@@ -39,5 +39,6 @@ global.window.insights = {
           })
         ),
     },
+    getUserPermissions: jest.fn(),
   },
 };
