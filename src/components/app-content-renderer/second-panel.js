@@ -10,9 +10,11 @@ const SecondPanel = () => {
   );
 
   return (
-    <Grid className="pf-u-p-lg pf-u-pt-xl pf-u-pb-xl second-panel" hasGutter>
-      {recommendationRenderer(recommendations)}
-    </Grid>
+    <div className="second-panel">
+      <Grid className="pf-u-p-lg pf-u-pt-xl pf-u-pb-xl" hasGutter>
+        {recommendationRenderer(recommendations)}
+      </Grid>
+    </div>
   );
 };
 
