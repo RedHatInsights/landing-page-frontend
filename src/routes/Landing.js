@@ -128,7 +128,7 @@ const Landing = () => {
               app-entitlement={notEntitled.emptyID}
               isOpen={isModalOpen}
               onClose={handleModalToggle}
-              aria-title={notEntitled.emptyTitle}
+              aria-label={notEntitled.emptyTitle}
               header={
                 <Title headingLevel="h2" size="2xl">
                   {notEntitled.emptyTitle}
