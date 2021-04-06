@@ -31,7 +31,7 @@
     padding: var(--pf-global--spacer--xl) var(--pf-global--spacer--lg) var(--pf-global--spacer--lg) var(--pf-global--spacer--lg);
     overflow-x: scroll;
 
-    @media only screen and (min-width: 1200px) {
+    @media only screen and (min-width: 769px) {
       background-size: 60%;
       .pf-c-description-list {
         display: flex;
@@ -68,7 +68,7 @@
       }
     }
 
-    @media only screen and (max-width: 1199px) {
+    @media only screen and (max-width: 768px) {
       background-size: cover;
       .pf-c-description-list {
         grid-template-columns: repeat(calc(100% - var(--pf-c-description-list--ColumnGap)));
@@ -112,31 +112,39 @@
   .second-panel {
     background-color: var(--pf-global--BackgroundColor--100);
     color: var(--pf-global--Color--100);
+    padding: var(--pf-global--spacer--xl) var(--pf-global--spacer--lg) var(--pf-global--spacer--lg) var(--pf-global--spacer--lg);
+   
+    .ins-c-recommendation__container {
+      max-width: 1100px;
+      column-count: 2;
+      column-gap: var(--pf-global--spacer--xl);
+      overflow: hidden; // prevents padding from spilling into next column
+      break-inside: avoid-column; // prevents padding from spilling into next column
+    }
 
-    @media screen and (min-width: 1450px) {
-      .pf-l-grid {
-        max-width: 1160px;
-        // grid-template-columns: repeat(auto-fill, calc(100% / 3 - var(--pf-c-description-list--ColumnGap)));
+    @media only screen and (max-width: 998px) {
+      .ins-c-recommendation__container {
+        column-count: 1;
       }
     }
 
-    h1 {
-      font-size: var(--pf-global--FontSize--xl);
-      padding-bottom: var(--pf-global--spacer--lg);
-    }
-
-    h5 {
+    p {
       font-size: var(--pf-global--FontSize--sm);
       font-weight:  300;
     }
 
+    .ins-c-no-icon {
+      font-size: var(--pf-global--FontSize--xs);
+    }
+
     .whole-row {
       width: 100%;
-      grid-template-columns: 1fr fit-content(20%)
+      grid-template-columns: 1fr fit-content(20%);
+      min-height: 38px;
     }
 
     .whole-row:not(:last-child) {
-      margin-bottom: 16px;
+      margin-bottom: var(--pf-global--spacer--sm)
     }
 
     .custom-grid {
@@ -145,8 +153,11 @@
     }
 
     .recommendation-button {
-      width: 100%;
-      height: fit-content;
+      width: 100px;
+      height: 30px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
     }
   }
 
