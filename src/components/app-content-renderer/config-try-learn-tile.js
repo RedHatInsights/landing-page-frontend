@@ -1,10 +1,6 @@
-import React, { useEffect, useState } from 'react';
+import React, { Fragment, useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import {
-  Flex,
-  FlexItem,
-  Grid,
-  GridItem,
   Split,
   SplitItem,
   Text,
@@ -19,6 +15,7 @@ import {
   ConnectedIcon,
   QuestionCircleIcon,
 } from '@patternfly/react-icons';
+import classNames from 'classnames';
 
 import IconInsights from '../icon-insights';
 import IconAnsible from '../icon-ansible';
@@ -51,8 +48,12 @@ const TileItem = ({
           <Text component="p" className="tile-text pf-u-mb-sm">
             {title}
           </Text>
-          {description && <Text component="small">{description}</Text>}
-          <Text component="p" className="tile-text">
+          {description && (
+            <Text className="pf-u-m-0" component="small">
+              {description}
+            </Text>
+          )}
+          <Text component="p" className="tile-text pf-u-mb-0">
             <a href={href}>
               {linkTitle}&nbsp;
               <ArrowRightIcon size="sm" />
@@ -80,7 +81,7 @@ TileItem.propTypes = {
   ),
 };
 
-const ConfigTryLearnTile = ({ title, items }) => {
+const ConfigTryLearnTile = ({ title, column, items }) => {
   const [tiles, setTiles] = useState([]);
 
   useEffect(async () => {
@@ -99,34 +100,34 @@ const ConfigTryLearnTile = ({ title, items }) => {
   }
 
   return (
-    <Flex direction={{ default: 'column', md: 'column', lg: 'row' }}>
-      <FlexItem className="pf-u-mb-0 title-wrapper">
-        <Title headingLevel="h4" size="xl" className="pf-u-pb-xl section-title">
+    <Fragment>
+      {title && (
+        <Title
+          style={{ gridRow: 1 }}
+          headingLevel="h4"
+          size="xl"
+          className={classNames(column, 'pf-u-pb-xl', 'section-title')}
+        >
           {title}
         </Title>
-      </FlexItem>
-      <FlexItem>
-        <Grid hasGutter>
-          {tiles.map((item) => (
-            <GridItem
-              md={6}
-              lg={6}
-              xl={12}
-              sm={12}
-              key={item.key || item.title}
-            >
-              <TileItem {...item} />
-            </GridItem>
-          ))}
-        </Grid>
-      </FlexItem>
-    </Flex>
+      )}
+      {tiles.map((item, index) => (
+        <div
+          className={column}
+          style={{ gridRow: index + 2 }}
+          key={item.key || item.title}
+        >
+          <TileItem {...item} />
+        </div>
+      ))}
+    </Fragment>
   );
 };
 
 ConfigTryLearnTile.propTypes = {
   title: PropTypes.string.isRequired,
   items: PropTypes.arrayOf(PropTypes.shape(TileItem.propTypes)),
+  column: PropTypes.string.isRequired,
 };
 
 ConfigTryLearnTile.defaultProps = {
