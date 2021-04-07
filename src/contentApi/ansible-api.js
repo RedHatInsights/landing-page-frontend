@@ -4,75 +4,90 @@ import approvalAdminPermissions from '../utils/approval-admin-permissions.json';
 const HUB_USER_CONFIGRE_TRY_LEARN = {
   configure: [
     {
-      icon: 'unknown',
-      title: 'Sync Red Hat certified collections',
-      description:
-        'Configure access to sync collections to Private Automation Hub',
-      link: {
-        title: 'Configure',
-        href: './ansible/automation-hub/token',
+      shape: {
+        icon: 'unknown',
+        title: 'Sync Red Hat certified collections',
+        description:
+          'Configure access to sync collections to Private Automation Hub',
+        link: {
+          title: 'Configure',
+          href: './ansible/automation-hub/token',
+        },
       },
     },
     {
-      icon: 'unknown',
-      title: 'Setup user access for your Private Automation Hub',
-      description:
-        'Manage user access to content and features in Private Automation Hub ',
-      link: {
-        title: 'Learn more',
-        href:
-          'https://access.redhat.com/documentation/en-us/red_hat_ansible_automation_platform/1.2/html/managing_user_access_in_private_automation_hub/index',
+      shape: {
+        icon: 'unknown',
+        title: 'Setup user access for your Private Automation Hub',
+        description:
+          'Manage user access to content and features in Private Automation Hub ',
+        link: {
+          title: 'Learn more',
+          href:
+            'https://access.redhat.com/documentation/en-us/red_hat_ansible_automation_platform/1.2/html/managing_user_access_in_private_automation_hub/index',
+        },
       },
     },
   ],
   try: [
     {
-      icon: 'unknown',
-      title: 'Install Private Automation Hub',
-      link: {
-        title: 'Get started',
-        href:
-          'https://access.redhat.com/documentation/en-us/red_hat_ansible_automation_platform/1.2/html/installing_and_upgrading_private_automation_hub/index',
+      shape: {
+        icon: 'unknown',
+        title: 'Install Private Automation Hub',
+        link: {
+          title: 'Get started',
+          href:
+            'https://access.redhat.com/documentation/en-us/red_hat_ansible_automation_platform/1.2/html/installing_and_upgrading_private_automation_hub/index',
+        },
       },
     },
     {
-      icon: 'unknown',
-      title: 'Manage repositories in Private Automation Hub',
-      description:
-        'Add community and privately developed collections to your Private Automation Hub',
-      link: {
-        title: 'Get started',
-        href:
-          'https://access.redhat.com/documentation/en-us/red_hat_ansible_automation_platform/1.2/html/publishing_proprietary_content_collections_in_automation_hub/index',
+      shape: {
+        icon: 'unknown',
+        title: 'Manage repositories in Private Automation Hub',
+        description:
+          'Add community and privately developed collections to your Private Automation Hub',
+        link: {
+          title: 'Get started',
+          href:
+            'https://access.redhat.com/documentation/en-us/red_hat_ansible_automation_platform/1.2/html/publishing_proprietary_content_collections_in_automation_hub/index',
+        },
       },
     },
   ],
   learn: [
     {
-      icon: 'unknown',
-      title: 'How to connect Automation Hub to your automation infrastructure',
-      link: {
-        title: 'Learn more',
-        href:
-          'https://docs.ansible.com/ansible-tower/latest/html/userguide/projects.html?extIdCarryOver=true&sc_cid=701f2000001Css5AAC#using-collections-in-tower',
+      shape: {
+        icon: 'unknown',
+        title:
+          'How to connect Automation Hub to your automation infrastructure',
+        link: {
+          title: 'Learn more',
+          href:
+            'https://docs.ansible.com/ansible-tower/latest/html/userguide/projects.html?extIdCarryOver=true&sc_cid=701f2000001Css5AAC#using-collections-in-tower',
+        },
       },
     },
     {
-      icon: 'unknown',
-      title: 'Learn about namespaces',
-      description: '',
-      link: {
-        title: 'Learn more',
-        href:
-          'https://access.redhat.com/documentation/en-us/red_hat_ansible_automation_platform/1.2/html/curating_collections_using_namespaces_in_automation_hub/index',
+      shape: {
+        icon: 'unknown',
+        title: 'Learn about namespaces',
+        description: '',
+        link: {
+          title: 'Learn more',
+          href:
+            'https://access.redhat.com/documentation/en-us/red_hat_ansible_automation_platform/1.2/html/curating_collections_using_namespaces_in_automation_hub/index',
+        },
       },
     },
     {
-      icon: 'unknown',
-      title: 'Explore Red Hat certified collections',
-      link: {
-        title: 'Explore',
-        href: 'https://www.ansible.com/partners',
+      shape: {
+        icon: 'unknown',
+        title: 'Explore Red Hat certified collections',
+        link: {
+          title: 'Explore',
+          href: 'https://www.ansible.com/partners',
+        },
       },
     },
   ],
@@ -81,51 +96,61 @@ const HUB_USER_CONFIGRE_TRY_LEARN = {
 const APP_USER_CONFIGRE_TRY_LEARN = {
   configure: [
     {
-      icon: 'unknown',
-      title: 'Connect your Ansible platform clusters to Analytics',
-      description: 'Send Analytics data to the cloud hosted services ',
-      link: {
-        title: 'Configure',
-        href:
-          'https://docs.ansible.com/ansible-tower/latest/html/administration/usability_data_collection.html',
+      shape: {
+        icon: 'unknown',
+        title: 'Connect your Ansible platform clusters to Analytics',
+        description: 'Send Analytics data to the cloud hosted services ',
+        link: {
+          title: 'Configure',
+          href:
+            'https://docs.ansible.com/ansible-tower/latest/html/administration/usability_data_collection.html',
+        },
       },
     },
     {
-      icon: 'unknown',
-      title: 'Setup user access',
-      key: 'setup-1',
-      link: {
-        title: 'Create',
-        href: './settings/rbac/users',
+      shape: {
+        icon: 'unknown',
+        title: 'Setup user access',
+        key: 'setup-1',
+        link: {
+          title: 'Create',
+          href: './settings/rbac/users',
+        },
       },
     },
   ],
   try: [
     {
-      icon: 'unknown',
-      title: 'Calculate your automation savings',
-      link: {
-        title: 'Calculate',
-        href: './ansible/automation-analytics/automation-calculator',
+      shape: {
+        icon: 'unknown',
+        title: 'Calculate your automation savings',
+        link: {
+          title: 'Calculate',
+          href: './ansible/automation-analytics/automation-calculator',
+        },
       },
     },
     {
-      icon: 'unknown',
-      title: 'Tour Job Explorer',
-      link: {
-        title: 'View',
-        href:
-          './ansible/automation-analytics/job-explorer?attributes[]=id&attributes[]=status&attributes[]=job_type&attributes[]=started&attributes[]=finished&attributes[]=elapsed&attributes[]=created&attributes[]=cluster_name&attributes[]=org_name&attributes[]=most_failed_tasks&limit=5',
+      shape: {
+        icon: 'unknown',
+        title: 'Tour Job Explorer',
+        link: {
+          title: 'View',
+          href:
+            './ansible/automation-analytics/job-explorer?attributes[]=id&attributes[]=status&attributes[]=job_type&attributes[]=started&attributes[]=finished&attributes[]=elapsed&attributes[]=created&attributes[]=cluster_name&attributes[]=org_name&attributes[]=most_failed_tasks&limit=5',
+        },
       },
     },
   ],
   learn: [
     {
-      icon: 'unknown',
-      title: 'Learn more about Automation Analytics',
-      link: {
-        title: 'Learn more',
-        href: './ansible/automation-analytics/automation-calculator',
+      shape: {
+        icon: 'unknown',
+        title: 'Learn more about Automation Analytics',
+        link: {
+          title: 'Learn more',
+          href: './ansible/automation-analytics/automation-calculator',
+        },
       },
     },
   ],
@@ -134,101 +159,114 @@ const APP_USER_CONFIGRE_TRY_LEARN = {
 const CATALOG_ADMIN_CONFIGURE_TRY_LEARN = {
   configure: [
     {
-      icon: 'unknown',
-      title: 'Configure Automation Services Catalog',
-      description: 'Connect platforms, share portfolios, and offer products',
+      shape: {
+        icon: 'unknown',
+        title: 'Configure Automation Services Catalog',
+        description: 'Connect platforms, share portfolios, and offer products',
+        link: {
+          href:
+            'https://access.redhat.com/documentation/en-us/red_hat_ansible_automation_platform/1.2/html/getting_started_with_automation_services_catalog/index',
+          title: 'Get started',
+        },
+      },
       permissions: [
         {
           method: 'hasPermissions',
           args: [catalogAdminPermissions],
         },
       ],
-      link: {
-        href:
-          'https://access.redhat.com/documentation/en-us/red_hat_ansible_automation_platform/1.2/html/getting_started_with_automation_services_catalog/index',
-        title: 'Get started',
-      },
     },
     {
-      icon: 'unknown',
-      title: 'Setup user access',
+      shape: {
+        icon: 'unknown',
+        title: 'Setup user access',
+        description: 'Create user groups for Automation Services Catalog',
+        link: {
+          href: './settings/rbac/groups',
+          title: 'Create',
+        },
+      },
       key: 'setup-2',
-      description: 'Create user groups for Automation Services Catalog',
       permissions: [
         {
           method: 'hasPermissions',
           args: [catalogAdminPermissions],
         },
       ],
-      link: {
-        href: './settings/rbac/groups',
-        title: 'Create',
-      },
     },
   ],
   try: [
     {
-      icon: 'unknown',
-      title: 'Create a new portfolio',
-      description: 'Add products and share with your group',
+      shape: {
+        icon: 'unknown',
+        title: 'Create a new portfolio',
+        description: 'Add products and share with your group',
+        link: {
+          href: './ansible/catalog/portfolios',
+          title: 'Get started',
+        },
+      },
       permissions: [
         {
           method: 'hasPermissions',
           args: [['catalog:portfolios:create']],
         },
       ],
-      link: {
-        href: './ansible/catalog/portfolios',
-        title: 'Get started',
-      },
     },
     {
-      icon: 'unknown',
-      title: 'Connect to your infrastructure',
+      shape: {
+        icon: 'unknown',
+        title: 'Connect to your infrastructure',
+        description:
+          'Source playbooks and workflow templates to use as products',
+        link: {
+          href: './#', // not in doc
+          title: 'Connect',
+        },
+      },
       permissions: [
         {
           method: 'isOrgAdmin',
         },
       ],
-      description: 'Source playbooks and workflow templates to use as products',
-      link: {
-        href: './#', // not in doc
-        title: 'Connect',
-      },
     },
   ],
   learn: [
     {
-      icon: 'unknown',
-      title: 'Govern access with Approval',
-      description:
-        'Restrict product orders and apply approval processes to portfolios and platforms',
+      shape: {
+        icon: 'unknown',
+        title: 'Govern access with Approval',
+        description:
+          'Restrict product orders and apply approval processes to portfolios and platforms',
+        link: {
+          href:
+            'https://access.redhat.com/documentation/en-us/red_hat_ansible_automation_platform/1.2/html/getting_started_with_automation_services_catalog/configuring_approval',
+          title: 'Learn more',
+        },
+      },
       permissions: [
         {
           method: 'hasPermissions',
           args: [approvalAdminPermissions],
         },
       ],
-      link: {
-        href:
-          'https://access.redhat.com/documentation/en-us/red_hat_ansible_automation_platform/1.2/html/getting_started_with_automation_services_catalog/configuring_approval',
-        title: 'Learn more',
-      },
     },
     {
-      icon: 'unknown',
-      title: 'Integrate Automation Services Catalog with your ITSM system',
+      shape: {
+        icon: 'unknown',
+        title: 'Integrate Automation Services Catalog with your ITSM system',
+        link: {
+          href:
+            'https://access.redhat.com/documentation/en-us/red_hat_ansible_automation_platform/1.2/html/integrating_automation_services_catalog_with_your_it_service_management_itsm_systems/index',
+          title: 'Learn more',
+        },
+      },
       permissions: [
         {
           method: 'hasPermissions',
           args: [catalogAdminPermissions],
         },
       ],
-      link: {
-        href:
-          'https://access.redhat.com/documentation/en-us/red_hat_ansible_automation_platform/1.2/html/integrating_automation_services_catalog_with_your_it_service_management_itsm_systems/index',
-        title: 'Learn more',
-      },
     },
   ],
 };

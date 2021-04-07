@@ -43,11 +43,7 @@ const FirstPanelTile = ({ id, ...tile }) => {
           {loaded ? (
             count
           ) : (
-            <Skeleton
-              size={SkeletonSize.md}
-              className="ins-m-dark"
-              screenreaderText="Loading data"
-            />
+            <Skeleton size={SkeletonSize.md} className="ins-m-dark" />
           )}
         </Title>
       </DescriptionListTerm>
@@ -55,11 +51,7 @@ const FirstPanelTile = ({ id, ...tile }) => {
         {loaded ? (
           <Text component="p">{title}</Text>
         ) : (
-          <Skeleton
-            size={SkeletonSize.lg}
-            className="ins-m-dark"
-            screenreaderText="Loading title"
-          />
+          <Skeleton size={SkeletonSize.lg} className="ins-m-dark" />
         )}
       </DescriptionListDescription>
     </DescriptionListGroup>

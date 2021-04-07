@@ -133,55 +133,85 @@ export const getCostDataSchema = () => {
       configure: [
         {
           // icon: 'connected',
-          // permissions: (entitlements && org admin) || cost permissions
-          title: 'Add public cloud sources to better track your finances',
-          description: 'Modify user access to applications.',
-          link: {
-            title: 'Connect',
-            href: sourcesURL,
+          // permissions: (entitlements) || cost permissions
+          shape: {
+            title: 'Add public cloud sources to better track your finances',
+            description: 'Modify user access to applications.',
+            link: {
+              title: 'Connect',
+              href: sourcesURL,
+            },
           },
+          permissions: [
+            {
+              method: 'isOrgAdmin',
+            },
+          ],
         },
       ],
       try: [
         {
           // icon: 'builderImage',
           // permissions: (entitlements && org admin) || cost permissions
-          title: 'Cost Management now has forecasting',
-          description:
-            'We can predict your spend on both OpenShift and public cloud costs.',
-          link: {
-            title: 'Get started',
-            href: '/cost-management',
+          shape: {
+            title: 'Cost Management now has forecasting',
+            description:
+              'We can predict your spend on both OpenShift and public cloud costs.',
+            link: {
+              title: 'Get started',
+              href: '/cost-management',
+            },
           },
+          permissions: [
+            {
+              method: 'isOrgAdmin',
+            },
+          ],
         },
         {
           // icon: 'builderImage',
           // permissions: (entitlements && org admin) || cost permissions
-          title: 'Cost Management supports Google Cloud Platform',
-          description:
-            'We can track your OpenShift cluster running on Google Cloud Platform spend.',
-          link: {
-            title: 'Get started',
-            href: `${sourcesURL}/new`,
+          shape: {
+            title: 'Cost Management supports Google Cloud Platform',
+            description:
+              'We can track your OpenShift cluster running on Google Cloud Platform spend.',
+            link: {
+              title: 'Get started',
+              href: `${sourcesURL}/new`,
+            },
           },
+          permissions: [
+            {
+              method: 'isOrgAdmin',
+            },
+          ],
         },
       ],
       learn: [
         {
           // icon: 'cloudSecurity',
-          title:
-            'Adding a source to cost management when it is not connected to the Internet',
-          link: {
-            title: 'Watch',
-            href: offlineSource,
+          shape: {
+            title:
+              'Adding a source to cost management when it is not connected to the Internet',
+            link: {
+              title: 'Watch',
+              href: offlineSource,
+            },
           },
+          permissions: [
+            {
+              method: 'isOrgAdmin',
+            },
+          ],
         },
         {
           // icon: 'cloudSecurity',
-          title: 'How to use the Cost Management API',
-          link: {
-            title: 'Read',
-            href: costManagementApiMedium,
+          shape: {
+            title: 'How to use the Cost Management API',
+            link: {
+              title: 'Read',
+              href: costManagementApiMedium,
+            },
           },
         },
       ],
