@@ -14,7 +14,6 @@ import {
   Button,
   Flex,
   FlexItem,
-  GridItem,
   Title,
   Text,
   TextContent,
@@ -23,7 +22,7 @@ import { useIntl } from 'react-intl';
 
 import useRequest from './use-request';
 
-const NoIcon = () => <span>No icon</span>;
+const NoIcon = () => <span className="ins-c-no-icon">No icon</span>;
 
 const groupIconMapper = {
   automation: ProcessAutomationIcon,
@@ -73,9 +72,7 @@ const RecommendationGroup = (recommendation) => {
         </FlexItem>
         <FlexItem>
           <TextContent>
-            {recommendation.title && (
-              <Text component="h5">{text(recommendation.title)}</Text>
-            )}
+            {recommendation.title && <Text>{text(recommendation.title)}</Text>}
             <Text>{text(recommendation.description)}</Text>
           </TextContent>
         </FlexItem>
@@ -125,7 +122,7 @@ RecommendationGroup.defaultProps = {
 
 const RecommendationSection = ({ groups, title }) => (
   <React.Fragment>
-    <Title headingLevel="h1" className="pf-u-mb-md">
+    <Title headingLevel="h3" className="pf-u-mb-md">
       {title}
     </Title>
     <div className="custom-grid">
@@ -145,15 +142,15 @@ RecommendationSection.defaultProps = {
   groups: [],
 };
 
-const RecommendationTile = ({ groups, sections, countOfReccomentations }) => (
-  <GridItem md={12} xl={countOfReccomentations > 2 ? 4 : 12} xs={12}>
+const RecommendationTile = ({ groups, sections }) => (
+  <span>
     {groups.map((group, index) => (
       <RecommendationGroup key={group.id || index} {...group} />
     ))}
     {sections.map((section, index) => (
       <RecommendationSection key={section.id || index} {...section} />
     ))}
-  </GridItem>
+  </span>
 );
 RecommendationTile.propTypes = {
   groups: PropTypes.arrayOf(PropTypes.shape(RecommendationGroup.propTypes)),
