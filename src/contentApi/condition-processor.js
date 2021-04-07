@@ -2,7 +2,7 @@ import get from 'lodash/get';
 
 const conditionProcessor = (data, condition) => {
   const value = get(data, condition.when);
-  if (condition.isNot) {
+  if (Object.prototype.hasOwnProperty.call(condition, 'isNot')) {
     return value !== condition.isNot;
   }
 
