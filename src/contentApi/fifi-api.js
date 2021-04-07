@@ -53,7 +53,7 @@ const FIFI_RECOMMENDATIONS = [
 const FIFI_LEARN = [
   {
     shape: {
-      icon: 'unknow',
+      icon: 'unknown',
       title: 'Red Hat Insights Data and Security Information',
       link: {
         title: 'Data and Security',
