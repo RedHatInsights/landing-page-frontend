@@ -40,8 +40,18 @@ const RECOMMENDATIONS_ITEMS = [
           },
           {
             id: 'rhel-2',
-            title:
-              'Insights has identified {count} incidents affecting your systems.',
+            url:
+              '/api/insights/v1/rule/?impacting=true&rule_status=enabled&sort=-publish_date&limit=10&offset=0&reports_shown=true&incident=true',
+            title: {
+              id: 'rhen-incidents-recommendation',
+              defaultMessage:
+                'Insights has identified {count} incidents affecting your systems.',
+            },
+            accessor: 'meta.count',
+            condition: {
+              when: 'count',
+              isNot: 0,
+            },
             action: {
               title: 'View incidents',
             },
@@ -179,23 +189,6 @@ const ESTATE_CONFIG = [
         accessor: 'total',
         url: '/api/inventory/v1/system_profile/sap_system',
       },
-      /*
-      {
-        // permissions: systems that are not registered to insights in your inventory
-        id: 'rhel-notconnected-systems',
-        shape: {
-          title: 'Systems not yet registered to Insights',
-          // href: `${inventoryLink}/?status=fresh&status=stale&source=insights&page=1&per_page=50#workloads=SAP&SIDs=&tags=`,
-        },
-        permissions: [
-          {
-            method: 'hasPermissions',
-            args: [['inventory:*:*']],
-          },
-        ],
-        // api: TBD,
-      },
-      */
     ],
   },
 ];
