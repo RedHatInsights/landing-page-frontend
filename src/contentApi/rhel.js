@@ -40,8 +40,7 @@ const RECOMMENDATIONS_ITEMS = [
           },
           {
             id: 'rhel-2',
-            url:
-              '/api/insights/v1/rule/?impacting=true&rule_status=enabled&sort=-publish_date&limit=10&offset=0&reports_shown=true&incident=true',
+            url: '/api/insights/v1/rule/?impacting=true&limit=1&incident=true',
             title: {
               id: 'rhen-incidents-recommendation',
               defaultMessage:

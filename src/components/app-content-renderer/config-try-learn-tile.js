@@ -20,9 +20,8 @@ import { Skeleton } from '@redhat-cloud-services/frontend-components/Skeleton';
 
 import IconInsights from '../icon-insights';
 import IconAnsible from '../icon-ansible';
-import processRequest, {
-  permissionProcessor,
-} from '../../contentApi/request-processor';
+import { permissionProcessor } from '../../contentApi/request-processor';
+import useRequest from './use-request';
 
 const iconMapper = {
   connected: ConnectedIcon,
@@ -34,18 +33,10 @@ const iconMapper = {
   unknown: QuestionCircleIcon,
 };
 
-const TileItem = ({ url, ...rest }) => {
-  const [
-    { icon, loaded, title, description, link: { href, title: linkTitle } = {} },
-    setData,
-  ] = useState({ loaded: !url, ...rest.shape });
-  useEffect(() => {
-    if (url) {
-      processRequest({ url, ...rest }).then((data) =>
-        setData({ loaded: true, ...data.response.shape })
-      );
-    }
-  }, []);
+const TileItem = (props) => {
+  const [{ response, loaded, ...rest }] = useRequest(props);
+  const { icon, title, description, link: { href, title: linkTitle } = {} } =
+    response || rest;
 
   const Icon = iconMapper[icon] || QuestionCircleIcon;
   return (
@@ -64,7 +55,9 @@ const TileItem = ({ url, ...rest }) => {
           )}
           {description ? (
             loaded ? (
-              <Text className="pf-u-m-0" component="small">{description}</Text>
+              <Text className="pf-u-m-0" component="small">
+                {description}
+              </Text>
             ) : (
               <Skeleton size="lg" />
             )

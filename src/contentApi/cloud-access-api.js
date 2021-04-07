@@ -3,21 +3,18 @@ const noSourcesProcessor = (response) => {
   if (count > 0) {
     return {
       ...response,
-      shape: {
-        icon: 'unknown',
-        title: 'Manage your Red Hat products in the cloud',
-        description:
-          'Connect to additional accounts or public cloud providers.',
-        link: {
-          href:
-            './settings/sources?sort_by[]=created_at:desc&limit=50&offset=0&activeVendor=Cloud',
-          title: 'Connect with Sources',
-        },
+      icon: 'unknown',
+      title: 'Manage your Red Hat products in the cloud',
+      description: 'Connect to additional accounts or public cloud providers.',
+      link: {
+        href:
+          './settings/sources?sort_by[]=created_at:desc&limit=50&offset=0&activeVendor=Cloud',
+        title: 'Connect with Sources',
       },
     };
   }
 
-  return response;
+  return undefined;
 };
 
 const CLOUD_ACCESS_CONFIGURE = [
@@ -26,6 +23,7 @@ const CLOUD_ACCESS_CONFIGURE = [
     url:
       '/api/sources/v3.0/sources?filter[source_type][vendor][eq][]=Amazon&filter[source_type][vendor][eq][]=Azure&filter[source_type][vendor][eq][]=Google',
     responseProcessor: noSourcesProcessor,
+    accessor: 'meta.count',
     shape: {
       icon: 'unknown',
       title: 'Connect to your public clouds',
