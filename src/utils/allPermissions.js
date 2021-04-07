@@ -17,3 +17,10 @@ export const loadPermissions = async (retries = 5) => {
 
 export const hasPermissions = (requestedPermissions = []) =>
   requestedPermissions.every((permission) => permissions.includes(permission));
+
+export const loosePermissions = (requestedPermissions = []) =>
+  requestedPermissions.length === 0
+    ? true
+    : requestedPermissions.some((permission) =>
+        permissions.includes(permission)
+      );

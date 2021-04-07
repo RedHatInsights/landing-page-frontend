@@ -1,12 +1,16 @@
 import { instance } from '@redhat-cloud-services/frontend-components-utilities/interceptors/interceptors';
 import get from 'lodash/get';
 
-import { hasPermissions as hasPermissionsEnhanced } from '../utils/allPermissions';
+import {
+  hasPermissions as hasPermissionsEnhanced,
+  loosePermissions as loosePermissionsEnhanced,
+} from '../utils/allPermissions';
 import conditionProcessor from './condition-processor';
 
 const enhancedFunctions = {
   ...window.insights.chrome.visibilityFunctions,
   hasPermissions: hasPermissionsEnhanced,
+  loosePermissions: loosePermissionsEnhanced,
 };
 
 const ALLOWED_API_METHODS = ['get', 'post'];
