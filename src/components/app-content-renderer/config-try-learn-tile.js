@@ -1,6 +1,8 @@
 import React, { Fragment, useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import {
+  Flex,
+  FlexItem,
   Split,
   SplitItem,
   Text,
@@ -9,47 +11,34 @@ import {
 } from '@patternfly/react-core';
 import {
   ArrowRightIcon,
-  BuilderImageIcon,
-  CloudSecurityIcon,
-  CloudTenantIcon,
-  ConnectedIcon,
-  QuestionCircleIcon,
+  CogsIcon,
+  PlayIcon,
+  LightbulbIcon,
 } from '@patternfly/react-icons';
 import classNames from 'classnames';
 import { Skeleton } from '@redhat-cloud-services/frontend-components/Skeleton';
-
-import IconInsights from '../icon-insights';
-import IconAnsible from '../icon-ansible';
 import { permissionProcessor } from '../../contentApi/request-processor';
 import useRequest from './use-request';
 
 const iconMapper = {
-  connected: ConnectedIcon,
-  insights: IconInsights,
-  builderImage: BuilderImageIcon,
-  couldTenant: CloudTenantIcon,
-  cloudSecurity: CloudSecurityIcon,
-  ansible: IconAnsible,
-  unknown: QuestionCircleIcon,
+  config: CogsIcon,
+  try: PlayIcon,
+  learn: LightbulbIcon,
 };
 
 const TileItem = (props) => {
   const [{ response, loaded, ...rest }] = useRequest(props);
-  const { icon, title, description, link: { href, title: linkTitle } = {} } =
+  const { title, description, link: { href, title: linkTitle } = {} } =
     response || rest;
 
-  const Icon = iconMapper[icon] || QuestionCircleIcon;
   return (
     <Split className="pf-u-mb-xl">
-      <SplitItem className="pf-u-mr-md icon-wrapper">
-        <Icon size="xl" className="tile-icon" />
-      </SplitItem>
       <SplitItem>
         <TextContent>
           {loaded ? (
-            <Text component="p" className="tile-text pf-u-mb-sm">
+            <Title headingLevel="h4" size="md" className="tile-text pf-u-mb-sm">
               {title}
-            </Text>
+            </Title>
           ) : (
             <Skeleton size="lg" />
           )}
@@ -76,7 +65,6 @@ const TileItem = (props) => {
 
 TileItem.propTypes = {
   shape: PropTypes.shape({
-    icon: PropTypes.oneOf(Object.keys(iconMapper)),
     title: PropTypes.string.isRequired,
     description: PropTypes.string,
     link: PropTypes.shape({
@@ -93,7 +81,7 @@ TileItem.propTypes = {
   ),
 };
 
-const ConfigTryLearnTile = ({ title, column, items }) => {
+const ConfigTryLearnTile = ({ title, column, items, sectionName }) => {
   const [tiles, setTiles] = useState([]);
 
   useEffect(async () => {
@@ -111,17 +99,30 @@ const ConfigTryLearnTile = ({ title, column, items }) => {
     return null;
   }
 
+  const Icon = iconMapper[sectionName];
+  console.log({ Icon, sectionName, iconMapper });
   return (
     <Fragment>
       {title && (
-        <Title
+        <Flex
+          alignItems={{ default: 'alignItemsFlexEnd' }}
+          className="pf-u-mb-lg"
           style={{ gridRow: 1 }}
-          headingLevel="h4"
-          size="xl"
-          className={classNames(column, 'pf-u-pb-xl', 'section-title')}
+          hasGutter
         >
-          {title}
-        </Title>
+          <FlexItem>
+            <Icon size="md" />
+          </FlexItem>
+          <FlexItem isFilled>
+            <Title
+              headingLevel="h4"
+              size="xl"
+              className={classNames(column, 'section-title')}
+            >
+              {title}
+            </Title>
+          </FlexItem>
+        </Flex>
       )}
       {tiles.map((item, index) => (
         <div
@@ -140,6 +141,7 @@ ConfigTryLearnTile.propTypes = {
   title: PropTypes.string.isRequired,
   items: PropTypes.arrayOf(PropTypes.shape(TileItem.propTypes)),
   column: PropTypes.string.isRequired,
+  sectionName: PropTypes.oneOf(['config', 'try', 'learn']).isRequired,
 };
 
 ConfigTryLearnTile.defaultProps = {
