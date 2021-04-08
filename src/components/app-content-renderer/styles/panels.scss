@@ -197,6 +197,9 @@
       background-color: var(--pf-global--palette--black-300);
       border: 10px solid var(--pf-global--palette--black-300);
     }
+    .pf-c-title.tile-text {
+      font-weight: bold;
+    }
     .tile-text {
       font-size: 14px;
     }

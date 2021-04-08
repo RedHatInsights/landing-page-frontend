@@ -8,6 +8,7 @@ const configTryLearnRenderer = (sections) => (
     {sections.map((section, index) => (
       <ConfigTryLearnTile
         key={section.id}
+        sectionName={columns[index]}
         column={`ins-c-grid__${columns[index]}`}
         {...section}
       />
