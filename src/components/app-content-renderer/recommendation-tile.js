@@ -1,15 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
-import {
-  CheckCircleIcon,
-  ExclamationCircleIcon,
-  ExclamationTriangleIcon,
-  InfoCircleIcon,
-  ProcessAutomationIcon,
-  QuestionCircleIcon,
-  SecurityIcon,
-} from '@patternfly/react-icons';
+import { QuestionCircleIcon } from '@patternfly/react-icons';
 import {
   Button,
   Flex,
@@ -21,17 +13,7 @@ import {
 import { useIntl } from 'react-intl';
 
 import useRequest from './use-request';
-
-const groupIconMapper = {
-  automation: ProcessAutomationIcon,
-  exclamationTriangle: ExclamationTriangleIcon,
-  exclamationCircle: ExclamationCircleIcon,
-  infoCircle: InfoCircleIcon,
-  checkCircle: CheckCircleIcon,
-  security: SecurityIcon,
-  unknown: QuestionCircleIcon,
-  default: QuestionCircleIcon,
-};
+import iconMapper from '../../utils/icon-mapper';
 
 const RecommendationGroup = (recommendation) => {
   const intl = useIntl();
@@ -42,7 +24,7 @@ const RecommendationGroup = (recommendation) => {
       ? intl.formatMessage(message, { count, response })
       : message;
 
-  const GroupIcon = groupIconMapper[recommendation.icon];
+  const GroupIcon = iconMapper[recommendation.icon] || QuestionCircleIcon;
 
   if (!show) {
     return null;
@@ -72,6 +54,7 @@ const RecommendationGroup = (recommendation) => {
                 warning: recommendation.state === 'warning',
                 info: recommendation.state === 'info',
                 green: recommendation.state === 'success',
+                gray: typeof recommendation.state === 'undefined',
               })}
             />
           </FlexItem>
@@ -101,7 +84,7 @@ const RecommendationGroup = (recommendation) => {
 
 RecommendationGroup.propTypes = {
   icon: PropTypes.string,
-  state: PropTypes.oneOf(['error', 'warning', 'info']),
+  state: PropTypes.oneOf(['error', 'warning', 'info', 'success']),
   description: PropTypes.oneOfType([
     PropTypes.string,
     PropTypes.shape({
@@ -143,17 +126,17 @@ RecommendationGroup.defaultProps = {
   method: 'get',
 };
 
-const RecommendationSection = ({ groups, title }) => (
-  <React.Fragment>
-    <Title headingLevel="h3" className="pf-u-mb-md">
-      {title}
-    </Title>
-
-    {groups.map((group, index) => (
-      <RecommendationGroup key={group.id || index} {...group} />
-    ))}
-  </React.Fragment>
-);
+const RecommendationSection = ({ groups, title }) =>
+  groups.length === 0 ? null : (
+    <React.Fragment>
+      <Title headingLevel="h3" className="pf-u-mb-md">
+        {title}
+      </Title>
+      {groups.map((group, index) => (
+        <RecommendationGroup key={group.id || index} {...group} />
+      ))}
+    </React.Fragment>
+  );
 
 RecommendationSection.propTypes = {
   title: PropTypes.string,

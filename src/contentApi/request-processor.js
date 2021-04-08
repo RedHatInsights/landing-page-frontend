@@ -15,7 +15,6 @@ const enhancedFunctions = {
     const isEntitled = await window.insights.chrome.visibilityFunctions.isEntitled(
       ...args
     );
-    console.log({ isEntitled });
     return !isEntitled;
   },
 };

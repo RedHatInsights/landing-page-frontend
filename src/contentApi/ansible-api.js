@@ -70,7 +70,7 @@ const HUB_USER_CONFIGRE_TRY_LEARN = {
     },
     {
       shape: {
-        icon: 'unknown',
+        icon: 'history',
         title: 'Learn about namespaces',
         description: '',
         link: {
@@ -505,7 +505,8 @@ export const RECOMMENDATIONS_ITEMS = [
           {
             id: 'approvals',
             description: `Approvals`,
-            icon: 'unknown',
+            icon: 'list',
+            state: 'info',
             permissions: [
               {
                 method: 'hasPermissions',

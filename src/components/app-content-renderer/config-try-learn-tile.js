@@ -16,9 +16,9 @@ import {
   LightbulbIcon,
 } from '@patternfly/react-icons';
 import classNames from 'classnames';
+import useRequest from './use-request';
 import { Skeleton } from '@redhat-cloud-services/frontend-components/Skeleton';
 import { permissionProcessor } from '../../contentApi/request-processor';
-import useRequest from './use-request';
 
 const iconMapper = {
   config: CogsIcon,

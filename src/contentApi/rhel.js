@@ -23,21 +23,28 @@ const RECOMMENDATIONS_ITEMS = [
       {
         title: 'RHEL recommendations',
         groups: [
-          // {
-          //   id: 'rhel-1',
-          //   title:
-          //     '{count} systems are not yet registered to Insights <In progress>',
-          //   action: {
-          //     title: 'Register systems',
-          //     href: registerLink,
-          //   },
-          //   permissions: [
-          //     {
-          //       method: 'hasPermissions',
-          //       args: [['inventory:*:*']],
-          //     },
-          //   ],
-          // },
+          {
+            id: 'rhel-2',
+            icon: 'error',
+            state: 'error',
+            url: '/api/insights/v1/rule/?impacting=true&limit=1&incident=true',
+            title: {
+              id: 'rhel-incidents-recommendation',
+              defaultMessage:
+                'Insights has identified {count} incidents affecting your systems.',
+            },
+            accessor: 'meta.count',
+            condition: {
+              when: 'count',
+              isNot: 0,
+            },
+            permissions: [
+              {
+                method: 'hasPermissions',
+                args: [['inventory:*:*']],
+              },
+            ],
+          },
           {
             id: 'rhel-2',
             url: '/api/insights/v1/rule/?impacting=true&limit=1&incident=true',
@@ -76,6 +83,7 @@ const RECOMMENDATIONS_ITEMS = [
           // },
           {
             id: 'rhel-5',
+            icon: 'cog',
             title:
               'Create a remediation playbook to fix issues identified by Insights on your systems',
             action: {
@@ -91,6 +99,8 @@ const RECOMMENDATIONS_ITEMS = [
           },
           {
             url: '/api/inventory/v1/hosts',
+            icon: 'play',
+            state: 'success',
             condition: { when: 'total', is: 0 },
             id: 'rhel-6',
             title: 'Get Insights for your systems',
