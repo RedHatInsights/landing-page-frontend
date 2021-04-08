@@ -29,26 +29,6 @@ const RECOMMENDATIONS_ITEMS = [
             state: 'error',
             url: '/api/insights/v1/rule/?impacting=true&limit=1&incident=true',
             title: {
-              id: 'rhel-incidents-recommendation',
-              defaultMessage:
-                'Insights has identified {count} incidents affecting your systems.',
-            },
-            accessor: 'meta.count',
-            condition: {
-              when: 'count',
-              isNot: 0,
-            },
-            permissions: [
-              {
-                method: 'hasPermissions',
-                args: [['inventory:*:*']],
-              },
-            ],
-          },
-          {
-            id: 'rhel-2',
-            url: '/api/insights/v1/rule/?impacting=true&limit=1&incident=true',
-            title: {
               id: 'rhen-incidents-recommendation',
               defaultMessage:
                 'Insights has identified {count} incidents affecting your systems.',

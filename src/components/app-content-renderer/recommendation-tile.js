@@ -1,5 +1,5 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import React, { useEffect } from 'react';
+import PropTypes, { string } from 'prop-types';
 import classnames from 'classnames';
 import { QuestionCircleIcon } from '@patternfly/react-icons';
 import {
@@ -14,11 +14,21 @@ import { useIntl } from 'react-intl';
 
 import useRequest from './use-request';
 import iconMapper from '../../utils/icon-mapper';
+import { useDispatch } from 'react-redux';
+import { removeRecommendationTile } from '../../store/actions';
 
 const RecommendationGroup = (recommendation) => {
   const intl = useIntl();
+  const dispatch = useDispatch();
   const [{ count, response, show }] = useRequest(recommendation);
 
+  useEffect(() => {
+    if (show === false) {
+      dispatch(
+        removeRecommendationTile(recommendation.id, recommendation.recId)
+      );
+    }
+  }, [show]);
   const text = (message) =>
     typeof message === 'object'
       ? intl.formatMessage(message, { count, response })
@@ -85,6 +95,7 @@ const RecommendationGroup = (recommendation) => {
 RecommendationGroup.propTypes = {
   icon: PropTypes.string,
   state: PropTypes.oneOf(['error', 'warning', 'info', 'success']),
+  recId: PropTypes.string,
   description: PropTypes.oneOfType([
     PropTypes.string,
     PropTypes.shape({
@@ -126,14 +137,14 @@ RecommendationGroup.defaultProps = {
   method: 'get',
 };
 
-const RecommendationSection = ({ groups, title }) =>
+const RecommendationSection = ({ groups, title, recId }) =>
   groups.length === 0 ? null : (
     <React.Fragment>
       <Title headingLevel="h3" className="pf-u-mb-md">
         {title}
       </Title>
       {groups.map((group, index) => (
-        <RecommendationGroup key={group.id || index} {...group} />
+        <RecommendationGroup recId={recId} key={group.id || index} {...group} />
       ))}
     </React.Fragment>
   );
@@ -141,19 +152,24 @@ const RecommendationSection = ({ groups, title }) =>
 RecommendationSection.propTypes = {
   title: PropTypes.string,
   groups: PropTypes.arrayOf(PropTypes.shape(RecommendationGroup.propTypes)),
+  recId: PropTypes.string,
 };
 
 RecommendationSection.defaultProps = {
   groups: [],
 };
 
-const RecommendationTile = ({ groups, sections }) => (
+const RecommendationTile = ({ groups, sections, id }) => (
   <span>
     {groups.map((group, index) => (
-      <RecommendationGroup key={group.id || index} {...group} />
+      <RecommendationGroup recId={id} key={group.id || index} {...group} />
     ))}
     {sections.map((section, index) => (
-      <RecommendationSection key={section.id || index} {...section} />
+      <RecommendationSection
+        recId={id}
+        key={section.id || index}
+        {...section}
+      />
     ))}
   </span>
 );
@@ -161,6 +177,7 @@ RecommendationTile.propTypes = {
   groups: PropTypes.arrayOf(PropTypes.shape(RecommendationGroup.propTypes)),
   sections: PropTypes.arrayOf(PropTypes.shape(RecommendationSection.propTypes)),
   countOfReccomentations: PropTypes.number.isRequired,
+  id: string.isRequired,
 };
 
 RecommendationTile.defaultProps = {
