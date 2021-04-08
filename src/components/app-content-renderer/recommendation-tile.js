@@ -22,8 +22,6 @@ import { useIntl } from 'react-intl';
 
 import useRequest from './use-request';
 
-const NoIcon = () => <span className="ins-c-no-icon">No icon</span>;
-
 const groupIconMapper = {
   automation: ProcessAutomationIcon,
   exclamationTriangle: ExclamationTriangleIcon,
@@ -32,7 +30,7 @@ const groupIconMapper = {
   checkCircle: CheckCircleIcon,
   security: SecurityIcon,
   unknown: QuestionCircleIcon,
-  default: NoIcon,
+  default: QuestionCircleIcon,
 };
 
 const RecommendationGroup = (recommendation) => {
@@ -44,7 +42,7 @@ const RecommendationGroup = (recommendation) => {
       ? intl.formatMessage(message, { count, response })
       : message;
 
-  const GroupIcon = groupIconMapper[recommendation.icon] || NoIcon;
+  const GroupIcon = groupIconMapper[recommendation.icon];
 
   if (!show) {
     return null;
@@ -72,14 +70,13 @@ const RecommendationGroup = (recommendation) => {
         </FlexItem>
         <FlexItem
           grow={{ default: 'grow' }}
-          className="recommendation-description"
         >
           <TextContent>
             {recommendation.title && <Text>{text(recommendation.title)}</Text>}
             <Text>{text(recommendation.description)}</Text>
           </TextContent>
         </FlexItem>
-        <FlexItem className="recommendation-button">
+        <FlexItem>
           <Button
             component="a"
             href={recommendation.action.href}
@@ -97,13 +94,27 @@ const RecommendationGroup = (recommendation) => {
 RecommendationGroup.propTypes = {
   icon: PropTypes.string,
   state: PropTypes.oneOf(['error', 'warning', 'info']),
-  description: PropTypes.string,
+  description: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.shape({
+      id: PropTypes.string.isRequired,
+      description: PropTypes.string,
+      defaultMessage: PropTypes.string.isRequired,
+    }),
+  ]),
   action: PropTypes.shape({
     href: PropTypes.string,
     title: PropTypes.string,
   }).isRequired,
   component: PropTypes.string,
-  title: PropTypes.string,
+  title: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.shape({
+      id: PropTypes.string.isRequired,
+      description: PropTypes.string,
+      defaultMessage: PropTypes.string.isRequired,
+    }),
+  ]),
   permissions: PropTypes.arrayOf(
     PropTypes.shape({
       method: PropTypes.string.isRequired,

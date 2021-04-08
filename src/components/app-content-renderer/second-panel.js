@@ -9,7 +9,7 @@ const SecondPanel = () => {
   );
 
   return (
-    <div className="second-panel">
+    <div className="ins-c-second-panel">
       <div className="ins-c-recommendation__container">
         {recommendationRenderer(recommendations)}
       </div>
