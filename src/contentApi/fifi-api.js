@@ -1,10 +1,10 @@
 const FIFI_RECOMMENDATIONS = [
   {
-    title: 'FIFI recommendations',
+    title: 'Remediate with Ansible',
     id: 'fifirecommendations',
     sections: [
       {
-        title: 'Advsior Reccomendations / Remediate with Ansible',
+        title: 'Advsior Reccomendations',
         id: 'fifi',
         groups: [
           {
@@ -19,7 +19,7 @@ const FIFI_RECOMMENDATIONS = [
         ],
       },
       {
-        title: 'Compliance Reccomendations / Remediate with Ansible',
+        title: 'Compliance Reccomendations',
         groups: [
           {
             id: 'fifi-2',
@@ -33,7 +33,7 @@ const FIFI_RECOMMENDATIONS = [
         ],
       },
       {
-        title: 'Vulnerability Reccomendations / Remediate with Ansible',
+        title: 'Vulnerability Reccomendations',
         groups: [
           {
             id: 'fifi-3',
@@ -63,12 +63,49 @@ const FIFI_LEARN = [
   },
 ];
 
+const FIFI_TRY = [
+  {
+    shape: {
+      icon: 'unknown',
+      title: 'Sign up for a Smart Managment 30 day Evaluation',
+      link: {
+        title: 'Get Started',
+        href:
+          'https://www.redhat.com/en/technologies/linux-platforms/enterprise-linux',
+      },
+    },
+    permissions: [
+      {
+        method: 'isNotEntitled',
+        args: ['smart_management'],
+      },
+    ],
+  },
+  {
+    shape: {
+      icon: 'unknown',
+      title: 'Integrate Insights with Satellite 6.7+',
+      link: {
+        title: 'Learn More',
+        href:
+          'https://www.redhat.com/en/about/videos/setup-and-use-cloud-connector-integrate-insights-satellite',
+      },
+    },
+    permissions: [
+      {
+        method: 'isEntitled',
+        args: ['smart_management'],
+      },
+    ],
+  },
+];
+
 export const getFifiDataSchema = () => ({
   firstPanel: [],
   secondPanel: FIFI_RECOMMENDATIONS,
   configTryLearn: {
     configure: [],
-    try: [],
+    try: FIFI_TRY,
     learn: FIFI_LEARN,
   },
 });

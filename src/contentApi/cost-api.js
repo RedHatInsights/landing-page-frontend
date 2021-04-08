@@ -133,7 +133,6 @@ export const getCostDataSchema = () => {
       configure: [
         {
           // icon: 'connected',
-          // permissions: (entitlements) || cost permissions
           shape: {
             title: 'Add public cloud sources to better track your finances',
             description: 'Modify user access to applications.',
@@ -144,7 +143,8 @@ export const getCostDataSchema = () => {
           },
           permissions: [
             {
-              method: 'isOrgAdmin',
+              method: 'isEntitled',
+              args: ['cost_management'],
             },
           ],
         },
@@ -152,7 +152,6 @@ export const getCostDataSchema = () => {
       try: [
         {
           // icon: 'builderImage',
-          // permissions: (entitlements && org admin) || cost permissions
           shape: {
             title: 'Cost Management now has forecasting',
             description:
@@ -164,13 +163,13 @@ export const getCostDataSchema = () => {
           },
           permissions: [
             {
-              method: 'isOrgAdmin',
+              method: 'isEntitled',
+              args: ['cost_management'],
             },
           ],
         },
         {
           // icon: 'builderImage',
-          // permissions: (entitlements && org admin) || cost permissions
           shape: {
             title: 'Cost Management supports Google Cloud Platform',
             description:
@@ -182,7 +181,8 @@ export const getCostDataSchema = () => {
           },
           permissions: [
             {
-              method: 'isOrgAdmin',
+              method: 'isEntitled',
+              args: ['cost_management'],
             },
           ],
         },

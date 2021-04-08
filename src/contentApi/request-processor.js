@@ -11,6 +11,13 @@ const enhancedFunctions = {
   ...window.insights.chrome.visibilityFunctions,
   hasPermissions: hasPermissionsEnhanced,
   loosePermissions: loosePermissionsEnhanced,
+  isNotEntitled: async (...args) => {
+    const isEntitled = await window.insights.chrome.visibilityFunctions.isEntitled(
+      ...args
+    );
+    console.log({ isEntitled });
+    return !isEntitled;
+  },
 };
 
 const ALLOWED_API_METHODS = ['get', 'post'];

@@ -462,7 +462,12 @@ export const RECOMMENDATIONS_ITEMS = [
         groups: [
           {
             id: 'products',
-            description: `Last added products (5)`,
+            description: {
+              id: 'last-added-products',
+              defaultMessage: 'Last added products ({count})',
+            },
+            url: '/api/catalog/v1/portfolio_items?limit=5',
+            accessor: 'data.length',
             icon: 'unknown',
             permissions: [
               {
@@ -478,7 +483,12 @@ export const RECOMMENDATIONS_ITEMS = [
           },
           {
             id: 'orders',
-            description: `Last orders (5)`,
+            description: {
+              id: 'last-added-orders',
+              defaultMessage: 'Last orders ({count})',
+            },
+            url: '/api/catalog/v1/orders?limit=5',
+            accessor: 'data.length',
             icon: 'unknown',
             permissions: [
               {

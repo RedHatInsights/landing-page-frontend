@@ -11,7 +11,7 @@ const inventoryLink = `${prefix}insights/inventory`;
 
 const registerLink = `${prefix}insights/registration`;
 
-const complianceReports = `${prefix}compliance/reports`;
+// const complianceReports = `${prefix}compliance/reports`;
 
 const remediations = `${prefix}insights/remediations`;
 
@@ -23,21 +23,21 @@ const RECOMMENDATIONS_ITEMS = [
       {
         title: 'RHEL recommendations',
         groups: [
-          {
-            id: 'rhel-1',
-            title:
-              '{count} systems are not yet registered to Insights <In progress>',
-            action: {
-              title: 'Register systems',
-              href: registerLink,
-            },
-            permissions: [
-              {
-                method: 'hasPermissions',
-                args: [['inventory:*:*']],
-              },
-            ],
-          },
+          // {
+          //   id: 'rhel-1',
+          //   title:
+          //     '{count} systems are not yet registered to Insights <In progress>',
+          //   action: {
+          //     title: 'Register systems',
+          //     href: registerLink,
+          //   },
+          //   permissions: [
+          //     {
+          //       method: 'hasPermissions',
+          //       args: [['inventory:*:*']],
+          //     },
+          //   ],
+          // },
           {
             id: 'rhel-2',
             url: '/api/insights/v1/rule/?impacting=true&limit=1&incident=true',
@@ -61,34 +61,19 @@ const RECOMMENDATIONS_ITEMS = [
               },
             ],
           },
-          {
-            id: 'rhel-3',
-            title: 'Newly released security rule: [Security rule name]',
-            action: {
-              title: 'View rule',
-            },
-            permissions: [
-              {
-                method: 'hasPermissions',
-                args: [['vulnerability:*:*']],
-              },
-            ],
-          },
-          {
-            id: 'rhel-4',
-            title:
-              '[count]% of systems for policy [Policy name] do not meet compliance.',
-            action: {
-              title: 'View report',
-              href: complianceReports,
-            },
-            permissions: [
-              {
-                method: 'hasPermissions',
-                args: [['compliance:*:*']],
-              },
-            ],
-          },
+          // {
+          //   id: 'rhel-3',
+          //   title: 'Newly released security rule: [Security rule name]',
+          //   action: {
+          //     title: 'View rule',
+          //   },
+          //   permissions: [
+          //     {
+          //       method: 'hasPermissions',
+          //       args: [['vulnerability:*:*']],
+          //     },
+          //   ],
+          // },
           {
             id: 'rhel-5',
             title:
