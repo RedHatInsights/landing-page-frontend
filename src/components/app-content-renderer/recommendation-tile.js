@@ -59,8 +59,8 @@ const RecommendationGroup = (recommendation) => {
   }
   return (
     <React.Fragment>
-      <Flex flexWrap={{ default: 'nowrap' }} className="whole-row">
-        <FlexItem>
+      <Flex direction={{ default: 'row' }} className="recommendation-group">
+        <FlexItem className="recommendation-icon">
           <GroupIcon
             className={classnames({
               error: recommendation.state === 'error',
@@ -70,22 +70,26 @@ const RecommendationGroup = (recommendation) => {
             })}
           />
         </FlexItem>
-        <FlexItem>
+        <FlexItem
+          grow={{ default: 'grow' }}
+          className="recommendation-description"
+        >
           <TextContent>
             {recommendation.title && <Text>{text(recommendation.title)}</Text>}
             <Text>{text(recommendation.description)}</Text>
           </TextContent>
         </FlexItem>
+        <FlexItem className="recommendation-button">
+          <Button
+            component="a"
+            href={recommendation.action.href}
+            variant="secondary"
+            isSmall
+          >
+            {text(recommendation.action.title)}
+          </Button>
+        </FlexItem>
       </Flex>
-      <Button
-        component="a"
-        className="recommendation-button"
-        href={recommendation.action.href}
-        variant="secondary"
-        isSmall
-      >
-        {text(recommendation.action.title)}
-      </Button>
     </React.Fragment>
   );
 };
@@ -125,11 +129,10 @@ const RecommendationSection = ({ groups, title }) => (
     <Title headingLevel="h3" className="pf-u-mb-md">
       {title}
     </Title>
-    <div className="custom-grid">
-      {groups.map((group, index) => (
-        <RecommendationGroup key={group.id || index} {...group} />
-      ))}
-    </div>
+
+    {groups.map((group, index) => (
+      <RecommendationGroup key={group.id || index} {...group} />
+    ))}
   </React.Fragment>
 );
 

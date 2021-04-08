@@ -120,6 +120,29 @@
       column-gap: var(--pf-global--spacer--xl);
       overflow: hidden; // prevents padding from spilling into next column
       break-inside: avoid-column; // prevents padding from spilling into next column
+
+      .recommendation-group {
+        flex-wrap: nowrap;
+        margin-bottom: var(--pf-global--spacer--xs);
+        width: 100%;
+        .recommendation-icon {
+          .ins-c-no-icon {
+            font-size: 8px;
+            white-space: nowrap;
+          }
+        }
+        .recommendation-description {
+          p {
+            font-size: var(--pf-global--FontSize--sm);
+            font-weight:  300;
+          }
+        }
+        .recommendation-button {
+          a {
+            width: 100px;
+          }
+        }
+      }
     }
 
     @media only screen and (max-width: 998px) {
@@ -128,37 +151,6 @@
       }
     }
 
-    p {
-      font-size: var(--pf-global--FontSize--sm);
-      font-weight:  300;
-    }
-
-    .ins-c-no-icon {
-      font-size: var(--pf-global--FontSize--xs);
-    }
-
-    .whole-row {
-      width: 100%;
-      grid-template-columns: 1fr fit-content(20%);
-      min-height: 38px;
-    }
-
-    .whole-row:not(:last-child) {
-      margin-bottom: var(--pf-global--spacer--sm)
-    }
-
-    .custom-grid {
-      display: grid;
-      grid-template-columns: 1fr fit-content(100%);
-    }
-
-    .recommendation-button {
-      width: 100px;
-      height: 30px;
-      overflow: hidden;
-      text-overflow: ellipsis;
-      white-space: nowrap;
-    }
   }
 
   .ins-c-third--panel {
