@@ -4,7 +4,7 @@ const FIFI_RECOMMENDATIONS = [
     id: 'fifirecommendations',
     sections: [
       {
-        title: 'Advsior Reccomendations',
+        title: 'Advisor recommendations',
         id: 'fifi',
         groups: [
           {
@@ -19,7 +19,7 @@ const FIFI_RECOMMENDATIONS = [
         ],
       },
       {
-        title: 'Compliance Reccomendations',
+        title: 'Compliance recommendations',
         groups: [
           {
             id: 'fifi-2',
@@ -33,7 +33,7 @@ const FIFI_RECOMMENDATIONS = [
         ],
       },
       {
-        title: 'Vulnerability Reccomendations',
+        title: 'Vulnerability recommendations',
         groups: [
           {
             id: 'fifi-3',

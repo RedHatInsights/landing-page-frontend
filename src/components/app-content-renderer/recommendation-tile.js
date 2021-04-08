@@ -55,37 +55,45 @@ const RecommendationGroup = (recommendation) => {
       </Title>
     );
   }
+
   return (
     <React.Fragment>
-      <Flex direction={{ default: 'row' }} className="recommendation-group">
-        <FlexItem className="recommendation-icon">
-          <GroupIcon
-            className={classnames({
-              error: recommendation.state === 'error',
-              warning: recommendation.state === 'warning',
-              info: recommendation.state === 'info',
-              green: recommendation.state === 'success',
-            })}
-          />
-        </FlexItem>
-        <FlexItem
-          grow={{ default: 'grow' }}
-        >
-          <TextContent>
-            {recommendation.title && <Text>{text(recommendation.title)}</Text>}
-            <Text>{text(recommendation.description)}</Text>
-          </TextContent>
-        </FlexItem>
-        <FlexItem>
-          <Button
-            component="a"
-            href={recommendation.action.href}
-            variant="secondary"
-            isSmall
-          >
-            {text(recommendation.action.title)}
-          </Button>
-        </FlexItem>
+      <Flex direction={{ default: 'column' }} className="recommendation-test">
+        <Flex>
+          <Title headingLevel="h3" className="pf-u-mb-md">
+            Section title here
+          </Title>
+        </Flex>
+        <Flex direction={{ default: 'row' }} className="recommendation-group">
+          <FlexItem className="recommendation-icon">
+            <GroupIcon
+              className={classnames({
+                error: recommendation.state === 'error',
+                warning: recommendation.state === 'warning',
+                info: recommendation.state === 'info',
+                green: recommendation.state === 'success',
+              })}
+            />
+          </FlexItem>
+          <FlexItem grow={{ default: 'grow' }}>
+            <TextContent>
+              {recommendation.title && (
+                <Text>{text(recommendation.title)}</Text>
+              )}
+              <Text>{text(recommendation.description)}</Text>
+            </TextContent>
+          </FlexItem>
+          <FlexItem>
+            <Button
+              component="a"
+              href={recommendation.action.href}
+              variant="secondary"
+              isSmall
+            >
+              {text(recommendation.action.title)}
+            </Button>
+          </FlexItem>
+        </Flex>
       </Flex>
     </React.Fragment>
   );
