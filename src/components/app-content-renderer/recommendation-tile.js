@@ -93,13 +93,27 @@ const RecommendationGroup = (recommendation) => {
 RecommendationGroup.propTypes = {
   icon: PropTypes.string,
   state: PropTypes.oneOf(['error', 'warning', 'info']),
-  description: PropTypes.string,
+  description: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.shape({
+      id: PropTypes.string.isRequired,
+      description: PropTypes.string,
+      defaultMessage: PropTypes.string.isRequired,
+    }),
+  ]),
   action: PropTypes.shape({
     href: PropTypes.string,
     title: PropTypes.string,
   }).isRequired,
   component: PropTypes.string,
-  title: PropTypes.string,
+  title: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.shape({
+      id: PropTypes.string.isRequired,
+      description: PropTypes.string,
+      defaultMessage: PropTypes.string.isRequired,
+    }),
+  ]),
   permissions: PropTypes.arrayOf(
     PropTypes.shape({
       method: PropTypes.string.isRequired,

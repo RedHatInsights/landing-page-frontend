@@ -11,7 +11,7 @@ const inventoryLink = `${prefix}insights/inventory`;
 
 const registerLink = `${prefix}insights/registration`;
 
-const complianceReports = `${prefix}compliance/reports`;
+// const complianceReports = `${prefix}compliance/reports`;
 
 const remediations = `${prefix}insights/remediations`;
 
@@ -23,25 +23,34 @@ const RECOMMENDATIONS_ITEMS = [
       {
         title: 'RHEL recommendations',
         groups: [
-          {
-            id: 'rhel-1',
-            title:
-              '{count} systems are not yet registered to Insights <In progress>',
-            action: {
-              title: 'Register systems',
-              href: registerLink,
-            },
-            permissions: [
-              {
-                method: 'hasPermissions',
-                args: [['inventory:*:*']],
-              },
-            ],
-          },
+          // {
+          //   id: 'rhel-1',
+          //   title:
+          //     '{count} systems are not yet registered to Insights <In progress>',
+          //   action: {
+          //     title: 'Register systems',
+          //     href: registerLink,
+          //   },
+          //   permissions: [
+          //     {
+          //       method: 'hasPermissions',
+          //       args: [['inventory:*:*']],
+          //     },
+          //   ],
+          // },
           {
             id: 'rhel-2',
-            title:
-              'Insights has identified {count} incidents affecting your systems.',
+            url: '/api/insights/v1/rule/?impacting=true&limit=1&incident=true',
+            title: {
+              id: 'rhen-incidents-recommendation',
+              defaultMessage:
+                'Insights has identified {count} incidents affecting your systems.',
+            },
+            accessor: 'meta.count',
+            condition: {
+              when: 'count',
+              isNot: 0,
+            },
             action: {
               title: 'View incidents',
             },
@@ -52,34 +61,19 @@ const RECOMMENDATIONS_ITEMS = [
               },
             ],
           },
-          {
-            id: 'rhel-3',
-            title: 'Newly released security rule: [Security rule name]',
-            action: {
-              title: 'View rule',
-            },
-            permissions: [
-              {
-                method: 'hasPermissions',
-                args: [['vulnerability:*:*']],
-              },
-            ],
-          },
-          {
-            id: 'rhel-4',
-            title:
-              '[count]% of systems for policy [Policy name] do not meet compliance.',
-            action: {
-              title: 'View report',
-              href: complianceReports,
-            },
-            permissions: [
-              {
-                method: 'hasPermissions',
-                args: [['compliance:*:*']],
-              },
-            ],
-          },
+          // {
+          //   id: 'rhel-3',
+          //   title: 'Newly released security rule: [Security rule name]',
+          //   action: {
+          //     title: 'View rule',
+          //   },
+          //   permissions: [
+          //     {
+          //       method: 'hasPermissions',
+          //       args: [['vulnerability:*:*']],
+          //     },
+          //   ],
+          // },
           {
             id: 'rhel-5',
             title:
@@ -179,23 +173,6 @@ const ESTATE_CONFIG = [
         accessor: 'total',
         url: '/api/inventory/v1/system_profile/sap_system',
       },
-      /*
-      {
-        // permissions: systems that are not registered to insights in your inventory
-        id: 'rhel-notconnected-systems',
-        shape: {
-          title: 'Systems not yet registered to Insights',
-          // href: `${inventoryLink}/?status=fresh&status=stale&source=insights&page=1&per_page=50#workloads=SAP&SIDs=&tags=`,
-        },
-        permissions: [
-          {
-            method: 'hasPermissions',
-            args: [['inventory:*:*']],
-          },
-        ],
-        // api: TBD,
-      },
-      */
     ],
   },
 ];

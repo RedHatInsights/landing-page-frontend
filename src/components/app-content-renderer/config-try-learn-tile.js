@@ -16,10 +16,12 @@ import {
   QuestionCircleIcon,
 } from '@patternfly/react-icons';
 import classNames from 'classnames';
+import { Skeleton } from '@redhat-cloud-services/frontend-components/Skeleton';
 
 import IconInsights from '../icon-insights';
 import IconAnsible from '../icon-ansible';
 import { permissionProcessor } from '../../contentApi/request-processor';
+import useRequest from './use-request';
 
 const iconMapper = {
   connected: ConnectedIcon,
@@ -31,12 +33,11 @@ const iconMapper = {
   unknown: QuestionCircleIcon,
 };
 
-const TileItem = ({
-  icon,
-  title,
-  description,
-  link: { href, title: linkTitle } = {},
-}) => {
+const TileItem = (props) => {
+  const [{ response, loaded, ...rest }] = useRequest(props);
+  const { icon, title, description, link: { href, title: linkTitle } = {} } =
+    response || rest;
+
   const Icon = iconMapper[icon] || QuestionCircleIcon;
   return (
     <Split className="pf-u-mb-xl">
@@ -45,14 +46,22 @@ const TileItem = ({
       </SplitItem>
       <SplitItem>
         <TextContent>
-          <Text component="p" className="tile-text pf-u-mb-sm">
-            {title}
-          </Text>
-          {description && (
-            <Text className="pf-u-m-0" component="small">
-              {description}
+          {loaded ? (
+            <Text component="p" className="tile-text pf-u-mb-sm">
+              {title}
             </Text>
+          ) : (
+            <Skeleton size="lg" />
           )}
+          {description ? (
+            loaded ? (
+              <Text className="pf-u-m-0" component="small">
+                {description}
+              </Text>
+            ) : (
+              <Skeleton size="lg" />
+            )
+          ) : null}
           <Text component="p" className="tile-text pf-u-mb-0">
             <a href={href}>
               {linkTitle}&nbsp;
@@ -66,13 +75,16 @@ const TileItem = ({
 };
 
 TileItem.propTypes = {
-  icon: PropTypes.oneOf(Object.keys(iconMapper)),
-  title: PropTypes.string.isRequired,
-  description: PropTypes.string,
-  link: PropTypes.shape({
-    href: PropTypes.string.isRequired,
+  shape: PropTypes.shape({
+    icon: PropTypes.oneOf(Object.keys(iconMapper)),
     title: PropTypes.string.isRequired,
+    description: PropTypes.string,
+    link: PropTypes.shape({
+      href: PropTypes.string.isRequired,
+      title: PropTypes.string.isRequired,
+    }).isRequired,
   }).isRequired,
+  url: PropTypes.string,
   permissions: PropTypes.arrayOf(
     PropTypes.shape({
       method: PropTypes.string.isRequired,
@@ -115,7 +127,7 @@ const ConfigTryLearnTile = ({ title, column, items }) => {
         <div
           className={column}
           style={{ gridRow: index + 2 }}
-          key={item.key || item.title}
+          key={item.key || item.shape.title}
         >
           <TileItem {...item} />
         </div>
