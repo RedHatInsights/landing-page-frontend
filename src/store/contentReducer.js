@@ -30,26 +30,21 @@ export function removeEstateTile(state, { payload }) {
   };
 }
 
-function removeTileFromSections({ sections = [], ...recommendation }, tileId) {
+function removeTileFromSections({ items = [], ...recommendation }, tileId) {
   return {
     ...recommendation,
-    sections: sections.map(({ groups = [], ...section }) => ({
-      ...section,
-      groups: groups.filter(({ id }) => id !== tileId),
-    })),
+    items: items.filter(({ id }) => id !== tileId),
   };
 }
 
 export function removeRecommendationTile(
   state,
-  { payload: { tileId, recId } }
+  { payload: { tileId, category } }
 ) {
   return {
     ...state,
-    recommendations: state.recommendations.map((recommendations) =>
-      recommendations.id === recId
-        ? removeTileFromSections(recommendations, tileId)
-        : recommendations
+    recommendations: state.recommendations.map((group) =>
+      group.id === category ? removeTileFromSections(group, tileId) : group
     ),
   };
 }

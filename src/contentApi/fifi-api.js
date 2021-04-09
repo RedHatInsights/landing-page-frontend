@@ -1,57 +1,39 @@
-const FIFI_RECOMMENDATIONS = [
-  {
-    title: 'Remediate with Ansible',
-    id: 'fifirecommendations',
-    sections: [
-      {
-        title: 'Advisor recommendations',
-        id: 'fifi',
-        groups: [
-          {
-            id: 'fifi-1',
-            icon: 'cog',
-            title:
-              'Create an Ansible Playbook to remediate or mitigate vulnerabilities or configuration issues.',
-            action: {
-              title: 'View',
-              href: './insights/advisor',
-            },
-          },
-        ],
+const FIFI_RECOMMENDATIONS = {
+  recs: [
+    {
+      id: 'fifi-1',
+      icon: 'cog',
+      title:
+        'Create an Ansible Playbook to remediate or mitigate vulnerabilities or configuration issues.',
+      action: {
+        title: 'View',
+        href: './insights/advisor',
       },
-      {
-        title: 'Compliance recommendations',
-        groups: [
-          {
-            id: 'fifi-2',
-            icon: 'cog',
-            title:
-              'Create an Ansible Playbook to remediate or mitigate vulnerabilities or configuration issues.',
-            action: {
-              title: 'View',
-              href: './insights/compliance/reports',
-            },
-          },
-        ],
+    },
+
+    {
+      id: 'fifi-2',
+      icon: 'cog',
+      title:
+        'Create an Ansible Playbook to remediate or mitigate vulnerabilities or configuration issues.',
+      action: {
+        title: 'View',
+        href: './insights/compliance/reports',
       },
-      {
-        title: 'Vulnerability recommendations',
-        groups: [
-          {
-            id: 'fifi-3',
-            icon: 'cog',
-            title:
-              'Create an Ansible Playbook to remediate or mitigate vulnerabilities or configuration issues.',
-            action: {
-              title: 'View',
-              href: './insights/vulnerability',
-            },
-          },
-        ],
+    },
+
+    {
+      id: 'fifi-3',
+      icon: 'cog',
+      title:
+        'Create an Ansible Playbook to remediate or mitigate vulnerabilities or configuration issues.',
+      action: {
+        title: 'View',
+        href: './insights/vulnerability',
       },
-    ],
-  },
-];
+    },
+  ],
+};
 
 const FIFI_LEARN = [
   {

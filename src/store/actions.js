@@ -14,10 +14,10 @@ export const removeEstateTile = (tileId) => ({
   payload: tileId,
 });
 
-export const removeRecommendationTile = (tileId, recId) => ({
+export const removeRecommendationTile = (tileId, category) => ({
   type: REMOVE_RECOMMENDATION_TILE,
   payload: {
     tileId,
-    recId,
+    category,
   },
 });
