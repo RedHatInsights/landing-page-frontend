@@ -451,78 +451,68 @@ const ansibleEstateRequests = [
   },
 ];
 
-export const RECOMMENDATIONS_ITEMS = [
-  {
-    title: 'Ansible recommendations',
-    id: 'ansiblerrecommendations',
-    sections: [
-      {
-        title: 'Catalog',
-        id: 'catalog',
-        groups: [
-          {
-            id: 'products',
-            description: {
-              id: 'last-added-products',
-              defaultMessage: 'Last added products ({count})',
-            },
-            url: '/api/catalog/v1/portfolio_items?limit=5',
-            accessor: 'data.length',
-            icon: 'unknown',
-            permissions: [
-              {
-                method: 'hasPermissions',
-                args: [['catalog:portfolio_items:read']],
-              },
-            ],
-            action: {
-              url:
-                'https://cloud.stage.redhat.com/docs/api/catalog#operations-PortfolioItem-listPortfolioItems',
-              title: 'Products',
-            },
-          },
-          {
-            id: 'orders',
-            description: {
-              id: 'last-added-orders',
-              defaultMessage: 'Last orders ({count})',
-            },
-            url: '/api/catalog/v1/orders?limit=5',
-            accessor: 'data.length',
-            icon: 'unknown',
-            permissions: [
-              {
-                method: 'hasPermissions',
-                args: [['catalog:orders:read', 'catalog:order_items:read']],
-              },
-            ],
-            action: {
-              url:
-                'https://cloud.stage.redhat.com/docs/api/catalog#operations-Order-listOrders',
-              title: 'Orders',
-            },
-          },
-          {
-            id: 'approvals',
-            description: `Approvals`,
-            icon: 'list',
-            state: 'info',
-            permissions: [
-              {
-                method: 'hasPermissions',
-                args: [['approval:requests:read']],
-              },
-            ],
-            action: {
-              url: './ansible/catalog/approval/requests',
-              title: 'Approvals',
-            },
-          },
-        ],
+export const RECOMMENDATIONS_ITEMS = {
+  recs: [
+    {
+      id: 'products',
+      description: {
+        id: 'last-added-products',
+        defaultMessage: 'Last added products ({count})',
       },
-    ],
-  },
-];
+      url: '/api/catalog/v1/portfolio_items?limit=5',
+      accessor: 'data.length',
+      icon: 'unknown',
+      permissions: [
+        {
+          method: 'hasPermissions',
+          args: [['catalog:portfolio_items:read']],
+        },
+      ],
+      action: {
+        url:
+          'https://cloud.stage.redhat.com/docs/api/catalog#operations-PortfolioItem-listPortfolioItems',
+        title: 'Products',
+      },
+    },
+    {
+      id: 'orders',
+      description: {
+        id: 'last-added-orders',
+        defaultMessage: 'Last orders ({count})',
+      },
+      url: '/api/catalog/v1/orders?limit=5',
+      accessor: 'data.length',
+      icon: 'unknown',
+      permissions: [
+        {
+          method: 'hasPermissions',
+          args: [['catalog:orders:read', 'catalog:order_items:read']],
+        },
+      ],
+      action: {
+        url:
+          'https://cloud.stage.redhat.com/docs/api/catalog#operations-Order-listOrders',
+        title: 'Orders',
+      },
+    },
+    {
+      id: 'approvals',
+      description: `Approvals`,
+      icon: 'list',
+      state: 'info',
+      permissions: [
+        {
+          method: 'hasPermissions',
+          args: [['approval:requests:read']],
+        },
+      ],
+      action: {
+        url: './ansible/catalog/approval/requests',
+        title: 'Approvals',
+      },
+    },
+  ],
+};
 
 export const getAnsibleDataSchema = () => ({
   firstPanel: ansibleEstateRequests,

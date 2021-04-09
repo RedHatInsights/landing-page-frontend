@@ -104,46 +104,38 @@ const costManagementApiMedium =
 export const getCostDataSchema = () => {
   return {
     firstPanel: estateRequests,
-    secondPanel: [
-      {
-        title: 'Cost management recommendations',
-        id: 'cost-recommendations',
-        sections: [
-          {
-            title: 'Cost management recommendations',
-            groups: [
-              {
-                icon: 'lightbulb',
-                state: 'info',
-                id: 'cost-ocp',
-                url: '/api/cost-management/v1/sources/?source_type=OCP',
-                accessor: 'meta.count',
-                permissions: [
-                  {
-                    method: 'isEntitled',
-                    args: ['cost_management'],
-                  },
-                ],
-                condition: {
-                  when: 'count',
-                  is: 0,
-                },
-                title: 'Gain Business Insights for your OpenShift Clusters',
-                description: '',
-                action: {
-                  title: 'Learn more',
-                  href: installCostOperator,
-                },
-              },
-            ],
+    secondPanel: {
+      openshift: [
+        {
+          section: 'openshift',
+          icon: 'lightbulb',
+          state: 'info',
+          id: 'cost-ocp',
+          url: '/api/cost-management/v1/sources/?source_type=OCP',
+          accessor: 'meta.count',
+          permissions: [
+            {
+              method: 'isEntitled',
+              args: ['cost_management'],
+            },
+          ],
+          condition: {
+            when: 'count',
+            is: 0,
           },
-        ],
-      },
-    ],
+          title: 'Gain Business Insights for your OpenShift Clusters',
+          description:
+            'Install the Cost Operator on your OpenShift cluster to get started.',
+          action: {
+            title: 'Learn more',
+            href: installCostOperator,
+          },
+        },
+      ],
+    },
     configTryLearn: {
       configure: [
         {
-          // icon: 'connected',
           shape: {
             title: 'Add public cloud sources to better track your finances',
             description: 'Modify user access to applications.',
@@ -162,7 +154,6 @@ export const getCostDataSchema = () => {
       ],
       try: [
         {
-          // icon: 'builderImage',
           shape: {
             title: 'Cost Management now has forecasting',
             description:
@@ -180,7 +171,6 @@ export const getCostDataSchema = () => {
           ],
         },
         {
-          // icon: 'builderImage',
           shape: {
             title: 'Cost Management supports Google Cloud Platform',
             description:

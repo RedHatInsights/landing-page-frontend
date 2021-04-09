@@ -15,85 +15,76 @@ const registerLink = `${prefix}insights/registration`;
 
 const remediations = `${prefix}insights/remediations`;
 
-const RECOMMENDATIONS_ITEMS = [
-  {
-    title: 'RHEL recommendations',
-    id: 'rhel-recommendations',
-    sections: [
-      {
-        title: 'RHEL recommendations',
-        groups: [
-          {
-            id: 'rhel-2',
-            icon: 'error',
-            state: 'error',
-            url: '/api/insights/v1/rule/?impacting=true&limit=1&incident=true',
-            title: {
-              id: 'rhen-incidents-recommendation',
-              defaultMessage:
-                'Insights has identified {count} incidents affecting your systems.',
-            },
-            accessor: 'meta.count',
-            condition: {
-              when: 'count',
-              isNot: 0,
-            },
-            action: {
-              title: 'View',
-            },
-            permissions: [
-              {
-                method: 'hasPermissions',
-                args: [['advisor:*:*']],
-              },
-            ],
-          },
-          // {
-          //   id: 'rhel-3',
-          //   title: 'Newly released security rule: [Security rule name]',
-          //   action: {
-          //     title: 'View rule',
-          //   },
-          //   permissions: [
-          //     {
-          //       method: 'hasPermissions',
-          //       args: [['vulnerability:*:*']],
-          //     },
-          //   ],
-          // },
-          {
-            id: 'rhel-5',
-            icon: 'cog',
-            title:
-              'Create a remediation playbook to fix issues identified by Insights on your systems',
-            action: {
-              title: 'Open',
-              href: remediations,
-            },
-            permissions: [
-              {
-                method: 'hasPermissions',
-                args: [['remediations:*:*']],
-              },
-            ],
-          },
-          {
-            url: '/api/inventory/v1/hosts',
-            icon: 'play',
-            state: 'success',
-            condition: { when: 'total', is: 0 },
-            id: 'rhel-6',
-            title: 'Get Insights for your systems',
-            action: {
-              title: 'Register systems',
-              href: registerLink,
-            },
-          },
-        ],
+const RECOMMENDATIONS_ITEMS = {
+  rhel: [
+    {
+      id: 'rhel-2',
+      icon: 'error',
+      state: 'error',
+      url: '/api/insights/v1/rule/?impacting=true&limit=1&incident=true',
+      title: {
+        id: 'rhen-incidents-recommendation',
+        defaultMessage:
+          'Insights has identified {count} incidents affecting your systems.',
       },
-    ],
-  },
-];
+      accessor: 'meta.count',
+      condition: {
+        when: 'count',
+        isNot: 0,
+      },
+      action: {
+        title: 'View',
+      },
+      permissions: [
+        {
+          method: 'hasPermissions',
+          args: [['advisor:*:*']],
+        },
+      ],
+    },
+    // {
+    //   id: 'rhel-3',
+    //   title: 'Newly released security rule: [Security rule name]',
+    //   action: {
+    //     title: 'View rule',
+    //   },
+    //   permissions: [
+    //     {
+    //       method: 'hasPermissions',
+    //       args: [['vulnerability:*:*']],
+    //     },
+    //   ],
+    // },
+    {
+      id: 'rhel-5',
+      icon: 'cog',
+      title:
+        'Create a remediation playbook to fix issues identified by Insights on your systems',
+      action: {
+        title: 'Open',
+        href: remediations,
+      },
+      permissions: [
+        {
+          method: 'hasPermissions',
+          args: [['remediations:*:*']],
+        },
+      ],
+    },
+    {
+      url: '/api/inventory/v1/hosts',
+      icon: 'play',
+      state: 'success',
+      condition: { when: 'total', is: 0 },
+      id: 'rhel-6',
+      title: 'Get Insights for your systems',
+      action: {
+        title: 'Register systems',
+        href: registerLink,
+      },
+    },
+  ],
+};
 
 const ESTATE_CONFIG = [
   {

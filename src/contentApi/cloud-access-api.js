@@ -45,7 +45,7 @@ const CLOUD_ACCESS_CONFIGURE = [
 
 export const getCloudAccessDataSchema = () => ({
   firstPanel: [],
-  secondPanel: [],
+  secondPanel: {},
   configTryLearn: {
     configure: CLOUD_ACCESS_CONFIGURE,
     try: [],

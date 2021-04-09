@@ -23,10 +23,8 @@ const RecommendationGroup = (recommendation) => {
   const removeTile = ({ show }) =>
     show === false &&
     dispatch(removeRecommendationTile(recommendation.id, recommendation.recId));
-  const [{ count, response, show }] = useRequest(
-    recommendation,
-    removeTile,
-    () => removeTile({ show: false })
+  const [{ count, response }] = useRequest(recommendation, removeTile, () =>
+    removeTile({ show: false })
   );
 
   const text = (message) =>
@@ -36,26 +34,9 @@ const RecommendationGroup = (recommendation) => {
 
   const GroupIcon = iconMapper[recommendation.icon] || QuestionCircleIcon;
 
-  if (!show) {
-    return null;
-  }
-
-  if (recommendation.component === 'title') {
-    return (
-      <Title headingLevel="h2" size="md">
-        {recommendation.title}
-      </Title>
-    );
-  }
-
   return (
     <React.Fragment>
       <Flex direction={{ default: 'column' }} className="recommendation-test">
-        <Flex>
-          <Title headingLevel="h3" className="pf-u-mb-md">
-            Section title here
-          </Title>
-        </Flex>
         <Flex direction={{ default: 'row' }} className="recommendation-group">
           <FlexItem className="recommendation-icon">
             <GroupIcon
@@ -137,52 +118,26 @@ RecommendationGroup.defaultProps = {
   method: 'get',
 };
 
-const RecommendationSection = ({ groups, title, recId }) =>
-  groups.length === 0 ? null : (
-    <React.Fragment>
-      <Title headingLevel="h3" className="pf-u-mb-md">
+const RecommendationTile = ({ items, title, id }) =>
+  items.length > 0 ? (
+    <span>
+      <Title headingLevel="h3" size="lg">
         {title}
       </Title>
-      {groups.map((group, index) => (
-        <RecommendationGroup recId={recId} key={group.id || index} {...group} />
+      {items.map((group, index) => (
+        <RecommendationGroup recId={id} key={group.id || index} {...group} />
       ))}
-    </React.Fragment>
-  );
-
-RecommendationSection.propTypes = {
-  title: PropTypes.string,
-  groups: PropTypes.arrayOf(PropTypes.shape(RecommendationGroup.propTypes)),
-  recId: PropTypes.string,
-};
-
-RecommendationSection.defaultProps = {
-  groups: [],
-};
-
-const RecommendationTile = ({ groups, sections, id }) => (
-  <span>
-    {groups.map((group, index) => (
-      <RecommendationGroup recId={id} key={group.id || index} {...group} />
-    ))}
-    {sections.map((section, index) => (
-      <RecommendationSection
-        recId={id}
-        key={section.id || index}
-        {...section}
-      />
-    ))}
-  </span>
-);
+    </span>
+  ) : null;
 RecommendationTile.propTypes = {
-  groups: PropTypes.arrayOf(PropTypes.shape(RecommendationGroup.propTypes)),
-  sections: PropTypes.arrayOf(PropTypes.shape(RecommendationSection.propTypes)),
+  title: PropTypes.node.isRequired,
+  items: PropTypes.arrayOf(PropTypes.shape(RecommendationGroup.propTypes)),
   countOfReccomentations: PropTypes.number.isRequired,
   id: PropTypes.string.isRequired,
 };
 
 RecommendationTile.defaultProps = {
-  groups: [],
-  sections: [],
+  items: [],
 };
 
 export default RecommendationTile;
