@@ -101,8 +101,10 @@ const ESTATE_CONFIG = [
         },
         permissions: [
           {
-            method: 'hasPermissions',
-            args: [['inventory:*:*']],
+            method: 'loosePermissions',
+            args: [
+              ['inventory:*:*', 'inventory:*:read', 'inventory:hosts:read'],
+            ],
           },
         ],
       },
@@ -117,8 +119,10 @@ const ESTATE_CONFIG = [
         },
         permissions: [
           {
-            method: 'hasPermissions',
-            args: [['inventory:*:*']],
+            method: 'loosePermissions',
+            args: [
+              ['inventory:*:*', 'inventory:*:read', 'inventory:hosts:read'],
+            ],
           },
         ],
       },
@@ -142,8 +146,10 @@ const ESTATE_CONFIG = [
         id: 'rhel-sap-systems',
         permissions: [
           {
-            method: 'hasPermissions',
-            args: [['inventory:*:*']],
+            method: 'loosePermissions',
+            args: [
+              ['inventory:*:*', 'inventory:*:read', 'inventory:hosts:read'],
+            ],
           },
         ],
         responseProcessor: totalResponseProcessor,
