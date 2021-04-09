@@ -1,5 +1,5 @@
-import React, { useEffect } from 'react';
-import PropTypes, { string } from 'prop-types';
+import React from 'react';
+import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import { QuestionCircleIcon } from '@patternfly/react-icons';
 import {
@@ -20,15 +20,15 @@ import { removeRecommendationTile } from '../../store/actions';
 const RecommendationGroup = (recommendation) => {
   const intl = useIntl();
   const dispatch = useDispatch();
-  const [{ count, response, show }] = useRequest(recommendation);
+  const removeTile = ({ show }) =>
+    show === false &&
+    dispatch(removeRecommendationTile(recommendation.id, recommendation.recId));
+  const [{ count, response, show }] = useRequest(
+    recommendation,
+    removeTile,
+    () => removeTile({ show: false })
+  );
 
-  useEffect(() => {
-    if (show === false) {
-      dispatch(
-        removeRecommendationTile(recommendation.id, recommendation.recId)
-      );
-    }
-  }, [show]);
   const text = (message) =>
     typeof message === 'object'
       ? intl.formatMessage(message, { count, response })
@@ -177,7 +177,7 @@ RecommendationTile.propTypes = {
   groups: PropTypes.arrayOf(PropTypes.shape(RecommendationGroup.propTypes)),
   sections: PropTypes.arrayOf(PropTypes.shape(RecommendationSection.propTypes)),
   countOfReccomentations: PropTypes.number.isRequired,
-  id: string.isRequired,
+  id: PropTypes.string.isRequired,
 };
 
 RecommendationTile.defaultProps = {

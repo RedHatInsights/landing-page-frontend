@@ -100,7 +100,6 @@ const ConfigTryLearnTile = ({ title, column, items, sectionName }) => {
   }
 
   const Icon = iconMapper[sectionName];
-  console.log({ Icon, sectionName, iconMapper });
   return (
     <Fragment>
       {title && (
@@ -113,7 +112,7 @@ const ConfigTryLearnTile = ({ title, column, items, sectionName }) => {
           <FlexItem>
             <Icon size="md" />
           </FlexItem>
-          <FlexItem isFilled>
+          <FlexItem>
             <Title
               headingLevel="h4"
               size="xl"
