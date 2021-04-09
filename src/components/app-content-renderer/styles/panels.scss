@@ -25,14 +25,12 @@
 
   .first-panel {
     color: var(--pf-global--Color--light-100);
-    background: #070707 url(https://raw.githubusercontent.com/RedHatInsights/frontend-assets/master/src/background-images/new-landing-page/black_back2.svg) ;
-    background-position: right;
-    background-repeat: no-repeat;
+    background: url(https://raw.githubusercontent.com/RedHatInsights/frontend-assets/master/src/background-images/new-landing-page/estate-double_gradient.svg);
+    background-size: cover !important;
     padding: var(--pf-global--spacer--xl) var(--pf-global--spacer--lg) var(--pf-global--spacer--lg) var(--pf-global--spacer--lg);
     overflow-x: scroll;
 
     @media only screen and (min-width: 769px) {
-      background-size: 60%;
       .pf-c-description-list {
         display: flex;
         align-items: normal;
@@ -69,7 +67,6 @@
     }
 
     @media only screen and (max-width: 768px) {
-      background-size: cover;
       .pf-c-description-list {
         grid-template-columns: repeat(calc(100% - var(--pf-c-description-list--ColumnGap)));
         row-gap: 0;
@@ -109,17 +106,36 @@
     }
   }
 
-  .second-panel {
+  .ins-c-second-panel {
     background-color: var(--pf-global--BackgroundColor--100);
     color: var(--pf-global--Color--100);
     padding: var(--pf-global--spacer--xl) var(--pf-global--spacer--lg) var(--pf-global--spacer--lg) var(--pf-global--spacer--lg);
    
     .ins-c-recommendation__container {
-      max-width: 1100px;
+      max-width: 1150px;
       column-count: 2;
       column-gap: var(--pf-global--spacer--xl);
       overflow: hidden; // prevents padding from spilling into next column
       break-inside: avoid-column; // prevents padding from spilling into next column
+
+      .recommendation-test {
+        break-inside: avoid-column; // prevents padding from spilling into next column
+        flex-wrap: nowrap;
+        min-height: 60px;
+      }
+
+      .recommendation-group {
+        flex-wrap: nowrap;
+        margin-bottom: var(--pf-global--spacer--xs);
+        width: 100%;
+        p {
+          font-size: var(--pf-global--FontSize--sm);
+          font-weight:  300;
+        }
+        a {
+          width: 110px;
+        }
+      }
     }
 
     @media only screen and (max-width: 998px) {
@@ -128,41 +144,9 @@
       }
     }
 
-    p {
-      font-size: var(--pf-global--FontSize--sm);
-      font-weight:  300;
-    }
-
-    .ins-c-no-icon {
-      font-size: var(--pf-global--FontSize--xs);
-    }
-
-    .whole-row {
-      width: 100%;
-      grid-template-columns: 1fr fit-content(20%);
-      min-height: 38px;
-    }
-
-    .whole-row:not(:last-child) {
-      margin-bottom: var(--pf-global--spacer--sm)
-    }
-
-    .custom-grid {
-      display: grid;
-      grid-template-columns: 1fr fit-content(100%);
-    }
-
-    .recommendation-button {
-      width: 100px;
-      height: 30px;
-      overflow: hidden;
-      text-overflow: ellipsis;
-      white-space: nowrap;
-    }
   }
 
   .ins-c-third--panel {
-    background-color: var(--pf-global--Color--light-200);
     color: var(--pf-global--Color--100);
     display: grid;
     grid-template-columns: [config] 1fr [try] 1fr [learn] 1fr;
@@ -171,7 +155,7 @@
     column-gap: var(--pf-global--spacer--md);
 
     @media screen and (min-width: 1450px) {
-      max-width: 1160px;
+      max-width: 1210px;
       .title-wrapper {
         width: 100%;
       }

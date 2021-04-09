@@ -52,7 +52,7 @@ const RECOMMENDATIONS_ITEMS = [
               isNot: 0,
             },
             action: {
-              title: 'View incidents',
+              title: 'View',
             },
             permissions: [
               {
@@ -79,7 +79,7 @@ const RECOMMENDATIONS_ITEMS = [
             title:
               'Create a remediation playbook to fix issues identified by Insights on your systems',
             action: {
-              title: 'Open remediations',
+              title: 'Open',
               href: remediations,
             },
             permissions: [

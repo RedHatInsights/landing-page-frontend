@@ -4,7 +4,7 @@ const FIFI_RECOMMENDATIONS = [
     id: 'fifirecommendations',
     sections: [
       {
-        title: 'Advsior Reccomendations',
+        title: 'Advisor recommendations',
         id: 'fifi',
         groups: [
           {
@@ -12,35 +12,35 @@ const FIFI_RECOMMENDATIONS = [
             title:
               'Create an Ansible Playbook to remediate or mitigate vulnerabilities or configuration issues.',
             action: {
-              title: 'Advisor Reccomendations',
+              title: 'View',
               href: './insights/advisor',
             },
           },
         ],
       },
       {
-        title: 'Compliance Reccomendations',
+        title: 'Compliance recommendations',
         groups: [
           {
             id: 'fifi-2',
             title:
               'Create an Ansible Playbook to remediate or mitigate vulnerabilities or configuration issues.',
             action: {
-              title: 'Complaince Reccomendattions',
+              title: 'View',
               href: './insights/compliance/reports',
             },
           },
         ],
       },
       {
-        title: 'Vulnerability Reccomendations',
+        title: 'Vulnerability recommendations',
         groups: [
           {
             id: 'fifi-3',
             title:
               'Create an Ansible Playbook to remediate or mitigate vulnerabilities or configuration issues.',
             action: {
-              title: 'Vulnerability Reccomendations',
+              title: 'View',
               href: './insights/vulnerability',
             },
           },

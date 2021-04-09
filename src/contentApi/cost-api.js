@@ -117,8 +117,7 @@ export const getCostDataSchema = () => {
                 //icon: 'automation',
                 id: 'cost-ocp',
                 title: 'Gain Business Insights for your OpenShift Clusters',
-                description:
-                  'Install the Cost Operator on your OpenShift cluster to get started',
+                description: '',
                 action: {
                   title: 'Learn more',
                   href: installCostOperator,
