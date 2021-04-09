@@ -113,9 +113,21 @@ export const getCostDataSchema = () => {
             title: 'Cost management recommendations',
             groups: [
               {
-                // permissions: entitlements for openshift && costRequest('OCP') === 0,
-                //icon: 'automation',
+                icon: 'lightbulb',
+                state: 'info',
                 id: 'cost-ocp',
+                url: '/api/cost-management/v1/sources/?source_type=OCP',
+                accessor: 'meta.count',
+                permissions: [
+                  {
+                    method: 'isEntitled',
+                    args: ['cost_management'],
+                  },
+                ],
+                condition: {
+                  when: 'count',
+                  is: 0,
+                },
                 title: 'Gain Business Insights for your OpenShift Clusters',
                 description: '',
                 action: {

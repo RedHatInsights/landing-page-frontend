@@ -9,6 +9,7 @@ const FIFI_RECOMMENDATIONS = [
         groups: [
           {
             id: 'fifi-1',
+            icon: 'cog',
             title:
               'Create an Ansible Playbook to remediate or mitigate vulnerabilities or configuration issues.',
             action: {
@@ -23,6 +24,7 @@ const FIFI_RECOMMENDATIONS = [
         groups: [
           {
             id: 'fifi-2',
+            icon: 'cog',
             title:
               'Create an Ansible Playbook to remediate or mitigate vulnerabilities or configuration issues.',
             action: {
@@ -37,6 +39,7 @@ const FIFI_RECOMMENDATIONS = [
         groups: [
           {
             id: 'fifi-3',
+            icon: 'cog',
             title:
               'Create an Ansible Playbook to remediate or mitigate vulnerabilities or configuration issues.',
             action: {
