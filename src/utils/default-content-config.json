@@ -7,7 +7,7 @@
       "items": []
     },
     "rhel": {
-      "title": "Insights for RHEL",
+      "title": "Insights for Red Hat Enterprise Linux",
       "id": "rhel",
       "items": [{
         "id": "rhel-default-1",
@@ -38,7 +38,7 @@
       }]
     },
     "ansible": {
-      "title": "Insights for Ansible",
+      "title": "Insights for Ansible Automation Platform",
       "id": "ansible",
       "items": [{
         "id": "ansible-default-1",
