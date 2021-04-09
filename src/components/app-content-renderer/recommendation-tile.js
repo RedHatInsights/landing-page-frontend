@@ -22,7 +22,9 @@ const RecommendationGroup = (recommendation) => {
   const dispatch = useDispatch();
   const removeTile = ({ show }) =>
     show === false &&
-    dispatch(removeRecommendationTile(recommendation.id, recommendation.recId));
+    dispatch(
+      removeRecommendationTile(recommendation.id, recommendation.category)
+    );
   const [{ count, response }] = useRequest(recommendation, removeTile, () =>
     removeTile({ show: false })
   );
@@ -76,7 +78,7 @@ const RecommendationGroup = (recommendation) => {
 RecommendationGroup.propTypes = {
   icon: PropTypes.string,
   state: PropTypes.oneOf(['error', 'warning', 'info', 'success']),
-  recId: PropTypes.string,
+  category: PropTypes.string.isRequired,
   description: PropTypes.oneOfType([
     PropTypes.string,
     PropTypes.shape({
@@ -125,13 +127,17 @@ const RecommendationTile = ({ items, title, id }) =>
         {title}
       </Title>
       {items.map((group, index) => (
-        <RecommendationGroup recId={id} key={group.id || index} {...group} />
+        <RecommendationGroup category={id} key={group.id || index} {...group} />
       ))}
     </span>
   ) : null;
+
+const groupSchemaPropShape = (({ category, ...types }) => types)(
+  RecommendationGroup.propTypes
+);
 RecommendationTile.propTypes = {
   title: PropTypes.node.isRequired,
-  items: PropTypes.arrayOf(PropTypes.shape(RecommendationGroup.propTypes)),
+  items: PropTypes.arrayOf(PropTypes.shape(groupSchemaPropShape)),
   countOfReccomentations: PropTypes.number.isRequired,
   id: PropTypes.string.isRequired,
 };
