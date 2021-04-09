@@ -107,7 +107,6 @@ const ConfigTryLearnTile = ({ title, column, items, sectionName }) => {
           alignItems={{ default: 'alignItemsFlexEnd' }}
           className="pf-u-mb-lg"
           style={{ gridRow: 1 }}
-          hasGutter
         >
           <FlexItem>
             <Icon size="md" />

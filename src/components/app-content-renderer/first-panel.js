@@ -61,7 +61,6 @@ const FirstPanel = () => {
   );
 
   useEffect(() => {
-    console.log(scrollRef);
     const wheelHandler = (event) => scrollhandler(event, scrollRef.current);
     scrollRef.current.addEventListener('wheel', wheelHandler);
     return () => {
