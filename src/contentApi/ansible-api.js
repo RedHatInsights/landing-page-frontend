@@ -461,7 +461,7 @@ export const RECOMMENDATIONS_ITEMS = {
       },
       url: '/api/catalog/v1/portfolio_items?limit=5',
       accessor: 'data.length',
-      icon: 'unknown',
+      icon: 'history',
       permissions: [
         {
           method: 'hasPermissions',
@@ -482,7 +482,7 @@ export const RECOMMENDATIONS_ITEMS = {
       },
       url: '/api/catalog/v1/orders?limit=5',
       accessor: 'data.length',
-      icon: 'unknown',
+      icon: 'history',
       permissions: [
         {
           method: 'hasPermissions',
