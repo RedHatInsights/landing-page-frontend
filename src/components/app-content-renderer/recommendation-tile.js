@@ -17,7 +17,11 @@ import iconMapper from '../../utils/icon-mapper';
 import { useDispatch } from 'react-redux';
 import { removeRecommendationTile } from '../../store/actions';
 
-const RecommendationGroup = (recommendation) => {
+const RecommendationGroup = ({
+  sectionTitle,
+  showSectionTitle,
+  ...recommendation
+}) => {
   const intl = useIntl();
   const dispatch = useDispatch();
   const removeTile = ({ show }) =>
@@ -37,41 +41,42 @@ const RecommendationGroup = (recommendation) => {
   const GroupIcon = iconMapper[recommendation.icon] || QuestionCircleIcon;
 
   return (
-    <React.Fragment>
-      <Flex direction={{ default: 'column' }} className="recommendation-test">
-        <Flex direction={{ default: 'row' }} className="recommendation-group">
-          <FlexItem className="recommendation-icon">
-            <GroupIcon
-              className={classnames({
-                error: recommendation.state === 'error',
-                warning: recommendation.state === 'warning',
-                info: recommendation.state === 'info',
-                green: recommendation.state === 'success',
-                gray: typeof recommendation.state === 'undefined',
-              })}
-            />
-          </FlexItem>
-          <FlexItem grow={{ default: 'grow' }}>
-            <TextContent>
-              {recommendation.title && (
-                <Text>{text(recommendation.title)}</Text>
-              )}
-              <Text>{text(recommendation.description)}</Text>
-            </TextContent>
-          </FlexItem>
-          <FlexItem>
-            <Button
-              component="a"
-              href={recommendation.action.href}
-              variant="secondary"
-              isSmall
-            >
-              {text(recommendation.action.title)}
-            </Button>
-          </FlexItem>
-        </Flex>
+    <Flex direction={{ default: 'column' }} className="recommendation-test">
+      {showSectionTitle && (
+        <Title headingLevel="h3" size="lg">
+          {sectionTitle}
+        </Title>
+      )}
+      <Flex direction={{ default: 'row' }} className="recommendation-group">
+        <FlexItem className="recommendation-icon">
+          <GroupIcon
+            className={classnames({
+              error: recommendation.state === 'error',
+              warning: recommendation.state === 'warning',
+              info: recommendation.state === 'info',
+              green: recommendation.state === 'success',
+              gray: typeof recommendation.state === 'undefined',
+            })}
+          />
+        </FlexItem>
+        <FlexItem grow={{ default: 'grow' }}>
+          <TextContent>
+            {recommendation.title && <Text>{text(recommendation.title)}</Text>}
+            <Text>{text(recommendation.description)}</Text>
+          </TextContent>
+        </FlexItem>
+        <FlexItem>
+          <Button
+            component="a"
+            href={recommendation.action.href}
+            variant="secondary"
+            isSmall
+          >
+            {text(recommendation.action.title)}
+          </Button>
+        </FlexItem>
       </Flex>
-    </React.Fragment>
+    </Flex>
   );
 };
 
@@ -113,6 +118,8 @@ RecommendationGroup.propTypes = {
   }),
   accessor: PropTypes.string,
   method: PropTypes.oneOf(['get', 'post']),
+  sectionTitle: PropTypes.string.isRequired,
+  showSectionTitle: PropTypes.bool.isRequired,
 };
 
 RecommendationGroup.defaultProps = {
@@ -123,18 +130,24 @@ RecommendationGroup.defaultProps = {
 const RecommendationTile = ({ items, title, id }) =>
   items.length > 0 ? (
     <span>
-      <Title headingLevel="h3" size="lg">
-        {title}
-      </Title>
       {items.map((group, index) => (
-        <RecommendationGroup category={id} key={group.id || index} {...group} />
+        <RecommendationGroup
+          sectionTitle={title}
+          showSectionTitle={index === 0}
+          category={id}
+          key={group.id || index}
+          {...group}
+        />
       ))}
     </span>
   ) : null;
 
-const groupSchemaPropShape = (({ category, ...types }) => types)(
-  RecommendationGroup.propTypes
-);
+const groupSchemaPropShape = (({
+  category,
+  sectionTitle,
+  showSectionTitle,
+  ...types
+}) => types)(RecommendationGroup.propTypes);
 RecommendationTile.propTypes = {
   title: PropTypes.node.isRequired,
   items: PropTypes.arrayOf(PropTypes.shape(groupSchemaPropShape)),
