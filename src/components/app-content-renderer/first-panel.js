@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import { DescriptionList } from '@patternfly/react-core';
 import { shallowEqual, useSelector } from 'react-redux';
 
@@ -35,13 +35,42 @@ const flattenSections = (estates) =>
       return result;
     });
 
+const scrollhandler = (event, element) => {
+  /**
+   * allow verticall scroll if we can't scroll to the right or left anymore
+   */
+  if (
+    (element.scrollWidth - element.offsetWidth - element.scrollLeft === 0 &&
+      event.deltaY >= 0) ||
+    (element.scrollLeft === 0 && event.deltaY <= 0)
+  ) {
+    return;
+  }
+  /**
+   * Stop vertical scroll
+   */
+  event.preventDefault();
+  element.scrollLeft += event.deltaY;
+};
+
 const FirstPanel = () => {
+  const scrollRef = useRef(null);
   const estate = useSelector(
     ({ contentStore: { estate } }) => estate,
     shallowEqual
   );
+
+  useEffect(() => {
+    console.log(scrollRef);
+    const wheelHandler = (event) => scrollhandler(event, scrollRef.current);
+    scrollRef.current.addEventListener('wheel', wheelHandler);
+    return () => {
+      scrollRef.current.removeEventListener('wheel', wheelHandler);
+    };
+  }, []);
+
   return (
-    <div className="first-panel">
+    <div ref={scrollRef} className="first-panel">
       <DescriptionList>
         <EstateRenderer sections={flattenSections(estate)} />
       </DescriptionList>
