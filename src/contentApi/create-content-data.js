@@ -1,35 +1,25 @@
 import getAppsData from './get-apps-data';
+import defaultConfig from '../utils/default-content-config.json';
+
+const recommendationsCategories = ['recs', 'rhel', 'ansible', 'openshift'];
 
 const createContentData = async () => {
   const data = await getAppsData();
   const landingPageContent = data.reduce(
     (acc, { firstPanel, secondPanel, configTryLearn }) => {
-      const {
-        recs = [],
-        rhel = [],
-        ansible = [],
-        openshift = [],
-      } = secondPanel;
+      const recommendations = { ...acc.recommendations };
+      recommendationsCategories.forEach((category) => {
+        recommendations[category] = {
+          ...acc.recommendations[category],
+          items: [
+            ...acc.recommendations[category].items,
+            ...(secondPanel[category] || []),
+          ],
+        };
+      });
       return {
         estate: [...acc.estate, ...firstPanel],
-        recommendations: {
-          recs: {
-            ...acc.recommendations.recs,
-            items: [...acc.recommendations.recs.items, ...recs],
-          },
-          rhel: {
-            ...acc.recommendations.rhel,
-            items: [...acc.recommendations.rhel.items, ...rhel],
-          },
-          ansible: {
-            ...acc.recommendations.ansible,
-            items: [...acc.recommendations.ansible.items, ...ansible],
-          },
-          openshift: {
-            ...acc.recommendations.openshift,
-            items: [...acc.recommendations.openshift.items, ...openshift],
-          },
-        },
+        recommendations,
         configTryLearn: [
           {
             ...acc.configTryLearn[0],
@@ -49,48 +39,7 @@ const createContentData = async () => {
         ],
       };
     },
-    {
-      estate: [],
-      recommendations: {
-        recs: {
-          title: 'Recommendations',
-          id: 'recommendations',
-          items: [],
-        },
-        rhel: {
-          title: 'Insights for RHEL',
-          id: 'rhel',
-          items: [],
-        },
-        ansible: {
-          title: 'Insights for Ansible',
-          id: 'ansible',
-          items: [],
-        },
-        openshift: {
-          title: 'Insights for OpenShift',
-          id: 'openshift',
-          items: [],
-        },
-      },
-      configTryLearn: [
-        {
-          id: 'configure',
-          title: 'Configure',
-          items: [],
-        },
-        {
-          id: 'try',
-          title: 'Try',
-          items: [],
-        },
-        {
-          id: 'learn',
-          title: 'Learn',
-          items: [],
-        },
-      ],
-    }
+    defaultConfig
   );
   landingPageContent.recommendations = [
     { ...landingPageContent.recommendations.recs },
