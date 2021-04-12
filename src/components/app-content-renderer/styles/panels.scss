@@ -28,7 +28,7 @@
 
   .first-panel {
     color: var(--pf-global--Color--light-100);
-    background: url(https://raw.githubusercontent.com/RedHatInsights/frontend-assets/master/src/background-images/new-landing-page/estate-double_gradient.svg);
+    background: url(https://cloud.redhat.com/apps/frontend-assets/background-images/new-landing-page/estate-double_gradient.svg);
     background-size: cover !important;
     padding: var(--pf-global--spacer--xl) var(--pf-global--spacer--lg) var(--pf-global--spacer--lg) var(--pf-global--spacer--lg);
     overflow-x: auto;
@@ -147,6 +147,12 @@
       }
     }
 
+  }
+
+  .ins-c-third--panel-wrapper {
+    background: url(https://cloud.redhat.com/apps/frontend-assets/background-images/new-landing-page/ctl-double_gradient.svg);
+    background-position: top left;
+    background-repeat: no-repeat;
   }
 
   .ins-c-third--panel {
