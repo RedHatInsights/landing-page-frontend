@@ -1,128 +1,246 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`render Marketing component should render correctly 1`] = `
-<Provider
-  store={
-    Object {
-      "clearActions": [Function],
-      "dispatch": [Function],
-      "getActions": [Function],
-      "getState": [Function],
-      "replaceReducer": [Function],
-      "subscribe": [Function],
-    }
-  }
->
-  <Connect(Marketing)>
-    <Marketing
-      dispatch={[Function]}
-      technologies={Array []}
+<Marketing>
+  <Hero>
+    <PageSection
+      className="ins-c-hero pf-m-fill pf-l-flex pf-m-align-items-center pf-m-justify-content-center"
     >
-      <Hero>
-        <Component
-          className="ins-c-hero pf-m-fill pf-l-flex pf-m-align-items-center pf-m-justify-content-center"
+      <section
+        className="pf-c-page__main-section ins-c-hero pf-m-fill pf-l-flex pf-m-align-items-center pf-m-justify-content-center"
+      >
+        <article
+          className="pf-l-flex pf-m-column pf-m-align-items-center"
         >
-          <section
-            className="pf-c-page__main-section ins-c-hero pf-m-fill pf-l-flex pf-m-align-items-center pf-m-justify-content-center"
+          <Title
+            className="ins-c-hero__title pf-m-spacer-lg"
+            headingLevel="h1"
+            size="4xl"
+          >
+            <h1
+              className="pf-c-title pf-m-4xl ins-c-hero__title pf-m-spacer-lg"
+            >
+              Explore our open, multicloud tools
+            </h1>
+          </Title>
+          <Title
+            className="ins-c-hero__sub-title pf-m-spacer-xl"
+            headingLevel="h2"
+          >
+            <h2
+              className="pf-c-title pf-m-xl ins-c-hero__sub-title pf-m-spacer-xl"
+            >
+              Discover Red Hat
+              <sup
+                className="ins-c-rball"
+              >
+                ®
+              </sup>
+              software-as-a-service
+            </h2>
+          </Title>
+          <Button
+            className="ins-c-hero__login"
+            onClick={[Function]}
+          >
+            <button
+              aria-disabled={false}
+              aria-label={null}
+              className="pf-c-button pf-m-primary ins-c-hero__login"
+              data-ouia-component-id="OUIA-Generated-Button-primary-1"
+              data-ouia-component-type="PF4/Button"
+              data-ouia-safe={true}
+              disabled={false}
+              onClick={[Function]}
+              role={null}
+              type="button"
+            >
+              Log in to your Red Hat account
+            </button>
+          </Button>
+          <Button
+            className="ins-c-hero__new-customer"
+            component="a"
+            href="https://www.redhat.com/en/customers"
+            isInline={true}
+            variant="link"
+          >
+            <a
+              aria-disabled={false}
+              aria-label={null}
+              className="pf-c-button pf-m-link pf-m-inline ins-c-hero__new-customer"
+              data-ouia-component-id="OUIA-Generated-Button-link-1"
+              data-ouia-component-type="PF4/Button"
+              data-ouia-safe={true}
+              disabled={null}
+              href="https://www.redhat.com/en/customers"
+              role={null}
+              type={null}
+            >
+              Not a customer?
+            </a>
+          </Button>
+        </article>
+      </section>
+    </PageSection>
+  </Hero>
+  <PageSection
+    className="ins-c-marketing pf-m-no-fill"
+    landing-page-type="unauthenticated"
+  >
+    <section
+      className="pf-c-page__main-section ins-c-marketing pf-m-no-fill"
+      landing-page-type="unauthenticated"
+    >
+      <Grid
+        gutter="sm"
+        md={6}
+        sm={12}
+        xl={6}
+        xl2={4}
+      >
+        <div
+          className="pf-l-grid pf-m-all-12-col-on-sm pf-m-all-6-col-on-md pf-m-all-6-col-on-xl pf-m-all-4-col-on-2xl"
+          gutter="sm"
+        >
+          <Card
+            application-id="test"
+            className="ins-c-application-info pf-m-card-link"
+            key="0"
           >
             <article
-              className="pf-l-flex pf-m-column pf-m-align-items-center"
+              application-id="test"
+              className="pf-c-card ins-c-application-info pf-m-card-link"
+              data-ouia-component-id="OUIA-Generated-Card-1"
+              data-ouia-component-type="PF4/Card"
+              data-ouia-safe={true}
+              id=""
             >
-              <Component
-                className="ins-c-hero__title pf-m-spacer-lg"
-                headingLevel="h1"
-                size="4xl"
-              >
-                <h1
-                  className="pf-c-title pf-m-4xl ins-c-hero__title pf-m-spacer-lg"
+              <CardHeader>
+                <div
+                  className="pf-c-card__header"
                 >
-                   Explore our open, multicloud tools 
-                </h1>
-              </Component>
-              <Component
-                className="ins-c-hero__sub-title pf-m-spacer-xl"
-                headingLevel="h2"
-              >
-                <h2
-                  className="pf-c-title pf-m-xl ins-c-hero__sub-title pf-m-spacer-xl"
-                >
-                  Discover Red Hat
-                  <sup
-                    className="ins-c-rball"
+                  <Stack
+                    gutter="sm"
                   >
-                    ®
-                  </sup>
-                   software-as-a-service
-                </h2>
-              </Component>
-              <Component
-                className="ins-c-hero__login"
-                onClick={[Function]}
-              >
-                <button
-                  aria-disabled={null}
-                  aria-label={null}
-                  className="pf-c-button pf-m-primary ins-c-hero__login"
-                  data-ouia-component-id={null}
-                  data-ouia-component-type="PF4/Button"
-                  data-ouia-safe={true}
-                  disabled={false}
-                  onClick={[Function]}
-                  tabIndex={null}
-                  type="button"
+                    <div
+                      className="pf-l-stack"
+                      gutter="sm"
+                    >
+                      <StackItem
+                        className="ins-c-application-logo"
+                      >
+                        <div
+                          className="pf-l-stack__item ins-c-application-logo"
+                        >
+                          <img
+                            alt="Jest Test logo"
+                            aria-hidden={true}
+                            className="ins-c-application-info__logo"
+                            src="default"
+                          />
+                        </div>
+                      </StackItem>
+                    </div>
+                  </Stack>
+                </div>
+              </CardHeader>
+              <CardBody>
+                <div
+                  className="pf-c-card__body"
                 >
-                   Log in to your Red Hat account
-                </button>
-              </Component>
-              <Component
-                className="ins-c-hero__new-customer"
-                component="a"
-                href="https://www.redhat.com/en/customers"
-                isInline={true}
-                variant="link"
+                  <Stack>
+                    <div
+                      className="pf-l-stack"
+                    >
+                      <StackItem>
+                        <div
+                          className="pf-l-stack__item"
+                        >
+                          <span
+                            className="ins-m-gray"
+                          >
+                            Marketing Test
+                          </span>
+                        </div>
+                      </StackItem>
+                    </div>
+                  </Stack>
+                </div>
+              </CardBody>
+              <CardFooter
+                className="pf-c-card__card-links"
               >
-                <a
-                  aria-disabled={false}
-                  aria-label={null}
-                  className="pf-c-button pf-m-link pf-m-inline ins-c-hero__new-customer"
-                  data-ouia-component-id={null}
-                  data-ouia-component-type="PF4/Button"
-                  data-ouia-safe={true}
-                  disabled={null}
-                  href="https://www.redhat.com/en/customers"
-                  tabIndex={null}
-                  type={null}
+                <div
+                  className="pf-c-card__footer pf-c-card__card-links"
                 >
-                  Not a customer?
-                </a>
-              </Component>
+                  <a
+                    aria-label="Go to Jest Test"
+                    href="/marketing-test"
+                  >
+                    Learn more
+                    <ArrowRightIcon
+                      color="currentColor"
+                      noVerticalAlign={false}
+                      size="sm"
+                    >
+                      <svg
+                        aria-hidden={true}
+                        aria-labelledby={null}
+                        fill="currentColor"
+                        height="1em"
+                        role="img"
+                        style={
+                          Object {
+                            "verticalAlign": "-0.125em",
+                          }
+                        }
+                        viewBox="0 0 448 512"
+                        width="1em"
+                      >
+                        <path
+                          d="M190.5 66.9l22.2-22.2c9.4-9.4 24.6-9.4 33.9 0L441 239c9.4 9.4 9.4 24.6 0 33.9L246.6 467.3c-9.4 9.4-24.6 9.4-33.9 0l-22.2-22.2c-9.5-9.5-9.3-25 .4-34.3L311.4 296H24c-13.3 0-24-10.7-24-24v-32c0-13.3 10.7-24 24-24h287.4L190.9 101.2c-9.8-9.3-10-24.8-.4-34.3z"
+                        />
+                      </svg>
+                    </ArrowRightIcon>
+                  </a>
+                  <a
+                    aria-label="Request an evaluation"
+                    href="/tryit-test"
+                  >
+                    Try it
+                    <ArrowRightIcon
+                      color="currentColor"
+                      noVerticalAlign={false}
+                      size="sm"
+                    >
+                      <svg
+                        aria-hidden={true}
+                        aria-labelledby={null}
+                        fill="currentColor"
+                        height="1em"
+                        role="img"
+                        style={
+                          Object {
+                            "verticalAlign": "-0.125em",
+                          }
+                        }
+                        viewBox="0 0 448 512"
+                        width="1em"
+                      >
+                        <path
+                          d="M190.5 66.9l22.2-22.2c9.4-9.4 24.6-9.4 33.9 0L441 239c9.4 9.4 9.4 24.6 0 33.9L246.6 467.3c-9.4 9.4-24.6 9.4-33.9 0l-22.2-22.2c-9.5-9.5-9.3-25 .4-34.3L311.4 296H24c-13.3 0-24-10.7-24-24v-32c0-13.3 10.7-24 24-24h287.4L190.9 101.2c-9.8-9.3-10-24.8-.4-34.3z"
+                        />
+                      </svg>
+                    </ArrowRightIcon>
+                  </a>
+                </div>
+              </CardFooter>
             </article>
-          </section>
-        </Component>
-      </Hero>
-      <Component
-        className="ins-c-marketing pf-m-no-fill"
-        landing-page-type="unauthenticated"
-      >
-        <section
-          className="pf-c-page__main-section ins-c-marketing pf-m-no-fill"
-          landing-page-type="unauthenticated"
-        >
-          <Component
-            gutter="sm"
-            md={6}
-            sm={12}
-            xl={6}
-            xl2={4}
-          >
-            <div
-              className="pf-l-grid pf-m-all-12-col-on-sm pf-m-all-6-col-on-md pf-m-all-6-col-on-xl pf-m-all-4-col-on-2xl"
-              gutter="sm"
-            />
-          </Component>
-        </section>
-      </Component>
-    </Marketing>
-  </Connect(Marketing)>
-</Provider>
+          </Card>
+        </div>
+      </Grid>
+    </section>
+  </PageSection>
+</Marketing>
 `;

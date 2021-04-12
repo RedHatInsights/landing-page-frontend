@@ -1,77 +1,72 @@
-/*global describe, test, expect */
-
 import React from 'react';
-import { Provider } from 'react-redux';
-import configureMockStore from 'redux-mock-store';
 import { mount } from 'enzyme';
 import toJson from 'enzyme-to-json';
-import { mapStateToProps } from '../Marketing';
-import Body from '../Marketing';
-import insightsMarketing from '../../components/marketing/insightsMarketing.svg';
-import Insights from '../../components/Insights.svg';
+import { Card, CardBody, CardFooter } from '@patternfly/react-core';
 
-const activeTechnologiesMock = [
-    {
+import Body from '../Marketing';
+
+jest.mock('../../consts', () => {
+  const insightsMarketing = require('../../components/marketing/insightsMarketing.svg')
+    .default;
+  const Insights = require('../../components/Insights.svg').default;
+
+  return {
+    activeTechnologies: [
+      {
         entitlement: 'test',
         marketing: true,
         marketingImage: insightsMarketing,
         marketingText: 'Marketing Test',
         marketingUrls: {
-            learnMore: '/marketing-test',
-            tryit: '/tryit-test'
+          learnMore: '/marketing-test',
+          tryIt: '/tryit-test',
         },
         name: 'test',
         id: 'test',
         url: 'test',
         baseApp: '/test',
         apps: {
-            rules: '/app-test'
+          rules: '/app-test',
         },
         icon: Insights,
         title: 'Jest Test',
         emptyTitle: 'test',
         emptyText: 'test',
         emptyAction: {
-            title: 'test',
-            navigate: '/empty-action-test'
+          title: 'test',
+          navigate: '/empty-action-test',
         },
-        body: 'test'
-    }
-];
-
-const mockStore = configureMockStore();
-const store = mockStore(activeTechnologiesMock);
-
-function getInput(obj) {
-    return {
-        technologies: {
-            activeTechnologies: [ obj ]
-        }
-    };
-}
-
-function getOutput(obj) {
-    return { technologies: [ obj ]};
-}
-
-describe('mapStateToProps', () => {
-    test('should return the re-wrapped data', () => {
-        const data = {
-            foo: 'bar',
-            marketing: true
-        };
-        const output = mapStateToProps(getInput(data));
-        expect(output).toEqual(getOutput(data));
-    });
+        body: 'test',
+      },
+      {
+        entitlement: 'test-2',
+        marketing: false,
+      },
+    ],
+  };
 });
 
 describe('render Marketing component', () => {
-    it('should render correctly', () => {
-        const wrapper = mount(
-            <Provider store={ store }>
-                <Body/>
-            </Provider>
-        );
-        expect(toJson(wrapper)).toMatchSnapshot();
-    });
+  it('should render correctly', async () => {
+    const wrapper = mount(<Body />);
+    expect(toJson(wrapper)).toMatchSnapshot();
+
+    // filters technology without marketing set to true
+    expect(wrapper.find(Card)).toHaveLength(1);
+
+    const testCard = wrapper.find(Card);
+
+    expect(testCard.find(CardBody).text()).toEqual('Marketing Test');
+    expect(testCard.find(CardFooter).find('a').first().text()).toEqual(
+      'Learn more'
+    );
+    expect(testCard.find(CardFooter).find('a').first().props().href).toEqual(
+      '/marketing-test'
+    );
+
+    expect(testCard.find(CardFooter).find('a').last().text()).toEqual('Try it');
+    expect(testCard.find(CardFooter).find('a').last().props().href).toEqual(
+      '/tryit-test'
+    );
+  });
 });

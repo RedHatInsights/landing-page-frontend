@@ -36,158 +36,91 @@ exports[`App component should render correctly 1`] = `
         }
       }
     >
-      <withRouter(Connect(App))>
-        <Connect(App)
-          history={
-            Object {
-              "action": "POP",
-              "block": [Function],
-              "createHref": [Function],
-              "go": [Function],
-              "goBack": [Function],
-              "goForward": [Function],
-              "length": 1,
-              "listen": [Function],
-              "location": Object {
-                "hash": "",
-                "pathname": "/",
-                "search": "",
-                "state": undefined,
-              },
-              "push": [Function],
-              "replace": [Function],
-            }
-          }
-          location={
-            Object {
-              "hash": "",
-              "pathname": "/",
-              "search": "",
-              "state": undefined,
-            }
-          }
-          match={
-            Object {
-              "isExact": true,
-              "params": Object {},
-              "path": "/",
-              "url": "/",
-            }
-          }
+      <App>
+        <IntlProvider
+          defaultFormats={Object {}}
+          defaultLocale="en"
+          formats={Object {}}
+          locale="en"
+          messages={Object {}}
+          onError={[Function]}
+          textComponent={Symbol(react.fragment)}
         >
-          <App
-            history={
-              Object {
-                "action": "POP",
-                "block": [Function],
-                "createHref": [Function],
-                "go": [Function],
-                "goBack": [Function],
-                "goForward": [Function],
-                "length": 1,
-                "listen": [Function],
-                "location": Object {
-                  "hash": "",
-                  "pathname": "/",
-                  "search": "",
-                  "state": undefined,
-                },
-                "push": [Function],
-                "replace": [Function],
-              }
-            }
-            loadTechnologies={[Function]}
-            location={
-              Object {
-                "hash": "",
-                "pathname": "/",
-                "search": "",
-                "state": undefined,
-              }
-            }
-            match={
-              Object {
-                "isExact": true,
-                "params": Object {},
-                "path": "/",
-                "url": "/",
-              }
+          <Suspense
+            fallback={
+              <Bullseye>
+                <Spinner
+                  size="xl"
+                />
+              </Bullseye>
             }
           >
-            <Suspense
-              fallback={
-                <Unknown>
-                  <Unknown
-                    size="xl"
-                  />
-                </Unknown>
-              }
-            >
-              <Switch>
-                <Route
-                  component={
-                    Object {
-                      "$$typeof": Symbol(react.lazy),
-                      "_ctor": [Function],
+            <Switch>
+              <Route
+                component={
+                  Object {
+                    "$$typeof": Symbol(react.lazy),
+                    "_init": [Function],
+                    "_payload": Object {
                       "_result": Promise {},
                       "_status": 0,
-                    }
+                    },
                   }
-                  computedMatch={
-                    Object {
-                      "isExact": true,
-                      "params": Object {},
-                      "path": "/",
-                      "url": "/",
-                    }
+                }
+                computedMatch={
+                  Object {
+                    "isExact": true,
+                    "params": Object {},
+                    "path": "/",
+                    "url": "/",
                   }
-                  exact={true}
-                  location={
-                    Object {
-                      "hash": "",
-                      "pathname": "/",
-                      "search": "",
-                      "state": undefined,
-                    }
+                }
+                exact={true}
+                location={
+                  Object {
+                    "hash": "",
+                    "pathname": "/",
+                    "search": "",
+                    "state": undefined,
                   }
-                  path="/"
-                />
-              </Switch>
-              <Component>
-                <div
-                  className="pf-l-bullseye"
+                }
+                path="/"
+              />
+            </Switch>
+            <Bullseye>
+              <div
+                className="pf-l-bullseye"
+              >
+                <Spinner
+                  size="xl"
                 >
-                  <Component
-                    size="xl"
+                  <span
+                    aria-valuetext="Loading..."
+                    className="pf-c-spinner pf-m-xl"
+                    role="progressbar"
                   >
                     <span
-                      aria-valuetext="Loading..."
-                      className="pf-c-spinner pf-m-xl"
-                      role="progressbar"
-                    >
-                      <span
-                        className="pf-c-spinner__clipper"
-                      />
-                      <span
-                        className="pf-c-spinner__lead-ball"
-                      />
-                      <span
-                        className="pf-c-spinner__tail-ball"
-                      />
-                    </span>
-                  </Component>
-                </div>
-              </Component>
-            </Suspense>
-          </App>
-        </Connect(App)>
-      </withRouter(Connect(App))>
+                      className="pf-c-spinner__clipper"
+                    />
+                    <span
+                      className="pf-c-spinner__lead-ball"
+                    />
+                    <span
+                      className="pf-c-spinner__tail-ball"
+                    />
+                  </span>
+                </Spinner>
+              </div>
+            </Bullseye>
+          </Suspense>
+        </IntlProvider>
+      </App>
     </Router>
   </BrowserRouter>
 </Provider>
 `;
 
-exports[`App component should render correctly with data 1`] = `
+exports[`App component should render correctly 2`] = `
 <Provider
   store={
     Object {
@@ -223,248 +156,85 @@ exports[`App component should render correctly with data 1`] = `
         }
       }
     >
-      <withRouter(Connect(App))
-        technologies={
-          Object {
-            "foo": "bar",
-          }
-        }
-      >
-        <Connect(App)
-          history={
-            Object {
-              "action": "POP",
-              "block": [Function],
-              "createHref": [Function],
-              "go": [Function],
-              "goBack": [Function],
-              "goForward": [Function],
-              "length": 1,
-              "listen": [Function],
-              "location": Object {
-                "hash": "",
-                "pathname": "/",
-                "search": "",
-                "state": undefined,
-              },
-              "push": [Function],
-              "replace": [Function],
-            }
-          }
-          location={
-            Object {
-              "hash": "",
-              "pathname": "/",
-              "search": "",
-              "state": undefined,
-            }
-          }
-          match={
-            Object {
-              "isExact": true,
-              "params": Object {},
-              "path": "/",
-              "url": "/",
-            }
-          }
-          technologies={
-            Object {
-              "foo": "bar",
-            }
-          }
+      <App>
+        <IntlProvider
+          defaultFormats={Object {}}
+          defaultLocale="en"
+          formats={Object {}}
+          locale="en"
+          messages={Object {}}
+          onError={[Function]}
+          textComponent={Symbol(react.fragment)}
         >
-          <App
-            history={
-              Object {
-                "action": "POP",
-                "block": [Function],
-                "createHref": [Function],
-                "go": [Function],
-                "goBack": [Function],
-                "goForward": [Function],
-                "length": 1,
-                "listen": [Function],
-                "location": Object {
-                  "hash": "",
-                  "pathname": "/",
-                  "search": "",
-                  "state": undefined,
-                },
-                "push": [Function],
-                "replace": [Function],
-              }
-            }
-            loadTechnologies={[Function]}
-            location={
-              Object {
-                "hash": "",
-                "pathname": "/",
-                "search": "",
-                "state": undefined,
-              }
-            }
-            match={
-              Object {
-                "isExact": true,
-                "params": Object {},
-                "path": "/",
-                "url": "/",
-              }
-            }
-            technologies={
-              Object {
-                "foo": "bar",
-              }
+          <Suspense
+            fallback={
+              <Bullseye>
+                <Spinner
+                  size="xl"
+                />
+              </Bullseye>
             }
           >
-            <Suspense
-              fallback={
-                <Unknown>
-                  <Unknown
-                    size="xl"
-                  />
-                </Unknown>
-              }
-            >
-              <Switch>
-                <Route
-                  component={
-                    Object {
-                      "$$typeof": Symbol(react.lazy),
-                      "_ctor": [Function],
+            <Switch>
+              <Route
+                component={
+                  Object {
+                    "$$typeof": Symbol(react.lazy),
+                    "_init": [Function],
+                    "_payload": Object {
                       "_result": [Function],
                       "_status": 1,
-                    }
+                    },
                   }
-                  computedMatch={
-                    Object {
-                      "isExact": true,
-                      "params": Object {},
-                      "path": "/",
-                      "url": "/",
-                    }
+                }
+                computedMatch={
+                  Object {
+                    "isExact": true,
+                    "params": Object {},
+                    "path": "/",
+                    "url": "/",
                   }
-                  exact={true}
-                  location={
-                    Object {
-                      "hash": "",
-                      "pathname": "/",
-                      "search": "",
-                      "state": undefined,
-                    }
+                }
+                exact={true}
+                location={
+                  Object {
+                    "hash": "",
+                    "pathname": "/",
+                    "search": "",
+                    "state": undefined,
                   }
-                  path="/"
+                }
+                path="/"
+              />
+            </Switch>
+            <Bullseye>
+              <div
+                className="pf-l-bullseye"
+              >
+                <Spinner
+                  size="xl"
                 >
-                  <withRouter(Landing)
-                    history={
-                      Object {
-                        "action": "POP",
-                        "block": [Function],
-                        "createHref": [Function],
-                        "go": [Function],
-                        "goBack": [Function],
-                        "goForward": [Function],
-                        "length": 1,
-                        "listen": [Function],
-                        "location": Object {
-                          "hash": "",
-                          "pathname": "/",
-                          "search": "",
-                          "state": undefined,
-                        },
-                        "push": [Function],
-                        "replace": [Function],
-                      }
-                    }
-                    location={
-                      Object {
-                        "hash": "",
-                        "pathname": "/",
-                        "search": "",
-                        "state": undefined,
-                      }
-                    }
-                    match={
-                      Object {
-                        "isExact": true,
-                        "params": Object {},
-                        "path": "/",
-                        "url": "/",
-                      }
-                    }
+                  <span
+                    aria-valuetext="Loading..."
+                    className="pf-c-spinner pf-m-xl"
+                    role="progressbar"
                   >
-                    <Landing
-                      history={
-                        Object {
-                          "action": "POP",
-                          "block": [Function],
-                          "createHref": [Function],
-                          "go": [Function],
-                          "goBack": [Function],
-                          "goForward": [Function],
-                          "length": 1,
-                          "listen": [Function],
-                          "location": Object {
-                            "hash": "",
-                            "pathname": "/",
-                            "search": "",
-                            "state": undefined,
-                          },
-                          "push": [Function],
-                          "replace": [Function],
-                        }
-                      }
-                      loadTechnologies={[Function]}
-                      location={
-                        Object {
-                          "hash": "",
-                          "pathname": "/",
-                          "search": "",
-                          "state": undefined,
-                        }
-                      }
-                      match={
-                        Object {
-                          "isExact": true,
-                          "params": Object {},
-                          "path": "/",
-                          "url": "/",
-                        }
-                      }
-                    >
-                      <Loading>
-                        <Connect(Main)>
-                          <Main>
-                            <section
-                              className="pf-l-page__main-section pf-c-page__main-section"
-                              page-type=""
-                            >
-                              <Spinner
-                                centered={true}
-                              >
-                                <div
-                                  className="ins-c-spinner ins-m-center"
-                                  role="status"
-                                >
-                                  <span
-                                    className="pf-u-screen-reader"
-                                  >
-                                    Loading...
-                                  </span>
-                                </div>
-                              </Spinner>
-                            </section>
-                          </Main>
-                        </Connect(Main)>
-                      </Loading>
-                    </Landing>
-                  </withRouter(Landing)>
-                </Route>
-              </Switch>
-            </Suspense>
-          </App>
-        </Connect(App)>
-      </withRouter(Connect(App))>
+                    <span
+                      className="pf-c-spinner__clipper"
+                    />
+                    <span
+                      className="pf-c-spinner__lead-ball"
+                    />
+                    <span
+                      className="pf-c-spinner__tail-ball"
+                    />
+                  </span>
+                </Spinner>
+              </div>
+            </Bullseye>
+          </Suspense>
+        </IntlProvider>
+      </App>
     </Router>
   </BrowserRouter>
 </Provider>

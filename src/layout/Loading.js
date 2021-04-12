@@ -1,11 +1,12 @@
 import React from 'react';
 
-import { Main, Spinner } from '@redhat-cloud-services/frontend-components';
+import Main from '@redhat-cloud-services/frontend-components/Main';
+import Spinner from '@redhat-cloud-services/frontend-components/Spinner';
 
 const Loading = () => (
-    <Main>
-        <Spinner centered/>
-    </Main>
+  <Main>
+    <Spinner centered />
+  </Main>
 );
 
 export default Loading;

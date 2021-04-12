@@ -1,4 +1,8 @@
 // App.scss
 .ins-c-landing-page .pf-c-page .pf-c-title {
-    font-weight: 500;
+    // font-weight: 500;
+}
+
+.pf-c-page__main {
+   display: block !important;
 }

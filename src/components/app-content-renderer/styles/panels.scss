@@ -1,0 +1,205 @@
+/* stylelint-disable no-descending-specificity */
+.ins-c-page__landing-content {
+  .level-wrapper {
+    padding: var(--pf-global--spacer--xl) var(--pf-global--spacer--lg) 0 var(--pf-global--spacer--lg);
+  }
+  .break {
+    flex-basis: 100%;
+    height: 0;
+  }
+  .error {
+    color: var(--pf-global--danger-color--100);
+  }
+  .warning {
+    color: var(--pf-global--warning-color--100);
+  }
+  .green {
+    color: var(--pf-global--success-color--100);
+  }
+  .info {
+    color: var(--pf-global--info-color--100);
+  }
+  .gray {
+    color: var(--pf-global--Color--200);
+  }
+  .ins-c-footer__traditional{
+    padding-top: var(--pf-global--spacer--sm);
+  }
+
+  .first-panel {
+    color: var(--pf-global--Color--light-100);
+    background: url(https://cloud.redhat.com/apps/frontend-assets/background-images/new-landing-page/estate-double_gradient.svg);
+    background-size: cover !important;
+    padding: var(--pf-global--spacer--xl) var(--pf-global--spacer--lg) var(--pf-global--spacer--lg) var(--pf-global--spacer--lg);
+    overflow-x: auto;
+
+    @media only screen and (min-width: 769px) {
+      .pf-c-description-list {
+        display: flex;
+        align-items: normal;
+        .estate-group {
+          width: 190px;
+          margin-right: var(--pf-global--spacer--md);
+          .estate-section {
+            .pf-c-description-list__text {
+              width: 140px;
+              p {
+                font-size: var(--pf-global--FontSize--md);
+                padding-bottom: var(--pf-global--spacer--md);
+                overflow: hidden;
+                text-overflow: ellipsis;
+                white-space: nowrap;
+                &::after {
+                  content: '\00a0';
+                }
+              }
+            }
+          }
+          .estate-title {
+            .pf-c-description-list__text {
+              width: 140px;
+              p {
+                white-space: nowrap; 
+                overflow: hidden;
+                text-overflow: ellipsis;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    @media only screen and (max-width: 768px) {
+      .pf-c-description-list {
+        grid-template-columns: repeat(calc(100% - var(--pf-c-description-list--ColumnGap)));
+        row-gap: 0;
+        .estate-group {
+          display: flex;
+          flex-wrap: wrap;
+          .estate-section {
+            >.pf-c-description-list__text {
+              p {
+                font-size: var(--pf-global--FontSize--md);
+                margin-bottom: var(--pf-global--spacer--md);
+                margin-top: var(--pf-global--spacer--md);
+              }
+              &::after {
+                content: '';
+              }
+              p:empty {
+                margin: 0;
+              }
+            }
+            font-size: var(--pf-global--FontSize--xl) !important;
+            width: 100%;
+          }
+          .estate-count {
+            h5 {
+              font-size: var(--pf-global--FontSize--md) !important;
+              padding-right: var(--pf-global--spacer--sm);
+            }
+          }
+          .estate-title {
+            p {
+              font-size: var(--pf-global--FontSize--md) !important;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .ins-c-second-panel {
+    background-color: var(--pf-global--BackgroundColor--100);
+    color: var(--pf-global--Color--100);
+    padding: var(--pf-global--spacer--xl) var(--pf-global--spacer--lg) var(--pf-global--spacer--lg) var(--pf-global--spacer--lg);
+   
+    .ins-c-recommendation__container {
+      max-width: 1150px;
+      column-count: 2;
+      column-gap: var(--pf-global--spacer--xl);
+      overflow: hidden; // prevents padding from spilling into next column
+      break-inside: avoid-column; // prevents padding from spilling into next column
+
+      .recommendation-test {
+        break-inside: avoid-column; // prevents padding from spilling into next column
+        flex-wrap: nowrap;
+        min-height: 60px;
+      }
+
+      .recommendation-group {
+        flex-wrap: nowrap;
+        margin-bottom: var(--pf-global--spacer--xs);
+        width: 100%;
+        p {
+          font-size: var(--pf-global--FontSize--sm);
+          font-weight:  300;
+        }
+        a {
+          width: 110px;
+        }
+      }
+    }
+
+    @media only screen and (max-width: 998px) {
+      .ins-c-recommendation__container {
+        column-count: 1;
+      }
+    }
+
+  }
+
+  .ins-c-third--panel-wrapper {
+    background: url(https://cloud.redhat.com/apps/frontend-assets/background-images/new-landing-page/ctl-double_gradient.svg);
+    background-position: top left;
+    background-repeat: no-repeat;
+  }
+
+  .ins-c-third--panel {
+    color: var(--pf-global--Color--100);
+    display: grid;
+    grid-template-columns: [config] 1fr [try] 1fr [learn] 1fr;
+    grid-template-rows: [start] 1fr;
+    row-gap: var(--pf-global--spacer--md);
+    column-gap: var(--pf-global--spacer--md);
+
+    @media screen and (min-width: 1450px) {
+      max-width: 1210px;
+      .title-wrapper {
+        width: 100%;
+      }
+    }
+    @media screen and (max-width: 1449px){
+      display: flex;
+      flex-direction: column;
+    }
+    .ins-c-grid__config {
+      grid-column-start: config;
+    }
+    .ins-c-grid__try {
+      grid-column-start: try;
+    }
+    .ins-c-grid__learn {
+      grid-column-start: learn;
+    }
+    .section-title {
+      font-weight: var(--pf-global--FontWeight--normal) !important;
+    }
+    .tile-icon {
+      border-radius: 50%;
+      background-color: var(--pf-global--palette--black-300);
+      border: 10px solid var(--pf-global--palette--black-300);
+    }
+    .pf-c-title.tile-text {
+      font-weight: bold;
+    }
+    .tile-text {
+      font-size: 14px;
+    }
+    .icon-wrapper {
+      /** prevent icons scrollbars */
+      flex-shrink: 0;
+    }
+  }
+}
+

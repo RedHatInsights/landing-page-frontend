@@ -1,155 +1,224 @@
-import PropTypes from 'prop-types';
-import React, { useEffect, useState, Fragment } from 'react';
+import React, { Fragment, useEffect, useReducer } from 'react';
 import { useDispatch } from 'react-redux';
-import { withRouter } from 'react-router-dom';
-import { Button, Modal, Stack, StackItem, Title } from '@patternfly/react-core';
-import Header from '../layout/Header';
-import Body from '../layout/Body';
+import {
+  Button,
+  Modal,
+  Stack,
+  StackItem,
+  Title,
+  SplitItem,
+  Split,
+} from '@patternfly/react-core';
 import Marketing from '../layout/Marketing';
 import FooterTraditional from '../layout/FooterTraditional';
 import Loading from '../layout/Loading';
 import { activeTechnologies } from '../consts';
-import { addNotification } from '@redhat-cloud-services/frontend-components-notifications/cjs/actions';
+import { addNotification } from '@redhat-cloud-services/frontend-components-notifications/redux';
+
 import './Landing.scss';
+import '../components/app-content-renderer/styles/panels.scss';
+
+// Mockup console landing page
+import FirstPanel from '../components/app-content-renderer/first-panel';
+import SecondPanel from '../components/app-content-renderer/second-panel';
+import Footer from '../components/app-content-renderer/footer';
+
+import { loadData } from '../store/actions';
+import createContentData from '../contentApi/create-content-data';
+
+import { loadPermissions } from '../utils/allPermissions';
+
+const init = (initialState) => {
+  const params = location.search
+    .slice(1)
+    .split('&')
+    .reduce(
+      (acc, curr) => ({
+        ...acc,
+        [curr.split('=')[0]]: Object.values(activeTechnologies).find(
+          (item) => item.entitlement === curr.split('=')[1]
+        ),
+      }),
+      {}
+    );
+
+  return {
+    ...initialState,
+    notEntitled: params.not_entitled,
+    isModalOpen: params && Object.keys(params).length > 0,
+  };
+};
+
+const initialState = {
+  isModalOpen: false,
+  isUserReady: false,
+  isUnauthed: true,
+  notEntitled: undefined,
+};
+
+const reducer = (state, { type, user }) => {
+  switch (type) {
+    case 'finishLoading':
+      return { ...state, isUnauthed: user ? false : true, isUserReady: true };
+    case 'closeModal':
+      return { ...state, isModalOpen: false };
+    default:
+      return state;
+  }
+};
 
 const Landing = () => {
+  const [
+    { isModalOpen, isUserReady, isUnauthed, notEntitled },
+    stateDispatch,
+  ] = useReducer(reducer, initialState, init);
+  const dispatch = useDispatch();
 
-    const [ isModalOpen, setIsModalOpen ] = useState(false);
-    const [ isUserReady, setIsUserReady ] = useState(false);
-    const [ isUnauthed, setIsUnauthed ] = useState(true);
-    const [ notEntitled, setIsNotEntitled ] = useState();
-    const dispatch = useDispatch();
+  useEffect(async () => {
+    try {
+      createContentData().then((data) => {
+        dispatch(loadData(data));
+      });
 
-    useEffect(() => {
+      const [user] = await Promise.all([
+        insights.chrome.auth.getUser(),
+        loadPermissions(),
+      ]);
 
-        const params = location.search.slice(1).split('&').reduce((acc, curr) => ({
-            ...acc,
-            [curr.split('=')[0]]: Object.values(activeTechnologies).find(item => item.entitlement === curr.split('=')[1])
-        }), {});
-
-        setIsNotEntitled(params.not_entitled);
-        setIsModalOpen(params && Object.keys(params).length > 0);
-
-        window.insights.chrome.auth.getUser().then(user => {
-            if (user) {
-                setIsUnauthed(false);
-            } else {
-                setIsUnauthed(true);
-            }
-        }).catch(() => {
-            setIsUnauthed(true);
-        })
-        .then(() =>
-            setIsUserReady(true)
-        );
-    }, []);
-
-    const handleModalToggle = () => {
-        setIsModalOpen(false);
-        history.pushState(null, '', location.href.split('?')[0]);
-    };
-
-    const renderAlert = (title) => {
-        dispatch(
-            addNotification({
-                variant: 'danger',
-                title
-            })
-        );
-    };
-
-    if (isUserReady) {
-        return (
-            <Fragment>
-                { isUnauthed
-                    ? <Marketing />
-                    : <Fragment>
-                        <Header />
-                        <Body />
-                    </Fragment>
-                }
-                <FooterTraditional />
-                { notEntitled && notEntitled.emptyAlertTitle &&
-                    renderAlert(notEntitled.emptyAlertTitle)
-                }
-                { notEntitled && !notEntitled.emptyAlertTitle && <Modal
-                    className='ins-c-error-modal'
-                    app-entitlement={ notEntitled.emptyID }
-                    isOpen={ isModalOpen }
-                    onClose={ handleModalToggle }
-                    aria-title={ notEntitled.emptyTitle }
-                    header={ <Title headingLevel="h2" size='2xl'>{ notEntitled.emptyTitle }</Title> }
-                >
-                    <Stack hasGutter className='ins-c-error-state'>
-                        <StackItem className='ins-c-error-state__image'>
-                            { notEntitled.icon && <notEntitled.icon
-                                className="ins-c-icon__active"
-                                aria-hidden
-                                alt={ `${notEntitled.title} logo` }
-                                { ...notEntitled.iconProps }
-                            /> }
-                            { notEntitled.image && <img
-                                className="ins-c-application-info__logo"
-                                aria-hidden
-                                src={ notEntitled.image }
-                                alt={ `${notEntitled.title} logo` } /> }
-                        </StackItem>
-                        <StackItem className='ins-c-error-state__body'>
-                            { notEntitled.emptyText }
-                        </StackItem>
-                        <StackItem className='ins-c-error-state__footer'>
-                            {
-                                notEntitled.emptyAction.primary &&
-                                    <Button variant="primary" className='ins-c-error-state__footer-action' onClick={ () => {
-                                        if (notEntitled.emptyAction.primary.navigate) {
-                                            window.location.href = notEntitled.emptyAction.primary.navigate;
-                                        }
-                                    } } >
-                                        { notEntitled.emptyAction.primary.title }
-                                    </Button>
-                            }
-                            <section className='ins-c-error-state__footer-action--secondary'>
-                                {
-                                    notEntitled.emptyAction.secondary && notEntitled.emptyAction.secondary.navigate &&
-                                        <Button variant="link" className='ins-c-error-state__footer-secondary' onClick={ ()=> {
-                                            window.location.href = notEntitled.emptyAction.secondary.navigate; } }>
-                                            { notEntitled.emptyAction.secondary.title ?
-                                                `${ notEntitled.emptyAction.secondary.title }` : 'Learn More'
-                                            }
-                                        </Button>
-                                }
-                                {
-                                    notEntitled.emptyAction.secondary && !notEntitled.emptyAction.secondary.navigate &&
-                                        <Button variant="link" className='ins-c-error-state__footer-secondary'>
-                                            { notEntitled.emptyAction.secondary.title ?
-                                                `${ notEntitled.emptyAction.secondary.title }` : 'Learn More'
-                                            }
-                                        </Button>
-                                }
-                                <Button variant="link" className='ins-c-error-state__footer-close' onClick={ handleModalToggle }>
-                                    { notEntitled.emptyAction.close ? `${notEntitled.emptyAction.close.title }` : 'Close' }
-                                </Button>
-                            </section>
-                        </StackItem>
-                    </Stack>
-                </Modal> }
-            </Fragment>
-        );
-    } else {
-        return <Loading/>;
+      stateDispatch({ type: 'finishLoading', user });
+    } catch {
+      stateDispatch({ type: 'finishLoading' });
     }
+  }, []);
+
+  const handleModalToggle = () => {
+    stateDispatch({ type: 'closeModal' });
+    history.pushState(null, '', location.href.split('?')[0]);
+  };
+
+  const renderAlert = (title) => {
+    dispatch(
+      addNotification({
+        variant: 'danger',
+        title,
+      })
+    );
+  };
+
+  if (isUserReady) {
+    return (
+      <Split className="ins-c-page__landing-layout">
+        <SplitItem className="ins-c-page__landing-content">
+          {isUnauthed ? (
+            <Marketing />
+          ) : (
+            <Fragment>
+              <FirstPanel />
+              <SecondPanel />
+              <Footer />
+            </Fragment>
+          )}
+          <FooterTraditional />
+          {notEntitled &&
+            notEntitled.emptyAlertTitle &&
+            renderAlert(notEntitled.emptyAlertTitle)}
+          {notEntitled && !notEntitled.emptyAlertTitle && (
+            <Modal
+              className="ins-c-error-modal"
+              app-entitlement={notEntitled.emptyID}
+              isOpen={isModalOpen}
+              onClose={handleModalToggle}
+              aria-label={notEntitled.emptyTitle}
+              header={
+                <Title headingLevel="h2" size="2xl">
+                  {notEntitled.emptyTitle}
+                </Title>
+              }
+            >
+              <Stack hasGutter className="ins-c-error-state">
+                <StackItem className="ins-c-error-state__image">
+                  {notEntitled.icon && (
+                    <notEntitled.icon
+                      className="ins-c-icon__active"
+                      aria-hidden
+                      alt={`${notEntitled.title} logo`}
+                      {...notEntitled.iconProps}
+                    />
+                  )}
+                  {notEntitled.image && (
+                    <img
+                      className="ins-c-application-info__logo"
+                      aria-hidden
+                      src={notEntitled.image}
+                      alt={`${notEntitled.title} logo`}
+                    />
+                  )}
+                </StackItem>
+                <StackItem className="ins-c-error-state__body">
+                  {notEntitled.emptyText}
+                </StackItem>
+                <StackItem className="ins-c-error-state__footer">
+                  {notEntitled.emptyAction.primary && (
+                    <Button
+                      variant="primary"
+                      className="ins-c-error-state__footer-action"
+                      onClick={() => {
+                        if (notEntitled.emptyAction.primary.navigate) {
+                          window.location.href =
+                            notEntitled.emptyAction.primary.navigate;
+                        }
+                      }}
+                    >
+                      {notEntitled.emptyAction.primary.title}
+                    </Button>
+                  )}
+                  <section className="ins-c-error-state__footer-action--secondary">
+                    {notEntitled.emptyAction.secondary &&
+                      notEntitled.emptyAction.secondary.navigate && (
+                        <Button
+                          variant="link"
+                          className="ins-c-error-state__footer-secondary"
+                          onClick={() => {
+                            window.location.href =
+                              notEntitled.emptyAction.secondary.navigate;
+                          }}
+                        >
+                          {notEntitled.emptyAction.secondary.title
+                            ? `${notEntitled.emptyAction.secondary.title}`
+                            : 'Learn More'}
+                        </Button>
+                      )}
+                    {notEntitled.emptyAction.secondary &&
+                      !notEntitled.emptyAction.secondary.navigate && (
+                        <Button
+                          variant="link"
+                          className="ins-c-error-state__footer-secondary"
+                        >
+                          {notEntitled.emptyAction.secondary.title
+                            ? `${notEntitled.emptyAction.secondary.title}`
+                            : 'Learn More'}
+                        </Button>
+                      )}
+                    <Button
+                      variant="link"
+                      className="ins-c-error-state__footer-close"
+                      onClick={handleModalToggle}
+                    >
+                      {notEntitled.emptyAction.close
+                        ? `${notEntitled.emptyAction.close.title}`
+                        : 'Close'}
+                    </Button>
+                  </section>
+                </StackItem>
+              </Stack>
+            </Modal>
+          )}
+        </SplitItem>
+      </Split>
+    );
+  } else {
+    return <Loading />;
+  }
 };
 
-Landing.propTypes = {
-    history: PropTypes.object,
-    loadTechnologies: PropTypes.func,
-    location: PropTypes.shape({
-        search: PropTypes.string
-    })
-};
-
-Landing.defaultProps = {
-    loadTechnologies: () => undefined
-};
-
-export default withRouter(Landing);
+export default Landing;

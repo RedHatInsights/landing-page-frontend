@@ -1,7 +1,5 @@
-@import '~@redhat-cloud-services/frontend-components-utilities/files/Utilities/_mixins';
+@import '~@redhat-cloud-services/frontend-components-utilities/styles/_mixins';
 @import '~@patternfly/patternfly/sass-utilities/_all';
-@import '~@redhat-cloud-services/frontend-components-notifications/index.css';
-@import '~@patternfly/patternfly/components/Alert/alert.scss';
 :root {
     --ins-global--Color--green: #37912f;
 }
@@ -117,4 +115,16 @@ sup.ins-c-rball { @include rem('font-size', 10px); }
         padding: unset;
         background-color: unset;
     }
+}
+
+// Adjust PF layout to be able to display witouth header
+.ins-c-page__landing-layout {
+    height: 100%;
+    .ins-c-page__landing-navigation {
+        flex-shrink: 0;
+    }
+}
+
+.ins-c-page__landing-content {
+    width: 100%
 }
