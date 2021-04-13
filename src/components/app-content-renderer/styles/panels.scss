@@ -162,6 +162,10 @@
     grid-template-rows: [start] 1fr;
     row-gap: var(--pf-global--spacer--md);
     column-gap: var(--pf-global--spacer--md);
+    > .pf-l-flex > div {
+      margin-bottom: auto;
+      margin-right: var(--pf-global--spacer--sm);
+    }
 
     @media screen and (min-width: 1450px) {
       max-width: 1210px;
