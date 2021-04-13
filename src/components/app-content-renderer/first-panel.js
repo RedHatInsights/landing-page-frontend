@@ -62,19 +62,19 @@ const FirstPanel = () => {
 
   useEffect(() => {
     const wheelHandler = (event) => scrollhandler(event, scrollRef.current);
-    scrollRef.current.addEventListener('wheel', wheelHandler);
+    scrollRef?.current?.addEventListener('wheel', wheelHandler);
     return () => {
-      scrollRef.current.removeEventListener('wheel', wheelHandler);
+      scrollRef?.current?.removeEventListener('wheel', wheelHandler);
     };
   }, []);
 
-  return (
+  return estate?.length > 0 ? (
     <div ref={scrollRef} className="first-panel">
       <DescriptionList>
         <EstateRenderer sections={flattenSections(estate)} />
       </DescriptionList>
     </div>
-  );
+  ) : null;
 };
 
 export default FirstPanel;
