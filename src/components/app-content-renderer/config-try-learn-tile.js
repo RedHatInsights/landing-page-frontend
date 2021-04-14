@@ -9,21 +9,20 @@ import {
   TextContent,
   Title,
 } from '@patternfly/react-core';
-import {
-  ArrowRightIcon,
-  CogsIcon,
-  PlayIcon,
-  LightbulbIcon,
-} from '@patternfly/react-icons';
+import { ArrowRightIcon } from '@patternfly/react-icons';
+import IconLightBulb from './icon-light-bulb';
+import IconManagementAutomation from './icon-management-automation';
+import IconOpenSource from './icon-open-source';
+
 import classNames from 'classnames';
 import useRequest from './use-request';
 import { Skeleton } from '@redhat-cloud-services/frontend-components/Skeleton';
 import { permissionProcessor } from '../../contentApi/request-processor';
 
 const iconMapper = {
-  config: CogsIcon,
-  try: PlayIcon,
-  learn: LightbulbIcon,
+  config: IconManagementAutomation,
+  try: IconOpenSource,
+  learn: IconLightBulb,
 };
 
 const TileItem = (props) => {
@@ -109,7 +108,7 @@ const ConfigTryLearnTile = ({ title, column, items, sectionName }) => {
           style={{ gridRow: 1 }}
         >
           <FlexItem>
-            <Icon size="md" />
+            <Icon />
           </FlexItem>
           <FlexItem>
             <Title
