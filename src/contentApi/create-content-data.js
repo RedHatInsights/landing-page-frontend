@@ -43,9 +43,9 @@ const createContentData = async () => {
   );
   landingPageContent.recommendations = [
     { ...landingPageContent.recommendations.recs },
+    { ...landingPageContent.recommendations.ansible },
     { ...landingPageContent.recommendations.openshift },
     { ...landingPageContent.recommendations.rhel },
-    { ...landingPageContent.recommendations.ansible },
   ];
   return landingPageContent;
 };

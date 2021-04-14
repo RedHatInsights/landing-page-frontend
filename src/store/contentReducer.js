@@ -4,7 +4,6 @@ import {
   REMOVE_ESTATE_TILE,
   REMOVE_RECOMMENDATION_TILE,
 } from './action-types';
-import { defaultRecomendations } from './default-state';
 
 /**
  * This is here temporarily to quickly store and use content data before we optimize and split it
@@ -59,7 +58,7 @@ export default applyReducerHash(
   {
     loaded: false,
     estate: [],
-    recommendations: defaultRecomendations,
+    recommendations: [],
     configTryLearn: [],
   }
 );

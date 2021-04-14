@@ -4,7 +4,94 @@
     "recs": {
       "title": "Recommendations",
       "id": "recommendations",
-      "items": []
+      "items": [
+        {
+        "id": "remediations-default-1",
+        "icon": "play",
+        "state": "success",
+        "title": "Try Streams for Apache Kafka.",
+        "action": {
+          "title": "Get Started",
+          "href": "INSERT URL HERE"
+          }
+        },
+        {
+        "id": "remediations-default-2",
+        "icon": "play",
+        "state": "success",
+        "title": "Try API management",
+        "action": {
+          "title": "Get Started",
+          "href":
+            "https: //www.redhat.com/en/technologies/cloud-computing/openshift/openshift-api-management"
+          }
+        }]
+    },
+    "ansible": {
+      "title": "Insights for Ansible Automation Platform",
+      "id": "ansible",
+      "items": [
+        {
+          "id": "ansible-default-1",
+          "permissions": [
+            {
+              "method": "isNotEntitled",
+              "args": [
+                "ansible"
+              ]
+            }
+          ],
+          "icon": "play",
+          "state": "success",
+          "title": "Red Hat Ansible Automation Platform provides analytics and knowledge on your automation, access to certified content, and more.",
+          "action": {
+            "title": "Try it",
+            "href": "https://www.redhat.com/en/technologies/management/ansible/try-it"
+          }
+        }
+      ]
+    },
+    "openshift": {
+      "title": "Insights for OpenShift",
+      "id": "openshift",
+      "items": [
+        {
+          "id": "openshift-default-1",
+          "permissions": [
+            {
+              "method": "isNotEntitled",
+              "args": [
+                "openshift"
+              ]
+            }
+          ],
+          "icon": "play",
+          "state": "success",
+          "title": "Your account team can set up Subscriptions to report on your Red Hat OpenShift Container subscription usage.",
+          "action": {
+            "title": "Contact Us",
+            "href": "https://access.redhat.com/account-team"
+          }
+        },
+        {
+          "id": "openshift-default-2",
+          "permissions": [
+            {
+              "method": "isNotEntitled",
+              "args": [
+                "openshift"
+              ]
+            }
+          ],
+          "icon": "play",
+          "state": "success",
+          "title": "Red Hat OpenShift customers have access to Cost Management, which provides visibility and analysis for your OpenShift and cloud costs.",
+          "action": {
+            "title": "Learn More",
+            "href": "https://www.redhat.com/en/technologies/cloud-computing/openshift"
+          }
+        }
+      ]
     },
     "rhel": {
       "title": "Insights for Red Hat Enterprise Linux",
@@ -34,55 +121,6 @@
         "action": {
           "title": "Contact Us",
           "href": "https://access.redhat.com/account-team "
-        }
-      }]
-    },
-    "ansible": {
-      "title": "Insights for Ansible Automation Platform",
-      "id": "ansible",
-      "items": [{
-        "id": "ansible-default-1",
-        "permissions": [{
-          "method": "isNotEntitled",
-          "args": ["ansible"]
-        }],
-        "icon": "play",
-        "state": "success",
-        "title": "Red Hat Ansible Automation Platform provides analytics and knowledge on your automation, access to certified content, and more.",
-        "action": {
-          "title": "Try it",
-          "href": "https://www.redhat.com/en/technologies/management/ansible/try-it"
-        }
-      }]
-    },
-    "openshift": {
-      "title": "Insights for OpenShift",
-      "id": "openshift",
-      "items": [{
-        "id": "openshift-default-1",
-        "permissions": [{
-          "method": "isNotEntitled",
-          "args": ["openshift"]
-        }],
-        "icon": "play",
-        "state": "success",
-        "title": "Your account team can set up Subscriptions to report on your Red Hat OpenShift Container subscription usage.",
-        "action": {
-          "title": "Contact Us",
-          "href": "https://access.redhat.com/account-team"
-        }
-      }, {
-        "id": "openshift-default-2",
-        "permissions": [{
-          "method": "isNotEntitled",
-          "args": ["openshift"]
-        }],
-        "icon": "play",
-        "state": "success",
-        "title": "Red Hat OpenShift customers have access to Cost Management, which provides visibility and analysis for your OpenShift and cloud costs.",
-        "action": {
-          "title": "Learn More",
-          "href": "https://www.redhat.com/en/technologies/cloud-computing/openshift"
         }
       }]
     }
