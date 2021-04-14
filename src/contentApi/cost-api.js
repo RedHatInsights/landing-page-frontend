@@ -41,47 +41,71 @@ const estateRequests = [
     section: 'Cost management',
     items: [
       {
-        // permissions: entitlements && cost.openshift.permissions
         id: 'cost-ocp-sources',
         url: '/api/cost-management/v1/sources/?source_type=OCP',
         accessor: 'meta.count',
+        permissions: [
+          {
+            method: 'isEntitled',
+            args: ['cost_management'],
+          },
+        ],
         responseProcessor: estateResponseProcessor,
         shape: {
           title: 'OpenShift Sources',
-          href: 'openshift',
+          href:
+            './settings/sources?sort_by[]=created_at:desc&limit=50&offset=0&activeVendor=Cloud',
         },
       },
       {
-        // permissions: entitlements && cost.aws.permissions
         id: 'cost-aws-sources',
         url: '/api/cost-management/v1/sources/?source_type=AWS',
         accessor: 'meta.count',
+        permissions: [
+          {
+            method: 'isEntitled',
+            args: ['cost_management'],
+          },
+        ],
         responseProcessor: estateResponseProcessor,
         shape: {
           title: 'Amazon Web Services Sources',
-          href: 'amazon',
+          href:
+            './settings/sources?sort_by[]=created_at:desc&limit=50&offset=0&activeVendor=Cloud',
         },
       },
       {
-        // permissions: entitlements && cost.azure.permissions
         id: 'cost-azure-sources',
         url: '/api/cost-management/v1/sources/?source_type=Azure',
         accessor: 'meta.count',
+        permissions: [
+          {
+            method: 'isEntitled',
+            args: ['cost_management'],
+          },
+        ],
         responseProcessor: estateResponseProcessor,
         shape: {
           title: 'Microsoft Azure Sources',
-          href: 'azure',
+          href:
+            './settings/sources?sort_by[]=created_at:desc&limit=50&offset=0&activeVendor=Cloud',
         },
       },
       {
-        // permissions: entitlements && cost.gcp.permissions
         id: 'cost-gcp-sources',
         url: '/api/cost-management/v1/sources/?source_type=GCP',
         accessor: 'meta.count',
+        permissions: [
+          {
+            method: 'isEntitled',
+            args: ['cost_management'],
+          },
+        ],
         responseProcessor: estateResponseProcessor,
         shape: {
           title: 'Google Cloud Platform Sources',
-          href: 'google',
+          href:
+            './settings/sources?sort_by[]=created_at:desc&limit=50&offset=0&activeVendor=Cloud',
         },
       },
     ],
@@ -155,12 +179,12 @@ export const getCostDataSchema = () => {
       try: [
         {
           shape: {
-            title: 'Cost Management now has forecasting',
+            title: 'Cost Management now provides forecasting',
             description:
               'We can predict your spend on both OpenShift and public cloud costs.',
             link: {
               title: 'Get started',
-              href: '/cost-management',
+              href: './cost-management',
             },
           },
           permissions: [
@@ -190,23 +214,16 @@ export const getCostDataSchema = () => {
       ],
       learn: [
         {
-          // icon: 'cloudSecurity',
           shape: {
             title:
-              'Adding a source to cost management when it is not connected to the Internet',
+              'Learn about adding a source to cost management when it is not connected to the Internet',
             link: {
               title: 'Watch',
               href: offlineSource,
             },
           },
-          permissions: [
-            {
-              method: 'isOrgAdmin',
-            },
-          ],
         },
         {
-          // icon: 'cloudSecurity',
           shape: {
             title: 'How to use the Cost Management API',
             link: {

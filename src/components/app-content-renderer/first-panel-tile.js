@@ -22,8 +22,9 @@ import useRequest from './use-request';
 const FirstPanelTile = ({ id, ...tile }) => {
   const dispatch = useDispatch();
   // No count = no data, remove it from redux store and load next in line
-  const onResponse = ({ count }) =>
-    typeof count !== 'number' && dispatch(removeEstateTile(id));
+  const onResponse = ({ count, show }) =>
+    (typeof count !== 'number' || show === false) &&
+    dispatch(removeEstateTile(id));
   // If tile fails to load, remove it from redux store and load next in line
   const onError = () => dispatch(removeEstateTile(id));
 

@@ -9,8 +9,14 @@ const HUB_USER_CONFIGRE_TRY_LEARN = {
         title: 'Sync Red Hat certified collections',
         description:
           'Configure access to sync collections to Private Automation Hub',
+        permissions: [
+          {
+            method: 'isEntitled',
+            args: ['ansible'],
+          },
+        ],
         link: {
-          title: 'Configure',
+          title: 'Get started',
           href: './ansible/automation-hub/token',
         },
       },
@@ -20,7 +26,13 @@ const HUB_USER_CONFIGRE_TRY_LEARN = {
         icon: 'unknown',
         title: 'Setup user access for your Private Automation Hub',
         description:
-          'Manage user access to content and features in Private Automation Hub ',
+          'Manage user access to content and features in Private Automation Hub.',
+        permissions: [
+          {
+            method: 'isEntitled',
+            args: ['ansible'],
+          },
+        ],
         link: {
           title: 'Learn more',
           href:
@@ -34,6 +46,12 @@ const HUB_USER_CONFIGRE_TRY_LEARN = {
       shape: {
         icon: 'unknown',
         title: 'Install Private Automation Hub',
+        permissions: [
+          {
+            method: 'isEntitled',
+            args: ['ansible'],
+          },
+        ],
         link: {
           title: 'Get started',
           href:
@@ -46,7 +64,13 @@ const HUB_USER_CONFIGRE_TRY_LEARN = {
         icon: 'unknown',
         title: 'Manage repositories in Private Automation Hub',
         description:
-          'Add community and privately developed collections to your Private Automation Hub',
+          'Add community and privately developed collections to your Private Automation Hub.',
+        permissions: [
+          {
+            method: 'isEntitled',
+            args: ['ansible'],
+          },
+        ],
         link: {
           title: 'Get started',
           href:
@@ -59,10 +83,15 @@ const HUB_USER_CONFIGRE_TRY_LEARN = {
     {
       shape: {
         icon: 'unknown',
-        title:
-          'How to connect Automation Hub to your automation infrastructure',
+        title: 'Connect Automation Hub to your automation infrastructure',
+        permissions: [
+          {
+            method: 'isEntitled',
+            args: ['ansible'],
+          },
+        ],
         link: {
-          title: 'Learn more',
+          title: 'Get started',
           href:
             'https://docs.ansible.com/ansible-tower/latest/html/userguide/projects.html?extIdCarryOver=true&sc_cid=701f2000001Css5AAC#using-collections-in-tower',
         },
@@ -72,7 +101,14 @@ const HUB_USER_CONFIGRE_TRY_LEARN = {
       shape: {
         icon: 'history',
         title: 'Learn about namespaces',
-        description: '',
+        description:
+          'Organize collections content into namespaces users can access.',
+        permissions: [
+          {
+            method: 'isEntitled',
+            args: ['ansible'],
+          },
+        ],
         link: {
           title: 'Learn more',
           href:
@@ -84,8 +120,14 @@ const HUB_USER_CONFIGRE_TRY_LEARN = {
       shape: {
         icon: 'unknown',
         title: 'Explore Red Hat certified collections',
+        permissions: [
+          {
+            method: 'isEntitled',
+            args: ['ansible'],
+          },
+        ],
         link: {
-          title: 'Explore',
+          title: 'Learn more',
           href: 'https://www.ansible.com/partners',
         },
       },
@@ -100,8 +142,14 @@ const APP_USER_CONFIGRE_TRY_LEARN = {
         icon: 'unknown',
         title: 'Connect your Ansible platform clusters to Analytics',
         description: 'Send Analytics data to the cloud hosted services ',
+        permissions: [
+          {
+            method: 'isEntitled',
+            args: ['ansible'],
+          },
+        ],
         link: {
-          title: 'Configure',
+          title: 'Connect',
           href:
             'https://docs.ansible.com/ansible-tower/latest/html/administration/usability_data_collection.html',
         },
@@ -111,9 +159,15 @@ const APP_USER_CONFIGRE_TRY_LEARN = {
       shape: {
         icon: 'unknown',
         title: 'Setup user access',
+        permissions: [
+          {
+            method: 'isEntitled',
+            args: ['ansible'],
+          },
+        ],
         key: 'setup-1',
         link: {
-          title: 'Create',
+          title: 'Get started',
           href: './settings/rbac/users',
         },
       },
@@ -124,6 +178,12 @@ const APP_USER_CONFIGRE_TRY_LEARN = {
       shape: {
         icon: 'unknown',
         title: 'Calculate your automation savings',
+        permissions: [
+          {
+            method: 'isEntitled',
+            args: ['ansible'],
+          },
+        ],
         link: {
           title: 'Calculate',
           href: './ansible/automation-analytics/automation-calculator',
@@ -134,8 +194,16 @@ const APP_USER_CONFIGRE_TRY_LEARN = {
       shape: {
         icon: 'unknown',
         title: 'Tour Job Explorer',
+        description:
+          'View job run details on Ansible platform clusters across your organizations.',
+        permissions: [
+          {
+            method: 'isEntitled',
+            args: ['ansible'],
+          },
+        ],
         link: {
-          title: 'View',
+          title: 'Get started',
           href:
             './ansible/automation-analytics/job-explorer?attributes[]=id&attributes[]=status&attributes[]=job_type&attributes[]=started&attributes[]=finished&attributes[]=elapsed&attributes[]=created&attributes[]=cluster_name&attributes[]=org_name&attributes[]=most_failed_tasks&limit=5',
         },
@@ -146,10 +214,11 @@ const APP_USER_CONFIGRE_TRY_LEARN = {
     {
       shape: {
         icon: 'unknown',
-        title: 'Learn more about Automation Analytics',
+        title: 'Get started with Automation Analytics.',
         link: {
-          title: 'Learn more',
-          href: './ansible/automation-analytics/automation-calculator',
+          title: 'Get started',
+          href:
+            'https://docs.ansible.com/ansible-tower/latest/html/administration/usability_data_collection.html#automation-analytics',
         },
       },
     },
@@ -183,7 +252,7 @@ const CATALOG_ADMIN_CONFIGURE_TRY_LEARN = {
         description: 'Create user groups for Automation Services Catalog',
         link: {
           href: './settings/rbac/groups',
-          title: 'Create',
+          title: 'Get started',
         },
       },
       key: 'setup-2',
@@ -453,32 +522,32 @@ const ansibleEstateRequests = [
 
 export const RECOMMENDATIONS_ITEMS = {
   recs: [
-    {
-      id: 'products',
-      description: {
-        id: 'last-added-products',
-        defaultMessage: 'Last added products ({count})',
-      },
-      url: '/api/catalog/v1/portfolio_items?limit=5',
-      accessor: 'data.length',
-      icon: 'history',
-      permissions: [
-        {
-          method: 'hasPermissions',
-          args: [['catalog:portfolio_items:read']],
-        },
-      ],
-      action: {
-        url:
-          'https://cloud.stage.redhat.com/docs/api/catalog#operations-PortfolioItem-listPortfolioItems',
-        title: 'Products',
-      },
-    },
+    // {
+    //   id: 'products',
+    //   description: {
+    //     id: 'last-added-products',
+    //     defaultMessage: 'Last added products ({count})',
+    //   },
+    //   url: '/api/catalog/v1/portfolio_items?limit=5',
+    //   accessor: 'data.length',
+    //   icon: 'history',
+    //   permissions: [
+    //     {
+    //       method: 'hasPermissions',
+    //       args: [['catalog:portfolio_items:read']],
+    //     },
+    //   ],
+    //   action: {
+    //     url:
+    //       'https://cloud.stage.redhat.com/docs/api/catalog#operations-PortfolioItem-listPortfolioItems',
+    //     title: 'Products',
+    //   },
+    // },
     {
       id: 'orders',
       description: {
         id: 'last-added-orders',
-        defaultMessage: 'Last orders ({count})',
+        defaultMessage: 'Automation Services Catalog last orders ({count})',
       },
       url: '/api/catalog/v1/orders?limit=5',
       accessor: 'data.length',
@@ -497,7 +566,7 @@ export const RECOMMENDATIONS_ITEMS = {
     },
     {
       id: 'approvals',
-      description: `Approvals`,
+      description: `Automation Services Catalog approvals`,
       icon: 'list',
       state: 'info',
       permissions: [
@@ -508,7 +577,7 @@ export const RECOMMENDATIONS_ITEMS = {
       ],
       action: {
         url: './ansible/catalog/approval/requests',
-        title: 'Approvals',
+        title: 'View',
       },
     },
   ],
