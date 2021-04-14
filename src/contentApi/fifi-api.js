@@ -6,7 +6,7 @@ const FIFI_RECOMMENDATIONS = {
       title:
         'Create an Ansible Playbook to remediate or mitigate vulnerabilities or configuration issues.',
       action: {
-        title: 'View',
+        title: 'Get started',
         href: './insights/advisor',
       },
     },
@@ -17,7 +17,7 @@ const FIFI_RECOMMENDATIONS = {
       title:
         'Create an Ansible Playbook to remediate or mitigate vulnerabilities or configuration issues.',
       action: {
-        title: 'View',
+        title: 'Get started',
         href: './insights/compliance/reports',
       },
     },
@@ -28,7 +28,7 @@ const FIFI_RECOMMENDATIONS = {
       title:
         'Create an Ansible Playbook to remediate or mitigate vulnerabilities or configuration issues.',
       action: {
-        title: 'View',
+        title: 'Get started',
         href: './insights/vulnerability',
       },
     },
@@ -41,7 +41,7 @@ const FIFI_LEARN = [
       icon: 'unknown',
       title: 'Red Hat Insights Data and Security Information',
       link: {
-        title: 'Data and Security',
+        title: 'Learn more',
         href: './security/insights',
       },
     },

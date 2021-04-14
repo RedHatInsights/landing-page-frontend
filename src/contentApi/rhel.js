@@ -1,12 +1,5 @@
 const prefix = window.insights.chrome.isBeta() === true ? '/beta/' : '/';
 
-const totalResponseProcessor = async (response) => {
-  if (!response?.total) {
-    throw 'RHEL systems total count has to be truthy';
-  }
-  return response;
-};
-
 const inventoryLink = `${prefix}insights/inventory`;
 
 const registerLink = `${prefix}insights/registration`;
@@ -61,7 +54,7 @@ const RECOMMENDATIONS_ITEMS = {
       title:
         'Create a remediation playbook to fix issues identified by Insights on your systems',
       action: {
-        title: 'Open',
+        title: 'Create',
         href: remediations,
       },
       permissions: [
@@ -79,7 +72,7 @@ const RECOMMENDATIONS_ITEMS = {
       id: 'rhel-6',
       title: 'Get Insights for your systems',
       action: {
-        title: 'Register systems',
+        title: 'Register',
         href: registerLink,
       },
     },
@@ -94,6 +87,10 @@ const ESTATE_CONFIG = [
         id: 'rhel-connected-systems',
         url: '/api/inventory/v1/hosts',
         accessor: 'total',
+        condition: {
+          when: 'total',
+          isNot: 0,
+        },
         shape: {
           section: 'RHEL',
           title: 'Connected systems',
@@ -112,6 +109,10 @@ const ESTATE_CONFIG = [
         id: 'rhel-stale-systems',
         title: 'Stale systems',
         accessor: 'total',
+        condition: {
+          when: 'total',
+          isNot: 0,
+        },
         url: '/api/inventory/v1/hosts?staleness=stale',
         shape: {
           title: 'Stale systems',
@@ -128,6 +129,10 @@ const ESTATE_CONFIG = [
       },
       {
         id: 'rhel-vuln-ves',
+        condition: {
+          when: 'total',
+          isNot: 0,
+        },
         permissions: [
           {
             method: 'hasPermissions',
@@ -142,8 +147,11 @@ const ESTATE_CONFIG = [
           '/api/vulnerability/v1/dashboard?tags=vulnerability%2Fusage%3Dserver&sap_sids=ABC%2CCDE',
       },
       {
-        // permissions: sap systems > 0
         id: 'rhel-sap-systems',
+        condition: {
+          when: 'total',
+          isNot: 0,
+        },
         permissions: [
           {
             method: 'loosePermissions',
@@ -152,7 +160,6 @@ const ESTATE_CONFIG = [
             ],
           },
         ],
-        responseProcessor: totalResponseProcessor,
         shape: {
           title: 'SAP systems',
           href: `${inventoryLink}/?status=fresh&status=stale&source=insights&page=1&per_page=50#workloads=SAP&SIDs=&tags=`,
