@@ -141,7 +141,7 @@ export const ProductCardContent = ({
           }}
           {...props}
           style={inlineStyle}
-          appendTo={() => document.getElementById("root")}
+          appendTo={() => document.getElementById('root')}
         >
           <Grid
             hasGutter
