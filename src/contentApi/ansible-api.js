@@ -21,25 +21,6 @@ const HUB_USER_CONFIGRE_TRY_LEARN = {
         },
       },
     },
-    {
-      shape: {
-        icon: 'unknown',
-        title: 'Setup user access for your Private Automation Hub',
-        description:
-          'Manage user access to content and features in Private Automation Hub.',
-        permissions: [
-          {
-            method: 'isEntitled',
-            args: ['ansible'],
-          },
-        ],
-        link: {
-          title: 'Learn more',
-          href:
-            'https://access.redhat.com/documentation/en-us/red_hat_ansible_automation_platform/1.2/html/managing_user_access_in_private_automation_hub/index',
-        },
-      },
-    },
   ],
   try: [
     {
@@ -155,23 +136,6 @@ const APP_USER_CONFIGRE_TRY_LEARN = {
         },
       },
     },
-    {
-      shape: {
-        icon: 'unknown',
-        title: 'Setup user access',
-        permissions: [
-          {
-            method: 'isEntitled',
-            args: ['ansible'],
-          },
-        ],
-        key: 'setup-1',
-        link: {
-          title: 'Get started',
-          href: './settings/rbac/users',
-        },
-      },
-    },
   ],
   try: [
     {
@@ -238,24 +202,6 @@ const CATALOG_ADMIN_CONFIGURE_TRY_LEARN = {
           title: 'Get started',
         },
       },
-      permissions: [
-        {
-          method: 'hasPermissions',
-          args: [catalogAdminPermissions],
-        },
-      ],
-    },
-    {
-      shape: {
-        icon: 'unknown',
-        title: 'Setup user access',
-        description: 'Create user groups for Automation Services Catalog',
-        link: {
-          href: './settings/rbac/groups',
-          title: 'Get started',
-        },
-      },
-      key: 'setup-2',
       permissions: [
         {
           method: 'hasPermissions',
