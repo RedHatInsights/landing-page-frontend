@@ -62,7 +62,9 @@ const RecommendationGroup = ({
         <FlexItem grow={{ default: 'grow' }}>
           <TextContent>
             {recommendation.title && <Text>{text(recommendation.title)}</Text>}
-            <Text>{text(recommendation.description)}</Text>
+            {recommendation.description && (
+              <Text>{text(recommendation.description)}</Text>
+            )}
           </TextContent>
         </FlexItem>
         <FlexItem>
