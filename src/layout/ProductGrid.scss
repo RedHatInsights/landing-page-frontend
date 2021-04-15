@@ -28,6 +28,7 @@ $ins-c-product-grid--border--breakpoint: (pf-size-prem(1600px) + (pf-size-prem($
     padding-left: var(--pf-global--spacer--xl);
 }
 
+
 .ins-c-product-grid__layout {
     margin: 0 auto;
     max-width: var(--ins-c-landing--m-display-lg--MaxWidth);
@@ -36,9 +37,7 @@ $ins-c-product-grid--border--breakpoint: (pf-size-prem(1600px) + (pf-size-prem($
     @media screen and (min-width: #{$ins-c-product-grid--border--breakpoint}) {
         border: var(--pf-global--BorderWidth--sm) solid var(--pf-global--BorderColor--100);
     }
-}
 
-.ins-c-product-grid__layout {
     > * {
         border-bottom: var(--pf-global--BorderWidth--sm) solid var(--pf-global--BorderColor--100);
 

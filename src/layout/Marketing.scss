@@ -115,19 +115,7 @@ $ins-global--transition: .2s ease-in;
     --pf-c-modal-box__header--PaddingTop: var(--pf-global--spacer--xl);
     --pf-c-modal-box__body--PaddingRight: var(--pf-global--spacer--xl);
     --pf-c-modal-box__body--PaddingLeft: var(--pf-global--spacer--xl);
-}
 
-// App settings
-.pf-c-page__main-section.ins-c-product-gallery {
-    --pf-c-page--section--m-limit-width--MaxWidth: 1380px;
-}
-
-.ins-c-page__landing-layout.ins-c-marketing-container,
-.ins-c-page__landing-layout.ins-c-marketing-container > .ins-c-page__landing-content {
-    display: contents;
-}
-
-.ins-c-marketing {
     display: flex;
     flex-direction: column;
     flex: 1;
@@ -150,6 +138,16 @@ $ins-global--transition: .2s ease-in;
             text-decoration: underline;
         }
     }
+}
+
+// App settings
+.pf-c-page__main-section.ins-c-product-gallery {
+    --pf-c-page--section--m-limit-width--MaxWidth: 1380px;
+}
+
+.ins-c-page__landing-layout.ins-c-marketing-container,
+.ins-c-page__landing-layout.ins-c-marketing-container > .ins-c-page__landing-content {
+    display: contents;
 }
 
 .pf-c-brand {

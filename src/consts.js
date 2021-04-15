@@ -4,14 +4,7 @@ import Cost from './components/Cost.svg';
 import Insights from './components/Insights.svg';
 import Migrations from './components/Migrations.svg';
 import SAP from './components/SAP.svg';
-import {
-  Button,
-  CardFooter,
-  Divider,
-  Flex,
-  FlexItem,
-} from '@patternfly/react-core';
-import { ArrowRightIcon } from '@patternfly/react-icons';
+import { Button, CardFooter, Flex } from '@patternfly/react-core';
 import logoOsas from './components/marketing/logo__osas.svg';
 import logoOpenshift from './components/marketing/logo__openshift.svg';
 import logoRhel from './components/marketing/logo__rhel.svg';
