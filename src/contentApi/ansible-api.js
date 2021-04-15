@@ -505,8 +505,7 @@ export const RECOMMENDATIONS_ITEMS = {
         },
       ],
       action: {
-        url:
-          'https://cloud.stage.redhat.com/docs/api/catalog#operations-Order-listOrders',
+        href: './ansible/catalog/orders',
         title: 'Orders',
       },
     },
@@ -522,7 +521,7 @@ export const RECOMMENDATIONS_ITEMS = {
         },
       ],
       action: {
-        url: './ansible/catalog/approval/requests',
+        href: './ansible/catalog/approval/requests',
         title: 'View',
       },
     },
