@@ -7,46 +7,13 @@ const FIFI_RECOMMENDATIONS = {
         'Create an Ansible Playbook to remediate or mitigate vulnerabilities or configuration issues.',
       action: {
         title: 'Get started',
-        href: './insights/advisor',
-      },
-    },
-
-    {
-      id: 'fifi-2',
-      icon: 'cog',
-      title:
-        'Create an Ansible Playbook to remediate or mitigate vulnerabilities or configuration issues.',
-      action: {
-        title: 'Get started',
-        href: './insights/compliance/reports',
-      },
-    },
-
-    {
-      id: 'fifi-3',
-      icon: 'cog',
-      title:
-        'Create an Ansible Playbook to remediate or mitigate vulnerabilities or configuration issues.',
-      action: {
-        title: 'Get started',
-        href: './insights/vulnerability',
+        href: './insights/remediations',
       },
     },
   ],
 };
 
-const FIFI_LEARN = [
-  {
-    shape: {
-      icon: 'unknown',
-      title: 'Red Hat Insights Data and Security Information',
-      link: {
-        title: 'Learn more',
-        href: './security/insights',
-      },
-    },
-  },
-];
+const FIFI_LEARN = [];
 
 const FIFI_TRY = [
   {
@@ -69,7 +36,7 @@ const FIFI_TRY = [
   {
     shape: {
       icon: 'unknown',
-      title: 'Integrate Insights with Satellite 6.7+',
+      title: 'Integrate Red Hat Insights with Satellite 6.7+',
       link: {
         title: 'Learn More',
         href:

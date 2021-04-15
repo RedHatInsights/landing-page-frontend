@@ -27,6 +27,8 @@ const RECOMMENDATIONS_ITEMS = {
       },
       action: {
         title: 'View',
+        href:
+          './insights/advisor/recommendations?impacting=true&rule_status=enabled&sort=-publish_date&limit=10&offset=0&reports_shown=true&incident=true',
       },
       permissions: [
         {
@@ -57,12 +59,6 @@ const RECOMMENDATIONS_ITEMS = {
         title: 'Create',
         href: remediations,
       },
-      permissions: [
-        {
-          method: 'hasPermissions',
-          args: [['remediations:*:*']],
-        },
-      ],
     },
     {
       url: '/api/inventory/v1/hosts',

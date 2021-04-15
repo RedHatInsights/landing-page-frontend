@@ -158,24 +158,7 @@ export const getCostDataSchema = () => {
       ],
     },
     configTryLearn: {
-      configure: [
-        {
-          shape: {
-            title: 'Add public cloud sources to better track your finances',
-            description: 'Modify user access to applications.',
-            link: {
-              title: 'Connect',
-              href: sourcesURL,
-            },
-          },
-          permissions: [
-            {
-              method: 'isEntitled',
-              args: ['cost_management'],
-            },
-          ],
-        },
-      ],
+      configure: [],
       try: [
         {
           shape: {

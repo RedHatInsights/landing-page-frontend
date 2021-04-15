@@ -1,14 +1,14 @@
 import { getAnsibleDataSchema } from './ansible-api';
-import { getCloudAccessDataSchema } from './cloud-access-api';
 import { getCostDataSchema } from './cost-api';
 import { getFifiDataSchema } from './fifi-api';
+import { getPriorityDataSchema } from './priority-api';
 import { createRhelSchema } from './rhel';
 
 const getAppsData = () => {
   const data = [
+    getPriorityDataSchema(),
     createRhelSchema(),
     getAnsibleDataSchema(),
-    getCloudAccessDataSchema(),
     getFifiDataSchema(),
     getCostDataSchema(),
   ];
