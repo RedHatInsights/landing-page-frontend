@@ -33,6 +33,13 @@
     padding: var(--pf-global--spacer--xl) var(--pf-global--spacer--lg) var(--pf-global--spacer--lg) var(--pf-global--spacer--lg);
     overflow-x: auto;
 
+    .ins-c-skeleton {
+      animation-duration: 3s;
+      &.ins-m-dark {
+        background: linear-gradient(to right, rgba(60,60,60,.2) 10%, rgba(72,72,72,.4) 18%, rgba(60,60,60,.2) 33%);
+      }
+    }
+
     @media only screen and (min-width: 769px) {
       .pf-c-description-list {
         display: flex;
