@@ -52,7 +52,9 @@ const FirstPanelTile = ({ id, ...tile }) => {
       </DescriptionListTerm>
       <DescriptionListDescription className="estate-title">
         {loaded ? (
-          <Text title={title} component="p">{title}</Text>
+          <Text title={title} component="p">
+            {title}
+          </Text>
         ) : (
           <Skeleton size={SkeletonSize.lg} className="ins-m-dark" />
         )}

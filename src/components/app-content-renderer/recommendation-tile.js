@@ -73,6 +73,12 @@ const RecommendationGroup = ({
             href={recommendation.action.href}
             variant="secondary"
             isSmall
+            {...(recommendation.action.external
+              ? {
+                  target: '_blank',
+                  rel: 'noopener noreferrer',
+                }
+              : {})}
           >
             {text(recommendation.action.title)}
           </Button>
@@ -97,6 +103,7 @@ RecommendationGroup.propTypes = {
   action: PropTypes.shape({
     href: PropTypes.string,
     title: PropTypes.string,
+    external: PropTypes.bool,
   }).isRequired,
   component: PropTypes.string,
   title: PropTypes.oneOfType([
