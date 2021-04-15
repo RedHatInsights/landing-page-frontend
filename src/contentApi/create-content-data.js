@@ -41,6 +41,7 @@ const createContentData = async () => {
     },
     defaultConfig
   );
+  // TODO: add recs for 26.4. to default-content-config.json
   landingPageContent.recommendations = [
     { ...landingPageContent.recommendations.recs },
     { ...landingPageContent.recommendations.ansible },

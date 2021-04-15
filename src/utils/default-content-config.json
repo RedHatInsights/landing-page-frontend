@@ -4,28 +4,7 @@
     "recs": {
       "title": "Recommendations",
       "id": "recommendations",
-      "items": [
-        {
-        "id": "remediations-default-1",
-        "icon": "play",
-        "state": "success",
-        "title": "Try Streams for Apache Kafka.",
-        "action": {
-          "title": "Get Started",
-          "href": "INSERT URL HERE"
-          }
-        },
-        {
-        "id": "remediations-default-2",
-        "icon": "play",
-        "state": "success",
-        "title": "Try API management",
-        "action": {
-          "title": "Get Started",
-          "href":
-            "https: //www.redhat.com/en/technologies/cloud-computing/openshift/openshift-api-management"
-          }
-        }]
+      "items": []
     },
     "ansible": {
       "title": "Insights for Ansible Automation Platform",
