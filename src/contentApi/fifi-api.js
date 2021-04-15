@@ -22,6 +22,7 @@ const FIFI_TRY = [
       title: 'Sign up for a Smart Managment 30 day Evaluation',
       link: {
         title: 'Get Started',
+        external: true,
         href:
           'https://www.redhat.com/en/technologies/linux-platforms/enterprise-linux',
       },
@@ -39,6 +40,7 @@ const FIFI_TRY = [
       title: 'Integrate Red Hat Insights with Satellite 6.7+',
       link: {
         title: 'Learn More',
+        external: true,
         href:
           'https://www.redhat.com/en/about/videos/setup-and-use-cloud-connector-integrate-insights-satellite',
       },

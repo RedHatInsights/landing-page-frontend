@@ -37,7 +37,9 @@ const FirstPanelTile = ({ id, ...tile }) => {
           'is-empty': tile?.shape?.section?.length === 0,
         })}
       >
-        <Text component="p">{tile?.shape?.section}</Text>
+        <Text title={tile?.shape?.section} component="p">
+          {tile?.shape?.section}
+        </Text>
       </DescriptionListDescription>
       <DescriptionListTerm className="estate-count">
         <Title headingLevel="h5" size="3xl">
@@ -50,7 +52,9 @@ const FirstPanelTile = ({ id, ...tile }) => {
       </DescriptionListTerm>
       <DescriptionListDescription className="estate-title">
         {loaded ? (
-          <Text component="p">{title}</Text>
+          <Text title={title} component="p">
+            {title}
+          </Text>
         ) : (
           <Skeleton size={SkeletonSize.lg} className="ins-m-dark" />
         )}

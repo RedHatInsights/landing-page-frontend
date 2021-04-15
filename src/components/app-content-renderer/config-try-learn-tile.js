@@ -27,8 +27,11 @@ const iconMapper = {
 
 const TileItem = (props) => {
   const [{ response, loaded, ...rest }] = useRequest(props);
-  const { title, description, link: { href, title: linkTitle } = {} } =
-    response || rest;
+  const {
+    title,
+    description,
+    link: { href, title: linkTitle, external } = {},
+  } = response || rest;
 
   return (
     <Split className="pf-u-mb-xl">
@@ -51,7 +54,15 @@ const TileItem = (props) => {
             )
           ) : null}
           <Text component="p" className="tile-text pf-u-mb-0">
-            <a href={href}>
+            <a
+              href={href}
+              {...(external
+                ? {
+                    target: '_blank',
+                    rel: 'noopener noreferrer',
+                  }
+                : {})}
+            >
               {linkTitle}&nbsp;
               <ArrowRightIcon size="sm" />
             </a>
@@ -69,6 +80,7 @@ TileItem.propTypes = {
     link: PropTypes.shape({
       href: PropTypes.string.isRequired,
       title: PropTypes.string.isRequired,
+      external: PropTypes.bool,
     }).isRequired,
   }).isRequired,
   url: PropTypes.string,

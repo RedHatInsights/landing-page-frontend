@@ -152,6 +152,7 @@ export const getCostDataSchema = () => {
             'Install the Cost Operator on your OpenShift cluster to get started.',
           action: {
             title: 'Learn more',
+            external: true,
             href: installCostOperator,
           },
         },
@@ -202,6 +203,7 @@ export const getCostDataSchema = () => {
               'Learn about adding a source to cost management when it is not connected to the Internet',
             link: {
               title: 'Watch',
+              external: true,
               href: offlineSource,
             },
           },
@@ -211,6 +213,7 @@ export const getCostDataSchema = () => {
             title: 'How to use the Cost Management API',
             link: {
               title: 'Read',
+              external: true,
               href: costManagementApiMedium,
             },
           },
