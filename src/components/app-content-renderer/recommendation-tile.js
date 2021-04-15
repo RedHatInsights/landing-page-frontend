@@ -41,7 +41,7 @@ const RecommendationGroup = ({
   const GroupIcon = iconMapper[recommendation.icon] || QuestionCircleIcon;
 
   return (
-    <Flex direction={{ default: 'column' }} className="recommendation-test">
+    <Flex direction={{ default: 'column' }} className="recommendation-section">
       {showSectionTitle && (
         <Title headingLevel="h3" size="lg">
           {sectionTitle}

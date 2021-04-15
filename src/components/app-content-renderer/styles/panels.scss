@@ -121,15 +121,14 @@
       overflow: hidden; // prevents padding from spilling into next column
       break-inside: avoid-column; // prevents padding from spilling into next column
 
-      .recommendation-test {
+      .recommendation-section {
         break-inside: avoid-column; // prevents padding from spilling into next column
         flex-wrap: nowrap;
-        min-height: 60px;
       }
 
       .recommendation-group {
         flex-wrap: nowrap;
-        margin-bottom: var(--pf-global--spacer--xs);
+        margin-bottom: var(--pf-global--spacer--sm);
         width: 100%;
         p {
           font-size: var(--pf-global--FontSize--sm);
