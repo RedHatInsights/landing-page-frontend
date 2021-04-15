@@ -141,32 +141,8 @@ export const ProductCardContent = ({
           }}
           {...props}
           style={inlineStyle}
-          className="test"
+          appendTo={() => document.getElementById("root")}
         >
-          <style>{`
-        .pf-c-button { transition: 0.2s ease-in; }
-        .pf-c-button.ins-m-marketing {
-            border-radius: 3px;
-            --pf-c-button--m-primary--Color: #fff;
-            --pf-c-button--m-primary--BackgroundColor: #ee0000;
-            --pf-c-button--m-secondary--Color: #151515;
-            --pf-c-button--m-secondary--after--BorderColor: #151515;
-            --pf-c-button--m-secondary--hover--after--BorderColor: #151515;
-            --pf-c-button--m-secondary--BackgroundColor: transparent; }
-            .pf-c-button.ins-m-marketing.pf-m-primary:hover, .pf-c-button.ins-m-marketing.pf-m-primary:focus, .pf-c-button.ins-m-marketing.pf-m-primary:active {
-              --pf-c-button--m-primary--BackgroundColor: #d40000; }
-            .pf-c-button.ins-m-marketing.pf-m-secondary:hover, .pf-c-button.ins-m-marketing.pf-m-secondary:focus, .pf-c-button.ins-m-marketing.pf-m-secondary:active {
-              --pf-c-button--m-secondary--Color: #fff;
-              --pf-c-button--m-secondary--BackgroundColor: #151515; }
-          .pf-c-button.pf-m-link .pf-c-button__icon {
-            transition: 0.2s ease-in; }
-          .pf-c-button.pf-m-link .pf-c-button__icon.pf-m-end {
-            margin-left: 4px; }
-          .pf-c-button.pf-m-link:hover {
-            text-decoration: none; }
-            .pf-c-button.pf-m-link:hover .pf-c-button__icon.pf-m-end {
-              margin-left: 6px; }
-      `}</style>
           <Grid
             hasGutter
             sm={6}
