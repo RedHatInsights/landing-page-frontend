@@ -69,7 +69,7 @@ const FirstPanel = () => {
   }, []);
 
   return estate?.length > 0 ? (
-    <div ref={scrollRef} className="first-panel">
+    <div ref={scrollRef} className="ins-l-first-panel">
       <DescriptionList>
         <EstateRenderer sections={flattenSections(estate)} />
       </DescriptionList>
