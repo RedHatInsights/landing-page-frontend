@@ -1,7 +1,7 @@
 @import '~@redhat-cloud-services/frontend-components-utilities/styles/_mixins';
 @import '~@patternfly/patternfly/sass-utilities/_all';
 
-$ins-global--transition: .2s ease-in;
+$ins-global--transition: .2s ease-in; // specific to marketing
 
 @mixin center {
     margin-left: auto;
@@ -14,16 +14,16 @@ $ins-global--transition: .2s ease-in;
     transition: $ins-global--transition;
 
     &.ins-m-marketing {
-        border-radius: 3px;
+        border-radius: var(--pf-global--BorderRadius--sm);
 
         // Primary
-        --pf-c-button--m-primary--Color: #fff;
-        --pf-c-button--m-primary--BackgroundColor: #ee0000;
+        --pf-c-button--m-primary--Color: var(--pf-global--Color--light-100);
+        --pf-c-button--m-primary--BackgroundColor: #ee0000; // specific to marketing
 
         // Secondaery
-        --pf-c-button--m-secondary--Color: #151515;
-        --pf-c-button--m-secondary--after--BorderColor: #151515;
-        --pf-c-button--m-secondary--hover--after--BorderColor: #151515;
+        --pf-c-button--m-secondary--Color: var(--pf-global--Color--100);
+        --pf-c-button--m-secondary--after--BorderColor: var(--pf-global--palette--black-900);
+        --pf-c-button--m-secondary--hover--after--BorderColor: var(--pf-global--palette--black-900);
         --pf-c-button--m-secondary--BackgroundColor: transparent;
 
         &:focus {
@@ -33,14 +33,14 @@ $ins-global--transition: .2s ease-in;
         &::after {
             display: block;
             box-sizing: border-box;
-            border-radius: 2px;
+            border-radius: 2px; // specific to marketing
         }
 
         &:focus::after {
             outline: none;
             display: block;
             box-sizing: border-box;
-            border-radius: 2px;
+            border-radius: 2px; // specific to marketing
             left: 1px;
             top: 1px;
             right: 1px;
@@ -48,33 +48,33 @@ $ins-global--transition: .2s ease-in;
         }
 
         &.pf-m-primary {
-            border: 1px solid #e00;
+            border: 1px solid #ee0000; // specific to marketing
 
             &:hover {
-                --pf-c-button--m-primary--BackgroundColor: #d40000;
+                --pf-c-button--m-primary--BackgroundColor: #d40000; // specific to marketing
             }
 
             &:focus::after {
-                border: 1px solid #fff;
+                border: 1px solid var(--pf-global--palette--white);
             }
         }
 
         &.pf-m-secondary {
-            border: 1px solid #151515;
+            border: 1px solid var(--pf-global--palette--black-900);
 
             &:hover {
-                --pf-c-button--m-secondary--Color: #fff;
-                --pf-c-button--m-secondary--BackgroundColor: #151515;
+                --pf-c-button--m-secondary--Color: var(--pf-global--palette--white);
+                --pf-c-button--m-secondary--BackgroundColor: var(--pf-global--palette--black-900);
             }
 
             &:focus {
                 background-color: #e2e2e2;
-                color: #151515;
-                border: 1px solid #151515;
+                color: var(--pf-global--palette--black-900);
+                border: 1px solid var(--pf-global--palette--black-900);
             }
 
             &:focus::after {
-                border: 1px solid #151515;
+                border: 1px solid var(--pf-global--palette--black-900);
             }
         }
 
@@ -108,8 +108,8 @@ $ins-global--transition: .2s ease-in;
 .ins-c-marketing {
     --pf-c-page__main-section--PaddingRight: var(--pf-global--spacer--xl);
     --pf-c-page__main-section--PaddingLeft: var(--pf-global--spacer--xl);
-    --pf-c-page__main-section--BackgroundColor: #f7f7f7;
-    --pf-c-page--section--m-limit-width--MaxWidth: 1600px;
+    --pf-c-page__main-section--BackgroundColor: #f7f7f7; // specific marketing color
+    --pf-c-page--section--m-limit-width--MaxWidth: #{pf-size-prem(1600px)};
 
     // Modal
     --pf-c-modal-box__header--PaddingTop: var(--pf-global--spacer--xl);
@@ -124,6 +124,12 @@ $ins-global--transition: .2s ease-in;
     .ins-c-product-gallery,
     .pf-c-title {
         color: var(--pf-global--Color--100);
+    }
+
+    .pf-c-title {
+        &.ins-m-align-center {
+            text-align: center;
+        }
     }
 
     .ins-c-open-card {
@@ -169,4 +175,8 @@ img.ins-c-application-info__logo {
     }
 
     max-width: 100%;
+}
+
+.ins-c-section-title {
+    font-weight: var(--pf-global--FontWeight--light);
 }

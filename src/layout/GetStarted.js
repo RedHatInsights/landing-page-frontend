@@ -26,7 +26,7 @@ const GetStarted = () => (
         <Title
           headingLevel="h2"
           size="4xl"
-          className="pf-u-font-weight-light pf-u-text-align-center"
+          className="ins-c-section-title ins-m-align-center"
         >
           {getStarted.title}
         </Title>

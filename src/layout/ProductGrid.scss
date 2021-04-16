@@ -21,11 +21,16 @@ $ins-c-product-grid--border--breakpoint: (pf-size-prem(1600px) + (pf-size-prem($
     @media screen and (min-width: #{$ins-c-product-grid--border--breakpoint}) {
         --pf-c-page__main-section--PaddingBottom: var(--pf-global--spacer--3xl);
     }
-}
 
-.ins-c-product-grid__section-title {
-    padding-right: var(--pf-global--spacer--xl);
-    padding-left: var(--pf-global--spacer--xl);
+    .ins-c-section-title {
+        padding-right: var(--pf-global--spacer--xl);
+        padding-left: var(--pf-global--spacer--xl);
+        padding-bottom: var(--pf-global--spacer--xl);
+
+        @media screen and (min-width: $pf-global--breakpoint--md) {
+            padding-bottom: var(--pf-global--spacer--2xl);
+        }
+    }
 }
 
 
@@ -84,9 +89,12 @@ $ins-c-product-grid--border--breakpoint: (pf-size-prem(1600px) + (pf-size-prem($
     padding-right: var(--pf-global--spacer--2xl);
     padding-left: var(--pf-global--spacer--2xl);
 
-    @media screen and (min-width: $pf-global--breakpoint--lg) {
-        padding-right: #{pf-size-prem(84px)};
+    @media screen and (min-width: $pf-global--breakpoint--xl) {
         padding-left: 0;
+    }
+
+    @media screen and (min-width: #{$ins-c-product-grid--border--breakpoint}) {
+        padding-right: #{pf-size-prem(84px)};
     }
 
     .ins-c-card-video {
@@ -94,4 +102,37 @@ $ins-c-product-grid--border--breakpoint: (pf-size-prem(1600px) + (pf-size-prem($
             margin: 0 auto;
         }
     }
+}
+
+.ins-c-product-grid-modal {
+    --pf-c-modal-box__header--PaddingTop: var(--pf-global--spacer--xl);
+    --pf-c-modal-box__body--PaddingTop: var(--pf-global--spacer--3xl);
+    --pf-c-modal-box__body--PaddingRight: var(--pf-global--spacer--2xl);
+    --pf-c-modal-box__body--PaddingBottom: var(--pf-global--spacer--2xl);
+    --pf-c-modal-box__body--PaddingLeft: var(--pf-global--spacer--2xl);
+    --pf-c-modal-box__body--last-child--PaddingBottom: var(--pf-global--spacer--2xl);
+    --pf-c-modal-box--c-button--sibling--MarginRight: 0;
+
+    @media screen and (min-height: 800px) {
+        min-height: #{pf-size-prem(500px)};
+    }
+
+    .pf-c-modal-box__body {
+        display: flex;
+        flex-direction: column;
+    }
+}
+
+.ins-c-product-grid-modal__layout {
+    --pf-l-grid--m-gutter--GridGap: var(--pf-global--spacer--xl);
+
+    flex: 1;
+}
+
+.ins-c-product-grid-modal__footer {
+    padding-top: var(--pf-global--spacer--lg);
+}
+
+.ins-c-product-grid-modal__image {
+    margin-top: var(--pf-global--spacer--xl);
 }

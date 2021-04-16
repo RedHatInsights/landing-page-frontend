@@ -5,9 +5,6 @@ import React, {
   lazy,
   Suspense,
 } from 'react';
-import '@patternfly/patternfly/utilities/Alignment/alignment.css';
-import '@patternfly/patternfly/utilities/Sizing/sizing.css';
-import '@patternfly/patternfly/utilities/Spacing/spacing.css';
 import '@patternfly/patternfly/utilities/Text/text.css';
 import { Switch, Route } from 'react-router-dom';
 import { getRegistry } from '@redhat-cloud-services/frontend-components-utilities/Registry';

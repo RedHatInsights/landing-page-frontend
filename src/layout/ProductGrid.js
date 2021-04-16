@@ -48,13 +48,6 @@ export const ProductCardContent = ({
 }) => {
   const [expanded, setExpanded] = useState(isExpanded);
 
-  const inlineStyle = {
-    '--pf-c-modal-box__header--PaddingTop': 'var(--pf-global--spacer--xl)',
-    '--pf-c-modal-box__body--PaddingRight': 'var(--pf-global--spacer--2xl)',
-    '--pf-c-modal-box__body--PaddingLeft': 'var(--pf-global--spacer--2xl)',
-    '--pf-c-modal-box--c-button--sibling--MarginRight': 0,
-  };
-
   return (
     <React.Fragment>
       {marketingImage && (
@@ -140,71 +133,70 @@ export const ProductCardContent = ({
             isExpandedCallback && isExpandedCallback(!expanded);
           }}
           {...props}
-          style={inlineStyle}
           appendTo={() => document.getElementById('root')}
+          className="ins-c-product-grid-modal"
         >
-          <Grid
-            hasGutter
-            sm={6}
-            className="pf-u-py-lg"
-            style={{
-              '--pf-l-grid--m-gutter--GridGap': 'var(--pf-global--spacer--xl)',
-            }}
-          >
+          <Grid hasGutter sm={6} className="ins-c-product-grid-modal__layout">
             <GridItem md={8}>
               <Flex
                 direction={{ default: 'column' }}
                 spaceItems={{ default: 'spaceItemsLg' }}
               >
-                <Title headingLevel="h1" className="" size="xl">
+                <Title headingLevel="h1" size="2xl">
                   {modalTitle}
                 </Title>
                 <TextContent className="pf-u-font-size-lg">
                   {modalText}
                 </TextContent>
-                {modalUrls && (
-                  <Flex direction={{ default: 'column' }}>
-                    {modalUrls.dataSheet && (
-                      <FlexItem>
-                        <Button
-                          className="ins-m-marketing"
-                          variant="secondary"
-                          isLarge
-                          href={modalUrls.dataSheet}
-                          component="a"
-                        >
-                          {productGridModalDataSheetText}
-                        </Button>
-                      </FlexItem>
-                    )}
-                    {modalUrls.tryNow && (
-                      <FlexItem>
-                        <Button
-                          className="ins-m-marketing"
-                          variant="link"
-                          isInline
-                          component="a"
-                          href={modalUrls.tryNow}
-                          isLarge
-                          icon={<ArrowRightIcon />}
-                          iconPosition="right"
-                        >
-                          {productGridModalCTAText}
-                        </Button>
-                      </FlexItem>
-                    )}
-                  </Flex>
-                )}
               </Flex>
             </GridItem>
-            <GridItem md={4} className="pf-u-pt-xl">
+            <GridItem md={4}>
               <img
                 src={modalImg}
                 alt={`${title} image`}
-                className="pf-u-ml-auto-on-sm"
+                className="ins-c-product-grid-modal__image"
               />
             </GridItem>
           </Grid>
+
+          {modalUrls && (
+            <div className="ins-c-product-grid-modal__footer">
+              <Flex
+                direction={{ default: 'column' }}
+                spaceItems={{ default: 'spaceItemsLg' }}
+              >
+                {modalUrls.tryNow && (
+                  <FlexItem>
+                    <Button
+                      className="ins-m-marketing"
+                      variant="secondary"
+                      component="a"
+                      href={modalUrls.tryNow}
+                      isLarge
+                    >
+                      {productGridModalCTAText}
+                    </Button>
+                  </FlexItem>
+                )}
+                {modalUrls.dataSheet && (
+                  <FlexItem>
+                    <Button
+                      className="ins-m-marketing"
+                      variant="link"
+                      isLarge
+                      isInline
+                      href={modalUrls.dataSheet}
+                      component="a"
+                      icon={<ArrowRightIcon />}
+                      iconPosition="right"
+                    >
+                      {productGridModalDataSheetText}
+                    </Button>
+                  </FlexItem>
+                )}
+              </Flex>
+            </div>
+          )}
         </Modal>
       )}
     </React.Fragment>
@@ -237,7 +229,7 @@ const ProductGrid = () => (
     >
       <Title
         headingLevel="h2"
-        className="ins-c-product-grid__section-title pf-u-font-weight-light pf-u-text-align-center pf-u-pb-xl pf-u-pb-2xl-on-md"
+        className="ins-c-section-title ins-m-align-center"
         size="4xl"
       >
         {productGridHeader}
@@ -276,8 +268,8 @@ const ProductGrid = () => (
                 <Card className="pf-m-plain">
                   {featured ? (
                     <Flex
-                      direction={{ default: 'column', lg: 'row' }}
-                      alignItems={{ lg: 'alignItemsStretch' }}
+                      direction={{ default: 'column', xl: 'row' }}
+                      alignItems={{ xl: 'alignItemsStretch' }}
                       spaceItems={{
                         default: 'spaceItemsLg',
                         lg: 'spaceItemsNone',

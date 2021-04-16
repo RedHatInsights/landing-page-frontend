@@ -4,24 +4,12 @@ import Cost from './components/Cost.svg';
 import Insights from './components/Insights.svg';
 import Migrations from './components/Migrations.svg';
 import SAP from './components/SAP.svg';
-import { Button, CardFooter, Flex } from '@patternfly/react-core';
-import logoOsas from './components/marketing/logo__osas.svg';
-import logoOpenshift from './components/marketing/logo__openshift.svg';
-import logoRhel from './components/marketing/logo__rhel.svg';
-import logoAnsible from './components/marketing/logo__ansible-automation.svg';
-import logoInsights from './components/marketing/logo__insights.svg';
-import iconControlPanel from './components/marketing/icon__control-panel.svg';
-import iconExpUp from './components/marketing/icon__exp-up.svg';
-import iconBuildDeploy from './components/marketing/icon__build-deploy.svg';
-import iconModernize from './components/marketing/icon__modernize.svg';
-import iconHybridCloud from './components/marketing/icon__hybrid-cloud.svg';
-import iconPadlock from './components/marketing/icon__padlock.svg';
-import iconPrivateCloud from './components/marketing/icon__private-cloud.svg';
-import iconUpdate from './components/marketing/icon__update.svg';
-import imgPlaceholder from './layout/images/img__placeholder.png';
+import { Button, CardFooter, Flex, FlexItem } from '@patternfly/react-core';
+import { ArrowRightIcon } from '@patternfly/react-icons';
+import imgModalPlaceholder from './layout/images/img__modal-placeholder.png';
 
 export const productGridHeader = 'Build your cloud on open source';
-export const productGridLoginText = 'Login in to the console';
+export const productGridLoginText = 'Log in to the console';
 export const productGridInfoText = 'More info';
 export const productGridModalDataSheetText = 'View Datasheet';
 export const productGridModalCTAText = 'Try it now';
@@ -54,7 +42,7 @@ export const activeTechnologies = [
   {
     marketing: true,
     entitlement: 'openShiftAppServices',
-    marketingImage: logoOsas,
+    marketingImage: 'https://cloud.redhat.com/apps/frontend-assets/logos/logo__osas.svg',
     marketingTitle: 'With cloud.redhat.com you can:',
     marketingContent: (
       <ul>
@@ -78,7 +66,7 @@ export const activeTechnologies = [
     modalTitle: 'What are Red Hat OpenShift Application Services?',
     modalText:
       'Red Hat OpenShift Application Services deliver a streamlined developer experience for building, deploying, and scaling cloud-native applications.',
-    modalImg: imgPlaceholder,
+    modalImg: imgModalPlaceholder,
     modalUrls: {
       dataSheet: '#',
     },
@@ -95,7 +83,7 @@ export const activeTechnologies = [
   {
     marketing: true,
     entitlement: 'openShift',
-    marketingImage: logoOpenshift,
+    marketingImage: 'https://cloud.redhat.com/apps/frontend-assets/logos/logo__openshift.svg',
     marketingTitle: 'With cloud.redhat.com you can:',
     marketingContent: (
       <ul>
@@ -121,7 +109,7 @@ export const activeTechnologies = [
     modalTitle: 'What is Red Hat OpenShift?',
     modalText:
       'An enterprise Kubernetes container platform with full-stack automated operations to manage hybrid cloud and multicloud deployments. Access to Red Hat Insights for Red Hat OpenShift is included.',
-    modalImg: imgPlaceholder,
+    modalImg: imgModalPlaceholder,
     modalUrls: {
       tryNow:
         'https://www.redhat.com/en/technologies/cloud-computing/openshift/try-it',
@@ -140,7 +128,7 @@ export const activeTechnologies = [
   {
     marketing: true,
     entitlement: 'rhel',
-    marketingImage: logoRhel,
+    marketingImage: 'https://cloud.redhat.com/apps/frontend-assets/logos/logo__rhel.svg',
     marketingTitle: 'With cloud.redhat.com you can:',
     marketingContent: (
       <ul>
@@ -164,7 +152,7 @@ export const activeTechnologies = [
     modalTitle: 'What is Red Hat Enterprise Linux?',
     modalText:
       'The leading enterprise LinuxⓇ operating system, certified on hundreds of clouds and with thousands of hardware vendors. Access to Red Hat Insights for Red Hat Enterprise Linux is included.',
-    modalImg: imgPlaceholder,
+    modalImg: imgModalPlaceholder,
     modalUrls: {
       tryNow:
         'https://www.redhat.com/en/technologies/linux-platforms/enterprise-linux/try-it',
@@ -182,7 +170,7 @@ export const activeTechnologies = [
   {
     marketing: true,
     entitlement: 'ansibleAutomation',
-    marketingImage: logoAnsible,
+    marketingImage: 'https://cloud.redhat.com/apps/frontend-assets/logos/logo__ansible-automation.svg',
     marketingTitle: 'With cloud.redhat.com you can:',
     marketingContent: (
       <ul>
@@ -206,7 +194,7 @@ export const activeTechnologies = [
     modalTitle: 'What is Red Hat Ansible Automation Platform?',
     modalText:
       'A platform for implementing enterprise-wide automation using a simple to understand automation language. Access to Red Hat Insights for Red Hat Ansible Automation Platform is included.',
-    modalImg: imgPlaceholder,
+    modalImg: imgModalPlaceholder,
     modalUrls: {
       tryNow:
         'https://www.redhat.com/en/technologies/linux-platforms/enterprise-linux/try-it',
@@ -226,7 +214,7 @@ export const activeTechnologies = [
     marketing: true,
     featured: true,
     entitlement: 'insights',
-    marketingImage: logoInsights,
+    marketingImage: 'https://cloud.redhat.com/apps/frontend-assets/logos/logo__insights.svg',
     marketingTitle: 'Red Hat Insights is expanding',
     marketingTitleSecondary: 'What is Insights?',
     marketingContent: (
@@ -252,33 +240,47 @@ export const activeTechnologies = [
     marketingVideo: 'https://www.youtube.com/embed/qaGBONGPBvE',
     customBlock: (
       <CardFooter>
-        <Flex spaceItems={{ default: 'spaceItemsLg' }}>
-          <Button
-            className="ins-m-marketing"
-            variant="primary"
-            isLarge
-            onClick={() => window.insights.chrome.auth.login()}
-          >
-            {productGridLoginText}
-          </Button>
-          <Button
-            className="ins-m-marketing"
-            variant="link"
-            isLarge
-            href="https://www.redhat.com/en/technologies/management/insights"
-            component="a"
-          >
-            Learn more
-          </Button>
-          <Button
-            className="ins-m-marketing"
-            variant="link"
-            isLarge
-            href="https://cloud.redhat.com/security/insights"
-            component="a"
-          >
-            Data collection and controls
-          </Button>
+        <Flex
+          direction={{ default: 'column' }}
+          spaceItems={{ default: 'spaceItemsLg' }}
+        >
+          <Flex spaceItems={{ default: 'spaceItemsLg' }}>
+            <FlexItem>
+              <Button
+                className="ins-m-marketing"
+                variant="primary"
+                isLarge
+                onClick={() => window.insights.chrome.auth.login()}
+              >
+                {productGridLoginText}
+              </Button>
+            </FlexItem>
+            <FlexItem>
+              <Button
+                className="ins-m-marketing"
+                variant="secondary"
+                isLarge
+                href="https://www.redhat.com/en/technologies/management/insights"
+                component="a"
+              >
+                Learn more
+              </Button>
+            </FlexItem>
+          </Flex>
+          <FlexItem>
+            <Button
+              className="ins-m-marketing"
+              variant="link"
+              isInline
+              isLarge
+              href="https://cloud.redhat.com/security/insights"
+              component="a"
+              icon={<ArrowRightIcon />}
+              iconPosition="right"
+            >
+              Data collection and controls
+            </Button>
+          </FlexItem>
         </Flex>
       </CardFooter>
     ),
@@ -318,7 +320,7 @@ export const activeTechnologies = [
   },
   {
     keyFeature: true,
-    icon: iconPrivateCloud,
+    icon: 'https://cloud.redhat.com/apps/frontend-assets/icons/icon__private-cloud.svg',
     id: 'infrastructure',
     title: 'No infrastructure required',
     text:
@@ -326,7 +328,7 @@ export const activeTechnologies = [
   },
   {
     keyFeature: true,
-    icon: iconUpdate,
+    icon: 'https://cloud.redhat.com/apps/frontend-assets/icons/icon__update.svg',
     id: 'continuous-upgrades',
     title: 'Continuous upgrades',
     text:
@@ -334,7 +336,7 @@ export const activeTechnologies = [
   },
   {
     keyFeature: true,
-    icon: iconBuildDeploy,
+    icon: 'https://cloud.redhat.com/apps/frontend-assets/icons/icon__build-deploy.svg',
     id: 'build-deploy',
     title: 'Build and deploy',
     text: (
@@ -355,7 +357,7 @@ export const activeTechnologies = [
   },
   {
     keyFeature: true,
-    icon: iconControlPanel,
+    icon: 'https://cloud.redhat.com/apps/frontend-assets/icons/icon__control-panel.svg',
     id: 'zero-install',
     title: 'Zero install',
     text:
@@ -363,7 +365,7 @@ export const activeTechnologies = [
   },
   {
     keyFeature: true,
-    icon: iconHybridCloud,
+    icon: 'https://cloud.redhat.com/apps/frontend-assets/icons/icon__hybrid-cloud.svg',
     id: 'open-hybrid-cloud',
     title: 'Decades of open hybrid cloud experience',
     text:
@@ -371,7 +373,7 @@ export const activeTechnologies = [
   },
   {
     keyFeature: true,
-    icon: iconExpUp,
+    icon: 'https://cloud.redhat.com/apps/frontend-assets/icons/icon__exp-up.svg',
     id: 'insights',
     title: 'Insights to action',
     text:
@@ -379,7 +381,7 @@ export const activeTechnologies = [
   },
   {
     keyFeature: true,
-    icon: iconPadlock,
+    icon: 'https://cloud.redhat.com/apps/frontend-assets/icons/icon__padlock.svg',
     id: 'customers',
     title: 'Exclusively for Red Hat customers',
     text:
@@ -387,7 +389,7 @@ export const activeTechnologies = [
   },
   {
     keyFeature: true,
-    icon: iconModernize,
+    icon: 'https://cloud.redhat.com/apps/frontend-assets/icons/icon__modernize.svg',
     id: 'modernize',
     title: 'Modernize your application development',
     text:

@@ -24,7 +24,7 @@
 
   *,
   a {
-    color: #aaa;
+    color: #aaa; // specific to marketing
   }
 
   a {
@@ -32,7 +32,7 @@
   }
 
   a:hover {
-    color: #fff;
+    color: var(--pf-global--palette--white);
   }
 
   .ins-c-footer-marketing__logo {

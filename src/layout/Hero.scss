@@ -26,7 +26,7 @@
         width: var(--ins-c-hero--before--Width);
         content: '';
         opacity: var(--ins-c-hero--before--Opacity);
-        background-image: #{url('https://raw.githubusercontent.com/RedHatInsights/frontend-assets/0331b39e1a370e5f1c243452330df61f4e1b57bc/src/background-images/bg__hero.svg')};
+        background-image: #{url('https://cloud.redhat.com/apps/frontend-assets/background-images/bg__hero.svg')};
         background-size: var(--ins-c-hero--before--BackgroundSize);
     }
 
@@ -61,6 +61,12 @@
     .pf-c-title {
         color: var(--pf-global--Color--100);
     }
+}
+
+.ins-c-hero__title-icon {
+    display: flex;
+    width: #{pf-size-prem(90px)};
+    height: auto;
 }
 
 .pf-c-title.ins-c-hero__title {

@@ -3,7 +3,6 @@ import { Flex, FlexItem, PageSection, Title } from '@patternfly/react-core';
 
 import './ProductDetail.scss';
 import WidthLimiter from '../components/WidthLimiter.js';
-import insightsDashboardImage from '../components/marketing/img__insights-dashboard.jpg';
 import { productDetail as productDetail } from '../consts';
 
 const ProductDetail = () => {
@@ -44,7 +43,7 @@ const ProductDetail = () => {
         >
           <img
             className="ins-c-content-product-explanation__image"
-            src={insightsDashboardImage}
+            src='https://cloud.redhat.com/apps/frontend-assets/images/img_cloud-console.svg'
             alt="This is alt text"
           />
         </Flex>
