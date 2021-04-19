@@ -20,6 +20,7 @@ global.window.insights = {
     init: returnBlank,
     identifyApp: returnBlank,
     isBeta: () => false,
+    getEnvironment: () => 'prod',
     auth: {
       ...((window.insights &&
         window.insights.chrome &&
