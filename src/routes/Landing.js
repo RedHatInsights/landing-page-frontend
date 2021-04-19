@@ -36,9 +36,10 @@ import { loadData } from '../store/actions';
 import createContentData from '../contentApi/create-content-data';
 
 import { loadPermissions } from '../utils/allPermissions';
+import { useLocation } from 'react-router';
 
-const init = (initialState) => {
-  const params = location.search
+const init = (initialState, search) => {
+  const params = search
     .slice(1)
     .split('&')
     .reduce(
@@ -77,10 +78,13 @@ const reducer = (state, { type, user }) => {
 };
 
 const Landing = () => {
+  const { search } = useLocation();
   const [
     { isModalOpen, isUserReady, isUnauthed, notEntitled },
     stateDispatch,
-  ] = useReducer(reducer, initialState, init);
+  ] = useReducer(reducer, initialState, (initialState) =>
+    init(initialState, search)
+  );
   const dispatch = useDispatch();
 
   useEffect(async () => {
@@ -177,7 +181,7 @@ const Landing = () => {
                   {notEntitled.emptyText}
                 </StackItem>
                 <StackItem className="ins-c-error-state__footer">
-                  {notEntitled.emptyAction.primary && (
+                  {notEntitled?.emptyAction?.primary && (
                     <Button
                       variant="primary"
                       className="ins-c-error-state__footer-action"
@@ -192,7 +196,7 @@ const Landing = () => {
                     </Button>
                   )}
                   <section className="ins-c-error-state__footer-action--secondary">
-                    {notEntitled.emptyAction.secondary &&
+                    {notEntitled?.emptyAction?.secondary &&
                       notEntitled.emptyAction.secondary.navigate && (
                         <Button
                           variant="link"
@@ -207,7 +211,7 @@ const Landing = () => {
                             : 'Learn More'}
                         </Button>
                       )}
-                    {notEntitled.emptyAction.secondary &&
+                    {notEntitled?.emptyAction?.secondary &&
                       !notEntitled.emptyAction.secondary.navigate && (
                         <Button
                           variant="link"
@@ -223,7 +227,7 @@ const Landing = () => {
                       className="ins-c-error-state__footer-close"
                       onClick={handleModalToggle}
                     >
-                      {notEntitled.emptyAction.close
+                      {notEntitled?.emptyAction?.close
                         ? `${notEntitled.emptyAction.close.title}`
                         : 'Close'}
                     </Button>

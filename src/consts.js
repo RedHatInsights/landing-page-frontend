@@ -42,7 +42,8 @@ export const activeTechnologies = [
   {
     marketing: true,
     entitlement: 'openShiftAppServices',
-    marketingImage: 'https://cloud.redhat.com/apps/frontend-assets/logos/logo__osas.svg',
+    marketingImage:
+      'https://cloud.redhat.com/apps/frontend-assets/logos/logo__osas.svg',
     marketingTitle: 'With cloud.redhat.com you can:',
     marketingContent: (
       <ul>
@@ -83,7 +84,8 @@ export const activeTechnologies = [
   {
     marketing: true,
     entitlement: 'openShift',
-    marketingImage: 'https://cloud.redhat.com/apps/frontend-assets/logos/logo__openshift.svg',
+    marketingImage:
+      'https://cloud.redhat.com/apps/frontend-assets/logos/logo__openshift.svg',
     marketingTitle: 'With cloud.redhat.com you can:',
     marketingContent: (
       <ul>
@@ -128,7 +130,8 @@ export const activeTechnologies = [
   {
     marketing: true,
     entitlement: 'rhel',
-    marketingImage: 'https://cloud.redhat.com/apps/frontend-assets/logos/logo__rhel.svg',
+    marketingImage:
+      'https://cloud.redhat.com/apps/frontend-assets/logos/logo__rhel.svg',
     marketingTitle: 'With cloud.redhat.com you can:',
     marketingContent: (
       <ul>
@@ -170,7 +173,8 @@ export const activeTechnologies = [
   {
     marketing: true,
     entitlement: 'ansibleAutomation',
-    marketingImage: 'https://cloud.redhat.com/apps/frontend-assets/logos/logo__ansible-automation.svg',
+    marketingImage:
+      'https://cloud.redhat.com/apps/frontend-assets/logos/logo__ansible-automation.svg',
     marketingTitle: 'With cloud.redhat.com you can:',
     marketingContent: (
       <ul>
@@ -214,7 +218,8 @@ export const activeTechnologies = [
     marketing: true,
     featured: true,
     entitlement: 'insights',
-    marketingImage: 'https://cloud.redhat.com/apps/frontend-assets/logos/logo__insights.svg',
+    marketingImage:
+      'https://cloud.redhat.com/apps/frontend-assets/logos/logo__insights.svg',
     marketingTitle: 'Red Hat Insights is expanding',
     marketingTitleSecondary: 'What is Insights?',
     marketingContent: (
@@ -320,7 +325,8 @@ export const activeTechnologies = [
   },
   {
     keyFeature: true,
-    icon: 'https://cloud.redhat.com/apps/frontend-assets/icons/icon__private-cloud.svg',
+    icon:
+      'https://cloud.redhat.com/apps/frontend-assets/icons/icon__private-cloud.svg',
     id: 'infrastructure',
     title: 'No infrastructure required',
     text:
@@ -328,7 +334,8 @@ export const activeTechnologies = [
   },
   {
     keyFeature: true,
-    icon: 'https://cloud.redhat.com/apps/frontend-assets/icons/icon__update.svg',
+    icon:
+      'https://cloud.redhat.com/apps/frontend-assets/icons/icon__update.svg',
     id: 'continuous-upgrades',
     title: 'Continuous upgrades',
     text:
@@ -336,7 +343,8 @@ export const activeTechnologies = [
   },
   {
     keyFeature: true,
-    icon: 'https://cloud.redhat.com/apps/frontend-assets/icons/icon__build-deploy.svg',
+    icon:
+      'https://cloud.redhat.com/apps/frontend-assets/icons/icon__build-deploy.svg',
     id: 'build-deploy',
     title: 'Build and deploy',
     text: (
@@ -357,7 +365,8 @@ export const activeTechnologies = [
   },
   {
     keyFeature: true,
-    icon: 'https://cloud.redhat.com/apps/frontend-assets/icons/icon__control-panel.svg',
+    icon:
+      'https://cloud.redhat.com/apps/frontend-assets/icons/icon__control-panel.svg',
     id: 'zero-install',
     title: 'Zero install',
     text:
@@ -365,7 +374,8 @@ export const activeTechnologies = [
   },
   {
     keyFeature: true,
-    icon: 'https://cloud.redhat.com/apps/frontend-assets/icons/icon__hybrid-cloud.svg',
+    icon:
+      'https://cloud.redhat.com/apps/frontend-assets/icons/icon__hybrid-cloud.svg',
     id: 'open-hybrid-cloud',
     title: 'Decades of open hybrid cloud experience',
     text:
@@ -373,7 +383,8 @@ export const activeTechnologies = [
   },
   {
     keyFeature: true,
-    icon: 'https://cloud.redhat.com/apps/frontend-assets/icons/icon__exp-up.svg',
+    icon:
+      'https://cloud.redhat.com/apps/frontend-assets/icons/icon__exp-up.svg',
     id: 'insights',
     title: 'Insights to action',
     text:
@@ -381,7 +392,8 @@ export const activeTechnologies = [
   },
   {
     keyFeature: true,
-    icon: 'https://cloud.redhat.com/apps/frontend-assets/icons/icon__padlock.svg',
+    icon:
+      'https://cloud.redhat.com/apps/frontend-assets/icons/icon__padlock.svg',
     id: 'customers',
     title: 'Exclusively for Red Hat customers',
     text:
@@ -389,7 +401,8 @@ export const activeTechnologies = [
   },
   {
     keyFeature: true,
-    icon: 'https://cloud.redhat.com/apps/frontend-assets/icons/icon__modernize.svg',
+    icon:
+      'https://cloud.redhat.com/apps/frontend-assets/icons/icon__modernize.svg',
     id: 'modernize',
     title: 'Modernize your application development',
     text:

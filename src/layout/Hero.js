@@ -10,7 +10,7 @@ import {
 import WidthLimiter from '../components/WidthLimiter.js';
 import './Hero.scss';
 
-import { heroContent as heroContent } from '../consts';
+import { heroContent } from '../consts';
 
 const Hero = () => (
   <PageSection
@@ -26,7 +26,12 @@ const Hero = () => (
     >
       <Flex className="pf-m-column" spaceItems={{ default: 'spaceItemsXl' }}>
         <FlexItem spacer={{ default: 'spacerMd', md: 'spacerXl' }}>
-          <img src="https://cloud.redhat.com/apps/frontend-assets/icons/icon__cloud-red.svg" alt="Insights Smart Management" aria-hidden="true" className="ins-c-hero__title-icon" />
+          <img
+            src="https://cloud.redhat.com/apps/frontend-assets/icons/icon__cloud-red.svg"
+            alt="Insights Smart Management"
+            aria-hidden="true"
+            className="ins-c-hero__title-icon"
+          />
         </FlexItem>
         <Flex
           direction={{ default: 'column' }}
@@ -48,7 +53,7 @@ const Hero = () => (
             variant="primary"
             isLarge
             onClick={() => window.insights.chrome.auth.login()}
-            >
+          >
             {heroContent.primaryCTAtext}
           </Button>
         </Flex>

@@ -126,6 +126,7 @@ export const ProductCardContent = ({
       {customBlock && <React.Fragment>{customBlock}</React.Fragment>}
       {modalTitle && (
         <Modal
+          aria-label={title}
           variant={ModalVariant.medium}
           isOpen={expanded}
           onClose={() => {
