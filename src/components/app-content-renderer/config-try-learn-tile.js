@@ -3,8 +3,6 @@ import PropTypes from 'prop-types';
 import {
   Flex,
   FlexItem,
-  Split,
-  SplitItem,
   Text,
   TextContent,
   Title,
@@ -34,42 +32,38 @@ const TileItem = (props) => {
   } = response || rest;
 
   return (
-    <Split className="pf-u-mb-xl">
-      <SplitItem>
-        <TextContent>
-          {loaded ? (
-            <Title headingLevel="h4" size="md" className="tile-text pf-u-mb-sm">
-              {title}
-            </Title>
-          ) : (
-            <Skeleton size="lg" />
-          )}
-          {description ? (
-            loaded ? (
-              <Text className="pf-u-m-0" component="small">
-                {description}
-              </Text>
-            ) : (
-              <Skeleton size="lg" />
-            )
-          ) : null}
-          <Text component="p" className="tile-text pf-u-mb-0">
-            <a
-              href={href}
-              {...(external
-                ? {
-                    target: '_blank',
-                    rel: 'noopener noreferrer',
-                  }
-                : {})}
-            >
-              {linkTitle}&nbsp;
-              <ArrowRightIcon size="sm" />
-            </a>
+    <TextContent className="pf-u-mb-xl tile">
+      {loaded ? (
+        <Title headingLevel="h4" size="md" className="pf-u-mb-0">
+          {title}
+        </Title>
+      ) : (
+        <Skeleton size="lg" />
+      )}
+      {description ? (
+        loaded ? (
+          <Text component="small" className="pf-u-m-0">
+            {description}
           </Text>
-        </TextContent>
-      </SplitItem>
-    </Split>
+        ) : (
+          <Skeleton size="lg" />
+        )
+      ) : null}
+      <Text component="p" className="pf-u-mb-0">
+        <a
+          href={href}
+          {...(external
+            ? {
+                target: '_blank',
+                rel: 'noopener noreferrer',
+              }
+            : {})}
+        >
+          {linkTitle}&nbsp;
+          <ArrowRightIcon size="sm" />
+        </a>
+      </Text>
+    </TextContent>
   );
 };
 
@@ -116,18 +110,14 @@ const ConfigTryLearnTile = ({ title, column, items, sectionName }) => {
       {title && (
         <Flex
           alignItems={{ default: 'alignItemsFlexEnd' }}
-          className="pf-u-mb-lg"
+          className="pf-u-mb-lg section-header"
           style={{ gridRow: 1 }}
         >
           <FlexItem>
             <Icon />
           </FlexItem>
           <FlexItem>
-            <Title
-              headingLevel="h4"
-              size="xl"
-              className={classNames(column, 'section-title')}
-            >
+            <Title headingLevel="h4" size="xl" className={classNames(column)}>
               {title}
             </Title>
           </FlexItem>

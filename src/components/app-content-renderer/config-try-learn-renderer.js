@@ -4,8 +4,8 @@ import ConfigTryLearnTile from './config-try-learn-tile';
 const columns = ['config', 'try', 'learn'];
 
 const configTryLearnRenderer = (sections) => (
-  <div className="ins-c-third--panel-wrapper  pf-u-pt-xl pf-u-pr-lg pf-u-pl-lg">
-    <div className="ins-c-third--panel">
+  <div className="ins-l-third--panel-wrapper  pf-u-pt-xl pf-u-pr-lg pf-u-pl-lg">
+    <div className="ins-l-third--panel">
       {sections.map((section, index) => (
         <ConfigTryLearnTile
           key={section.id}

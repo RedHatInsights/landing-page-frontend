@@ -1,12 +1,7 @@
 /* stylelint-disable no-descending-specificity */
+@import '~@patternfly/patternfly/sass-utilities/_all';
+
 .ins-c-page__landing-content {
-  .level-wrapper {
-    padding: var(--pf-global--spacer--xl) var(--pf-global--spacer--lg) 0 var(--pf-global--spacer--lg);
-  }
-  .break {
-    flex-basis: 100%;
-    height: 0;
-  }
   .error {
     color: var(--pf-global--danger-color--100);
   }
@@ -26,7 +21,7 @@
     padding-top: var(--pf-global--spacer--sm);
   }
 
-  .first-panel {
+  .ins-l-first-panel {
     color: var(--pf-global--Color--light-100);
     background: url(https://cloud.redhat.com/apps/frontend-assets/background-images/new-landing-page/estate-double_gradient.svg);
     background-size: cover !important;
@@ -40,12 +35,11 @@
       }
     }
 
-    @media only screen and (min-width: 769px) {
+    @media screen and (min-width: $pf-global--breakpoint--md) {
       .pf-c-description-list {
         display: flex;
         align-items: normal;
         .estate-group {
-          width: 190px;
           margin-right: var(--pf-global--spacer--md);
           .estate-section {
             .pf-c-description-list__text {
@@ -66,6 +60,7 @@
             .pf-c-description-list__text {
               width: 140px;
               p {
+                font-size: var(--pf-global--FontSize--sm);
                 white-space: nowrap; 
                 overflow: hidden;
                 text-overflow: ellipsis;
@@ -76,9 +71,8 @@
       }
     }
 
-    @media only screen and (max-width: 768px) {
+    @media only screen and (max-width: $pf-global--breakpoint--md) {
       .pf-c-description-list {
-        grid-template-columns: repeat(calc(100% - var(--pf-c-description-list--ColumnGap)));
         row-gap: 0;
         .estate-group {
           display: flex;
@@ -86,9 +80,7 @@
           .estate-section {
             >.pf-c-description-list__text {
               p {
-                font-size: var(--pf-global--FontSize--md);
-                margin-bottom: var(--pf-global--spacer--md);
-                margin-top: var(--pf-global--spacer--md);
+                margin: var(--pf-global--spacer--md) 0;
               }
               &::after {
                 content: '';
@@ -97,18 +89,13 @@
                 margin: 0;
               }
             }
-            font-size: var(--pf-global--FontSize--xl) !important;
+            font-size: var(--pf-global--FontSize--xl);
             width: 100%;
           }
-          .estate-count {
-            h5 {
-              font-size: var(--pf-global--FontSize--md) !important;
+          .estate-count, .estate-title {
+            .pf-c-title, p {
+              font-size: var(--pf-global--FontSize--md);
               padding-right: var(--pf-global--spacer--sm);
-            }
-          }
-          .estate-title {
-            p {
-              font-size: var(--pf-global--FontSize--md) !important;
             }
           }
         }
@@ -116,26 +103,28 @@
     }
   }
 
-  .ins-c-second-panel {
+  .ins-l-second-panel {
     background-color: var(--pf-global--BackgroundColor--100);
     color: var(--pf-global--Color--100);
     padding: var(--pf-global--spacer--xl) var(--pf-global--spacer--lg) var(--pf-global--spacer--lg) var(--pf-global--spacer--lg);
    
     .ins-c-recommendation__container {
-      max-width: 1150px;
+      max-width: 1210px;
       column-count: 2;
-      column-gap: var(--pf-global--spacer--xl);
+      column-gap: var(--pf-global--spacer--2xl);
       overflow: hidden; // prevents padding from spilling into next column
       break-inside: avoid-column; // prevents padding from spilling into next column
 
       .recommendation-section {
-        break-inside: avoid-column; // prevents padding from spilling into next column
+        break-inside: avoid-column;
         flex-wrap: nowrap;
       }
 
       .recommendation-group {
         flex-wrap: nowrap;
-        margin-bottom: var(--pf-global--spacer--sm);
+        overflow: hidden;
+        break-inside: avoid-column;
+        margin-bottom: var(--pf-global--spacer--md);
         width: 100%;
         p {
           font-size: var(--pf-global--FontSize--sm);
@@ -147,69 +136,44 @@
       }
     }
 
-    @media only screen and (max-width: 998px) {
+    @media only screen and (max-width: $pf-global--breakpoint--lg) {
       .ins-c-recommendation__container {
         column-count: 1;
       }
     }
-
   }
 
-  .ins-c-third--panel-wrapper {
-    background: url(https://cloud.redhat.com/apps/frontend-assets/background-images/new-landing-page/ctl-double_gradient.svg);
-    background-position: top left;
-    background-repeat: no-repeat;
-  }
-
-  .ins-c-third--panel {
-    color: var(--pf-global--Color--100);
-    display: grid;
-    grid-template-columns: [config] 1fr [try] 1fr [learn] 1fr;
-    grid-template-rows: [start] 1fr;
-    row-gap: var(--pf-global--spacer--md);
-    column-gap: var(--pf-global--spacer--md);
-    > .pf-l-flex > div {
-      margin-bottom: auto;
-      margin-right: var(--pf-global--spacer--sm);
-    }
-
-    @media screen and (min-width: 1450px) {
+  .ins-l-third--panel-wrapper {
+    background-color: var(--pf-global--Color--light-200);
+    .ins-l-third--panel {
+      color: var(--pf-global--Color--100);
+      display: grid;
+      grid-template-columns: [config] 1fr [try] 1fr [learn] 1fr;
+      grid-template-rows: [start] 1fr;
+      row-gap: var(--pf-global--spacer--xs);
+      column-gap: var(--pf-global--spacer--xl);
       max-width: 1210px;
-      .title-wrapper {
-        width: 100%;
+      .ins-c-grid__config {
+        grid-column-start: config;
       }
-    }
-    @media screen and (max-width: 1449px){
-      display: flex;
-      flex-direction: column;
-    }
-    .ins-c-grid__config {
-      grid-column-start: config;
-    }
-    .ins-c-grid__try {
-      grid-column-start: try;
-    }
-    .ins-c-grid__learn {
-      grid-column-start: learn;
-    }
-    .section-title {
-      font-weight: var(--pf-global--FontWeight--normal) !important;
-    }
-    .tile-icon {
-      border-radius: 50%;
-      background-color: var(--pf-global--palette--black-300);
-      border: 10px solid var(--pf-global--palette--black-300);
-    }
-    .pf-c-title.tile-text {
-      font-weight: bold;
-    }
-    .tile-text {
-      font-size: 14px;
-    }
-    .icon-wrapper {
-      /** prevent icons scrollbars */
-      flex-shrink: 0;
+      .ins-c-grid__try {
+        grid-column-start: try;
+      }
+      .ins-c-grid__learn {
+        grid-column-start: learn;
+      }
+      .section-header > div {
+        margin: 0 var(--pf-global--spacer--sm) auto 0;
+      }
+      .tile {
+        .pf-c-title, p {
+          font-size: var(--pf-global--FontSize--sm);
+        }
+      }
+      @media screen and (max-width: $pf-global--breakpoint--xl) {
+        display: flex;
+        flex-direction: column;
+      }
     }
   }
 }
-

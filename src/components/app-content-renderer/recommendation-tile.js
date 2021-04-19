@@ -43,7 +43,7 @@ const RecommendationGroup = ({
   return (
     <Flex direction={{ default: 'column' }} className="recommendation-section">
       {showSectionTitle && (
-        <Title headingLevel="h3" size="lg">
+        <Title headingLevel="h3" size="xl">
           {sectionTitle}
         </Title>
       )}
