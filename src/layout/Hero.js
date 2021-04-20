@@ -52,6 +52,7 @@ const Hero = () => (
             className="ins-m-marketing"
             variant="primary"
             isLarge
+            ouiaId="primary-login-button"
             onClick={() => window.insights.chrome.auth.login()}
           >
             {heroContent.primaryCTAtext}

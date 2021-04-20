@@ -242,7 +242,8 @@ export const activeTechnologies = [
         subscription.
       </p>
     ),
-    marketingVideo: 'https://www.youtube.com/embed/qaGBONGPBvE',
+    marketingVideo: 'https://www.youtube.com/embed/NKL2j1yXHTM',
+    // <iframe width="560" height="315" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
     customBlock: (
       <CardFooter>
         <Flex

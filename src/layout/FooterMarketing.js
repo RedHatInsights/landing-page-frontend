@@ -8,9 +8,9 @@ const FooterTraditional = () => {
     <PageSection className="ins-c-footer-marketing" isWidthLimited>
       <footer role="contentinfo">
         <Flex
-          direction={{ default: 'column', lg: 'row' }}
-          alignItems={{ lg: 'alignItemsCenter' }}
-          spaceItems={{ default: 'spaceItemsXl' }}
+          direction={{ default: 'column', md: 'row' }}
+          alignItems={{ default: 'alignItemsFlexStart', md: 'alignItemsCenter' }}
+          spaceItems={{ default: 'spaceItemsXl', lg: 'spaceItemsNone' }}
         >
           <FlexItem flex={{ flex: 'flexNone' }}>
             <a
@@ -21,15 +21,15 @@ const FooterTraditional = () => {
             >
               <Brand
                 className="ins-c-footer-marketing__logo"
-                src="https://cloud.redhat.com/apps/frontend-assets/logos/logo__insights.svg"
+                src="https://cloud.redhat.com/apps/frontend-assets/red-hat-logos/logo.svg"
                 alt="Insights logo"
               />
             </a>
           </FlexItem>
           <Flex
-            spaceItems={{ default: 'spaceItemsSm' }}
+            spaceItems={{ default: 'spaceItemsSm', lg: 'spaceItemsXl' }}
             flex={{ default: 'flex_1' }}
-            direction={{ default: 'column', md: 'row' }}
+            direction={{ default: 'column', lg: 'row' }}
           >
             <p>Copyright ©2021 Red Hat, Inc.</p>
             <nav>
