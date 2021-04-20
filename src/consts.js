@@ -150,7 +150,7 @@ export const activeTechnologies = [
       </ul>
     ),
     marketingUrls: {
-      login: '/rhel/overview',
+      login: '/insights/overview',
     },
     modalTitle: 'What is Red Hat Enterprise Linux?',
     modalText:
