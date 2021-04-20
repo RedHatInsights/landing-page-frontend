@@ -353,7 +353,7 @@ export const activeTechnologies = [
         Create and install your Red Hat OpenShift 4 clusters, or Red Hat
         Enterprise Linux images (available in{' '}
         <a
-          href="https://cloud.redhat.com/beta"
+          href={`${window.location.origin}/beta`}
           target="_blank"
           rel="noreferrer"
         >
