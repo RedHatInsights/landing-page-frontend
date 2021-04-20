@@ -9,7 +9,10 @@ const FooterTraditional = () => {
       <footer role="contentinfo">
         <Flex
           direction={{ default: 'column', md: 'row' }}
-          alignItems={{ default: 'alignItemsFlexStart', md: 'alignItemsCenter' }}
+          alignItems={{
+            default: 'alignItemsFlexStart',
+            md: 'alignItemsCenter',
+          }}
           spaceItems={{ default: 'spaceItemsXl', lg: 'spaceItemsNone' }}
         >
           <FlexItem flex={{ flex: 'flexNone' }}>
