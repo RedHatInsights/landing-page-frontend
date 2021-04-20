@@ -9,13 +9,22 @@ import {
   SplitItem,
   Split,
 } from '@patternfly/react-core';
-import Marketing from '../layout/Marketing';
+
+import FooterMarketing from '../layout/FooterMarketing';
 import FooterTraditional from '../layout/FooterTraditional';
 import Loading from '../layout/Loading';
 import { activeTechnologies } from '../consts';
 import { addNotification } from '@redhat-cloud-services/frontend-components-notifications/redux';
 
+// Sections
+import Hero from '../layout/Hero';
+import ProductGrid from '../layout/ProductGrid';
+import KeyFeatures from '../layout/KeyFeatures';
+import ProductDetail from '../layout/ProductDetail';
+import GetStarted from '../layout/GetStarted';
+
 import './Landing.scss';
+import '../layout/Marketing.scss';
 import '../components/app-content-renderer/styles/panels.scss';
 
 // Mockup console landing page
@@ -27,9 +36,10 @@ import { loadData } from '../store/actions';
 import createContentData from '../contentApi/create-content-data';
 
 import { loadPermissions } from '../utils/allPermissions';
+import { useLocation } from 'react-router';
 
-const init = (initialState) => {
-  const params = location.search
+const init = (initialState, search) => {
+  const params = search
     .slice(1)
     .split('&')
     .reduce(
@@ -68,10 +78,13 @@ const reducer = (state, { type, user }) => {
 };
 
 const Landing = () => {
+  const { search } = useLocation();
   const [
     { isModalOpen, isUserReady, isUnauthed, notEntitled },
     stateDispatch,
-  ] = useReducer(reducer, initialState, init);
+  ] = useReducer(reducer, initialState, (initialState) =>
+    init(initialState, search)
+  );
   const dispatch = useDispatch();
 
   useEffect(async () => {
@@ -110,15 +123,25 @@ const Landing = () => {
       <Split className="ins-c-page__landing-layout">
         <SplitItem className="ins-c-page__landing-content">
           {isUnauthed ? (
-            <Marketing />
+            <div
+              className="ins-c-marketing"
+              landing-page-type="unauthenticated"
+            >
+              <Hero />
+              <ProductGrid />
+              <ProductDetail />
+              <KeyFeatures />
+              <GetStarted />
+              <FooterMarketing />
+            </div>
           ) : (
             <Fragment>
               <FirstPanel />
               <SecondPanel />
               <Footer />
+              <FooterTraditional />
             </Fragment>
           )}
-          <FooterTraditional />
           {notEntitled &&
             notEntitled.emptyAlertTitle &&
             renderAlert(notEntitled.emptyAlertTitle)}
@@ -158,7 +181,7 @@ const Landing = () => {
                   {notEntitled.emptyText}
                 </StackItem>
                 <StackItem className="ins-c-error-state__footer">
-                  {notEntitled.emptyAction.primary && (
+                  {notEntitled?.emptyAction?.primary && (
                     <Button
                       variant="primary"
                       className="ins-c-error-state__footer-action"
@@ -173,7 +196,7 @@ const Landing = () => {
                     </Button>
                   )}
                   <section className="ins-c-error-state__footer-action--secondary">
-                    {notEntitled.emptyAction.secondary &&
+                    {notEntitled?.emptyAction?.secondary &&
                       notEntitled.emptyAction.secondary.navigate && (
                         <Button
                           variant="link"
@@ -188,7 +211,7 @@ const Landing = () => {
                             : 'Learn More'}
                         </Button>
                       )}
-                    {notEntitled.emptyAction.secondary &&
+                    {notEntitled?.emptyAction?.secondary &&
                       !notEntitled.emptyAction.secondary.navigate && (
                         <Button
                           variant="link"
@@ -204,7 +227,7 @@ const Landing = () => {
                       className="ins-c-error-state__footer-close"
                       onClick={handleModalToggle}
                     >
-                      {notEntitled.emptyAction.close
+                      {notEntitled?.emptyAction?.close
                         ? `${notEntitled.emptyAction.close.title}`
                         : 'Close'}
                     </Button>

@@ -5,6 +5,7 @@ import React, {
   lazy,
   Suspense,
 } from 'react';
+import '@patternfly/patternfly/utilities/Text/text.css';
 import { Switch, Route } from 'react-router-dom';
 import { getRegistry } from '@redhat-cloud-services/frontend-components-utilities/Registry';
 import { Bullseye, Spinner } from '@patternfly/react-core';
