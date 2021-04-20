@@ -19,6 +19,9 @@
   }
   .ins-c-footer__traditional{
     padding-top: var(--pf-global--spacer--sm);
+    #redhat-logo {
+      .cls-1 { fill: #e00; } 
+    }
   }
 
   .ins-l-first-panel {
