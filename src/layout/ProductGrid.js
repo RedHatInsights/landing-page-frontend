@@ -29,6 +29,10 @@ import { productGridModalCTAText as productGridModalCTAText } from '../consts';
 import { activeTechnologies as technologies } from '../consts';
 import './ProductGrid.scss';
 
+function isBeta() {
+  return window.insights.chrome.isBeta() === true ? '/beta' : '';
+}
+
 export const ProductCardContent = ({
   marketingImage,
   title,
@@ -96,7 +100,7 @@ export const ProductCardContent = ({
                 className="ins-m-marketing"
                 variant="secondary"
                 isLarge
-                href={marketingUrls.login}
+                href={`${isBeta()}${marketingUrls.login}`}
                 component="a"
               >
                 {productGridLoginText}
