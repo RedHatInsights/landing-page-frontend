@@ -2,8 +2,8 @@ import React from 'react';
 import Subscriptions from './components/Subscriptions.svg';
 import Cost from './components/Cost.svg';
 import Insights from './components/Insights.svg';
-import Migrations from './components/Migrations.svg';
 import SAP from './components/SAP.svg';
+import Automation from './components/Automation.svg';
 import { Button, CardFooter, Flex, FlexItem } from '@patternfly/react-core';
 import { ArrowRightIcon } from '@patternfly/react-icons';
 import imgModalPlaceholder from './layout/images/img__modal-placeholder.png';
@@ -213,6 +213,27 @@ export const activeTechnologies = [
     },
     title: 'Ansible Automation',
     body: '',
+    image: Automation,
+    emptyTitle:
+      'Ansible Automation Platform services requires a valid subscription',
+    emptyText: [
+      'Get analytics and knowledge of your automation, access to certified content, and more with a Red hat Ansible Automation Platform subscription.',
+    ],
+    emptyID: 'insights',
+    emptyAction: {
+      primary: {
+        title: 'Try it',
+        navigate:
+          'https://www.redhat.com/en/technologies/management/ansible/try-it',
+      },
+      secondary: {
+        navigate:
+          'https://www.ansible.com/products/automation-platform?extIdCarryOver=true&intcmp=701f20000012m1qAAA&sc_cid=701f2000001Css0AAC',
+      },
+      close: {
+        title: 'Not now',
+      },
+    },
   },
   {
     marketing: true,
@@ -306,16 +327,27 @@ export const activeTechnologies = [
     image: Insights,
     title: 'Insights',
     emptyTitle:
-      'Insights is included with every Red Hat Enterprise Linux subscription',
-    emptyText:
-      'Proactively identify and remediate threats to security, performance, availability, \
-        and stability with Insights. Activate Insights to get started today.',
+      'Red Hat Insights is included with your Red Hat Enterprise Linux subscription.',
+    emptyText: [
+      'Red Hat Insights for Red Hat Enterprise Linux simplifies how IT teams maintain and optimize a stable, secure, and performant operating environment.',
+      <br key="insights-space1" />,
+      <br key="insights-space2" />,
+      'This is done by visualizing subscription and resource utilization of RHEL, and using powerful rule-based analytical models to proactively \
+       identify and prioritize operational and security risks so teams can take action faster and easier.',
+      <br key="insights-space3" />,
+      <br key="insights-space4" />,
+      'Start your trial today.',
+    ],
     emptyID: 'insights',
     emptyAction: {
       primary: {
-        title: 'Get started',
+        title: 'Request a trial',
         navigate:
-          'https://www.redhat.com/wapps/eval/index.html?evaluation_id=1036',
+          'https://www.redhat.com/en/technologies/linux-platforms/enterprise-linux/try-it',
+      },
+      secondary: {
+        navigate:
+          'https://www.redhat.com/en/technologies/linux-platforms/enterprise-linux',
       },
       close: {
         title: 'Not now',
@@ -415,20 +447,20 @@ export const activeTechnologies = [
     entitlement: 'subscriptions',
     url: 'subscriptions',
     image: Subscriptions,
-    title: 'Subscription Watch',
+    title: 'Subscriptions',
     body: 'Account-level summaries of your Red Hat subscription utilization',
     baseApp: '/rhel-sw',
     apps: {
       'Red Hat Enterprise Linux': '/rhel-sw',
       OpenShift: '/openshift-sw',
     },
-    emptyTitle: 'Subscription Watch',
+    emptyTitle: 'Subscriptions',
     emptyID: 'subscription-watch',
     emptyText: [
-      'Subscription Watch enables you to understand your total subscription usage and capacity across your hybrid infrastructure over time.',
+      'Subscriptions enables you to understand your total subscription usage and capacity across your hybrid infrastructure over time.',
       <br key="sw1" />,
       <br key="sw2" />,
-      'If you are interested in trying Subscription Watch, your Red Hat account team can help.',
+      'If you are interested in trying Subscriptions, your Red Hat account team can help.',
     ],
     emptyAction: {
       primary: {
@@ -482,38 +514,6 @@ export const activeTechnologies = [
     title: 'Cost Management',
     body:
       'Analyze, forecast and optimize your OpenShift cluster costs in hybrid cloud environments.',
-  },
-  {
-    marketing: false,
-    id: 'migrations',
-    entitlement: 'migrations',
-    url: 'migrations',
-    image: Migrations,
-    title: 'Migration Services',
-    body:
-      'Get recommendations on migrating your applications and infrastructure to Red Hat.',
-    baseApp: '/migration-analytics',
-    apps: {
-      'migration analytics': '/migration-analytics',
-    },
-    emptyTitle: 'Migration Analytics requires a CloudForms subscription.',
-    emptyID: 'migration-analytics',
-    emptyText:
-      'Migration Analytics lets you examine workloads in your environment and evaluate \
-        the effort needed to migrate or modernize each. Learn more to request a free CloudForms evaluation subscription',
-    emptyAction: {
-      primary: {
-        title: 'Request an evaluation',
-        navigate:
-          'https://access.redhat.com/products/red-hat-cloudforms-migrations/evaluation',
-      },
-      secondary: {
-        title: 'Take a tour',
-      },
-      close: {
-        title: 'Not now',
-      },
-    },
   },
   {
     id: 'settings',
