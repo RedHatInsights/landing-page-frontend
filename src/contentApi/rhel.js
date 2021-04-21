@@ -124,25 +124,6 @@ const ESTATE_CONFIG = [
         ],
       },
       {
-        id: 'rhel-vuln-ves',
-        condition: {
-          when: 'total',
-          isNot: 0,
-        },
-        permissions: [
-          {
-            method: 'hasPermissions',
-            args: [['vulnerability:*:*']],
-          },
-        ],
-        shape: {
-          title: 'Systems exposed to CVEs with security rules',
-        },
-        accessor: 'system_count',
-        url:
-          '/api/vulnerability/v1/dashboard?tags=vulnerability%2Fusage%3Dserver&sap_sids=ABC%2CCDE',
-      },
-      {
         id: 'rhel-sap-systems',
         condition: {
           when: 'total',
