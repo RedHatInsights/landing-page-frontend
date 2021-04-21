@@ -272,24 +272,10 @@ describe('Landing component renders authenticated page', () => {
     expect(wrapper.find(FirstPanel)).toHaveLength(1);
     expect(wrapper.find(SecondPanel)).toHaveLength(1);
     expect(wrapper.find(Footer)).toHaveLength(1);
-    expect(wrapper.find(Modal)).toHaveLength(2);
+    expect(wrapper.find(Modal)).toHaveLength(1);
 
     let modalEntitled = wrapper.find(Modal).last();
 
-    expect(modalEntitled.props().isOpen).toEqual(true);
-
-    expect(modalEntitled.find(Title).text()).toEqual(migrationInfo.emptyTitle);
-    expect(
-      modalEntitled.find('.ins-c-error-state__body').last().text()
-    ).toEqual(migrationInfo.emptyText);
-    expect(
-      modalEntitled.find('.ins-c-error-state__footer-action').last().text()
-    ).toEqual(migrationInfo.emptyAction.primary.title);
-    expect(
-      modalEntitled.find('.ins-c-error-state__footer-secondary').last().text()
-    ).toEqual(migrationInfo.emptyAction.secondary.title);
-    expect(
-      modalEntitled.find('.ins-c-error-state__footer-close').last().text()
-    ).toEqual(migrationInfo.emptyAction.close.title);
+    expect(modalEntitled.props().isOpen).toEqual(false);
   });
 });
