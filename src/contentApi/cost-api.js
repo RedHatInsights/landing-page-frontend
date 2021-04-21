@@ -1,39 +1,9 @@
-import { instance } from '@redhat-cloud-services/frontend-components-utilities/interceptors';
-
-let costAppId;
-export const getCostAppId = () =>
-  instance
-    .get('/api/sources/v3.1/application_types')
-    .then(
-      ({ data }) =>
-        data.find(({ name }) => name === '/insights/platform/cost-management')
-          ?.id
-    );
-
-export const getSourceTypesIDs = () =>
-  instance
-    .get('/api/sources/v3.1/source_types')
-    .then(({ data }) =>
-      data.reduce((acc, curr) => ({ ...acc, [curr.name]: curr.id }), {})
-    );
-
-const createCostSourcesLink = async (type, costAppId) => {
-  const sourceTypeId = await getSourceTypesIDs()[type];
-  return `${sourcesURL}?filter[source_type_id][]=${sourceTypeId}&filter[applications][application_type_id][eq][]=${costAppId}`;
-};
-
-const estateResponseProcessor = async (response) => {
+const estateResponseProcessor = (response) => {
   if (response?.meta?.count === 0) {
     throw 'No data, do not show';
   }
-  if (!costAppId) {
-    costAppId = await getCostAppId();
-  }
-  const href = createCostSourcesLink(response.href, costAppId);
-  return {
-    ...response,
-    href,
-  };
+
+  return response;
 };
 
 const estateRequests = [
@@ -54,7 +24,7 @@ const estateRequests = [
         shape: {
           title: 'OpenShift Sources',
           href:
-            './settings/sources?sort_by[]=created_at:desc&limit=50&offset=0&activeVendor=Cloud',
+            './settings/sources?type=openshift&application=cost&activeVendor=Red Hat',
         },
       },
       {
@@ -71,7 +41,7 @@ const estateRequests = [
         shape: {
           title: 'Amazon Web Services Sources',
           href:
-            './settings/sources?sort_by[]=created_at:desc&limit=50&offset=0&activeVendor=Cloud',
+            './settings/sources?type=amazon&application=cost&activeVendor=Cloud',
         },
       },
       {
@@ -88,7 +58,7 @@ const estateRequests = [
         shape: {
           title: 'Microsoft Azure Sources',
           href:
-            './settings/sources?sort_by[]=created_at:desc&limit=50&offset=0&activeVendor=Cloud',
+            './settings/sources?type=azure&application=cost&activeVendor=Cloud',
         },
       },
       {
@@ -105,16 +75,12 @@ const estateRequests = [
         shape: {
           title: 'Google Cloud Platform Sources',
           href:
-            './settings/sources?sort_by[]=created_at:desc&limit=50&offset=0&activeVendor=Cloud',
+            './settings/sources?type=google&application=cost&activeVendor=Cloud',
         },
       },
     ],
   },
 ];
-
-const sourcesURL = `${
-  window.insights.chrome.isBeta() === true ? '/beta/' : '/'
-}settings/sources`;
 
 const installCostOperator =
   'https://access.redhat.com/documentation/en-us/cost_management_service/2021/html/getting_started_with_cost_management/index';
@@ -185,7 +151,7 @@ export const getCostDataSchema = () => {
               'We can track your OpenShift cluster running on Google Cloud Platform spend.',
             link: {
               title: 'Get started',
-              href: `${sourcesURL}/new`,
+              href: './settings/sources/new',
             },
           },
           permissions: [
