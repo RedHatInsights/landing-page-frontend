@@ -28,6 +28,7 @@
         opacity: var(--ins-c-hero--before--Opacity);
         background-image: #{url('https://cloud.redhat.com/apps/frontend-assets/background-images/bg__hero.svg')};
         background-size: var(--ins-c-hero--before--BackgroundSize);
+        background-color: var(--pf-c-page__main-section--BackgroundColor); // required to pass axe testing
     }
 
     @media screen and (min-width: $pf-global--breakpoint--md) {

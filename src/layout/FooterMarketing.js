@@ -6,7 +6,7 @@ import './FooterMarketing.scss';
 const FooterTraditional = () => {
   return (
     <PageSection className="ins-c-footer-marketing" isWidthLimited>
-      <footer role="contentinfo">
+      <footer>
         <Flex
           direction={{ default: 'column', md: 'row' }}
           alignItems={{
@@ -51,9 +51,6 @@ const FooterTraditional = () => {
                   <a href="https://www.redhat.com/en/about/all-policies-guidelines">
                     All policies and guidelines
                   </a>
-                </li>
-                <li>
-                  <a href="">Cookie preference</a>
                 </li>
               </ul>
             </nav>

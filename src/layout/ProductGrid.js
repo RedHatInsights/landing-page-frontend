@@ -73,18 +73,22 @@ export const ProductCardContent = ({
             <Title headingLevel="h3" size="xl">
               {marketingTitle}
             </Title>
-            <TextContent className="pf-u-font-size-lg">
-              {marketingContent}
-            </TextContent>
+            <FlexItem spacer={{ default: 'spacerXl' }}>
+              <TextContent className="pf-u-font-size-lg">
+                {marketingContent}
+              </TextContent>
+            </FlexItem>
             {marketingTitleSecondary && (
               <Title headingLevel="h3" size="xl">
                 {marketingTitleSecondary}
               </Title>
             )}
             {marketingContentSecondary && (
-              <TextContent className="pf-u-font-size-lg">
-                {marketingContentSecondary}
-              </TextContent>
+              <FlexItem spacer={{ default: 'spacerXl' }}>
+                <TextContent className="pf-u-font-size-lg">
+                  {marketingContentSecondary}
+                </TextContent>
+              </FlexItem>
             )}
           </Flex>
         </WidthLimiter>
@@ -102,6 +106,7 @@ export const ProductCardContent = ({
                 isLarge
                 href={`${isBeta()}${marketingUrls.login}`}
                 component="a"
+                aria-label={`Log in to ${title}`}
               >
                 {productGridLoginText}
               </Button>
@@ -245,6 +250,7 @@ const ProductGrid = () => (
           .map(
             (
               {
+                marketingFigcaption,
                 id,
                 marketingImage,
                 title,
@@ -273,8 +279,8 @@ const ProductGrid = () => (
                 <Card className="pf-m-plain">
                   {featured ? (
                     <Flex
-                      direction={{ default: 'column', xl: 'row' }}
-                      alignItems={{ xl: 'alignItemsStretch' }}
+                      direction={{ default: 'column', lg: 'row' }}
+                      alignItems={{ lg: 'alignItemsStretch' }}
                       spaceItems={{
                         default: 'spaceItemsLg',
                         lg: 'spaceItemsNone',
@@ -283,6 +289,7 @@ const ProductGrid = () => (
                     >
                       <FlexItem>
                         <ProductCardContent
+                          marketingFigcaption={marketingFigcaption}
                           marketingImage={marketingImage}
                           title={title}
                           marketingTitle={marketingTitle}
@@ -298,19 +305,28 @@ const ProductGrid = () => (
                         />
                       </FlexItem>
                       {marketingVideo && (
-                        <div className="ins-c-product-grid__split-item">
-                          <div className="ins-c-card-video">
+                        <Flex
+                          direction={{ default: 'column' }}
+                          justifyContent={{ lg: 'justifyContentCenter' }}
+                          className="ins-c-product-grid__split-item"
+                        >
+                          <figure className="ins-c-card-video">
                             <iframe
                               width="100%"
                               height="100%"
-                              src={marketingVideo}
+                              src={`${marketingVideo}?cc_load_policy=1`}
                               title="YouTube video player"
                               frameBorder="0"
                               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                               allowFullScreen
                             ></iframe>
-                          </div>
-                        </div>
+                            {marketingFigcaption && (
+                              <figcaption id={`${title}-video`}>
+                                {marketingFigcaption}
+                              </figcaption>
+                            )}
+                          </figure>
+                        </Flex>
                       )}
                     </Flex>
                   ) : (

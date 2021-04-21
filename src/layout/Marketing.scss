@@ -15,6 +15,7 @@ $ins-global--transition: .2s ease-in; // specific to marketing
 
     &.ins-m-marketing {
         border-radius: var(--pf-global--BorderRadius--sm);
+        font-family: var(--pf-global--FontFamily--heading--sans-serif);
 
         // Primary
         --pf-c-button--m-primary--Color: var(--pf-global--Color--light-100);
@@ -31,9 +32,7 @@ $ins-global--transition: .2s ease-in; // specific to marketing
         }
 
         &::after {
-            display: block;
-            box-sizing: border-box;
-            border-radius: 2px; // specific to marketing
+            border-width: 0;
         }
 
         &:focus::after {
@@ -45,6 +44,7 @@ $ins-global--transition: .2s ease-in; // specific to marketing
             top: 1px;
             right: 1px;
             bottom: 1px;
+            border-width: 1px;
         }
 
         &.pf-m-primary {

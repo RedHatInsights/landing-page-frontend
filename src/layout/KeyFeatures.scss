@@ -9,7 +9,9 @@
     }
 
     .pf-l-grid {
-        --pf-l-grid--m-gutter--GridGap: var(--pf-global--spacer--xl);
+        @media screen and (min-width: $pf-global--breakpoint--md) {
+            --pf-l-grid--m-gutter--GridGap: var(--pf-global--spacer--xl);
+        }
     }
 
     .pf-c-card__header .ins-c-icon {
