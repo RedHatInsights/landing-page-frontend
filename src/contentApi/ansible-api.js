@@ -8,7 +8,7 @@ const HUB_USER_CONFIGRE_TRY_LEARN = {
         icon: 'unknown',
         title: 'Sync Red Hat certified collections',
         description:
-          'Configure access to sync collections to Private Automation Hub',
+          'Configure access to sync collections to Private Automation Hub.',
         permissions: [
           {
             method: 'isEntitled',
@@ -127,7 +127,7 @@ const APP_USER_CONFIGRE_TRY_LEARN = {
       shape: {
         icon: 'unknown',
         title: 'Connect your Ansible platform clusters to Analytics',
-        description: 'Send Analytics data to the cloud hosted services ',
+        description: 'Send Analytics data to the cloud hosted services.',
         permissions: [
           {
             method: 'isEntitled',
@@ -144,22 +144,6 @@ const APP_USER_CONFIGRE_TRY_LEARN = {
     },
   ],
   try: [
-    {
-      shape: {
-        icon: 'unknown',
-        title: 'Calculate your automation savings',
-        permissions: [
-          {
-            method: 'isEntitled',
-            args: ['ansible'],
-          },
-        ],
-        link: {
-          title: 'Calculate',
-          href: './ansible/automation-analytics/automation-calculator',
-        },
-      },
-    },
     {
       shape: {
         icon: 'unknown',
@@ -202,7 +186,7 @@ const CATALOG_ADMIN_CONFIGURE_TRY_LEARN = {
       shape: {
         icon: 'unknown',
         title: 'Configure Automation Services Catalog',
-        description: 'Connect platforms, share portfolios, and offer products',
+        description: 'Connect platforms, share portfolios, and offer products.',
         link: {
           external: true,
           href:
@@ -223,7 +207,7 @@ const CATALOG_ADMIN_CONFIGURE_TRY_LEARN = {
       shape: {
         icon: 'unknown',
         title: 'Create a new portfolio',
-        description: 'Add products and share with your group',
+        description: 'Add products and share with your group.',
         link: {
           href: './ansible/catalog/portfolios',
           title: 'Get started',
@@ -236,23 +220,6 @@ const CATALOG_ADMIN_CONFIGURE_TRY_LEARN = {
         },
       ],
     },
-    {
-      shape: {
-        icon: 'unknown',
-        title: 'Connect to your infrastructure',
-        description:
-          'Source playbooks and workflow templates to use as products',
-        link: {
-          href: './#', // not in doc
-          title: 'Connect',
-        },
-      },
-      permissions: [
-        {
-          method: 'isOrgAdmin',
-        },
-      ],
-    },
   ],
   learn: [
     {
@@ -260,7 +227,7 @@ const CATALOG_ADMIN_CONFIGURE_TRY_LEARN = {
         icon: 'unknown',
         title: 'Govern access with Approval',
         description:
-          'Restrict product orders and apply approval processes to portfolios and platforms',
+          'Restrict product orders and apply approval processes to portfolios and platforms.',
         link: {
           external: true,
           href:
@@ -278,7 +245,7 @@ const CATALOG_ADMIN_CONFIGURE_TRY_LEARN = {
     {
       shape: {
         icon: 'unknown',
-        title: 'Integrate Automation Services Catalog with your ITSM system',
+        title: 'Integrate Automation Services Catalog with your ITSM system.',
         link: {
           external: true,
           href:
@@ -421,18 +388,12 @@ const ansibleEstateRequests = [
           },
         ],
       },
-    ],
-  },
-  {
-    section: 'Catalog',
-    items: [
       {
         id: 'ansible-platforms',
         url:
           '/api/sources/v3.1/applications?filter[application_type][name][contains]=catalog',
         accessor: 'meta.count',
         shape: {
-          section: 'Catalog', // don't know no data
           title: 'Platforms',
           href: './ansible/catalog/platforms',
         },

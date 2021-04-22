@@ -4,8 +4,9 @@ const ESTATE_CONFIG = [
     items: [
       {
         id: 'managed-services-1',
-        url:
-          'https://api.stage.openshift.com/api/managed-services-api/v1/kafkas',
+        url: `https://api.${
+          window.insights.chrome.getEnvironment() === 'stage' ? 'stage.' : ''
+        }openshift.com/api/managed-services-api/v1/kafkas`,
         accessor: 'total',
         shape: {
           title: 'Kafka Instances',
@@ -50,7 +51,7 @@ const RECOMMENDATIONS_ITEMS = {
       },
     },
     {
-      id: 'managed-services-3',
+      id: 'managed-services-4',
       icon: 'play',
       state: 'success',
       title: 'Try Red Hat OpenShift API Management',
@@ -62,7 +63,7 @@ const RECOMMENDATIONS_ITEMS = {
       },
     },
     {
-      id: 'managed-services-3',
+      id: 'managed-services-5',
       icon: 'play',
       state: 'success',
       title: 'Get started with Red Hat OpenShift API Management',
