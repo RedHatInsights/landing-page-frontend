@@ -71,8 +71,13 @@ $ins-c-product-grid--border--breakpoint: (pf-size-prem(1600px) + (pf-size-prem($
     .pf-c-card {
         --pf-c-card--first-child--PaddingTop: var(--pf-global--spacer--2xl);
         --pf-c-card--child--PaddingBottom: var(--pf-global--spacer--xl);
-        --pf-c-card--child--PaddingRight: var(--pf-global--spacer--2xl);
-        --pf-c-card--child--PaddingLeft: var(--pf-global--spacer--2xl);
+        --pf-c-card--child--PaddingRight: var(--pf-global--spacer--xl);
+        --pf-c-card--child--PaddingLeft: var(--pf-global--spacer--xl);
+
+        @media screen and (min-width: $pf-global--breakpoint--md) {
+            --pf-c-card--child--PaddingRight: var(--pf-global--spacer--2xl);
+            --pf-c-card--child--PaddingLeft: var(--pf-global--spacer--2xl);
+        }
 
         @media screen and (min-width: $pf-global--breakpoint--2xl) {
             --pf-c-card--child--PaddingRight: var(--pf-global--spacer--4xl);
@@ -85,9 +90,12 @@ $ins-c-product-grid--border--breakpoint: (pf-size-prem(1600px) + (pf-size-prem($
 .ins-c-product-grid__split-item {
     display: flex;
     flex: 1;
-    align-items: center;
-    padding-right: var(--pf-global--spacer--2xl);
-    padding-left: var(--pf-global--spacer--2xl);
+    padding-right: var(--ins-c-page__main-section--PaddingRight);
+    padding-left: var(--ins-c-page__main-section--PaddingLeft);
+
+    @media screen and (min-width: $pf-global--breakpoint--lg) {
+        align-items: center;
+    }
 
     @media screen and (min-width: $pf-global--breakpoint--xl) {
         padding-left: 0;
@@ -124,7 +132,9 @@ $ins-c-product-grid--border--breakpoint: (pf-size-prem(1600px) + (pf-size-prem($
 }
 
 .ins-c-product-grid-modal__layout {
-    --pf-l-grid--m-gutter--GridGap: var(--pf-global--spacer--xl);
+    @media screen and (min-width: $pf-global--breakpoint--md) {
+        --pf-l-grid--m-gutter--GridGap: var(--pf-global--spacer--xl);
+    }
 
     flex: 1;
 }

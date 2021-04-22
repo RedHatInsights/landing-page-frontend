@@ -19,17 +19,19 @@ $pf-c-width-limiter--breakpoint-map: build-breakpoint-map();
     );
 }
 
-// App.scss
-.pf-c-page__sidebar {
-    display: none;
-    visibility: hidden;
-}
-
 .pf-c-page__main-section {
-    --pf-c-page__main-section--PaddingRight: var(--pf-global--spacer--2xl);
-    --pf-c-page__main-section--PaddingLeft: var(--pf-global--spacer--2xl);
+    --ins-c-page__main-section--PaddingRight: var(--pf-global--spacer--xl);
+    --ins-c-page__main-section--PaddingLeft: var(--pf-global--spacer--xl);
     --ins-c-landing--m-display-md--MaxWidth: #{pf-size-prem(1283px)};
     --ins-c-landing--m-display-lg--MaxWidth: #{pf-size-prem(1600px)};
+
+    @media screen and (min-width: $pf-global--breakpoint--md) {
+        --ins-c-page__main-section--PaddingRight: var(--pf-global--spacer--2xl);
+        --ins-c-page__main-section--PaddingLeft: var(--pf-global--spacer--2xl);
+    }
+
+    --pf-c-page__main-section--PaddingRight: var(--ins-c-page__main-section--PaddingRight);
+    --pf-c-page__main-section--PaddingLeft: var(--ins-c-page__main-section--PaddingLeft);
 
     &.pf-m-limit-width.ins-m-display-md {
         --pf-c-page--section--m-limit-width--MaxWidth: calc(var(--ins-c-landing--m-display-md--MaxWidth) + var(--pf-c-page__main-section--PaddingRight) + var(--pf-c-page__main-section--PaddingLeft));
@@ -72,6 +74,9 @@ $pf-c-width-limiter--breakpoint-map: build-breakpoint-map();
 }
 
 .pf-l-grid {
+    > * {
+        max-width: 100%;
+    }
 
     &.pf-m-align-items-center {
         align-items: center;
@@ -85,11 +90,13 @@ $pf-c-width-limiter--breakpoint-map: build-breakpoint-map();
 }
 
 .ins-c-card-video {
-    width: 473px;
-    height: 266px;
-    max-width: 100%;
+    display: grid;
+    grid-gap: var(--pf-global--spacer--lg);
+    grid-template-columns: 473px;
+    grid-template-rows: 266px;
 
     > iframe {
+        max-width: 100%;
         width: 100%;
         height: 100%;
     }

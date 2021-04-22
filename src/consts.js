@@ -115,7 +115,8 @@ export const activeTechnologies = [
     modalUrls: {
       tryNow:
         'https://www.redhat.com/en/technologies/cloud-computing/openshift/try-it',
-      dataSheet: '#',
+      dataSheet:
+        'https://www.redhat.com/en/resources/openshift-container-platform-datasheet',
     },
     name: 'openShift',
     id: 'openShift',
@@ -159,6 +160,8 @@ export const activeTechnologies = [
     modalUrls: {
       tryNow:
         'https://www.redhat.com/en/technologies/linux-platforms/enterprise-linux/try-it',
+      dataSheet:
+        'https://www.redhat.com/en/resources/red-hat-enterprise-linux-8-datasheet',
     },
     name: 'rhel',
     id: 'rhel',
@@ -202,7 +205,8 @@ export const activeTechnologies = [
     modalUrls: {
       tryNow:
         'https://www.redhat.com/en/technologies/linux-platforms/enterprise-linux/try-it',
-      dataSheet: '#',
+      dataSheet:
+        'https://www.redhat.com/en/resources/ansible-automation-platform-datasheet',
     },
     name: 'ansibleAutomation',
     id: 'ansibleAutomation',
@@ -264,14 +268,23 @@ export const activeTechnologies = [
       </p>
     ),
     marketingVideo: 'https://www.youtube.com/embed/NKL2j1yXHTM',
-    // <iframe width="560" height="315" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    marketingFigcaption: (
+      <span>
+        Red Hat® Summit 2021 provides a mix of innovation, collaboration, and
+        learning opportunities.{' '}
+        <a href="https://www.redhat.com/en/summit">Register or Login</a>
+      </span>
+    ),
     customBlock: (
       <CardFooter>
         <Flex
           direction={{ default: 'column' }}
           spaceItems={{ default: 'spaceItemsLg' }}
         >
-          <Flex spaceItems={{ default: 'spaceItemsLg' }}>
+          <Flex
+            spaceItems={{ sm: 'spaceItemsLg' }}
+            direction={{ default: 'column', sm: 'row' }}
+          >
             <FlexItem>
               <Button
                 className="ins-m-marketing"
@@ -362,8 +375,12 @@ export const activeTechnologies = [
       'https://cloud.redhat.com/apps/frontend-assets/icons/icon__private-cloud.svg',
     id: 'infrastructure',
     title: 'No infrastructure required',
-    text:
-      'Get started quickly, simplifying operations and decreasing time-to-value from on-premise to the cloud.',
+    text: (
+      <p>
+        Get started quickly, simplifying operations and decreasing time-to-value
+        from on-premise to the cloud.
+      </p>
+    ),
   },
   {
     keyFeature: true,
@@ -371,8 +388,12 @@ export const activeTechnologies = [
       'https://cloud.redhat.com/apps/frontend-assets/icons/icon__update.svg',
     id: 'continuous-upgrades',
     title: 'Continuous upgrades',
-    text:
-      'The managed and hosted services in the Red Hat hybrid cloud console get updated frequently to bring the latest benefits to you and your team.',
+    text: (
+      <p>
+        The managed and hosted services in the Red Hat hybrid cloud console get
+        updated frequently to bring the latest benefits to you and your team.
+      </p>
+    ),
   },
   {
     keyFeature: true,
@@ -381,7 +402,7 @@ export const activeTechnologies = [
     id: 'build-deploy',
     title: 'Build and deploy',
     text: (
-      <span>
+      <p>
         Create and install your Red Hat OpenShift 4 clusters, or Red Hat
         Enterprise Linux images (available in{' '}
         <a
@@ -393,7 +414,7 @@ export const activeTechnologies = [
         </a>
         ), directly to your public cloud or on-premise environment to ensure a
         more secure and stable foundation.
-      </span>
+      </p>
     ),
   },
   {
@@ -402,8 +423,13 @@ export const activeTechnologies = [
       'https://cloud.redhat.com/apps/frontend-assets/icons/icon__control-panel.svg',
     id: 'zero-install',
     title: 'Zero install',
-    text:
-      'Red Hat platforms are engineered to connect and access critical updates and analytics from Red Hat—while giving you control over what gets shared.',
+    text: (
+      <p>
+        Red Hat platforms are engineered to connect and access critical updates
+        and analytics from Red Hat—while giving you control over what gets
+        shared.
+      </p>
+    ),
   },
   {
     keyFeature: true,
@@ -411,8 +437,13 @@ export const activeTechnologies = [
       'https://cloud.redhat.com/apps/frontend-assets/icons/icon__hybrid-cloud.svg',
     id: 'open-hybrid-cloud',
     title: 'Decades of open hybrid cloud experience',
-    text:
-      'No other technology partner offers the level of technology, flexibility, and support to empower developers and IT teams to build, deploy, and migrate applications as they see fit.',
+    text: (
+      <p>
+        No other technology partner offers the level of technology, flexibility,
+        and support to empower developers and IT teams to build, deploy, and
+        migrate applications as they see fit.
+      </p>
+    ),
   },
   {
     keyFeature: true,
@@ -420,8 +451,14 @@ export const activeTechnologies = [
       'https://cloud.redhat.com/apps/frontend-assets/icons/icon__exp-up.svg',
     id: 'insights',
     title: 'Insights to action',
-    text:
-      'Integrated throughout, Red Hat Insights uses unique rule-based analytical models to visualize system health and utilization in your hybrid cloud environments, while providing targeted actions to improve security, stability, and ROI.',
+    text: (
+      <p>
+        Integrated throughout, Red Hat Insights uses unique rule-based
+        analytical models to visualize system health and utilization in your
+        hybrid cloud environments, while providing targeted actions to improve
+        security, stability, and ROI.
+      </p>
+    ),
   },
   {
     keyFeature: true,
@@ -429,8 +466,13 @@ export const activeTechnologies = [
       'https://cloud.redhat.com/apps/frontend-assets/icons/icon__padlock.svg',
     id: 'customers',
     title: 'Exclusively for Red Hat customers',
-    text:
-      'Access services today with just a Red Hat account. Unlock transformational benefits when your host systems are connected back to Red Hat hybrid cloud console.',
+    text: (
+      <p>
+        Access services today with just a Red Hat account. Unlock
+        transformational benefits when your host systems are connected back to
+        Red Hat hybrid cloud console.
+      </p>
+    ),
   },
   {
     keyFeature: true,
@@ -438,8 +480,13 @@ export const activeTechnologies = [
       'https://cloud.redhat.com/apps/frontend-assets/icons/icon__modernize.svg',
     id: 'modernize',
     title: 'Modernize your application development',
-    text:
-      'Deliver applications faster with Red Hat application and data services. Use analytics services to automate the discovery and remediation of risks and misconfigurations in operating environments.',
+    text: (
+      <p>
+        Deliver applications faster with Red Hat application and data services.
+        Use analytics services to automate the discovery and remediation of
+        risks and misconfigurations in operating environments.
+      </p>
+    ),
   },
   {
     marketing: false,

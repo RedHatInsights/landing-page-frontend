@@ -8,7 +8,7 @@ import { productDetail as productDetail } from '../consts';
 const ProductDetail = () => {
   return (
     <PageSection
-      className="ins-c-content-product-explanation ins-m-display-md pf-m-center"
+      className="ins-c-content-product-detail ins-m-display-md pf-m-center"
       isWidthLimited
     >
       <Flex
@@ -42,9 +42,9 @@ const ProductDetail = () => {
           justifyContent={{ default: 'justifyContentCenter' }}
         >
           <img
-            className="ins-c-content-product-explanation__image"
+            className="ins-c-content-product-detail__image"
             src="https://cloud.redhat.com/apps/frontend-assets/images/img_cloud-console.svg"
-            alt="This is alt text"
+            alt={`${productDetail.title} image`}
           />
         </Flex>
       </Flex>
