@@ -279,7 +279,7 @@ export const activeTechnologies = [
               variant="link"
               isInline
               isLarge
-              href="https://cloud.redhat.com/security/insights"
+              href={`${window.location.href}security/insights`}
               component="a"
               icon={<ArrowRightIcon />}
               iconPosition="right"
