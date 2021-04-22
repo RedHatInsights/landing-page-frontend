@@ -68,10 +68,13 @@ const FirstPanel = () => {
     };
   }, []);
 
-  return estate?.length > 0 ? (
+  const flatSections = flattenSections(estate || []);
+  return flatSections.length > 0 ? (
     <div ref={scrollRef} className="ins-l-first-panel">
-      <DescriptionList>
-        <EstateRenderer sections={flattenSections(estate)} />
+      <DescriptionList
+        style={{ gridTemplateColumns: `repeat(${flatSections.length}, 140px)` }}
+      >
+        <EstateRenderer sections={flatSections} />
       </DescriptionList>
     </div>
   ) : null;

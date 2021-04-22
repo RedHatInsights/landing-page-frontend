@@ -40,7 +40,6 @@
 
     @media screen and (min-width: $pf-global--breakpoint--md) {
       .pf-c-description-list {
-        display: flex;
         align-items: normal;
         .estate-group {
           margin-right: var(--pf-global--spacer--md);
@@ -77,6 +76,8 @@
     @media only screen and (max-width: $pf-global--breakpoint--md) {
       .pf-c-description-list {
         row-gap: 0;
+        display: flex;
+        flex-direction: column;
         .estate-group {
           display: flex;
           flex-wrap: wrap;
