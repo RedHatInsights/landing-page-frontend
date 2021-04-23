@@ -466,6 +466,10 @@ export const RECOMMENDATIONS_ITEMS = {
         id: 'last-added-orders',
         defaultMessage: 'Automation Services Catalog last orders ({count}).',
       },
+      condition: {
+        when: 'data.lenght',
+        isNot: 0,
+      },
       url: '/api/catalog/v1/orders?limit=5',
       accessor: 'data.length',
       icon: 'history',
