@@ -19,7 +19,7 @@ const FIFI_TRY = [
   {
     shape: {
       icon: 'unknown',
-      title: 'Sign up for a Smart Managment 30 day Evaluation',
+      title: 'Sign up for a Smart Management 30-day Evaluation',
       link: {
         title: 'Get Started',
         external: true,
