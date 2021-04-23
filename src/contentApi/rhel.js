@@ -22,7 +22,7 @@ const RECOMMENDATIONS_ITEMS = {
       },
       accessor: 'meta.count',
       condition: {
-        when: 'count',
+        when: 'meta.count',
         isNot: 0,
       },
       action: {
@@ -54,7 +54,7 @@ const RECOMMENDATIONS_ITEMS = {
       id: 'rhel-5',
       icon: 'cog',
       title:
-        'Create a remediation playbook to fix issues identified by Insights on your systems',
+        'Create a remediation playbook to fix issues identified by Insights on your systems.',
       action: {
         title: 'Create',
         href: remediations,
