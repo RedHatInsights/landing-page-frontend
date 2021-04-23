@@ -148,7 +148,7 @@ export const getCostDataSchema = () => {
           shape: {
             title: 'Cost Management supports Google Cloud Platform',
             description:
-              'We can track your OpenShift cluster running on Google Cloud Platform spend.',
+              'We can track your Google Cloud Platform spend.',
             link: {
               title: 'Get started',
               href: './settings/sources/new',
