@@ -22,7 +22,7 @@ const RECOMMENDATIONS_ITEMS = {
       },
       accessor: 'meta.count',
       condition: {
-        when: 'count',
+        when: 'meta.count',
         isNot: 0,
       },
       action: {
