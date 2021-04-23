@@ -464,7 +464,7 @@ export const RECOMMENDATIONS_ITEMS = {
       id: 'orders',
       description: {
         id: 'last-added-orders',
-        defaultMessage: 'Automation Services Catalog last orders ({count})',
+        defaultMessage: 'Automation Services Catalog last orders ({count}).',
       },
       url: '/api/catalog/v1/orders?limit=5',
       accessor: 'data.length',
@@ -482,7 +482,7 @@ export const RECOMMENDATIONS_ITEMS = {
     },
     {
       id: 'approvals',
-      description: `Automation Services Catalog approvals`,
+      description: `Automation Services Catalog approvals.`,
       icon: 'list',
       state: 'info',
       permissions: [
