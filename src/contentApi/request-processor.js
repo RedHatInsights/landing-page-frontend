@@ -1,4 +1,3 @@
-import { instance } from '@redhat-cloud-services/frontend-components-utilities/interceptors/interceptors';
 import get from 'lodash/get';
 
 import {
@@ -41,7 +40,14 @@ export const processRequest = async ({
     }
     let response;
     if (url) {
-      response = await instance[method](url, ...args);
+      /**
+       * FEC interceptors were logging out users if the API returned 401 response.
+       * That is not required behavior in this case. IF we get 401 we just hide the data.
+       */
+      response = await fetch(url, {
+        method,
+        data: JSON.stringify(args[0]),
+      }).then((d) => d.json());
     }
     if (typeof responseProcessor === 'function') {
       response = await responseProcessor(response);
