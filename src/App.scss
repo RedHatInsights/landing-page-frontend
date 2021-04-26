@@ -90,14 +90,30 @@ $pf-c-width-limiter--breakpoint-map: build-breakpoint-map();
 }
 
 .ins-c-card-video {
+    position: relative;
     display: grid;
-    grid-gap: var(--pf-global--spacer--lg);
-    grid-template-columns: 473px;
-    grid-template-rows: 266px;
+    row-gap: var(--pf-global--spacer--lg);
+    width: 100%;
+
+    @media screen and (min-width: 537px) {
+        width: 473px;
+    }
+}
+
+.ins-c-card-video__iframe {
+    position: relative;
+    padding-top: 56.25%;
 
     > iframe {
-        max-width: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
         width: 100%;
         height: 100%;
     }
+}
+
+.ins-c-card-video__iframe,
+.ins-c-card-video__figcaption {
+    width: 100%;
 }
