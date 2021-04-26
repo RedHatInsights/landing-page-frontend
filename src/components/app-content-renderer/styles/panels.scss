@@ -37,6 +37,16 @@
         background: linear-gradient(to right, rgba(60,60,60,.2) 10%, rgba(72,72,72,.4) 18%, rgba(60,60,60,.2) 33%);
       }
     }
+    .estate-group {
+      a {
+        color: var(--pf-global--Color--light-100);
+        &:hover {
+          text-decoration: none;
+          color: var(--pf-global--active-color--100);
+          border-bottom: 2px solid var(--pf-global--active-color--100);
+        }
+      }
+    }
 
     @media screen and (min-width: $pf-global--breakpoint--md) {
       .pf-c-description-list {
