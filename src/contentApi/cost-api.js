@@ -165,7 +165,7 @@ export const getCostDataSchema = () => {
         {
           shape: {
             title:
-              'Learn about adding a source to cost management when it is not connected to the Internet',
+              'Learn about adding a source to Cost Management when it is not connected to the Internet',
             link: {
               title: 'Watch',
               external: true,
