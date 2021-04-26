@@ -25,6 +25,7 @@ import { productGridHeader as productGridHeader } from '../consts';
 import { productGridLoginText as productGridLoginText } from '../consts';
 import { productGridInfoText as productGridInfoText } from '../consts';
 import { productGridModalDataSheetText as productGridModalDataSheetText } from '../consts';
+import { productGridModalMoreInfo as productGridModalMoreInfo } from '../consts';
 import { productGridModalCTAText as productGridModalCTAText } from '../consts';
 import { activeTechnologies as technologies } from '../consts';
 import './ProductGrid.scss';
@@ -199,8 +200,28 @@ export const ProductCardContent = ({
                       component="a"
                       icon={<ArrowRightIcon />}
                       iconPosition="right"
+                      target="_blank"
+                      rel="noreferrer"
                     >
                       {productGridModalDataSheetText}
+                    </Button>
+                  </FlexItem>
+                )}
+                {modalUrls.moreInfo && (
+                  <FlexItem>
+                    <Button
+                      className="ins-m-marketing"
+                      variant="link"
+                      isLarge
+                      isInline
+                      href={modalUrls.moreInfo}
+                      component="a"
+                      icon={<ArrowRightIcon />}
+                      iconPosition="right"
+                      target="_blank"
+                      rel="noreferrer"
+                    >
+                      {productGridModalMoreInfo}
                     </Button>
                   </FlexItem>
                 )}
@@ -311,17 +332,22 @@ const ProductGrid = () => (
                           className="ins-c-product-grid__split-item"
                         >
                           <figure className="ins-c-card-video">
-                            <iframe
-                              width="100%"
-                              height="100%"
-                              src={`${marketingVideo}?cc_load_policy=1`}
-                              title="YouTube video player"
-                              frameBorder="0"
-                              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                              allowFullScreen
-                            ></iframe>
+                            <div className="ins-c-card-video__iframe">
+                              <iframe
+                                width="100%"
+                                height="100%"
+                                src={`${marketingVideo}?cc_load_policy=1`}
+                                title="YouTube video player"
+                                frameBorder="0"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                allowFullScreen
+                              ></iframe>
+                            </div>
                             {marketingFigcaption && (
-                              <figcaption id={`${title}-video`}>
+                              <figcaption
+                                className="ins-c-card-video__figcaption"
+                                id={`${title}-video`}
+                              >
                                 {marketingFigcaption}
                               </figcaption>
                             )}
