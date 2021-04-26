@@ -86,7 +86,7 @@ const installCostOperator =
   'https://access.redhat.com/documentation/en-us/cost_management_service/2021/html/getting_started_with_cost_management/index';
 
 const offlineSource =
-  'https://drive.google.com/file/d/1Ju4aMSvR2Z_etImZ1K9eLYayfSSoUKaQ/view?usp=sharing';
+  'https://access.redhat.com/documentation/en-us/cost_management_service/2021/html/getting_started_with_cost_management/assembly-adding-openshift-container-platform-source#assembly-adding-a-restricted-network-source_adding-an-ocp-source';
 
 const costManagementApiMedium =
   'https://medium.com/@chargio/using-cost-management-through-the-api-with-a-token-1d0f4c3d349a';
@@ -167,7 +167,7 @@ export const getCostDataSchema = () => {
             title:
               'Learn about adding a source to Cost Management when it is not connected to the Internet',
             link: {
-              title: 'Watch',
+              title: 'Read',
               external: true,
               href: offlineSource,
             },
