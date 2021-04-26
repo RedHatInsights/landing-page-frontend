@@ -66,7 +66,8 @@ export const getPriorityDataSchema = () => ({
       {
         shape: {
           title: 'Add public cloud sources to better track your finances',
-          description: 'Modify user access to applications.',
+          description:
+            'If your OpenShift cluster is running on a public cloud, add that cloud account to Sources for better analysis.',
           link: {
             title: 'Connect',
             href: './settings/sources',

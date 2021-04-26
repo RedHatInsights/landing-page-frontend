@@ -168,7 +168,7 @@ const APP_USER_CONFIGRE_TRY_LEARN = {
     {
       shape: {
         icon: 'unknown',
-        title: 'Get started with Automation Analytics.',
+        title: 'Get started with Automation Analytics',
         link: {
           title: 'Get started',
           external: true,
@@ -245,7 +245,7 @@ const CATALOG_ADMIN_CONFIGURE_TRY_LEARN = {
     {
       shape: {
         icon: 'unknown',
-        title: 'Integrate Automation Services Catalog with your ITSM system.',
+        title: 'Integrate Automation Services Catalog with your ITSM system',
         link: {
           external: true,
           href:
