@@ -22,8 +22,9 @@ import useRequest from './use-request';
 const FirstPanelTile = ({ id, ...tile }) => {
   const dispatch = useDispatch();
   // No count = no data, remove it from redux store and load next in line
-  const onResponse = ({ count }) =>
-    typeof count !== 'number' && dispatch(removeEstateTile(id));
+  const onResponse = ({ count, show }) =>
+    (typeof count !== 'number' || show === false) &&
+    dispatch(removeEstateTile(id));
   // If tile fails to load, remove it from redux store and load next in line
   const onError = () => dispatch(removeEstateTile(id));
 
@@ -36,7 +37,9 @@ const FirstPanelTile = ({ id, ...tile }) => {
           'is-empty': tile?.shape?.section?.length === 0,
         })}
       >
-        <Text component="p">{tile?.shape?.section}</Text>
+        <Text title={tile?.shape?.section} component="p">
+          {tile?.shape?.section}
+        </Text>
       </DescriptionListDescription>
       <DescriptionListTerm className="estate-count">
         <Title headingLevel="h5" size="3xl">
@@ -49,7 +52,9 @@ const FirstPanelTile = ({ id, ...tile }) => {
       </DescriptionListTerm>
       <DescriptionListDescription className="estate-title">
         {loaded ? (
-          <Text component="p">{title}</Text>
+          <Text title={title} component="p">
+            {title}
+          </Text>
         ) : (
           <Skeleton size={SkeletonSize.lg} className="ins-m-dark" />
         )}

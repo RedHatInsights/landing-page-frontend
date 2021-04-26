@@ -1,4 +1,7 @@
 @import '~@redhat-cloud-services/frontend-components-utilities/styles/_mixins';
+@import '~@patternfly/patternfly/sass-utilities/_all';
+
+$ins-global--transition: .2s ease-in; // specific to marketing
 
 @mixin center {
     margin-left: auto;
@@ -6,40 +9,174 @@
     text-align: center;
 }
 
-.ins-c-marketing {
+// Theme
+.pf-c-button {
+    transition: $ins-global--transition;
 
-    @include rem('padding-top', 32px);
+    &.ins-m-marketing {
+        border-radius: var(--pf-global--BorderRadius--sm);
+        font-family: var(--pf-global--FontFamily--heading--sans-serif);
 
-    .pf-l-grid { grid-gap: 1.5rem; }
+        // Primary
+        --pf-c-button--m-primary--Color: var(--pf-global--Color--light-100);
+        --pf-c-button--m-primary--BackgroundColor: #ee0000; // specific to marketing
 
-    .pf-c-card__header,
-    .pf-c-card__body,
-    .ins-c-application-logo,
-    .pf-c-card__footer { @include center; }
+        // Secondaery
+        --pf-c-button--m-secondary--Color: var(--pf-global--Color--100);
+        --pf-c-button--m-secondary--after--BorderColor: var(--pf-global--palette--black-900);
+        --pf-c-button--m-secondary--hover--after--BorderColor: var(--pf-global--palette--black-900);
+        --pf-c-button--m-secondary--BackgroundColor: transparent;
 
-    .pf-c-card {
-        @include rem('padding', 32px 0);
+        &:focus {
+            outline: none;
+        }
 
-        img.ins-c-application-info__logo { @include rem('min-height', 65px); }
-        .pf-c-card__footer { margin-top: 40px; }
+        &::after {
+            border-width: 0;
+        }
+
+        &:focus::after {
+            outline: none;
+            display: block;
+            box-sizing: border-box;
+            border-radius: 2px; // specific to marketing
+            left: 1px;
+            top: 1px;
+            right: 1px;
+            bottom: 1px;
+            border-width: 1px;
+        }
+
+        &.pf-m-primary {
+            border: 1px solid #ee0000; // specific to marketing
+
+            &:hover {
+                --pf-c-button--m-primary--BackgroundColor: #d40000; // specific to marketing
+            }
+
+            &:focus::after {
+                border: 1px solid var(--pf-global--palette--white);
+            }
+        }
+
+        &.pf-m-secondary {
+            border: 1px solid var(--pf-global--palette--black-900);
+
+            &:hover {
+                --pf-c-button--m-secondary--Color: var(--pf-global--palette--white);
+                --pf-c-button--m-secondary--BackgroundColor: var(--pf-global--palette--black-900);
+            }
+
+            &:focus {
+                background-color: #e2e2e2;
+                color: var(--pf-global--palette--black-900);
+                border: 1px solid var(--pf-global--palette--black-900);
+            }
+
+            &:focus::after {
+                border: 1px solid var(--pf-global--palette--black-900);
+            }
+        }
+
+        &.pf-m-link {
+            &:focus {
+                outline: auto;
+                outline-offset: 4px;
+            }
+        }
     }
 
-    .pf-l-split.pf-m-gutter > :not(:last-child) { @include rem('margin-right', 7.5px); }
+    &.pf-m-link {
+        .pf-c-button__icon {
+            transition: $ins-global--transition;
+        }
 
-    .ins-c-open-card { color: var(--pf-global--link--Color); }
-    
+        .pf-c-button__icon.pf-m-end {
+            margin-left: 4px;
+        }
+
+        &:hover {
+            text-decoration: none;
+
+            .pf-c-button__icon.pf-m-end {
+                margin-left: 6px;
+            }
+        }
+    }
+}
+
+.ins-c-marketing {
+    --pf-c-page__main-section--PaddingRight: var(--pf-global--spacer--xl);
+    --pf-c-page__main-section--PaddingLeft: var(--pf-global--spacer--xl);
+    --pf-c-page__main-section--BackgroundColor: #f7f7f7; // specific marketing color
+    --pf-c-page--section--m-limit-width--MaxWidth: #{pf-size-prem(1600px)};
+
+    // Modal
+    --pf-c-modal-box__header--PaddingTop: var(--pf-global--spacer--xl);
+    --pf-c-modal-box__body--PaddingRight: var(--pf-global--spacer--xl);
+    --pf-c-modal-box__body--PaddingLeft: var(--pf-global--spacer--xl);
+
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+
+    &,
+    .ins-c-product-gallery,
+    .pf-c-title {
+        color: var(--pf-global--Color--100);
+    }
+
+    .pf-c-title {
+        &.ins-m-align-center {
+            text-align: center;
+        }
+    }
+
+    .ins-c-open-card {
+        color: var(--pf-global--link--Color);
+    }
+
     .ins-c-card__link:hover {
         text-decoration: none;
+
         .ins-c-open-card {
             color: var(--pf-global--link--Color--hover);
             text-decoration: underline;
         }
     }
+}
 
-    .pf-m-card-link .pf-c-card__card-links {
-        display: grid;
-        grid-template-rows: 1fr 1fr;
-        row-gap: 10px;
-        svg { margin-left: 16px; }
+// App settings
+.pf-c-page__main-section.ins-c-product-gallery {
+    --pf-c-page--section--m-limit-width--MaxWidth: 1380px;
+}
+
+.ins-c-page__landing-layout.ins-c-marketing-container,
+.ins-c-page__landing-layout.ins-c-marketing-container > .ins-c-page__landing-content {
+    display: contents;
+}
+
+.pf-c-brand {
+    width: auto;
+}
+
+img.ins-c-application-info__logo {
+    @include rem('min-height', 65px);
+}
+
+.ins-c-marketing-card {
+    --pf-c-card__title--not--last-child--PaddingBottom: var(--pf-global--spacer--lg);
+    --pf-c-card__body--FontSize: var(--pf-global--FontSize--lg);
+}
+
+.ins-c-marketing-card__header-logo {
+    @media screen and (min-width: $pf-global--breakpoint--md) {
+        height: #{pf-size-prem(85px)};
     }
+
+    max-width: 100%;
+}
+
+.ins-c-section-title {
+    font-weight: var(--pf-global--FontWeight--light);
 }

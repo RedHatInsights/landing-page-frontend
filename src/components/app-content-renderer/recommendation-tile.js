@@ -41,9 +41,9 @@ const RecommendationGroup = ({
   const GroupIcon = iconMapper[recommendation.icon] || QuestionCircleIcon;
 
   return (
-    <Flex direction={{ default: 'column' }} className="recommendation-test">
+    <Flex direction={{ default: 'column' }} className="recommendation-section">
       {showSectionTitle && (
-        <Title headingLevel="h3" size="lg">
+        <Title headingLevel="h3" size="xl">
           {sectionTitle}
         </Title>
       )}
@@ -62,7 +62,9 @@ const RecommendationGroup = ({
         <FlexItem grow={{ default: 'grow' }}>
           <TextContent>
             {recommendation.title && <Text>{text(recommendation.title)}</Text>}
-            <Text>{text(recommendation.description)}</Text>
+            {recommendation.description && (
+              <Text>{text(recommendation.description)}</Text>
+            )}
           </TextContent>
         </FlexItem>
         <FlexItem>
@@ -71,6 +73,12 @@ const RecommendationGroup = ({
             href={recommendation.action.href}
             variant="secondary"
             isSmall
+            {...(recommendation.action.external
+              ? {
+                  target: '_blank',
+                  rel: 'noopener noreferrer',
+                }
+              : {})}
           >
             {text(recommendation.action.title)}
           </Button>
@@ -95,6 +103,7 @@ RecommendationGroup.propTypes = {
   action: PropTypes.shape({
     href: PropTypes.string,
     title: PropTypes.string,
+    external: PropTypes.bool,
   }).isRequired,
   component: PropTypes.string,
   title: PropTypes.oneOfType([

@@ -62,19 +62,22 @@ const FirstPanel = () => {
 
   useEffect(() => {
     const wheelHandler = (event) => scrollhandler(event, scrollRef.current);
-    scrollRef.current.addEventListener('wheel', wheelHandler);
+    scrollRef?.current?.addEventListener('wheel', wheelHandler);
     return () => {
-      scrollRef.current.removeEventListener('wheel', wheelHandler);
+      scrollRef?.current?.removeEventListener('wheel', wheelHandler);
     };
   }, []);
 
-  return (
-    <div ref={scrollRef} className="first-panel">
-      <DescriptionList>
-        <EstateRenderer sections={flattenSections(estate)} />
+  const flatSections = flattenSections(estate || []);
+  return flatSections.length > 0 ? (
+    <div ref={scrollRef} className="ins-l-first-panel">
+      <DescriptionList
+        style={{ gridTemplateColumns: `repeat(${flatSections.length}, 140px)` }}
+      >
+        <EstateRenderer sections={flatSections} />
       </DescriptionList>
     </div>
-  );
+  ) : null;
 };
 
 export default FirstPanel;

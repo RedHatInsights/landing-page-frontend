@@ -1,7 +1,7 @@
 /* eslint-disable react/display-name */
 import React from 'react';
 import { act } from 'react-dom/test-utils';
-import { BrowserRouter as Router } from 'react-router-dom';
+import { BrowserRouter as Router, MemoryRouter } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import configureMockStore from 'redux-mock-store';
 import { mount } from 'enzyme';
@@ -16,7 +16,6 @@ import * as actions from '../../store/actions';
 import Footer from '../../components/app-content-renderer/footer';
 import FirstPanel from '../../components/app-content-renderer/first-panel';
 import SecondPanel from '../../components/app-content-renderer/second-panel';
-import Marketing from '../../layout/Marketing';
 import Loading from '../../layout/Loading';
 import * as technologies from '../../consts';
 
@@ -35,16 +34,12 @@ jest.mock('../../components/app-content-renderer/footer', () => ({
   default: () => <span>Footer</span>,
 }));
 
-jest.mock('../../layout/Marketing', () => ({
-  __esModule: true,
-  default: () => <span>marketing</span>,
-}));
-
 jest.mock('../../consts', () => {
-  const { activeTechnologies } = jest.requireActual('../../consts');
+  const { activeTechnologies, ...rest } = jest.requireActual('../../consts');
 
   return {
     __esModule: true,
+    ...rest,
     activeTechnologies: [
       {
         ...activeTechnologies[0],
@@ -66,9 +61,22 @@ const mockStore = configureMockStore();
 const store = mockStore({});
 
 describe('Landing component renders authenticated page', () => {
-  let wrapper;
   let loadDataSpy;
   let addNotificationSpy;
+
+  /**
+   * Modal is appended to root not body
+   */
+  beforeAll(() => {
+    const elem = document.createElement('div');
+    elem.id = 'root';
+    document.body.appendChild(elem);
+  });
+
+  afterAll(() => {
+    const elem = document.getElementById('root');
+    document.body.removeChild(elem);
+  });
 
   beforeEach(() => {
     loadDataSpy = jest
@@ -80,11 +88,12 @@ describe('Landing component renders authenticated page', () => {
   });
 
   afterEach(() => {
-    loadDataSpy.mockRestore();
-    addNotificationSpy.mockRestore();
+    loadDataSpy.mockReset();
+    addNotificationSpy.mockReset();
   });
 
   it('should render correctly', async () => {
+    let wrapper;
     await act(async () => {
       wrapper = mount(
         <Provider store={store}>
@@ -99,7 +108,6 @@ describe('Landing component renders authenticated page', () => {
     expect(wrapper.find(FirstPanel)).toHaveLength(0);
     expect(wrapper.find(SecondPanel)).toHaveLength(0);
     expect(wrapper.find(Footer)).toHaveLength(0);
-    expect(wrapper.find(Marketing)).toHaveLength(0);
     expect(wrapper.find(Modal)).toHaveLength(0);
 
     wrapper.update();
@@ -111,22 +119,22 @@ describe('Landing component renders authenticated page', () => {
     expect(wrapper.find(FirstPanel)).toHaveLength(1);
     expect(wrapper.find(SecondPanel)).toHaveLength(1);
     expect(wrapper.find(Footer)).toHaveLength(1);
-    expect(wrapper.find(Marketing)).toHaveLength(0);
     // there is a modal in footer
     expect(wrapper.find(Modal)).toHaveLength(1);
   });
 
   it('isUnauthed', async () => {
+    let wrapper;
     const spy = jest
       .spyOn(insights.chrome.auth, 'getUser')
-      .mockImplementation(() => Promise.resolve(undefined));
+      .mockImplementationOnce(() => Promise.resolve(undefined));
 
     await act(async () => {
       wrapper = mount(
         <Provider store={store}>
-          <Router>
+          <MemoryRouter initialEntries={['/']}>
             <Landing />
-          </Router>
+          </MemoryRouter>
         </Provider>
       );
     });
@@ -140,30 +148,27 @@ describe('Landing component renders authenticated page', () => {
     expect(wrapper.find(FirstPanel)).toHaveLength(0);
     expect(wrapper.find(SecondPanel)).toHaveLength(0);
     expect(wrapper.find(Footer)).toHaveLength(0);
-    expect(wrapper.find(Marketing)).toHaveLength(1);
-    expect(wrapper.find(Modal)).toHaveLength(1);
 
     spy.mockRestore();
   });
 
   it('isNotEntitled', async () => {
+    let wrapper;
     const insightsInfo = technologies.activeTechnologies[0];
-
-    let tmpLocation;
-
-    tmpLocation = Object.assign({}, window.location);
-    delete window.location;
-    window.location = {};
-    window.location.href = '/beta/';
-    window.location.pathname = '/beta/';
-    window.location.search = `?not_entitled=${insightsInfo.entitlement}`;
 
     await act(async () => {
       wrapper = mount(
         <Provider store={store}>
-          <Router>
+          <MemoryRouter
+            initialEntries={[
+              {
+                pathname: '/beta',
+                search: `not_entitled=${insightsInfo.entitlement}`,
+              },
+            ]}
+          >
             <Landing />
-          </Router>
+          </MemoryRouter>
         </Provider>
       );
     });
@@ -176,26 +181,22 @@ describe('Landing component renders authenticated page', () => {
     expect(wrapper.find(FirstPanel)).toHaveLength(1);
     expect(wrapper.find(SecondPanel)).toHaveLength(1);
     expect(wrapper.find(Footer)).toHaveLength(1);
-    expect(wrapper.find(Marketing)).toHaveLength(0);
     expect(wrapper.find(Modal)).toHaveLength(2);
 
     let modalEntitled = wrapper.find(Modal).last();
 
     expect(modalEntitled.props().isOpen).toEqual(true);
 
-    expect(modalEntitled.find(Title).text()).toEqual(insightsInfo.emptyTitle);
+    expect(modalEntitled.find(Title).text()).toEqual('');
     expect(
       modalEntitled.find('.ins-c-error-state__body').last().text()
-    ).toEqual(insightsInfo.emptyText);
+    ).toEqual('');
     expect(
-      modalEntitled.find('.ins-c-error-state__footer-action').last().text()
-    ).toEqual(insightsInfo.emptyAction.primary.title);
+      modalEntitled.find('.ins-c-error-state__footer-action')
+    ).toHaveLength(0);
     expect(
       modalEntitled.find('.ins-c-error-state__footer-secondary')
     ).toHaveLength(0);
-    expect(
-      modalEntitled.find('.ins-c-error-state__footer-close').last().text()
-    ).toEqual(insightsInfo.emptyAction.close.title);
 
     await act(async () => {
       wrapper.find('button.ins-c-error-state__footer-close').simulate('click');
@@ -206,28 +207,24 @@ describe('Landing component renders authenticated page', () => {
     modalEntitled = wrapper.find(Modal).last();
 
     expect(modalEntitled.props().isOpen).toEqual(false);
-
-    window.location = tmpLocation;
   });
 
   it('isNotEntitled with alert', async () => {
+    let wrapper;
     const settingsInfo = technologies.activeTechnologies[1];
-
-    let tmpLocation;
-
-    tmpLocation = Object.assign({}, window.location);
-    delete window.location;
-    window.location = {};
-    window.location.href = '/beta/';
-    window.location.pathname = '/beta/';
-    window.location.search = `?not_entitled=${settingsInfo.entitlement}`;
-
     await act(async () => {
       wrapper = mount(
         <Provider store={store}>
-          <Router>
+          <MemoryRouter
+            initialEntries={[
+              {
+                pathname: '/beta',
+                search: `not_entitled=${settingsInfo.entitlement}`,
+              },
+            ]}
+          >
             <Landing />
-          </Router>
+          </MemoryRouter>
         </Provider>
       );
     });
@@ -239,35 +236,30 @@ describe('Landing component renders authenticated page', () => {
     expect(wrapper.find(FirstPanel)).toHaveLength(1);
     expect(wrapper.find(SecondPanel)).toHaveLength(1);
     expect(wrapper.find(Footer)).toHaveLength(1);
-    expect(wrapper.find(Marketing)).toHaveLength(0);
     expect(wrapper.find(Modal)).toHaveLength(1);
 
     expect(addNotificationSpy).toHaveBeenCalledWith({
       title: settingsInfo.emptyAlertTitle,
       variant: 'danger',
     });
-
-    window.location = tmpLocation;
   });
 
   it('isNotEntitled with secondary action', async () => {
+    let wrapper;
     const migrationInfo = technologies.activeTechnologies[2];
-
-    let tmpLocation;
-
-    tmpLocation = Object.assign({}, window.location);
-    delete window.location;
-    window.location = {};
-    window.location.href = '/beta/';
-    window.location.pathname = '/beta/';
-    window.location.search = `?not_entitled=${migrationInfo.entitlement}`;
-
     await act(async () => {
       wrapper = mount(
         <Provider store={store}>
-          <Router>
+          <MemoryRouter
+            initialEntries={[
+              {
+                pathname: '/beta',
+                search: `not_entitled=${migrationInfo.entitlement}`,
+              },
+            ]}
+          >
             <Landing />
-          </Router>
+          </MemoryRouter>
         </Provider>
       );
     });
@@ -280,27 +272,10 @@ describe('Landing component renders authenticated page', () => {
     expect(wrapper.find(FirstPanel)).toHaveLength(1);
     expect(wrapper.find(SecondPanel)).toHaveLength(1);
     expect(wrapper.find(Footer)).toHaveLength(1);
-    expect(wrapper.find(Marketing)).toHaveLength(0);
-    expect(wrapper.find(Modal)).toHaveLength(2);
+    expect(wrapper.find(Modal)).toHaveLength(1);
 
     let modalEntitled = wrapper.find(Modal).last();
 
-    expect(modalEntitled.props().isOpen).toEqual(true);
-
-    expect(modalEntitled.find(Title).text()).toEqual(migrationInfo.emptyTitle);
-    expect(
-      modalEntitled.find('.ins-c-error-state__body').last().text()
-    ).toEqual(migrationInfo.emptyText);
-    expect(
-      modalEntitled.find('.ins-c-error-state__footer-action').last().text()
-    ).toEqual(migrationInfo.emptyAction.primary.title);
-    expect(
-      modalEntitled.find('.ins-c-error-state__footer-secondary').last().text()
-    ).toEqual(migrationInfo.emptyAction.secondary.title);
-    expect(
-      modalEntitled.find('.ins-c-error-state__footer-close').last().text()
-    ).toEqual(migrationInfo.emptyAction.close.title);
-
-    window.location = tmpLocation;
+    expect(modalEntitled.props().isOpen).toEqual(false);
   });
 });

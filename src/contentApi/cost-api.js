@@ -1,39 +1,9 @@
-import { instance } from '@redhat-cloud-services/frontend-components-utilities/interceptors';
-
-let costAppId;
-export const getCostAppId = () =>
-  instance
-    .get('/api/sources/v3.1/application_types')
-    .then(
-      ({ data }) =>
-        data.find(({ name }) => name === '/insights/platform/cost-management')
-          ?.id
-    );
-
-export const getSourceTypesIDs = () =>
-  instance
-    .get('/api/sources/v3.1/source_types')
-    .then(({ data }) =>
-      data.reduce((acc, curr) => ({ ...acc, [curr.name]: curr.id }), {})
-    );
-
-const createCostSourcesLink = async (type, costAppId) => {
-  const sourceTypeId = await getSourceTypesIDs()[type];
-  return `${sourcesURL}?filter[source_type_id][]=${sourceTypeId}&filter[applications][application_type_id][eq][]=${costAppId}`;
-};
-
-const estateResponseProcessor = async (response) => {
+const estateResponseProcessor = (response) => {
   if (response?.meta?.count === 0) {
     throw 'No data, do not show';
   }
-  if (!costAppId) {
-    costAppId = await getCostAppId();
-  }
-  const href = createCostSourcesLink(response.href, costAppId);
-  return {
-    ...response,
-    href,
-  };
+
+  return response;
 };
 
 const estateRequests = [
@@ -41,56 +11,76 @@ const estateRequests = [
     section: 'Cost management',
     items: [
       {
-        // permissions: entitlements && cost.openshift.permissions
         id: 'cost-ocp-sources',
         url: '/api/cost-management/v1/sources/?source_type=OCP',
         accessor: 'meta.count',
+        permissions: [
+          {
+            method: 'isEntitled',
+            args: ['cost_management'],
+          },
+        ],
         responseProcessor: estateResponseProcessor,
         shape: {
           title: 'OpenShift Sources',
-          href: 'openshift',
+          href:
+            './settings/sources?type=openshift&application=cost&activeVendor=Red Hat',
         },
       },
       {
-        // permissions: entitlements && cost.aws.permissions
         id: 'cost-aws-sources',
         url: '/api/cost-management/v1/sources/?source_type=AWS',
         accessor: 'meta.count',
+        permissions: [
+          {
+            method: 'isEntitled',
+            args: ['cost_management'],
+          },
+        ],
         responseProcessor: estateResponseProcessor,
         shape: {
           title: 'Amazon Web Services Sources',
-          href: 'amazon',
+          href:
+            './settings/sources?type=amazon&application=cost&activeVendor=Cloud',
         },
       },
       {
-        // permissions: entitlements && cost.azure.permissions
         id: 'cost-azure-sources',
         url: '/api/cost-management/v1/sources/?source_type=Azure',
         accessor: 'meta.count',
+        permissions: [
+          {
+            method: 'isEntitled',
+            args: ['cost_management'],
+          },
+        ],
         responseProcessor: estateResponseProcessor,
         shape: {
           title: 'Microsoft Azure Sources',
-          href: 'azure',
+          href:
+            './settings/sources?type=azure&application=cost&activeVendor=Cloud',
         },
       },
       {
-        // permissions: entitlements && cost.gcp.permissions
         id: 'cost-gcp-sources',
         url: '/api/cost-management/v1/sources/?source_type=GCP',
         accessor: 'meta.count',
+        permissions: [
+          {
+            method: 'isEntitled',
+            args: ['cost_management'],
+          },
+        ],
         responseProcessor: estateResponseProcessor,
         shape: {
           title: 'Google Cloud Platform Sources',
-          href: 'google',
+          href:
+            './settings/sources?type=google&application=cost&activeVendor=Cloud',
         },
       },
     ],
   },
 ];
-
-const sourcesURL = `${
-  window.insights.chrome.isBeta() === true ? '/beta/' : '/'
-}settings/sources`;
 
 const installCostOperator =
   'https://access.redhat.com/documentation/en-us/cost_management_service/2021/html/getting_started_with_cost_management/index';
@@ -123,44 +113,28 @@ export const getCostDataSchema = () => {
             when: 'count',
             is: 0,
           },
-          title: 'Gain Business Insights for your OpenShift Clusters',
+          title: 'Gain Business Insights for your OpenShift Clusters.',
           description:
             'Install the Cost Operator on your OpenShift cluster to get started.',
           action: {
             title: 'Learn more',
+            external: true,
             href: installCostOperator,
           },
         },
       ],
     },
     configTryLearn: {
-      configure: [
-        {
-          shape: {
-            title: 'Add public cloud sources to better track your finances',
-            description: 'Modify user access to applications.',
-            link: {
-              title: 'Connect',
-              href: sourcesURL,
-            },
-          },
-          permissions: [
-            {
-              method: 'isEntitled',
-              args: ['cost_management'],
-            },
-          ],
-        },
-      ],
+      configure: [],
       try: [
         {
           shape: {
-            title: 'Cost Management now has forecasting',
+            title: 'Cost Management now provides forecasting',
             description:
               'We can predict your spend on both OpenShift and public cloud costs.',
             link: {
               title: 'Get started',
-              href: '/cost-management',
+              href: './cost-management',
             },
           },
           permissions: [
@@ -173,11 +147,10 @@ export const getCostDataSchema = () => {
         {
           shape: {
             title: 'Cost Management supports Google Cloud Platform',
-            description:
-              'We can track your OpenShift cluster running on Google Cloud Platform spend.',
+            description: 'We can track your Google Cloud Platform spend.',
             link: {
               title: 'Get started',
-              href: `${sourcesURL}/new`,
+              href: './settings/sources/new',
             },
           },
           permissions: [
@@ -190,27 +163,22 @@ export const getCostDataSchema = () => {
       ],
       learn: [
         {
-          // icon: 'cloudSecurity',
           shape: {
             title:
-              'Adding a source to cost management when it is not connected to the Internet',
+              'Learn about adding a source to cost management when it is not connected to the Internet',
             link: {
               title: 'Watch',
+              external: true,
               href: offlineSource,
             },
           },
-          permissions: [
-            {
-              method: 'isOrgAdmin',
-            },
-          ],
         },
         {
-          // icon: 'cloudSecurity',
           shape: {
             title: 'How to use the Cost Management API',
             link: {
               title: 'Read',
+              external: true,
               href: costManagementApiMedium,
             },
           },

@@ -2,20 +2,78 @@
 @import '~@patternfly/patternfly/sass-utilities/_all';
 
 .ins-c-hero {
+    --ins-c-hero--MinHeight: 0;
+    --pf-c-page__main-section--PaddingTop: var(--pf-global--spacer--2xl);
+    --pf-c-page__main-section--PaddingBottom: var(--pf-global--spacer--2xl);
 
-    background: url("/apps/chrome/assets/images/fedora-background-left.svg");
-    background-repeat: no-repeat;
-    background-size: cover;
+    --ins-c-hero--before--Width: 0;
+    --ins-c-hero--before--Opacity: 0;
+    --ins-c-hero--before--BackgroundSize: 140px;
 
-    h1.ins-c-hero__title { color: white; }
+    --ins-c-hero--before--md--Width: 38%;
+    --ins-c-hero--before--md--Opacity: 1;
+    --ins-c-hero--before--md--BackgroundSize: 234px;
 
-    h2.ins-c-hero__sub-title { color: var(--pf-global--Color--200); }
+    --ins-c-hero--before--lg--BackgroundSize: 242px;
 
-    @media screen and (min-width: $pf-global--breakpoint--xs) {
-        @include rem('min-height', 400px);
+    position: relative;
+
+    &::before {
+        position: absolute;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        width: var(--ins-c-hero--before--Width);
+        content: '';
+        opacity: var(--ins-c-hero--before--Opacity);
+        background-image: #{url('https://cloud.redhat.com/apps/frontend-assets/background-images/bg__hero.svg')};
+        background-size: var(--ins-c-hero--before--BackgroundSize);
+        background-color: var(--pf-c-page__main-section--BackgroundColor); // required to pass axe testing
     }
 
     @media screen and (min-width: $pf-global--breakpoint--md) {
-        @include rem('min-height', 550px);
+        --ins-c-hero--before--Width: var(--ins-c-hero--before--md--Width);
+        --ins-c-hero--before--Opacity: var(--ins-c-hero--before--md--Opacity);
+        --ins-c-hero--before--BackgroundSize: var(--ins-c-hero--before--md--BackgroundSize);
     }
+
+    @media screen and (min-width: $pf-global--breakpoint--lg) {
+        --ins-c-hero--before--BackgroundSize: var(--ins-c-hero--before--lg--BackgroundSize);
+    }
+
+    @media screen and (min-width: $pf-global--breakpoint--lg) {
+        --pf-c-page__main-section--PaddingBottom: #{pf-size-prem(100px)};
+
+        @media screen and (min-height: 400px) {
+            --ins-c-hero--MinHeight: 300px;
+        }
+
+        @media screen and (min-height: 500px) {
+            --ins-c-hero--MinHeight: 450px;
+            --pf-c-page__main-section--PaddingTop: var(--pf-global--spacer--3xl);
+        }
+
+        @media screen and (min-height: 1000px) {
+            --ins-c-hero--MinHeight: 500px;
+        }
+    }
+
+    &,
+    .pf-c-title {
+        color: var(--pf-global--Color--100);
+    }
+}
+
+.ins-c-hero__title-icon {
+    display: flex;
+    width: #{pf-size-prem(90px)};
+    height: auto;
+}
+
+.pf-c-title.ins-c-hero__title {
+    font-size: #{pf-size-prem(40px)};
+}
+
+.pf-c-page__main-section.pf-m-transparent {
+    --pf-c-page__main-section--BackgroundColor: transparent;
 }

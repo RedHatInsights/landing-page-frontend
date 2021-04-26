@@ -1,12 +1,5 @@
 const prefix = window.insights.chrome.isBeta() === true ? '/beta/' : '/';
 
-const totalResponseProcessor = async (response) => {
-  if (!response?.total) {
-    throw 'RHEL systems total count has to be truthy';
-  }
-  return response;
-};
-
 const inventoryLink = `${prefix}insights/inventory`;
 
 const registerLink = `${prefix}insights/registration`;
@@ -29,11 +22,13 @@ const RECOMMENDATIONS_ITEMS = {
       },
       accessor: 'meta.count',
       condition: {
-        when: 'count',
+        when: 'meta.count',
         isNot: 0,
       },
       action: {
         title: 'View',
+        href:
+          './insights/advisor/recommendations?impacting=true&rule_status=enabled&sort=-publish_date&limit=10&offset=0&reports_shown=true&incident=true',
       },
       permissions: [
         {
@@ -59,17 +54,11 @@ const RECOMMENDATIONS_ITEMS = {
       id: 'rhel-5',
       icon: 'cog',
       title:
-        'Create a remediation playbook to fix issues identified by Insights on your systems',
+        'Create a remediation playbook to fix issues identified by Insights on your systems.',
       action: {
-        title: 'Open',
+        title: 'Create',
         href: remediations,
       },
-      permissions: [
-        {
-          method: 'hasPermissions',
-          args: [['remediations:*:*']],
-        },
-      ],
     },
     {
       url: '/api/inventory/v1/hosts',
@@ -79,7 +68,7 @@ const RECOMMENDATIONS_ITEMS = {
       id: 'rhel-6',
       title: 'Get Insights for your systems',
       action: {
-        title: 'Register systems',
+        title: 'Register',
         href: registerLink,
       },
     },
@@ -94,6 +83,10 @@ const ESTATE_CONFIG = [
         id: 'rhel-connected-systems',
         url: '/api/inventory/v1/hosts',
         accessor: 'total',
+        condition: {
+          when: 'total',
+          isNot: 0,
+        },
         shape: {
           section: 'RHEL',
           title: 'Connected systems',
@@ -112,6 +105,10 @@ const ESTATE_CONFIG = [
         id: 'rhel-stale-systems',
         title: 'Stale systems',
         accessor: 'total',
+        condition: {
+          when: 'total',
+          isNot: 0,
+        },
         url: '/api/inventory/v1/hosts?staleness=stale',
         shape: {
           title: 'Stale systems',
@@ -127,23 +124,11 @@ const ESTATE_CONFIG = [
         ],
       },
       {
-        id: 'rhel-vuln-ves',
-        permissions: [
-          {
-            method: 'hasPermissions',
-            args: [['vulnerability:*:*']],
-          },
-        ],
-        shape: {
-          title: 'Systems exposed to CVEs with security rules',
-        },
-        accessor: 'system_count',
-        url:
-          '/api/vulnerability/v1/dashboard?tags=vulnerability%2Fusage%3Dserver&sap_sids=ABC%2CCDE',
-      },
-      {
-        // permissions: sap systems > 0
         id: 'rhel-sap-systems',
+        condition: {
+          when: 'total',
+          isNot: 0,
+        },
         permissions: [
           {
             method: 'loosePermissions',
@@ -152,7 +137,6 @@ const ESTATE_CONFIG = [
             ],
           },
         ],
-        responseProcessor: totalResponseProcessor,
         shape: {
           title: 'SAP systems',
           href: `${inventoryLink}/?status=fresh&status=stale&source=insights&page=1&per_page=50#workloads=SAP&SIDs=&tags=`,
