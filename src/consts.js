@@ -11,7 +11,8 @@ import imgModalPlaceholder from './layout/images/img__modal-placeholder.png';
 export const productGridHeader = 'Build your cloud on open source';
 export const productGridLoginText = 'Log in to the console';
 export const productGridInfoText = 'More info';
-export const productGridModalDataSheetText = 'View Datasheet';
+export const productGridModalDataSheetText = 'View datasheet';
+export const productGridModalMoreInfo = 'More information';
 export const productGridModalCTAText = 'Try it now';
 
 export const heroContent = {
@@ -69,7 +70,7 @@ export const activeTechnologies = [
       'Red Hat OpenShift Application Services deliver a streamlined developer experience for building, deploying, and scaling cloud-native applications.',
     modalImg: imgModalPlaceholder,
     modalUrls: {
-      dataSheet: '#',
+      moreInfo: 'https://www.openshift.com/products/application-services',
     },
     name: 'openShiftAppServices',
     id: 'openShiftAppServices',
@@ -282,8 +283,17 @@ export const activeTechnologies = [
           spaceItems={{ default: 'spaceItemsLg' }}
         >
           <Flex
-            spaceItems={{ sm: 'spaceItemsLg' }}
-            direction={{ default: 'column', sm: 'row' }}
+            spaceItems={{
+              sm: 'spaceItemsLg',
+              lg: 'spaceItemsSm',
+              xl: 'spaceItemsLg',
+            }}
+            direction={{
+              default: 'column',
+              sm: 'row',
+              lg: 'column',
+              xl: 'row',
+            }}
           >
             <FlexItem>
               <Button
