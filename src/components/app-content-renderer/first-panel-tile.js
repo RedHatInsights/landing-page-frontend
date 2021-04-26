@@ -28,7 +28,11 @@ const FirstPanelTile = ({ id, ...tile }) => {
   // If tile fails to load, remove it from redux store and load next in line
   const onError = () => dispatch(removeEstateTile(id));
 
-  const [{ loaded, title, count }] = useRequest(tile, onResponse, onError);
+  const [{ loaded, title, count, href }] = useRequest(
+    tile,
+    onResponse,
+    onError
+  );
 
   return (
     <DescriptionListGroup className="estate-group">
@@ -44,7 +48,7 @@ const FirstPanelTile = ({ id, ...tile }) => {
       <DescriptionListTerm className="estate-count">
         <Title headingLevel="h5" size="3xl">
           {loaded ? (
-            count
+            <a href={href || '#'}>{count}</a>
           ) : (
             <Skeleton size={SkeletonSize.md} className="ins-m-dark" />
           )}
