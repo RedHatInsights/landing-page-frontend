@@ -155,7 +155,11 @@ const Landing = () => {
               onClose={handleModalToggle}
               aria-label={notEntitled.emptyTitle}
               header={
-                <Title headingLevel="h2" size="2xl" className='ins-c-error-modal__header'>
+                <Title
+                  headingLevel="h2"
+                  size="2xl"
+                  className="ins-c-error-modal__header"
+                >
                   {notEntitled.emptyTitle}
                 </Title>
               }
@@ -214,9 +218,7 @@ const Landing = () => {
                       )}
                     {notEntitled?.emptyAction?.secondary &&
                       !notEntitled.emptyAction.secondary.navigate && (
-                        <Button
-                          variant="link"
-                        >
+                        <Button variant="link">
                           {notEntitled.emptyAction.secondary.title
                             ? `${notEntitled.emptyAction.secondary.title}`
                             : 'Learn More'}
