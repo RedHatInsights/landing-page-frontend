@@ -3,6 +3,7 @@ import { useDispatch } from 'react-redux';
 import {
   Button,
   Modal,
+  ModalVariant,
   Stack,
   StackItem,
   Title,
@@ -147,19 +148,20 @@ const Landing = () => {
             renderAlert(notEntitled.emptyAlertTitle)}
           {notEntitled && !notEntitled.emptyAlertTitle && (
             <Modal
-              className="ins-c-error-modal"
+              className="landing ins-c-error-modal"
+              variant={ModalVariant.medium}
               app-entitlement={notEntitled.emptyID}
               isOpen={isModalOpen}
               onClose={handleModalToggle}
               aria-label={notEntitled.emptyTitle}
               header={
-                <Title headingLevel="h2" size="2xl">
+                <Title headingLevel="h2" size="2xl" className='ins-c-error-modal__header'>
                   {notEntitled.emptyTitle}
                 </Title>
               }
             >
-              <Stack hasGutter className="ins-c-error-state">
-                <StackItem className="ins-c-error-state__image">
+              <Stack hasGutter className="ins-c-error-modal__content">
+                <StackItem className="ins-c-error-modal__content--image">
                   {notEntitled.icon && (
                     <notEntitled.icon
                       className="ins-c-icon__active"
@@ -177,14 +179,14 @@ const Landing = () => {
                     />
                   )}
                 </StackItem>
-                <StackItem className="ins-c-error-state__body">
+                <StackItem className="ins-c-error-modal__content--body">
                   {notEntitled.emptyText}
                 </StackItem>
-                <StackItem className="ins-c-error-state__footer">
+                <StackItem className="ins-c-error-modal__content--footer">
                   {notEntitled?.emptyAction?.primary && (
                     <Button
                       variant="primary"
-                      className="ins-c-error-state__footer-action"
+                      className="ins-c-error-modal__content--footer-primary"
                       onClick={() => {
                         if (notEntitled.emptyAction.primary.navigate) {
                           window.location.href =
@@ -195,12 +197,11 @@ const Landing = () => {
                       {notEntitled.emptyAction.primary.title}
                     </Button>
                   )}
-                  <section className="ins-c-error-state__footer-action--secondary">
+                  <section className="ins-c-error-modal__content--footer-secondary">
                     {notEntitled?.emptyAction?.secondary &&
                       notEntitled.emptyAction.secondary.navigate && (
                         <Button
                           variant="link"
-                          className="ins-c-error-state__footer-secondary"
                           onClick={() => {
                             window.location.href =
                               notEntitled.emptyAction.secondary.navigate;
@@ -215,7 +216,6 @@ const Landing = () => {
                       !notEntitled.emptyAction.secondary.navigate && (
                         <Button
                           variant="link"
-                          className="ins-c-error-state__footer-secondary"
                         >
                           {notEntitled.emptyAction.secondary.title
                             ? `${notEntitled.emptyAction.secondary.title}`
@@ -224,7 +224,7 @@ const Landing = () => {
                       )}
                     <Button
                       variant="link"
-                      className="ins-c-error-state__footer-close"
+                      className="ins-c-error-modal__close"
                       onClick={handleModalToggle}
                     >
                       {notEntitled?.emptyAction?.close
