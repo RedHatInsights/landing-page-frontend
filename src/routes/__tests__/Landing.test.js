@@ -189,17 +189,17 @@ describe('Landing component renders authenticated page', () => {
 
     expect(modalEntitled.find(Title).text()).toEqual('');
     expect(
-      modalEntitled.find('.ins-c-error-state__body').last().text()
-    ).toEqual('');
+      modalEntitled.find('.ins-c-error-modal__content').last().text()
+    ).toEqual('Close');
     expect(
-      modalEntitled.find('.ins-c-error-state__footer-action')
+      modalEntitled.find('.ins-c-error-modal__footer--primary')
     ).toHaveLength(0);
     expect(
-      modalEntitled.find('.ins-c-error-state__footer-secondary')
+      modalEntitled.find('.ins-c-error-modal__footer--secondary .pf-m-link')
     ).toHaveLength(0);
 
     await act(async () => {
-      wrapper.find('button.ins-c-error-state__footer-close').simulate('click');
+      wrapper.find('button.ins-c-error-modal__close').simulate('click');
     });
 
     wrapper.update();
