@@ -176,7 +176,7 @@ export const activeTechnologies = [
   },
   {
     marketing: true,
-    entitlement: 'ansibleAutomation',
+    entitlement: 'ansible',
     marketingImage:
       'https://cloud.redhat.com/apps/frontend-assets/logos/logo__ansible-automation.svg',
     marketingTitle: 'With cloud.redhat.com you can:',
@@ -224,7 +224,7 @@ export const activeTechnologies = [
     emptyText: [
       'Get analytics and knowledge of your automation, access to certified content, and more with a Red hat Ansible Automation Platform subscription.',
     ],
-    emptyID: 'insights',
+    emptyID: 'ansible',
     emptyAction: {
       primary: {
         title: 'Try it',
