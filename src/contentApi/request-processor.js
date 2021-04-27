@@ -1,4 +1,5 @@
 import get from 'lodash/get';
+import Cookies from 'js-cookie';
 
 import {
   hasPermissions as hasPermissionsEnhanced,
@@ -19,6 +20,14 @@ const enhancedFunctions = {
 };
 
 const ALLOWED_API_METHODS = ['get', 'post'];
+
+// the Authorization header is needed for api.openshift, 3scale will set this for all CRC hosted APIs, but not openshift :(
+const headers = {
+  Accept: 'application/json',
+  Authorization: `Bearer ${Cookies.get('cs_jwt')}`,
+  'Content-Type': 'application/json',
+};
+
 export const processRequest = async ({
   method = 'get',
   args = [],
@@ -46,6 +55,7 @@ export const processRequest = async ({
        */
       response = await fetch(url, {
         method,
+        headers,
         data: JSON.stringify(args[0]),
       }).then((d) => d.json());
     }
