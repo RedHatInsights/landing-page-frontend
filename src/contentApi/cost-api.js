@@ -110,7 +110,7 @@ export const getCostDataSchema = () => {
             },
           ],
           condition: {
-            when: 'count',
+            when: 'meta.count',
             is: 0,
           },
           title: 'Gain Business Insights for your OpenShift Clusters.',
