@@ -1,5 +1,4 @@
 import get from 'lodash/get';
-import Cookies from 'js-cookie';
 
 import {
   hasPermissions as hasPermissionsEnhanced,
