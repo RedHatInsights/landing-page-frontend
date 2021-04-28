@@ -27,7 +27,7 @@ const RECOMMENDATIONS_ITEMS = {
       title: 'Learn how to create and use a Kafka instance.',
       action: {
         title: 'View',
-        href: `${streamsPrefix}application-services/streams/kafkas?quickstart=getting-started`,
+        href: `${streamsPrefix}application-services/streams/resources?quickstart=getting-started`,
       },
     },
     {
@@ -98,7 +98,7 @@ const LEARN_ITEMS = [
       title: 'Learn how to create and use a Kafka instance',
       link: {
         title: 'Learn more',
-        href: `${streamsPrefix}application-services/streams/kafkas?quickstart=getting-started`,
+        href: `${streamsPrefix}application-services/streams/resources?quickstart=getting-started`,
       },
     },
   },
