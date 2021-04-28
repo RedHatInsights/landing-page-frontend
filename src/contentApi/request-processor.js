@@ -1,4 +1,5 @@
 import get from 'lodash/get';
+import Cookies from 'js-cookie';
 
 import {
   hasPermissions as hasPermissionsEnhanced,
@@ -19,6 +20,14 @@ const enhancedFunctions = {
 };
 
 const ALLOWED_API_METHODS = ['get', 'post'];
+
+// the Authorization header is needed for api.openshift, 3scale will set this for all CRC hosted APIs, but not openshift :(
+const headers = {
+  Accept: 'application/json',
+  Authorization: `Bearer ${Cookies.get('cs_jwt')}`,
+  'Content-Type': 'application/json',
+};
+
 export const processRequest = async ({
   method = 'get',
   args = [],
@@ -39,17 +48,19 @@ export const processRequest = async ({
       throw 'User does not have permissions';
     }
     let response;
-    if (url) {
+    const { identity } = (await insights.chrome.auth.getUser()) || {};
+    if (url && identity?.account_number) {
       /**
        * FEC interceptors were logging out users if the API returned 401 response.
        * That is not required behavior in this case. IF we get 401 we just hide the data.
        */
       response = await fetch(url, {
         method,
+        headers,
         data: JSON.stringify(args[0]),
       }).then((d) => d.json());
     }
-    if (typeof responseProcessor === 'function') {
+    if (typeof responseProcessor === 'function' && identity?.account_number) {
       response = await responseProcessor(response);
     }
     return {
