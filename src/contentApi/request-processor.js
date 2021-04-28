@@ -48,7 +48,8 @@ export const processRequest = async ({
       throw 'User does not have permissions';
     }
     let response;
-    if (url) {
+    const { identity } = (await insights.chrome.auth.getUser()) || {};
+    if (url && identity?.account_number) {
       /**
        * FEC interceptors were logging out users if the API returned 401 response.
        * That is not required behavior in this case. IF we get 401 we just hide the data.
@@ -59,7 +60,7 @@ export const processRequest = async ({
         data: JSON.stringify(args[0]),
       }).then((d) => d.json());
     }
-    if (typeof responseProcessor === 'function') {
+    if (typeof responseProcessor === 'function' && identity?.account_number) {
       response = await responseProcessor(response);
     }
     return {

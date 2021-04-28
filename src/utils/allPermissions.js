@@ -1,17 +1,21 @@
 let permissions = [];
 
 export const loadPermissions = async (retries = 5) => {
-  try {
-    if (retries > 0) {
-      const userPermissions = await window.insights.chrome.getUserPermissions();
-      permissions = userPermissions?.map(({ permission }) => permission) || [];
-    }
+  const { identity } = (await insights.chrome.auth.getUser()) || {};
+  if (identity?.account_number) {
+    try {
+      if (retries > 0) {
+        const userPermissions = await window.insights.chrome.getUserPermissions();
+        permissions =
+          userPermissions?.map(({ permission }) => permission) || [];
+      }
 
-    if (retries === 0) {
-      permissions = [];
+      if (retries === 0) {
+        permissions = [];
+      }
+    } catch {
+      await loadPermissions(retries - 1);
     }
-  } catch {
-    await loadPermissions(retries - 1);
   }
 };
 
