@@ -113,9 +113,8 @@ export const getCostDataSchema = () => {
             when: 'meta.count',
             is: 0,
           },
-          title: 'Gain Business Insights for your OpenShift Clusters.',
-          description:
-            'Install the Cost Operator on your OpenShift cluster to get started.',
+          title:
+            'Gain Business Insights for your OpenShift Clusters. Install the Cost Operator on your OpenShift cluster to get started.',
           action: {
             title: 'Learn more',
             external: true,
