@@ -10,7 +10,14 @@ There is a [comprehensive quick start guide in the Storybook Documentation](http
 - [Insights Chroming](https://github.com/RedHatInsights/insights-chrome)
 - [Insights Proxy](https://github.com/RedHatInsights/insights-proxy)
 
-## Running locally
+## Getting started
+
+1. ```npm install```
+
+2. ```npm run start:proxy``` / ```npm run start:beta:proxy```
+
+Checkout https://ci.foo.redhat.com:1337/ [Read more](https://github.com/RedHatInsights/frontend-components/tree/master/packages/config#useproxy).
+## Running locally with insights-proxy
 
 1. `npm install`
 2. Have [insights-proxy](https://github.com/RedHatInsights/insights-proxy) installed under PROXY_PATH and run the following command:
