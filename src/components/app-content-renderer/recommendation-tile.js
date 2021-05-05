@@ -11,6 +11,7 @@ import {
   TextContent,
 } from '@patternfly/react-core';
 import { useIntl } from 'react-intl';
+import { Skeleton } from '@redhat-cloud-services/frontend-components/Skeleton';
 
 import useRequest from './use-request';
 import iconMapper from '../../utils/icon-mapper';
@@ -29,8 +30,10 @@ const RecommendationGroup = ({
     dispatch(
       removeRecommendationTile(recommendation.id, recommendation.category)
     );
-  const [{ count, response }] = useRequest(recommendation, removeTile, () =>
-    removeTile({ show: false })
+  const [{ count, response, loaded }] = useRequest(
+    recommendation,
+    removeTile,
+    () => removeTile({ show: false })
   );
 
   const text = (message) =>
@@ -39,6 +42,17 @@ const RecommendationGroup = ({
       : message;
 
   const GroupIcon = iconMapper[recommendation.icon] || QuestionCircleIcon;
+
+  if (!loaded) {
+    return (
+      <Flex
+        direction={{ default: 'column' }}
+        className="recommendation-section"
+      >
+        <Skeleton size="lg" />
+      </Flex>
+    );
+  }
 
   return (
     <Flex direction={{ default: 'column' }} className="recommendation-section">
@@ -62,9 +76,6 @@ const RecommendationGroup = ({
         <FlexItem grow={{ default: 'grow' }}>
           <TextContent>
             {recommendation.title && <Text>{text(recommendation.title)}</Text>}
-            {recommendation.description && (
-              <Text>{text(recommendation.description)}</Text>
-            )}
           </TextContent>
         </FlexItem>
         <FlexItem>
