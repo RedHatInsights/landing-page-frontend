@@ -1,4 +1,5 @@
 import get from 'lodash/get';
+import Cookies from 'js-cookie';
 
 import {
   hasPermissions as hasPermissionsEnhanced,
@@ -20,6 +21,8 @@ const enhancedFunctions = {
 
 const ALLOWED_API_METHODS = ['get', 'post'];
 
+let headers;
+
 export const processRequest = async ({
   method = 'get',
   args = [],
@@ -31,6 +34,14 @@ export const processRequest = async ({
   permissions,
   condition,
 }) => {
+  if (!headers) {
+    headers = {
+      Accept: 'application/json',
+      Authorization: `Bearer ${Cookies.get('cs_jwt')}`,
+      'Content-Type': 'application/json',
+    };
+  }
+
   if (!ALLOWED_API_METHODS.includes(method)) {
     throw `Invalid request method ${method}. Expected one of ${ALLOWED_API_METHODS}`;
   }
@@ -48,6 +59,7 @@ export const processRequest = async ({
        */
       response = await fetch(url, {
         method,
+        headers,
         data: JSON.stringify(args[0]),
       }).then((d) => d.json());
     }
