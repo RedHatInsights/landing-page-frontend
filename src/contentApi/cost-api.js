@@ -6,6 +6,7 @@ const estateResponseProcessor = (response) => {
   return response;
 };
 
+// eslint-disable-next-line no-unused-vars
 const estateRequests = [
   {
     section: 'Cost management',
@@ -82,6 +83,35 @@ const estateRequests = [
   },
 ];
 
+// eslint-disable-next-line no-unused-vars
+const openshift = [
+  {
+    section: 'openshift',
+    icon: 'lightbulb',
+    state: 'info',
+    id: 'cost-ocp',
+    url: '/api/cost-management/v1/sources/?source_type=OCP',
+    accessor: 'meta.count',
+    permissions: [
+      {
+        method: 'isEntitled',
+        args: ['cost_management'],
+      },
+    ],
+    condition: {
+      when: 'meta.count',
+      is: 0,
+    },
+    title:
+      'Gain Business Insights for your OpenShift Clusters. Install the Cost Operator on your OpenShift cluster to get started.',
+    action: {
+      title: 'Learn more',
+      external: true,
+      href: installCostOperator,
+    },
+  },
+];
+
 const installCostOperator =
   'https://access.redhat.com/documentation/en-us/cost_management_service/2021/html/getting_started_with_cost_management/index';
 
@@ -93,36 +123,9 @@ const costManagementApiMedium =
 
 export const getCostDataSchema = () => {
   return {
-    firstPanel: estateRequests,
+    firstPanel: [],
     secondPanel: {
-      openshift: [
-        {
-          section: 'openshift',
-          icon: 'lightbulb',
-          state: 'info',
-          id: 'cost-ocp',
-          url: '/api/cost-management/v1/sources/?source_type=OCP',
-          accessor: 'meta.count',
-          permissions: [
-            {
-              method: 'isEntitled',
-              args: ['cost_management'],
-            },
-          ],
-          condition: {
-            when: 'meta.count',
-            is: 0,
-          },
-          title: 'Gain Business Insights for your OpenShift Clusters.',
-          description:
-            'Install the Cost Operator on your OpenShift cluster to get started.',
-          action: {
-            title: 'Learn more',
-            external: true,
-            href: installCostOperator,
-          },
-        },
-      ],
+      openshift: [],
     },
     configTryLearn: {
       configure: [],
