@@ -113,6 +113,12 @@
               padding-right: var(--pf-global--spacer--sm);
             }
           }
+          .estate-count {
+            min-width: var(--pf-global--spacer--md); // sets min-width so that skeleton is visible
+          }
+          .estate-title {
+            min-width: var(--pf-global--spacer--3xl); // sets min-width so that skeleton is visible
+          }
         }
       }
     }
