@@ -49,8 +49,9 @@
     "start:beta": "BETA=true webpack serve --config config/dev.webpack.config.js --mode=development",
     "travis:build": "NODE_ENV=production webpack --config config/prod.webpack.config.js --mode=production",
     "travis:verify": "npm-run-all travis:build lint test",
-    "verify": "npm-run-all build lint test",
-    "nightly": "npm-run-all build lint && npm run test -- -u"
+    "verify": "npm-run-all validate:config build lint test",
+    "nightly": "npm-run-all build lint && npm run test -- -u",
+    "validate:config": "babel-node scripts/validate-schema.js"
   },
   "repository": {
     "type": "git",
@@ -84,7 +85,7 @@
     "redux-promise-middleware": "^6.1.2"
   },
   "devDependencies": {
-    "@babel/core": "^7.13.10",
+    "@babel/node": "^7.13.13",
     "@babel/plugin-proposal-class-properties": "^7.13.0",
     "@babel/plugin-proposal-decorators": "^7.13.5",
     "@babel/plugin-proposal-object-rest-spread": "^7.13.8",
@@ -114,6 +115,7 @@
     "jest": "^26.6.3",
     "jest-cli": "^26.6.3",
     "jest-fetch-mock": "^3.0.3",
+    "joi": "^17.4.0",
     "node-sass": "^5.0.0",
     "npm-run-all": "^4.1.5",
     "redux-mock-store": "^1.5.4",
