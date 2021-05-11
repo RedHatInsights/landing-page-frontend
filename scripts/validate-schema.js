@@ -92,7 +92,9 @@ const recommendationItemSchema = Joi.object({
   condition: conditionSchema,
   url: Joi.string(),
   accessor: Joi.string(),
-  icon: Joi.string().valid(...icons),
+  icon: Joi.string()
+    .valid(...icons)
+    .required(),
   state: Joi.string().valid(...states),
   permissions: Joi.array().items(permissionSchema),
   action: Joi.object({
