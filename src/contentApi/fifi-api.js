@@ -18,7 +18,6 @@ const FIFI_LEARN = [];
 const FIFI_TRY = [
   {
     shape: {
-      icon: 'unknown',
       title: 'Sign up for a Smart Management 30-day Evaluation',
       link: {
         title: 'Get Started',
@@ -36,7 +35,6 @@ const FIFI_TRY = [
   },
   {
     shape: {
-      icon: 'unknown',
       title: 'Integrate Red Hat Insights with Satellite 6.7+',
       link: {
         title: 'Learn More',

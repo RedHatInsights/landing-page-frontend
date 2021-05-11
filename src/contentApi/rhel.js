@@ -103,7 +103,6 @@ const ESTATE_CONFIG = [
       },
       {
         id: 'rhel-stale-systems',
-        title: 'Stale systems',
         accessor: 'total',
         condition: {
           when: 'total',

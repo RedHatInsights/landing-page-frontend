@@ -4,17 +4,16 @@ import approvalAdminPermissions from '../utils/approval-admin-permissions.json';
 const HUB_USER_CONFIGRE_TRY_LEARN = {
   configure: [
     {
+      permissions: [
+        {
+          method: 'isEntitled',
+          args: ['ansible'],
+        },
+      ],
       shape: {
-        icon: 'unknown',
         title: 'Sync Red Hat certified collections',
         description:
           'Configure access to sync collections to Private Automation Hub.',
-        permissions: [
-          {
-            method: 'isEntitled',
-            args: ['ansible'],
-          },
-        ],
         link: {
           title: 'Get started',
           href: './ansible/automation-hub/token',
@@ -24,15 +23,14 @@ const HUB_USER_CONFIGRE_TRY_LEARN = {
   ],
   try: [
     {
+      permissions: [
+        {
+          method: 'isEntitled',
+          args: ['ansible'],
+        },
+      ],
       shape: {
-        icon: 'unknown',
         title: 'Install Private Automation Hub',
-        permissions: [
-          {
-            method: 'isEntitled',
-            args: ['ansible'],
-          },
-        ],
         link: {
           title: 'Get started',
           external: true,
@@ -42,17 +40,16 @@ const HUB_USER_CONFIGRE_TRY_LEARN = {
       },
     },
     {
+      permissions: [
+        {
+          method: 'isEntitled',
+          args: ['ansible'],
+        },
+      ],
       shape: {
-        icon: 'unknown',
         title: 'Manage repositories in Private Automation Hub',
         description:
           'Add community and privately developed collections to your Private Automation Hub.',
-        permissions: [
-          {
-            method: 'isEntitled',
-            args: ['ansible'],
-          },
-        ],
         link: {
           title: 'Get started',
           external: true,
@@ -64,15 +61,14 @@ const HUB_USER_CONFIGRE_TRY_LEARN = {
   ],
   learn: [
     {
+      permissions: [
+        {
+          method: 'isEntitled',
+          args: ['ansible'],
+        },
+      ],
       shape: {
-        icon: 'unknown',
         title: 'Connect Automation Hub to your automation infrastructure',
-        permissions: [
-          {
-            method: 'isEntitled',
-            args: ['ansible'],
-          },
-        ],
         link: {
           title: 'Get started',
           external: true,
@@ -82,17 +78,16 @@ const HUB_USER_CONFIGRE_TRY_LEARN = {
       },
     },
     {
+      permissions: [
+        {
+          method: 'isEntitled',
+          args: ['ansible'],
+        },
+      ],
       shape: {
-        icon: 'history',
         title: 'Learn about namespaces',
         description:
           'Organize collections content into namespaces users can access.',
-        permissions: [
-          {
-            method: 'isEntitled',
-            args: ['ansible'],
-          },
-        ],
         link: {
           title: 'Learn more',
           external: true,
@@ -102,15 +97,14 @@ const HUB_USER_CONFIGRE_TRY_LEARN = {
       },
     },
     {
+      permissions: [
+        {
+          method: 'isEntitled',
+          args: ['ansible'],
+        },
+      ],
       shape: {
-        icon: 'unknown',
         title: 'Explore Red Hat certified collections',
-        permissions: [
-          {
-            method: 'isEntitled',
-            args: ['ansible'],
-          },
-        ],
         link: {
           title: 'Learn more',
           external: true,
@@ -124,16 +118,15 @@ const HUB_USER_CONFIGRE_TRY_LEARN = {
 const APP_USER_CONFIGRE_TRY_LEARN = {
   configure: [
     {
+      permissions: [
+        {
+          method: 'isEntitled',
+          args: ['ansible'],
+        },
+      ],
       shape: {
-        icon: 'unknown',
         title: 'Connect your Ansible platform clusters to Analytics',
         description: 'Send Analytics data to the cloud hosted services.',
-        permissions: [
-          {
-            method: 'isEntitled',
-            args: ['ansible'],
-          },
-        ],
         link: {
           title: 'Connect',
           external: true,
@@ -145,17 +138,16 @@ const APP_USER_CONFIGRE_TRY_LEARN = {
   ],
   try: [
     {
+      permissions: [
+        {
+          method: 'isEntitled',
+          args: ['ansible'],
+        },
+      ],
       shape: {
-        icon: 'unknown',
         title: 'Tour Job Explorer',
         description:
           'View job run details on Ansible platform clusters across your organizations.',
-        permissions: [
-          {
-            method: 'isEntitled',
-            args: ['ansible'],
-          },
-        ],
         link: {
           title: 'Get started',
           href:
@@ -167,7 +159,6 @@ const APP_USER_CONFIGRE_TRY_LEARN = {
   learn: [
     {
       shape: {
-        icon: 'unknown',
         title: 'Get started with Automation Analytics',
         link: {
           title: 'Get started',
@@ -184,7 +175,6 @@ const CATALOG_ADMIN_CONFIGURE_TRY_LEARN = {
   configure: [
     {
       shape: {
-        icon: 'unknown',
         title: 'Configure Automation Services Catalog',
         description: 'Connect platforms, share portfolios, and offer products.',
         link: {
@@ -205,7 +195,6 @@ const CATALOG_ADMIN_CONFIGURE_TRY_LEARN = {
   try: [
     {
       shape: {
-        icon: 'unknown',
         title: 'Create a new portfolio',
         description: 'Add products and share with your group.',
         link: {
@@ -224,7 +213,6 @@ const CATALOG_ADMIN_CONFIGURE_TRY_LEARN = {
   learn: [
     {
       shape: {
-        icon: 'unknown',
         title: 'Govern access with Approval',
         description:
           'Restrict product orders and apply approval processes to portfolios and platforms.',
@@ -244,7 +232,6 @@ const CATALOG_ADMIN_CONFIGURE_TRY_LEARN = {
     },
     {
       shape: {
-        icon: 'unknown',
         title: 'Integrate Automation Services Catalog with your ITSM system',
         link: {
           external: true,
