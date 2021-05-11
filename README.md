@@ -42,4 +42,4 @@ The following four branches are used
 
 ## Adding content
 
-Detailed documentation can be found [here](https://github.com/RedHatInsights/landing-page-frontend/blob/master/content-schema.md)
+Detailed documentation can be found [here](https://github.com/RedHatInsights/landing-page-frontend/blob/master/docs/content-schema.md)
