@@ -123,8 +123,8 @@ const costManagementApiMedium =
 
 export const getCostDataSchema = () => {
   return {
-    firstPanel: [],
-    secondPanel: {
+    estate: [],
+    recommendations: {
       openshift: [],
     },
     configTryLearn: {

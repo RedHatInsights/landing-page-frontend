@@ -491,7 +491,7 @@ export const RECOMMENDATIONS_ITEMS = {
 };
 
 export const getAnsibleDataSchema = () => ({
-  firstPanel: ansibleEstateRequests,
-  secondPanel: RECOMMENDATIONS_ITEMS,
+  estate: ansibleEstateRequests,
+  recommendations: RECOMMENDATIONS_ITEMS,
   configTryLearn: CONFIGURE_TRY_LEARN,
 });

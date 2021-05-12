@@ -53,8 +53,8 @@ const FIFI_TRY = [
 ];
 
 export const getFifiDataSchema = () => ({
-  firstPanel: [],
-  secondPanel: FIFI_RECOMMENDATIONS,
+  estate: [],
+  recommendations: FIFI_RECOMMENDATIONS,
   configTryLearn: {
     configure: [],
     try: FIFI_TRY,

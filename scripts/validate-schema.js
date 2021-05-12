@@ -122,8 +122,8 @@ const configTryLearnSchema = Joi.object({
 });
 
 const schema = Joi.object({
-  firstPanel: Joi.array().items(estateSectionSchema).required(),
-  secondPanel: Joi.object({
+  estate: Joi.array().items(estateSectionSchema).required(),
+  recommendations: Joi.object({
     recs: Joi.array().items(recommendationItemSchema),
     openshift: Joi.array().items(recommendationItemSchema),
     rhel: Joi.array().items(recommendationItemSchema),

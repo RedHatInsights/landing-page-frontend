@@ -115,8 +115,8 @@ const LEARN_ITEMS = [
 ];
 
 export const getManagedServicesDataSchema = () => ({
-  firstPanel: ESTATE_CONFIG,
-  secondPanel: RECOMMENDATIONS_ITEMS,
+  estate: ESTATE_CONFIG,
+  recommendations: RECOMMENDATIONS_ITEMS,
   configTryLearn: {
     configure: [],
     try: TRY_ITEMS,

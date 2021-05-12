@@ -17,8 +17,8 @@ const noSourcesProcessor = (response) => {
 };
 
 export const getPriorityDataSchema = () => ({
-  firstPanel: [],
-  secondPanel: {},
+  estate: [],
+  recommendations: {},
   configTryLearn: {
     configure: [
       {

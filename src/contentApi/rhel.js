@@ -148,8 +148,8 @@ const ESTATE_CONFIG = [
 ];
 
 export const createRhelSchema = () => ({
-  firstPanel: ESTATE_CONFIG,
-  secondPanel: RECOMMENDATIONS_ITEMS,
+  estate: ESTATE_CONFIG,
+  recommendations: RECOMMENDATIONS_ITEMS,
   configTryLearn: {
     configure: [],
     try: [],
