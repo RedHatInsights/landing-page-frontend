@@ -6,7 +6,7 @@
 interface fullSchema {
   estate: {
     section: string // Section title
-    items: EstateTile[] // Tiles definition, see bellow
+    items: EstateTile[] // Tiles definition, see below
   }[],
   recommendations: {
     recs?: RecommendationItem[] // items in recommendations section
@@ -31,12 +31,12 @@ interface EstateTile {
   accessor?: string // lodash like object accessor to API response object, see: https://lodash.com/docs/4.17.15#get
   method?: 'get'|'post' // API method
   args?: any[] // API request body content
-  condition?: Condition // see bellow
+  condition?: Condition // see below
   shape: {
     title: string // tile text
     href: string // link to crc app
   }
-  permissions?: Permission[] // see bellow
+  permissions?: Permission[] // see below
 }
 ```
 
@@ -46,12 +46,12 @@ interface EstateTile {
 interface RecommendationItem {
   id: string;
   title: string | { id: string, defaultMessage: string } // see https://formatjs.io/docs/react-intl/api/#formatmessage
-  condition?: Condition // see bellow
+  condition?: Condition // see below
   url?: string // Url to API endpoint
   accessor?: string // lodash like object accessor to API response object, see: https://lodash.com/docs/4.17.15#get
   icon: 'insights'|'ansible'|'lightbulb'|'error'|'list'|'history'|'cog'|'play'|'unknown'|'download' // tile icon
-  state?: 'error'|'warning'|'info'|'success' // changes icon collor based on PF defined states
-  permissions?: Permission[] // see bellow
+  state?: 'error'|'warning'|'info'|'success' // changes icon color based on PF defined states
+  permissions?: Permission[] // see below
   action: {
     href: string // action link
     title: string // action text
@@ -66,7 +66,7 @@ interface ConfigureTryLearnItem {
   id: string
   url?: string // Url to API endpoint
   accessor?: string // lodash like object accessor to API response object, see: https://lodash.com/docs/4.17.15#get
-  permissions?: Permission[] // see bellow
+  permissions?: Permission[] // see below
   shape: {
     title: string, // Tile main text
     description?: string,
