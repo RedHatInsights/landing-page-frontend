@@ -1,5 +1,27 @@
 # Application content schemas
 
+## Full application schema
+
+```TS
+interface fullSchema {
+  estate: {
+    section: string // Section title
+    items: EstateTile[] // Tiles definition, see bellow
+  }[],
+  recommendations: {
+    recs?: RecommendationItem[] // items in recommendations section
+    ansible?: RecommendationItem[] // items in ansible section
+    openshift?: RecommendationItem[] // items in openshift section
+    rhel?: RecommendationItem[] // items in rhel section
+  },
+  configTryLearn: {
+    configure: ConfigureTryLearnItem[]
+    try: ConfigureTryLearnItem[]
+    learn: ConfigureTryLearnItem[]
+  }
+}
+```
+
 ## Estate tile
 
 ```TS
