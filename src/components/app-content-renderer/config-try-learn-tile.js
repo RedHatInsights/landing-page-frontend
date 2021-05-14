@@ -127,7 +127,7 @@ const ConfigTryLearnTile = ({ title, column, items, sectionName }) => {
         <div
           className={column}
           style={{ gridRow: index + 2 }}
-          key={item.key || item.shape.title}
+          key={item.id || item.shape.title}
         >
           <TileItem {...item} />
         </div>
