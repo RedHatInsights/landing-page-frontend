@@ -10,23 +10,24 @@ const isBeta = () => {
 };
 
 const NotFound = () => (
-  <section className="pf-l-page__main-section pf-c-page__main-section ins-c-page__404">
-    <Title headingLevel="h1" size="3xl">
-      404: It&apos;s true. We&apos;ve lost it.
-    </Title>
-    <Icon404 />
-    <Title headingLevel="h2" className="ins-c-text__sorry">
-      Sorry, we couldn&apos;t find what you were looking for. The page you
-      requested may have been changed or moved.
-    </Title>
-    <Button
-      variant="link"
-      component="a"
-      href={`${window.location.origin}${isBeta()}`}
-    >
-      Return to homepage
-    </Button>
-  </section>
+  <div className="landing">
+    <section className="pf-l-page__main-section pf-c-page__main-section ins-c-page__404">
+      <Title headingLevel="h1" size="3xl">
+        404: We lost that page
+      </Title>
+      <Icon404 />
+      <Title headingLevel="h2" className="ins-c-text__sorry">
+        Let&apos;s find you a new one. Try a new search or return home.
+      </Title>
+      <Button
+        variant="link"
+        component="a"
+        href={`${window.location.origin}${isBeta()}`}
+      >
+        Return to homepage
+      </Button>
+    </section>
+  </div>
 );
 
 export default NotFound;
