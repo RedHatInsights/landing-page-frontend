@@ -26,8 +26,9 @@ interface fullSchema {
 
 ```TS
 interface EstateTile {
-  id: string;
-  url: string
+  id: string
+  url?: string // If the count is not in schema, the tile will retrieve the data from this URL
+  count?: number // Count value of the etsate tile. If the count is specified the API will not be triggered.
   accessor?: string // lodash like object accessor to API response object, see: https://lodash.com/docs/4.17.15#get
   method?: 'get'|'post' // API method
   args?: any[] // API request body content
