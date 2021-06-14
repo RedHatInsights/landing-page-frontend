@@ -1,5 +1,9 @@
 # Application content schemas
 
+## Self service schema
+
+Be aware that the interfaces below also include dynamic attributes like `url`, `method` and `accessor`. Do not use these if you are creating API response for the self service!
+
 ## Full application schema
 
 ```TS
