@@ -25,9 +25,9 @@ export const heroContent = {
 };
 
 export const productDetail = {
-  title: 'What is cloud.redhat.com?',
+  title: 'What is console.redhat.com?',
   content:
-    'From deploying hybrid cloud platforms, ongoing monitoring and lifecycle management, as well as certified automation collections content, cloud.redhat.com provides content, tooling, and visibility across your hybrid cloud.',
+    'From deploying hybrid cloud platforms, ongoing monitoring and lifecycle management, as well as certified automation collections content, console.redhat.com provides content, tooling, and visibility across your hybrid cloud.',
 };
 
 export const keyFeatures = {
@@ -44,8 +44,8 @@ export const activeTechnologies = [
     marketing: true,
     entitlement: 'openShiftAppServices',
     marketingImage:
-      'https://cloud.redhat.com/apps/frontend-assets/logos/logo__osas.svg',
-    marketingTitle: 'With cloud.redhat.com you can:',
+      'https://console.redhat.com/apps/frontend-assets/logos/logo__osas.svg',
+    marketingTitle: 'With console.redhat.com you can:',
     marketingContent: (
       <ul>
         <li>
@@ -86,8 +86,8 @@ export const activeTechnologies = [
     marketing: true,
     entitlement: 'openShift',
     marketingImage:
-      'https://cloud.redhat.com/apps/frontend-assets/logos/logo__openshift.svg',
-    marketingTitle: 'With cloud.redhat.com you can:',
+      'https://console.redhat.com/apps/frontend-assets/logos/logo__openshift.svg',
+    marketingTitle: 'With console.redhat.com you can:',
     marketingContent: (
       <ul>
         <li>
@@ -133,8 +133,8 @@ export const activeTechnologies = [
     marketing: true,
     entitlement: 'rhel',
     marketingImage:
-      'https://cloud.redhat.com/apps/frontend-assets/logos/logo__rhel.svg',
-    marketingTitle: 'With cloud.redhat.com you can:',
+      'https://console.redhat.com/apps/frontend-assets/logos/logo__rhel.svg',
+    marketingTitle: 'With console.redhat.com you can:',
     marketingContent: (
       <ul>
         <li>
@@ -178,8 +178,8 @@ export const activeTechnologies = [
     marketing: true,
     entitlement: 'ansible',
     marketingImage:
-      'https://cloud.redhat.com/apps/frontend-assets/logos/logo__ansible-automation.svg',
-    marketingTitle: 'With cloud.redhat.com you can:',
+      'https://console.redhat.com/apps/frontend-assets/logos/logo__ansible-automation.svg',
+    marketingTitle: 'With console.redhat.com you can:',
     marketingContent: (
       <ul>
         <li>
@@ -245,7 +245,7 @@ export const activeTechnologies = [
     featured: true,
     entitlement: 'insights',
     marketingImage:
-      'https://cloud.redhat.com/apps/frontend-assets/logos/logo__insights.svg',
+      'https://console.redhat.com/apps/frontend-assets/logos/logo__insights.svg',
     marketingTitle: 'Red Hat Insights is expanding',
     marketingTitleSecondary: 'What is Insights?',
     marketingContent: (
@@ -254,7 +254,7 @@ export const activeTechnologies = [
         improve security, stabilize, and optimize your IT environments.
         Historically just for Red Hat Enterprise Linux, we are excited to
         announce that Insights for Red Hat OpenShift and Insights for Red Hat
-        Ansible Automation Platform are available on cloud.redhat.com.
+        Ansible Automation Platform are available on console.redhat.com.
       </p>
     ),
     marketingContentSecondary: (
@@ -382,7 +382,7 @@ export const activeTechnologies = [
   {
     keyFeature: true,
     icon:
-      'https://cloud.redhat.com/apps/frontend-assets/icons/icon__private-cloud.svg',
+      'https://console.redhat.com/apps/frontend-assets/icons/icon__private-cloud.svg',
     id: 'infrastructure',
     title: 'No infrastructure required',
     text: (
@@ -395,7 +395,7 @@ export const activeTechnologies = [
   {
     keyFeature: true,
     icon:
-      'https://cloud.redhat.com/apps/frontend-assets/icons/icon__update.svg',
+      'https://console.redhat.com/apps/frontend-assets/icons/icon__update.svg',
     id: 'continuous-upgrades',
     title: 'Continuous upgrades',
     text: (
@@ -408,7 +408,7 @@ export const activeTechnologies = [
   {
     keyFeature: true,
     icon:
-      'https://cloud.redhat.com/apps/frontend-assets/icons/icon__build-deploy.svg',
+      'https://console.redhat.com/apps/frontend-assets/icons/icon__build-deploy.svg',
     id: 'build-deploy',
     title: 'Build and deploy',
     text: (
@@ -430,7 +430,7 @@ export const activeTechnologies = [
   {
     keyFeature: true,
     icon:
-      'https://cloud.redhat.com/apps/frontend-assets/icons/icon__control-panel.svg',
+      'https://console.redhat.com/apps/frontend-assets/icons/icon__control-panel.svg',
     id: 'zero-install',
     title: 'Zero install',
     text: (
@@ -444,7 +444,7 @@ export const activeTechnologies = [
   {
     keyFeature: true,
     icon:
-      'https://cloud.redhat.com/apps/frontend-assets/icons/icon__hybrid-cloud.svg',
+      'https://console.redhat.com/apps/frontend-assets/icons/icon__hybrid-cloud.svg',
     id: 'open-hybrid-cloud',
     title: 'Decades of open hybrid cloud experience',
     text: (
@@ -458,7 +458,7 @@ export const activeTechnologies = [
   {
     keyFeature: true,
     icon:
-      'https://cloud.redhat.com/apps/frontend-assets/icons/icon__exp-up.svg',
+      'https://console.redhat.com/apps/frontend-assets/icons/icon__exp-up.svg',
     id: 'insights',
     title: 'Insights to action',
     text: (
@@ -473,7 +473,7 @@ export const activeTechnologies = [
   {
     keyFeature: true,
     icon:
-      'https://cloud.redhat.com/apps/frontend-assets/icons/icon__padlock.svg',
+      'https://console.redhat.com/apps/frontend-assets/icons/icon__padlock.svg',
     id: 'customers',
     title: 'Exclusively for Red Hat customers',
     text: (
@@ -487,7 +487,7 @@ export const activeTechnologies = [
   {
     keyFeature: true,
     icon:
-      'https://cloud.redhat.com/apps/frontend-assets/icons/icon__modernize.svg',
+      'https://console.redhat.com/apps/frontend-assets/icons/icon__modernize.svg',
     id: 'modernize',
     title: 'Modernize your application development',
     text: (

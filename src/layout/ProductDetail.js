@@ -43,7 +43,7 @@ const ProductDetail = () => {
         >
           <img
             className="ins-c-content-product-detail__image"
-            src="https://cloud.redhat.com/apps/frontend-assets/images/img_cloud-console.svg"
+            src="https://console.redhat.com/apps/frontend-assets/images/img_cloud-console.svg"
             alt={`${productDetail.title} image`}
           />
         </Flex>

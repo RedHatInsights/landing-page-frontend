@@ -26,7 +26,7 @@
         width: var(--ins-c-hero--before--Width);
         content: '';
         opacity: var(--ins-c-hero--before--Opacity);
-        background-image: #{url('https://cloud.redhat.com/apps/frontend-assets/background-images/bg__hero.svg')};
+        background-image: #{url('https://console.redhat.com/apps/frontend-assets/background-images/bg__hero.svg')};
         background-size: var(--ins-c-hero--before--BackgroundSize);
         background-color: var(--pf-c-page__main-section--BackgroundColor); // required to pass axe testing
     }

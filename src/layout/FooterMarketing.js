@@ -24,7 +24,7 @@ const FooterTraditional = () => {
             >
               <Brand
                 className="ins-c-footer-marketing__logo"
-                src="https://cloud.redhat.com/apps/frontend-assets/red-hat-logos/logo.svg"
+                src="https://console.redhat.com/apps/frontend-assets/red-hat-logos/logo.svg"
                 alt="Insights logo"
               />
             </a>
