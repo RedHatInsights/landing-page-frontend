@@ -27,7 +27,7 @@ const Hero = () => (
       <Flex className="pf-m-column" spaceItems={{ default: 'spaceItemsXl' }}>
         <FlexItem spacer={{ default: 'spacerMd', md: 'spacerXl' }}>
           <img
-            src="https://cloud.redhat.com/apps/frontend-assets/icons/icon__cloud-red.svg"
+            src="https://console.redhat.com/apps/frontend-assets/icons/icon__cloud-red.svg"
             alt="Insights Smart Management"
             aria-hidden="true"
             className="ins-c-hero__title-icon"

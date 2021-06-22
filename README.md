@@ -40,12 +40,12 @@ Checkout https://ci.foo.redhat.com:1337/ [Read more](https://github.com/RedHatIn
 The following four branches are used
 
 - Stable
-  - prod-stable -> releases to cloud.redhat.com
-  - master-stable -> releases to qa/ci.cloud.redhat.com
+  - prod-stable -> releases to console.redhat.com
+  - master-stable -> releases to qa/ci.console.redhat.com
 
 - Beta
-  - prod-beta -> releases to cloud.redhat.com/beta
-  - master -> releases to qa/ci.cloud.redhat.com/beta
+  - prod-beta -> releases to console.redhat.com/beta
+  - master -> releases to qa/ci.console.redhat.com/beta
 
 ## Adding content
 
