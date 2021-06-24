@@ -219,10 +219,9 @@ export const activeTechnologies = [
     title: 'Ansible Automation',
     body: '',
     image: Automation,
-    emptyTitle:
-      'Ansible Automation Platform services requires a valid subscription',
+    emptyTitle: 'Get started with Red Hat Ansible Automation Platform',
     emptyText: [
-      'Get analytics and knowledge of your automation, access to certified content, and more with a Red hat Ansible Automation Platform subscription.',
+      'Red Hat Ansible Automation Platform simplifies the development and operation of automation workloads across diverse hybrid environments using Ansible Automation Controller, certified and supported content collections, and the hosted services on cloud.redhat.com.',
     ],
     emptyID: 'ansible',
     emptyAction: {
