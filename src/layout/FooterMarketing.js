@@ -34,7 +34,7 @@ const FooterTraditional = () => {
             flex={{ default: 'flex_1' }}
             direction={{ default: 'column', lg: 'row' }}
           >
-            <p>Copyright ©2021 Red Hat, Inc.</p>
+            <p>©2021 Red Hat, Inc.</p>
             <nav>
               <ul className="pf-l-flex">
                 <li>
