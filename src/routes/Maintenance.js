@@ -24,7 +24,7 @@ const Maintenance = () => (
       </Title>
       <EmptyStateBody>
         <p>
-          cloud.redhat.com is currently undergoing scheduled maintenance and
+          console.redhat.com is currently undergoing scheduled maintenance and
           will be unavailable from 16:00 - 22:00 UTC (12:00 PM - 6:00 PM EST).
         </p>
         <p>

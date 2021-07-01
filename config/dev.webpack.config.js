@@ -9,7 +9,7 @@ const { config: webpackConfig, plugins } = config({
   skipChrome2: true,
   ...(process.env.BETA ? { deployment: 'beta/apps' } : {}),
   htmlPlugin: {
-    title: 'Home - cloud.redhat.com',
+    title: 'Home - console.redhat.com',
     filename: 'index.html',
     chunks: ['App', 'vendor'],
     template: resolve(__dirname, '../src/index.html'),
