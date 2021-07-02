@@ -7,6 +7,7 @@ const { config: webpackConfig, plugins } = config({
   debug: true,
   https: true,
   skipChrome2: true,
+  useCloud: true,
   deployment: process.env.BETA ? 'beta/apps' : 'apps',
   ...(process.env.PROXY && {
     useProxy: true,

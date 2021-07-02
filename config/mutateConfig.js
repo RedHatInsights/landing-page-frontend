@@ -21,33 +21,6 @@ function mutateConfig(webpackConfig) {
     NotFound: notFound,
     Maintenance: maintenance,
   };
-  /**
-   * This is requried due to the import of fedora svg in Hero.
-   * Css loader will resolve all relative URLS and add ./ prefix.
-   * That causes the URL to be resolved at build time locally and crashes the build.
-   * We could add the baseUri to the css, but we don't have it at build time (ci.cloud, qa.cloud, cloud, beta, etc.).
-   * Setting options { url: false } turns off that behavior.
-   * We can further specify which url to resolve if we have some landning page static assets later on.
-   */
-
-  const roleIndex = webpackConfig.module.rules.findIndex(({ use }) => {
-    if (use && Array.isArray(use)) {
-      const cssLoader = use.find(
-        (loader) => typeof loader === 'object' && loader.loader === 'css-loader'
-      );
-      if (cssLoader) {
-        return true;
-      }
-    }
-
-    return false;
-  });
-  const loaderIndex = webpackConfig.module.rules[roleIndex].use.findIndex(
-    (loader) => typeof loader === 'object' && loader.loader === 'css-loader'
-  );
-  webpackConfig.module.rules[roleIndex].use[loaderIndex].options = {
-    url: false,
-  };
 
   /**
    * We also require html loader to parse multiple entries
