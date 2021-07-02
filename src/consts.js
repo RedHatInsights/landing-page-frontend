@@ -375,13 +375,11 @@ export const activeTechnologies = [
         title: 'Not now',
       },
     },
-    body:
-      'Identify and remediate configuration issues in your Red Hat® environments.',
+    body: 'Identify and remediate configuration issues in your Red Hat® environments.',
   },
   {
     keyFeature: true,
-    icon:
-      'https://cloud.redhat.com/apps/frontend-assets/icons/icon__private-cloud.svg',
+    icon: 'https://cloud.redhat.com/apps/frontend-assets/icons/icon__private-cloud.svg',
     id: 'infrastructure',
     title: 'No infrastructure required',
     text: (
@@ -393,8 +391,7 @@ export const activeTechnologies = [
   },
   {
     keyFeature: true,
-    icon:
-      'https://cloud.redhat.com/apps/frontend-assets/icons/icon__update.svg',
+    icon: 'https://cloud.redhat.com/apps/frontend-assets/icons/icon__update.svg',
     id: 'continuous-upgrades',
     title: 'Continuous upgrades',
     text: (
@@ -406,8 +403,7 @@ export const activeTechnologies = [
   },
   {
     keyFeature: true,
-    icon:
-      'https://cloud.redhat.com/apps/frontend-assets/icons/icon__build-deploy.svg',
+    icon: 'https://cloud.redhat.com/apps/frontend-assets/icons/icon__build-deploy.svg',
     id: 'build-deploy',
     title: 'Build and deploy',
     text: (
@@ -428,8 +424,7 @@ export const activeTechnologies = [
   },
   {
     keyFeature: true,
-    icon:
-      'https://cloud.redhat.com/apps/frontend-assets/icons/icon__control-panel.svg',
+    icon: 'https://cloud.redhat.com/apps/frontend-assets/icons/icon__control-panel.svg',
     id: 'zero-install',
     title: 'Zero install',
     text: (
@@ -442,8 +437,7 @@ export const activeTechnologies = [
   },
   {
     keyFeature: true,
-    icon:
-      'https://cloud.redhat.com/apps/frontend-assets/icons/icon__hybrid-cloud.svg',
+    icon: 'https://cloud.redhat.com/apps/frontend-assets/icons/icon__hybrid-cloud.svg',
     id: 'open-hybrid-cloud',
     title: 'Decades of open hybrid cloud experience',
     text: (
@@ -456,8 +450,7 @@ export const activeTechnologies = [
   },
   {
     keyFeature: true,
-    icon:
-      'https://cloud.redhat.com/apps/frontend-assets/icons/icon__exp-up.svg',
+    icon: 'https://cloud.redhat.com/apps/frontend-assets/icons/icon__exp-up.svg',
     id: 'insights',
     title: 'Insights to action',
     text: (
@@ -471,8 +464,7 @@ export const activeTechnologies = [
   },
   {
     keyFeature: true,
-    icon:
-      'https://cloud.redhat.com/apps/frontend-assets/icons/icon__padlock.svg',
+    icon: 'https://cloud.redhat.com/apps/frontend-assets/icons/icon__padlock.svg',
     id: 'customers',
     title: 'Exclusively for Red Hat customers',
     text: (
@@ -485,8 +477,7 @@ export const activeTechnologies = [
   },
   {
     keyFeature: true,
-    icon:
-      'https://cloud.redhat.com/apps/frontend-assets/icons/icon__modernize.svg',
+    icon: 'https://cloud.redhat.com/apps/frontend-assets/icons/icon__modernize.svg',
     id: 'modernize',
     title: 'Modernize your application development',
     text: (
@@ -539,8 +530,7 @@ export const activeTechnologies = [
       dashboard: '/sap',
     },
     title: 'Insights for SAP',
-    body:
-      'Leverage Insights to manage, optimize and remediate risks to your SAP landscape.',
+    body: 'Leverage Insights to manage, optimize and remediate risks to your SAP landscape.',
   },
   {
     marketing: false,
@@ -568,8 +558,7 @@ export const activeTechnologies = [
       },
     },
     title: 'Cost Management',
-    body:
-      'Analyze, forecast and optimize your OpenShift cluster costs in hybrid cloud environments.',
+    body: 'Analyze, forecast and optimize your OpenShift cluster costs in hybrid cloud environments.',
   },
   {
     id: 'settings',

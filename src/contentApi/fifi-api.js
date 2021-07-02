@@ -22,8 +22,7 @@ const FIFI_TRY = [
       link: {
         title: 'Get Started',
         external: true,
-        href:
-          'https://www.redhat.com/en/technologies/linux-platforms/enterprise-linux',
+        href: 'https://www.redhat.com/en/technologies/linux-platforms/enterprise-linux',
       },
     },
     permissions: [
@@ -39,8 +38,7 @@ const FIFI_TRY = [
       link: {
         title: 'Learn More',
         external: true,
-        href:
-          'https://www.redhat.com/en/about/videos/setup-and-use-cloud-connector-integrate-insights-satellite',
+        href: 'https://www.redhat.com/en/about/videos/setup-and-use-cloud-connector-integrate-insights-satellite',
       },
     },
     permissions: [
