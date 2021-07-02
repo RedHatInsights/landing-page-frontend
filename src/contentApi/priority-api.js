@@ -6,8 +6,7 @@ const noSourcesProcessor = (response) => {
       title: 'Manage your Red Hat products in the cloud',
       description: 'Connect to additional accounts or public cloud providers.',
       link: {
-        href:
-          './settings/sources?sort_by[]=created_at:desc&limit=50&offset=0&activeVendor=Cloud',
+        href: './settings/sources?sort_by[]=created_at:desc&limit=50&offset=0&activeVendor=Cloud',
         title: 'Connect with Sources',
       },
     };
@@ -23,8 +22,7 @@ export const getPriorityDataSchema = () => ({
     configure: [
       {
         id: 'connect-sources',
-        url:
-          '/api/sources/v3.0/sources?filter[source_type][vendor][eq][]=Amazon&filter[source_type][vendor][eq][]=Azure&filter[source_type][vendor][eq][]=Google',
+        url: '/api/sources/v3.0/sources?filter[source_type][vendor][eq][]=Amazon&filter[source_type][vendor][eq][]=Azure&filter[source_type][vendor][eq][]=Google',
         responseProcessor: noSourcesProcessor,
         accessor: 'meta.count',
         shape: {
@@ -32,8 +30,7 @@ export const getPriorityDataSchema = () => ({
           description:
             'Register a provider to manage your Red Hat products in the cloud.',
           link: {
-            href:
-              './settings/sources?sort_by[]=created_at:desc&limit=50&offset=0&activeVendor=Cloud',
+            href: './settings/sources?sort_by[]=created_at:desc&limit=50&offset=0&activeVendor=Cloud',
             title: 'Connect with Sources',
           },
         },

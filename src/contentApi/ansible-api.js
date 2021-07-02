@@ -34,8 +34,7 @@ const HUB_USER_CONFIGRE_TRY_LEARN = {
         link: {
           title: 'Get started',
           external: true,
-          href:
-            'https://access.redhat.com/documentation/en-us/red_hat_ansible_automation_platform/1.2/html/installing_and_upgrading_private_automation_hub/index',
+          href: 'https://access.redhat.com/documentation/en-us/red_hat_ansible_automation_platform/1.2/html/installing_and_upgrading_private_automation_hub/index',
         },
       },
     },
@@ -53,8 +52,7 @@ const HUB_USER_CONFIGRE_TRY_LEARN = {
         link: {
           title: 'Get started',
           external: true,
-          href:
-            'https://access.redhat.com/documentation/en-us/red_hat_ansible_automation_platform/1.2/html/publishing_proprietary_content_collections_in_automation_hub/index',
+          href: 'https://access.redhat.com/documentation/en-us/red_hat_ansible_automation_platform/1.2/html/publishing_proprietary_content_collections_in_automation_hub/index',
         },
       },
     },
@@ -72,8 +70,7 @@ const HUB_USER_CONFIGRE_TRY_LEARN = {
         link: {
           title: 'Get started',
           external: true,
-          href:
-            'https://docs.ansible.com/ansible-tower/latest/html/userguide/projects.html?extIdCarryOver=true&sc_cid=701f2000001Css5AAC#using-collections-in-tower',
+          href: 'https://docs.ansible.com/ansible-tower/latest/html/userguide/projects.html?extIdCarryOver=true&sc_cid=701f2000001Css5AAC#using-collections-in-tower',
         },
       },
     },
@@ -91,8 +88,7 @@ const HUB_USER_CONFIGRE_TRY_LEARN = {
         link: {
           title: 'Learn more',
           external: true,
-          href:
-            'https://access.redhat.com/documentation/en-us/red_hat_ansible_automation_platform/1.2/html/curating_collections_using_namespaces_in_automation_hub/index',
+          href: 'https://access.redhat.com/documentation/en-us/red_hat_ansible_automation_platform/1.2/html/curating_collections_using_namespaces_in_automation_hub/index',
         },
       },
     },
@@ -130,8 +126,7 @@ const APP_USER_CONFIGRE_TRY_LEARN = {
         link: {
           title: 'Connect',
           external: true,
-          href:
-            'https://docs.ansible.com/ansible-tower/latest/html/administration/usability_data_collection.html',
+          href: 'https://docs.ansible.com/ansible-tower/latest/html/administration/usability_data_collection.html',
         },
       },
     },
@@ -150,8 +145,7 @@ const APP_USER_CONFIGRE_TRY_LEARN = {
           'View job run details on Ansible platform clusters across your organizations.',
         link: {
           title: 'Get started',
-          href:
-            './ansible/automation-analytics/job-explorer?attributes[]=id&attributes[]=status&attributes[]=job_type&attributes[]=started&attributes[]=finished&attributes[]=elapsed&attributes[]=created&attributes[]=cluster_name&attributes[]=org_name&attributes[]=most_failed_tasks&limit=5',
+          href: './ansible/automation-analytics/job-explorer?attributes[]=id&attributes[]=status&attributes[]=job_type&attributes[]=started&attributes[]=finished&attributes[]=elapsed&attributes[]=created&attributes[]=cluster_name&attributes[]=org_name&attributes[]=most_failed_tasks&limit=5',
         },
       },
     },
@@ -163,8 +157,7 @@ const APP_USER_CONFIGRE_TRY_LEARN = {
         link: {
           title: 'Get started',
           external: true,
-          href:
-            'https://docs.ansible.com/ansible-tower/latest/html/administration/usability_data_collection.html#automation-analytics',
+          href: 'https://docs.ansible.com/ansible-tower/latest/html/administration/usability_data_collection.html#automation-analytics',
         },
       },
     },
@@ -179,8 +172,7 @@ const CATALOG_ADMIN_CONFIGURE_TRY_LEARN = {
         description: 'Connect platforms, share portfolios, and offer products.',
         link: {
           external: true,
-          href:
-            'https://access.redhat.com/documentation/en-us/red_hat_ansible_automation_platform/1.2/html/getting_started_with_automation_services_catalog/index',
+          href: 'https://access.redhat.com/documentation/en-us/red_hat_ansible_automation_platform/1.2/html/getting_started_with_automation_services_catalog/index',
           title: 'Get started',
         },
       },
@@ -218,8 +210,7 @@ const CATALOG_ADMIN_CONFIGURE_TRY_LEARN = {
           'Restrict product orders and apply approval processes to portfolios and platforms.',
         link: {
           external: true,
-          href:
-            'https://access.redhat.com/documentation/en-us/red_hat_ansible_automation_platform/1.2/html/getting_started_with_automation_services_catalog/configuring_approval',
+          href: 'https://access.redhat.com/documentation/en-us/red_hat_ansible_automation_platform/1.2/html/getting_started_with_automation_services_catalog/configuring_approval',
           title: 'Learn more',
         },
       },
@@ -235,8 +226,7 @@ const CATALOG_ADMIN_CONFIGURE_TRY_LEARN = {
         title: 'Integrate Automation Services Catalog with your ITSM system',
         link: {
           external: true,
-          href:
-            'https://access.redhat.com/documentation/en-us/red_hat_ansible_automation_platform/1.2/html/integrating_automation_services_catalog_with_your_it_service_management_itsm_systems/index',
+          href: 'https://access.redhat.com/documentation/en-us/red_hat_ansible_automation_platform/1.2/html/integrating_automation_services_catalog_with_your_it_service_management_itsm_systems/index',
           title: 'Learn more',
         },
       },
@@ -323,8 +313,7 @@ const ansibleEstateRequests = [
         ],
         shape: {
           title: PAST_WEEK_JOBS_TITLE,
-          href:
-            './ansible/automation-analytics/job-explorer?attributes[]=id&attributes[]=status&attributes[]=job_type&attributes[]=started&attributes[]=finished&attributes[]=elapsed&attributes[]=created&attributes[]=cluster_name&attributes[]=org_name&attributes[]=most_failed_tasks&limit=5&quick_date_range=last_30_days&sort_by=created%3Adesc',
+          href: './ansible/automation-analytics/job-explorer?attributes[]=id&attributes[]=status&attributes[]=job_type&attributes[]=started&attributes[]=finished&attributes[]=elapsed&attributes[]=created&attributes[]=cluster_name&attributes[]=org_name&attributes[]=most_failed_tasks&limit=5&quick_date_range=last_30_days&sort_by=created%3Adesc',
         },
         errorProcessor: createNoDataResponse,
       },
@@ -377,8 +366,7 @@ const ansibleEstateRequests = [
       },
       {
         id: 'ansible-platforms',
-        url:
-          '/api/sources/v3.1/applications?filter[application_type][name][contains]=catalog',
+        url: '/api/sources/v3.1/applications?filter[application_type][name][contains]=catalog',
         accessor: 'meta.count',
         shape: {
           title: 'Platforms',
