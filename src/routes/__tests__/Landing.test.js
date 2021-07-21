@@ -35,20 +35,22 @@ jest.mock('../../components/app-content-renderer/footer', () => ({
 }));
 
 jest.mock('../../consts', () => {
-  const { activeTechnologies, ...rest } = jest.requireActual('../../consts');
+  const consts = jest.requireActual('../../consts');
 
   return {
     __esModule: true,
-    ...rest,
+    ...consts,
     activeTechnologies: [
       {
-        ...activeTechnologies[0],
+        ...consts.activeTechnologies[0],
         // disable image because img with svg has some issues
         image: undefined,
       },
-      activeTechnologies.find(({ entitlement }) => entitlement === 'settings'),
+      consts.activeTechnologies.find(
+        ({ entitlement }) => entitlement === 'settings'
+      ),
       {
-        ...activeTechnologies.find(
+        ...consts.activeTechnologies.find(
           ({ entitlement }) => entitlement === 'migrations'
         ),
         image: undefined,

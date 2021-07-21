@@ -18,13 +18,11 @@ const FIFI_LEARN = [];
 const FIFI_TRY = [
   {
     shape: {
-      icon: 'unknown',
       title: 'Sign up for a Smart Management 30-day Evaluation',
       link: {
         title: 'Get Started',
         external: true,
-        href:
-          'https://www.redhat.com/en/technologies/linux-platforms/enterprise-linux',
+        href: 'https://www.redhat.com/en/technologies/linux-platforms/enterprise-linux',
       },
     },
     permissions: [
@@ -36,13 +34,11 @@ const FIFI_TRY = [
   },
   {
     shape: {
-      icon: 'unknown',
       title: 'Integrate Red Hat Insights with Satellite 6.7+',
       link: {
         title: 'Learn More',
         external: true,
-        href:
-          'https://www.redhat.com/en/about/videos/setup-and-use-cloud-connector-integrate-insights-satellite',
+        href: 'https://www.redhat.com/en/about/videos/setup-and-use-cloud-connector-integrate-insights-satellite',
       },
     },
     permissions: [
@@ -55,8 +51,8 @@ const FIFI_TRY = [
 ];
 
 export const getFifiDataSchema = () => ({
-  firstPanel: [],
-  secondPanel: FIFI_RECOMMENDATIONS,
+  estate: [],
+  recommendations: FIFI_RECOMMENDATIONS,
   configTryLearn: {
     configure: [],
     try: FIFI_TRY,

@@ -6,20 +6,20 @@ const recommendationsCategories = ['recs', 'rhel', 'ansible', 'openshift'];
 const createContentData = async () => {
   const data = await getAppsData();
   const landingPageContent = data.reduce(
-    (acc, { firstPanel, secondPanel, configTryLearn }) => {
-      const recommendations = { ...acc.recommendations };
+    (acc, { estate, recommendations, configTryLearn }) => {
+      const currentRecommendations = { ...acc.recommendations };
       recommendationsCategories.forEach((category) => {
-        recommendations[category] = {
+        currentRecommendations[category] = {
           ...acc.recommendations[category],
           items: [
             ...acc.recommendations[category].items,
-            ...(secondPanel[category] || []),
+            ...(recommendations[category] || []),
           ],
         };
       });
       return {
-        estate: [...acc.estate, ...firstPanel],
-        recommendations,
+        estate: [...acc.estate, ...estate],
+        recommendations: currentRecommendations,
         configTryLearn: [
           {
             ...acc.configTryLearn[0],

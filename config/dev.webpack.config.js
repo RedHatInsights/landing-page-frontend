@@ -7,7 +7,15 @@ const { config: webpackConfig, plugins } = config({
   debug: true,
   https: true,
   skipChrome2: true,
-  ...(process.env.BETA ? { deployment: 'beta/apps' } : {}),
+  useCloud: true,
+  deployment: process.env.BETA ? 'beta/apps' : 'apps',
+  ...(process.env.PROXY && {
+    useProxy: true,
+    appUrl: process.env.BETA
+      ? ['/beta/maintenance.html', '/beta/', '/beta/404.html']
+      : ['/maintenance.html', '/', '/404.html'],
+    exactUrl: true,
+  }),
   htmlPlugin: {
     title: 'Home - cloud.redhat.com',
     filename: 'index.html',

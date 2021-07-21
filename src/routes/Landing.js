@@ -80,12 +80,10 @@ const reducer = (state, { type, user }) => {
 
 const Landing = () => {
   const { search } = useLocation();
-  const [
-    { isModalOpen, isUserReady, isUnauthed, notEntitled },
-    stateDispatch,
-  ] = useReducer(reducer, initialState, (initialState) =>
-    init(initialState, search)
-  );
+  const [{ isModalOpen, isUserReady, isUnauthed, notEntitled }, stateDispatch] =
+    useReducer(reducer, initialState, (initialState) =>
+      init(initialState, search)
+    );
   const dispatch = useDispatch();
 
   useEffect(async () => {
