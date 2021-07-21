@@ -8,7 +8,7 @@ const ESTATE_CONFIG = [
         id: 'managed-services-1',
         url: `https://api.${
           window.insights.chrome.getEnvironment() === 'stage' ? 'stage.' : ''
-        }openshift.com/api/managed-services-api/v1/kafkas`,
+        }openshift.com/api/kafkas_mgmt/v1/kafkas`,
         accessor: 'total',
         shape: {
           title: 'Kafka Instances',
@@ -37,8 +37,7 @@ const RECOMMENDATIONS_ITEMS = {
       action: {
         title: 'View',
         external: true,
-        href:
-          'https://access.redhat.com/documentation/en-us/red_hat_openshift_streams_for_apache_kafka/1/guide/f520e427-cad2-40ce-823d-96234ccbc047',
+        href: 'https://access.redhat.com/documentation/en-us/red_hat_openshift_streams_for_apache_kafka/1/guide/f520e427-cad2-40ce-823d-96234ccbc047',
       },
     },
     {
@@ -59,8 +58,7 @@ const RECOMMENDATIONS_ITEMS = {
       action: {
         title: 'Learn more',
         external: true,
-        href:
-          'https://www.redhat.com/en/technologies/cloud-computing/openshift/openshift-api-management',
+        href: 'https://www.redhat.com/en/technologies/cloud-computing/openshift/openshift-api-management',
       },
     },
     {
@@ -71,8 +69,7 @@ const RECOMMENDATIONS_ITEMS = {
       action: {
         title: 'Learn more',
         external: true,
-        href:
-          'https://access.redhat.com/documentation/en-us/red_hat_openshift_api_management/1/guide/53dfb804-2038-4545-b917-2cb01a09ef98',
+        href: 'https://access.redhat.com/documentation/en-us/red_hat_openshift_api_management/1/guide/53dfb804-2038-4545-b917-2cb01a09ef98',
       },
     },
   ],
@@ -85,8 +82,7 @@ const TRY_ITEMS = [
       link: {
         title: 'Learn more',
         external: true,
-        href:
-          'https://www.redhat.com/en/technologies/cloud-computing/openshift/openshift-api-management',
+        href: 'https://www.redhat.com/en/technologies/cloud-computing/openshift/openshift-api-management',
       },
     },
   },
@@ -115,8 +111,8 @@ const LEARN_ITEMS = [
 ];
 
 export const getManagedServicesDataSchema = () => ({
-  firstPanel: ESTATE_CONFIG,
-  secondPanel: RECOMMENDATIONS_ITEMS,
+  estate: ESTATE_CONFIG,
+  recommendations: RECOMMENDATIONS_ITEMS,
   configTryLearn: {
     configure: [],
     try: TRY_ITEMS,

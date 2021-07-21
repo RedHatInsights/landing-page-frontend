@@ -13,8 +13,8 @@ import {
 } from '@patternfly/react-core';
 
 jest.mock('../../consts', () => {
-  const insightsMarketing = require('../../components/marketing/insightsMarketing.svg')
-    .default;
+  const insightsMarketing =
+    require('../../components/marketing/insightsMarketing.svg').default;
 
   return {
     activeTechnologies: [

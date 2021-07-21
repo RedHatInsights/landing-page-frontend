@@ -4,17 +4,16 @@ import approvalAdminPermissions from '../utils/approval-admin-permissions.json';
 const HUB_USER_CONFIGRE_TRY_LEARN = {
   configure: [
     {
+      permissions: [
+        {
+          method: 'isEntitled',
+          args: ['ansible'],
+        },
+      ],
       shape: {
-        icon: 'unknown',
         title: 'Sync Red Hat certified collections',
         description:
           'Configure access to sync collections to Private Automation Hub.',
-        permissions: [
-          {
-            method: 'isEntitled',
-            args: ['ansible'],
-          },
-        ],
         link: {
           title: 'Get started',
           href: './ansible/automation-hub/token',
@@ -24,93 +23,84 @@ const HUB_USER_CONFIGRE_TRY_LEARN = {
   ],
   try: [
     {
+      permissions: [
+        {
+          method: 'isEntitled',
+          args: ['ansible'],
+        },
+      ],
       shape: {
-        icon: 'unknown',
         title: 'Install Private Automation Hub',
-        permissions: [
-          {
-            method: 'isEntitled',
-            args: ['ansible'],
-          },
-        ],
         link: {
           title: 'Get started',
           external: true,
-          href:
-            'https://access.redhat.com/documentation/en-us/red_hat_ansible_automation_platform/1.2/html/installing_and_upgrading_private_automation_hub/index',
+          href: 'https://access.redhat.com/documentation/en-us/red_hat_ansible_automation_platform/1.2/html/installing_and_upgrading_private_automation_hub/index',
         },
       },
     },
     {
+      permissions: [
+        {
+          method: 'isEntitled',
+          args: ['ansible'],
+        },
+      ],
       shape: {
-        icon: 'unknown',
         title: 'Manage repositories in Private Automation Hub',
         description:
           'Add community and privately developed collections to your Private Automation Hub.',
-        permissions: [
-          {
-            method: 'isEntitled',
-            args: ['ansible'],
-          },
-        ],
         link: {
           title: 'Get started',
           external: true,
-          href:
-            'https://access.redhat.com/documentation/en-us/red_hat_ansible_automation_platform/1.2/html/publishing_proprietary_content_collections_in_automation_hub/index',
+          href: 'https://access.redhat.com/documentation/en-us/red_hat_ansible_automation_platform/1.2/html/publishing_proprietary_content_collections_in_automation_hub/index',
         },
       },
     },
   ],
   learn: [
     {
+      permissions: [
+        {
+          method: 'isEntitled',
+          args: ['ansible'],
+        },
+      ],
       shape: {
-        icon: 'unknown',
         title: 'Connect Automation Hub to your automation infrastructure',
-        permissions: [
-          {
-            method: 'isEntitled',
-            args: ['ansible'],
-          },
-        ],
         link: {
           title: 'Get started',
           external: true,
-          href:
-            'https://docs.ansible.com/ansible-tower/latest/html/userguide/projects.html?extIdCarryOver=true&sc_cid=701f2000001Css5AAC#using-collections-in-tower',
+          href: 'https://docs.ansible.com/ansible-tower/latest/html/userguide/projects.html?extIdCarryOver=true&sc_cid=701f2000001Css5AAC#using-collections-in-tower',
         },
       },
     },
     {
+      permissions: [
+        {
+          method: 'isEntitled',
+          args: ['ansible'],
+        },
+      ],
       shape: {
-        icon: 'history',
         title: 'Learn about namespaces',
         description:
           'Organize collections content into namespaces users can access.',
-        permissions: [
-          {
-            method: 'isEntitled',
-            args: ['ansible'],
-          },
-        ],
         link: {
           title: 'Learn more',
           external: true,
-          href:
-            'https://access.redhat.com/documentation/en-us/red_hat_ansible_automation_platform/1.2/html/curating_collections_using_namespaces_in_automation_hub/index',
+          href: 'https://access.redhat.com/documentation/en-us/red_hat_ansible_automation_platform/1.2/html/curating_collections_using_namespaces_in_automation_hub/index',
         },
       },
     },
     {
+      permissions: [
+        {
+          method: 'isEntitled',
+          args: ['ansible'],
+        },
+      ],
       shape: {
-        icon: 'unknown',
         title: 'Explore Red Hat certified collections',
-        permissions: [
-          {
-            method: 'isEntitled',
-            args: ['ansible'],
-          },
-        ],
         link: {
           title: 'Learn more',
           external: true,
@@ -124,42 +114,38 @@ const HUB_USER_CONFIGRE_TRY_LEARN = {
 const APP_USER_CONFIGRE_TRY_LEARN = {
   configure: [
     {
+      permissions: [
+        {
+          method: 'isEntitled',
+          args: ['ansible'],
+        },
+      ],
       shape: {
-        icon: 'unknown',
         title: 'Connect your Ansible platform clusters to Analytics',
         description: 'Send Analytics data to the cloud hosted services.',
-        permissions: [
-          {
-            method: 'isEntitled',
-            args: ['ansible'],
-          },
-        ],
         link: {
           title: 'Connect',
           external: true,
-          href:
-            'https://docs.ansible.com/ansible-tower/latest/html/administration/usability_data_collection.html',
+          href: 'https://docs.ansible.com/ansible-tower/latest/html/administration/usability_data_collection.html',
         },
       },
     },
   ],
   try: [
     {
+      permissions: [
+        {
+          method: 'isEntitled',
+          args: ['ansible'],
+        },
+      ],
       shape: {
-        icon: 'unknown',
         title: 'Tour Job Explorer',
         description:
           'View job run details on Ansible platform clusters across your organizations.',
-        permissions: [
-          {
-            method: 'isEntitled',
-            args: ['ansible'],
-          },
-        ],
         link: {
           title: 'Get started',
-          href:
-            './ansible/automation-analytics/job-explorer?attributes[]=id&attributes[]=status&attributes[]=job_type&attributes[]=started&attributes[]=finished&attributes[]=elapsed&attributes[]=created&attributes[]=cluster_name&attributes[]=org_name&attributes[]=most_failed_tasks&limit=5',
+          href: './ansible/automation-analytics/job-explorer?attributes[]=id&attributes[]=status&attributes[]=job_type&attributes[]=started&attributes[]=finished&attributes[]=elapsed&attributes[]=created&attributes[]=cluster_name&attributes[]=org_name&attributes[]=most_failed_tasks&limit=5',
         },
       },
     },
@@ -167,13 +153,11 @@ const APP_USER_CONFIGRE_TRY_LEARN = {
   learn: [
     {
       shape: {
-        icon: 'unknown',
         title: 'Get started with Automation Analytics',
         link: {
           title: 'Get started',
           external: true,
-          href:
-            'https://docs.ansible.com/ansible-tower/latest/html/administration/usability_data_collection.html#automation-analytics',
+          href: 'https://docs.ansible.com/ansible-tower/latest/html/administration/usability_data_collection.html#automation-analytics',
         },
       },
     },
@@ -184,13 +168,11 @@ const CATALOG_ADMIN_CONFIGURE_TRY_LEARN = {
   configure: [
     {
       shape: {
-        icon: 'unknown',
         title: 'Configure Automation Services Catalog',
         description: 'Connect platforms, share portfolios, and offer products.',
         link: {
           external: true,
-          href:
-            'https://access.redhat.com/documentation/en-us/red_hat_ansible_automation_platform/1.2/html/getting_started_with_automation_services_catalog/index',
+          href: 'https://access.redhat.com/documentation/en-us/red_hat_ansible_automation_platform/1.2/html/getting_started_with_automation_services_catalog/index',
           title: 'Get started',
         },
       },
@@ -205,7 +187,6 @@ const CATALOG_ADMIN_CONFIGURE_TRY_LEARN = {
   try: [
     {
       shape: {
-        icon: 'unknown',
         title: 'Create a new portfolio',
         description: 'Add products and share with your group.',
         link: {
@@ -224,14 +205,12 @@ const CATALOG_ADMIN_CONFIGURE_TRY_LEARN = {
   learn: [
     {
       shape: {
-        icon: 'unknown',
         title: 'Govern access with Approval',
         description:
           'Restrict product orders and apply approval processes to portfolios and platforms.',
         link: {
           external: true,
-          href:
-            'https://access.redhat.com/documentation/en-us/red_hat_ansible_automation_platform/1.2/html/getting_started_with_automation_services_catalog/configuring_approval',
+          href: 'https://access.redhat.com/documentation/en-us/red_hat_ansible_automation_platform/1.2/html/getting_started_with_automation_services_catalog/configuring_approval',
           title: 'Learn more',
         },
       },
@@ -244,12 +223,10 @@ const CATALOG_ADMIN_CONFIGURE_TRY_LEARN = {
     },
     {
       shape: {
-        icon: 'unknown',
         title: 'Integrate Automation Services Catalog with your ITSM system',
         link: {
           external: true,
-          href:
-            'https://access.redhat.com/documentation/en-us/red_hat_ansible_automation_platform/1.2/html/integrating_automation_services_catalog_with_your_it_service_management_itsm_systems/index',
+          href: 'https://access.redhat.com/documentation/en-us/red_hat_ansible_automation_platform/1.2/html/integrating_automation_services_catalog_with_your_it_service_management_itsm_systems/index',
           title: 'Learn more',
         },
       },
@@ -336,8 +313,7 @@ const ansibleEstateRequests = [
         ],
         shape: {
           title: PAST_WEEK_JOBS_TITLE,
-          href:
-            './ansible/automation-analytics/job-explorer?attributes[]=id&attributes[]=status&attributes[]=job_type&attributes[]=started&attributes[]=finished&attributes[]=elapsed&attributes[]=created&attributes[]=cluster_name&attributes[]=org_name&attributes[]=most_failed_tasks&limit=5&quick_date_range=last_30_days&sort_by=created%3Adesc',
+          href: './ansible/automation-analytics/job-explorer?attributes[]=id&attributes[]=status&attributes[]=job_type&attributes[]=started&attributes[]=finished&attributes[]=elapsed&attributes[]=created&attributes[]=cluster_name&attributes[]=org_name&attributes[]=most_failed_tasks&limit=5&quick_date_range=last_30_days&sort_by=created%3Adesc',
         },
         errorProcessor: createNoDataResponse,
       },
@@ -390,8 +366,7 @@ const ansibleEstateRequests = [
       },
       {
         id: 'ansible-platforms',
-        url:
-          '/api/sources/v3.1/applications?filter[application_type][name][contains]=catalog',
+        url: '/api/sources/v3.1/applications?filter[application_type][name][contains]=catalog',
         accessor: 'meta.count',
         shape: {
           title: 'Platforms',
@@ -504,7 +479,7 @@ export const RECOMMENDATIONS_ITEMS = {
 };
 
 export const getAnsibleDataSchema = () => ({
-  firstPanel: ansibleEstateRequests,
-  secondPanel: RECOMMENDATIONS_ITEMS,
+  estate: ansibleEstateRequests,
+  recommendations: RECOMMENDATIONS_ITEMS,
   configTryLearn: CONFIGURE_TRY_LEARN,
 });
