@@ -8,7 +8,7 @@ const ESTATE_CONFIG = [
         id: 'managed-services-1',
         url: `https://api.${
           window.insights.chrome.getEnvironment() === 'stage' ? 'stage.' : ''
-        }openshift.com/api/managed-services-api/v1/kafkas`,
+        }openshift.com/api/kafkas_mgmt/v1/kafkas`,
         accessor: 'total',
         shape: {
           title: 'Kafka Instances',
