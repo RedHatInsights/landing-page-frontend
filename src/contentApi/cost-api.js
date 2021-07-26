@@ -24,7 +24,8 @@ const estateRequests = [
         responseProcessor: estateResponseProcessor,
         shape: {
           title: 'OpenShift Sources',
-          href: './settings/sources?type=openshift&application=cost&activeVendor=Red Hat',
+          href:
+            './settings/sources?type=openshift&application=cost&activeVendor=Red Hat',
         },
       },
       {
@@ -40,7 +41,8 @@ const estateRequests = [
         responseProcessor: estateResponseProcessor,
         shape: {
           title: 'Amazon Web Services Sources',
-          href: './settings/sources?type=amazon&application=cost&activeVendor=Cloud',
+          href:
+            './settings/sources?type=amazon&application=cost&activeVendor=Cloud',
         },
       },
       {
@@ -56,7 +58,8 @@ const estateRequests = [
         responseProcessor: estateResponseProcessor,
         shape: {
           title: 'Microsoft Azure Sources',
-          href: './settings/sources?type=azure&application=cost&activeVendor=Cloud',
+          href:
+            './settings/sources?type=azure&application=cost&activeVendor=Cloud',
         },
       },
       {
@@ -72,7 +75,8 @@ const estateRequests = [
         responseProcessor: estateResponseProcessor,
         shape: {
           title: 'Google Cloud Platform Sources',
-          href: './settings/sources?type=google&application=cost&activeVendor=Cloud',
+          href:
+            './settings/sources?type=google&application=cost&activeVendor=Cloud',
         },
       },
     ],
