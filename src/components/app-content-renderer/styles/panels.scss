@@ -26,98 +26,34 @@
 
   .ins-l-first-panel {
     color: var(--pf-global--Color--light-100);
-    background: url(https://console.redhat.com/apps/frontend-assets/background-images/new-landing-page/estate-double_gradient.svg);
+    background: url(https://cloud.redhat.com/apps/frontend-assets/background-images/new-landing-page/estate_section_banner.svg);
     background-color: var(--pf-global--BackgroundColor--dark-100);
     background-size: cover !important;
     padding: var(--pf-global--spacer--xl) var(--pf-global--spacer--lg) var(--pf-global--spacer--lg) var(--pf-global--spacer--lg);
     overflow-x: auto;
-
-    .ins-c-skeleton {
-      animation-duration: 3s;
-      &.ins-m-dark {
-        background: linear-gradient(to right, rgba(60,60,60,.2) 10%, rgba(72,72,72,.4) 18%, rgba(60,60,60,.2) 33%);
-      }
-    }
-    .estate-group {
-      a {
-        color: var(--pf-global--Color--light-100);
-        &:hover {
+    .pf-l-gallery {
+      .estate-group {
+        a, a:hover {
+          color: var(--pf-global--BackgroundColor--100);
           text-decoration: none;
-          color: var(--pf-global--active-color--100);
-          border-bottom: 2px solid var(--pf-global--active-color--100);
+         }
+        .estate-section {
+          height: 60px;
+          display: -webkit-box;
+          -webkit-line-clamp: 2;
+          -webkit-box-orient: vertical; 
+          overflow: hidden;
         }
-      }
-    }
-
-    @media screen and (min-width: $pf-global--breakpoint--md) {
-      .pf-c-description-list {
-        align-items: normal;
-        .estate-group {
-          margin-right: var(--pf-global--spacer--md);
-          .pf-c-description-list__text {
-            width: 140px;
-            display: -webkit-box;
-            -webkit-line-clamp: 2;
-            -webkit-box-orient: vertical; 
-            overflow: hidden;
-          }
-          .estate-section {
-            .pf-c-description-list__text {
-              height: 50px;
-              p {
-                font-size: var(--pf-global--FontSize--md);
-                &::after {
-                  content: '\00a0';
-                }
-              }
-            }
-          }
-          .estate-title {
-            .pf-c-description-list__text {
-              height: 40px;
-              p {
-                font-size: var(--pf-global--FontSize--sm);
-              }
-            }
-          }
-        }
-      }
-    }
-
-    @media only screen and (max-width: $pf-global--breakpoint--md) {
-      .pf-c-description-list {
-        row-gap: 0;
-        display: flex;
-        flex-direction: column;
-        .estate-group {
-          display: flex;
-          flex-wrap: wrap;
-          .estate-section {
-            >.pf-c-description-list__text {
-              p {
-                margin: var(--pf-global--spacer--md) 0;
-              }
-              &::after {
-                content: '';
-              }
-              p:empty {
-                margin: 0;
-              }
-            }
-            font-size: var(--pf-global--FontSize--xl);
-            width: 100%;
-          }
-          .estate-count, .estate-title {
-            .pf-c-title, p {
-              font-size: var(--pf-global--FontSize--md);
-              padding-right: var(--pf-global--spacer--sm);
-            }
-          }
-          .estate-count {
-            min-width: var(--pf-global--spacer--md); // sets min-width so that skeleton is visible
-          }
-          .estate-title {
-            min-width: var(--pf-global--spacer--3xl); // sets min-width so that skeleton is visible
+        .pf-c-card {
+          border-bottom-width: 0;
+          border-left-width: 0;
+          border-right-width: 0;
+          border-top-width: var(--pf-global--BorderWidth--lg);
+          --pf-c-card--m-flat--BorderColor: var(--pf-global--primary-color--100);
+          --pf-c-card--BackgroundColor: #202326;
+          width: 160px;
+          &:hover {
+            --pf-c-card--BackgroundColor: var(--pf-global--BackgroundColor--dark-400);
           }
         }
       }

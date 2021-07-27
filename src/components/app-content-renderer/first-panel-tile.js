@@ -1,13 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
-import {
-  DescriptionListDescription,
-  DescriptionListGroup,
-  DescriptionListTerm,
-  Text,
-  Title,
-} from '@patternfly/react-core';
+import { Card, CardBody, Text, Title } from '@patternfly/react-core';
 
 import {
   Skeleton,
@@ -41,35 +35,41 @@ const FirstPanelTile = ({ id, ...tile }) => {
   );
 
   return (
-    <DescriptionListGroup className="estate-group">
-      <DescriptionListDescription
+    <div className="estate-group">
+      <div
         className={classnames('estate-section', {
           'is-empty': tile?.shape?.section?.length === 0,
         })}
       >
-        <Text title={tile?.shape?.section} component="p">
+        <Title headingLevel="h6" size="md" title={tile?.shape?.section}>
           {tile?.shape?.section}
-        </Text>
-      </DescriptionListDescription>
-      <DescriptionListTerm className="estate-count">
-        <Title headingLevel="h5" size="3xl">
-          {loaded ? (
-            <a href={href || '#'}>{count}</a>
-          ) : (
-            <Skeleton size={SkeletonSize.md} className="ins-m-dark" />
-          )}
         </Title>
-      </DescriptionListTerm>
-      <DescriptionListDescription className="estate-title">
-        {loaded ? (
-          <Text title={title} component="p">
-            {title}
-          </Text>
-        ) : (
-          <Skeleton size={SkeletonSize.lg} className="ins-m-dark" />
-        )}
-      </DescriptionListDescription>
-    </DescriptionListGroup>
+      </div>
+      <a href={href || '#'}>
+        <Card isCompact isHoverable isFlat>
+          <CardBody>
+            <Title
+              headingLevel="h5"
+              size="3xl"
+              className="pf-u-font-weight-light"
+            >
+              {loaded ? (
+                <>{count}</>
+              ) : (
+                <Skeleton size={SkeletonSize.md} className="ins-m-dark" />
+              )}
+            </Title>
+            {loaded ? (
+              <Text title={title} component="p" className="pf-u-text-truncate">
+                {title}
+              </Text>
+            ) : (
+              <Skeleton size={SkeletonSize.lg} className="ins-m-dark" />
+            )}
+          </CardBody>
+        </Card>
+      </a>
+    </div>
   );
 };
 
