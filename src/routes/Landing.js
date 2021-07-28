@@ -70,11 +70,10 @@ const reducer = (state, { type, user }) => {
 
 const Landing = () => {
   const { search } = useLocation();
-  const [
-    { isModalOpen, isUserReady, notEntitled },
-    stateDispatch,
-  ] = useReducer(reducer, initialState, (initialState) =>
-    init(initialState, search)
+  const [{ isModalOpen, isUserReady, notEntitled }, stateDispatch] = useReducer(
+    reducer,
+    initialState,
+    (initialState) => init(initialState, search)
   );
   const dispatch = useDispatch();
 
