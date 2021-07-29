@@ -10,7 +10,7 @@ const { config: webpackConfig, plugins } = config({
    * Otherwise we may have multiple ReactDOM.render calls in one template
    */
   htmlPlugin: {
-    title: 'Home - cloud.redhat.com',
+    title: 'Home - console.redhat.com',
     filename: 'index.html',
     chunks: ['App', 'vendor'],
     template: resolve(__dirname, '../src/index.html'),
