@@ -12,9 +12,8 @@ const enhancedFunctions = {
   hasPermissions: hasPermissionsEnhanced,
   loosePermissions: loosePermissionsEnhanced,
   isNotEntitled: async (...args) => {
-    const isEntitled = await window.insights.chrome.visibilityFunctions.isEntitled(
-      ...args
-    );
+    const isEntitled =
+      await window.insights.chrome.visibilityFunctions.isEntitled(...args);
     return !isEntitled;
   },
 };

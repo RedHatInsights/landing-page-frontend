@@ -179,7 +179,7 @@ exports[`Maintenance page should render correctly 1`] = `
               className="pf-c-empty-state__body"
             >
               <p>
-                cloud.redhat.com is currently undergoing scheduled maintenance and will be unavailable from 16:00 - 22:00 UTC (12:00 PM - 6:00 PM EST).
+                console.redhat.com is currently undergoing scheduled maintenance and will be unavailable from 16:00 - 22:00 UTC (12:00 PM - 6:00 PM EST).
               </p>
               <p>
                 For more information visit 
@@ -199,20 +199,27 @@ exports[`Maintenance page should render correctly 1`] = `
             href="http://localhost"
             variant="primary"
           >
-            <a
-              aria-disabled={false}
-              aria-label={null}
-              className="pf-c-button pf-m-primary"
-              data-ouia-component-id="OUIA-Generated-Button-primary-1"
-              data-ouia-component-type="PF4/Button"
-              data-ouia-safe={true}
-              disabled={null}
+            <ButtonBase
+              component="a"
               href="http://localhost"
-              role={null}
-              type={null}
+              innerRef={null}
+              variant="primary"
             >
-              Return to homepage
-            </a>
+              <a
+                aria-disabled={false}
+                aria-label={null}
+                className="pf-c-button pf-m-primary"
+                data-ouia-component-id="OUIA-Generated-Button-primary-1"
+                data-ouia-component-type="PF4/Button"
+                data-ouia-safe={true}
+                disabled={null}
+                href="http://localhost"
+                role={null}
+                type={null}
+              >
+                Return to homepage
+              </a>
+            </ButtonBase>
           </Button>
         </div>
       </div>

@@ -26,7 +26,7 @@
 
   .ins-l-first-panel {
     color: var(--pf-global--Color--light-100);
-    background: url(https://cloud.redhat.com/apps/frontend-assets/background-images/new-landing-page/estate-double_gradient.svg);
+    background: url(https://console.redhat.com/apps/frontend-assets/background-images/new-landing-page/estate-double_gradient.svg);
     background-color: var(--pf-global--BackgroundColor--dark-100);
     background-size: cover !important;
     padding: var(--pf-global--spacer--xl) var(--pf-global--spacer--lg) var(--pf-global--spacer--lg) var(--pf-global--spacer--lg);
@@ -112,6 +112,12 @@
               font-size: var(--pf-global--FontSize--md);
               padding-right: var(--pf-global--spacer--sm);
             }
+          }
+          .estate-count {
+            min-width: var(--pf-global--spacer--md); // sets min-width so that skeleton is visible
+          }
+          .estate-title {
+            min-width: var(--pf-global--spacer--3xl); // sets min-width so that skeleton is visible
           }
         }
       }

@@ -4,74 +4,10 @@ import Cost from './components/Cost.svg';
 import Insights from './components/Insights.svg';
 import SAP from './components/SAP.svg';
 import Automation from './components/Automation.svg';
-import { Button, CardFooter, Flex, FlexItem } from '@patternfly/react-core';
-import { ArrowRightIcon } from '@patternfly/react-icons';
-import imgModalPlaceholder from './layout/images/img__modal-placeholder.png';
-
-export const productGridHeader = 'Build your cloud on open source';
-export const productGridLoginText = 'Log in to the console';
-export const productGridInfoText = 'More info';
-export const productGridModalDataSheetText = 'View datasheet';
-export const productGridModalMoreInfo = 'More information';
-export const productGridModalCTAText = 'Try it now';
-
-export const heroContent = {
-  title: 'Build, deploy, and optimize your hybrid cloud',
-  subTitle:
-    'Access Red Hat’s managed applications and hosted services from the hybrid cloud console',
-  primaryCTAtext: 'Log in to your account',
-  secondaryCTAtext: 'Create an account',
-  secondaryCTAurl: 'https://www.redhat.com/en/customers',
-};
-
-export const productDetail = {
-  title: 'What is cloud.redhat.com?',
-  content:
-    'From deploying hybrid cloud platforms, ongoing monitoring and lifecycle management, as well as certified automation collections content, cloud.redhat.com provides content, tooling, and visibility across your hybrid cloud.',
-};
-
-export const keyFeatures = {
-  title: 'Why Red Hat?',
-};
-
-export const getStarted = {
-  title: 'Get started',
-  ctaText: 'Log in to your account',
-};
 
 export const activeTechnologies = [
   {
-    marketing: true,
     entitlement: 'openShiftAppServices',
-    marketingImage:
-      'https://cloud.redhat.com/apps/frontend-assets/logos/logo__osas.svg',
-    marketingTitle: 'With cloud.redhat.com you can:',
-    marketingContent: (
-      <ul>
-        <li>
-          Capture, process, and stream real-time data across hybrid cloud
-          environments.
-        </li>
-        <li>
-          Rapidly develop, train, and test containerized machine learning models
-          in the public cloud before deploying in production.
-        </li>
-        <li>
-          Take an API-first approach to building microservices-based
-          applications.
-        </li>
-      </ul>
-    ),
-    marketingUrls: {
-      login: '/application-services/overview',
-    },
-    modalTitle: 'What are Red Hat OpenShift Application Services?',
-    modalText:
-      'Red Hat OpenShift Application Services deliver a streamlined developer experience for building, deploying, and scaling cloud-native applications.',
-    modalImg: imgModalPlaceholder,
-    modalUrls: {
-      moreInfo: 'https://www.openshift.com/products/application-services',
-    },
     name: 'openShiftAppServices',
     id: 'openShiftAppServices',
     url: 'openShiftAppServices',
@@ -79,136 +15,11 @@ export const activeTechnologies = [
     apps: {
       dashboard: '/dashboard',
     },
-    title: 'OpenShift Application Services',
-    body: '',
-  },
-  {
-    marketing: true,
-    entitlement: 'openShift',
-    marketingImage:
-      'https://cloud.redhat.com/apps/frontend-assets/logos/logo__openshift.svg',
-    marketingTitle: 'With cloud.redhat.com you can:',
-    marketingContent: (
-      <ul>
-        <li>
-          Streamline and simplify how operators create, register, and upgrade
-          Red Hat OpenShift 4 clusters.
-        </li>
-        <li>
-          Monitor for configuration risks, upgrade compatibility, and cost
-          optimization with Red Hat Insights.
-        </li>
-        <li>
-          Track, on one screen, utilization of your annual Red Hat OpenShift
-          Container Platform subscriptions and usage of hourly, pay-as-you-go
-          subscriptions for both OpenShift Container Platform and Red Hat
-          OpenShift Dedicated.
-        </li>
-      </ul>
-    ),
-    marketingUrls: {
-      login: '/openshift/overview',
-    },
-    modalTitle: 'What is Red Hat OpenShift?',
-    modalText:
-      'An enterprise Kubernetes container platform with full-stack automated operations to manage hybrid cloud and multicloud deployments. Access to Red Hat Insights for Red Hat OpenShift is included.',
-    modalImg: imgModalPlaceholder,
-    modalUrls: {
-      tryNow:
-        'https://www.redhat.com/en/technologies/cloud-computing/openshift/try-it',
-      dataSheet:
-        'https://www.redhat.com/en/resources/openshift-container-platform-datasheet',
-    },
-    name: 'openShift',
-    id: 'openShift',
-    url: 'openShift',
-    baseApp: '/openShift',
-    apps: {
-      dashboard: '/dashboard',
-    },
-    title: 'OpenShift',
-    body: '',
-  },
-  {
-    marketing: true,
-    entitlement: 'rhel',
-    marketingImage:
-      'https://cloud.redhat.com/apps/frontend-assets/logos/logo__rhel.svg',
-    marketingTitle: 'With cloud.redhat.com you can:',
-    marketingContent: (
-      <ul>
-        <li>
-          Operate confidently with system-level visibility into how Red Hat
-          Enterprise Linux systems are built, configured, and compliant with
-          security policies and business terms with Red Hat Insights.
-        </li>
-        <li>
-          See an account-level view of subscription utilization over time.
-        </li>
-        <li>
-          Assemble and customize Red Hat Enterprise Linux OS images to simplify
-          system provisioning (in Beta).
-        </li>
-      </ul>
-    ),
-    marketingUrls: {
-      login: '/insights/overview',
-    },
-    modalTitle: 'What is Red Hat Enterprise Linux?',
-    modalText:
-      'The leading enterprise LinuxⓇ operating system, certified on hundreds of clouds and with thousands of hardware vendors. Access to Red Hat Insights for Red Hat Enterprise Linux is included.',
-    modalImg: imgModalPlaceholder,
-    modalUrls: {
-      tryNow:
-        'https://www.redhat.com/en/technologies/linux-platforms/enterprise-linux/try-it',
-      dataSheet:
-        'https://www.redhat.com/en/resources/red-hat-enterprise-linux-8-datasheet',
-    },
-    name: 'rhel',
-    id: 'rhel',
-    url: 'rhel',
-    baseApp: '/rhel',
-    apps: {
-      dashboard: '/dashboard',
-    },
     title: 'Red Hat Enterprise Linux',
     body: '',
   },
   {
-    marketing: true,
     entitlement: 'ansible',
-    marketingImage:
-      'https://cloud.redhat.com/apps/frontend-assets/logos/logo__ansible-automation.svg',
-    marketingTitle: 'With cloud.redhat.com you can:',
-    marketingContent: (
-      <ul>
-        <li>
-          Download all Ansible Content Collections that are supported by Red Hat
-          and our certified partners.
-        </li>
-        <li>
-          Delegate resources and make automation available at a faster pace to
-          the appropriate teams.
-        </li>
-        <li>
-          Analyze, aggregate, and report out on automation running in your
-          infrastructure with Red Hat Insights.
-        </li>
-      </ul>
-    ),
-    marketingUrls: {
-      login: '/ansible/overview',
-    },
-    modalTitle: 'What is Red Hat Ansible Automation Platform?',
-    modalText:
-      'A platform for implementing enterprise-wide automation using a simple to understand automation language. Access to Red Hat Insights for Red Hat Ansible Automation Platform is included.',
-    modalImg: imgModalPlaceholder,
-    modalUrls: {
-      tryNow:
-        'https://www.redhat.com/en/technologies/linux-platforms/enterprise-linux/try-it',
-      dataSheet:
-        'https://www.redhat.com/en/resources/ansible-automation-platform-datasheet',
-    },
     name: 'ansibleAutomation',
     id: 'ansibleAutomation',
     url: 'ansibleAutomation',
@@ -219,10 +30,9 @@ export const activeTechnologies = [
     title: 'Ansible Automation',
     body: '',
     image: Automation,
-    emptyTitle:
-      'Ansible Automation Platform services requires a valid subscription',
+    emptyTitle: 'Get started with Red Hat Ansible Automation Platform',
     emptyText: [
-      'Get analytics and knowledge of your automation, access to certified content, and more with a Red hat Ansible Automation Platform subscription.',
+      'Red Hat Ansible Automation Platform simplifies the development and operation of automation workloads across diverse hybrid environments using Ansible Automation Controller, certified and supported content collections, and the hosted services on cloud.redhat.com.',
     ],
     emptyID: 'ansible',
     emptyAction: {
@@ -241,99 +51,8 @@ export const activeTechnologies = [
     },
   },
   {
-    marketing: true,
     featured: true,
     entitlement: 'insights',
-    marketingImage:
-      'https://cloud.redhat.com/apps/frontend-assets/logos/logo__insights.svg',
-    marketingTitle: 'Red Hat Insights is expanding',
-    marketingTitleSecondary: 'What is Insights?',
-    marketingContent: (
-      <p>
-        Red Hat Insights reduces the operational complexity and effort to
-        improve security, stabilize, and optimize your IT environments.
-        Historically just for Red Hat Enterprise Linux, we are excited to
-        announce that Insights for Red Hat OpenShift and Insights for Red Hat
-        Ansible Automation Platform are available on cloud.redhat.com.
-      </p>
-    ),
-    marketingContentSecondary: (
-      <p>
-        Insights is a suite of hosted services that provide enhanced visibility
-        to improve the performance and stability of your hybrid cloud
-        environments and system utilization. Powered by rule-based analytical
-        models, Insights analyzes your deployments and alerts you to potential
-        security, operations, and business risks based on Red Hat expertise and
-        industry best practices. Insights is included with a Red Hat
-        subscription.
-      </p>
-    ),
-    marketingVideo: 'https://www.youtube.com/embed/NKL2j1yXHTM',
-    marketingFigcaption: (
-      <span>
-        Red Hat® Summit 2021 provides a mix of innovation, collaboration, and
-        learning opportunities.{' '}
-        <a href="https://www.redhat.com/en/summit">Register or Login</a>
-      </span>
-    ),
-    customBlock: (
-      <CardFooter>
-        <Flex
-          direction={{ default: 'column' }}
-          spaceItems={{ default: 'spaceItemsLg' }}
-        >
-          <Flex
-            spaceItems={{
-              sm: 'spaceItemsLg',
-              lg: 'spaceItemsSm',
-              xl: 'spaceItemsLg',
-            }}
-            direction={{
-              default: 'column',
-              sm: 'row',
-              lg: 'column',
-              xl: 'row',
-            }}
-          >
-            <FlexItem>
-              <Button
-                className="ins-m-marketing"
-                variant="primary"
-                isLarge
-                onClick={() => window.insights.chrome.auth.login()}
-              >
-                {productGridLoginText}
-              </Button>
-            </FlexItem>
-            <FlexItem>
-              <Button
-                className="ins-m-marketing"
-                variant="secondary"
-                isLarge
-                href="https://www.redhat.com/en/technologies/management/insights"
-                component="a"
-              >
-                Learn more
-              </Button>
-            </FlexItem>
-          </Flex>
-          <FlexItem>
-            <Button
-              className="ins-m-marketing"
-              variant="link"
-              isInline
-              isLarge
-              href={`${window.location.href}security/insights`}
-              component="a"
-              icon={<ArrowRightIcon />}
-              iconPosition="right"
-            >
-              Data collection and controls
-            </Button>
-          </FlexItem>
-        </Flex>
-      </CardFooter>
-    ),
     name: 'insights',
     id: 'insights',
     url: 'insights',
@@ -376,13 +95,11 @@ export const activeTechnologies = [
         title: 'Not now',
       },
     },
-    body:
-      'Identify and remediate configuration issues in your Red Hat® environments.',
+    body: 'Identify and remediate configuration issues in your Red Hat® environments.',
   },
   {
     keyFeature: true,
-    icon:
-      'https://cloud.redhat.com/apps/frontend-assets/icons/icon__private-cloud.svg',
+    icon: 'https://cloud.redhat.com/apps/frontend-assets/icons/icon__private-cloud.svg',
     id: 'infrastructure',
     title: 'No infrastructure required',
     text: (
@@ -394,8 +111,7 @@ export const activeTechnologies = [
   },
   {
     keyFeature: true,
-    icon:
-      'https://cloud.redhat.com/apps/frontend-assets/icons/icon__update.svg',
+    icon: 'https://cloud.redhat.com/apps/frontend-assets/icons/icon__update.svg',
     id: 'continuous-upgrades',
     title: 'Continuous upgrades',
     text: (
@@ -407,8 +123,7 @@ export const activeTechnologies = [
   },
   {
     keyFeature: true,
-    icon:
-      'https://cloud.redhat.com/apps/frontend-assets/icons/icon__build-deploy.svg',
+    icon: 'https://cloud.redhat.com/apps/frontend-assets/icons/icon__build-deploy.svg',
     id: 'build-deploy',
     title: 'Build and deploy',
     text: (
@@ -429,8 +144,7 @@ export const activeTechnologies = [
   },
   {
     keyFeature: true,
-    icon:
-      'https://cloud.redhat.com/apps/frontend-assets/icons/icon__control-panel.svg',
+    icon: 'https://cloud.redhat.com/apps/frontend-assets/icons/icon__control-panel.svg',
     id: 'zero-install',
     title: 'Zero install',
     text: (
@@ -443,8 +157,7 @@ export const activeTechnologies = [
   },
   {
     keyFeature: true,
-    icon:
-      'https://cloud.redhat.com/apps/frontend-assets/icons/icon__hybrid-cloud.svg',
+    icon: 'https://cloud.redhat.com/apps/frontend-assets/icons/icon__hybrid-cloud.svg',
     id: 'open-hybrid-cloud',
     title: 'Decades of open hybrid cloud experience',
     text: (
@@ -457,8 +170,7 @@ export const activeTechnologies = [
   },
   {
     keyFeature: true,
-    icon:
-      'https://cloud.redhat.com/apps/frontend-assets/icons/icon__exp-up.svg',
+    icon: 'https://cloud.redhat.com/apps/frontend-assets/icons/icon__exp-up.svg',
     id: 'insights',
     title: 'Insights to action',
     text: (
@@ -472,8 +184,7 @@ export const activeTechnologies = [
   },
   {
     keyFeature: true,
-    icon:
-      'https://cloud.redhat.com/apps/frontend-assets/icons/icon__padlock.svg',
+    icon: 'https://cloud.redhat.com/apps/frontend-assets/icons/icon__padlock.svg',
     id: 'customers',
     title: 'Exclusively for Red Hat customers',
     text: (
@@ -486,8 +197,7 @@ export const activeTechnologies = [
   },
   {
     keyFeature: true,
-    icon:
-      'https://cloud.redhat.com/apps/frontend-assets/icons/icon__modernize.svg',
+    icon: 'https://cloud.redhat.com/apps/frontend-assets/icons/icon__modernize.svg',
     id: 'modernize',
     title: 'Modernize your application development',
     text: (
@@ -499,7 +209,6 @@ export const activeTechnologies = [
     ),
   },
   {
-    marketing: false,
     id: 'subscriptions',
     entitlement: 'subscriptions',
     url: 'subscriptions',
@@ -530,7 +239,6 @@ export const activeTechnologies = [
     },
   },
   {
-    marketing: false,
     id: 'sap',
     url: 'insights',
     baseApp: '/sap',
@@ -540,11 +248,9 @@ export const activeTechnologies = [
       dashboard: '/sap',
     },
     title: 'Insights for SAP',
-    body:
-      'Leverage Insights to manage, optimize and remediate risks to your SAP landscape.',
+    body: 'Leverage Insights to manage, optimize and remediate risks to your SAP landscape.',
   },
   {
-    marketing: false,
     id: 'Cost Management',
     url: 'cost-management',
     baseApp: '/',
@@ -569,8 +275,7 @@ export const activeTechnologies = [
       },
     },
     title: 'Cost Management',
-    body:
-      'Analyze, forecast and optimize your OpenShift cluster costs in hybrid cloud environments.',
+    body: 'Analyze, forecast and optimize your OpenShift cluster costs in hybrid cloud environments.',
   },
   {
     id: 'settings',

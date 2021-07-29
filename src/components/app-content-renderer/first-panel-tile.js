@@ -20,6 +20,12 @@ import { removeEstateTile } from '../../store/actions';
 import useRequest from './use-request';
 
 const FirstPanelTile = ({ id, ...tile }) => {
+  if (typeof tile.count === 'undefined' && typeof tile.url === 'undefined') {
+    console.error(
+      `Estate tile with id "${id}" does not contain "count" or "url" property! Tile will not be rendered.`
+    );
+    return null;
+  }
   const dispatch = useDispatch();
   // No count = no data, remove it from redux store and load next in line
   const onResponse = ({ count, show }) =>
@@ -69,12 +75,13 @@ const FirstPanelTile = ({ id, ...tile }) => {
 
 FirstPanelTile.propTypes = {
   id: PropTypes.string.isRequired,
+  count: PropTypes.string,
   shape: PropTypes.shape({
     title: PropTypes.string.isRequired,
     href: PropTypes.string,
     section: PropTypes.string,
   }).isRequired,
-  url: PropTypes.string.isRequired,
+  url: PropTypes.string,
 };
 
 export default FirstPanelTile;

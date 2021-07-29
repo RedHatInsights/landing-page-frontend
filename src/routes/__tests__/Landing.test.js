@@ -35,20 +35,22 @@ jest.mock('../../components/app-content-renderer/footer', () => ({
 }));
 
 jest.mock('../../consts', () => {
-  const { activeTechnologies, ...rest } = jest.requireActual('../../consts');
+  const consts = jest.requireActual('../../consts');
 
   return {
     __esModule: true,
-    ...rest,
+    ...consts,
     activeTechnologies: [
       {
-        ...activeTechnologies[0],
+        ...consts.activeTechnologies[0],
         // disable image because img with svg has some issues
         image: undefined,
       },
-      activeTechnologies.find(({ entitlement }) => entitlement === 'settings'),
+      consts.activeTechnologies.find(
+        ({ entitlement }) => entitlement === 'settings'
+      ),
       {
-        ...activeTechnologies.find(
+        ...consts.activeTechnologies.find(
           ({ entitlement }) => entitlement === 'migrations'
         ),
         image: undefined,
@@ -144,7 +146,7 @@ describe('Landing component renders authenticated page', () => {
     expect(loadDataSpy).toHaveBeenCalled();
     expect(addNotificationSpy).not.toHaveBeenCalled();
 
-    expect(wrapper.find(Loading)).toHaveLength(0);
+    expect(wrapper.find(Loading)).toHaveLength(1);
     expect(wrapper.find(FirstPanel)).toHaveLength(0);
     expect(wrapper.find(SecondPanel)).toHaveLength(0);
     expect(wrapper.find(Footer)).toHaveLength(0);

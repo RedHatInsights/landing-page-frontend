@@ -5,7 +5,10 @@ import { processRequest } from '../../contentApi/request-processor';
 const reducer = (state, payload) => ({ ...state, ...payload });
 
 const useRequest = (data, onResponse, onError) => {
-  const [state, setState] = useReducer(reducer, { loaded: false });
+  const [state, setState] = useReducer(reducer, {
+    loaded: typeof data.count === 'number',
+    count: data.count,
+  });
 
   useEffect(async () => {
     try {

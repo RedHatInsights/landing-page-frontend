@@ -27,8 +27,7 @@ const RECOMMENDATIONS_ITEMS = {
       },
       action: {
         title: 'View',
-        href:
-          './insights/advisor/recommendations?impacting=true&rule_status=enabled&sort=-publish_date&limit=10&offset=0&reports_shown=true&incident=true',
+        href: './insights/advisor/recommendations?impacting=true&rule_status=enabled&sort=-publish_date&limit=10&offset=0&reports_shown=true&incident=true',
       },
       permissions: [
         {
@@ -103,7 +102,6 @@ const ESTATE_CONFIG = [
       },
       {
         id: 'rhel-stale-systems',
-        title: 'Stale systems',
         accessor: 'total',
         condition: {
           when: 'total',
@@ -149,8 +147,8 @@ const ESTATE_CONFIG = [
 ];
 
 export const createRhelSchema = () => ({
-  firstPanel: ESTATE_CONFIG,
-  secondPanel: RECOMMENDATIONS_ITEMS,
+  estate: ESTATE_CONFIG,
+  recommendations: RECOMMENDATIONS_ITEMS,
   configTryLearn: {
     configure: [],
     try: [],
