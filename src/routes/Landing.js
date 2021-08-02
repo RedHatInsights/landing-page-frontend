@@ -28,7 +28,7 @@ import { loadData } from '../store/actions';
 import createContentData from '../contentApi/create-content-data';
 
 import { loadPermissions } from '../utils/allPermissions';
-import { useLocation } from 'react-router';
+import { useLocation } from 'react-router-dom';
 
 const init = (initialState, search) => {
   const params = search
