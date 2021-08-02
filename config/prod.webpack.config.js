@@ -4,13 +4,12 @@ const mutateConfig = require('./mutateConfig');
 const mutatePlugins = require('./mutatePlugins');
 const { config: webpackConfig, plugins } = config({
   rootFolder: resolve(__dirname, '../'),
-  skipChrome2: true,
   /**
    * We need to override the index template to only include APP and vendors chunk
    * Otherwise we may have multiple ReactDOM.render calls in one template
    */
   htmlPlugin: {
-    title: 'Home - cloud.redhat.com',
+    title: 'Home - console.redhat.com',
     filename: 'index.html',
     chunks: ['App', 'vendor'],
     template: resolve(__dirname, '../src/index.html'),

@@ -146,7 +146,7 @@ describe('Landing component renders authenticated page', () => {
     expect(loadDataSpy).toHaveBeenCalled();
     expect(addNotificationSpy).not.toHaveBeenCalled();
 
-    expect(wrapper.find(Loading)).toHaveLength(0);
+    expect(wrapper.find(Loading)).toHaveLength(1);
     expect(wrapper.find(FirstPanel)).toHaveLength(0);
     expect(wrapper.find(SecondPanel)).toHaveLength(0);
     expect(wrapper.find(Footer)).toHaveLength(0);
