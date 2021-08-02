@@ -52,6 +52,12 @@
   .carousel-content.show-4 > * {
     width: calc(100% / 4);
   }
+
+  .ins-c-carousel-indicator {
+    &.active {
+      background-color: red;
+    }
+  }
 }
 
 .ins-c-carousel-wrapper {
