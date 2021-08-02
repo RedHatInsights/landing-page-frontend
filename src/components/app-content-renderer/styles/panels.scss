@@ -31,8 +31,9 @@
     background-size: cover !important;
     padding: var(--pf-global--spacer--xl) var(--pf-global--spacer--lg) var(--pf-global--spacer--lg) var(--pf-global--spacer--lg);
     overflow-x: auto;
-    .pf-l-gallery {
+    .ins-c-carousel-container {
       .estate-group {
+        display: inline-block;
         a, a:hover {
           color: var(--pf-global--BackgroundColor--100);
           text-decoration: none;
