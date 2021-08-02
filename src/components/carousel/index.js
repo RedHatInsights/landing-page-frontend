@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import './carousel.scss';
 import classNames from 'classnames';
+import { AngleLeftIcon, AngleRightIcon } from '@patternfly/react-icons';
 
 const Carousel = ({ children, show }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -68,7 +69,7 @@ const Carousel = ({ children, show }) => {
         key={index}
         onClick={() => setCurrentIndex(index * show)}
       >
-        Slide number: {index}
+
       </button>
     ));
   return (
@@ -78,15 +79,15 @@ const Carousel = ({ children, show }) => {
         onTouchMove={handleTouchMove}
         onTouchStart={handleTouchStart}
       >
-        {/** Arrow left */}
-        {currentIndex > 0 && (
-          <button onClick={prev} className="ins-c-left-arrow">
-            &lt;
-          </button>
-        )}
+        
+        <button onClick={prev} className="ins-c-arrow">
+          {currentIndex > 0 && (
+            <AngleLeftIcon size="lg" />
+          )}
+        </button>
         <div className="ins-c-carousel-content-wrapper">
           <div
-            className={`carousel-content show-${show}`}
+            className={`ins-c-carousel-content show-${show}`}
             style={{
               transform: `translateX(-${currentIndex * (100 / show)}%)`,
               'grid-template-columns': `repeat(${children.length}, calc(100% / ${show}))`,
@@ -95,14 +96,13 @@ const Carousel = ({ children, show }) => {
             {children}
           </div>
         </div>
-        {/** Arrow right */}
-        {currentIndex < length - show && (
-          <button onClick={next} className="ins-c-right-arrow">
-            &gt;
-          </button>
-        )}
+        <button onClick={next} className="ins-c-arrow">
+          {currentIndex < length - show && (
+            <AngleRightIcon size="lg" />
+          )}
+        </button>
       </div>
-      <div>{pageMarkers()}</div>
+      <div className="ins-c-carousel-indicator-wrapper">{pageMarkers()}</div>
     </div>
   );
 };

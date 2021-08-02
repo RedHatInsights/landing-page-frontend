@@ -26,7 +26,7 @@
 
   .ins-l-first-panel {
     color: var(--pf-global--Color--light-100);
-    background: url(https://cloud.redhat.com/apps/frontend-assets/background-images/new-landing-page/estate_section_banner.svg);
+    background: url(https://console.redhat.com/apps/frontend-assets/background-images/new-landing-page/estate_section_banner.svg);
     background-color: var(--pf-global--BackgroundColor--dark-100);
     background-size: cover !important;
     padding: var(--pf-global--spacer--xl) var(--pf-global--spacer--lg) var(--pf-global--spacer--lg) var(--pf-global--spacer--lg);
@@ -34,6 +34,7 @@
     .ins-c-carousel-container {
       .estate-group {
         display: inline-block;
+        width: 160px;
         a, a:hover {
           color: var(--pf-global--BackgroundColor--100);
           text-decoration: none;
@@ -50,7 +51,7 @@
           border-left-width: 0;
           border-right-width: 0;
           border-top-width: var(--pf-global--BorderWidth--lg);
-          --pf-c-card--m-flat--BorderColor: var(--pf-global--primary-color--100);
+          --pf-c-card--m-flat--BorderColor: var(--pf-global--primary-color--light-100);
           --pf-c-card--BackgroundColor: #202326;
           width: 160px;
           &:hover {
