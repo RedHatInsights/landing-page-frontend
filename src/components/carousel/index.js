@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import './carousel.scss';
+import classNames from 'classnames';
 
 const Carousel = ({ children, show }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -9,6 +10,9 @@ const Carousel = ({ children, show }) => {
 
   useEffect(() => {
     setLength(children.length);
+    if (children.length > currentIndex - 1) {
+      setCurrentIndex(0);
+    }
   }, [children]);
 
   const next = () => {
@@ -55,6 +59,18 @@ const Carousel = ({ children, show }) => {
     setTouchPosition(null);
   };
 
+  const pageMarkers = () =>
+    [...Array(Math.floor(children.length / show))].map((_, index) => (
+      <button
+        className={classNames('ins-c-carousel-indicator', {
+          active: index * show === currentIndex,
+        })}
+        key={index}
+        onClick={() => setCurrentIndex(index * show)}
+      >
+        Slide number: {index}
+      </button>
+    ));
   return (
     <div className="ins-c-carousel-container">
       <div
@@ -86,6 +102,7 @@ const Carousel = ({ children, show }) => {
           </button>
         )}
       </div>
+      <div>{pageMarkers()}</div>
     </div>
   );
 };
