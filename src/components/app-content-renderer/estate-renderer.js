@@ -5,8 +5,7 @@ import Carousel from '../carousel';
 import FirstPanelTile from './first-panel-tile';
 
 const EstateRenderer = ({ sections = [] }) => (
-  /** Use the show prop to decide how items will be visible pre slide */
-  <Carousel show={3}>
+  <Carousel>
     {sections.map((tile) => (
       <FirstPanelTile {...tile} key={tile.id} />
     ))}
