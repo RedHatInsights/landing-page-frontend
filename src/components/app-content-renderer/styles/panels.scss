@@ -29,7 +29,7 @@
     background: url(https://console.redhat.com/apps/frontend-assets/background-images/new-landing-page/estate_section_banner.svg);
     background-color: var(--pf-global--BackgroundColor--dark-100);
     background-size: cover !important;
-    padding: var(--pf-global--spacer--xl) var(--pf-global--spacer--lg) var(--pf-global--spacer--lg) var(--pf-global--spacer--lg);
+    padding: var(--pf-global--spacer--xl) var(--pf-global--spacer--lg) var(--pf-global--spacer--xl) var(--pf-global--spacer--lg);
     overflow-x: auto;
     .ins-c-carousel-container {
       .estate-group {
@@ -59,6 +59,11 @@
           }
         }
       }
+    }
+  }
+  @media screen and (max-width: $pf-global--breakpoint--sm) {
+    .ins-l-first-panel {
+      padding: var(--pf-global--spacer--xl) 0 var(--pf-global--spacer--xl) 0;
     }
   }
 

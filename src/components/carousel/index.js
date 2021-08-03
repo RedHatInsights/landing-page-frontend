@@ -123,9 +123,11 @@ const Carousel = ({ children }) => {
         onTouchMove={handleTouchMove}
         onTouchStart={handleTouchStart}
       >
-        <button onClick={prev} className="ins-c-arrow">
-          {currentPage > 0 && <AngleLeftIcon size="lg" />}
-        </button>
+        {currentPage > 0 && (
+          <button onClick={prev} className="ins-c-arrow">
+            <AngleLeftIcon size="lg" />
+          </button>
+        )}
         <div className="ins-c-carousel-content-wrapper">
           <div
             ref={contentRef}
@@ -138,11 +140,15 @@ const Carousel = ({ children }) => {
             {children}
           </div>
         </div>
-        <button onClick={next} className="ins-c-arrow">
-          {currentPage < maxPages - 1 && <AngleRightIcon size="lg" />}
-        </button>
+        {currentPage < maxPages - 1 && (
+          <button onClick={next} className="ins-c-arrow">
+            <AngleRightIcon size="lg" />
+          </button>
+        )}
       </div>
-      <div className="ins-c-carousel-indicator-wrapper">{pageMarkers}</div>
+      {maxPages > 1 && (
+        <div className="ins-c-carousel-indicator-wrapper">{pageMarkers}</div>
+      )}
     </div>
   );
 };
