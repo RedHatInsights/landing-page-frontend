@@ -124,49 +124,6 @@
     }
   }
 
-  .ins-l-second-panel {
-    background-color: var(--pf-global--BackgroundColor--100);
-    color: var(--pf-global--Color--100);
-    padding: var(--pf-global--spacer--xl) var(--pf-global--spacer--lg) var(--pf-global--spacer--lg) var(--pf-global--spacer--lg);
-   
-    .ins-c-recommendation__container {
-      max-width: 1210px;
-      column-count: 2;
-      column-gap: var(--pf-global--spacer--2xl);
-      overflow: hidden; // prevents padding from spilling into next column
-      break-inside: avoid-column; // prevents padding from spilling into next column
-
-      .recommendation-section {
-        break-inside: avoid-column;
-        flex-wrap: nowrap;
-        &:last-child {
-          padding-bottom: var(--pf-global--spacer--lg);
-        }
-      }
-
-      .recommendation-group {
-        flex-wrap: nowrap;
-        overflow: hidden;
-        break-inside: avoid-column;
-        margin-bottom: var(--pf-global--spacer--md);
-        width: 100%;
-        p {
-          font-size: var(--pf-global--FontSize--sm);
-          font-weight:  300;
-        }
-        a {
-          width: 110px;
-        }
-      }
-    }
-
-    @media only screen and (max-width: $pf-global--breakpoint--lg) {
-      .ins-c-recommendation__container {
-        column-count: 1;
-      }
-    }
-  }
-
   .ins-l-third--panel-wrapper {
     background-color: var(--pf-global--Color--light-200);
     .ins-l-third--panel {

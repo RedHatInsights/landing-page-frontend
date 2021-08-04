@@ -1,0 +1,11 @@
+.ins-c-accordion {
+  &.highlight {
+    background-color: var(--pf-global--palette--blue-50);
+    border-color: var(--pf-global--palette--blue-50);
+  }
+
+  &.empty {
+    background-color: var(--pf-global--palette--black-200);
+    border-color: var(--pf-global--palette--black-200);
+  }
+}
