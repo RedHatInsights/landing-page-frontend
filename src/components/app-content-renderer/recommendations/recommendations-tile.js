@@ -1,15 +1,17 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Card, CardBody, Title } from '@patternfly/react-core';
+import { Card, CardBody, CardHeader, Text } from '@patternfly/react-core';
 import RecommendationEntry from './recommendation-entry';
 
 const RhelTile = ({ category, items }) => {
   return (
-    <Card isFlat>
-      <CardBody>
-        <Title headingLevel="h3" size="md" className="pf-u-mb-md">
+    <Card className="ins-c-recommendations-card" isFlat>
+      <CardHeader className="ins-c-recommendations-card__header">
+        <Text component="p">
           Recommendations
-        </Title>
+        </Text>
+      </CardHeader>
+      <CardBody className="ins-c-recommendations-card__body">
         {items.map((item) => (
           <RecommendationEntry key={item.id} category={category} {...item} />
         ))}

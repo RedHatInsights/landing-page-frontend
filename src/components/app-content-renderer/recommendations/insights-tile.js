@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import {
   Card,
   CardBody,
+  CardHeader,
   Stack,
   StackItem,
   Text,
@@ -12,19 +13,21 @@ import {
 import CategoryAccordion from './category-accordion';
 
 const InsightsTile = ({ rhel, openshift, ansible }) => (
-  <Card isFlat>
-    <CardBody>
-      <Title headingLevel="h3" size="md" className="pf-u-mb-md">
-        Red Hat Insights
-      </Title>
-      <TextContent className="pf-u-mb-md">
-        <Text>
+  <Card className="ins-c-insights-card" isFlat>
+    <CardHeader className="ins-c-insights-card__header">
+      <TextContent>
+        <Text component="p">
+          Red Hat Insights
+        </Text>
+        <Text component="p" className="subtitle">
           Gain increased visibility into your hybrid cloud deployments so you
           can improve performance and increase security.&nbsp;
           {/* Where does the link bellow leads? */}
           <a href="#">Learn more.</a>
         </Text>
       </TextContent>
+    </CardHeader>
+    <CardBody className="ins-c-insights-card__body">
       <Stack hasGutter>
         <StackItem>
           <CategoryAccordion {...rhel} title="RHEL" />

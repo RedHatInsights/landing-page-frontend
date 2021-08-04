@@ -124,6 +124,42 @@
     }
   }
 
+  .ins-l-second--panel-wrapper {
+    max-width: 1210px;
+    .ins-c-recommendations-card__header,
+    .ins-c-insights-card__header {
+      p {
+        font-size: var(--pf-global--FontSize--md);
+        font-weight: var(--pf-global--FontWeight--semi-bold);
+        &.subtitle {
+          font-weight: var(--pf-global--FontWeight--normal);
+        }
+      }
+    }
+    .ins-c-recommendations-card {
+      height: 500px;
+      &__body {
+        margin-right: var(--pf-global--spacer--lg);
+        margin-bottom: var(--pf-global--spacer--lg);
+        padding-right: var(--pf-global--spacer--lg);
+        overflow: auto;
+      }
+    }
+    .ins-c-insights-card {
+      height: 500px;
+      overflow: hidden;
+      &__body {
+        margin-bottom: var(--pf-global--spacer--lg);
+      }
+    }
+    @media screen and (max-width: $pf-global--breakpoint--md) {
+      .ins-c-recommendations-card,
+      .ins-c-insights-card {
+        height: 100%;
+      }
+    }
+  }
+
   .ins-l-third--panel-wrapper {
     background-color: var(--pf-global--Color--light-200);
     .ins-l-third--panel {

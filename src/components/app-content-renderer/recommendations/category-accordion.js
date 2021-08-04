@@ -10,6 +10,7 @@ import {
   EmptyStateIcon,
   Split,
   SplitItem,
+  Text,
   Title,
 } from '@patternfly/react-core';
 import AngleDownIcon from '@patternfly/react-icons/dist/js/icons/angle-down-icon';
@@ -26,7 +27,7 @@ const AccordionHeader = ({ isOpen, title, count, setIsOpen, link }) => (
     <SplitItem isFilled>
       <Split hasGutter>
         <SplitItem>
-          <Title headingLevel="h3" size="md">
+          <Title headingLevel="h3" size="lg">
             {title}
           </Title>
         </SplitItem>
@@ -90,13 +91,15 @@ const OpenedContent = ({
       opened: isOpen,
     })}
   >
-    <CardBody className="pf-u-pr-0">
+    <CardBody className="ins-c-accordion__header pf-u-pr-0">
       <AccordionHeader
         setIsOpen={setIsOpen}
         title={title}
         count={items.length}
         isOpen={isOpen}
       />
+    </CardBody>
+    <CardBody className="ins-c-accordion__body">
       {isOpen && items.length === 0 && (
         <EmptyContent contentText={emptyStateContentText} />
       )}
@@ -109,6 +112,7 @@ const OpenedContent = ({
           <RecommendationEntry key={item.id} category={category} {...item} />
         ))}
       </div>
+
     </CardBody>
   </Card>
 );
