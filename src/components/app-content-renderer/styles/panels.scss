@@ -68,7 +68,7 @@
   }
 
   .ins-l-second--panel-wrapper {
-    max-width: 1210px;
+    max-width: calc(var(--pf-c-page--section--m-limit-width--MaxWidth) * .8);
     .ins-c-recommendations-card__header,
     .ins-c-insights-card__header {
       p {
@@ -80,7 +80,7 @@
       }
     }
     .ins-c-recommendations-card {
-      height: 500px;
+      height: 550px;
       &__body {
         margin-right: var(--pf-global--spacer--lg);
         margin-bottom: var(--pf-global--spacer--lg);
@@ -89,7 +89,7 @@
       }
     }
     .ins-c-insights-card {
-      height: 500px;
+      height: 550px;
       overflow: hidden;
       &__body {
         padding-bottom: var(--pf-global--spacer--0);
@@ -103,15 +103,15 @@
     }
   }
 
-  .ins-l-third--panel-wrapper {
-    .ins-l-third--panel {
+  .ins-c-ctl-card {
+    max-width: calc(var(--pf-c-page--section--m-limit-width--MaxWidth) * .8);
+    &__body {
       color: var(--pf-global--Color--100);
       display: grid;
       grid-template-columns: [config] 1fr [try] 1fr [learn] 1fr;
       grid-template-rows: [start] 1fr;
       row-gap: var(--pf-global--spacer--xs);
       column-gap: var(--pf-global--spacer--xl);
-      max-width: 1210px;
       .ins-c-grid__config {
         grid-column-start: config;
       }

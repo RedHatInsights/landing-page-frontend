@@ -90,7 +90,7 @@ const OpenedContent = ({
       opened: isOpen,
     })}
   >
-    <CardBody className="ins-c-accordion__header pf-u-pr-0">
+    <CardBody className="ins-c-accordion__header">
       <AccordionHeader
         setIsOpen={setIsOpen}
         title={title}
