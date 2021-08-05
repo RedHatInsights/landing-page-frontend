@@ -7,9 +7,7 @@ const RhelTile = ({ category, items }) => {
   return (
     <Card className="ins-c-recommendations-card" isFlat>
       <CardHeader className="ins-c-recommendations-card__header">
-        <Text component="p">
-          Recommendations
-        </Text>
+        <Text component="p">Recommendations</Text>
       </CardHeader>
       <CardBody className="ins-c-recommendations-card__body">
         {items.map((item) => (
