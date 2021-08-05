@@ -22,7 +22,7 @@
     overflow: auto;
     padding: 0;
     .pf-l-split {
-      padding: var(--pf-global--spacer--lg);
+      padding: 0 var(--pf-global--spacer--lg) 0 var(--pf-global--spacer--lg);
       overflow: auto;
     }
   }
