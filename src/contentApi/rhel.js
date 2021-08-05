@@ -26,7 +26,10 @@ const RECOMMENDATIONS_ITEMS = {
         isNot: 0,
       },
       action: {
-        title: 'View',
+        title: {
+          id: 'rhel-incidents-action-text',
+          defaultMessage: 'View {count} incidents',
+        },
         href: './insights/advisor/recommendations?impacting=true&rule_status=enabled&sort=-publish_date&limit=10&offset=0&reports_shown=true&incident=true',
       },
       permissions: [
@@ -52,10 +55,9 @@ const RECOMMENDATIONS_ITEMS = {
     {
       id: 'rhel-5',
       icon: 'cog',
-      title:
-        'Create a remediation playbook to fix issues identified by Insights on your systems.',
+      title: 'Fix issues identified by Insights on your systems.',
       action: {
-        title: 'Create',
+        title: 'Create a remediation playbook',
         href: remediations,
       },
     },
@@ -65,9 +67,9 @@ const RECOMMENDATIONS_ITEMS = {
       state: 'success',
       condition: { when: 'total', is: 0 },
       id: 'rhel-6',
-      title: 'Get Insights for your systems',
+      title: 'Proactively reduce risk and optimize spending.',
       action: {
-        title: 'Register',
+        title: 'Get Insights for your systems',
         href: registerLink,
       },
     },

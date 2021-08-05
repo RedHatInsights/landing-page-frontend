@@ -98,10 +98,9 @@ const openshift = [
       when: 'meta.count',
       is: 0,
     },
-    title:
-      'Gain Business Insights for your OpenShift Clusters. Install the Cost Operator on your OpenShift cluster to get started.',
+    title: 'Gain Business Insights for your OpenShift Clusters.',
     action: {
-      title: 'Learn more',
+      title: 'Install the Cost Operator on your OpenShift cluster',
       external: true,
       href: installCostOperator,
     },
