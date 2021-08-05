@@ -24,7 +24,7 @@ const RECOMMENDATIONS_ITEMS = {
       id: 'managed-services-1',
       icon: 'lightbulb',
       state: 'info',
-      title: 'Learn how to create and use a Kafka instance.',
+      description: 'Learn how to create and use a Kafka instance.',
       action: {
         title: 'Get started with RHOSAK',
         href: `${streamsPrefix}application-services/streams/resources?quickstart=getting-started`,
@@ -33,7 +33,7 @@ const RECOMMENDATIONS_ITEMS = {
     {
       id: 'managed-services-2',
       icon: 'download',
-      title: 'Get started using your managed Kafka instances.',
+      description: 'Get started using your managed Kafka instances.',
       action: {
         title: 'Download and install the Application Services CLI',
         external: true,
@@ -43,7 +43,7 @@ const RECOMMENDATIONS_ITEMS = {
     {
       id: 'managed-services-3',
       icon: 'lightbulb',
-      title:
+      description:
         'Learn how to connect to your Kafka instance from a Quarkus application.',
       action: {
         title: 'Get started with Quarkus apps and Streams for Apache Kafka',
@@ -54,7 +54,7 @@ const RECOMMENDATIONS_ITEMS = {
       id: 'managed-services-4',
       icon: 'play',
       state: 'success',
-      title:
+      description:
         'Deploy, monitor, and control APIs throughout their entire life cycle.',
       action: {
         title: 'Try Red Hat OpenShift API Management',
@@ -66,7 +66,8 @@ const RECOMMENDATIONS_ITEMS = {
       id: 'managed-services-5',
       icon: 'play',
       state: 'success',
-      title: 'Deploy, monitor, and control APIs throughout their entire life cycle.',
+      description:
+        'Deploy, monitor, and control APIs throughout their entire life cycle.',
       action: {
         title: 'Get started with Red Hat OpenShift API Management',
         external: true,

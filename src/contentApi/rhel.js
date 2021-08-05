@@ -15,7 +15,7 @@ const RECOMMENDATIONS_ITEMS = {
       icon: 'error',
       state: 'error',
       url: '/api/insights/v1/rule/?impacting=true&limit=1&incident=true',
-      title: {
+      description: {
         id: 'rhen-incidents-recommendation',
         defaultMessage:
           'Insights has identified {count} incidents affecting your systems.',

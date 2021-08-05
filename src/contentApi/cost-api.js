@@ -98,7 +98,7 @@ const openshift = [
       when: 'meta.count',
       is: 0,
     },
-    title: 'Gain Business Insights for your OpenShift Clusters.',
+    description: 'Gain Business Insights for your OpenShift Clusters.',
     action: {
       title: 'Install the Cost Operator on your OpenShift cluster',
       external: true,

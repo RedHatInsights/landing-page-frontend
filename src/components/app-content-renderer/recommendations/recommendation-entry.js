@@ -19,7 +19,7 @@ import iconMapper from '../../../utils/icon-mapper';
 import { removeRecommendationTile } from '../../../store/actions';
 
 const RecommendationEntry = (props) => {
-  const { id, category, icon, state, title, action } = props;
+  const { id, category, icon, state, description, action } = props;
   const intl = useIntl();
   const dispatch = useDispatch();
   const removeTile = ({ show }) =>
@@ -67,7 +67,9 @@ const RecommendationEntry = (props) => {
             </a>
           </StackItem>
           <StackItem>
-            <TextContent>{title && <Text>{text(title)}</Text>}</TextContent>
+            <TextContent>
+              {description && <Text>{text(description)}</Text>}
+            </TextContent>
           </StackItem>
         </Stack>
       </SplitItem>
@@ -91,7 +93,8 @@ RecommendationEntry.propTypes = {
     'download',
   ]),
   state: PropTypes.oneOf(['error', 'warning', 'info', 'success']),
-  title: PropTypes.string.isRequired,
+  description: PropTypes.oneOfType([PropTypes.string, PropTypes.object])
+    .isRequired,
   action: PropTypes.shape({
     external: PropTypes.bool,
     title: PropTypes.oneOfType([PropTypes.string, PropTypes.object]).isRequired,
