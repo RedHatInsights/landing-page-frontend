@@ -86,7 +86,13 @@ TileItem.propTypes = {
   ),
 };
 
-const ConfigTryLearnTile = ({ title, column, items, sectionName }) => {
+const ConfigTryLearnTile = ({
+  title,
+  isExpanded,
+  column,
+  items,
+  sectionName,
+}) => {
   const [tiles, setTiles] = useState([]);
 
   useEffect(async () => {
@@ -123,7 +129,7 @@ const ConfigTryLearnTile = ({ title, column, items, sectionName }) => {
           </FlexItem>
         </Flex>
       )}
-      {tiles.map((item, index) => (
+      {tiles.slice(0, isExpanded ? -1 : 2).map((item, index) => (
         <div
           className={column}
           style={{ gridRow: index + 2 }}
@@ -141,6 +147,7 @@ ConfigTryLearnTile.propTypes = {
   items: PropTypes.arrayOf(PropTypes.shape(TileItem.propTypes)),
   column: PropTypes.string.isRequired,
   sectionName: PropTypes.oneOf(['config', 'try', 'learn']).isRequired,
+  isExpanded: PropTypes.bool,
 };
 
 ConfigTryLearnTile.defaultProps = {
