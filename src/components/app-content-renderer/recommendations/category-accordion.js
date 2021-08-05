@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import {
   Badge,
@@ -10,7 +10,6 @@ import {
   EmptyStateIcon,
   Split,
   SplitItem,
-  Text,
   Title,
 } from '@patternfly/react-core';
 import AngleDownIcon from '@patternfly/react-icons/dist/js/icons/angle-down-icon';
@@ -112,7 +111,6 @@ const OpenedContent = ({
           <RecommendationEntry key={item.id} category={category} {...item} />
         ))}
       </div>
-
     </CardBody>
   </Card>
 );
@@ -127,9 +125,14 @@ OpenedContent.propTypes = {
   emptyStateContentText: PropTypes.string.isRequired,
 };
 
-const CategoryAccordion = ({ title, items, linkTitle, category }) => {
-  const [isOpen, setIsOpen] = useState(false);
-
+const CategoryAccordion = ({
+  isOpen,
+  setIsOpen,
+  title,
+  items,
+  linkTitle,
+  category,
+}) => {
   return (
     <OpenedContent
       setIsOpen={() => setIsOpen((prev) => !prev)}
@@ -148,6 +151,8 @@ const CategoryAccordion = ({ title, items, linkTitle, category }) => {
 };
 
 CategoryAccordion.propTypes = {
+  isOpen: PropTypes.bool,
+  setIsOpen: PropTypes.func.isRequired,
   title: PropTypes.string.isFilled,
   items: PropTypes.arrayOf(PropTypes.object).isRequired,
   linkTitle: PropTypes.string,
