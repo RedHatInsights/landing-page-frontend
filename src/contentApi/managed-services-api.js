@@ -24,18 +24,18 @@ const RECOMMENDATIONS_ITEMS = {
       id: 'managed-services-1',
       icon: 'lightbulb',
       state: 'info',
-      title: 'Learn how to create and use a Kafka instance.',
+      description: 'Learn how to create and use a Kafka instance.',
       action: {
-        title: 'View',
+        title: 'Get started with RHOSAK',
         href: `${streamsPrefix}application-services/streams/resources?quickstart=getting-started`,
       },
     },
     {
       id: 'managed-services-2',
       icon: 'download',
-      title: 'Download and install the Application Services CLI.',
+      description: 'Get started using your managed Kafka instances.',
       action: {
-        title: 'View',
+        title: 'Download and install the Application Services CLI',
         external: true,
         href: 'https://access.redhat.com/documentation/en-us/red_hat_openshift_streams_for_apache_kafka/1/guide/f520e427-cad2-40ce-823d-96234ccbc047',
       },
@@ -43,10 +43,10 @@ const RECOMMENDATIONS_ITEMS = {
     {
       id: 'managed-services-3',
       icon: 'lightbulb',
-      title:
+      description:
         'Learn how to connect to your Kafka instance from a Quarkus application.',
       action: {
-        title: 'View',
+        title: 'Get started with Quarkus apps and Streams for Apache Kafka',
         href: `${streamsPrefix}application-services/streams/resources?quickstart=quarkus`,
       },
     },
@@ -54,9 +54,10 @@ const RECOMMENDATIONS_ITEMS = {
       id: 'managed-services-4',
       icon: 'play',
       state: 'success',
-      title: 'Try Red Hat OpenShift API Management.',
+      description:
+        'Deploy, monitor, and control APIs throughout their entire life cycle.',
       action: {
-        title: 'Learn more',
+        title: 'Try Red Hat OpenShift API Management',
         external: true,
         href: 'https://www.redhat.com/en/technologies/cloud-computing/openshift/openshift-api-management',
       },
@@ -65,9 +66,10 @@ const RECOMMENDATIONS_ITEMS = {
       id: 'managed-services-5',
       icon: 'play',
       state: 'success',
-      title: 'Get started with Red Hat OpenShift API Management.',
+      description:
+        'Deploy, monitor, and control APIs throughout their entire life cycle.',
       action: {
-        title: 'Learn more',
+        title: 'Get started with Red Hat OpenShift API Management',
         external: true,
         href: 'https://access.redhat.com/documentation/en-us/red_hat_openshift_api_management/1/guide/53dfb804-2038-4545-b917-2cb01a09ef98',
       },

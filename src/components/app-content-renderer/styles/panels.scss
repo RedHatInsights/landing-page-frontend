@@ -67,45 +67,38 @@
     }
   }
 
-  .ins-l-second-panel {
-    background-color: var(--pf-global--BackgroundColor--100);
-    color: var(--pf-global--Color--100);
-    padding: var(--pf-global--spacer--xl) var(--pf-global--spacer--lg) var(--pf-global--spacer--lg) var(--pf-global--spacer--lg);
-   
-    .ins-c-recommendation__container {
-      max-width: 1210px;
-      column-count: 2;
-      column-gap: var(--pf-global--spacer--2xl);
-      overflow: hidden; // prevents padding from spilling into next column
-      break-inside: avoid-column; // prevents padding from spilling into next column
-
-      .recommendation-section {
-        break-inside: avoid-column;
-        flex-wrap: nowrap;
-        &:last-child {
-          padding-bottom: var(--pf-global--spacer--lg);
-        }
-      }
-
-      .recommendation-group {
-        flex-wrap: nowrap;
-        overflow: hidden;
-        break-inside: avoid-column;
-        margin-bottom: var(--pf-global--spacer--md);
-        width: 100%;
-        p {
-          font-size: var(--pf-global--FontSize--sm);
-          font-weight:  300;
-        }
-        a {
-          width: 110px;
+  .ins-l-second--panel-wrapper {
+    max-width: 1210px;
+    .ins-c-recommendations-card__header,
+    .ins-c-insights-card__header {
+      p {
+        font-size: var(--pf-global--FontSize--md);
+        font-weight: var(--pf-global--FontWeight--semi-bold);
+        &.subtitle {
+          font-weight: var(--pf-global--FontWeight--normal);
         }
       }
     }
-
-    @media only screen and (max-width: $pf-global--breakpoint--lg) {
-      .ins-c-recommendation__container {
-        column-count: 1;
+    .ins-c-recommendations-card {
+      height: 500px;
+      &__body {
+        margin-right: var(--pf-global--spacer--lg);
+        margin-bottom: var(--pf-global--spacer--lg);
+        padding-right: var(--pf-global--spacer--lg);
+        overflow: auto;
+      }
+    }
+    .ins-c-insights-card {
+      height: 500px;
+      overflow: hidden;
+      &__body {
+        padding-bottom: var(--pf-global--spacer--0);
+      }
+    }
+    @media screen and (max-width: $pf-global--breakpoint--md) {
+      .ins-c-recommendations-card,
+      .ins-c-insights-card {
+        height: 100%;
       }
     }
   }

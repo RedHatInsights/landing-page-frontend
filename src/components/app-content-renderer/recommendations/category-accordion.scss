@@ -1,0 +1,29 @@
+.ins-c-accordion {
+  &.highlight {
+    background-color: var(--pf-global--palette--blue-50);
+    border-color: var(--pf-global--palette--blue-50);
+  }
+
+  &.empty {
+    background-color: var(--pf-global--palette--black-200);
+    border-color: var(--pf-global--palette--black-200);
+    overflow: auto;
+  }
+
+  &:not(.opened) {
+    flex: 1 1 auto;
+  }
+
+  &__header {
+    padding: var(--pf-global--spacer--sm) var(--pf-global--spacer--lg) 0 var(--pf-global--spacer--lg);
+  }
+
+  &__body {
+    overflow: auto;
+    padding: 0;
+    .pf-l-split {
+      padding: 0 var(--pf-global--spacer--lg) 0 var(--pf-global--spacer--lg);
+      overflow: auto;
+    }
+  }
+}

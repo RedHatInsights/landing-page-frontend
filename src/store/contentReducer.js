@@ -43,9 +43,13 @@ export function removeRecommendationTile(
 ) {
   return {
     ...state,
-    recommendations: state.recommendations.map((group) =>
-      group.id === category ? removeTileFromSections(group, tileId) : group
-    ),
+    recommendations: {
+      ...state.recommendations,
+      [category]: removeTileFromSections(
+        state.recommendations[category],
+        tileId
+      ),
+    },
   };
 }
 
