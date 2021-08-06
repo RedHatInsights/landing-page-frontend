@@ -4,8 +4,6 @@ import {
   Card,
   CardBody,
   CardHeader,
-  Stack,
-  StackItem,
   Text,
   TextContent,
 } from '@patternfly/react-core';
@@ -29,32 +27,24 @@ const InsightsTile = ({ rhel, openshift, ansible }) => {
         </TextContent>
       </CardHeader>
       <CardBody className="ins-c-insights-card__body">
-        <Stack hasGutter>
-          <StackItem>
-            <CategoryAccordion
-              {...rhel}
-              isOpen={isOpen === 'rhel'}
-              setIsOpen={() => handleIsOpen('rhel')}
-              title="RHEL"
-            />
-          </StackItem>
-          <StackItem>
-            <CategoryAccordion
-              {...openshift}
-              isOpen={isOpen === 'openshift'}
-              setIsOpen={() => handleIsOpen('openshift')}
-              title="OpenShift"
-            />
-          </StackItem>
-          <StackItem>
-            <CategoryAccordion
-              {...ansible}
-              isOpen={isOpen === 'ansible'}
-              setIsOpen={() => handleIsOpen('ansible')}
-              title="Ansible"
-            />
-          </StackItem>
-        </Stack>
+        <CategoryAccordion
+          {...rhel}
+          isOpen={isOpen === 'rhel'}
+          setIsOpen={() => handleIsOpen('rhel')}
+          title="RHEL"
+        />
+        <CategoryAccordion
+          {...openshift}
+          isOpen={isOpen === 'openshift'}
+          setIsOpen={() => handleIsOpen('openshift')}
+          title="OpenShift"
+        />
+        <CategoryAccordion
+          {...ansible}
+          isOpen={isOpen === 'ansible'}
+          setIsOpen={() => handleIsOpen('ansible')}
+          title="Ansible"
+        />
       </CardBody>
     </Card>
   );

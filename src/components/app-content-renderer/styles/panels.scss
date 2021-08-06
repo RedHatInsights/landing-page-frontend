@@ -105,7 +105,16 @@
 
   .ins-c-ctl-card {
     max-width: calc(var(--pf-c-page--section--m-limit-width--MaxWidth) * .8);
+    &__footer {
+      box-shadow: var(--pf-global--BoxShadow--md);
+      padding-top: var(--pf-global--spacer--md);
+    }
     &__body {
+      background:
+      url(https://console.redhat.com/apps/frontend-assets/background-images/new-landing-page/ctl_gear_half.svg),
+      url(https://console.redhat.com/apps/frontend-assets/background-images/new-landing-page/ctl_lightbulb_half.svg);
+      background-position: left top, right top;
+      background-repeat: no-repeat, no-repeat;
       color: var(--pf-global--Color--100);
       display: grid;
       grid-template-columns: [config] 1fr [try] 1fr [learn] 1fr;
@@ -124,9 +133,13 @@
       .section-header > div {
         margin: 0 var(--pf-global--spacer--sm) auto 0;
       }
-      .tile {
-        .pf-c-title, p {
-          font-size: var(--pf-global--FontSize--sm);
+      .ins-c-ctl-tile {
+        &__title {
+          font-size: var(--pf-global--FontSize--md);
+          font-weight: var(--pf-global--FontWeight--semi-bold);
+        }
+        &__description {
+          color: var(--pf-global--Color--200);
         }
       }
       @media screen and (max-width: $pf-global--breakpoint--xl) {

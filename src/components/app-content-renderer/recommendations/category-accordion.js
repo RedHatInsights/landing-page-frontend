@@ -84,7 +84,7 @@ const OpenedContent = ({
 }) => (
   <Card
     isFlat
-    className={classNames('ins-c-accordion', {
+    className={classNames('ins-c-accordion pf-u-mb-md', {
       highlight: !isOpen && items.length > 0,
       empty: !isOpen && items.length === 0,
       opened: isOpen,

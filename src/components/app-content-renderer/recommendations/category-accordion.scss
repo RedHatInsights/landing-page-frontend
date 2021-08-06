@@ -1,3 +1,4 @@
+/* stylelint-disable no-descending-specificity */
 .ins-c-accordion {
   &.highlight {
     background-color: var(--pf-global--palette--blue-50);
@@ -14,16 +15,23 @@
     flex: 1 1 auto;
   }
 
+  &.opened {
+    .ins-c-accordion__body {
+      height: 200px;
+      margin-bottom: var(--pf-global--spacer--lg);
+      margin-right: var(--pf-global--spacer--lg);
+      overflow: scroll;
+    }
+  }
+
   &__header {
     padding: var(--pf-global--spacer--sm) var(--pf-global--spacer--lg) 0 var(--pf-global--spacer--lg);
   }
 
   &__body {
-    overflow: auto;
     padding: 0;
     .pf-l-split {
       padding: 0 var(--pf-global--spacer--lg) 0 var(--pf-global--spacer--lg);
-      overflow: auto;
     }
   }
 }
