@@ -13,7 +13,10 @@ const RecommendationsPanel = () => {
   const { recs, ...insights } = recommendations;
 
   return (
-    <Grid hasGutter className="ins-l-second--panel-wrapper pf-u-p-lg">
+    <Grid
+      hasGutter
+      className="ins-l-second--panel-wrapper pf-u-mx-lg pf-u-mt-lg"
+    >
       <GridItem sm={12} md={6}>
         <RecommendationsTile {...recs} />
       </GridItem>
