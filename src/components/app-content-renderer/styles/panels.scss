@@ -99,16 +99,18 @@
     }
   }
   .ins-c-ctl-card {
+    background:
+    url(https://console.redhat.com/apps/frontend-assets/background-images/new-landing-page/ctl_gear_half.svg),
+    url(https://console.redhat.com/apps/frontend-assets/background-images/new-landing-page/ctl_lightbulb_half.svg);
+    background-color: var(--pf-global--BackgroundColor--100);
+    background-position: left top, right top;
+    background-repeat: no-repeat, no-repeat;
     &__footer {
+      background-color:rgba(255, 255, 255, 0.5);
       box-shadow: var(--pf-global--BoxShadow--md);
       padding-top: var(--pf-global--spacer--md);
     }
     &__body {
-      background:
-      url(https://console.redhat.com/apps/frontend-assets/background-images/new-landing-page/ctl_gear_half.svg),
-      url(https://console.redhat.com/apps/frontend-assets/background-images/new-landing-page/ctl_lightbulb_half.svg);
-      background-position: left top, right top;
-      background-repeat: no-repeat, no-repeat;
       color: var(--pf-global--Color--100);
       display: grid;
       grid-template-columns: [config] 1fr [try] 1fr [learn] 1fr;
