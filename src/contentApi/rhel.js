@@ -55,7 +55,7 @@ const RECOMMENDATIONS_ITEMS = {
     {
       id: 'rhel-5',
       icon: 'cog',
-      title: 'Fix issues identified by Insights on your systems.',
+      description: 'Fix issues identified by Insights on your systems.',
       action: {
         title: 'Create a remediation playbook',
         href: remediations,
