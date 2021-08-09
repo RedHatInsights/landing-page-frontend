@@ -36,7 +36,11 @@ const RecommendationEntry = (props) => {
   const GroupIcon = iconMapper[icon] || QuestionCircleIcon;
 
   if (!loaded) {
-    return <Skeleton className="pf-u-mb-md" size="lg" />;
+    return (
+      <div className="pf-u-p-md">
+        <Skeleton className="pf-u-mb-md" size="lg" />
+      </div>
+    );
   }
   return (
     <Split hasGutter className="pf-u-mb-md">
