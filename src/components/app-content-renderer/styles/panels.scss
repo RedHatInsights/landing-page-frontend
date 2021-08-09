@@ -66,45 +66,39 @@
       padding: var(--pf-global--spacer--xl) 0 var(--pf-global--spacer--xl) 0;
     }
   }
-
-  .ins-l-second--panel-wrapper {
-    max-width: calc(var(--pf-c-page--section--m-limit-width--MaxWidth) * .8);
-    .ins-c-recommendations-card__header,
-    .ins-c-insights-card__header {
-      p {
-        font-size: var(--pf-global--FontSize--md);
-        font-weight: var(--pf-global--FontWeight--semi-bold);
-        &.subtitle {
-          font-weight: var(--pf-global--FontWeight--normal);
-        }
-      }
-    }
-    .ins-c-recommendations-card {
-      height: 550px;
-      &__body {
-        margin-right: var(--pf-global--spacer--lg);
-        margin-bottom: var(--pf-global--spacer--lg);
-        padding-right: var(--pf-global--spacer--lg);
-        overflow: auto;
-      }
-    }
-    .ins-c-insights-card {
-      height: 550px;
-      overflow: hidden;
-      &__body {
-        padding-bottom: var(--pf-global--spacer--0);
-      }
-    }
-    @media screen and (max-width: $pf-global--breakpoint--md) {
-      .ins-c-recommendations-card,
-      .ins-c-insights-card {
-        height: 100%;
+  .ins-c-recommendations-card__header,
+  .ins-c-insights-card__header {
+    p {
+      font-size: var(--pf-global--FontSize--md);
+      font-weight: var(--pf-global--FontWeight--semi-bold);
+      &.subtitle {
+        font-weight: var(--pf-global--FontWeight--normal);
       }
     }
   }
-
+  .ins-c-recommendations-card {
+    height: 550px;
+    &__body {
+      margin-right: var(--pf-global--spacer--lg);
+      margin-bottom: var(--pf-global--spacer--lg);
+      padding-right: var(--pf-global--spacer--lg);
+      overflow: auto;
+    }
+  }
+  .ins-c-insights-card {
+    height: 550px;
+    overflow: hidden;
+    &__body {
+      padding-bottom: var(--pf-global--spacer--0);
+    }
+  }
+  @media screen and (max-width: $pf-global--breakpoint--md) {
+    .ins-c-recommendations-card,
+    .ins-c-insights-card {
+      height: 100%;
+    }
+  }
   .ins-c-ctl-card {
-    max-width: calc(var(--pf-c-page--section--m-limit-width--MaxWidth) * .8);
     &__footer {
       box-shadow: var(--pf-global--BoxShadow--md);
       padding-top: var(--pf-global--spacer--md);
