@@ -32,17 +32,17 @@ const TileItem = (props) => {
   } = response || rest;
 
   return (
-    <TextContent className="pf-u-mb-xl tile">
+    <TextContent className="ins-c-ctl-tile pf-u-mb-md">
       {loaded ? (
-        <Title headingLevel="h4" size="md" className="pf-u-mb-0">
+        <Text component="p" className="ins-c-ctl-tile__title pf-u-mb-sm">
           {title}
-        </Title>
+        </Text>
       ) : (
         <Skeleton size="lg" />
       )}
       {description ? (
         loaded ? (
-          <Text component="small" className="pf-u-m-0">
+          <Text className="ins-c-ctl-tile__description pf-u-m-0 pf-u-mb-sm">
             {description}
           </Text>
         ) : (
@@ -123,7 +123,7 @@ const ConfigTryLearnTile = ({
             <Icon />
           </FlexItem>
           <FlexItem>
-            <Title headingLevel="h4" size="xl" className={classNames(column)}>
+            <Title headingLevel="h4" size="lg" className={classNames(column)}>
               {title}
             </Title>
           </FlexItem>
