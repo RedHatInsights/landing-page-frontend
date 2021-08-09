@@ -20,12 +20,12 @@
       height: 200px;
       margin-bottom: var(--pf-global--spacer--lg);
       margin-right: var(--pf-global--spacer--lg);
-      overflow: scroll;
+      overflow-y: auto;
     }
   }
 
   &__header {
-    padding: var(--pf-global--spacer--sm) var(--pf-global--spacer--lg) 0 var(--pf-global--spacer--lg);
+    padding: var(--pf-global--spacer--sm) var(--pf-global--spacer--sm) 0 var(--pf-global--spacer--lg);
   }
 
   &__body {

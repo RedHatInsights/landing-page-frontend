@@ -10,7 +10,7 @@ import {
 import CategoryAccordion from './category-accordion';
 
 const InsightsTile = ({ rhel, openshift, ansible }) => {
-  const [isOpen, setIsOpen] = useState();
+  const [isOpen, setIsOpen] = useState('rhel');
   const handleIsOpen = (category) =>
     setIsOpen((prev) => (prev === category ? undefined : category));
   return (
