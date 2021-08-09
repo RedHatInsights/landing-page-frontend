@@ -20,7 +20,7 @@
       height: 200px;
       margin-bottom: var(--pf-global--spacer--lg);
       margin-right: var(--pf-global--spacer--lg);
-      overflow: scroll;
+      overflow-y: auto;
     }
   }
 
