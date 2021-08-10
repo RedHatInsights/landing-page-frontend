@@ -70,20 +70,19 @@ const Carousel = ({ children }) => {
     };
   }, [children.length]);
 
-  const next = () => {
-    if (currentPage < maxPages) {
-      setCurrentPage((prev) => {
-        mutables.current.currentPage = prev + 1;
-        return prev + 1;
-      });
-    }
+  const next = (step = 1) => {
+    setCurrentPage((prev) => {
+      const next = Math.min(prev + step, maxPages - 1);
+      mutables.current.currentPage = next;
+      return next;
+    });
   };
 
-  const prev = () => {
+  const prev = (step = 1) => {
     if (currentPage > 0) {
       setCurrentPage((prev) => {
-        mutables.current.currentPage = prev - 1;
-        return prev - 1;
+        mutables.current.currentPage = prev - step;
+        return Math.max(prev - step, 0);
       });
     }
   };
@@ -102,13 +101,12 @@ const Carousel = ({ children }) => {
 
     const currentTouch = e.touches[0].clientX;
     const diff = touchDown - currentTouch;
-
     if (diff > 5) {
-      next();
+      next(diff / 15);
     }
 
     if (diff < -5) {
-      prev();
+      prev((diff / 15) * -1);
     }
 
     setTouchPosition(null);
@@ -117,7 +115,7 @@ const Carousel = ({ children }) => {
   const pageMarkers = [...Array(maxPages)].map((_, index) => (
     <button
       className={classNames('ins-c-carousel-indicator', {
-        active: index === currentPage,
+        active: index === Math.floor(currentPage),
       })}
       key={index}
       onClick={() => setCurrentPage(index)}
