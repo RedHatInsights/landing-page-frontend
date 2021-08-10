@@ -12,6 +12,7 @@ const Carousel = ({ children }) => {
   const [touchPosition, setTouchPosition] = useState(null);
   const [maxPages, setMaxPages] = useState(1);
   const [currentPage, setCurrentPage] = useState(0);
+  const [maximumTransform, setMaximumTransform] = useState(0);
   const mutables = useRef({});
   const contentObserver = useRef(null);
   /**
@@ -40,6 +41,12 @@ const Carousel = ({ children }) => {
       setCurrentPage(maxPages - 1);
     }
     setMaxPages(maxPages);
+    /**
+     * compute maximum possible carousel content transformation
+     */
+    const maximumTransform =
+      (maxPages - 2) * 100 + (contentWidth / width - (maxPages - 1)) * 100;
+    setMaximumTransform(maximumTransform);
   };
 
   useEffect(() => {
@@ -133,7 +140,10 @@ const Carousel = ({ children }) => {
             ref={contentRef}
             className="ins-c-carousel-content"
             style={{
-              transform: `translateX(-${currentPage * 100}%)`,
+              transform: `translateX(-${Math.min(
+                currentPage * 100,
+                maximumTransform
+              )}%)`,
               'grid-template-columns': `repeat(${children.length}, 160px)`,
             }}
           >
