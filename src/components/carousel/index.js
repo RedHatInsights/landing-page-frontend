@@ -12,6 +12,7 @@ const Carousel = ({ children }) => {
   const [touchPosition, setTouchPosition] = useState(null);
   const [maxPages, setMaxPages] = useState(1);
   const [currentPage, setCurrentPage] = useState(0);
+  const [maximumTransform, setMaximumTransform] = useState(0);
   const mutables = useRef({});
   const contentObserver = useRef(null);
   /**
@@ -40,6 +41,12 @@ const Carousel = ({ children }) => {
       setCurrentPage(maxPages - 1);
     }
     setMaxPages(maxPages);
+    /**
+     * compute maximum possible carousel content transformation
+     */
+    const maximumTransform =
+      (maxPages - 2) * 100 + (contentWidth / width - (maxPages - 1)) * 100;
+    setMaximumTransform(maximumTransform);
   };
 
   useEffect(() => {
@@ -63,20 +70,19 @@ const Carousel = ({ children }) => {
     };
   }, [children.length]);
 
-  const next = () => {
-    if (currentPage < maxPages) {
-      setCurrentPage((prev) => {
-        mutables.current.currentPage = prev + 1;
-        return prev + 1;
-      });
-    }
+  const next = (step = 1) => {
+    setCurrentPage((prev) => {
+      const next = Math.min(prev + step, maxPages - 1);
+      mutables.current.currentPage = next;
+      return next;
+    });
   };
 
-  const prev = () => {
+  const prev = (step = 1) => {
     if (currentPage > 0) {
       setCurrentPage((prev) => {
-        mutables.current.currentPage = prev - 1;
-        return prev - 1;
+        mutables.current.currentPage = prev - step;
+        return Math.max(prev - step, 0);
       });
     }
   };
@@ -95,13 +101,12 @@ const Carousel = ({ children }) => {
 
     const currentTouch = e.touches[0].clientX;
     const diff = touchDown - currentTouch;
-
     if (diff > 5) {
-      next();
+      next(diff / 15);
     }
 
     if (diff < -5) {
-      prev();
+      prev((diff / 15) * -1);
     }
 
     setTouchPosition(null);
@@ -110,7 +115,7 @@ const Carousel = ({ children }) => {
   const pageMarkers = [...Array(maxPages)].map((_, index) => (
     <button
       className={classNames('ins-c-carousel-indicator', {
-        active: index === currentPage,
+        active: index === Math.floor(currentPage),
       })}
       key={index}
       onClick={() => setCurrentPage(index)}
@@ -124,7 +129,7 @@ const Carousel = ({ children }) => {
         onTouchStart={handleTouchStart}
       >
         {currentPage > 0 && (
-          <button onClick={prev} className="ins-c-arrow">
+          <button onClick={() => prev()} className="ins-c-arrow">
             <AngleLeftIcon size="lg" />
           </button>
         )}
@@ -133,7 +138,10 @@ const Carousel = ({ children }) => {
             ref={contentRef}
             className="ins-c-carousel-content"
             style={{
-              transform: `translateX(-${currentPage * 100}%)`,
+              transform: `translateX(-${Math.min(
+                currentPage * 100,
+                maximumTransform
+              )}%)`,
               'grid-template-columns': `repeat(${children.length}, 160px)`,
             }}
           >
@@ -141,7 +149,7 @@ const Carousel = ({ children }) => {
           </div>
         </div>
         {currentPage < maxPages - 1 && (
-          <button onClick={next} className="ins-c-arrow">
+          <button onClick={() => next()} className="ins-c-arrow">
             <AngleRightIcon size="lg" />
           </button>
         )}
