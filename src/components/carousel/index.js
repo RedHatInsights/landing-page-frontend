@@ -129,7 +129,7 @@ const Carousel = ({ children }) => {
         onTouchStart={handleTouchStart}
       >
         {currentPage > 0 && (
-          <button onClick={prev} className="ins-c-arrow">
+          <button onClick={() => prev()} className="ins-c-arrow">
             <AngleLeftIcon size="lg" />
           </button>
         )}
@@ -149,7 +149,7 @@ const Carousel = ({ children }) => {
           </div>
         </div>
         {currentPage < maxPages - 1 && (
-          <button onClick={next} className="ins-c-arrow">
+          <button onClick={() => next()} className="ins-c-arrow">
             <AngleRightIcon size="lg" />
           </button>
         )}
