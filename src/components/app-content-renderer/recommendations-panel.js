@@ -18,10 +18,10 @@ const RecommendationsPanel = () => {
       className="ins-l-second--panel-wrapper pf-u-mx-lg pf-u-mt-lg"
     >
       <GridItem sm={12} md={6}>
-        <RecommendationsTile {...recs} />
+        <InsightsTile {...insights} />
       </GridItem>
       <GridItem sm={12} md={6}>
-        <InsightsTile {...insights} />
+        <RecommendationsTile {...recs} />
       </GridItem>
     </Grid>
   );
