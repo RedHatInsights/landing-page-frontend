@@ -86,7 +86,7 @@ sup.ins-c-rball { @include rem('font-size', 10px); }
         justify-content: center;
         text-align: center;
         &--body { width: 75%; }
-        &--footer-secondary { margin-top: 8px;}
+        &--footer-secondary { margin-top: var(--pf-global--spacer--sm);}
     }
 }
 
