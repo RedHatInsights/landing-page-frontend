@@ -188,7 +188,7 @@ const Landing = () => {
                         >
                           {notEntitled.emptyAction.secondary.title
                             ? `${notEntitled.emptyAction.secondary.title}`
-                            : 'Learn More'}
+                            : 'Learn more'}
                         </Button>
                       )}
                     {notEntitled?.emptyAction?.secondary &&
@@ -196,7 +196,7 @@ const Landing = () => {
                         <Button variant="link">
                           {notEntitled.emptyAction.secondary.title
                             ? `${notEntitled.emptyAction.secondary.title}`
-                            : 'Learn More'}
+                            : 'Learn more'}
                         </Button>
                       )}
                     <Button
