@@ -64,9 +64,9 @@ const EmptyContent = ({ contentText }) => (
   <EmptyState>
     <EmptyStateIcon icon={CubesIcon} />
     <Title headingLevel="h4" size="lg">
-      Empty State
+      No recommendations
     </Title>
-    <EmptyStateBody>{contentText}</EmptyStateBody>
+    {contentText && <EmptyStateBody>{contentText}</EmptyStateBody>}
   </EmptyState>
 );
 
@@ -132,6 +132,7 @@ const CategoryAccordion = ({
   items,
   linkTitle,
   category,
+  emptyStateContentText,
 }) => {
   return (
     <OpenedContent
@@ -143,7 +144,7 @@ const CategoryAccordion = ({
         href: '#',
         title: linkTitle,
       }}
-      emptyStateContentText="Placeholder. Should come from the category prop"
+      emptyStateContentText={emptyStateContentText}
       isOpen={isOpen}
       category={category}
     />
@@ -157,6 +158,7 @@ CategoryAccordion.propTypes = {
   items: PropTypes.arrayOf(PropTypes.object).isRequired,
   linkTitle: PropTypes.string,
   category: PropTypes.string.isRequired,
+  emptyStateContentText: PropTypes.string,
 };
 
 export default CategoryAccordion;
