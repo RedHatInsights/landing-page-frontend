@@ -44,6 +44,7 @@ const InsightsTile = ({ rhel, openshift, ansible }) => {
           isOpen={isOpen === 'ansible'}
           setIsOpen={() => handleIsOpen('ansible')}
           title="Ansible"
+          emptyStateContentText="Register Ansible Automation Platform with Insights to get recommendations."
         />
       </CardBody>
     </Card>
