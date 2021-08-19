@@ -16,6 +16,9 @@
   }
 
   &.opened {
+    .ins-c-accordion__header {
+      margin-top: var(--pf-global--spacer--sm);
+    }
     .ins-c-accordion__body {
       height: 200px;
       margin-bottom: var(--pf-global--spacer--lg);

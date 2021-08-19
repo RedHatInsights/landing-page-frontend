@@ -130,7 +130,7 @@ const Carousel = ({ children }) => {
       >
         {currentPage > 0 && (
           <button onClick={() => prev()} className="ins-c-arrow">
-            <AngleLeftIcon size="lg" />
+            <AngleLeftIcon size="md" />
           </button>
         )}
         <div className="ins-c-carousel-content-wrapper">
@@ -150,7 +150,7 @@ const Carousel = ({ children }) => {
         </div>
         {currentPage < maxPages - 1 && (
           <button onClick={() => next()} className="ins-c-arrow">
-            <AngleRightIcon size="lg" />
+            <AngleRightIcon size="md" />
           </button>
         )}
       </div>
