@@ -18,6 +18,7 @@
     color: var(--pf-global--Color--200);
   }
   .ins-c-footer__traditional{
+    margin-right: var(--pf-global--spacer--lg);
     padding-top: var(--pf-global--spacer--sm);
     #redhat-logo {
       .cls-1 { fill: #e00; } 
@@ -104,7 +105,7 @@
     url(https://console.redhat.com/apps/frontend-assets/background-images/new-landing-page/ctl_lightbulb_half.svg);
     background-color: var(--pf-global--BackgroundColor--100);
     background-position: left top, right top;
-    background-repeat: no-repeat, no-repeat;
+    background-repeat: repeat-y, repeat-y;
     &__footer {
       background-color:rgba(255, 255, 255, 0.5);
       box-shadow: var(--pf-global--BoxShadow--md);
@@ -115,7 +116,7 @@
       display: grid;
       grid-template-columns: [config] 1fr [try] 1fr [learn] 1fr;
       grid-template-rows: [start] 1fr;
-      row-gap: var(--pf-global--spacer--xs);
+      row-gap: var(--pf-global--spacer--sm);
       column-gap: var(--pf-global--spacer--xl);
       .ins-c-grid__config {
         grid-column-start: config;
@@ -141,6 +142,13 @@
       @media screen and (max-width: $pf-global--breakpoint--xl) {
         display: flex;
         flex-direction: column;
+      }
+    }
+    @media screen and (max-width: $pf-global--breakpoint--md) {
+      background-image: none;
+      .section-header:not(:first-of-type) {
+        border-top: 1px solid var(--pf-global--disabled-color--200);
+        padding-top: var(--pf-global--spacer--lg);
       }
     }
   }
