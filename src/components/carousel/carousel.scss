@@ -11,7 +11,7 @@
     .ins-c-arrow {
       background: none;
       border: none;
-      color: var(--pf-global--icon--color--light);
+      color: var(--pf-global--icon--Color--light);
       width: 28px;
     }
     .ins-c-carousel-content-wrapper {
@@ -35,7 +35,7 @@
     margin-top: 20px;
     text-align: center;
     .ins-c-carousel-indicator {
-      color: var(--pf-global--icon--Color--light);
+      background-color: var(--pf-global--icon--Color--light);
       border: 0;
       height: 3px;
       margin-right: var(--pf-global--spacer--xs);
