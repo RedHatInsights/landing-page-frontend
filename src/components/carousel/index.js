@@ -135,6 +135,20 @@ const Carousel = ({ children, sections }) => {
     )
     .join(' ');
 
+  const arrowStyles = {};
+  if (
+    contentRef.current?.clientHeight &&
+    document.getElementsByClassName('estate-content')[0]
+  ) {
+    const cardHeight = document
+      .getElementsByClassName('estate-content')[0]
+      .getBoundingClientRect().height;
+    arrowStyles.bottom = `${cardHeight / 2 - 12}px`;
+    arrowStyles.position = 'absolute';
+    arrowStyles.left = 0;
+    arrowStyles.right = 0;
+  }
+
   return (
     <div className="ins-c-carousel-container">
       <div
@@ -144,7 +158,7 @@ const Carousel = ({ children, sections }) => {
       >
         {currentPage > 0 && (
           <button onClick={() => prev()} className="ins-c-arrow">
-            <AngleLeftIcon size="md" />
+            <AngleLeftIcon style={arrowStyles} size="md" />
           </button>
         )}
         <div className="ins-c-carousel-content-wrapper">
@@ -164,7 +178,7 @@ const Carousel = ({ children, sections }) => {
         </div>
         {currentPage < maxPages - 1 && (
           <button onClick={() => next()} className="ins-c-arrow">
-            <AngleRightIcon size="md" />
+            <AngleRightIcon style={arrowStyles} size="md" />
           </button>
         )}
       </div>

@@ -49,7 +49,7 @@ const FirstPanelTile = ({ id, ...tile }) => {
           {tile?.shape?.section}
         </Title>
       </div>
-      <a href={href || '#'}>
+      <a className="estate-content" href={href || '#'}>
         <Card isCompact isHoverable isFlat>
           <CardBody>
             <Title
