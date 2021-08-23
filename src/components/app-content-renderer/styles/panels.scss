@@ -35,7 +35,10 @@
     .ins-c-carousel-container {
       .estate-group {
         display: inline-block;
-        width: 160px;
+        width: 162px;
+        &.is-section:not(:first-child) {
+          margin-left: var(--pf-global--spacer--lg);
+        }
         a, a:hover {
           color: var(--pf-global--BackgroundColor--100);
           text-decoration: none;

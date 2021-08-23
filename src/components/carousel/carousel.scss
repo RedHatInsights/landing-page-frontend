@@ -9,6 +9,7 @@
     width: 100%;
     position: relative;
     .ins-c-arrow {
+      position: relative;
       background: none;
       border: none;
       color: var(--pf-global--icon--Color--light);
@@ -21,7 +22,7 @@
       height: 100%;
       .ins-c-carousel-content {
         display: grid;
-        column-gap: var(--pf-global--spacer--md);
+        column-gap: var(--pf-global--spacer--lg);
         transition: transform 1s;
         -ms-overflow-style: none;  /* hide scrollbar in IE and Edge */
         scrollbar-width: none;  /* hide scrollbar in Firefox */

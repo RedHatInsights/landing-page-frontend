@@ -35,17 +35,21 @@ const FirstPanelTile = ({ id, ...tile }) => {
   );
 
   return (
-    <div className="estate-group">
+    <div
+      className={classnames('estate-group', {
+        'is-section': tile?.shape?.section?.length > 0,
+      })}
+    >
       <div
         className={classnames('estate-section', {
           'is-empty': tile?.shape?.section?.length === 0,
         })}
       >
-        <Title headingLevel="h6" size="md" title={tile?.shape?.section}>
+        <Title headingLevel="h6" size="lg" title={tile?.shape?.section}>
           {tile?.shape?.section}
         </Title>
       </div>
-      <a href={href || '#'}>
+      <a className="estate-content" href={href || '#'}>
         <Card isCompact isHoverable isFlat>
           <CardBody>
             <Title

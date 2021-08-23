@@ -5,7 +5,7 @@ import Carousel from '../carousel';
 import FirstPanelTile from './first-panel-tile';
 
 const EstateRenderer = ({ sections = [] }) => (
-  <Carousel>
+  <Carousel sections={sections}>
     {sections.map((tile) => (
       <FirstPanelTile {...tile} key={tile.id} />
     ))}

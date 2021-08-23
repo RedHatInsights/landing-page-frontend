@@ -5,10 +5,14 @@ import classNames from 'classnames';
 import { AngleLeftIcon, AngleRightIcon } from '@patternfly/react-icons';
 import { useRef } from 'react';
 
-const ITEM_WIDTH = 160;
-const ITEM_GAP = 16;
+const ITEM_WIDTH = 162;
+const ITEM_GAP = 24;
 
-const Carousel = ({ children }) => {
+const Carousel = ({ children, sections }) => {
+  const sectionsCount = sections.filter(
+    ({ shape: { section } }) => !!section
+  ).length;
+
   const [touchPosition, setTouchPosition] = useState(null);
   const [maxPages, setMaxPages] = useState(1);
   const [currentPage, setCurrentPage] = useState(0);
@@ -23,6 +27,7 @@ const Carousel = ({ children }) => {
   mutables.current.childrenLength = children.length;
   mutables.current.maxPages = maxPages;
   mutables.current.currentPage = currentPage;
+  mutables.current.sectionsCount = sectionsCount;
 
   const contentRef = useRef(null);
   const computeSlideWidth = (width) => {
@@ -31,7 +36,8 @@ const Carousel = ({ children }) => {
      */
     const contentWidth =
       mutables.current.childrenLength * ITEM_WIDTH +
-      (mutables.current.childrenLength - 1) * ITEM_GAP;
+      (mutables.current.childrenLength - 1) * ITEM_GAP +
+      (sectionsCount - 1) * 24;
     const maxPages = Math.ceil(contentWidth / width);
     mutables.current.maxPages = maxPages;
     /**
@@ -121,6 +127,28 @@ const Carousel = ({ children }) => {
       onClick={() => setCurrentPage(index)}
     ></button>
   ));
+
+  const gridColumnTemplate = sections
+    .map(
+      ({ shape: { section } }, index) =>
+        `${section?.length && index !== 0 ? ITEM_WIDTH + 24 : ITEM_WIDTH}px`
+    )
+    .join(' ');
+
+  const arrowStyles = {};
+  if (
+    contentRef.current?.clientHeight &&
+    document.getElementsByClassName('estate-content')[0]
+  ) {
+    const cardHeight = document
+      .getElementsByClassName('estate-content')[0]
+      .getBoundingClientRect().height;
+    arrowStyles.bottom = `${cardHeight / 2 - 12}px`;
+    arrowStyles.position = 'absolute';
+    arrowStyles.left = 0;
+    arrowStyles.right = 0;
+  }
+
   return (
     <div className="ins-c-carousel-container">
       <div
@@ -130,7 +158,7 @@ const Carousel = ({ children }) => {
       >
         {currentPage > 0 && (
           <button onClick={() => prev()} className="ins-c-arrow">
-            <AngleLeftIcon size="md" />
+            <AngleLeftIcon style={arrowStyles} size="md" />
           </button>
         )}
         <div className="ins-c-carousel-content-wrapper">
@@ -142,7 +170,7 @@ const Carousel = ({ children }) => {
                 currentPage * 100,
                 maximumTransform
               )}%)`,
-              'grid-template-columns': `repeat(${children.length}, 160px)`,
+              'grid-template-columns': gridColumnTemplate,
             }}
           >
             {children}
@@ -150,7 +178,7 @@ const Carousel = ({ children }) => {
         </div>
         {currentPage < maxPages - 1 && (
           <button onClick={() => next()} className="ins-c-arrow">
-            <AngleRightIcon size="md" />
+            <AngleRightIcon style={arrowStyles} size="md" />
           </button>
         )}
       </div>
@@ -163,6 +191,7 @@ const Carousel = ({ children }) => {
 
 Carousel.propTypes = {
   children: PropTypes.node,
+  sections: PropTypes.array,
 };
 
 export default Carousel;
