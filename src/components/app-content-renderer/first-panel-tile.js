@@ -35,7 +35,11 @@ const FirstPanelTile = ({ id, ...tile }) => {
   );
 
   return (
-    <div className="estate-group">
+    <div
+      className={classnames('estate-group', {
+        'is-section': tile?.shape?.section?.length > 0,
+      })}
+    >
       <div
         className={classnames('estate-section', {
           'is-empty': tile?.shape?.section?.length === 0,
