@@ -45,7 +45,7 @@ const FirstPanelTile = ({ id, ...tile }) => {
           'is-empty': tile?.shape?.section?.length === 0,
         })}
       >
-        <Title headingLevel="h6" size="md" title={tile?.shape?.section}>
+        <Title headingLevel="h6" size="lg" title={tile?.shape?.section}>
           {tile?.shape?.section}
         </Title>
       </div>
