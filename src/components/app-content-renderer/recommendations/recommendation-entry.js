@@ -19,7 +19,7 @@ import iconMapper from '../../../utils/icon-mapper';
 import { removeRecommendationTile } from '../../../store/actions';
 
 const RecommendationEntry = (props) => {
-  const { id, category, icon, state, description, action } = props;
+  const { id, category, icon, description, action } = props;
   const intl = useIntl();
   const dispatch = useDispatch();
   const removeTile = ({ show }) =>
@@ -46,12 +46,11 @@ const RecommendationEntry = (props) => {
     <Split hasGutter className="pf-u-mb-md">
       <SplitItem>
         <GroupIcon
-          className={classNames({
-            error: state === 'error',
-            warning: state === 'warning',
-            info: state === 'info',
-            green: state === 'success',
-            gray: typeof state === 'undefined',
+          className={classNames('gray', {
+            error: icon === 'error',
+            warning: icon === 'warning',
+            info: icon === 'info',
+            green: icon === 'success',
           })}
         />
       </SplitItem>
