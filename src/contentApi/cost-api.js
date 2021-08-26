@@ -83,8 +83,7 @@ const estateRequests = [
 const openshift = [
   {
     section: 'openshift',
-    icon: 'lightbulb',
-    state: 'info',
+    icon: 'info',
     id: 'cost-ocp',
     url: '/api/cost-management/v1/sources/?source_type=OCP',
     accessor: 'meta.count',

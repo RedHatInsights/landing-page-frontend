@@ -22,8 +22,7 @@ const RECOMMENDATIONS_ITEMS = {
   recs: [
     {
       id: 'managed-services-1',
-      icon: 'lightbulb',
-      state: 'info',
+      icon: 'info',
       description: 'Learn how to create and use a Kafka instance.',
       action: {
         title: 'Get started with RHOSAK',
@@ -53,7 +52,6 @@ const RECOMMENDATIONS_ITEMS = {
     {
       id: 'managed-services-4',
       icon: 'play',
-      state: 'success',
       description:
         'Deploy, monitor, and control APIs throughout their entire life cycle.',
       action: {
@@ -65,7 +63,6 @@ const RECOMMENDATIONS_ITEMS = {
     {
       id: 'managed-services-5',
       icon: 'play',
-      state: 'success',
       description:
         'Deploy, monitor, and control APIs throughout their entire life cycle.',
       action: {
