@@ -2,6 +2,9 @@
 @import '~@patternfly/patternfly/sass-utilities/_all';
 
 .ins-c-page__landing-content {
+  .gray {
+    color: var(--pf-global--Color--200);
+  }
   .error {
     color: var(--pf-global--danger-color--100);
   }
@@ -13,9 +16,6 @@
   }
   .info {
     color: var(--pf-global--info-color--100);
-  }
-  .gray {
-    color: var(--pf-global--Color--200);
   }
   .ins-c-footer__traditional{
     margin-right: var(--pf-global--spacer--lg);

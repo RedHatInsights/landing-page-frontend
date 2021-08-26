@@ -13,7 +13,6 @@ const RECOMMENDATIONS_ITEMS = {
     {
       id: 'rhel-2',
       icon: 'error',
-      state: 'error',
       url: '/api/insights/v1/rule/?impacting=true&limit=1&incident=true',
       description: {
         id: 'rhen-incidents-recommendation',
@@ -64,7 +63,6 @@ const RECOMMENDATIONS_ITEMS = {
     {
       url: '/api/inventory/v1/hosts',
       icon: 'play',
-      state: 'success',
       condition: { when: 'total', is: 0 },
       id: 'rhel-6',
       title: 'Proactively reduce risk and optimize spending.',

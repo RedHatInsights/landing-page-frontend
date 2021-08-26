@@ -463,7 +463,6 @@ export const RECOMMENDATIONS_ITEMS = {
       id: 'approvals',
       description: `Govern content with approval processes.`,
       icon: 'list',
-      state: 'info',
       permissions: [
         {
           method: 'hasPermissions',
