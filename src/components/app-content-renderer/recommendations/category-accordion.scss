@@ -17,6 +17,7 @@
 
   &.opened {
     .ins-c-accordion__header {
+      margin-bottom: var(--pf-global--spacer--sm);
       margin-top: var(--pf-global--spacer--sm);
     }
     .ins-c-accordion__body {
