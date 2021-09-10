@@ -12,6 +12,7 @@ const ESTATE_CONFIG = [
         accessor: 'total',
         shape: {
           title: 'Kafka Instances',
+          href: '/beta/application-services/streams/kafkas',
         },
       },
     ],
