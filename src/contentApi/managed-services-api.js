@@ -1,4 +1,5 @@
 const streamsPrefix = window.insights.chrome.isBeta() ? './' : './beta/';
+const stageEnvs = ['stage', 'qaprodauth'];
 
 const ESTATE_CONFIG = [
   {
@@ -7,7 +8,9 @@ const ESTATE_CONFIG = [
       {
         id: 'managed-services-1',
         url: `https://api.${
-          window.insights.chrome.getEnvironment() === 'stage' ? 'stage.' : ''
+          stageEnvs.includes(window.insights.chrome.getEnvironment())
+            ? 'stage.'
+            : ''
         }openshift.com/api/kafkas_mgmt/v1/kafkas`,
         accessor: 'total',
         shape: {
