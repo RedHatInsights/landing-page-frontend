@@ -25,14 +25,14 @@
     }
   }
 
-  .ins-l-first-panel {
+  .land-l-first-panel {
     color: var(--pf-global--Color--light-100);
     background: url(https://console.redhat.com/apps/frontend-assets/background-images/new-landing-page/estate_section_banner.svg);
     background-color: var(--pf-global--BackgroundColor--dark-100);
     background-size: cover !important;
     padding: var(--pf-global--spacer--xl) var(--pf-global--spacer--lg) var(--pf-global--spacer--xl) var(--pf-global--spacer--lg);
     overflow-x: auto;
-    .ins-c-carousel-container {
+    .land-c-carousel-container {
       .estate-group {
         display: inline-block;
         width: 162px;
@@ -66,12 +66,12 @@
     }
   }
   @media screen and (max-width: $pf-global--breakpoint--sm) {
-    .ins-l-first-panel {
+    .land-l-first-panel {
       padding: var(--pf-global--spacer--xl) 0 var(--pf-global--spacer--xl) 0;
     }
   }
-  .ins-c-recommendations-card__header,
-  .ins-c-insights-card__header {
+  .land-c-recommendations-card__header,
+  .land-c-insights-card__header {
     p {
       font-size: var(--pf-global--FontSize--md);
       font-weight: var(--pf-global--FontWeight--semi-bold);
@@ -80,7 +80,7 @@
       }
     }
   }
-  .ins-c-recommendations-card {
+  .land-c-recommendations-card {
     height: 550px;
     &__body {
       margin-right: var(--pf-global--spacer--lg);
@@ -89,7 +89,7 @@
       overflow: auto;
     }
   }
-  .ins-c-insights-card {
+  .land-c-insights-card {
     height: 550px;
     overflow: hidden;
     &__body {
@@ -97,12 +97,12 @@
     }
   }
   @media screen and (max-width: $pf-global--breakpoint--md) {
-    .ins-c-recommendations-card,
-    .ins-c-insights-card {
+    .land-c-recommendations-card,
+    .land-c-insights-card {
       height: 100%;
     }
   }
-  .ins-c-ctl-card {
+  .land-c-ctl-card {
     background:
     url(https://console.redhat.com/apps/frontend-assets/background-images/new-landing-page/ctl_gear_half.svg),
     url(https://console.redhat.com/apps/frontend-assets/background-images/new-landing-page/ctl_lightbulb_half.svg);
@@ -121,19 +121,19 @@
       grid-template-rows: [start] 1fr;
       row-gap: var(--pf-global--spacer--sm);
       column-gap: var(--pf-global--spacer--xl);
-      .ins-c-grid__config {
+      .land-c-grid__config {
         grid-column-start: config;
       }
-      .ins-c-grid__try {
+      .land-c-grid__try {
         grid-column-start: try;
       }
-      .ins-c-grid__learn {
+      .land-c-grid__learn {
         grid-column-start: learn;
       }
       .section-header > div {
         margin: 0 var(--pf-global--spacer--sm) auto 0;
       }
-      .ins-c-ctl-tile {
+      .land-c-ctl-tile {
         &__title {
           font-size: var(--pf-global--FontSize--md);
           font-weight: var(--pf-global--FontWeight--semi-bold);
