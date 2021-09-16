@@ -3,7 +3,7 @@
 exports[`Logout component should render correctly 1`] = `
 <Logout>
   <section
-    className="pf-l-page__main-section pf-c-page__main-section ins-c-page__logout"
+    className="pf-l-page__main-section pf-c-page__main-section land-c-page__logout"
   >
     <Title
       headingLevel="h1"

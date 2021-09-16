@@ -50,3 +50,7 @@ The following four branches are used
 ## Adding content
 
 Detailed documentation can be found [here](https://github.com/RedHatInsights/landing-page-frontend/blob/master/docs/content-schema.md)
+
+## Self-service response example
+
+An example of a self-service API response can be found [here](https://github.com/RedHatInsights/landing-page-frontend/blob/master/docs/example-schema.md)

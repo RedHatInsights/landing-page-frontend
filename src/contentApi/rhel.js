@@ -139,7 +139,7 @@ const ESTATE_CONFIG = [
           title: 'SAP systems',
           href: `${inventoryLink}/?status=fresh&status=stale&source=insights&page=1&per_page=50#workloads=SAP&SIDs=&tags=`,
         },
-        accessor: 'total',
+        accessor: 'results[0].count',
         url: '/api/inventory/v1/system_profile/sap_system',
       },
     ],

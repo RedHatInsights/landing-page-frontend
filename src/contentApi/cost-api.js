@@ -110,7 +110,7 @@ const installCostOperator =
   'https://access.redhat.com/documentation/en-us/cost_management_service/2021/html/getting_started_with_cost_management/index';
 
 const offlineSource =
-  'https://access.redhat.com/documentation/en-us/cost_management_service/2021/html/getting_started_with_cost_management/assembly-adding-openshift-container-platform-source#assembly-adding-a-restricted-network-source_adding-an-ocp-source';
+  'https://access.redhat.com/documentation/en-us/cost_management_service/2021/html-single/adding_an_openshift_container_platform_source_to_cost_management/index#assembly-adding-a-restricted-network-source_adding-an-ocp-source';
 
 const costManagementApiMedium =
   'https://medium.com/@chargio/using-cost-management-through-the-api-with-a-token-1d0f4c3d349a';

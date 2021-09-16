@@ -3,7 +3,7 @@
 exports[`Maintenance page should render correctly 1`] = `
 <Maintenance>
   <section
-    className="pf-l-page__main-section pf-c-page__main-section ins-c-page__maintenance"
+    className="pf-l-page__main-section pf-c-page__main-section land-c-page__maintenance"
   >
     <EmptyState
       variant="large"

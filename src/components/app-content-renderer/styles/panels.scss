@@ -1,7 +1,7 @@
 /* stylelint-disable no-descending-specificity */
 @import '~@patternfly/patternfly/sass-utilities/_all';
 
-.ins-c-page__landing-content {
+.land-c-page-content {
   .gray {
     color: var(--pf-global--Color--200);
   }
@@ -17,7 +17,7 @@
   .info {
     color: var(--pf-global--info-color--100);
   }
-  .ins-c-footer__traditional{
+  .land-c-footer__traditional{
     margin-right: var(--pf-global--spacer--lg);
     padding-top: var(--pf-global--spacer--sm);
     #redhat-logo {

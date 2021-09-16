@@ -17,6 +17,7 @@
 
   &.opened {
     .land-c-accordion__header {
+      margin-bottom: var(--pf-global--spacer--sm);
       margin-top: var(--pf-global--spacer--sm);
     }
     .land-c-accordion__body {
