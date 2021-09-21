@@ -11,7 +11,7 @@ describe('Footer Traditional component', () => {
 
   it('Link: Red Hat Logo is correct', () => {
     const wrapper = mount(<FooterTraditional />);
-    const logo = wrapper.find('.ins-p-footer__logo');
+    const logo = wrapper.find('.land-p-footer__logo');
     expect(logo.getDOMNode().getAttribute('target')).toBe('_blank');
     expect(logo.getDOMNode().getAttribute('href')).toBe(
       'https://www.redhat.com'
@@ -20,10 +20,12 @@ describe('Footer Traditional component', () => {
 
   it('Click browser support link', () => {
     const wrapper = mount(<FooterTraditional />);
-    const browserSupport = wrapper.find('.ins-p-footer__browser-support').at(0);
+    const browserSupport = wrapper
+      .find('.land-p-footer__browser-support')
+      .at(0);
     browserSupport.simulate('click');
     const browserSupportModal = wrapper
-      .find('.ins-p-browser-support .pf-c-button')
+      .find('.land-p-browser-support .pf-c-button')
       .at(0);
     browserSupportModal.simulate('click');
   });

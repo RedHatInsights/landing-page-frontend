@@ -32,9 +32,9 @@ const TileItem = (props) => {
   } = response || rest;
 
   return (
-    <TextContent className="ins-c-ctl-tile pf-u-mb-md">
+    <TextContent className="land-c-ctl-tile pf-u-mb-md">
       {loaded ? (
-        <Text component="p" className="ins-c-ctl-tile__title pf-u-mb-sm">
+        <Text component="p" className="land-c-ctl-tile__title pf-u-mb-sm">
           {title}
         </Text>
       ) : (
@@ -42,7 +42,7 @@ const TileItem = (props) => {
       )}
       {description ? (
         loaded ? (
-          <Text className="ins-c-ctl-tile__description pf-u-m-0 pf-u-mb-sm">
+          <Text className="land-c-ctl-tile__description pf-u-m-0 pf-u-mb-sm">
             {description}
           </Text>
         ) : (

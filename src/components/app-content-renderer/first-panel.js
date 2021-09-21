@@ -69,7 +69,7 @@ const FirstPanel = () => {
 
   const flatSections = flattenSections(estate || []);
   return flatSections.length > 0 ? (
-    <div ref={scrollRef} className="ins-l-first-panel">
+    <div ref={scrollRef} className="land-l-first-panel">
       <EstateRenderer sections={flatSections} />
     </div>
   ) : null;

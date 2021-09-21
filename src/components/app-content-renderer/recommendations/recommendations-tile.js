@@ -5,11 +5,11 @@ import RecommendationEntry from './recommendation-entry';
 
 const RhelTile = ({ category, items }) => {
   return (
-    <Card className="ins-c-recommendations-card" isFlat>
-      <CardHeader className="ins-c-recommendations-card__header">
+    <Card className="land-c-recommendations-card" isFlat>
+      <CardHeader className="land-c-recommendations-card__header">
         <Text component="p">Recommendations</Text>
       </CardHeader>
-      <CardBody className="ins-c-recommendations-card__body">
+      <CardBody className="land-c-recommendations-card__body">
         {items.map((item) => (
           <RecommendationEntry key={item.id} category={category} {...item} />
         ))}

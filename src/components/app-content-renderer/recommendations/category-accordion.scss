@@ -1,5 +1,5 @@
 /* stylelint-disable no-descending-specificity */
-.ins-c-accordion {
+.land-c-accordion {
   &.highlight {
     background-color: var(--pf-global--palette--blue-50);
     border-color: var(--pf-global--palette--blue-50);
@@ -16,11 +16,11 @@
   }
 
   &.opened {
-    .ins-c-accordion__header {
+    .land-c-accordion__header {
       margin-bottom: var(--pf-global--spacer--sm);
       margin-top: var(--pf-global--spacer--sm);
     }
-    .ins-c-accordion__body {
+    .land-c-accordion__body {
       height: 200px;
       margin-bottom: var(--pf-global--spacer--lg);
       margin-right: var(--pf-global--spacer--lg);

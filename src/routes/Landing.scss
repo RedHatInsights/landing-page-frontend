@@ -5,32 +5,23 @@
     --ins-global--Color--green: #37912f;
 }
 
-.ins-c-application-info .ins-m-gray { color: var(--pf-global--Color--200); }
+.land-c-application-info .ins-m-gray { color: var(--pf-global--Color--200); }
 
-.ins-m-tech-preview { color: var(--ins-global--Color--green); }
-
-.ins-m-dev-preview { color: #39A5DC; }
-
-.ins-m-early-preview {
-    width: max-content;
-    color: var(--pf-global--default-color--200);
-}
-
-.pf-c-modal-box__body .pf-c-empty-state img.ins-c-application-info__logo {
+.pf-c-modal-box__body .pf-c-empty-state img.land-c-application-info__logo {
     @include rem('height', 76px);
 }
 
 .pf-c-card {
 
-    &.ins-c-application-info {
+    &.land-c-application-info {
         height: 100%;
 
-        img.ins-c-application-info__logo {
+        img.land-c-application-info__logo {
             @include rem('height', 56px);
             max-width: initial;
         }
 
-        svg.ins-c-application-info__logo {
+        svg.land-c-application-info__logo {
             @include rem('height', 56px);
             @include rem('width', 56px);
         }
@@ -38,42 +29,20 @@
         h2 { margin-top: 15px; }
     }
 
-    .ins-c-application-info__open {
+    .land-c-application-info__open {
         display: block;
         span { margin-right: 15px }
-    }
-
-    .ins-c-application-info__content-applist {
-        display: flex;
-        flex-direction: column;
-
-        a {
-            display: block;
-            text-transform: capitalize;
-        }
-
-        a + a { margin-top: 10px; }
     }
 
     .ins-c-navigation { color: var(--pf-global--active-color--100); }
 }
 
-svg.ins-c-icon__active { fill: var(--pf-global--active-color--100); }
+svg.land-c-icon__active { fill: var(--pf-global--active-color--100); }
 
 .pf-c-modal-box .pf-c-title { white-space: normal; }
 
-sup.ins-c-rball { @include rem('font-size', 10px); }
-
-.ins-c-application-info__split {
-    height: 100%;
-    .ins-c-application-info__open {
-        margin-top: auto;
-        margin-bottom: 0;
-    }
-}
-
 // Unentitled Modal Styles
-.ins-c-error-modal {
+.land-c-error-modal {
     &__header {
         text-align: center;
         max-width: 75%;
@@ -104,7 +73,7 @@ sup.ins-c-rball { @include rem('font-size', 10px); }
 }
 
 // Adjust PF layout to be able to display without header
-.ins-c-page__landing-layout {
+.land-c-page-layout {
     height: 100%;
 
     .ins-c-page__landing-navigation {
@@ -112,6 +81,6 @@ sup.ins-c-rball { @include rem('font-size', 10px); }
     }
 }
 
-.ins-c-page__landing-content {
+.land-c-page-content {
     width: 100%
 }

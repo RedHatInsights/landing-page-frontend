@@ -15,7 +15,7 @@ const RecommendationsPanel = () => {
   return (
     <Grid
       hasGutter
-      className="ins-l-second--panel-wrapper pf-u-mx-lg pf-u-mt-lg"
+      className="land-l-second--panel-wrapper pf-u-mx-lg pf-u-mt-lg"
     >
       <GridItem sm={12} md={6}>
         <InsightsTile {...insights} />

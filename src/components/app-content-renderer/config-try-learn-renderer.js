@@ -15,19 +15,19 @@ const ConfigTryLearnRenderer = ({ sections }) => {
   const [isExpanded, setIsExpanded] = useState(false);
 
   return (
-    <Card className="ins-c-ctl-card pf-u-m-lg" isFlat>
-      <CardBody className="ins-c-ctl-card__body pf-u-pb-0">
+    <Card className="land-c-ctl-card pf-u-m-lg" isFlat>
+      <CardBody className="land-c-ctl-card__body pf-u-pb-0">
         {sections.map((section, index) => (
           <ConfigTryLearnTile
             isExpanded={isExpanded}
             key={section.id}
             sectionName={columns[index]}
-            column={`ins-c-grid__${columns[index]}`}
+            column={`land-c-grid__${columns[index]}`}
             {...section}
           />
         ))}
       </CardBody>
-      <CardFooter className="ins-c-ctl-card__footer">
+      <CardFooter className="land-c-ctl-card__footer">
         <Bullseye>
           <Button
             onClick={() => setIsExpanded((prev) => !prev)}

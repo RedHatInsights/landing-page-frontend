@@ -120,7 +120,7 @@ const Carousel = ({ children, sections }) => {
 
   const pageMarkers = [...Array(maxPages)].map((_, index) => (
     <button
-      className={classNames('ins-c-carousel-indicator', {
+      className={classNames('land-c-carousel-indicator', {
         active: index === Math.floor(currentPage),
       })}
       key={index}
@@ -150,21 +150,21 @@ const Carousel = ({ children, sections }) => {
   }
 
   return (
-    <div className="ins-c-carousel-container">
+    <div className="land-c-carousel-container">
       <div
-        className="ins-c-carousel-wrapper"
+        className="land-c-carousel-wrapper"
         onTouchMove={handleTouchMove}
         onTouchStart={handleTouchStart}
       >
         {currentPage > 0 && (
-          <button onClick={() => prev()} className="ins-c-arrow">
+          <button onClick={() => prev()} className="land-c-arrow">
             <AngleLeftIcon style={arrowStyles} size="md" />
           </button>
         )}
-        <div className="ins-c-carousel-content-wrapper">
+        <div className="land-c-carousel-content-wrapper">
           <div
             ref={contentRef}
-            className="ins-c-carousel-content"
+            className="land-c-carousel-content"
             style={{
               transform: `translateX(-${Math.min(
                 currentPage * 100,
@@ -177,13 +177,13 @@ const Carousel = ({ children, sections }) => {
           </div>
         </div>
         {currentPage < maxPages - 1 && (
-          <button onClick={() => next()} className="ins-c-arrow">
+          <button onClick={() => next()} className="land-c-arrow">
             <AngleRightIcon style={arrowStyles} size="md" />
           </button>
         )}
       </div>
       {maxPages > 1 && (
-        <div className="ins-c-carousel-indicator-wrapper">{pageMarkers}</div>
+        <div className="land-c-carousel-indicator-wrapper">{pageMarkers}</div>
       )}
     </div>
   );

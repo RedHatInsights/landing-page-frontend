@@ -14,8 +14,8 @@ const InsightsTile = ({ rhel, openshift, ansible }) => {
   const handleIsOpen = (category) =>
     setIsOpen((prev) => (prev === category ? undefined : category));
   return (
-    <Card className="ins-c-insights-card" isFlat>
-      <CardHeader className="ins-c-insights-card__header">
+    <Card className="land-c-insights-card" isFlat>
+      <CardHeader className="land-c-insights-card__header">
         <TextContent>
           <Text component="p">Red Hat Insights</Text>
           <Text component="p" className="subtitle">
@@ -26,7 +26,7 @@ const InsightsTile = ({ rhel, openshift, ansible }) => {
           </Text>
         </TextContent>
       </CardHeader>
-      <CardBody className="ins-c-insights-card__body">
+      <CardBody className="land-c-insights-card__body">
         <CategoryAccordion
           {...rhel}
           isOpen={isOpen === 'rhel'}

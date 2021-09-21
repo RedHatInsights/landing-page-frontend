@@ -3,14 +3,14 @@
 exports[`Footer Traditional component should render correctly 1`] = `
 <Fragment>
   <PageSection
-    className="ins-c-footer__traditional pf-m-no-fill"
+    className="land-c-footer__traditional pf-m-no-fill"
   >
     <footer
       className="pf-l-flex pf-m-column pf-m-row-on-lg pf-m-align-items-center-on-lg"
       role="contentinfo"
     >
       <a
-        className="ins-p-footer__logo"
+        className="land-p-footer__logo"
         href="https://www.redhat.com"
         rel="noopener noreferrer"
         target="_blank"
@@ -18,7 +18,7 @@ exports[`Footer Traditional component should render correctly 1`] = `
         <RhLogo />
       </a>
       <div
-        className="ins-c-footer__traditional-nav pf-l-flex pf-m-column pf-m-row-on-lg pf-m-flex-1-on-lg pf-m-justify-content-flex-end-on-lg"
+        className="land-c-footer__traditional-nav pf-l-flex pf-m-column pf-m-row-on-lg pf-m-flex-1-on-lg pf-m-justify-content-flex-end-on-lg"
       >
         <p
           className="copyright pf-m-spacer-xl-on-lg"
@@ -31,7 +31,7 @@ exports[`Footer Traditional component should render correctly 1`] = `
           >
             <li>
               <Button
-                className="nav-link ins-p-footer__browser-support"
+                className="nav-link land-p-footer__browser-support"
                 onClick={[Function]}
                 variant="link"
               >
@@ -40,7 +40,7 @@ exports[`Footer Traditional component should render correctly 1`] = `
             </li>
             <li>
               <a
-                className="nav-link ins-p-footer__privacy-policy"
+                className="nav-link land-p-footer__privacy-policy"
                 href="https://www.redhat.com/en/about/privacy-policy"
               >
                 Privacy Policy
@@ -48,7 +48,7 @@ exports[`Footer Traditional component should render correctly 1`] = `
             </li>
             <li>
               <a
-                className="nav-link ins-p-footer__terms"
+                className="nav-link land-p-footer__terms"
                 href="https://access.redhat.com/help/terms/"
               >
                 Terms of Use
@@ -56,7 +56,7 @@ exports[`Footer Traditional component should render correctly 1`] = `
             </li>
             <li>
               <a
-                className="nav-link ins-p-footer__all-policies"
+                className="nav-link land-p-footer__all-policies"
                 href="https://www.redhat.com/en/about/all-policies-guidelines"
               >
                 All Policies and Guidelines
@@ -73,7 +73,7 @@ exports[`Footer Traditional component should render correctly 1`] = `
     aria-describedby=""
     aria-label=""
     aria-labelledby=""
-    className="ins-p-browser-support"
+    className="land-p-browser-support"
     hasNoBodyWrapper={false}
     isOpen={false}
     onClose={[Function]}

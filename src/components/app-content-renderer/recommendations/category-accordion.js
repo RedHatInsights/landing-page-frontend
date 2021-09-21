@@ -84,13 +84,13 @@ const OpenedContent = ({
 }) => (
   <Card
     isFlat
-    className={classNames('ins-c-accordion pf-u-mb-md', {
+    className={classNames('land-c-accordion pf-u-mb-md', {
       highlight: !isOpen && items.length > 0,
       empty: !isOpen && items.length === 0,
       opened: isOpen,
     })}
   >
-    <CardBody className="ins-c-accordion__header">
+    <CardBody className="land-c-accordion__header">
       <AccordionHeader
         setIsOpen={setIsOpen}
         title={title}
@@ -98,7 +98,7 @@ const OpenedContent = ({
         isOpen={isOpen}
       />
     </CardBody>
-    <CardBody className="ins-c-accordion__body">
+    <CardBody className="land-c-accordion__body">
       {isOpen && items.length === 0 && (
         <EmptyContent contentText={emptyStateContentText} />
       )}

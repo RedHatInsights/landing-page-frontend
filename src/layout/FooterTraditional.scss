@@ -1,7 +1,7 @@
 @import '~@redhat-cloud-services/frontend-components-utilities/styles/_mixins';
 @import '~@patternfly/patternfly/sass-utilities/_all';
 
-.ins-p-browser-support {
+.land-p-browser-support {
     .pf-c-title {
         margin-top: var(--pf-global--spacer--md);
         margin-bottom: var(--pf-global--spacer--xs);
@@ -13,20 +13,20 @@
     }
 }
 
-.ins-c-footer__traditional {
+.land-c-footer__traditional {
     padding: var(--pf-global--spacer--2xl);
     background-color: var(--pf-c-page__main-section--BackgroundColor);
 
     svg { @include rem('width', 150px); }
 
-    .ins-p-footer__browser-support {
+    .land-p-footer__browser-support {
         padding: 0;
         &:hover {
             text-decoration: underline;
         }
     }
 
-    .ins-c-footer__traditional-nav {
+    .land-c-footer__traditional-nav {
         .copyright {
             color: var(--pf-global--Color--200);
             @include rem('margin-right', 30px);
