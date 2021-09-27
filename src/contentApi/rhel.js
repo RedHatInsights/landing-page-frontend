@@ -13,9 +13,8 @@ const RECOMMENDATIONS_ITEMS = {
     {
       id: 'rhel-2',
       icon: 'error',
-      state: 'error',
       url: '/api/insights/v1/rule/?impacting=true&limit=1&incident=true',
-      title: {
+      description: {
         id: 'rhen-incidents-recommendation',
         defaultMessage:
           'Insights has identified {count} incidents affecting your systems.',
@@ -26,7 +25,10 @@ const RECOMMENDATIONS_ITEMS = {
         isNot: 0,
       },
       action: {
-        title: 'View',
+        title: {
+          id: 'rhel-incidents-action-text',
+          defaultMessage: 'View {count} incidents',
+        },
         href: './insights/advisor/recommendations?impacting=true&rule_status=enabled&sort=-publish_date&limit=10&offset=0&reports_shown=true&incident=true',
       },
       permissions: [
@@ -52,22 +54,20 @@ const RECOMMENDATIONS_ITEMS = {
     {
       id: 'rhel-5',
       icon: 'cog',
-      title:
-        'Create a remediation playbook to fix issues identified by Insights on your systems.',
+      description: 'Fix issues identified by Insights on your systems.',
       action: {
-        title: 'Create',
+        title: 'Create a remediation playbook',
         href: remediations,
       },
     },
     {
       url: '/api/inventory/v1/hosts',
       icon: 'play',
-      state: 'success',
       condition: { when: 'total', is: 0 },
       id: 'rhel-6',
-      title: 'Get Insights for your systems',
+      title: 'Proactively reduce risk and optimize spending.',
       action: {
-        title: 'Register',
+        title: 'Get Insights for your systems',
         href: registerLink,
       },
     },
@@ -139,7 +139,7 @@ const ESTATE_CONFIG = [
           title: 'SAP systems',
           href: `${inventoryLink}/?status=fresh&status=stale&source=insights&page=1&per_page=50#workloads=SAP&SIDs=&tags=`,
         },
-        accessor: 'total',
+        accessor: 'results[0].count',
         url: '/api/inventory/v1/system_profile/sap_system',
       },
     ],

@@ -11,6 +11,7 @@ const createContentData = async () => {
       recommendationsCategories.forEach((category) => {
         currentRecommendations[category] = {
           ...acc.recommendations[category],
+          category,
           items: [
             ...acc.recommendations[category].items,
             ...(recommendations[category] || []),
@@ -41,13 +42,6 @@ const createContentData = async () => {
     },
     defaultConfig
   );
-  // TODO: add recs for 26.4. to default-content-config.json
-  landingPageContent.recommendations = [
-    { ...landingPageContent.recommendations.recs },
-    { ...landingPageContent.recommendations.ansible },
-    { ...landingPageContent.recommendations.openshift },
-    { ...landingPageContent.recommendations.rhel },
-  ];
   return landingPageContent;
 };
 

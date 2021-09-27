@@ -6,7 +6,7 @@ exports[`404 page should render correctly 1`] = `
     className="landing"
   >
     <section
-      className="pf-l-page__main-section pf-c-page__main-section ins-c-page__404"
+      className="pf-l-page__main-section pf-c-page__main-section land-c-page__404"
     >
       <Title
         headingLevel="h1"
@@ -259,11 +259,11 @@ exports[`404 page should render correctly 1`] = `
         </svg>
       </Icon404>
       <Title
-        className="ins-c-text__sorry"
+        className="land-c-text__sorry"
         headingLevel="h2"
       >
         <h2
-          className="pf-c-title pf-m-xl ins-c-text__sorry"
+          className="pf-c-title pf-m-xl land-c-text__sorry"
         >
           Let's find you a new one. Try a new search or return home.
         </h2>

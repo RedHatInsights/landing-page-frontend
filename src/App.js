@@ -22,8 +22,6 @@ const NotFound = lazy(() =>
   import(/* webpackCunkName: "NotFound" */ './routes/404')
 );
 
-import './App.scss';
-
 const routes = {
   landing: '/',
   maintenance: '/maintenance',
