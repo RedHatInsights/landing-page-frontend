@@ -1,12 +1,13 @@
+import React from 'react';
 import { useSelector } from 'react-redux';
 
-import configTryLearnRenderer from './config-try-learn-renderer';
+import ConfigTryLearnRenderer from './config-try-learn-renderer';
 
 const Footer = () => {
   const configTryLearn = useSelector(
     ({ contentStore: { configTryLearn } }) => configTryLearn
   );
-  return configTryLearnRenderer(configTryLearn);
+  return <ConfigTryLearnRenderer sections={configTryLearn} />;
 };
 
 export default Footer;

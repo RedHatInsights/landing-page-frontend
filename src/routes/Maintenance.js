@@ -16,7 +16,7 @@ const isBeta = () => {
 };
 
 const Maintenance = () => (
-  <section className="pf-l-page__main-section pf-c-page__main-section ins-c-page__maintenance">
+  <section className="pf-l-page__main-section pf-c-page__main-section land-c-page__maintenance">
     <EmptyState variant={EmptyStateVariant.large}>
       <EmptyStateIcon icon={IconHourglass} />
       <Title headingLevel="h5" size="lg">

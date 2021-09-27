@@ -15,21 +15,21 @@ const FooterTraditional = () => {
 
   return (
     <React.Fragment>
-      <PageSection className="ins-c-footer__traditional pf-m-no-fill">
+      <PageSection className="land-c-footer__traditional pf-m-no-fill">
         <footer
           role="contentinfo"
           className="pf-l-flex pf-m-column pf-m-row-on-lg pf-m-align-items-center-on-lg"
         >
           <a
             href="https://www.redhat.com"
-            className="ins-p-footer__logo"
+            className="land-p-footer__logo"
             target="_blank"
             rel="noopener noreferrer"
           >
             <RhLogo />
           </a>
           <div
-            className="ins-c-footer__traditional-nav
+            className="land-c-footer__traditional-nav
                                     pf-l-flex pf-m-column
                                     pf-m-row-on-lg
                                     pf-m-flex-1-on-lg pf-m-justify-content-flex-end-on-lg"
@@ -42,7 +42,7 @@ const FooterTraditional = () => {
                 <li>
                   <Button
                     variant="link"
-                    className="nav-link ins-p-footer__browser-support"
+                    className="nav-link land-p-footer__browser-support"
                     onClick={() => setIsModalOpen(true)}
                   >
                     Browser Support
@@ -50,7 +50,7 @@ const FooterTraditional = () => {
                 </li>
                 <li>
                   <a
-                    className="nav-link ins-p-footer__privacy-policy"
+                    className="nav-link land-p-footer__privacy-policy"
                     href="https://www.redhat.com/en/about/privacy-policy"
                   >
                     Privacy Policy
@@ -58,7 +58,7 @@ const FooterTraditional = () => {
                 </li>
                 <li>
                   <a
-                    className="nav-link ins-p-footer__terms"
+                    className="nav-link land-p-footer__terms"
                     href="https://access.redhat.com/help/terms/"
                   >
                     Terms of Use
@@ -66,7 +66,7 @@ const FooterTraditional = () => {
                 </li>
                 <li>
                   <a
-                    className="nav-link ins-p-footer__all-policies"
+                    className="nav-link land-p-footer__all-policies"
                     href="https://www.redhat.com/en/about/all-policies-guidelines"
                   >
                     All Policies and Guidelines
@@ -81,7 +81,7 @@ const FooterTraditional = () => {
         title="Browser support"
         isOpen={isModalOpen}
         variant={ModalVariant.small}
-        className="ins-p-browser-support"
+        className="land-p-browser-support"
         onClose={() => setIsModalOpen(false)}
       >
         <p>

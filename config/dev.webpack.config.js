@@ -6,14 +6,18 @@ const { config: webpackConfig, plugins } = config({
   rootFolder: resolve(__dirname, '../'),
   debug: true,
   https: true,
-  skipChrome2: true,
   useCloud: true,
   deployment: process.env.BETA ? 'beta/apps' : 'apps',
   ...(process.env.PROXY && {
     useProxy: true,
+    proxyVerbose: true,
+    routes: {
+      '/beta/silent-check-sso': { host: 'https://ci.cloud.redhat.com' },
+      '/silent-check-sso': { host: 'https://ci.cloud.redhat.com' },
+    },
     appUrl: process.env.BETA
-      ? ['/beta/maintenance.html', '/beta/', '/beta/404.html']
-      : ['/maintenance.html', '/', '/404.html'],
+      ? ['/beta/maintenance.html', /^\/beta$/, '/beta/404.html']
+      : ['/maintenance.html', /^\/$/, '/404.html'],
     exactUrl: true,
   }),
   htmlPlugin: {

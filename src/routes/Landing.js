@@ -21,14 +21,14 @@ import '../components/app-content-renderer/styles/panels.scss';
 
 // Mockup console landing page
 import FirstPanel from '../components/app-content-renderer/first-panel';
-import SecondPanel from '../components/app-content-renderer/second-panel';
+import RecommendationsPanel from '../components/app-content-renderer/recommendations-panel';
 import Footer from '../components/app-content-renderer/footer';
 
 import { loadData } from '../store/actions';
 import createContentData from '../contentApi/create-content-data';
 
 import { loadPermissions } from '../utils/allPermissions';
-import { useLocation } from 'react-router';
+import { useLocation } from 'react-router-dom';
 
 const init = (initialState, search) => {
   const params = search
@@ -110,11 +110,11 @@ const Landing = () => {
 
   if (isUserReady) {
     return (
-      <Split className="ins-c-page__landing-layout">
-        <SplitItem className="ins-c-page__landing-content">
+      <Split className="land-c-page-layout">
+        <SplitItem className="land-c-page-content">
           <Fragment>
             <FirstPanel />
-            <SecondPanel />
+            <RecommendationsPanel />
             <Footer />
             <FooterTraditional />
           </Fragment>
@@ -123,7 +123,7 @@ const Landing = () => {
             renderAlert(notEntitled.emptyAlertTitle)}
           {notEntitled && !notEntitled.emptyAlertTitle && (
             <Modal
-              className="landing ins-c-error-modal"
+              className="landing land-c-error-modal"
               variant={ModalVariant.medium}
               app-entitlement={notEntitled.emptyID}
               isOpen={isModalOpen}
@@ -133,17 +133,17 @@ const Landing = () => {
                 <Title
                   headingLevel="h2"
                   size="2xl"
-                  className="ins-c-error-modal__header"
+                  className="land-c-error-modal__header"
                 >
                   {notEntitled.emptyTitle}
                 </Title>
               }
             >
-              <Stack hasGutter className="ins-c-error-modal__content">
-                <StackItem className="ins-c-error-modal__content--image">
+              <Stack hasGutter className="land-c-error-modal__content">
+                <StackItem className="land-c-error-modal__content--image">
                   {notEntitled.icon && (
                     <notEntitled.icon
-                      className="ins-c-icon__active"
+                      className="land-c-icon__active"
                       aria-hidden
                       alt={`${notEntitled.title} logo`}
                       {...notEntitled.iconProps}
@@ -151,21 +151,21 @@ const Landing = () => {
                   )}
                   {notEntitled.image && (
                     <img
-                      className="ins-c-application-info__logo"
+                      className="land-c-application-info__logo"
                       aria-hidden
                       src={notEntitled.image}
                       alt={`${notEntitled.title} logo`}
                     />
                   )}
                 </StackItem>
-                <StackItem className="ins-c-error-modal__content--body">
+                <StackItem className="land-c-error-modal__content--body">
                   {notEntitled.emptyText}
                 </StackItem>
-                <StackItem className="ins-c-error-modal__content--footer">
+                <StackItem className="land-c-error-modal__content--footer">
                   {notEntitled?.emptyAction?.primary && (
                     <Button
                       variant="primary"
-                      className="ins-c-error-modal__content--footer-primary"
+                      className="land-c-error-modal__content--footer-primary"
                       onClick={() => {
                         if (notEntitled.emptyAction.primary.navigate) {
                           window.location.href =
@@ -176,7 +176,7 @@ const Landing = () => {
                       {notEntitled.emptyAction.primary.title}
                     </Button>
                   )}
-                  <section className="ins-c-error-modal__content--footer-secondary">
+                  <section className="land-c-error-modal__content--footer-secondary">
                     {notEntitled?.emptyAction?.secondary &&
                       notEntitled.emptyAction.secondary.navigate && (
                         <Button
@@ -188,7 +188,7 @@ const Landing = () => {
                         >
                           {notEntitled.emptyAction.secondary.title
                             ? `${notEntitled.emptyAction.secondary.title}`
-                            : 'Learn More'}
+                            : 'Learn more'}
                         </Button>
                       )}
                     {notEntitled?.emptyAction?.secondary &&
@@ -196,12 +196,12 @@ const Landing = () => {
                         <Button variant="link">
                           {notEntitled.emptyAction.secondary.title
                             ? `${notEntitled.emptyAction.secondary.title}`
-                            : 'Learn More'}
+                            : 'Learn more'}
                         </Button>
                       )}
                     <Button
                       variant="link"
-                      className="ins-c-error-modal__close"
+                      className="land-c-error-modal__close"
                       onClick={handleModalToggle}
                     >
                       {notEntitled?.emptyAction?.close
