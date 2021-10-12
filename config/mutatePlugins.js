@@ -31,10 +31,7 @@ function mutatePlugins(plugins) {
   plugins.push(CheckSSO);
 
   const CopyFiles = new CopyPlugin({
-    patterns: [
-      { from: "google7a85090626515074.html", },
-      { from: "robots.txt" },
-    ]
+    patterns: [{ from: 'google7a85090626515074.html' }, { from: 'robots.txt' }],
   });
   plugins.push(CopyFiles);
 
