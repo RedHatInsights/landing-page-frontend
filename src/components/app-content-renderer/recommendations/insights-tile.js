@@ -27,25 +27,31 @@ const InsightsTile = ({ rhel, openshift, ansible }) => {
         </TextContent>
       </CardHeader>
       <CardBody className="land-c-insights-card__body">
-        <CategoryAccordion
-          {...rhel}
-          isOpen={isOpen === 'rhel'}
-          setIsOpen={() => handleIsOpen('rhel')}
-          title="RHEL"
-        />
-        <CategoryAccordion
-          {...openshift}
-          isOpen={isOpen === 'openshift'}
-          setIsOpen={() => handleIsOpen('openshift')}
-          title="OpenShift"
-        />
-        <CategoryAccordion
-          {...ansible}
-          isOpen={isOpen === 'ansible'}
-          setIsOpen={() => handleIsOpen('ansible')}
-          title="Ansible"
-          emptyStateContentText="Register Ansible Automation Platform with Insights to get recommendations."
-        />
+        {rhel?.items?.length > 0 && (
+          <CategoryAccordion
+            {...rhel}
+            isOpen={isOpen === 'rhel'}
+            setIsOpen={() => handleIsOpen('rhel')}
+            title="RHEL"
+          />
+        )}
+        {openshift?.items?.length > 0 && (
+          <CategoryAccordion
+            {...openshift}
+            isOpen={isOpen === 'openshift'}
+            setIsOpen={() => handleIsOpen('openshift')}
+            title="OpenShift"
+          />
+        )}
+        {ansible?.items?.length > 0 && (
+          <CategoryAccordion
+            {...ansible}
+            isOpen={isOpen === 'ansible'}
+            setIsOpen={() => handleIsOpen('ansible')}
+            title="Ansible"
+            emptyStateContentText="Register Ansible Automation Platform with Insights to get recommendations."
+          />
+        )}
       </CardBody>
     </Card>
   );
