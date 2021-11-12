@@ -60,7 +60,11 @@ const FirstPanelTile = ({ id, ...tile }) => {
               {loaded ? (
                 <>{count}</>
               ) : (
-                <Skeleton size={SkeletonSize.md} className="ins-m-dark" />
+                <Skeleton
+                  size={SkeletonSize.md}
+                  isDark
+                  className="pf-u-mb-sm"
+                />
               )}
             </Title>
             {loaded ? (
@@ -68,7 +72,7 @@ const FirstPanelTile = ({ id, ...tile }) => {
                 {title}
               </Text>
             ) : (
-              <Skeleton size={SkeletonSize.lg} className="ins-m-dark" />
+              <Skeleton size={SkeletonSize.lg} isDark />
             )}
           </CardBody>
         </Card>
