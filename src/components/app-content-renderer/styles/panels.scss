@@ -62,6 +62,13 @@
             --pf-c-card--BackgroundColor: var(--pf-global--BackgroundColor--dark-400);
           }
         }
+        .estate-content {
+          .pf-c-title {
+            .pf-c-skeleton {
+              line-height: 1;
+            }
+          }
+        }
       }
     }
   }
