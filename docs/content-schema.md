@@ -50,7 +50,7 @@ interface EstateTile {
 ```TS
 interface RecommendationItem {
   id: string;
-  title: string | { id: string, defaultMessage: string } // see https://formatjs.io/docs/react-intl/api/#formatmessage
+  description: string | { id: string, defaultMessage: string } // see https://formatjs.io/docs/react-intl/api/#formatmessage
   condition?: Condition // see below
   url?: string // Url to API endpoint
   accessor?: string // lodash like object accessor to API response object, see: https://lodash.com/docs/4.17.15#get

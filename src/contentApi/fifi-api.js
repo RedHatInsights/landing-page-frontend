@@ -3,10 +3,10 @@ const FIFI_RECOMMENDATIONS = {
     {
       id: 'fifi-1',
       icon: 'cog',
-      title:
-        'Create an Ansible Playbook to remediate or mitigate vulnerabilities or configuration issues.',
+      description:
+        'Remediate or mitigate vulnerabilities and configuration issues.',
       action: {
-        title: 'Get started',
+        title: 'Create an Ansible Playbook',
         href: './insights/remediations',
       },
     },

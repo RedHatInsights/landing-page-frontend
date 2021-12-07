@@ -437,9 +437,9 @@ export const RECOMMENDATIONS_ITEMS = {
     // },
     {
       id: 'orders',
-      title: {
+      description: {
         id: 'last-added-orders',
-        defaultMessage: 'Automation Services Catalog last orders ({count}).',
+        defaultMessage: 'You have ({count}) recent orders.',
       },
       condition: {
         when: 'data.lenght',
@@ -456,14 +456,13 @@ export const RECOMMENDATIONS_ITEMS = {
       ],
       action: {
         href: './ansible/catalog/orders',
-        title: 'Orders',
+        title: 'View Automation Services Catalog orders',
       },
     },
     {
       id: 'approvals',
-      title: `Automation Services Catalog approvals.`,
+      description: `Govern content with approval processes.`,
       icon: 'list',
-      state: 'info',
       permissions: [
         {
           method: 'hasPermissions',
@@ -472,7 +471,7 @@ export const RECOMMENDATIONS_ITEMS = {
       ],
       action: {
         href: './ansible/catalog/approval/requests',
-        title: 'View',
+        title: 'View Automation Services Catalog approvals',
       },
     },
   ],

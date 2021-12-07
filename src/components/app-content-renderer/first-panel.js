@@ -1,5 +1,4 @@
 import React, { useEffect, useRef } from 'react';
-import { DescriptionList } from '@patternfly/react-core';
 import { shallowEqual, useSelector } from 'react-redux';
 
 import EstateRenderer from './estate-renderer';
@@ -70,12 +69,8 @@ const FirstPanel = () => {
 
   const flatSections = flattenSections(estate || []);
   return flatSections.length > 0 ? (
-    <div ref={scrollRef} className="ins-l-first-panel">
-      <DescriptionList
-        style={{ gridTemplateColumns: `repeat(${flatSections.length}, 140px)` }}
-      >
-        <EstateRenderer sections={flatSections} />
-      </DescriptionList>
+    <div ref={scrollRef} className="land-l-first-panel">
+      <EstateRenderer sections={flatSections} />
     </div>
   ) : null;
 };

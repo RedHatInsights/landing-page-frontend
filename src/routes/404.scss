@@ -1,13 +1,13 @@
 @import '~@redhat-cloud-services/frontend-components-utilities/styles/_mixins';
 
-.ins-c-page__404 {
+.land-c-page__404 {
     display: flex;
     justify-content: center;
     flex-direction: column;
     align-items: center;
     text-align: center;
 
-    .ins-c-text__sorry { max-width: 70%; }
+    .land-c-text__sorry { max-width: 70%; }
 
     h1, svg { @include rem('margin-bottom', 30px); }
 
