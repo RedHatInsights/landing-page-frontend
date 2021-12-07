@@ -6,7 +6,6 @@ const { config: webpackConfig, plugins } = config({
   rootFolder: resolve(__dirname, '../'),
   debug: true,
   https: true,
-  useCloud: true,
   deployment: process.env.BETA ? 'beta/apps' : 'apps',
   ...(process.env.PROXY && {
     useProxy: true,

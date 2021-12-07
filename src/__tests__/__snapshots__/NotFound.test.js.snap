@@ -15,6 +15,9 @@ exports[`NotFound component should render correctly 1`] = `
         >
           <h1
             className="pf-c-title pf-m-3xl"
+            data-ouia-component-id="OUIA-Generated-Title-1"
+            data-ouia-component-type="PF4/Title"
+            data-ouia-safe={true}
           >
             404: We lost that page
           </h1>
@@ -265,6 +268,9 @@ exports[`NotFound component should render correctly 1`] = `
         >
           <h2
             className="pf-c-title pf-m-xl land-c-text__sorry"
+            data-ouia-component-id="OUIA-Generated-Title-2"
+            data-ouia-component-type="PF4/Title"
+            data-ouia-safe={true}
           >
             Let's find you a new one. Try a new search or return home.
           </h2>
