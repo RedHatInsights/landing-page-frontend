@@ -442,7 +442,7 @@ export const RECOMMENDATIONS_ITEMS = {
         defaultMessage: 'You have ({count}) recent orders.',
       },
       condition: {
-        when: 'data.lenght',
+        when: 'data.length',
         isNot: 0,
       },
       url: '/api/catalog/v1/orders?limit=5',
