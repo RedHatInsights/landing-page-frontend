@@ -20,9 +20,7 @@ const InsightsTile = ({ rhel, openshift, ansible }) => {
           <Text component="p">Red Hat Insights</Text>
           <Text component="p" className="subtitle">
             Gain increased visibility into your hybrid cloud deployments so you
-            can improve performance and increase security.&nbsp;
-            {/* Where does the link bellow leads? */}
-            <a href="#">Learn more.</a>
+            can improve performance and increase security.
           </Text>
         </TextContent>
       </CardHeader>
