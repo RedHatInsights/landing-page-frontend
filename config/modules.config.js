@@ -6,7 +6,7 @@ const { ModuleFederationPlugin } = require('webpack').container;
 
 const modulesPlugin = new ModuleFederationPlugin({
   name: appname,
-  filename: `${appname}.js`,
+  filename: `${appname}.[hash].js`,
   library: { type: 'var', name: appname },
   exposes: {
     './RootApp': './src/moduleEntries/AppEntry',

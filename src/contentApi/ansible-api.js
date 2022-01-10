@@ -196,6 +196,10 @@ const CATALOG_ADMIN_CONFIGURE_TRY_LEARN = {
       },
       permissions: [
         {
+          method: 'isEntitled',
+          args: ['ansible'],
+        },
+        {
           method: 'hasPermissions',
           args: [['catalog:portfolios:create']],
         },
@@ -384,6 +388,10 @@ const ansibleEstateRequests = [
         accessor: 'meta.count',
         permissions: [
           {
+            method: 'isEntitled',
+            args: ['ansible'],
+          },
+          {
             method: 'hasPermissions',
             args: [['catalog:portfolios:read']],
           },
@@ -398,6 +406,10 @@ const ansibleEstateRequests = [
         url: '/api/catalog/v1/portfolio_items?limit=1',
         accessor: 'meta.count',
         permissions: [
+          {
+            method: 'isEntitled',
+            args: ['ansible'],
+          },
           {
             method: 'hasPermissions',
             args: [['catalog:portfolio_items:read']],
@@ -442,13 +454,17 @@ export const RECOMMENDATIONS_ITEMS = {
         defaultMessage: 'You have ({count}) recent orders.',
       },
       condition: {
-        when: 'data.lenght',
+        when: 'data.length',
         isNot: 0,
       },
       url: '/api/catalog/v1/orders?limit=5',
       accessor: 'data.length',
       icon: 'history',
       permissions: [
+        {
+          method: 'isEntitled',
+          args: ['ansible'],
+        },
         {
           method: 'hasPermissions',
           args: [['catalog:orders:read', 'catalog:order_items:read']],
@@ -464,6 +480,10 @@ export const RECOMMENDATIONS_ITEMS = {
       description: `Govern content with approval processes.`,
       icon: 'list',
       permissions: [
+        {
+          method: 'isEntitled',
+          args: ['ansible'],
+        },
         {
           method: 'hasPermissions',
           args: [['approval:requests:read']],
