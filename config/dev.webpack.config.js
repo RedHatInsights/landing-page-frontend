@@ -9,10 +9,11 @@ const { config: webpackConfig, plugins } = config({
   deployment: process.env.BETA ? 'beta/apps' : 'apps',
   ...(process.env.PROXY && {
     useProxy: true,
+    env: 'prod-stable',
     proxyVerbose: true,
     routes: {
-      '/beta/silent-check-sso': { host: 'https://ci.cloud.redhat.com' },
-      '/silent-check-sso': { host: 'https://ci.cloud.redhat.com' },
+      '/beta/silent-check-sso': { host: 'https://console.redhat.com' },
+      '/silent-check-sso': { host: 'https://console.redhat.com' },
     },
     appUrl: process.env.BETA
       ? ['/beta/maintenance.html', /^\/beta$/, '/beta/404.html']
