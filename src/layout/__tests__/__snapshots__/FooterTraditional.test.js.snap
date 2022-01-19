@@ -62,6 +62,12 @@ exports[`Footer Traditional component should render correctly 1`] = `
                 All Policies and Guidelines
               </a>
             </li>
+            <li>
+              <a
+                className="nav-link land-p-footer__cookies"
+                id="teconsent"
+              />
+            </li>
           </ul>
         </nav>
       </div>
