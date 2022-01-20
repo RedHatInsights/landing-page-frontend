@@ -72,6 +72,12 @@ const FooterTraditional = () => {
                     All Policies and Guidelines
                   </a>
                 </li>
+                <li>
+                  <a
+                    id="teconsent"
+                    className="nav-link land-p-footer__cookies"
+                  ></a>
+                </li>
               </ul>
             </nav>
           </div>
