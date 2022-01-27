@@ -126,7 +126,7 @@ const schema = Joi.object({
   recommendations: Joi.object({
     recs: Joi.array().items(recommendationItemSchema),
     openshift: Joi.array().items(recommendationItemSchema),
-    rhel: Joi.array().items(recommendationItemSchema),
+    redhatInsights: Joi.array().items(recommendationItemSchema),
   }).required(),
   configTryLearn: Joi.object({
     configure: Joi.array().items(configTryLearnSchema).required(),

@@ -9,7 +9,7 @@ const registerLink = `${prefix}insights/registration`;
 const remediations = `${prefix}insights/remediations`;
 
 const RECOMMENDATIONS_ITEMS = {
-  rhel: [
+  redhatInsights: [
     {
       id: 'rhel-2',
       icon: 'error',
