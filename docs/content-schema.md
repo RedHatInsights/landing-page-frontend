@@ -16,7 +16,7 @@ interface fullSchema {
     recs?: RecommendationItem[] // items in recommendations section
     ansible?: RecommendationItem[] // items in ansible section
     openshift?: RecommendationItem[] // items in openshift section
-    rhel?: RecommendationItem[] // items in rhel section
+    redhatInsights?: RecommendationItem[] // items in rhel section
   },
   configTryLearn: {
     configure: ConfigureTryLearnItem[]
