@@ -9,7 +9,7 @@ import {
 } from '@patternfly/react-core';
 import CategoryAccordion from './category-accordion';
 
-const InsightsTile = ({ rhel, openshift, ansible }) => {
+const InsightsTile = ({ redhatInsights, openshift, ansible }) => {
   const [isOpen, setIsOpen] = useState('rhel');
   const handleIsOpen = (category) =>
     setIsOpen((prev) => (prev === category ? undefined : category));
@@ -25,9 +25,9 @@ const InsightsTile = ({ rhel, openshift, ansible }) => {
         </TextContent>
       </CardHeader>
       <CardBody className="land-c-insights-card__body">
-        {rhel?.items?.length > 0 && (
+        {redhatInsights?.items?.length > 0 && (
           <CategoryAccordion
-            {...rhel}
+            {...redhatInsights}
             isOpen={isOpen === 'rhel'}
             setIsOpen={() => handleIsOpen('rhel')}
             title="RHEL"
@@ -56,7 +56,7 @@ const InsightsTile = ({ rhel, openshift, ansible }) => {
 };
 
 InsightsTile.propTypes = {
-  rhel: PropTypes.object.isRequired,
+  redhatInsights: PropTypes.object.isRequired,
   openshift: PropTypes.object.isRequired,
   ansible: PropTypes.object.isRequired,
 };
