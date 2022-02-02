@@ -31,6 +31,7 @@ const permissionMethods = [
 
 const icons = [
   'insights',
+  'info',
   'ansible',
   'lightbulb',
   'error',
@@ -88,7 +89,8 @@ const estateSectionSchema = Joi.object({
 
 const recommendationItemSchema = Joi.object({
   id: Joi.string().required(),
-  title: translatedStringSchema.required(),
+  title: translatedStringSchema,
+  description: translatedStringSchema,
   condition: conditionSchema,
   url: Joi.string(),
   accessor: Joi.string(),
@@ -99,7 +101,7 @@ const recommendationItemSchema = Joi.object({
   permissions: Joi.array().items(permissionSchema),
   action: Joi.object({
     href: Joi.string().required(),
-    title: Joi.string().required(),
+    title: translatedStringSchema.required(),
     external: Joi.bool(),
   }).required(),
 });
@@ -126,7 +128,7 @@ const schema = Joi.object({
   recommendations: Joi.object({
     recs: Joi.array().items(recommendationItemSchema),
     openshift: Joi.array().items(recommendationItemSchema),
-    rhel: Joi.array().items(recommendationItemSchema),
+    redhatInsights: Joi.array().items(recommendationItemSchema),
   }).required(),
   configTryLearn: Joi.object({
     configure: Joi.array().items(configTryLearnSchema).required(),
