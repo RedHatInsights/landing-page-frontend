@@ -1,7 +1,12 @@
 import getAppsData from './get-apps-data';
 import defaultConfig from '../utils/default-content-config.json';
 
-const recommendationsCategories = ['recs', 'rhel', 'ansible', 'openshift'];
+const recommendationsCategories = [
+  'recs',
+  'redhatInsights',
+  'ansible',
+  'openshift',
+];
 
 const createContentData = async () => {
   const data = await getAppsData();
