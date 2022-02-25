@@ -9,7 +9,7 @@ const { config: webpackConfig, plugins } = config({
   deployment: process.env.BETA ? 'beta/apps' : 'apps',
   ...(process.env.PROXY && {
     useProxy: true,
-    env: 'prod-stable',
+    env: 'stage-stable',
     proxyVerbose: true,
     routes: {
       '/beta/silent-check-sso': { host: 'https://console.redhat.com' },

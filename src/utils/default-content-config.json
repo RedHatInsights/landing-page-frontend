@@ -72,7 +72,7 @@
         }
       ]
     },
-    "rhel": {
+    "redhatInsights": {
       "title": "Insights for Red Hat Enterprise Linux",
       "id": "rhel",
       "items": [{
