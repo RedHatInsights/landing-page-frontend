@@ -6,15 +6,28 @@ import { createRhelSchema } from './rhel';
 
 import { getManagedServicesDataSchema } from './managed-services-api';
 
-const getAppsData = () => {
-  const data = [
+async function getSchema(url, section) {
+  let data = await axiosInstance.get(url);
+  if (data?.estate?.items) {
+    data.estate = [
+      {
+        section,
+        items: data.estate.items,
+      },
+    ];
+  }
+  return data;
+}
+
+const getAppsData = async () => {
+  const data = await Promise.all([
     getPriorityDataSchema(),
     getManagedServicesDataSchema(),
     createRhelSchema(),
     getAnsibleDataSchema(),
     getFifiDataSchema(),
     getCostDataSchema(),
-  ];
+  ]);
   return data;
 };
 
