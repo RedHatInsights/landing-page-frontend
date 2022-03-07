@@ -129,7 +129,7 @@ const ConfigTryLearnTile = ({
           </FlexItem>
         </Flex>
       )}
-      {tiles.slice(0, isExpanded ? -1 : 2).map((item, index) => (
+      {tiles.slice(0, isExpanded ? undefined : 2).map((item, index) => (
         <div
           className={column}
           style={{ gridRow: index + 2 }}
