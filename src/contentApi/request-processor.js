@@ -80,7 +80,7 @@ export const processRequest = async ({
 };
 
 export const permissionProcessor = async (permissions = []) => {
-  if (permissions.length === 0) {
+  if (!permissions || permissions.length === 0) {
     return true;
   }
   const hasPermission = permissions.map(({ method, args = [] }) =>
