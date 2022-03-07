@@ -7,6 +7,8 @@ import configureMockStore from 'redux-mock-store';
 import { mount } from 'enzyme';
 import { Modal, Title } from '@patternfly/react-core';
 
+import axiosInstance from '@redhat-cloud-services/frontend-components-utilities/interceptors';
+
 import * as notifications from '@redhat-cloud-services/frontend-components-notifications/redux/actions/notifications';
 
 import Landing from '../Landing';
@@ -18,6 +20,7 @@ import FirstPanel from '../../components/app-content-renderer/first-panel';
 import RecommendationsPanel from '../../components/app-content-renderer/recommendations-panel';
 import Loading from '../../layout/Loading';
 import * as technologies from '../../consts';
+import data from './self-service-schema-mock.json';
 
 jest.mock('../../components/app-content-renderer/first-panel', () => ({
   __esModule: true,
@@ -62,12 +65,27 @@ jest.mock('../../consts', () => {
   };
 });
 
+jest.mock(
+  '@redhat-cloud-services/frontend-components-utilities/interceptors',
+  () => {
+    return {
+      __esModule: true,
+      default: {
+        get: () => Promise.resolve({}),
+      },
+    };
+  }
+);
+
 const mockStore = configureMockStore();
 const store = mockStore({});
 
 describe('Landing component renders authenticated page', () => {
   let loadDataSpy;
   let addNotificationSpy;
+  const getSpy = jest
+    .spyOn(axiosInstance, 'get')
+    .mockImplementation(() => Promise.resolve(data));
 
   /**
    * Modal is appended to root not body
@@ -81,6 +99,7 @@ describe('Landing component renders authenticated page', () => {
   afterAll(() => {
     const elem = document.getElementById('root');
     document.body.removeChild(elem);
+    getSpy.mockReset();
   });
 
   beforeEach(() => {
