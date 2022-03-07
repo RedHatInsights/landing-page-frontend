@@ -1,3 +1,5 @@
+import axiosInstance from '@redhat-cloud-services/frontend-components-utilities/interceptors';
+
 import { getAnsibleDataSchema } from './ansible-api';
 import { getCostDataSchema } from './cost-api';
 import { getFifiDataSchema } from './fifi-api';
@@ -6,6 +8,7 @@ import { createRhelSchema } from './rhel';
 
 import { getManagedServicesDataSchema } from './managed-services-api';
 
+// eslint-disable-next-line no-unused-vars
 async function getSchema(url, section) {
   let data = await axiosInstance.get(url);
   if (data?.estate?.items) {

@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { Card, CardBody, CardHeader, Text } from '@patternfly/react-core';
 import RecommendationEntry from './recommendation-entry';
 
-const RhelTile = ({ category, items }) => {
+const RhelTile = ({ category, items = [] }) => {
   return (
     <Card className="land-c-recommendations-card" isFlat>
       <CardHeader className="land-c-recommendations-card__header">
@@ -20,8 +20,9 @@ const RhelTile = ({ category, items }) => {
 
 RhelTile.propTypes = {
   category: PropTypes.string.isRequired,
-  items: PropTypes.arrayOf(PropTypes.shape({ id: PropTypes.string.isRequired }))
-    .isRequired,
+  items: PropTypes.arrayOf(
+    PropTypes.shape({ id: PropTypes.string.isRequired })
+  ),
 };
 
 export default RhelTile;
