@@ -8,18 +8,26 @@ import { createRhelSchema } from './rhel';
 
 import { getManagedServicesDataSchema } from './managed-services-api';
 
-// eslint-disable-next-line no-unused-vars
 async function getSchema(url, section) {
-  let data = await axiosInstance.get(url);
-  if (data?.estate?.items) {
-    data.estate = [
-      {
-        section,
-        items: data.estate.items,
-      },
-    ];
+  try {
+    let data = await axiosInstance.get(url);
+    if (data?.estate?.items) {
+      data.estate = [
+        {
+          section,
+          items: data.estate.items,
+        },
+      ];
+    }
+    return data;
+  } catch (error) {
+    console.error(`Unable load schema from ${url}.`, error);
+    return {
+      estate: [],
+      recommendations: {},
+      configTryLearn: {},
+    };
   }
-  return data;
 }
 
 const getAppsData = async () => {
@@ -30,6 +38,7 @@ const getAppsData = async () => {
     getAnsibleDataSchema(),
     getFifiDataSchema(),
     getCostDataSchema(),
+    getSchema('/api/ros/v1/call_to_action'),
   ]);
   return data;
 };
