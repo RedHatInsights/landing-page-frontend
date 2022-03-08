@@ -13,13 +13,16 @@ import { useDispatch } from 'react-redux';
 import { QuestionCircleIcon } from '@patternfly/react-icons';
 import classNames from 'classnames';
 import { Skeleton } from '@redhat-cloud-services/frontend-components/Skeleton';
+import useChrome from '@redhat-cloud-services/frontend-components/useChrome';
 
 import useRequest from '../use-request';
 import iconMapper from '../../../utils/icon-mapper';
 import { removeRecommendationTile } from '../../../store/actions';
+import sanitizeHref from '../../../utils/sanitize-href';
 
 const RecommendationEntry = (props) => {
   const { id, category, icon, description, action } = props;
+  const isBeta = useChrome((state) => state?.isBeta());
   const intl = useIntl();
   const dispatch = useDispatch();
   const removeTile = ({ show }) =>
@@ -58,7 +61,7 @@ const RecommendationEntry = (props) => {
         <Stack>
           <StackItem className="pf-u-mb-sm">
             <a
-              href={action.href}
+              href={sanitizeHref(action.href, isBeta)}
               {...(action.external
                 ? {
                     target: '_blank',

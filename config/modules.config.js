@@ -37,6 +37,12 @@ const modulesPlugin = new ModuleFederationPlugin({
       },
     },
     {
+      '@scalprum/react-core': {
+        requiredVersion: '*',
+        singleton: true,
+      },
+    },
+    {
       'react-redux': {
         requiredVersion: dependencies['react-redux'],
       },
