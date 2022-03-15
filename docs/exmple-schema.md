@@ -27,7 +27,7 @@ This is an example of a self-service schema with data for every landing page sec
     /**
     * These objects will be listed in the RHEL recommendation section
     */
-    "rhel": [
+    "redhatInsights": [
       // this entry will be only visible if current user has systems with incidents
       {
         "id": "unique-id",

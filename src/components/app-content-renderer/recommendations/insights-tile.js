@@ -9,7 +9,7 @@ import {
 } from '@patternfly/react-core';
 import CategoryAccordion from './category-accordion';
 
-const InsightsTile = ({ rhel, openshift, ansible }) => {
+const InsightsTile = ({ redhatInsights, openshift, ansible }) => {
   const [isOpen, setIsOpen] = useState('rhel');
   const handleIsOpen = (category) =>
     setIsOpen((prev) => (prev === category ? undefined : category));
@@ -20,16 +20,14 @@ const InsightsTile = ({ rhel, openshift, ansible }) => {
           <Text component="p">Red Hat Insights</Text>
           <Text component="p" className="subtitle">
             Gain increased visibility into your hybrid cloud deployments so you
-            can improve performance and increase security.&nbsp;
-            {/* Where does the link bellow leads? */}
-            <a href="#">Learn more.</a>
+            can improve performance and increase security.
           </Text>
         </TextContent>
       </CardHeader>
       <CardBody className="land-c-insights-card__body">
-        {rhel?.items?.length > 0 && (
+        {redhatInsights?.items?.length > 0 && (
           <CategoryAccordion
-            {...rhel}
+            {...redhatInsights}
             isOpen={isOpen === 'rhel'}
             setIsOpen={() => handleIsOpen('rhel')}
             title="RHEL"
@@ -58,7 +56,7 @@ const InsightsTile = ({ rhel, openshift, ansible }) => {
 };
 
 InsightsTile.propTypes = {
-  rhel: PropTypes.object.isRequired,
+  redhatInsights: PropTypes.object.isRequired,
   openshift: PropTypes.object.isRequired,
   ansible: PropTypes.object.isRequired,
 };
