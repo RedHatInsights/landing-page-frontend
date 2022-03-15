@@ -1,5 +1,4 @@
 import axiosInstance from '@redhat-cloud-services/frontend-components-utilities/interceptors';
-
 import { getAnsibleDataSchema } from './ansible-api';
 import { getCostDataSchema } from './cost-api';
 import { getFifiDataSchema } from './fifi-api';
@@ -35,6 +34,10 @@ const getAppsData = async () => {
     getPriorityDataSchema(),
     getManagedServicesDataSchema(),
     createRhelSchema(),
+    getSchema(
+      '/api/automation-hub/_ui/v1/landing-page/',
+      'Ansible Automation Platform'
+    ),
     getAnsibleDataSchema(),
     getFifiDataSchema(),
     getCostDataSchema(),
