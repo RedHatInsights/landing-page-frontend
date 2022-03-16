@@ -15,7 +15,9 @@ import IconOpenSource from './icon-open-source';
 import classNames from 'classnames';
 import useRequest from './use-request';
 import { Skeleton } from '@redhat-cloud-services/frontend-components/Skeleton';
+import useChrome from '@redhat-cloud-services/frontend-components/useChrome';
 import { permissionProcessor } from '../../contentApi/request-processor';
+import sanitizeHref from '../../utils/sanitize-href';
 
 const iconMapper = {
   config: IconManagementAutomation,
@@ -25,6 +27,7 @@ const iconMapper = {
 
 const TileItem = (props) => {
   const [{ response, loaded, ...rest }] = useRequest(props);
+  const isBeta = useChrome((state) => state?.isBeta());
   const {
     title,
     description,
@@ -51,7 +54,7 @@ const TileItem = (props) => {
       ) : null}
       <Text component="p" className="pf-u-mb-0">
         <a
-          href={href}
+          href={sanitizeHref(href, isBeta)}
           {...(external
             ? {
                 target: '_blank',
@@ -129,7 +132,7 @@ const ConfigTryLearnTile = ({
           </FlexItem>
         </Flex>
       )}
-      {tiles.slice(0, isExpanded ? -1 : 2).map((item, index) => (
+      {tiles.slice(0, isExpanded ? undefined : 2).map((item, index) => (
         <div
           className={column}
           style={{ gridRow: index + 2 }}
