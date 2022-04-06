@@ -1,0 +1,108 @@
+{
+  "estate": {
+    "items": [
+      {
+        "id": "ansible-collections",
+        "count": 364,
+        "shape": {
+          "title": "Collections",
+          "href": "./ansible/automation-hub/"
+        }
+      },
+      {
+        "id": "ansible-partners",
+        "count": 4,
+        "shape": {
+          "title": "Partners",
+          "href": "./ansible/automation-hub/partners/"
+        }
+      }
+    ]
+  },
+  "recommendations": {
+    "recs": [
+      {
+        "id": "ansible-partner",
+        "icon": "bulb",
+        "action": {
+          "title": "Check out our partner My Company Name",
+          "href": "./ansible/automation-hub/partners/awcrosby"
+        },
+        "description": "Discover automation from our partners."
+      }
+    ]
+  },
+  "configTryLearn": {
+    "configure": [
+      {
+        "shape": {
+          "title": "Sync Red Hat certified collections",
+          "description": [
+            "Configure access to sync collections ",
+            "to Private Automation Hub."
+          ],
+          "link": {
+            "title": "Get started",
+            "href": "./ansible/automation-hub/token"
+          }
+        }
+      }
+    ],
+    "try": [
+      {
+        "shape": {
+          "title": "Install Private Automation Hub",
+          "link": {
+            "title": "Get started",
+            "external": true,
+            "href": "https://access.redhat.com/documentation/en-us/red_hat_ansible_automation_platform/2.1/html/red_hat_ansible_automation_platform_installation_guide/index"
+          }
+        }
+      },
+      {
+        "shape": {
+          "title": "Manage repositories in Private Automation Hub",
+          "description": "Add community and privately developed collections to your Private Automation Hub.",
+          "link": {
+            "title": "Get started",
+            "external": true,
+            "href": "https://access.redhat.com/documentation/en-us/red_hat_ansible_automation_platform/2.1/html/publishing_proprietary_content_collections_in_automation_hub/index"
+          }
+        }
+      }
+    ],
+    "learn": [
+      {
+        "shape": {
+          "title": "Connect Automation Hub to your automation infrastructure",
+          "link": {
+            "title": "Get started",
+            "external": true,
+            "href": "https://docs.ansible.com/ansible-tower/latest/html/userguide/projects.html?extIdCarryOver=true&sc_cid=701f2000001Css5AAC#using-collections-in-tower"
+          }
+        }
+      },
+      {
+        "shape": {
+          "title": "Learn about namespaces",
+          "description": "Organize collections content into namespaces users can access.",
+          "link": {
+            "title": "Learn more",
+            "external": true,
+            "href": "https://access.redhat.com/documentation/en-us/red_hat_ansible_automation_platform/2.1/html/curating_collections_using_namespaces_in_automation_hub/index"
+          }
+        }
+      },
+      {
+        "shape": {
+          "title": "Explore Red Hat certified collections",
+          "link": {
+            "title": "Learn more",
+            "external": true,
+            "href": "https://www.ansible.com/partners"
+          }
+        }
+      }
+    ]
+  }
+}
