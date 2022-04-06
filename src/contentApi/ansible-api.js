@@ -1,116 +1,6 @@
 import catalogAdminPermissions from '../utils/catalog-admin-permissions.json';
 import approvalAdminPermissions from '../utils/approval-admin-permissions.json';
 
-const HUB_USER_CONFIGRE_TRY_LEARN = {
-  configure: [
-    {
-      permissions: [
-        {
-          method: 'isEntitled',
-          args: ['ansible'],
-        },
-      ],
-      shape: {
-        title: 'Sync Red Hat certified collections',
-        description:
-          'Configure access to sync collections to Private Automation Hub.',
-        link: {
-          title: 'Get started',
-          href: './ansible/automation-hub/token',
-        },
-      },
-    },
-  ],
-  try: [
-    {
-      permissions: [
-        {
-          method: 'isEntitled',
-          args: ['ansible'],
-        },
-      ],
-      shape: {
-        title: 'Install Private Automation Hub',
-        link: {
-          title: 'Get started',
-          external: true,
-          href: 'https://access.redhat.com/documentation/en-us/red_hat_ansible_automation_platform/1.2/html/installing_and_upgrading_private_automation_hub/index',
-        },
-      },
-    },
-    {
-      permissions: [
-        {
-          method: 'isEntitled',
-          args: ['ansible'],
-        },
-      ],
-      shape: {
-        title: 'Manage repositories in Private Automation Hub',
-        description:
-          'Add community and privately developed collections to your Private Automation Hub.',
-        link: {
-          title: 'Get started',
-          external: true,
-          href: 'https://access.redhat.com/documentation/en-us/red_hat_ansible_automation_platform/1.2/html/publishing_proprietary_content_collections_in_automation_hub/index',
-        },
-      },
-    },
-  ],
-  learn: [
-    {
-      permissions: [
-        {
-          method: 'isEntitled',
-          args: ['ansible'],
-        },
-      ],
-      shape: {
-        title: 'Connect Automation Hub to your automation infrastructure',
-        link: {
-          title: 'Get started',
-          external: true,
-          href: 'https://docs.ansible.com/ansible-tower/latest/html/userguide/projects.html?extIdCarryOver=true&sc_cid=701f2000001Css5AAC#using-collections-in-tower',
-        },
-      },
-    },
-    {
-      permissions: [
-        {
-          method: 'isEntitled',
-          args: ['ansible'],
-        },
-      ],
-      shape: {
-        title: 'Learn about namespaces',
-        description:
-          'Organize collections content into namespaces users can access.',
-        link: {
-          title: 'Learn more',
-          external: true,
-          href: 'https://access.redhat.com/documentation/en-us/red_hat_ansible_automation_platform/1.2/html/curating_collections_using_namespaces_in_automation_hub/index',
-        },
-      },
-    },
-    {
-      permissions: [
-        {
-          method: 'isEntitled',
-          args: ['ansible'],
-        },
-      ],
-      shape: {
-        title: 'Explore Red Hat certified collections',
-        link: {
-          title: 'Learn more',
-          external: true,
-          href: 'https://www.ansible.com/partners',
-        },
-      },
-    },
-  ],
-};
-
 const APP_USER_CONFIGRE_TRY_LEARN = {
   configure: [
     {
@@ -246,17 +136,14 @@ const CATALOG_ADMIN_CONFIGURE_TRY_LEARN = {
 
 const CONFIGURE_TRY_LEARN = {
   configure: [
-    ...HUB_USER_CONFIGRE_TRY_LEARN.configure,
     ...APP_USER_CONFIGRE_TRY_LEARN.configure,
     ...CATALOG_ADMIN_CONFIGURE_TRY_LEARN.configure,
   ],
   try: [
-    ...HUB_USER_CONFIGRE_TRY_LEARN.try,
     ...APP_USER_CONFIGRE_TRY_LEARN.try,
     ...CATALOG_ADMIN_CONFIGURE_TRY_LEARN.try,
   ],
   learn: [
-    ...HUB_USER_CONFIGRE_TRY_LEARN.learn,
     ...APP_USER_CONFIGRE_TRY_LEARN.learn,
     ...CATALOG_ADMIN_CONFIGURE_TRY_LEARN.learn,
   ],
@@ -279,7 +166,6 @@ const PAST_WEEK_JOBS_TITLE = 'Jobs in the past week';
 
 const ansibleEstateRequests = [
   {
-    section: 'Ansible Automation Platform',
     items: [
       {
         id: 'ansible-platform-clusters',
@@ -338,36 +224,6 @@ const ansibleEstateRequests = [
       //   },
       //   errorProcessor: createNoDataResponse,
       // },
-      {
-        id: 'ansible-collections',
-        url: '/api/automation-hub/v3/collections',
-        accessor: 'meta.count',
-        shape: {
-          title: 'Collections',
-          href: './ansible/automation-hub/',
-        },
-        permissions: [
-          {
-            method: 'isEntitled',
-            args: ['ansible'],
-          },
-        ],
-      },
-      {
-        id: 'ansible-partners',
-        url: '/api/automation-hub/v3/namespaces',
-        accessor: 'meta.count',
-        shape: {
-          title: 'Partners',
-          href: './ansible/automation-hub/partners',
-        },
-        permissions: [
-          {
-            method: 'isEntitled',
-            args: ['ansible'],
-          },
-        ],
-      },
       {
         id: 'ansible-platforms',
         url: '/api/sources/v3.1/applications?filter[application_type][name][contains]=catalog',

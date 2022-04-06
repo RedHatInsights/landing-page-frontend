@@ -7,13 +7,15 @@ import {
   Skeleton,
   SkeletonSize,
 } from '@redhat-cloud-services/frontend-components/Skeleton';
-
+import useChrome from '@redhat-cloud-services/frontend-components/useChrome';
 import { useDispatch } from 'react-redux';
 
 import { removeEstateTile } from '../../store/actions';
 import useRequest from './use-request';
+import sanitizeHref from '../../utils/sanitize-href';
 
 const FirstPanelTile = ({ id, ...tile }) => {
+  const isBeta = useChrome((state) => state?.isBeta());
   if (typeof tile.count === 'undefined' && typeof tile.url === 'undefined') {
     console.error(
       `Estate tile with id "${id}" does not contain "count" or "url" property! Tile will not be rendered.`
@@ -49,7 +51,7 @@ const FirstPanelTile = ({ id, ...tile }) => {
           {tile?.shape?.section}
         </Title>
       </div>
-      <a className="estate-content" href={href || '#'}>
+      <a className="estate-content" href={sanitizeHref(href, isBeta) || '#'}>
         <Card isCompact isHoverable isFlat>
           <CardBody>
             <Title
