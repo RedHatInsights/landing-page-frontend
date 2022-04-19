@@ -17,6 +17,8 @@ async function getSchema(url, section) {
           items: data.estate.items,
         },
       ];
+    } else {
+      data.estate = [];
     }
     return data;
   } catch (error) {
@@ -29,7 +31,7 @@ async function getSchema(url, section) {
   }
 }
 
-const getAppsData = async () => {
+const getAppsData = async (env) => {
   const data = await Promise.all([
     getPriorityDataSchema(),
     getManagedServicesDataSchema(),
@@ -42,6 +44,11 @@ const getAppsData = async () => {
     getFifiDataSchema(),
     getCostDataSchema(),
     getSchema('/api/ros/v1/call_to_action'),
+    getSchema(
+      `https://api${
+        env === 'stage' ? '.stage' : ''
+      }.openshift.com/api/accounts_mgmt/v1/landing_page/self_service`
+    ),
   ]);
   return data;
 };

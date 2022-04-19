@@ -10,6 +10,7 @@ import { Switch, Route } from 'react-router-dom';
 import { getRegistry } from '@redhat-cloud-services/frontend-components-utilities/Registry';
 import { Bullseye, Spinner } from '@patternfly/react-core';
 import { IntlProvider } from 'react-intl';
+import axiosInstance from '@redhat-cloud-services/frontend-components-utilities/interceptors';
 import contentStore from './store/contentReducer';
 
 const Landing = lazy(() =>
@@ -40,6 +41,19 @@ const App = () => {
       .getUser()
       .then((user) => user && setIsOrgAdmin(user.identity.user.is_org_admin));
   }, []);
+
+  axiosInstance.interceptors.request.use(async (config) => {
+    await insights.chrome.auth.getUser();
+    const token = await insights.chrome.auth.getToken();
+    const updatedCfg = { ...config };
+    if (token) {
+      updatedCfg.headers = {
+        ...updatedCfg.headers,
+        Authorization: `Bearer ${token}`,
+      };
+    }
+    return updatedCfg;
+  });
 
   return (
     <IntlProvider locale="en">
