@@ -10,7 +10,7 @@ import { getManagedServicesDataSchema } from './managed-services-api';
 async function getSchema(url, section) {
   try {
     let data = await axiosInstance.get(url);
-    if (data?.estate?.items) {
+    if (Array.isArray(data?.estate?.items)) {
       data.estate = [
         {
           section,
@@ -32,9 +32,19 @@ async function getSchema(url, section) {
 }
 
 const getAppsData = async (env) => {
+  const showUHC = env === 'prod' || env === 'qaprodauth';
   const data = await Promise.all([
     getPriorityDataSchema(),
     getManagedServicesDataSchema(),
+    ...(showUHC
+      ? [
+          getSchema(
+            `https://api${
+              env === 'qaprodauth' ? '.stage' : ''
+            }.openshift.com/api/accounts_mgmt/v1/landing_page/self_service`
+          ),
+        ]
+      : []),
     createRhelSchema(),
     getSchema(
       '/api/automation-hub/_ui/v1/landing-page/',
@@ -44,11 +54,6 @@ const getAppsData = async (env) => {
     getFifiDataSchema(),
     getCostDataSchema(),
     getSchema('/api/ros/v1/call_to_action'),
-    getSchema(
-      `https://api${
-        env === 'stage' ? '.stage' : ''
-      }.openshift.com/api/accounts_mgmt/v1/landing_page/self_service`
-    ),
   ]);
   return data;
 };
