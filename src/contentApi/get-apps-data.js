@@ -1,4 +1,3 @@
-import axiosInstance from '@redhat-cloud-services/frontend-components-utilities/interceptors';
 import { getAnsibleDataSchema } from './ansible-api';
 import { getCostDataSchema } from './cost-api';
 import { getFifiDataSchema } from './fifi-api';
@@ -6,6 +5,7 @@ import { getPriorityDataSchema } from './priority-api';
 import { createRhelSchema } from './rhel';
 
 import { getManagedServicesDataSchema } from './managed-services-api';
+import axiosInstance from '../utils/axiosInstance';
 
 async function getSchema(url, section) {
   try {
@@ -32,19 +32,14 @@ async function getSchema(url, section) {
 }
 
 const getAppsData = async (env) => {
-  const showUHC = env === 'prod' || env === 'qaprodauth';
   const data = await Promise.all([
     getPriorityDataSchema(),
     getManagedServicesDataSchema(),
-    ...(showUHC
-      ? [
-          getSchema(
-            `https://api${
-              env === 'qaprodauth' ? '.stage' : ''
-            }.openshift.com/api/accounts_mgmt/v1/landing_page/self_service`
-          ),
-        ]
-      : []),
+    getSchema(
+      `https://api${
+        env === 'qaprodauth' ? '.stage' : ''
+      }.openshift.com/api/accounts_mgmt/v1/landing_page/self_service`
+    ),
     createRhelSchema(),
     getSchema(
       '/api/automation-hub/_ui/v1/landing-page/',
