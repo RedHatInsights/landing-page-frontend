@@ -8,7 +8,7 @@ import { mount } from 'enzyme';
 import { Modal, Title } from '@patternfly/react-core';
 import { ScalprumProvider } from '@scalprum/react-core';
 
-import axiosInstance from '@redhat-cloud-services/frontend-components-utilities/interceptors';
+import axiosInstance from '../../utils/axiosInstance';
 
 import * as notifications from '@redhat-cloud-services/frontend-components-notifications/redux/actions/notifications';
 
@@ -66,17 +66,14 @@ jest.mock('../../consts', () => {
   };
 });
 
-jest.mock(
-  '@redhat-cloud-services/frontend-components-utilities/interceptors',
-  () => {
-    return {
-      __esModule: true,
-      default: {
-        get: () => Promise.resolve({}),
-      },
-    };
-  }
-);
+jest.mock('../../utils/axiosInstance', () => {
+  return {
+    __esModule: true,
+    default: {
+      get: () => Promise.resolve({}),
+    },
+  };
+});
 
 const mockStore = configureMockStore();
 const store = mockStore({});
