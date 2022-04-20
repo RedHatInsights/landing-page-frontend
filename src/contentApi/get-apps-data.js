@@ -38,7 +38,8 @@ const getAppsData = async (env) => {
     getSchema(
       `https://api${
         env === 'qaprodauth' ? '.stage' : ''
-      }.openshift.com/api/accounts_mgmt/v1/landing_page/self_service`
+      }.openshift.com/api/accounts_mgmt/v1/landing_page/self_service`,
+      'OpenShift'
     ),
     createRhelSchema(),
     getSchema(
