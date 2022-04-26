@@ -8,8 +8,8 @@ const recommendationsCategories = [
   'openshift',
 ];
 
-const createContentData = async () => {
-  const data = await getAppsData();
+const createContentData = async (env) => {
+  const data = await getAppsData(env);
   const landingPageContent = data.reduce(
     (acc, { estate = [], recommendations = {}, configTryLearn = {} }) => {
       const currentRecommendations = { ...acc.recommendations };

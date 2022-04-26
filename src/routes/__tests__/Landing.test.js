@@ -6,8 +6,9 @@ import { Provider } from 'react-redux';
 import configureMockStore from 'redux-mock-store';
 import { mount } from 'enzyme';
 import { Modal, Title } from '@patternfly/react-core';
+import { ScalprumProvider } from '@scalprum/react-core';
 
-import axiosInstance from '@redhat-cloud-services/frontend-components-utilities/interceptors';
+import axiosInstance from '../../utils/axiosInstance';
 
 import * as notifications from '@redhat-cloud-services/frontend-components-notifications/redux/actions/notifications';
 
@@ -65,17 +66,14 @@ jest.mock('../../consts', () => {
   };
 });
 
-jest.mock(
-  '@redhat-cloud-services/frontend-components-utilities/interceptors',
-  () => {
-    return {
-      __esModule: true,
-      default: {
-        get: () => Promise.resolve({}),
-      },
-    };
-  }
-);
+jest.mock('../../utils/axiosInstance', () => {
+  return {
+    __esModule: true,
+    default: {
+      get: () => Promise.resolve({}),
+    },
+  };
+});
 
 const mockStore = configureMockStore();
 const store = mockStore({});
@@ -120,11 +118,13 @@ describe('Landing component renders authenticated page', () => {
     let wrapper;
     await act(async () => {
       wrapper = mount(
-        <Provider store={store}>
-          <Router>
-            <Landing />
-          </Router>
-        </Provider>
+        <ScalprumProvider api={{ chrome: { getEnvironment: () => '' } }}>
+          <Provider store={store}>
+            <Router>
+              <Landing />
+            </Router>
+          </Provider>
+        </ScalprumProvider>
       );
     });
 
@@ -155,11 +155,13 @@ describe('Landing component renders authenticated page', () => {
 
     await act(async () => {
       wrapper = mount(
-        <Provider store={store}>
-          <MemoryRouter initialEntries={['/']}>
-            <Landing />
-          </MemoryRouter>
-        </Provider>
+        <ScalprumProvider api={{ chrome: { getEnvironment: () => '' } }}>
+          <Provider store={store}>
+            <MemoryRouter initialEntries={['/']}>
+              <Landing />
+            </MemoryRouter>
+          </Provider>
+        </ScalprumProvider>
       );
     });
 
@@ -182,18 +184,20 @@ describe('Landing component renders authenticated page', () => {
 
     await act(async () => {
       wrapper = mount(
-        <Provider store={store}>
-          <MemoryRouter
-            initialEntries={[
-              {
-                pathname: '/beta',
-                search: `not_entitled=${insightsInfo.entitlement}`,
-              },
-            ]}
-          >
-            <Landing />
-          </MemoryRouter>
-        </Provider>
+        <ScalprumProvider api={{ chrome: { getEnvironment: () => '' } }}>
+          <Provider store={store}>
+            <MemoryRouter
+              initialEntries={[
+                {
+                  pathname: '/beta',
+                  search: `not_entitled=${insightsInfo.entitlement}`,
+                },
+              ]}
+            >
+              <Landing />
+            </MemoryRouter>
+          </Provider>
+        </ScalprumProvider>
       );
     });
 
@@ -238,18 +242,20 @@ describe('Landing component renders authenticated page', () => {
     const settingsInfo = technologies.activeTechnologies[1];
     await act(async () => {
       wrapper = mount(
-        <Provider store={store}>
-          <MemoryRouter
-            initialEntries={[
-              {
-                pathname: '/beta',
-                search: `not_entitled=${settingsInfo.entitlement}`,
-              },
-            ]}
-          >
-            <Landing />
-          </MemoryRouter>
-        </Provider>
+        <ScalprumProvider api={{ chrome: { getEnvironment: () => '' } }}>
+          <Provider store={store}>
+            <MemoryRouter
+              initialEntries={[
+                {
+                  pathname: '/beta',
+                  search: `not_entitled=${settingsInfo.entitlement}`,
+                },
+              ]}
+            >
+              <Landing />
+            </MemoryRouter>
+          </Provider>
+        </ScalprumProvider>
       );
     });
 
@@ -273,18 +279,20 @@ describe('Landing component renders authenticated page', () => {
     const migrationInfo = technologies.activeTechnologies[2];
     await act(async () => {
       wrapper = mount(
-        <Provider store={store}>
-          <MemoryRouter
-            initialEntries={[
-              {
-                pathname: '/beta',
-                search: `not_entitled=${migrationInfo.entitlement}`,
-              },
-            ]}
-          >
-            <Landing />
-          </MemoryRouter>
-        </Provider>
+        <ScalprumProvider api={{ chrome: { getEnvironment: () => '' } }}>
+          <Provider store={store}>
+            <MemoryRouter
+              initialEntries={[
+                {
+                  pathname: '/beta',
+                  search: `not_entitled=${migrationInfo.entitlement}`,
+                },
+              ]}
+            >
+              <Landing />
+            </MemoryRouter>
+          </Provider>
+        </ScalprumProvider>
       );
     });
 

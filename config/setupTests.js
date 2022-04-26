@@ -27,6 +27,7 @@ global.window.insights = {
         window.insights.chrome) ||
         {}),
       login: returnBlank,
+      getToken: () => Promise.resolve('blablatoken'),
       getUser: () =>
         new Promise((res) =>
           res({
