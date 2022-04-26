@@ -15,6 +15,7 @@ import FooterTraditional from '../layout/FooterTraditional';
 import Loading from '../layout/Loading';
 import { activeTechnologies } from '../consts';
 import { addNotification } from '@redhat-cloud-services/frontend-components-notifications/redux';
+import useChrome from '@redhat-cloud-services/frontend-components/useChrome';
 
 import './Landing.scss';
 import '../components/app-content-renderer/styles/panels.scss';
@@ -69,6 +70,7 @@ const reducer = (state, { type, user }) => {
 };
 
 const Landing = () => {
+  const { getEnvironment } = useChrome();
   const { search } = useLocation();
   const [{ isModalOpen, isUserReady, notEntitled }, stateDispatch] = useReducer(
     reducer,
@@ -79,7 +81,7 @@ const Landing = () => {
 
   useEffect(async () => {
     try {
-      createContentData().then((data) => {
+      createContentData(getEnvironment()).then((data) => {
         dispatch(loadData(data));
       });
 
