@@ -39,7 +39,7 @@ const RECOMMENDATIONS_ITEMS = {
       action: {
         title: 'Download and install the Application Services CLI',
         external: true,
-        href: 'https://access.redhat.com/documentation/en-us/red_hat_openshift_streams_for_apache_kafka/1/guide/f520e427-cad2-40ce-823d-96234ccbc047',
+        href: 'https://access.redhat.com/documentation/en-us/red_hat_openshift_application_services/1/guide/bb30ee92-9e0a-4fd6-a67f-aed8910d7da3',
       },
     },
     {
