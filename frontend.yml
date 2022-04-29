@@ -1,0 +1,27 @@
+apiVersion: v1
+kind: Template
+metadata:
+  name: insights-chrome
+objects:
+  - apiVersion: cloud.redhat.com/v1alpha1
+    kind: Frontend
+    metadata:
+      name: chrome
+    spec:
+      envName: ${ENV_NAME}
+      deploymentRepo: https://github.com/RedHatInsights/landing-page-frontend
+      title: Landing
+      image: ${IMAGE}:${IMAGE_TAG}
+      API:
+        versions:
+          - v1
+      frontend:
+        paths:
+          - /
+parameters:
+  - name: ENV_NAME
+    required: true
+  - name: IMAGE_TAG
+    required: true
+  - name: IMAGE
+    value: quay.io/cloudservices/landing-page-frontend
