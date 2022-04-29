@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: Template
 metadata:
-  name: insights-chrome
+  name: landing-page-frontend
 objects:
   - apiVersion: cloud.redhat.com/v1alpha1
     kind: Frontend
