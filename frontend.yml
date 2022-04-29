@@ -6,7 +6,7 @@ objects:
   - apiVersion: cloud.redhat.com/v1alpha1
     kind: Frontend
     metadata:
-      name: chrome
+      name: landing
     spec:
       envName: ${ENV_NAME}
       deploymentRepo: https://github.com/RedHatInsights/landing-page-frontend
