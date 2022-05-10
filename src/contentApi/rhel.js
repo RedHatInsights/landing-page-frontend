@@ -107,7 +107,7 @@ const ESTATE_CONFIG = [
           when: 'total',
           isNot: 0,
         },
-        url: '/api/inventory/v1/hosts?staleness=stale',
+        url: '/api/inventory/v1/hosts?staleness=stale&registered_with=insights ',
         shape: {
           title: 'Stale systems',
           href: `${inventoryLink}/?status=stale&source=insights&page=1&per_page=50`,
@@ -140,7 +140,7 @@ const ESTATE_CONFIG = [
           href: `${inventoryLink}/?status=fresh&status=stale&source=insights&page=1&per_page=50#workloads=SAP&SIDs=&tags=`,
         },
         accessor: 'results[0].count',
-        url: '/api/inventory/v1/system_profile/sap_system',
+        url: '/api/inventory/v1/system_profile/sap_system?registered_with=insights ',
       },
     ],
   },
