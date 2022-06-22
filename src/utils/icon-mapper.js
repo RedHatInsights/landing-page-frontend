@@ -1,15 +1,15 @@
 import {
-  HistoryIcon,
-  LightbulbIcon,
-  ListIcon,
-  InfoCircleIcon,
   CheckCircleIcon,
-  QuestionCircleIcon,
+  CogIcon,
+  DownloadIcon,
   ExclamationCircleIcon,
   ExclamationTriangleIcon,
-  CogIcon,
+  HistoryIcon,
+  InfoCircleIcon,
+  LightbulbIcon,
+  ListIcon,
   PlayIcon,
-  DownloadIcon,
+  QuestionCircleIcon,
 } from '@patternfly/react-icons';
 import IconAnsible from '../components/icon-ansible';
 import IconInsights from '../components/icon-insights';

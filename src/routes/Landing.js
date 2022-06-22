@@ -4,11 +4,11 @@ import {
   Button,
   Modal,
   ModalVariant,
+  Split,
+  SplitItem,
   Stack,
   StackItem,
   Title,
-  SplitItem,
-  Split,
 } from '@patternfly/react-core';
 
 import FooterTraditional from '../layout/FooterTraditional';
