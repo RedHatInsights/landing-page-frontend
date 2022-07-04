@@ -3,3 +3,7 @@ extends:
 globals:
   insights: true
   shallow: true
+rules:
+  sort-imports:
+    - error
+    - ignoreDeclarationSort: true
