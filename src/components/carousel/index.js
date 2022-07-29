@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import './carousel.scss';
 import classNames from 'classnames';
-import { AngleLeftIcon, AngleRightIcon } from '@patternfly/react-icons';
 import { useRef } from 'react';
 
 const ITEM_WIDTH = 800;
