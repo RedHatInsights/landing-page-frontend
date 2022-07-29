@@ -2,21 +2,7 @@
 @import '~@patternfly/patternfly/sass-utilities/_all';
 
 .land-c-page-content {
-  .gray {
-    color: var(--pf-global--Color--200);
-  }
-  .error {
-    color: var(--pf-global--danger-color--100);
-  }
-  .warning {
-    color: var(--pf-global--warning-color--100);
-  }
-  .green {
-    color: var(--pf-global--success-color--100);
-  }
-  .info {
-    color: var(--pf-global--info-color--100);
-  }
+
   .land-c-footer__traditional{
     margin-right: var(--pf-global--spacer--lg);
     padding-top: var(--pf-global--spacer--sm);
@@ -77,38 +63,13 @@
       padding: var(--pf-global--spacer--xl) 0 var(--pf-global--spacer--xl) 0;
     }
   }
-  .land-c-recommendations-card__header,
-  .land-c-insights-card__header {
-    p {
-      font-size: var(--pf-global--FontSize--md);
-      font-weight: var(--pf-global--FontWeight--semi-bold);
-      &.subtitle {
-        font-weight: var(--pf-global--FontWeight--normal);
-      }
+ 
+  .land-l-grid-second-panel { 
+    .land-c-card {
+      margin-bottom: 12px;
     }
   }
-  .land-c-recommendations-card {
-    height: 550px;
-    &__body {
-      margin-right: var(--pf-global--spacer--lg);
-      margin-bottom: var(--pf-global--spacer--lg);
-      padding-right: var(--pf-global--spacer--lg);
-      overflow: auto;
-    }
-  }
-  .land-c-insights-card {
-    height: 550px;
-    overflow: hidden;
-    &__body {
-      padding-bottom: var(--pf-global--spacer--0);
-    }
-  }
-  @media screen and (max-width: $pf-global--breakpoint--md) {
-    .land-c-recommendations-card,
-    .land-c-insights-card {
-      height: 100%;
-    }
-  }
+
   .land-c-ctl-card {
     background:
     url(https://console.redhat.com/apps/frontend-assets/background-images/new-landing-page/ctl_gear_half.svg),

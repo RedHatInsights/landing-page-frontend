@@ -5,7 +5,7 @@ import classNames from 'classnames';
 import { AngleLeftIcon, AngleRightIcon } from '@patternfly/react-icons';
 import { useRef } from 'react';
 
-const ITEM_WIDTH = 162;
+const ITEM_WIDTH = 800;
 const ITEM_GAP = 24;
 
 const Carousel = ({ children, sections }) => {
@@ -156,11 +156,6 @@ const Carousel = ({ children, sections }) => {
         onTouchMove={handleTouchMove}
         onTouchStart={handleTouchStart}
       >
-        {currentPage > 0 && (
-          <button onClick={() => prev()} className="land-c-arrow">
-            <AngleLeftIcon style={arrowStyles} size="md" />
-          </button>
-        )}
         <div className="land-c-carousel-content-wrapper">
           <div
             ref={contentRef}
@@ -176,11 +171,6 @@ const Carousel = ({ children, sections }) => {
             {children}
           </div>
         </div>
-        {currentPage < maxPages - 1 && (
-          <button onClick={() => next()} className="land-c-arrow">
-            <AngleRightIcon style={arrowStyles} size="md" />
-          </button>
-        )}
       </div>
       {maxPages > 1 && (
         <div className="land-c-carousel-indicator-wrapper">{pageMarkers}</div>
