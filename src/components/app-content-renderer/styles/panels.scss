@@ -2,7 +2,7 @@
 @import '~@patternfly/patternfly/sass-utilities/_all';
 
 .land-c-page-content {
-
+  background-color: white;
   .land-c-footer__traditional{
     margin-right: var(--pf-global--spacer--lg);
     padding-top: var(--pf-global--spacer--sm);
@@ -10,117 +10,90 @@
       .cls-1 { fill: #e00; } 
     }
   }
-
   .land-l-first-panel {
-    color: var(--pf-global--Color--light-100);
     background: url(https://console.redhat.com/apps/frontend-assets/background-images/new-landing-page/estate_section_banner.png);
-    background-color: var(--pf-global--BackgroundColor--dark-100);
     background-size: cover !important;
-    padding: var(--pf-global--spacer--xl) var(--pf-global--spacer--lg) var(--pf-global--spacer--xl) var(--pf-global--spacer--lg);
-    overflow-x: auto;
-    .land-c-carousel-container {
-      .estate-group {
-        display: inline-block;
-        width: 162px;
-        &.is-section:not(:first-child) {
-          margin-left: var(--pf-global--spacer--lg);
-        }
-        a, a:hover {
-          color: var(--pf-global--BackgroundColor--100);
-          text-decoration: none;
-         }
-        .estate-section {
-          height: 60px;
-          display: -webkit-box;
-          -webkit-line-clamp: 2;
-          -webkit-box-orient: vertical; 
-          overflow: hidden;
-        }
-        .pf-c-card {
-          border-bottom-width: 0;
-          border-left-width: 0;
-          border-right-width: 0;
-          border-top-width: var(--pf-global--BorderWidth--lg);
-          --pf-c-card--m-flat--BorderColor: var(--pf-global--primary-color--light-100);
-          --pf-c-card--BackgroundColor: #202326;
-          width: 160px;
-          &:hover {
-            --pf-c-card--BackgroundColor: var(--pf-global--BackgroundColor--dark-400);
+    height: 300px;
+  }
+
+  .land-c-slick-slider-wrapper {
+    margin-top: -180px;
+    border: 1px solid;
+    max-width: 1600px;
+    .slick-slider {
+      color: black;
+    }
+    .slick-dots {
+      background: white;
+      li button {
+        border: 1px solid;
+      }
+      li button:before {
+        font-size: var(--pf-global--FontSize--4xl);
+      }
+      li.slick-active button:before {
+        opacity: 1;
+        color: var(--pf-global--active-color--100);
+      }
+    }
+  }
+
+  .land-l-second-panel { 
+    .pagetitle {
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+    }
+    .pf-l-flex {
+      margin-bottom: var(--pf-global--spacer--lg);
+      margin-right: 0;
+      &:last-of-type {
+        width: 100%;
+        margin-right: var(--pf-global--spacer--lg);
+      }
+    }
+    .pf-c-card {
+      width: 49%;
+      max-width: 49%;
+      align-self: stretch;
+      &__body {
+        .pf-c-sidebar {
+          .pf-c-sidebar__main {
+            height: 100%;
           }
-        }
-        .estate-content {
-          .pf-c-title {
-            .pf-c-skeleton {
-              line-height: 1;
+          &__panel {
+            --pf-c-sidebar__panel--FlexBasis: 60px;
+            img {
+              width: 62px;
+            }
+          }
+          &__content {
+            height: 100%;
+            .pf-c-content {
+              display: flex;
+              flex-flow: column;
+              height: 100%;
+              p.title {
+                font-size: var(--pf-global--FontSize--lg);
+              }
+              p.body {
+                flex-grow: 1;
+              }
             }
           }
         }
       }
     }
-  }
-  @media screen and (max-width: $pf-global--breakpoint--sm) {
-    .land-l-first-panel {
-      padding: var(--pf-global--spacer--xl) 0 var(--pf-global--spacer--xl) 0;
-    }
-  }
- 
-  .land-l-grid-second-panel { 
-    .land-c-card {
-      margin-bottom: 12px;
-    }
+    @media screen and (max-width: $pf-global--breakpoint--md) {
+      .pf-c-card {
+        width: 100%;
+        max-width: 100%;
+        height: auto;
+      }
+    }  
   }
 
-  .land-c-ctl-card {
-    background:
-    url(https://console.redhat.com/apps/frontend-assets/background-images/new-landing-page/ctl_gear_half.svg),
-    url(https://console.redhat.com/apps/frontend-assets/background-images/new-landing-page/ctl_lightbulb_half.svg);
-    background-color: var(--pf-global--BackgroundColor--100);
-    background-position: left top, right top;
-    background-repeat: repeat-y, repeat-y;
-    &__footer {
-      background-color:rgba(255, 255, 255, 0.5);
-      box-shadow: var(--pf-global--BoxShadow--md);
-      padding-top: var(--pf-global--spacer--md);
-    }
-    &__body {
-      color: var(--pf-global--Color--100);
-      display: grid;
-      grid-template-columns: [config] 1fr [try] 1fr [learn] 1fr;
-      grid-template-rows: [start] 1fr;
-      row-gap: var(--pf-global--spacer--sm);
-      column-gap: var(--pf-global--spacer--xl);
-      .land-c-grid__config {
-        grid-column-start: config;
-      }
-      .land-c-grid__try {
-        grid-column-start: try;
-      }
-      .land-c-grid__learn {
-        grid-column-start: learn;
-      }
-      .section-header > div {
-        margin: 0 var(--pf-global--spacer--sm) auto 0;
-      }
-      .land-c-ctl-tile {
-        &__title {
-          font-size: var(--pf-global--FontSize--md);
-          font-weight: var(--pf-global--FontWeight--semi-bold);
-        }
-        &__description {
-          color: var(--pf-global--Color--200);
-        }
-      }
-      @media screen and (max-width: $pf-global--breakpoint--xl) {
-        display: flex;
-        flex-direction: column;
-      }
-    }
-    @media screen and (max-width: $pf-global--breakpoint--md) {
-      background-image: none;
-      .section-header:not(:first-of-type) {
-        border-top: 1px solid var(--pf-global--disabled-color--200);
-        padding-top: var(--pf-global--spacer--lg);
-      }
-    }
+  .land-c-card-third-panel {
+
   }
 }
