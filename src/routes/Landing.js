@@ -22,7 +22,7 @@ import '../components/app-content-renderer/styles/panels.scss';
 
 // Mockup console landing page
 import FirstPanel from '../components/app-content-renderer/first-panel';
-import RecommendationsPanel from '../components/app-content-renderer/recommendations-panel';
+import SecondPanel from '../components/app-content-renderer/second-panel';
 import Footer from '../components/app-content-renderer/footer';
 
 import { loadData } from '../store/actions';
@@ -116,7 +116,7 @@ const Landing = () => {
         <SplitItem className="land-c-page-content">
           <Fragment>
             <FirstPanel />
-            <RecommendationsPanel />
+            <SecondPanel />
             <Footer />
             <FooterTraditional />
           </Fragment>

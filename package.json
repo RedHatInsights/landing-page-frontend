@@ -85,6 +85,7 @@
     "react-intl": "^5.15.4",
     "react-redux": "^7.2.3",
     "react-router-dom": "^5.2.0",
+    "react-slick": "^0.29.0",
     "redux": "^4.0.5",
     "redux-logger": "^3.0.6",
     "redux-promise-middleware": "^6.1.2"

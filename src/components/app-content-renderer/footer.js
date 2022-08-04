@@ -1,13 +1,9 @@
 import React from 'react';
-import { useSelector } from 'react-redux';
 
-import ConfigTryLearnRenderer from './config-try-learn-renderer';
+import ThirdPanel from './third-panel';
 
 const Footer = () => {
-  const configTryLearn = useSelector(
-    ({ contentStore: { configTryLearn } }) => configTryLearn
-  );
-  return <ConfigTryLearnRenderer sections={configTryLearn} />;
+  return <ThirdPanel />;
 };
 
 export default Footer;
