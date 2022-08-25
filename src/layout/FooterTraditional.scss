@@ -14,7 +14,6 @@
 }
 
 .land-c-footer__traditional {
-    padding: var(--pf-global--spacer--2xl);
     background-color: var(--pf-c-page__main-section--BackgroundColor);
 
     svg { @include rem('width', 150px); }
