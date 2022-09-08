@@ -23,7 +23,7 @@ exports[`Footer Traditional component should render correctly 1`] = `
         <p
           className="copyright pf-m-spacer-xl-on-lg"
         >
-          ©2021 Red Hat, Inc.
+          ©2022 Red Hat, Inc.
         </p>
         <nav>
           <ul

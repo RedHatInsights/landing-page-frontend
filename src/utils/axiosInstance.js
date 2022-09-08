@@ -1,9 +1,9 @@
 import axios from 'axios';
 import {
   authInterceptor,
-  responseDataInterceptor,
-  interceptor500,
   errorInterceptor,
+  interceptor500,
+  responseDataInterceptor,
 } from '@redhat-cloud-services/frontend-components-utilities/interceptors';
 
 const axiosInstance = axios.create();
