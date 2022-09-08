@@ -10,7 +10,7 @@ global.window = {
   },
 };
 
-const { get, join } = require('lodash');
+const { get } = require('lodash');
 const Joi = require('joi');
 const { default: getAppsData } = require('../src/contentApi/get-apps-data');
 
@@ -131,9 +131,9 @@ const schema = Joi.object({
     redhatInsights: Joi.array().items(recommendationItemSchema),
   }).required(),
   configTryLearn: Joi.object({
-    configure: Joi.array().items(configTryLearnSchema).required(),
-    try: Joi.array().items(configTryLearnSchema).required(),
-    learn: Joi.array().items(configTryLearnSchema).required(),
+    configure: Joi.array().items(configTryLearnSchema),
+    try: Joi.array().items(configTryLearnSchema),
+    learn: Joi.array().items(configTryLearnSchema),
   }).required(),
 });
 
@@ -153,14 +153,17 @@ function validateConfig(config) {
   }
 }
 
-const configs = getAppsData();
-
-try {
-  configs.forEach((c) => {
-    validateConfig(c);
-  });
-  process.exit(0);
-} catch (error) {
-  console.error(error);
-  process.exit(1);
+async function run() {
+  try {
+    const configs = await getAppsData();
+    configs.forEach((c) => {
+      validateConfig(c);
+    });
+    process.exit(0);
+  } catch (error) {
+    console.error(error);
+    process.exit(1);
+  }
 }
+
+run();

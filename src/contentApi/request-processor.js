@@ -1,5 +1,4 @@
 import get from 'lodash/get';
-import Cookies from 'js-cookie';
 
 import {
   hasPermissions as hasPermissionsEnhanced,
@@ -33,10 +32,11 @@ export const processRequest = async ({
   permissions,
   condition,
 }) => {
+  const token = await insights.chrome.auth.getToken();
   if (!headers) {
     headers = {
       Accept: 'application/json',
-      Authorization: `Bearer ${Cookies.get('cs_jwt')}`,
+      Authorization: `Bearer ${token}`,
       'Content-Type': 'application/json',
     };
   }
