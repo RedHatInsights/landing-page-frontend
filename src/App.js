@@ -1,12 +1,12 @@
 import React, {
-  useEffect,
-  useState,
+  Suspense,
   createContext,
   lazy,
-  Suspense,
+  useEffect,
+  useState,
 } from 'react';
 import '@patternfly/patternfly/utilities/Text/text.css';
-import { Switch, Route } from 'react-router-dom';
+import { Route, Switch } from 'react-router-dom';
 import { getRegistry } from '@redhat-cloud-services/frontend-components-utilities/Registry';
 import { Bullseye, Spinner } from '@patternfly/react-core';
 import { IntlProvider } from 'react-intl';
