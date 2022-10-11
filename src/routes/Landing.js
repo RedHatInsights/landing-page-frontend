@@ -22,8 +22,7 @@ import '../components/app-content-renderer/styles/panels.scss';
 
 // Mockup console landing page
 import FirstPanel from '../components/app-content-renderer/first-panel';
-import RecommendationsPanel from '../components/app-content-renderer/recommendations-panel';
-import Footer from '../components/app-content-renderer/footer';
+import SecondPanel from '../components/app-content-renderer/second-panel';
 
 import { loadData } from '../store/actions';
 import createContentData from '../contentApi/create-content-data';
@@ -113,11 +112,10 @@ const Landing = () => {
   if (isUserReady) {
     return (
       <Split className="land-c-page-layout">
-        <SplitItem className="land-c-page-content">
+        <SplitItem className="land-c-page-content pf-u-display-flex pf-u-flex-direction-column">
           <Fragment>
             <FirstPanel />
-            <RecommendationsPanel />
-            <Footer />
+            <SecondPanel />
             <FooterTraditional />
           </Fragment>
           {notEntitled &&

@@ -16,9 +16,8 @@ import Landing from '../Landing';
 
 import * as actions from '../../store/actions';
 
-import Footer from '../../components/app-content-renderer/footer';
 import FirstPanel from '../../components/app-content-renderer/first-panel';
-import RecommendationsPanel from '../../components/app-content-renderer/recommendations-panel';
+import SecondPanel from '../../components/app-content-renderer/second-panel';
 import Loading from '../../layout/Loading';
 import * as technologies from '../../consts';
 import data from './self-service-schema-mock.json';
@@ -28,17 +27,9 @@ jest.mock('../../components/app-content-renderer/first-panel', () => ({
   default: () => <span>FirstPanel</span>,
 }));
 
-jest.mock(
-  '../../components/app-content-renderer/recommendations-panel',
-  () => ({
-    __esModule: true,
-    default: () => <span>RecommendationsPanel</span>,
-  })
-);
-
-jest.mock('../../components/app-content-renderer/footer', () => ({
+jest.mock('../../components/app-content-renderer/second-panel', () => ({
   __esModule: true,
-  default: () => <span>Footer</span>,
+  default: () => <span>SecondPanel</span>,
 }));
 
 jest.mock('../../consts', () => {
@@ -130,8 +121,7 @@ describe('Landing component renders authenticated page', () => {
 
     expect(wrapper.find(Loading)).toHaveLength(1);
     expect(wrapper.find(FirstPanel)).toHaveLength(0);
-    expect(wrapper.find(RecommendationsPanel)).toHaveLength(0);
-    expect(wrapper.find(Footer)).toHaveLength(0);
+    expect(wrapper.find(SecondPanel)).toHaveLength(0);
     expect(wrapper.find(Modal)).toHaveLength(0);
 
     wrapper.update();
@@ -141,9 +131,7 @@ describe('Landing component renders authenticated page', () => {
 
     expect(wrapper.find(Loading)).toHaveLength(0);
     expect(wrapper.find(FirstPanel)).toHaveLength(1);
-    expect(wrapper.find(RecommendationsPanel)).toHaveLength(1);
-    expect(wrapper.find(Footer)).toHaveLength(1);
-    // there is a modal in footer
+    expect(wrapper.find(SecondPanel)).toHaveLength(1);
     expect(wrapper.find(Modal)).toHaveLength(1);
   });
 
@@ -172,8 +160,7 @@ describe('Landing component renders authenticated page', () => {
 
     expect(wrapper.find(Loading)).toHaveLength(1);
     expect(wrapper.find(FirstPanel)).toHaveLength(0);
-    expect(wrapper.find(RecommendationsPanel)).toHaveLength(0);
-    expect(wrapper.find(Footer)).toHaveLength(0);
+    expect(wrapper.find(SecondPanel)).toHaveLength(0);
 
     spy.mockRestore();
   });
@@ -207,8 +194,7 @@ describe('Landing component renders authenticated page', () => {
     expect(addNotificationSpy).not.toHaveBeenCalled();
     expect(wrapper.find(Loading)).toHaveLength(0);
     expect(wrapper.find(FirstPanel)).toHaveLength(1);
-    expect(wrapper.find(RecommendationsPanel)).toHaveLength(1);
-    expect(wrapper.find(Footer)).toHaveLength(1);
+    expect(wrapper.find(SecondPanel)).toHaveLength(1);
     expect(wrapper.find(Modal)).toHaveLength(2);
 
     let modalEntitled = wrapper.find(Modal).last();
@@ -264,8 +250,7 @@ describe('Landing component renders authenticated page', () => {
     expect(loadDataSpy).toHaveBeenCalled();
     expect(wrapper.find(Loading)).toHaveLength(0);
     expect(wrapper.find(FirstPanel)).toHaveLength(1);
-    expect(wrapper.find(RecommendationsPanel)).toHaveLength(1);
-    expect(wrapper.find(Footer)).toHaveLength(1);
+    expect(wrapper.find(SecondPanel)).toHaveLength(1);
     expect(wrapper.find(Modal)).toHaveLength(1);
 
     expect(addNotificationSpy).toHaveBeenCalledWith({
@@ -302,8 +287,7 @@ describe('Landing component renders authenticated page', () => {
     expect(addNotificationSpy).not.toHaveBeenCalled();
     expect(wrapper.find(Loading)).toHaveLength(0);
     expect(wrapper.find(FirstPanel)).toHaveLength(1);
-    expect(wrapper.find(RecommendationsPanel)).toHaveLength(1);
-    expect(wrapper.find(Footer)).toHaveLength(1);
+    expect(wrapper.find(SecondPanel)).toHaveLength(1);
     expect(wrapper.find(Modal)).toHaveLength(1);
 
     let modalEntitled = wrapper.find(Modal).last();
