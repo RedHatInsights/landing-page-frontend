@@ -35,7 +35,8 @@
     ],
     "moduleNameMapper": {
       "\\.(css|scss)$": "identity-obj-proxy",
-      ".+\\.(svg|png|jpg)$": "identity-obj-proxy"
+      ".+\\.(svg|png|jpg)$": "identity-obj-proxy",
+      "\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$": "<rootDir>/src/__mocks__/fileMock.js"
     },
     "transformIgnorePatterns": [
       "/node_modules/(?!@redhat-cloud-services)"
@@ -77,6 +78,10 @@
     "@redhat-cloud-services/frontend-components": "^3.5.0",
     "@redhat-cloud-services/frontend-components-notifications": "^3.1.0",
     "@redhat-cloud-services/frontend-components-utilities": "^3.1.1",
+    "@testing-library/jest-dom": "^5.16.5",
+    "@testing-library/react": "^12.0.0",
+    "@testing-library/react-hooks": "^7.0.2",
+    "@testing-library/user-event": "^14.4.3",
     "classnames": "^2.2.6",
     "lodash": "^4.17.21",
     "prop-types": "^15.7.2",
