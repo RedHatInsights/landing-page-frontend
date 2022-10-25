@@ -1,0 +1,904 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Landing/> should render correctly 1`] = `
+<div>
+  <div
+    class="pf-l-split land-c-page-layout"
+  >
+    <div
+      class="pf-l-split__item land-c-page-content pf-u-display-flex pf-u-flex-direction-column"
+    >
+      <section
+        class="pf-c-page__main-section pf-m-no-fill land-l-first-panel pf-u-px-xl pf-u-py-2xl"
+      >
+        <div
+          class="pf-c-content"
+        >
+          <h1
+            class="pf-u-pb-md pf-u-color-light-100"
+            data-ouia-component-id="OUIA-Generated-Text-1"
+            data-ouia-component-type="PF4/Text"
+            data-ouia-safe="true"
+            data-pf-content="true"
+          >
+            Hi, 
+            .
+            <br />
+            Welcome to your Hybrid Cloud Console.
+          </h1>
+        </div>
+        <div
+          class="land-c-slick-slider-wrapper pf-u-mx-md-on-md"
+        >
+          <div
+            class="slick-slider pf-u-p-sm pf-u-pb-0 slick-initialized"
+            dir="ltr"
+          >
+            <button
+              class="slick-arrow slick-prev slick-disabled"
+              data-role="none"
+              style="display: block;"
+              type="button"
+            >
+               
+              Previous
+            </button>
+            <div
+              class="slick-list"
+            >
+              <div
+                class="slick-track"
+                style="opacity: 1; transform: translate3d(0px, 0px, 0px);"
+              >
+                <div
+                  aria-hidden="false"
+                  class="slick-slide slick-active slick-current"
+                  data-index="0"
+                  style="outline: none; width: 0px;"
+                  tabindex="-1"
+                >
+                  <div>
+                    <div
+                      style="width: 100%; display: inline-block;"
+                      tabindex="-1"
+                    >
+                      <div
+                        class="pf-c-sidebar pf-m-gutter pf-m-split pf-u-flex-direction-column pf-u-mb-sm"
+                      >
+                        <div
+                          class="pf-c-sidebar__main"
+                        >
+                          <div
+                            class="pf-c-sidebar__content pf-u-p-lg pf-u-h-100"
+                          >
+                            <div
+                              class="pf-c-content pf-u-display-flex pf-u-flex-direction-column pf-u-h-100 pf-u-color-light-100"
+                            >
+                              <h3
+                                class=""
+                                data-ouia-component-id="OUIA-Generated-Text-2"
+                                data-ouia-component-type="PF4/Text"
+                                data-ouia-safe="true"
+                                data-pf-content="true"
+                              >
+                                Red Hat OpenShift Service on AWS
+                              </h3>
+                              <p
+                                class="pf-u-pb-sm pf-u-flex-grow-1"
+                                data-ouia-component-id="OUIA-Generated-Text-3"
+                                data-ouia-component-type="PF4/Text"
+                                data-ouia-safe="true"
+                                data-pf-content="true"
+                              >
+                                Easily provision your ROSA cluster with AWS Security Token Service in the new web interface with the same secure, capable, managed experience provided in the command-line interface.
+                              </p>
+                              <a
+                                class=""
+                                data-ouia-component-id="OUIA-Generated-Text-4"
+                                data-ouia-component-type="PF4/Text"
+                                data-ouia-safe="true"
+                                data-pf-content="true"
+                                href="https://console.redhat.com/openshift/create/rosa/wizard"
+                              >
+                                <button
+                                  aria-disabled="false"
+                                  class="pf-c-button pf-m-danger"
+                                  data-ouia-component-id="OUIA-Generated-Button-danger-1"
+                                  data-ouia-component-type="PF4/Button"
+                                  data-ouia-safe="true"
+                                  type="button"
+                                >
+                                  Try our ROSA today
+                                </button>
+                              </a>
+                            </div>
+                          </div>
+                          <div
+                            class="pf-c-sidebar__panel pf-m-width-33 slide-1 pf-u-align-self-stretch"
+                          />
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div
+                  aria-hidden="true"
+                  class="slick-slide"
+                  data-index="1"
+                  style="outline: none; width: 0px;"
+                  tabindex="-1"
+                >
+                  <div>
+                    <div
+                      style="width: 100%; display: inline-block;"
+                      tabindex="-1"
+                    >
+                      <div
+                        class="pf-c-sidebar pf-m-gutter pf-m-split"
+                      >
+                        <div
+                          class="pf-c-sidebar__main"
+                        >
+                          <div
+                            class="pf-c-sidebar__content pf-u-p-lg pf-u-h-100"
+                          >
+                            <div
+                              class="pf-c-content pf-u-display-flex pf-u-flex-direction-column pf-u-h-100 pf-u-color-light-100"
+                            >
+                              <h3
+                                class=""
+                                data-ouia-component-id="OUIA-Generated-Text-5"
+                                data-ouia-component-type="PF4/Text"
+                                data-ouia-safe="true"
+                                data-pf-content="true"
+                              >
+                                Develop in the sandbox with the Red Hat Developer Program
+                              </h3>
+                              <p
+                                class="pf-u-pb-sm pf-u-flex-grow-1"
+                                data-ouia-component-id="OUIA-Generated-Text-6"
+                                data-ouia-component-type="PF4/Text"
+                                data-ouia-safe="true"
+                                data-pf-content="true"
+                              >
+                                Try Red Hat Openshift technologies without setup or configuration for free with your Red Hat Developer account.
+                              </p>
+                              <div>
+                                <a
+                                  class="pf-u-pr-sm pf-u-mb-sm-on-sm"
+                                  data-ouia-component-id="OUIA-Generated-Text-7"
+                                  data-ouia-component-type="PF4/Text"
+                                  data-ouia-safe="true"
+                                  data-pf-content="true"
+                                  href="https://console.redhat.com/openshift/sandbox"
+                                >
+                                  <button
+                                    aria-disabled="false"
+                                    class="pf-c-button pf-m-danger pf-u-pr-sm pf-u-mb-sm"
+                                    data-ouia-component-id="OUIA-Generated-Button-danger-2"
+                                    data-ouia-component-type="PF4/Button"
+                                    data-ouia-safe="true"
+                                    type="button"
+                                  >
+                                    Build apps on the sandbox
+                                  </button>
+                                </a>
+                                <a
+                                  class=""
+                                  data-ouia-component-id="OUIA-Generated-Text-8"
+                                  data-ouia-component-type="PF4/Text"
+                                  data-ouia-safe="true"
+                                  data-pf-content="true"
+                                  href="https://developers.redhat.com/about"
+                                >
+                                  <button
+                                    aria-disabled="false"
+                                    class="pf-c-button pf-m-tertiary land-c-button-custom"
+                                    data-ouia-component-id="OUIA-Generated-Button-tertiary-1"
+                                    data-ouia-component-type="PF4/Button"
+                                    data-ouia-safe="true"
+                                    href="https://developers.redhat.com/about"
+                                    type="button"
+                                  >
+                                    Learn about the program
+                                  </button>
+                                </a>
+                              </div>
+                            </div>
+                          </div>
+                          <div
+                            class="pf-c-sidebar__panel pf-m-width-33 slide-2  pf-u-align-self-stretch"
+                          />
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div
+                  aria-hidden="true"
+                  class="slick-slide"
+                  data-index="2"
+                  style="outline: none; width: 0px;"
+                  tabindex="-1"
+                >
+                  <div>
+                    <div
+                      style="width: 100%; display: inline-block;"
+                      tabindex="-1"
+                    >
+                      <div
+                        class="pf-c-sidebar pf-m-gutter pf-m-split"
+                      >
+                        <div
+                          class="pf-c-sidebar__main"
+                        >
+                          <div
+                            class="pf-c-sidebar__content pf-u-p-lg pf-u-h-100"
+                          >
+                            <div
+                              class="pf-c-content pf-u-display-flex pf-u-flex-direction-column pf-u-h-100 pf-u-color-light-100"
+                            >
+                              <h3
+                                class=""
+                                data-ouia-component-id="OUIA-Generated-Text-9"
+                                data-ouia-component-type="PF4/Text"
+                                data-ouia-safe="true"
+                                data-pf-content="true"
+                              >
+                                Red Hat Insights
+                              </h3>
+                              <p
+                                class="pf-u-pb-sm pf-u-flex-grow-1"
+                                data-ouia-component-id="OUIA-Generated-Text-10"
+                                data-ouia-component-type="PF4/Text"
+                                data-ouia-safe="true"
+                                data-pf-content="true"
+                              >
+                                With Red Hat Inights, you can continuously analyze platforms and applications from the console to better manage your hybrid cloud environments.
+                              </p>
+                              <a
+                                class=""
+                                data-ouia-component-id="OUIA-Generated-Text-11"
+                                data-ouia-component-type="PF4/Text"
+                                data-ouia-safe="true"
+                                data-pf-content="true"
+                                href="https://console.redhat.com/insights/dashboard"
+                              >
+                                <button
+                                  aria-disabled="false"
+                                  class="pf-c-button pf-m-danger"
+                                  data-ouia-component-id="OUIA-Generated-Button-danger-3"
+                                  data-ouia-component-type="PF4/Button"
+                                  data-ouia-safe="true"
+                                  type="button"
+                                >
+                                  Identify and resolve risks
+                                </button>
+                              </a>
+                            </div>
+                          </div>
+                          <div
+                            class="pf-c-sidebar__panel pf-m-width-33 slide-3  pf-u-align-self-stretch"
+                          />
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div
+                  aria-hidden="true"
+                  class="slick-slide"
+                  data-index="3"
+                  style="outline: none; width: 0px;"
+                  tabindex="-1"
+                >
+                  <div>
+                    <div
+                      style="width: 100%; display: inline-block;"
+                      tabindex="-1"
+                    >
+                      <div
+                        class="pf-c-sidebar pf-m-gutter pf-m-split"
+                      >
+                        <div
+                          class="pf-c-sidebar__main"
+                        >
+                          <div
+                            class="pf-c-sidebar__content pf-u-p-lg pf-u-h-100"
+                          >
+                            <div
+                              class="pf-c-content pf-u-display-flex pf-u-flex-direction-column pf-u-h-100 pf-u-color-light-100"
+                            >
+                              <h3
+                                class=""
+                                data-ouia-component-id="OUIA-Generated-Text-12"
+                                data-ouia-component-type="PF4/Text"
+                                data-ouia-safe="true"
+                                data-pf-content="true"
+                              >
+                                Red Hat Marketplace
+                              </h3>
+                              <p
+                                class="pf-u-pb-sm pf-u-flex-grow-1"
+                                data-ouia-component-id="OUIA-Generated-Text-13"
+                                data-ouia-component-type="PF4/Text"
+                                data-ouia-safe="true"
+                                data-pf-content="true"
+                              >
+                                Try, purchase, and deploy software across clouds.
+                              </p>
+                              <a
+                                class=""
+                                data-ouia-component-id="OUIA-Generated-Text-14"
+                                data-ouia-component-type="PF4/Text"
+                                data-ouia-safe="true"
+                                data-pf-content="true"
+                                href="https://marketplace.redhat.com/en-us"
+                              >
+                                <button
+                                  aria-disabled="false"
+                                  class="pf-c-button pf-m-danger"
+                                  data-ouia-component-id="OUIA-Generated-Button-danger-4"
+                                  data-ouia-component-type="PF4/Button"
+                                  data-ouia-safe="true"
+                                  type="button"
+                                >
+                                  Learn more
+                                </button>
+                              </a>
+                            </div>
+                          </div>
+                          <div
+                            class="pf-c-sidebar__panel pf-m-width-33 slide-4  pf-u-align-self-stretch"
+                          />
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <button
+              class="slick-arrow slick-next"
+              data-role="none"
+              style="display: block;"
+              type="button"
+            >
+               
+              Next
+            </button>
+            <ul
+              class="slick-dots"
+              style="display: block;"
+            >
+              <li
+                class="slick-active"
+              >
+                <button>
+                  1
+                </button>
+              </li>
+              <li
+                class=""
+              >
+                <button>
+                  2
+                </button>
+              </li>
+              <li
+                class=""
+              >
+                <button>
+                  3
+                </button>
+              </li>
+              <li
+                class=""
+              >
+                <button>
+                  4
+                </button>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
+      <div
+        class="land-l-second-panel pf-u-background-color-100 pf-u-px-xl pf-u-pt-md pf-u-pb-2xl"
+      >
+        <h3
+          class="pf-c-title pf-m-2xl pf-u-py-md"
+          data-ouia-component-id="OUIA-Generated-Title-1"
+          data-ouia-component-type="PF4/Title"
+          data-ouia-safe="true"
+        >
+          Get started with Hybrid Cloud console capabilities.
+        </h3>
+        <div
+          class="land-l-card-container"
+        >
+          <article
+            class="pf-c-card pf-m-flat"
+            data-ouia-component-id="OUIA-Generated-Card-1"
+            data-ouia-component-type="PF4/Card"
+            data-ouia-safe="true"
+            id=""
+          >
+            <div
+              class="pf-c-card__body"
+            >
+              <div
+                class="pf-c-sidebar pf-m-gutter pf-u-flex-direction-column"
+              >
+                <div
+                  class="pf-c-sidebar__main"
+                >
+                  <div
+                    class="pf-c-sidebar__panel pf-u-box-shadow-none"
+                  >
+                    <img
+                      alt="Application and Data Services"
+                      src="https://console.redhat.com/apps/frontend-assets/console-landing/services.svg"
+                    />
+                  </div>
+                  <div
+                    class="pf-c-sidebar__content pf-u-m-0 pf-u-mt-sm pf-u-h-100"
+                  >
+                    <div
+                      class="pf-c-content pf-u-display-flex pf-u-flex-direction-column pf-u-h-100"
+                    >
+                      <p
+                        class="pf-u-font-size-lg"
+                        data-ouia-component-id="OUIA-Generated-Text-15"
+                        data-ouia-component-type="PF4/Text"
+                        data-ouia-safe="true"
+                        data-pf-content="true"
+                      >
+                        Application and Data Services
+                      </p>
+                      <p
+                        class="pf-u-flex-grow-1"
+                        data-ouia-component-id="OUIA-Generated-Text-16"
+                        data-ouia-component-type="PF4/Text"
+                        data-ouia-safe="true"
+                        data-pf-content="true"
+                      >
+                        Configure, monitor, optimize, and orchestrate applications and data services on demand.
+                      </p>
+                      <a
+                        class=""
+                        data-ouia-component-id="OUIA-Generated-Text-17"
+                        data-ouia-component-type="PF4/Text"
+                        data-ouia-safe="true"
+                        data-pf-content="true"
+                        href="https://console.redhat.com/application-services/overview"
+                      >
+                        Explore services   
+                        <svg
+                          aria-hidden="true"
+                          fill="currentColor"
+                          height="1em"
+                          role="img"
+                          style="vertical-align: -0.125em;"
+                          viewBox="0 0 448 512"
+                          width="1em"
+                        >
+                          <path
+                            d="M190.5 66.9l22.2-22.2c9.4-9.4 24.6-9.4 33.9 0L441 239c9.4 9.4 9.4 24.6 0 33.9L246.6 467.3c-9.4 9.4-24.6 9.4-33.9 0l-22.2-22.2c-9.5-9.5-9.3-25 .4-34.3L311.4 296H24c-13.3 0-24-10.7-24-24v-32c0-13.3 10.7-24 24-24h287.4L190.9 101.2c-9.8-9.3-10-24.8-.4-34.3z"
+                          />
+                        </svg>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </article>
+          <article
+            class="pf-c-card pf-m-flat"
+            data-ouia-component-id="OUIA-Generated-Card-2"
+            data-ouia-component-type="PF4/Card"
+            data-ouia-safe="true"
+            id=""
+          >
+            <div
+              class="pf-c-card__body"
+            >
+              <div
+                class="pf-c-sidebar pf-m-gutter"
+              >
+                <div
+                  class="pf-c-sidebar__main"
+                >
+                  <div
+                    class="pf-c-sidebar__panel"
+                  >
+                    <img
+                      alt="Openshift"
+                      src="https://console.redhat.com/apps/frontend-assets/console-landing/openshift.svg"
+                    />
+                  </div>
+                  <div
+                    class="pf-c-sidebar__content pf-u-m-0 pf-u-mt-sm"
+                  >
+                    <div
+                      class="pf-c-content pf-u-display-flex pf-u-flex-direction-column pf-u-h-100"
+                    >
+                      <p
+                        class="pf-u-font-size-lg"
+                        data-ouia-component-id="OUIA-Generated-Text-18"
+                        data-ouia-component-type="PF4/Text"
+                        data-ouia-safe="true"
+                        data-pf-content="true"
+                      >
+                        OpenShift
+                      </p>
+                      <p
+                        class="pf-u-flex-grow-1"
+                        data-ouia-component-id="OUIA-Generated-Text-19"
+                        data-ouia-component-type="PF4/Text"
+                        data-ouia-safe="true"
+                        data-pf-content="true"
+                      >
+                        Build, run, scale container-based applications -- now with developer tools, CI/CD, and release management.
+                      </p>
+                      <a
+                        class=""
+                        data-ouia-component-id="OUIA-Generated-Text-20"
+                        data-ouia-component-type="PF4/Text"
+                        data-ouia-safe="true"
+                        data-pf-content="true"
+                        href="https://console.redhat.com/openshift/overview"
+                      >
+                        Scale your applications   
+                        <svg
+                          aria-hidden="true"
+                          fill="currentColor"
+                          height="1em"
+                          role="img"
+                          style="vertical-align: -0.125em;"
+                          viewBox="0 0 448 512"
+                          width="1em"
+                        >
+                          <path
+                            d="M190.5 66.9l22.2-22.2c9.4-9.4 24.6-9.4 33.9 0L441 239c9.4 9.4 9.4 24.6 0 33.9L246.6 467.3c-9.4 9.4-24.6 9.4-33.9 0l-22.2-22.2c-9.5-9.5-9.3-25 .4-34.3L311.4 296H24c-13.3 0-24-10.7-24-24v-32c0-13.3 10.7-24 24-24h287.4L190.9 101.2c-9.8-9.3-10-24.8-.4-34.3z"
+                          />
+                        </svg>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </article>
+          <article
+            class="pf-c-card pf-m-flat"
+            data-ouia-component-id="OUIA-Generated-Card-3"
+            data-ouia-component-type="PF4/Card"
+            data-ouia-safe="true"
+            id=""
+          >
+            <div
+              class="pf-c-card__body"
+            >
+              <div
+                class="pf-c-sidebar pf-m-gutter"
+              >
+                <div
+                  class="pf-c-sidebar__main"
+                >
+                  <div
+                    class="pf-c-sidebar__panel"
+                  >
+                    <img
+                      alt="Red Hat Insights"
+                      src="https://console.redhat.com/apps/frontend-assets/console-landing/insights.svg"
+                    />
+                  </div>
+                  <div
+                    class="pf-c-sidebar__content pf-u-m-0 pf-u-mt-sm pf-u-h-100"
+                  >
+                    <div
+                      class="pf-c-content pf-u-display-flex pf-u-flex-direction-column pf-u-h-100"
+                    >
+                      <p
+                        class="pf-u-font-size-lg"
+                        data-ouia-component-id="OUIA-Generated-Text-21"
+                        data-ouia-component-type="PF4/Text"
+                        data-ouia-safe="true"
+                        data-pf-content="true"
+                      >
+                        Red Hat Insights
+                      </p>
+                      <p
+                        class="pf-u-flex-grow-1"
+                        data-ouia-component-id="OUIA-Generated-Text-22"
+                        data-ouia-component-type="PF4/Text"
+                        data-ouia-safe="true"
+                        data-pf-content="true"
+                      >
+                        Secure and stabilize the business-critical applications you scale from your Red Hat Enterprise Linux Platform.
+                      </p>
+                      <a
+                        class=""
+                        data-ouia-component-id="OUIA-Generated-Text-23"
+                        data-ouia-component-type="PF4/Text"
+                        data-ouia-safe="true"
+                        data-pf-content="true"
+                        href="https://console.redhat.com/insights/dashboard"
+                      >
+                        Manage RHEL  
+                        <svg
+                          aria-hidden="true"
+                          fill="currentColor"
+                          height="1em"
+                          role="img"
+                          style="vertical-align: -0.125em;"
+                          viewBox="0 0 448 512"
+                          width="1em"
+                        >
+                          <path
+                            d="M190.5 66.9l22.2-22.2c9.4-9.4 24.6-9.4 33.9 0L441 239c9.4 9.4 9.4 24.6 0 33.9L246.6 467.3c-9.4 9.4-24.6 9.4-33.9 0l-22.2-22.2c-9.5-9.5-9.3-25 .4-34.3L311.4 296H24c-13.3 0-24-10.7-24-24v-32c0-13.3 10.7-24 24-24h287.4L190.9 101.2c-9.8-9.3-10-24.8-.4-34.3z"
+                          />
+                        </svg>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </article>
+          <article
+            class="pf-c-card pf-m-flat"
+            data-ouia-component-id="OUIA-Generated-Card-4"
+            data-ouia-component-type="PF4/Card"
+            data-ouia-safe="true"
+            id=""
+          >
+            <div
+              class="pf-c-card__body"
+            >
+              <div
+                class="pf-c-sidebar pf-m-gutter"
+              >
+                <div
+                  class="pf-c-sidebar__main"
+                >
+                  <div
+                    class="pf-c-sidebar__panel"
+                  >
+                    <img
+                      alt="Edge Management"
+                      src="https://console.redhat.com/apps/frontend-assets/console-landing/edge.svg"
+                    />
+                  </div>
+                  <div
+                    class="pf-c-sidebar__content pf-u-m-0 pf-u-mt-sm pf-u-h-100"
+                  >
+                    <div
+                      class="pf-c-content pf-u-display-flex pf-u-flex-direction-column pf-u-h-100"
+                    >
+                      <p
+                        class="pf-u-font-size-lg"
+                        data-ouia-component-id="OUIA-Generated-Text-24"
+                        data-ouia-component-type="PF4/Text"
+                        data-ouia-safe="true"
+                        data-pf-content="true"
+                      >
+                        Edge Management
+                      </p>
+                      <p
+                        class="pf-u-flex-grow-1"
+                        data-ouia-component-id="OUIA-Generated-Text-25"
+                        data-ouia-component-type="PF4/Text"
+                        data-ouia-safe="true"
+                        data-pf-content="true"
+                      >
+                        Keep your systems protected, available, and operating efficiently. Update all your RHEL for Edge systems with secure, over-the-air updates.
+                      </p>
+                      <a
+                        class=""
+                        data-ouia-component-id="OUIA-Generated-Text-26"
+                        data-ouia-component-type="PF4/Text"
+                        data-ouia-safe="true"
+                        data-pf-content="true"
+                        href="https://console.redhat.com/edge/fleet-management"
+                      >
+                        Manage at the edge  
+                        <svg
+                          aria-hidden="true"
+                          fill="currentColor"
+                          height="1em"
+                          role="img"
+                          style="vertical-align: -0.125em;"
+                          viewBox="0 0 448 512"
+                          width="1em"
+                        >
+                          <path
+                            d="M190.5 66.9l22.2-22.2c9.4-9.4 24.6-9.4 33.9 0L441 239c9.4 9.4 9.4 24.6 0 33.9L246.6 467.3c-9.4 9.4-24.6 9.4-33.9 0l-22.2-22.2c-9.5-9.5-9.3-25 .4-34.3L311.4 296H24c-13.3 0-24-10.7-24-24v-32c0-13.3 10.7-24 24-24h287.4L190.9 101.2c-9.8-9.3-10-24.8-.4-34.3z"
+                          />
+                        </svg>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </article>
+          <article
+            class="pf-c-card pf-m-flat"
+            data-ouia-component-id="OUIA-Generated-Card-5"
+            data-ouia-component-type="PF4/Card"
+            data-ouia-safe="true"
+            id=""
+          >
+            <div
+              class="pf-c-card__body"
+            >
+              <div
+                class="pf-c-sidebar pf-m-gutter"
+              >
+                <div
+                  class="pf-c-sidebar__main"
+                >
+                  <div
+                    class="pf-c-sidebar__panel"
+                  >
+                    <img
+                      alt="Ansible Automation Platform"
+                      src="https://console.redhat.com/apps/frontend-assets/console-landing/ansible.svg"
+                    />
+                  </div>
+                  <div
+                    class="pf-c-sidebar__content pf-u-m-0 pf-u-mt-sm pf-u-h-100"
+                  >
+                    <div
+                      class="pf-c-content pf-u-display-flex pf-u-flex-direction-column pf-u-h-100"
+                    >
+                      <p
+                        class="pf-u-font-size-lg"
+                        data-ouia-component-id="OUIA-Generated-Text-27"
+                        data-ouia-component-type="PF4/Text"
+                        data-ouia-safe="true"
+                        data-pf-content="true"
+                      >
+                        Ansible Automation Platform
+                      </p>
+                      <p
+                        class="pf-u-flex-grow-1"
+                        data-ouia-component-id="OUIA-Generated-Text-28"
+                        data-ouia-component-type="PF4/Text"
+                        data-ouia-safe="true"
+                        data-pf-content="true"
+                      >
+                        Create, share, and manage automations - from development and operations to security and network teams.
+                      </p>
+                      <a
+                        class=""
+                        data-ouia-component-id="OUIA-Generated-Text-29"
+                        data-ouia-component-type="PF4/Text"
+                        data-ouia-safe="true"
+                        data-pf-content="true"
+                        href="https://console.redhat.com/edge/ansible-dashboard"
+                      >
+                        Automate everything  
+                        <svg
+                          aria-hidden="true"
+                          fill="currentColor"
+                          height="1em"
+                          role="img"
+                          style="vertical-align: -0.125em;"
+                          viewBox="0 0 448 512"
+                          width="1em"
+                        >
+                          <path
+                            d="M190.5 66.9l22.2-22.2c9.4-9.4 24.6-9.4 33.9 0L441 239c9.4 9.4 9.4 24.6 0 33.9L246.6 467.3c-9.4 9.4-24.6 9.4-33.9 0l-22.2-22.2c-9.5-9.5-9.3-25 .4-34.3L311.4 296H24c-13.3 0-24-10.7-24-24v-32c0-13.3 10.7-24 24-24h287.4L190.9 101.2c-9.8-9.3-10-24.8-.4-34.3z"
+                          />
+                        </svg>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+      <section
+        class="pf-c-page__main-section land-c-footer__traditional pf-m-no-fill"
+      >
+        <footer
+          class="pf-l-flex pf-m-column pf-m-row-on-lg pf-m-align-items-center-on-lg"
+          role="contentinfo"
+        >
+          <a
+            class="land-p-footer__logo"
+            href="https://www.redhat.com"
+            rel="noopener noreferrer"
+            target="_blank"
+          >
+            <svg
+              data-name="Layer 1"
+              id="redhat-logo"
+              viewBox="0 0 613 145"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <defs />
+              <title>
+                RedHat-Logo-A-Color
+              </title>
+              <path
+                class="cls-1"
+                d="M127.47,83.49c12.51,0,30.61-2.58,30.61-17.46a14,14,0,0,0-.31-3.42l-7.45-32.36c-1.72-7.12-3.23-10.35-15.73-16.6C124.89,8.69,103.76.5,97.51.5,91.69.5,90,8,83.06,8c-6.68,0-11.64-5.6-17.89-5.6-6,0-9.91,4.09-12.93,12.5,0,0-8.41,23.72-9.49,27.16A6.43,6.43,0,0,0,42.53,44c0,9.22,36.3,39.45,84.94,39.45M160,72.07c1.73,8.19,1.73,9.05,1.73,10.13,0,14-15.74,21.77-36.43,21.77C78.54,104,37.58,76.6,37.58,58.49a18.45,18.45,0,0,1,1.51-7.33C22.27,52,.5,55,.5,74.22c0,31.48,74.59,70.28,133.65,70.28,45.28,0,56.7-20.48,56.7-36.65,0-12.72-11-27.16-30.83-35.78"
+              />
+              <path
+                d="M160,72.07c1.73,8.19,1.73,9.05,1.73,10.13,0,14-15.74,21.77-36.43,21.77C78.54,104,37.58,76.6,37.58,58.49a18.45,18.45,0,0,1,1.51-7.33l3.66-9.06A6.43,6.43,0,0,0,42.53,44c0,9.22,36.3,39.45,84.94,39.45,12.51,0,30.61-2.58,30.61-17.46a14,14,0,0,0-.31-3.42Z"
+              />
+              <path
+                d="M579.74,92.8c0,11.89,7.15,17.67,20.19,17.67a52.11,52.11,0,0,0,11.89-1.68V95a24.84,24.84,0,0,1-7.68,1.16c-5.37,0-7.36-1.68-7.36-6.73V68.3h15.56V54.1H596.78v-18l-17,3.68V54.1H568.49V68.3h11.25Zm-53,.32c0-3.68,3.69-5.47,9.26-5.47a43.12,43.12,0,0,1,10.1,1.26v7.15a21.51,21.51,0,0,1-10.63,2.63c-5.46,0-8.73-2.1-8.73-5.57m5.2,17.56c6,0,10.84-1.26,15.36-4.31v3.37h16.82V74.08c0-13.56-9.14-21-24.39-21-8.52,0-16.94,2-26,6.1l6.1,12.52c6.52-2.74,12-4.42,16.83-4.42,7,0,10.62,2.73,10.62,8.31v2.73a49.53,49.53,0,0,0-12.62-1.58c-14.31,0-22.93,6-22.93,16.73,0,9.78,7.78,17.24,20.19,17.24m-92.44-.94h18.09V80.92h30.29v28.82H506V36.12H487.93V64.41H457.64V36.12H439.55ZM370.62,81.87c0-8,6.31-14.1,14.62-14.1A17.22,17.22,0,0,1,397,72.09V91.54A16.36,16.36,0,0,1,385.24,96c-8.2,0-14.62-6.1-14.62-14.09m26.61,27.87h16.83V32.44l-17,3.68V57.05a28.3,28.3,0,0,0-14.2-3.68c-16.19,0-28.92,12.51-28.92,28.5a28.25,28.25,0,0,0,28.4,28.6,25.12,25.12,0,0,0,14.93-4.83ZM320,67c5.36,0,9.88,3.47,11.67,8.83H308.47C310.15,70.3,314.36,67,320,67M291.33,82c0,16.2,13.25,28.82,30.28,28.82,9.36,0,16.2-2.53,23.25-8.42l-11.26-10c-2.63,2.74-6.52,4.21-11.14,4.21a14.39,14.39,0,0,1-13.68-8.83h39.65V83.55c0-17.67-11.88-30.39-28.08-30.39a28.57,28.57,0,0,0-29,28.81M262,51.58c6,0,9.36,3.78,9.36,8.31S268,68.2,262,68.2H244.11V51.58Zm-36,58.16h18.09V82.92h13.77l13.89,26.82H292l-16.2-29.45a22.27,22.27,0,0,0,13.88-20.72c0-13.25-10.41-23.45-26-23.45H226Z"
+              />
+            </svg>
+          </a>
+          <div
+            class="land-c-footer__traditional-nav pf-l-flex pf-m-column pf-m-row-on-lg pf-m-flex-1-on-lg pf-m-justify-content-flex-end-on-lg"
+          >
+            <p
+              class="copyright pf-m-spacer-xl-on-lg"
+            >
+              ©2022 Red Hat, Inc.
+            </p>
+            <nav>
+              <ul
+                class="pf-l-flex pf-m-column pf-m-row-on-md"
+              >
+                <li>
+                  <button
+                    aria-disabled="false"
+                    class="pf-c-button pf-m-link nav-link land-p-footer__browser-support"
+                    data-ouia-component-id="OUIA-Generated-Button-link-1"
+                    data-ouia-component-type="PF4/Button"
+                    data-ouia-safe="true"
+                    type="button"
+                  >
+                    Browser Support
+                  </button>
+                </li>
+                <li>
+                  <a
+                    class="nav-link land-p-footer__privacy-policy"
+                    href="https://www.redhat.com/en/about/privacy-policy"
+                  >
+                    Privacy Policy
+                  </a>
+                </li>
+                <li>
+                  <a
+                    class="nav-link land-p-footer__terms"
+                    href="https://access.redhat.com/help/terms/"
+                  >
+                    Terms of Use
+                  </a>
+                </li>
+                <li>
+                  <a
+                    class="nav-link land-p-footer__all-policies"
+                    href="https://www.redhat.com/en/about/all-policies-guidelines"
+                  >
+                    All Policies and Guidelines
+                  </a>
+                </li>
+                <li>
+                  <a
+                    class="nav-link land-p-footer__cookies"
+                    id="teconsent"
+                  />
+                </li>
+              </ul>
+            </nav>
+          </div>
+        </footer>
+      </section>
+    </div>
+  </div>
+</div>
+`;

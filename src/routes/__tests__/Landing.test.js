@@ -1,20 +1,29 @@
+/* eslint-disable react/prop-types */
 import React from 'react';
-import { mount } from 'enzyme';
-import toJson from 'enzyme-to-json';
-import Maintenance from '../Maintenance';
+import { render } from '@testing-library/react';
+import { MemoryRouter } from 'react-router-dom';
+import { Provider } from 'react-redux';
+import configureStore from 'redux-mock-store';
+import { ScalprumProvider } from '@scalprum/react-core';
+import Landing from '../Landing';
 
-import Loading from '../../layout/Loading';
-import FirstPanel from '../../components/app-content-renderer/first-panel';
-import SecondPanel from '../../components/app-content-renderer/second-panel';
+const mockStore = configureStore();
+const store = mockStore({});
+const LandingWrapper = ({ store, children }) => (
+  <ScalprumProvider api={{ chrome: { getEnvironment: () => '' } }}>
+    <Provider store={store}>
+      <MemoryRouter>{children}</MemoryRouter>
+    </Provider>
+  </ScalprumProvider>
+);
 
-
-test('expect SecondPanel to render children', () => {
-  const children = <span>SecondPanel</span>;
-
-  render(<SecondPanel>{children}</SecondPanel>);
-  expect(wrapper.find(SecondtPanel)).toHaveLength(1);
+describe('<Landing/>', () => {
+  test('should render correctly', () => {
+    const { container } = render(
+      <LandingWrapper store={store}>
+        <Landing />
+      </LandingWrapper>
+    );
+    expect(container).toMatchSnapshot();
+  });
 });
-
-    expect(wrapper.find(Loading)).toHaveLength(0);
-    expect(wrapper.find(FirstPanel)).toHaveLength(1);
-    expect(wrapper.find(SecondPanel)).toHaveLength(1);
