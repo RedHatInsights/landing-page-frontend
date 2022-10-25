@@ -56,10 +56,8 @@
     "start:beta": "BETA=true webpack serve --config config/dev.webpack.config.js --mode=development",
     "start:beta:proxy": "PROXY=TRUE NODE_ENV=development BETA=true webpack serve --config config/dev.webpack.config.js",
     "travis:build": "NODE_ENV=production webpack --config config/prod.webpack.config.js --mode=production",
-    "travis:verify": "npm-run-all travis:build lint test",
-    "verify": "npm-run-all validate:config build lint test",
-    "nightly": "npm-run-all build lint && npm run test -- -u",
-    "validate:config": "babel-node scripts/validate-schema.js"
+    "verify": "npm-run-all build lint test",
+    "nightly": "npm-run-all build lint && npm run test -- -u"
   },
   "repository": {
     "type": "git",
