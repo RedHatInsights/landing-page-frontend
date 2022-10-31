@@ -11,7 +11,7 @@ import {
 } from '@patternfly/react-core';
 import React from 'react';
 
-import ArrowRightIcon from '@patternfly/react-icons/dist/esm/icons/arrow-right-icon';
+import ArrowRightIcon from '@patternfly/react-icons/dist/js/icons/arrow-right-icon';
 
 const SecondPanel = () => {
   return (
