@@ -108,7 +108,7 @@ exports[`<Landing/> should render correctly 1`] = `
                                   data-ouia-safe="true"
                                   type="button"
                                 >
-                                  Try our ROSA today
+                                  Try out ROSA today
                                 </button>
                               </a>
                             </div>
