@@ -152,7 +152,7 @@ exports[`<Landing/> should render correctly 1`] = `
                                 data-ouia-safe="true"
                                 data-pf-content="true"
                               >
-                                Develop in the sandbox with the Red Hat Developer Program
+                                Develop in the sandbox with the Red Hat Developer program
                               </h3>
                               <p
                                 class="pf-u-pb-sm pf-u-flex-grow-1"
@@ -161,7 +161,7 @@ exports[`<Landing/> should render correctly 1`] = `
                                 data-ouia-safe="true"
                                 data-pf-content="true"
                               >
-                                Try Red Hat Openshift technologies without setup or configuration for free with your Red Hat Developer account.
+                                Try Red Hat OpenShift technologies without setup or configuration for free with your Red Hat Developer account.
                               </p>
                               <div>
                                 <a
@@ -254,7 +254,7 @@ exports[`<Landing/> should render correctly 1`] = `
                                 data-ouia-safe="true"
                                 data-pf-content="true"
                               >
-                                With Red Hat Inights, you can continuously analyze platforms and applications from the console to better manage your hybrid cloud environments.
+                                With Red Hat Insights, you can continuously analyze platforms and applications from the console to better manage your hybrid cloud environments.
                               </p>
                               <a
                                 class=""
@@ -412,7 +412,7 @@ exports[`<Landing/> should render correctly 1`] = `
           data-ouia-component-type="PF4/Title"
           data-ouia-safe="true"
         >
-          Get started with Hybrid Cloud console capabilities.
+          Get started with Hybrid Cloud Console capabilities
         </h3>
         <div
           class="land-l-card-container"
@@ -514,7 +514,7 @@ exports[`<Landing/> should render correctly 1`] = `
                     class="pf-c-sidebar__panel"
                   >
                     <img
-                      alt="Openshift"
+                      alt="OpenShift"
                       src="https://console.redhat.com/apps/frontend-assets/console-landing/openshift.svg"
                     />
                   </div>
@@ -531,7 +531,7 @@ exports[`<Landing/> should render correctly 1`] = `
                         data-ouia-safe="true"
                         data-pf-content="true"
                       >
-                        OpenShift
+                        Red Hat OpenShift
                       </p>
                       <p
                         class="pf-u-flex-grow-1"
@@ -540,7 +540,7 @@ exports[`<Landing/> should render correctly 1`] = `
                         data-ouia-safe="true"
                         data-pf-content="true"
                       >
-                        Build, run, scale container-based applications -- now with developer tools, CI/CD, and release management.
+                        Build, run, scale container-based applications - now with developer tools, CI/CD, and release management.
                       </p>
                       <a
                         class=""
@@ -617,7 +617,7 @@ exports[`<Landing/> should render correctly 1`] = `
                         data-ouia-safe="true"
                         data-pf-content="true"
                       >
-                        Secure and stabilize the business-critical applications you scale from your Red Hat Enterprise Linux Platform.
+                        Secure and stabilize the business-critical applications you scale from your Red Hat Enterprise Linux platform.
                       </p>
                       <a
                         class=""

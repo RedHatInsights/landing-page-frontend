@@ -58,10 +58,10 @@ function SimpleSlider() {
             <SidebarContent className="pf-u-p-lg pf-u-h-100">
               <TextContent className="pf-u-display-flex pf-u-flex-direction-column pf-u-h-100 pf-u-color-light-100">
                 <Text component="h3">
-                  Develop in the sandbox with the Red Hat Developer Program
+                  Develop in the sandbox with the Red Hat Developer program
                 </Text>
                 <Text component="p" className="pf-u-pb-sm pf-u-flex-grow-1">
-                  Try Red Hat Openshift technologies without setup or
+                  Try Red Hat OpenShift technologies without setup or
                   configuration for free with your Red Hat Developer account.
                 </Text>
                 <div>
@@ -102,7 +102,7 @@ function SimpleSlider() {
               <TextContent className="pf-u-display-flex pf-u-flex-direction-column pf-u-h-100 pf-u-color-light-100">
                 <Text component="h3">Red Hat Insights</Text>
                 <Text component="p" className="pf-u-pb-sm pf-u-flex-grow-1">
-                  With Red Hat Inights, you can continuously analyze platforms
+                  With Red Hat Insights, you can continuously analyze platforms
                   and applications from the console to better manage your hybrid
                   cloud environments.
                 </Text>

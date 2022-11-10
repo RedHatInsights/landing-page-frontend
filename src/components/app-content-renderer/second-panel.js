@@ -17,7 +17,7 @@ const SecondPanel = () => {
   return (
     <div className="land-l-second-panel pf-u-background-color-100 pf-u-px-xl pf-u-pt-md pf-u-pb-2xl">
       <Title headingLevel="h3" size={TitleSizes['2xl']} className="pf-u-py-md">
-        Get started with Hybrid Cloud console capabilities.
+        Get started with Hybrid Cloud Console capabilities
       </Title>
       <div className="land-l-card-container">
         <Card isFlat>
@@ -57,16 +57,16 @@ const SecondPanel = () => {
               <SidebarPanel>
                 <img
                   src="https://console.redhat.com/apps/frontend-assets/console-landing/openshift.svg"
-                  alt="Openshift"
+                  alt="OpenShift"
                 />
               </SidebarPanel>
               <SidebarContent className="pf-u-m-0 pf-u-mt-sm">
                 <TextContent className="pf-u-display-flex pf-u-flex-direction-column pf-u-h-100">
                   <Text component="p" className="pf-u-font-size-lg">
-                    OpenShift
+                    Red Hat OpenShift
                   </Text>
                   <Text component="p" className="pf-u-flex-grow-1">
-                    Build, run, scale container-based applications -- now with
+                    Build, run, scale container-based applications - now with
                     developer tools, CI/CD, and release management.
                   </Text>
                   <Text
@@ -98,7 +98,7 @@ const SecondPanel = () => {
                   </Text>
                   <Text component="p" className="pf-u-flex-grow-1">
                     Secure and stabilize the business-critical applications you
-                    scale from your Red Hat Enterprise Linux Platform.
+                    scale from your Red Hat Enterprise Linux platform.
                   </Text>
                   <Text
                     component="a"
