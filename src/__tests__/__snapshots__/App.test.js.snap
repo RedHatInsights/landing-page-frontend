@@ -95,6 +95,7 @@ exports[`App component should render correctly 1`] = `
                   size="xl"
                 >
                   <span
+                    aria-label="Contents"
                     aria-valuetext="Loading..."
                     className="pf-c-spinner pf-m-xl"
                     role="progressbar"
@@ -215,6 +216,7 @@ exports[`App component should render correctly 2`] = `
                   size="xl"
                 >
                   <span
+                    aria-label="Contents"
                     aria-valuetext="Loading..."
                     className="pf-c-spinner pf-m-xl"
                     role="progressbar"
