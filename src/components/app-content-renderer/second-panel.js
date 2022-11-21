@@ -97,15 +97,21 @@ const SecondPanel = () => {
                     Red Hat Insights
                   </Text>
                   <Text component="p" className="pf-u-flex-grow-1">
-                    Secure and stabilize the business-critical applications you
-                    scale from your Red Hat Enterprise Linux platform.
+                    Proactively assess, secure and stabilize the
+                    business-critical applications you scale from your Red Hat
+                    platforms.
                   </Text>
-                  <Text
-                    component="a"
-                    href="https://console.redhat.com/insights/dashboard"
-                  >
-                    Manage RHEL&nbsp;&nbsp;
-                    <ArrowRightIcon />
+                  <Text component="p">
+                    Manage&nbsp;
+                    <a href="https://console.redhat.com/insights/">RHEL</a>
+                    &nbsp;|&nbsp;
+                    <a href="https://console.redhat.com/ansible/advisor">
+                      Ansible
+                    </a>
+                    &nbsp;|&nbsp;
+                    <a href="https://console.redhat.com/openshift/insights">
+                      Openshift
+                    </a>
                   </Text>
                 </TextContent>
               </SidebarContent>
