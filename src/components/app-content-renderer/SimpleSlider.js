@@ -34,8 +34,8 @@ function SimpleSlider() {
                 <Text component="h3">Red Hat OpenShift Service on AWS</Text>
                 <Text component="p" className="pf-u-pb-sm pf-u-flex-grow-1">
                   Easily provision your ROSA cluster with AWS Security Token
-                  Service in the new web interface with the same secure,
-                  capable, managed experience provided in the command-line
+                  Service in the new web interface with the same secure and
+                  capable managed experience provided in the command-line
                   interface.
                 </Text>
                 <Text
