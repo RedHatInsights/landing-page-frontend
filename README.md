@@ -17,6 +17,7 @@ There is a [comprehensive quick start guide in the Storybook Documentation](http
 2. ```npm run start:proxy``` / ```npm run start:beta:proxy```
 
 Checkout https://ci.foo.redhat.com:1337/ [Read more](https://github.com/RedHatInsights/frontend-components/tree/master/packages/config#useproxy).
+
 ## Running locally with insights-proxy
 
 1. `npm install`
