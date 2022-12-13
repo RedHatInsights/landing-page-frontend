@@ -8,6 +8,7 @@ import '../components/app-content-renderer/styles/panels.scss';
 import FirstPanel from '../components/app-content-renderer/first-panel';
 import SecondPanel from '../components/app-content-renderer/second-panel';
 import FooterTraditional from '../layout/FooterTraditional';
+import NotEntitledModal from '../components/not-entitled-modal/not-entitled-modal';
 
 const Landing = () => {
   return (
@@ -17,6 +18,7 @@ const Landing = () => {
           <FirstPanel />
           <SecondPanel />
           <FooterTraditional />
+          <NotEntitledModal />
         </Fragment>
       </SplitItem>
     </Split>
