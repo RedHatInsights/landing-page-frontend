@@ -40,7 +40,7 @@ function SimpleSlider() {
                 </Text>
                 <Text
                   component="a"
-                  href="https://console.redhat.com/openshift/create/rosa/wizard"
+                  href="https://console.redhat.com/openshift/create/rosa/getstarted"
                 >
                   <Button variant="danger">Try out ROSA today</Button>
                 </Text>
