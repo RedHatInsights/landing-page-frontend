@@ -98,7 +98,7 @@ exports[`<Landing/> should render correctly 1`] = `
                                 data-ouia-component-type="PF4/Text"
                                 data-ouia-safe="true"
                                 data-pf-content="true"
-                                href="https://console.redhat.com/openshift/create/rosa/wizard"
+                                href="https://console.redhat.com/openshift/create/rosa/getstarted"
                               >
                                 <button
                                   aria-disabled="false"
