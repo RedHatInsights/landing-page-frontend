@@ -10,7 +10,15 @@ import Landing from '../Landing';
 const mockStore = configureStore();
 const store = mockStore({});
 const LandingWrapper = ({ store, children }) => (
-  <ScalprumProvider api={{ chrome: { getEnvironment: () => '' } }}>
+  <ScalprumProvider
+    api={{
+      chrome: {
+        getEnvironment: () => '',
+        isProd: () => false,
+        isBeta: () => false,
+      },
+    }}
+  >
     <Provider store={store}>
       <MemoryRouter>{children}</MemoryRouter>
     </Provider>
