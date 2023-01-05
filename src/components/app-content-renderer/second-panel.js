@@ -38,11 +38,8 @@ const SecondPanel = () => {
                     Configure, monitor, optimize, and orchestrate applications
                     and data services on demand.
                   </Text>
-                  <Text
-                    component="a"
-                    href="https://console.redhat.com/application-services/overview"
-                  >
-                    Explore services &nbsp;&nbsp;
+                  <Text component="a" href="/application-services/overview">
+                    Explore services
                     <ArrowRightIcon />
                   </Text>
                 </TextContent>
@@ -69,11 +66,8 @@ const SecondPanel = () => {
                     Build, run, scale container-based applications - now with
                     developer tools, CI/CD, and release management.
                   </Text>
-                  <Text
-                    component="a"
-                    href="https://console.redhat.com/openshift/overview"
-                  >
-                    Scale your applications &nbsp;&nbsp;
+                  <Text component="a" href="/openshift/overview">
+                    Scale your applications
                     <ArrowRightIcon />
                   </Text>
                 </TextContent>
@@ -103,15 +97,11 @@ const SecondPanel = () => {
                   </Text>
                   <Text component="p">
                     Manage&nbsp;
-                    <a href="https://console.redhat.com/insights/">RHEL</a>
+                    <a href="/insights/">RHEL</a>
                     &nbsp;|&nbsp;
-                    <a href="https://console.redhat.com/ansible/advisor">
-                      Ansible
-                    </a>
+                    <a href="/ansible/advisor">Ansible</a>
                     &nbsp;|&nbsp;
-                    <a href="https://console.redhat.com/openshift/insights">
-                      Openshift
-                    </a>
+                    <a href="/openshift/insights">Openshift</a>
                   </Text>
                 </TextContent>
               </SidebarContent>
@@ -124,7 +114,7 @@ const SecondPanel = () => {
             <Sidebar hasGutter>
               <SidebarPanel>
                 <img
-                  src="https://console.redhat.com/apps/frontend-assets/console-landing/edge.svg"
+                  src="https://console.redhat.com/apps/frontend-assets/console-landing/edge1.svg"
                   alt="Edge Management"
                 />
               </SidebarPanel>
@@ -138,11 +128,8 @@ const SecondPanel = () => {
                     efficiently. Update all your RHEL for Edge systems with
                     secure, over-the-air updates.
                   </Text>
-                  <Text
-                    component="a"
-                    href="https://console.redhat.com/edge/fleet-management"
-                  >
-                    Manage at the edge&nbsp;&nbsp;
+                  <Text component="a" href="/edge/fleet-management">
+                    Manage at the edge
                     <ArrowRightIcon />
                   </Text>
                 </TextContent>
@@ -169,11 +156,38 @@ const SecondPanel = () => {
                     Create, share, and manage automations - from development and
                     operations to security and network teams.
                   </Text>
+                  <Text component="a" href="/edge/ansible-dashboard">
+                    Automate everything
+                    <ArrowRightIcon />
+                  </Text>
+                </TextContent>
+              </SidebarContent>
+            </Sidebar>
+          </CardBody>
+        </Card>
+
+        <Card isFlat>
+          <CardBody>
+            <Sidebar hasGutter>
+              <SidebarPanel>
+                <img
+                  src="https://console.redhat.com/apps/frontend-assets/console-landing/subs.svg"
+                  alt="subscription management"
+                />
+              </SidebarPanel>
+              <SidebarContent className="pf-u-m-0 pf-u-mt-sm pf-u-h-100">
+                <TextContent className="pf-u-display-flex pf-u-flex-direction-column pf-u-h-100">
+                  <Text component="p" className="pf-u-font-size-lg">
+                    Subscription Management
+                  </Text>
+                  <Text component="p" className="pf-u-flex-grow-1">
+                    View and manage your Red Hat subscriptions.
+                  </Text>
                   <Text
                     component="a"
-                    href="https://console.redhat.com/edge/ansible-dashboard"
+                    href="/insights/subscriptions/inventory#SIDs=&tags="
                   >
-                    Automate everything&nbsp;&nbsp;
+                    View all subscriptions
                     <ArrowRightIcon />
                   </Text>
                 </TextContent>

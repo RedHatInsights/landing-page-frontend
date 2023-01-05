@@ -38,10 +38,7 @@ function SimpleSlider() {
                   capable managed experience provided in the command-line
                   interface.
                 </Text>
-                <Text
-                  component="a"
-                  href="https://console.redhat.com/openshift/create/rosa/getstarted"
-                >
+                <Text component="a" href="/openshift/create/rosa/getstarted">
                   <Button variant="danger">Try out ROSA today</Button>
                 </Text>
               </TextContent>
@@ -67,7 +64,7 @@ function SimpleSlider() {
                 <div>
                   <Text
                     component="a"
-                    href="https://console.redhat.com/openshift/sandbox"
+                    href="/openshift/sandbox"
                     className="pf-u-pr-sm pf-u-mb-sm-on-sm"
                   >
                     <Button variant="danger" className="pf-u-pr-sm pf-u-mb-sm">
@@ -106,10 +103,7 @@ function SimpleSlider() {
                   and applications from the console to better manage your hybrid
                   cloud environments.
                 </Text>
-                <Text
-                  component="a"
-                  href="https://console.redhat.com/insights/dashboard"
-                >
+                <Text component="a" href="/insights/dashboard">
                   <Button variant="danger">Identify and resolve risks</Button>
                 </Text>
               </TextContent>
