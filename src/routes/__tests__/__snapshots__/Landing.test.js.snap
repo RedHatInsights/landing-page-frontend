@@ -848,7 +848,7 @@ exports[`<Landing/> should render correctly 1`] = `
             <p
               class="copyright pf-m-spacer-xl-on-lg"
             >
-              ©2022 Red Hat, Inc.
+              ©2023 Red Hat, Inc.
             </p>
             <nav>
               <ul
