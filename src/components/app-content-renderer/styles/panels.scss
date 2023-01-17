@@ -92,6 +92,11 @@
             }
           }
         }
+        .pf-c-sidebar__content {
+          svg {
+            margin-left: var(--pf-global--spacer--sm);
+          }
+        }
       }
     }
   }

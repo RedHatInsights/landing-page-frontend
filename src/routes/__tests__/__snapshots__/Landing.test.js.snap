@@ -98,7 +98,7 @@ exports[`<Landing/> should render correctly 1`] = `
                                 data-ouia-component-type="PF4/Text"
                                 data-ouia-safe="true"
                                 data-pf-content="true"
-                                href="https://console.redhat.com/openshift/create/rosa/getstarted"
+                                href="/openshift/create/rosa/getstarted"
                               >
                                 <button
                                   aria-disabled="false"
@@ -170,7 +170,7 @@ exports[`<Landing/> should render correctly 1`] = `
                                   data-ouia-component-type="PF4/Text"
                                   data-ouia-safe="true"
                                   data-pf-content="true"
-                                  href="https://console.redhat.com/openshift/sandbox"
+                                  href="/openshift/sandbox"
                                 >
                                   <button
                                     aria-disabled="false"
@@ -262,7 +262,7 @@ exports[`<Landing/> should render correctly 1`] = `
                                 data-ouia-component-type="PF4/Text"
                                 data-ouia-safe="true"
                                 data-pf-content="true"
-                                href="https://console.redhat.com/insights/dashboard"
+                                href="/insights/dashboard"
                               >
                                 <button
                                   aria-disabled="false"
@@ -471,9 +471,9 @@ exports[`<Landing/> should render correctly 1`] = `
                         data-ouia-component-type="PF4/Text"
                         data-ouia-safe="true"
                         data-pf-content="true"
-                        href="https://console.redhat.com/application-services/overview"
+                        href="/application-services/overview"
                       >
-                        Explore services   
+                        Explore services
                         <svg
                           aria-hidden="true"
                           fill="currentColor"
@@ -548,9 +548,9 @@ exports[`<Landing/> should render correctly 1`] = `
                         data-ouia-component-type="PF4/Text"
                         data-ouia-safe="true"
                         data-pf-content="true"
-                        href="https://console.redhat.com/openshift/overview"
+                        href="/openshift/overview"
                       >
-                        Scale your applications   
+                        Scale your applications
                         <svg
                           aria-hidden="true"
                           fill="currentColor"
@@ -628,19 +628,19 @@ exports[`<Landing/> should render correctly 1`] = `
                       >
                         Manage 
                         <a
-                          href="https://console.redhat.com/insights/"
+                          href="/insights/"
                         >
                           RHEL
                         </a>
                          | 
                         <a
-                          href="https://console.redhat.com/ansible/advisor"
+                          href="/ansible/advisor"
                         >
                           Ansible
                         </a>
                          | 
                         <a
-                          href="https://console.redhat.com/openshift/insights"
+                          href="/openshift/insights"
                         >
                           Openshift
                         </a>
@@ -672,7 +672,7 @@ exports[`<Landing/> should render correctly 1`] = `
                   >
                     <img
                       alt="Edge Management"
-                      src="https://console.redhat.com/apps/frontend-assets/console-landing/edge.svg"
+                      src="https://console.redhat.com/apps/frontend-assets/console-landing/edge1.svg"
                     />
                   </div>
                   <div
@@ -705,9 +705,9 @@ exports[`<Landing/> should render correctly 1`] = `
                         data-ouia-component-type="PF4/Text"
                         data-ouia-safe="true"
                         data-pf-content="true"
-                        href="https://console.redhat.com/edge/fleet-management"
+                        href="/edge/fleet-management"
                       >
-                        Manage at the edge  
+                        Manage at the edge
                         <svg
                           aria-hidden="true"
                           fill="currentColor"
@@ -782,9 +782,86 @@ exports[`<Landing/> should render correctly 1`] = `
                         data-ouia-component-type="PF4/Text"
                         data-ouia-safe="true"
                         data-pf-content="true"
-                        href="https://console.redhat.com/edge/ansible-dashboard"
+                        href="/edge/ansible-dashboard"
                       >
-                        Automate everything  
+                        Automate everything
+                        <svg
+                          aria-hidden="true"
+                          fill="currentColor"
+                          height="1em"
+                          role="img"
+                          style="vertical-align: -0.125em;"
+                          viewBox="0 0 448 512"
+                          width="1em"
+                        >
+                          <path
+                            d="M190.5 66.9l22.2-22.2c9.4-9.4 24.6-9.4 33.9 0L441 239c9.4 9.4 9.4 24.6 0 33.9L246.6 467.3c-9.4 9.4-24.6 9.4-33.9 0l-22.2-22.2c-9.5-9.5-9.3-25 .4-34.3L311.4 296H24c-13.3 0-24-10.7-24-24v-32c0-13.3 10.7-24 24-24h287.4L190.9 101.2c-9.8-9.3-10-24.8-.4-34.3z"
+                          />
+                        </svg>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </article>
+          <article
+            class="pf-c-card pf-m-flat"
+            data-ouia-component-id="OUIA-Generated-Card-6"
+            data-ouia-component-type="PF4/Card"
+            data-ouia-safe="true"
+            id=""
+          >
+            <div
+              class="pf-c-card__body"
+            >
+              <div
+                class="pf-c-sidebar pf-m-gutter"
+              >
+                <div
+                  class="pf-c-sidebar__main"
+                >
+                  <div
+                    class="pf-c-sidebar__panel"
+                  >
+                    <img
+                      alt="subscription management"
+                      src="https://console.redhat.com/apps/frontend-assets/console-landing/subs.svg"
+                    />
+                  </div>
+                  <div
+                    class="pf-c-sidebar__content pf-u-m-0 pf-u-mt-sm pf-u-h-100"
+                  >
+                    <div
+                      class="pf-c-content pf-u-display-flex pf-u-flex-direction-column pf-u-h-100"
+                    >
+                      <p
+                        class="pf-u-font-size-lg"
+                        data-ouia-component-id="OUIA-Generated-Text-30"
+                        data-ouia-component-type="PF4/Text"
+                        data-ouia-safe="true"
+                        data-pf-content="true"
+                      >
+                        Subscription Management
+                      </p>
+                      <p
+                        class="pf-u-flex-grow-1"
+                        data-ouia-component-id="OUIA-Generated-Text-31"
+                        data-ouia-component-type="PF4/Text"
+                        data-ouia-safe="true"
+                        data-pf-content="true"
+                      >
+                        View and manage your Red Hat subscriptions.
+                      </p>
+                      <a
+                        class=""
+                        data-ouia-component-id="OUIA-Generated-Text-32"
+                        data-ouia-component-type="PF4/Text"
+                        data-ouia-safe="true"
+                        data-pf-content="true"
+                        href="/insights/subscriptions/inventory#SIDs=&tags="
+                      >
+                        View all subscriptions
                         <svg
                           aria-hidden="true"
                           fill="currentColor"
