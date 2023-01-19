@@ -7,7 +7,6 @@ import '../components/app-content-renderer/styles/panels.scss';
 // Mockup console landing page
 import FirstPanel from '../components/app-content-renderer/first-panel';
 import SecondPanel from '../components/app-content-renderer/second-panel';
-import FooterTraditional from '../layout/FooterTraditional';
 
 const Landing = () => {
   return (
@@ -16,7 +15,6 @@ const Landing = () => {
         <Fragment>
           <FirstPanel />
           <SecondPanel />
-          <FooterTraditional />
         </Fragment>
       </SplitItem>
     </Split>
