@@ -26,10 +26,10 @@ function SimpleSlider() {
         <div>
           <Sidebar
             orientation="split"
-            className="pf-u-flex-direction-column pf-u-mb-sm"
+            className="pf-u-flex-direction-column pf-u-mb-sm pf-u-background-color-dark-300"
             hasGutter
           >
-            <SidebarContent className="pf-u-p-lg pf-u-h-100">
+            <SidebarContent className="pf-u-p-lg pf-u-h-100 pf-m-no-background">
               <TextContent className="pf-u-display-flex pf-u-flex-direction-column pf-u-h-100 pf-u-color-light-100">
                 <Text component="h3">Red Hat OpenShift Service on AWS</Text>
                 <Text component="p" className="pf-u-pb-sm pf-u-flex-grow-1">
@@ -45,14 +45,14 @@ function SimpleSlider() {
             </SidebarContent>
             <SidebarPanel
               width={{ default: 'width_33' }}
-              className="slide-1 pf-u-align-self-stretch"
+              className="slide-1 pf-u-align-self-stretch pf-m-no-background ins-m-hide-on-md"
             ></SidebarPanel>
           </Sidebar>
         </div>
 
         <div>
           <Sidebar orientation="split" hasGutter>
-            <SidebarContent className="pf-u-p-lg pf-u-h-100">
+            <SidebarContent className="pf-u-p-lg pf-u-h-100 pf-m-no-background">
               <TextContent className="pf-u-display-flex pf-u-flex-direction-column pf-u-h-100 pf-u-color-light-100">
                 <Text component="h3">
                   Develop in the sandbox with the Red Hat Developer program
@@ -88,14 +88,14 @@ function SimpleSlider() {
             </SidebarContent>
             <SidebarPanel
               width={{ default: 'width_33' }}
-              className="slide-2  pf-u-align-self-stretch"
+              className="slide-2 pf-u-align-self-stretch pf-m-no-background ins-m-hide-on-md"
             ></SidebarPanel>
           </Sidebar>
         </div>
 
         <div>
           <Sidebar orientation="split" hasGutter>
-            <SidebarContent className="pf-u-p-lg pf-u-h-100">
+            <SidebarContent className="pf-u-p-lg pf-u-h-100 pf-m-no-background">
               <TextContent className="pf-u-display-flex pf-u-flex-direction-column pf-u-h-100 pf-u-color-light-100">
                 <Text component="h3">Red Hat Insights</Text>
                 <Text component="p" className="pf-u-pb-sm pf-u-flex-grow-1">
@@ -110,14 +110,14 @@ function SimpleSlider() {
             </SidebarContent>
             <SidebarPanel
               width={{ default: 'width_33' }}
-              className="slide-3  pf-u-align-self-stretch"
+              className="slide-3  pf-u-align-self-stretch pf-m-no-background ins-m-hide-on-md"
             ></SidebarPanel>
           </Sidebar>
         </div>
 
         <div>
           <Sidebar orientation="split" hasGutter>
-            <SidebarContent className="pf-u-p-lg pf-u-h-100">
+            <SidebarContent className="pf-u-p-lg pf-u-h-100 pf-m-no-background">
               <TextContent className="pf-u-display-flex pf-u-flex-direction-column pf-u-h-100 pf-u-color-light-100">
                 <Text component="h3">Red Hat Marketplace</Text>
                 <Text component="p" className="pf-u-pb-sm pf-u-flex-grow-1">
@@ -130,7 +130,7 @@ function SimpleSlider() {
             </SidebarContent>
             <SidebarPanel
               width={{ default: 'width_33' }}
-              className="slide-4  pf-u-align-self-stretch"
+              className="slide-4  pf-u-align-self-stretch pf-m-no-background ins-m-hide-on-md"
             ></SidebarPanel>
           </Sidebar>
         </div>
