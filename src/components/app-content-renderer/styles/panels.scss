@@ -8,19 +8,12 @@
     background-size: cover !important;
 
     .land-c-slick-slider-wrapper {
-      max-width: var(--pf-c-page--section--m-limit-width--MaxWidth);
-
       .pf-c-sidebar {
-        background-color: var(--pf-global--BackgroundColor--dark-300);
-        --pf-c-sidebar__panel--BackgroundColor: var(--pf-global--BackgroundColor--dark-300);
-        --pf-c-sidebar__content--BackgroundColor: var(--pf-global--BackgroundColor--dark-300);
         border-top:  var(--pf-global--BorderWidth--lg) solid var(--pf-global--info-color--100);
         height: 280px;
-
         &__main {
           height: 100%;
         }
-
         &__panel {
           background-size: cover;
           &.slide-1 {
@@ -40,14 +33,7 @@
           --pf-c-button--after--BorderColor: var(--pf-global--Color--light-100);
           color: var(--pf-global--Color--light-100);
         }
-
-        @media screen and (max-width: $pf-global--breakpoint--md) {
-          .pf-c-sidebar__panel {
-            display: none;
-          }
-        }
       }
-
       .slick-dots {
         li button:before {
           font-size: var(--pf-global--FontSize--4xl);
@@ -61,49 +47,26 @@
     }
   }
 
-  .land-l-second-panel { 
+  .land-c-sidebar { 
     background: url(https://console.redhat.com/apps/frontend-assets/console-landing/console-homepage-clouds.svg);
-
-    .land-l-card-container {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      grid-gap: var(--pf-global--spacer--lg);
-      max-width: var(--pf-c-page--section--m-limit-width--MaxWidth);
-      @media screen and (max-width: $pf-global--breakpoint--lg) {
-        grid-template-columns: repeat(2, 1fr);
-      }
-      @media screen and (max-width: $pf-global--breakpoint--sm) {
-        grid-template-columns: repeat(1, 1fr);
-      }
+    .pf-c-sidebar__main {
+      align-items: stretch;
     }
-
+    .pf-c-sidebar__panel {
+      border-left: var(--pf-global--BorderWidth--sm) solid var(--pf-global--BorderColor--100);
+    }
     .pf-c-card {
-      &__body {
-        .pf-c-sidebar {
-          --pf-c-sidebar__main--FlexDirection: column;
-          &__main {
-            height: 100%;
-          }
-          &__panel {
-            --pf-c-sidebar__panel--FlexBasis: 60px;
-            --pf-c-sidebar__panel--BoxShadow: none;
-            img {
-              width: 42px;
-            }
-          }
-        }
-        .pf-c-sidebar__content {
-          svg {
-            margin-left: var(--pf-global--spacer--sm);
-          }
-        }
+      img {
+        width: 42px;
+      }
+      .pf-c-content {
+        height: 100%;
       }
     }
-  }
-
-  .land-c-footer__traditional {
-    #redhat-logo {
-      .cls-1 { fill: #e00; }  
-    }
+    @media screen and (max-width: $pf-global--breakpoint--md) {
+      .pf-c-sidebar__panel {
+        border: var(--pf-global--BorderWidth--sm) solid var(--pf-global--BorderColor--100);
+      }
+    } 
   }
 }
