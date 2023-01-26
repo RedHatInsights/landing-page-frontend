@@ -24,11 +24,7 @@ function SimpleSlider() {
     <div className="land-c-slick-slider-wrapper pf-u-mx-md-on-md">
       <Slider {...settings} className="pf-u-p-sm pf-u-pb-0">
         <div>
-          <Sidebar
-            orientation="split"
-            className="pf-u-flex-direction-column pf-u-mb-sm pf-u-background-color-dark-300"
-            hasGutter
-          >
+          <Sidebar orientation="split" hasGutter>
             <SidebarContent className="pf-u-p-lg pf-u-h-100 pf-m-no-background">
               <TextContent className="pf-u-display-flex pf-u-flex-direction-column pf-u-h-100 pf-u-color-light-100">
                 <Text component="h3">Red Hat OpenShift Service on AWS</Text>
