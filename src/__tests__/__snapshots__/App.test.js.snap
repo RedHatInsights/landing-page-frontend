@@ -40,10 +40,12 @@ exports[`App component should render correctly 1`] = `
         <IntlProvider
           defaultFormats={Object {}}
           defaultLocale="en"
+          fallbackOnEmptyString={true}
           formats={Object {}}
           locale="en"
           messages={Object {}}
           onError={[Function]}
+          onWarn={[Function]}
           textComponent={Symbol(react.fragment)}
         >
           <Suspense
@@ -161,10 +163,12 @@ exports[`App component should render correctly 2`] = `
         <IntlProvider
           defaultFormats={Object {}}
           defaultLocale="en"
+          fallbackOnEmptyString={true}
           formats={Object {}}
           locale="en"
           messages={Object {}}
           onError={[Function]}
+          onWarn={[Function]}
           textComponent={Symbol(react.fragment)}
         >
           <Suspense
