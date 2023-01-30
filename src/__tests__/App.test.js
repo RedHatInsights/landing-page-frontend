@@ -16,6 +16,29 @@ jest.mock('../routes/Landing', () => ({
   default: () => <span>Landing</span>,
 }));
 
+jest.mock('@redhat-cloud-services/frontend-components/useChrome', () => {
+  const actual = jest.requireActual(
+    '@redhat-cloud-services/frontend-components/useChrome'
+  );
+  return {
+    __esModule: true,
+    // eslint-disable-next-line react/display-name
+    ...actual,
+    default: () => ({
+      auth: {
+        getUser: () =>
+          Promise.resolve({
+            identity: {
+              user: {
+                is_org_admin: true,
+              },
+            },
+          }),
+      },
+    }),
+  };
+});
+
 describe('App component', () => {
   it('should render correctly', async () => {
     let wrapper;

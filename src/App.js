@@ -6,8 +6,9 @@ import React, {
   useState,
 } from 'react';
 import '@patternfly/patternfly/utilities/Text/text.css';
-import { Route, Switch } from 'react-router-dom';
+import { Route, Routes } from 'react-router-dom';
 import { getRegistry } from '@redhat-cloud-services/frontend-components-utilities/Registry';
+import useChrome from '@redhat-cloud-services/frontend-components/useChrome';
 import { Bullseye, Spinner } from '@patternfly/react-core';
 import { IntlProvider } from 'react-intl';
 import contentStore from './store/contentReducer';
@@ -31,12 +32,11 @@ export const PermissionContext = createContext();
 
 const App = () => {
   const [isOrgAdmin, setIsOrgAdmin] = useState();
+  const chrome = useChrome();
 
   useEffect(() => {
     getRegistry().register({ contentStore });
-    insights.chrome.init();
-    insights.chrome.identifyApp('landing');
-    window.insights.chrome.auth
+    chrome.auth
       .getUser()
       .then((user) => user && setIsOrgAdmin(user.identity.user.is_org_admin));
   }, []);
@@ -51,12 +51,11 @@ const App = () => {
             </Bullseye>
           }
         >
-          <Switch>
-            <Route exact path={routes.landing} component={Landing} />
-            <Route exact path={routes.landingBeta} component={Landing} />
-            <Route exact path={routes.maintenance} component={Maintenance} />
-            <Route path="*" component={NotFound} />
-          </Switch>
+          <Routes>
+            <Route path={routes.landing} element={<Landing />} />
+            <Route path={routes.maintenance} element={<Maintenance />} />
+            <Route path="*" element={<NotFound />} />
+          </Routes>
         </Suspense>
       </PermissionContext.Provider>
     </IntlProvider>

@@ -1,5 +1,4 @@
 import React from 'react';
-import { BrowserRouter as Router } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import NotificationsPortal from '@redhat-cloud-services/frontend-components-notifications/NotificationPortal';
 import { init } from '../store';
@@ -12,9 +11,7 @@ pathName.shift();
 const AppRoot = ({ logger }) => (
   <Provider store={init(logger).getStore()}>
     <React.Fragment>
-      <Router basename={`/${pathName[0] === 'beta' ? 'beta/' : ''}`}>
-        <App />
-      </Router>
+      <App />
       <NotificationsPortal />
     </React.Fragment>
   </Provider>

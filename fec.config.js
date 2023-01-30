@@ -11,5 +11,7 @@ module.exports = {
     exposes: {
       './RootApp': path.resolve(__dirname, './src/moduleEntries/AppEntry.js'),
     },
+    exclude: ['react-router-dom'],
+    shared: [{ 'react-router-dom': { singleton: true } }],
   },
 };
