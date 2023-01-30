@@ -43,6 +43,12 @@ const modulesPlugin = new ModuleFederationPlugin({
       },
     },
     {
+      '@redhat-cloud-services/chrome': {
+        requiredVersion: '*',
+        singleton: true,
+      },
+    },
+    {
       'react-redux': {
         requiredVersion: dependencies['react-redux'],
       },
