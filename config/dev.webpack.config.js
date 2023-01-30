@@ -12,7 +12,7 @@ const { config: webpackConfig, plugins } = config({
   }),
   ...(process.env.PROXY && {
     useProxy: true,
-    env: 'stage-stable',
+    env: 'stage-beta',
     proxyVerbose: true,
     routes: {
       '/beta/silent-check-sso': { host: 'https://console.redhat.com' },

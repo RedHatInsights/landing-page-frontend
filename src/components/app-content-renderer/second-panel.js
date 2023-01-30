@@ -1,7 +1,7 @@
 import {
   Card,
   CardBody,
-  // Divider,
+  Divider,
   Gallery,
   Icon,
   Sidebar,
@@ -9,14 +9,15 @@ import {
   SidebarPanel,
   Text,
   TextContent,
-  // TextVariants,
+  TextVariants,
   Title,
   TitleSizes,
 } from '@patternfly/react-core';
 import React from 'react';
 
 import ArrowRightIcon from '@patternfly/react-icons/dist/js/icons/arrow-right-icon';
-// import StarIcon from '@patternfly/react-icons/dist/js/icons/star-icon';
+import StarIcon from '@patternfly/react-icons/dist/js/icons/star-icon';
+import RecentlyVisited from '../recently-visited/recently-visited';
 
 const SecondPanel = () => {
   return (
@@ -185,7 +186,7 @@ const SecondPanel = () => {
         width={{ lg: 'width_25', md: 'width_33', sm: 'width_100' }}
         className="pf-u-m-xl pf-u-m-0-on-md pf-u-background-color-200"
       >
-        {/*        <TextContent className="pf-u-px-xl pf-u-py-lg">
+        <TextContent className="pf-u-px-xl pf-u-py-lg">
           <Text component={TextVariants.a} href="#">
             <Icon className="pf-u-mr-sm" isInline>
               <StarIcon />
@@ -194,13 +195,7 @@ const SecondPanel = () => {
           </Text>
         </TextContent>
         <Divider component="hr" />
-        <TextContent className="pf-m-fill pf-u-px-xl pf-u-py-lg">
-          <Text component={TextVariants.h3} className="pf-u-mb-lg">
-            Recently visited
-          </Text>
-          <Text component={TextVariants.a}>Service name</Text>
-          <Text component={TextVariants.small}>Bundle</Text>
-        </TextContent>*/}
+        <RecentlyVisited />
       </SidebarPanel>
     </Sidebar>
   );
