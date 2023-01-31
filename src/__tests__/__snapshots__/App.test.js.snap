@@ -15,21 +15,30 @@ exports[`App component should render correctly 1`] = `
 >
   <BrowserRouter>
     <Router
-      history={
+      location={
+        Object {
+          "hash": "",
+          "key": "default",
+          "pathname": "/",
+          "search": "",
+          "state": null,
+        }
+      }
+      navigationType="POP"
+      navigator={
         Object {
           "action": "POP",
-          "block": [Function],
           "createHref": [Function],
+          "createURL": [Function],
+          "encodeLocation": [Function],
           "go": [Function],
-          "goBack": [Function],
-          "goForward": [Function],
-          "length": 1,
           "listen": [Function],
           "location": Object {
             "hash": "",
+            "key": "default",
             "pathname": "/",
             "search": "",
-            "state": undefined,
+            "state": null,
           },
           "push": [Function],
           "replace": [Function],
@@ -40,10 +49,12 @@ exports[`App component should render correctly 1`] = `
         <IntlProvider
           defaultFormats={Object {}}
           defaultLocale="en"
+          fallbackOnEmptyString={true}
           formats={Object {}}
           locale="en"
           messages={Object {}}
           onError={[Function]}
+          onWarn={[Function]}
           textComponent={Symbol(react.fragment)}
         >
           <Suspense
@@ -55,38 +66,55 @@ exports[`App component should render correctly 1`] = `
               </Bullseye>
             }
           >
-            <Switch>
-              <Route
-                component={
+            <Routes>
+              <RenderedRoute
+                match={
                   Object {
-                    "$$typeof": Symbol(react.lazy),
-                    "_init": [Function],
-                    "_payload": Object {
-                      "_result": Promise {},
-                      "_status": 0,
+                    "params": Object {},
+                    "pathname": "/",
+                    "pathnameBase": "/",
+                    "route": Object {
+                      "action": undefined,
+                      "caseSensitive": undefined,
+                      "element": <UNDEFINED />,
+                      "errorElement": undefined,
+                      "handle": undefined,
+                      "hasErrorBoundary": false,
+                      "id": "0",
+                      "index": undefined,
+                      "loader": undefined,
+                      "path": "/",
+                      "shouldRevalidate": undefined,
                     },
                   }
                 }
-                computedMatch={
+                routeContext={
                   Object {
-                    "isExact": true,
-                    "params": Object {},
-                    "path": "/",
-                    "url": "/",
+                    "matches": Array [
+                      Object {
+                        "params": Object {},
+                        "pathname": "/",
+                        "pathnameBase": "/",
+                        "route": Object {
+                          "action": undefined,
+                          "caseSensitive": undefined,
+                          "element": <UNDEFINED />,
+                          "errorElement": undefined,
+                          "handle": undefined,
+                          "hasErrorBoundary": false,
+                          "id": "0",
+                          "index": undefined,
+                          "loader": undefined,
+                          "path": "/",
+                          "shouldRevalidate": undefined,
+                        },
+                      },
+                    ],
+                    "outlet": null,
                   }
                 }
-                exact={true}
-                location={
-                  Object {
-                    "hash": "",
-                    "pathname": "/",
-                    "search": "",
-                    "state": undefined,
-                  }
-                }
-                path="/"
               />
-            </Switch>
+            </Routes>
             <Bullseye>
               <div
                 className="pf-l-bullseye"
@@ -136,21 +164,30 @@ exports[`App component should render correctly 2`] = `
 >
   <BrowserRouter>
     <Router
-      history={
+      location={
+        Object {
+          "hash": "",
+          "key": "default",
+          "pathname": "/",
+          "search": "",
+          "state": null,
+        }
+      }
+      navigationType="POP"
+      navigator={
         Object {
           "action": "POP",
-          "block": [Function],
           "createHref": [Function],
+          "createURL": [Function],
+          "encodeLocation": [Function],
           "go": [Function],
-          "goBack": [Function],
-          "goForward": [Function],
-          "length": 1,
           "listen": [Function],
           "location": Object {
             "hash": "",
+            "key": "default",
             "pathname": "/",
             "search": "",
-            "state": undefined,
+            "state": null,
           },
           "push": [Function],
           "replace": [Function],
@@ -161,10 +198,12 @@ exports[`App component should render correctly 2`] = `
         <IntlProvider
           defaultFormats={Object {}}
           defaultLocale="en"
+          fallbackOnEmptyString={true}
           formats={Object {}}
           locale="en"
           messages={Object {}}
           onError={[Function]}
+          onWarn={[Function]}
           textComponent={Symbol(react.fragment)}
         >
           <Suspense
@@ -176,38 +215,55 @@ exports[`App component should render correctly 2`] = `
               </Bullseye>
             }
           >
-            <Switch>
-              <Route
-                component={
+            <Routes>
+              <RenderedRoute
+                match={
                   Object {
-                    "$$typeof": Symbol(react.lazy),
-                    "_init": [Function],
-                    "_payload": Object {
-                      "_result": [Function],
-                      "_status": 1,
+                    "params": Object {},
+                    "pathname": "/",
+                    "pathnameBase": "/",
+                    "route": Object {
+                      "action": undefined,
+                      "caseSensitive": undefined,
+                      "element": <UNDEFINED />,
+                      "errorElement": undefined,
+                      "handle": undefined,
+                      "hasErrorBoundary": false,
+                      "id": "0",
+                      "index": undefined,
+                      "loader": undefined,
+                      "path": "/",
+                      "shouldRevalidate": undefined,
                     },
                   }
                 }
-                computedMatch={
+                routeContext={
                   Object {
-                    "isExact": true,
-                    "params": Object {},
-                    "path": "/",
-                    "url": "/",
+                    "matches": Array [
+                      Object {
+                        "params": Object {},
+                        "pathname": "/",
+                        "pathnameBase": "/",
+                        "route": Object {
+                          "action": undefined,
+                          "caseSensitive": undefined,
+                          "element": <UNDEFINED />,
+                          "errorElement": undefined,
+                          "handle": undefined,
+                          "hasErrorBoundary": false,
+                          "id": "0",
+                          "index": undefined,
+                          "loader": undefined,
+                          "path": "/",
+                          "shouldRevalidate": undefined,
+                        },
+                      },
+                    ],
+                    "outlet": null,
                   }
                 }
-                exact={true}
-                location={
-                  Object {
-                    "hash": "",
-                    "pathname": "/",
-                    "search": "",
-                    "state": undefined,
-                  }
-                }
-                path="/"
               />
-            </Switch>
+            </Routes>
             <Bullseye>
               <div
                 className="pf-l-bullseye"

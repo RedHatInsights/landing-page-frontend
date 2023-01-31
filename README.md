@@ -14,43 +14,24 @@ There is a [comprehensive quick start guide in the Storybook Documentation](http
 
 1. ```npm install```
 
-2. ```npm run start:proxy``` / ```npm run start:beta:proxy```
+2. ```npm run start```
 
-Checkout https://ci.foo.redhat.com:1337/ [Read more](https://github.com/RedHatInsights/frontend-components/tree/master/packages/config#useproxy).
-## Running locally with insights-proxy
+Checkout https://stage.foo.redhat.com:1337/ [Read more](https://github.com/RedHatInsights/frontend-components/tree/master/packages/config#useproxy).
 
-1. `npm install`
-2. Have [insights-proxy](https://github.com/RedHatInsights/insights-proxy) installed under PROXY_PATH and run the following command:
-
-    ```shell
-    SPANDX_CONFIG="./proxy-config/local-frontend.js" bash $PROXY_PATH/scripts/run.sh
-    ```
-
-3. `npm run start`
-
-4. Checkout https://ci.foo.redhat.com:1337/
-
-### Testing
+## Testing
 
 - `npm run test` tests
 - `npm run lint` will run the linter
 
-### Deploying
+## Deploying
 
 The following four branches are used
 
 - Stable
   - prod-stable -> releases to console.redhat.com
-  - master-stable -> releases to qa/ci.console.redhat.com
+  - master-stable -> releases to console.stage.redhat.com
 
 - Beta
   - prod-beta -> releases to console.redhat.com/beta
-  - master -> releases to qa/ci.console.redhat.com/beta
+  - master -> releases to console.stage.redhat.com/beta
 
-## Adding content
-
-Detailed documentation can be found [here](https://github.com/RedHatInsights/landing-page-frontend/blob/master/docs/content-schema.md)
-
-## Self-service response example
-
-An example of a self-service API response can be found [here](https://github.com/RedHatInsights/landing-page-frontend/blob/master/docs/example-schema.md)
