@@ -14,6 +14,7 @@ import {
   TitleSizes,
 } from '@patternfly/react-core';
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 import ArrowRightIcon from '@patternfly/react-icons/dist/js/icons/arrow-right-icon';
 import StarIcon from '@patternfly/react-icons/dist/js/icons/star-icon';
@@ -187,11 +188,13 @@ const SecondPanel = () => {
         className="pf-u-m-xl pf-u-m-0-on-md pf-u-background-color-200"
       >
         <TextContent className="pf-u-px-xl pf-u-py-lg">
-          <Text component={TextVariants.a} href="#">
-            <Icon className="pf-u-mr-sm" isInline>
-              <StarIcon />
-            </Icon>
-            View my favorite services
+          <Text component={TextVariants.p}>
+            <Link to="/allservices">
+              <Icon className="pf-u-mr-sm" isInline>
+                <StarIcon />
+              </Icon>
+              View my favorite services
+            </Link>
           </Text>
         </TextContent>
         <Divider component="hr" />
