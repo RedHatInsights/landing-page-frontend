@@ -147,11 +147,13 @@ const SecondPanel = () => {
                   Create, share, and manage automations - from development and
                   operations to security and network teams.
                 </Text>
-                <Text component="a" href="/edge/ansible-dashboard">
-                  Automate everything
-                  <Icon className="pf-u-ml-sm" isInline>
-                    <ArrowRightIcon />
-                  </Icon>
+                <Text component="p">
+                  <Link to="/ansible/ansible-dashboard">
+                    Automate everything
+                    <Icon className="pf-u-ml-sm" isInline>
+                      <ArrowRightIcon />
+                    </Icon>
+                  </Link>
                 </Text>
               </TextContent>
             </CardBody>
