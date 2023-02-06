@@ -181,6 +181,31 @@ const SecondPanel = () => {
               </TextContent>
             </CardBody>
           </Card>
+          <Card isFlat>
+            <CardBody>
+              <TextContent className="pf-u-display-flex pf-u-flex-direction-column">
+                <img
+                  src="https://console.redhat.com/apps/frontend-assets/console-landing/acs.svg"
+                  alt="cluster security cloud service"
+                />
+                <Text component="p" className="pf-u-font-size-lg pf-u-mt-md">
+                  Red Hat Advanced Cluster Security Cloud Service
+                </Text>
+                <Text component="p" className="pf-u-flex-grow-1">
+                  Fully hosted software as a service for protecting cloud native
+                  applications and Kubernetes.
+                </Text>
+                <Text component={TextVariants.p}>
+                  <Link to="/application-services/acs/instances">
+                    Get Started Now
+                    <Icon className="pf-u-ml-sm" isInline>
+                      <ArrowRightIcon />
+                    </Icon>
+                  </Link>
+                </Text>
+              </TextContent>
+            </CardBody>
+          </Card>
         </Gallery>
       </SidebarContent>
       <SidebarPanel
