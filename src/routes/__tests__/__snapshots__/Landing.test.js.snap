@@ -727,37 +727,40 @@ exports[`<Landing/> should render correctly 1`] = `
                   >
                     Create, share, and manage automations - from development and operations to security and network teams.
                   </p>
-                  <a
+                  <p
                     class=""
                     data-ouia-component-id="OUIA-Generated-Text-29"
                     data-ouia-component-type="PF4/Text"
                     data-ouia-safe="true"
                     data-pf-content="true"
-                    href="/edge/ansible-dashboard"
                   >
-                    Automate everything
-                    <span
-                      class="pf-c-icon pf-m-inline pf-u-ml-sm"
+                    <a
+                      href="/ansible/ansible-dashboard"
                     >
+                      Automate everything
                       <span
-                        class="pf-c-icon__content"
+                        class="pf-c-icon pf-m-inline pf-u-ml-sm"
                       >
-                        <svg
-                          aria-hidden="true"
-                          fill="currentColor"
-                          height="1em"
-                          role="img"
-                          style="vertical-align: -0.125em;"
-                          viewBox="0 0 448 512"
-                          width="1em"
+                        <span
+                          class="pf-c-icon__content"
                         >
-                          <path
-                            d="M190.5 66.9l22.2-22.2c9.4-9.4 24.6-9.4 33.9 0L441 239c9.4 9.4 9.4 24.6 0 33.9L246.6 467.3c-9.4 9.4-24.6 9.4-33.9 0l-22.2-22.2c-9.5-9.5-9.3-25 .4-34.3L311.4 296H24c-13.3 0-24-10.7-24-24v-32c0-13.3 10.7-24 24-24h287.4L190.9 101.2c-9.8-9.3-10-24.8-.4-34.3z"
-                          />
-                        </svg>
+                          <svg
+                            aria-hidden="true"
+                            fill="currentColor"
+                            height="1em"
+                            role="img"
+                            style="vertical-align: -0.125em;"
+                            viewBox="0 0 448 512"
+                            width="1em"
+                          >
+                            <path
+                              d="M190.5 66.9l22.2-22.2c9.4-9.4 24.6-9.4 33.9 0L441 239c9.4 9.4 9.4 24.6 0 33.9L246.6 467.3c-9.4 9.4-24.6 9.4-33.9 0l-22.2-22.2c-9.5-9.5-9.3-25 .4-34.3L311.4 296H24c-13.3 0-24-10.7-24-24v-32c0-13.3 10.7-24 24-24h287.4L190.9 101.2c-9.8-9.3-10-24.8-.4-34.3z"
+                            />
+                          </svg>
+                        </span>
                       </span>
-                    </span>
-                  </a>
+                    </a>
+                  </p>
                 </div>
               </div>
             </article>
