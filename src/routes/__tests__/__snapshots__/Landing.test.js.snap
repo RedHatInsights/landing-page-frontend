@@ -89,25 +89,28 @@ exports[`<Landing/> should render correctly 1`] = `
                             >
                               Easily provision your ROSA cluster with AWS Security Token Service in the new web interface with the same secure and capable managed experience provided in the command-line interface.
                             </p>
-                            <a
+                            <p
                               class=""
                               data-ouia-component-id="OUIA-Generated-Text-4"
                               data-ouia-component-type="PF4/Text"
                               data-ouia-safe="true"
                               data-pf-content="true"
-                              href="/openshift/create/rosa/getstarted"
                             >
-                              <button
-                                aria-disabled="false"
-                                class="pf-c-button pf-m-danger"
-                                data-ouia-component-id="OUIA-Generated-Button-danger-1"
-                                data-ouia-component-type="PF4/Button"
-                                data-ouia-safe="true"
-                                type="button"
+                              <a
+                                href="/openshift/create/rosa/getstarted"
                               >
-                                Try out ROSA today
-                              </button>
-                            </a>
+                                <button
+                                  aria-disabled="false"
+                                  class="pf-c-button pf-m-danger"
+                                  data-ouia-component-id="OUIA-Generated-Button-danger-1"
+                                  data-ouia-component-type="PF4/Button"
+                                  data-ouia-safe="true"
+                                  type="button"
+                                >
+                                  Try out ROSA today
+                                </button>
+                              </a>
+                            </p>
                           </div>
                         </div>
                         <div
@@ -253,25 +256,28 @@ exports[`<Landing/> should render correctly 1`] = `
                             >
                               With Red Hat Insights, you can continuously analyze platforms and applications from the console to better manage your hybrid cloud environments.
                             </p>
-                            <a
+                            <p
                               class=""
                               data-ouia-component-id="OUIA-Generated-Text-11"
                               data-ouia-component-type="PF4/Text"
                               data-ouia-safe="true"
                               data-pf-content="true"
-                              href="/insights/dashboard"
                             >
-                              <button
-                                aria-disabled="false"
-                                class="pf-c-button pf-m-danger"
-                                data-ouia-component-id="OUIA-Generated-Button-danger-3"
-                                data-ouia-component-type="PF4/Button"
-                                data-ouia-safe="true"
-                                type="button"
+                              <a
+                                href="/insights/dashboard"
                               >
-                                Identify and resolve risks
-                              </button>
-                            </a>
+                                <button
+                                  aria-disabled="false"
+                                  class="pf-c-button pf-m-danger"
+                                  data-ouia-component-id="OUIA-Generated-Button-danger-3"
+                                  data-ouia-component-type="PF4/Button"
+                                  data-ouia-safe="true"
+                                  type="button"
+                                >
+                                  Identify and resolve risks
+                                </button>
+                              </a>
+                            </p>
                           </div>
                         </div>
                         <div
@@ -456,37 +462,40 @@ exports[`<Landing/> should render correctly 1`] = `
                   >
                     Configure, monitor, optimize, and orchestrate applications and data services on demand.
                   </p>
-                  <a
+                  <p
                     class=""
                     data-ouia-component-id="OUIA-Generated-Text-17"
                     data-ouia-component-type="PF4/Text"
                     data-ouia-safe="true"
                     data-pf-content="true"
-                    href="/application-services/overview"
                   >
-                    Explore services
-                    <span
-                      class="pf-c-icon pf-m-inline pf-u-ml-sm"
+                    <a
+                      href="/application-services/overview"
                     >
+                      Explore services
                       <span
-                        class="pf-c-icon__content"
+                        class="pf-c-icon pf-m-inline pf-u-ml-sm"
                       >
-                        <svg
-                          aria-hidden="true"
-                          fill="currentColor"
-                          height="1em"
-                          role="img"
-                          style="vertical-align: -0.125em;"
-                          viewBox="0 0 448 512"
-                          width="1em"
+                        <span
+                          class="pf-c-icon__content"
                         >
-                          <path
-                            d="M190.5 66.9l22.2-22.2c9.4-9.4 24.6-9.4 33.9 0L441 239c9.4 9.4 9.4 24.6 0 33.9L246.6 467.3c-9.4 9.4-24.6 9.4-33.9 0l-22.2-22.2c-9.5-9.5-9.3-25 .4-34.3L311.4 296H24c-13.3 0-24-10.7-24-24v-32c0-13.3 10.7-24 24-24h287.4L190.9 101.2c-9.8-9.3-10-24.8-.4-34.3z"
-                          />
-                        </svg>
+                          <svg
+                            aria-hidden="true"
+                            fill="currentColor"
+                            height="1em"
+                            role="img"
+                            style="vertical-align: -0.125em;"
+                            viewBox="0 0 448 512"
+                            width="1em"
+                          >
+                            <path
+                              d="M190.5 66.9l22.2-22.2c9.4-9.4 24.6-9.4 33.9 0L441 239c9.4 9.4 9.4 24.6 0 33.9L246.6 467.3c-9.4 9.4-24.6 9.4-33.9 0l-22.2-22.2c-9.5-9.5-9.3-25 .4-34.3L311.4 296H24c-13.3 0-24-10.7-24-24v-32c0-13.3 10.7-24 24-24h287.4L190.9 101.2c-9.8-9.3-10-24.8-.4-34.3z"
+                            />
+                          </svg>
+                        </span>
                       </span>
-                    </span>
-                  </a>
+                    </a>
+                  </p>
                 </div>
               </div>
             </article>
@@ -525,37 +534,40 @@ exports[`<Landing/> should render correctly 1`] = `
                   >
                     Build, run, scale container-based applications - now with developer tools, CI/CD, and release management.
                   </p>
-                  <a
+                  <p
                     class=""
                     data-ouia-component-id="OUIA-Generated-Text-20"
                     data-ouia-component-type="PF4/Text"
                     data-ouia-safe="true"
                     data-pf-content="true"
-                    href="/openshift/overview"
                   >
-                    Scale your applications
-                    <span
-                      class="pf-c-icon pf-m-inline pf-u-ml-sm"
+                    <a
+                      href="/openshift/overview"
                     >
+                      Scale your applications
                       <span
-                        class="pf-c-icon__content"
+                        class="pf-c-icon pf-m-inline pf-u-ml-sm"
                       >
-                        <svg
-                          aria-hidden="true"
-                          fill="currentColor"
-                          height="1em"
-                          role="img"
-                          style="vertical-align: -0.125em;"
-                          viewBox="0 0 448 512"
-                          width="1em"
+                        <span
+                          class="pf-c-icon__content"
                         >
-                          <path
-                            d="M190.5 66.9l22.2-22.2c9.4-9.4 24.6-9.4 33.9 0L441 239c9.4 9.4 9.4 24.6 0 33.9L246.6 467.3c-9.4 9.4-24.6 9.4-33.9 0l-22.2-22.2c-9.5-9.5-9.3-25 .4-34.3L311.4 296H24c-13.3 0-24-10.7-24-24v-32c0-13.3 10.7-24 24-24h287.4L190.9 101.2c-9.8-9.3-10-24.8-.4-34.3z"
-                          />
-                        </svg>
+                          <svg
+                            aria-hidden="true"
+                            fill="currentColor"
+                            height="1em"
+                            role="img"
+                            style="vertical-align: -0.125em;"
+                            viewBox="0 0 448 512"
+                            width="1em"
+                          >
+                            <path
+                              d="M190.5 66.9l22.2-22.2c9.4-9.4 24.6-9.4 33.9 0L441 239c9.4 9.4 9.4 24.6 0 33.9L246.6 467.3c-9.4 9.4-24.6 9.4-33.9 0l-22.2-22.2c-9.5-9.5-9.3-25 .4-34.3L311.4 296H24c-13.3 0-24-10.7-24-24v-32c0-13.3 10.7-24 24-24h287.4L190.9 101.2c-9.8-9.3-10-24.8-.4-34.3z"
+                            />
+                          </svg>
+                        </span>
                       </span>
-                    </span>
-                  </a>
+                    </a>
+                  </p>
                 </div>
               </div>
             </article>
@@ -605,15 +617,13 @@ exports[`<Landing/> should render correctly 1`] = `
                     <a
                       href="/insights/"
                     >
-                      RHEL
+                      RHEL  | 
                     </a>
-                     | 
                     <a
                       href="/ansible/advisor"
                     >
-                      Ansible
+                      Ansible  | 
                     </a>
-                     | 
                     <a
                       href="/openshift/insights"
                     >
@@ -658,37 +668,40 @@ exports[`<Landing/> should render correctly 1`] = `
                   >
                     Keep your systems protected, available, and operating efficiently. Update all your RHEL for Edge systems with secure, over-the-air updates.
                   </p>
-                  <a
+                  <p
                     class=""
                     data-ouia-component-id="OUIA-Generated-Text-26"
                     data-ouia-component-type="PF4/Text"
                     data-ouia-safe="true"
                     data-pf-content="true"
-                    href="/edge/fleet-management"
                   >
-                    Manage at the edge
-                    <span
-                      class="pf-c-icon pf-m-inline pf-u-ml-sm"
+                    <a
+                      href="/edge/fleet-management"
                     >
+                      Manage at the edge
                       <span
-                        class="pf-c-icon__content"
+                        class="pf-c-icon pf-m-inline pf-u-ml-sm"
                       >
-                        <svg
-                          aria-hidden="true"
-                          fill="currentColor"
-                          height="1em"
-                          role="img"
-                          style="vertical-align: -0.125em;"
-                          viewBox="0 0 448 512"
-                          width="1em"
+                        <span
+                          class="pf-c-icon__content"
                         >
-                          <path
-                            d="M190.5 66.9l22.2-22.2c9.4-9.4 24.6-9.4 33.9 0L441 239c9.4 9.4 9.4 24.6 0 33.9L246.6 467.3c-9.4 9.4-24.6 9.4-33.9 0l-22.2-22.2c-9.5-9.5-9.3-25 .4-34.3L311.4 296H24c-13.3 0-24-10.7-24-24v-32c0-13.3 10.7-24 24-24h287.4L190.9 101.2c-9.8-9.3-10-24.8-.4-34.3z"
-                          />
-                        </svg>
+                          <svg
+                            aria-hidden="true"
+                            fill="currentColor"
+                            height="1em"
+                            role="img"
+                            style="vertical-align: -0.125em;"
+                            viewBox="0 0 448 512"
+                            width="1em"
+                          >
+                            <path
+                              d="M190.5 66.9l22.2-22.2c9.4-9.4 24.6-9.4 33.9 0L441 239c9.4 9.4 9.4 24.6 0 33.9L246.6 467.3c-9.4 9.4-24.6 9.4-33.9 0l-22.2-22.2c-9.5-9.5-9.3-25 .4-34.3L311.4 296H24c-13.3 0-24-10.7-24-24v-32c0-13.3 10.7-24 24-24h287.4L190.9 101.2c-9.8-9.3-10-24.8-.4-34.3z"
+                            />
+                          </svg>
+                        </span>
                       </span>
-                    </span>
-                  </a>
+                    </a>
+                  </p>
                 </div>
               </div>
             </article>
@@ -799,37 +812,40 @@ exports[`<Landing/> should render correctly 1`] = `
                   >
                     View and manage your Red Hat subscriptions.
                   </p>
-                  <a
+                  <p
                     class=""
                     data-ouia-component-id="OUIA-Generated-Text-32"
                     data-ouia-component-type="PF4/Text"
                     data-ouia-safe="true"
                     data-pf-content="true"
-                    href="/insights/subscriptions/inventory#SIDs=&tags="
                   >
-                    View all subscriptions
-                    <span
-                      class="pf-c-icon pf-m-inline pf-u-ml-sm"
+                    <a
+                      href="/insights/subscriptions/inventory#SIDs=&tags="
                     >
+                      View all subscriptions
                       <span
-                        class="pf-c-icon__content"
+                        class="pf-c-icon pf-m-inline pf-u-ml-sm"
                       >
-                        <svg
-                          aria-hidden="true"
-                          fill="currentColor"
-                          height="1em"
-                          role="img"
-                          style="vertical-align: -0.125em;"
-                          viewBox="0 0 448 512"
-                          width="1em"
+                        <span
+                          class="pf-c-icon__content"
                         >
-                          <path
-                            d="M190.5 66.9l22.2-22.2c9.4-9.4 24.6-9.4 33.9 0L441 239c9.4 9.4 9.4 24.6 0 33.9L246.6 467.3c-9.4 9.4-24.6 9.4-33.9 0l-22.2-22.2c-9.5-9.5-9.3-25 .4-34.3L311.4 296H24c-13.3 0-24-10.7-24-24v-32c0-13.3 10.7-24 24-24h287.4L190.9 101.2c-9.8-9.3-10-24.8-.4-34.3z"
-                          />
-                        </svg>
+                          <svg
+                            aria-hidden="true"
+                            fill="currentColor"
+                            height="1em"
+                            role="img"
+                            style="vertical-align: -0.125em;"
+                            viewBox="0 0 448 512"
+                            width="1em"
+                          >
+                            <path
+                              d="M190.5 66.9l22.2-22.2c9.4-9.4 24.6-9.4 33.9 0L441 239c9.4 9.4 9.4 24.6 0 33.9L246.6 467.3c-9.4 9.4-24.6 9.4-33.9 0l-22.2-22.2c-9.5-9.5-9.3-25 .4-34.3L311.4 296H24c-13.3 0-24-10.7-24-24v-32c0-13.3 10.7-24 24-24h287.4L190.9 101.2c-9.8-9.3-10-24.8-.4-34.3z"
+                            />
+                          </svg>
+                        </span>
                       </span>
-                    </span>
-                  </a>
+                    </a>
+                  </p>
                 </div>
               </div>
             </article>

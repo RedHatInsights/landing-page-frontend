@@ -52,11 +52,13 @@ const SecondPanel = () => {
                   Configure, monitor, optimize, and orchestrate applications and
                   data services on demand.
                 </Text>
-                <Text component="a" href="/application-services/overview">
-                  Explore services
-                  <Icon className="pf-u-ml-sm" isInline>
-                    <ArrowRightIcon />
-                  </Icon>
+                <Text component="p">
+                  <Link to="/application-services/overview">
+                    Explore services
+                    <Icon className="pf-u-ml-sm" isInline>
+                      <ArrowRightIcon />
+                    </Icon>
+                  </Link>
                 </Text>
               </TextContent>
             </CardBody>
@@ -75,11 +77,13 @@ const SecondPanel = () => {
                   Build, run, scale container-based applications - now with
                   developer tools, CI/CD, and release management.
                 </Text>
-                <Text component="a" href="/openshift/overview">
-                  Scale your applications
-                  <Icon className="pf-u-ml-sm" isInline>
-                    <ArrowRightIcon />
-                  </Icon>
+                <Text component="p">
+                  <Link to="/openshift/overview">
+                    Scale your applications
+                    <Icon className="pf-u-ml-sm" isInline>
+                      <ArrowRightIcon />
+                    </Icon>
+                  </Link>
                 </Text>
               </TextContent>
             </CardBody>
@@ -100,11 +104,9 @@ const SecondPanel = () => {
                 </Text>
                 <Text component="p">
                   Manage&nbsp;
-                  <a href="/insights/">RHEL</a>
-                  &nbsp;|&nbsp;
-                  <a href="/ansible/advisor">Ansible</a>
-                  &nbsp;|&nbsp;
-                  <a href="/openshift/insights">Openshift</a>
+                  <Link to="/insights/">RHEL &nbsp;|&nbsp;</Link>
+                  <Link to="/ansible/advisor">Ansible &nbsp;|&nbsp;</Link>
+                  <Link to="/openshift/insights">Openshift</Link>
                 </Text>
               </TextContent>
             </CardBody>
@@ -124,11 +126,13 @@ const SecondPanel = () => {
                   efficiently. Update all your RHEL for Edge systems with
                   secure, over-the-air updates.
                 </Text>
-                <Text component="a" href="/edge/fleet-management">
-                  Manage at the edge
-                  <Icon className="pf-u-ml-sm" isInline>
-                    <ArrowRightIcon />
-                  </Icon>
+                <Text component="p">
+                  <Link to="/edge/fleet-management">
+                    Manage at the edge
+                    <Icon className="pf-u-ml-sm" isInline>
+                      <ArrowRightIcon />
+                    </Icon>
+                  </Link>
                 </Text>
               </TextContent>
             </CardBody>
@@ -171,14 +175,13 @@ const SecondPanel = () => {
                 <Text component="p" className="pf-u-flex-grow-1">
                   View and manage your Red Hat subscriptions.
                 </Text>
-                <Text
-                  component="a"
-                  href="/insights/subscriptions/inventory#SIDs=&tags="
-                >
-                  View all subscriptions
-                  <Icon className="pf-u-ml-sm" isInline>
-                    <ArrowRightIcon />
-                  </Icon>
+                <Text component="p">
+                  <Link to="/insights/subscriptions/inventory#SIDs=&tags=">
+                    View all subscriptions
+                    <Icon className="pf-u-ml-sm" isInline>
+                      <ArrowRightIcon />
+                    </Icon>
+                  </Link>
                 </Text>
               </TextContent>
             </CardBody>
