@@ -24,6 +24,7 @@ sleep 120
 export APP_NAME=rbac
 export COMPONENT="rbac"
 export COMPONENT_NAME="rbac"
+export IMAGE="quay.io/cloudservices/rbac"
 
 # Install bonfire
 CICD_URL=https://raw.githubusercontent.com/RedHatInsights/bonfire/master/cicd
