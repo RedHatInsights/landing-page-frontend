@@ -28,6 +28,10 @@ curl -s $CICD_URL/bootstrap.sh > .cicd_bootstrap.sh
 
 source .cicd_bootstrap.sh
 
+echo "Taking a short nap"
+sleep 120
+
+
 set -x
 # Deploy to an ephemeral namespace for testing
 export GIT_COMMIT=master
