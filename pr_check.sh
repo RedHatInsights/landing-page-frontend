@@ -38,6 +38,7 @@ source $CICD_ROOT/deploy_ephemeral_env.sh
 
 set +x
 # Run some tests with ClowdJobInvocation
+export IMAGE="quay.io/cloudservices/iqe-tests:platform-ui"
 IQE_PLUGINS="platform_ui"
 IQE_MARKER_EXPRESSION="smoke"
 IQE_FILTER_EXPRESSION=""
