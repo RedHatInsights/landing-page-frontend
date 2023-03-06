@@ -219,7 +219,7 @@ const SecondPanel = () => {
       >
         <TextContent className="pf-u-px-xl pf-u-py-lg">
           <Text component={TextVariants.p}>
-            <Link to="/allservices">
+            <Link to="/favoritedservices">
               <Icon className="pf-u-mr-sm" isInline>
                 <StarIcon />
               </Icon>
