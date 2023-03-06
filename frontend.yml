@@ -17,7 +17,20 @@ objects:
           - v1
       frontend:
         paths:
-          - /
+          - /apps/langing
+      navItems:
+      - appId: landing
+        title: Red Hat Enterprise Linux
+        href: /
+        product: "Red Hat Enterprise Linux"
+      module:
+        manifestLocation: "/apps/landing/fed-mods.json"
+        modules:
+        - id: "landing"
+          module: "./RootApp"
+          routes:
+          - pathname: /
+            exact: true
 parameters:
   - name: ENV_NAME
     required: true

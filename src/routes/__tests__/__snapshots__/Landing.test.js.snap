@@ -937,7 +937,7 @@ exports[`<Landing/> should render correctly 1`] = `
               data-pf-content="true"
             >
               <a
-                href="/allservices"
+                href="/favoritedservices"
               >
                 <span
                   class="pf-c-icon pf-m-inline pf-u-mr-sm"
