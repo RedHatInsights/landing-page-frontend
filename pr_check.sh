@@ -37,6 +37,7 @@ set -x
 export IMAGE="quay.io/cloudservices/rbac"
 export GIT_COMMIT=master
 export IMAGE_TAG=master
+export DEPLOY_FRONTENDS=true
 source $CICD_ROOT/deploy_ephemeral_env.sh
 
 set +x
