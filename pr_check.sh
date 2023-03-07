@@ -36,6 +36,7 @@ set -x
 # Deploy to an ephemeral namespace for testing
 export IMAGE="quay.io/cloudservices/rbac"
 export GIT_COMMIT=master
+export IMAGE_TAG=master
 source $CICD_ROOT/deploy_ephemeral_env.sh
 
 set +x
