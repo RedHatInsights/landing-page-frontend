@@ -61,14 +61,15 @@ function SimpleSlider() {
                   configuration for free with your Red Hat Developer account.
                 </Text>
                 <div>
-                  <Text
-                    component="a"
-                    href="/openshift/sandbox"
-                    className="pf-u-pr-sm pf-u-mb-sm-on-sm"
-                  >
-                    <Button variant="danger" className="pf-u-pr-sm pf-u-mb-sm">
-                      Build apps on the sandbox
-                    </Button>
+                  <Text component="p" className="pf-u-pr-sm pf-u-mb-sm-on-sm">
+                    <Link to="/openshift/sandbox">
+                      <Button
+                        variant="danger"
+                        className="pf-u-pr-sm pf-u-mb-sm"
+                      >
+                        Build apps on the sandbox
+                      </Button>
+                    </Link>
                   </Text>
                   <Text
                     component="a"
