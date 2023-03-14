@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import Slider from 'react-slick';
 import {
   Button,
+  Flex,
   Sidebar,
   SidebarContent,
   SidebarPanel,
@@ -56,25 +57,19 @@ function SimpleSlider() {
                 <Text component="h3">
                   Develop in the sandbox with the Red Hat Developer program
                 </Text>
-                <Text component="p" className="pf-u-pb-sm pf-u-flex-grow-1">
+                <Text component="p" className="pf-u-flex-grow-1">
                   Try Red Hat OpenShift technologies without setup or
                   configuration for free with your Red Hat Developer account.
                 </Text>
-                <div>
-                  <Text component="p" className="pf-u-pr-sm pf-u-mb-sm-on-sm">
+                <Flex className="pf-u-flex-direction-row-on-md">
+                  <Text component="p" className="pf-u-pr-sm pf-u-mb-0">
                     <Link to="/openshift/sandbox">
-                      <Button
-                        variant="danger"
-                        className="pf-u-pr-sm pf-u-mb-sm"
-                      >
+                      <Button variant="danger" className="pf-u-pr-sm">
                         Build apps on the sandbox
                       </Button>
                     </Link>
                   </Text>
-                  <Text
-                    component="a"
-                    href="https://developers.redhat.com/about"
-                  >
+                  <Text component="a">
                     <Button
                       href="https://developers.redhat.com/about"
                       variant="tertiary"
@@ -83,7 +78,7 @@ function SimpleSlider() {
                       Learn about the program
                     </Button>
                   </Text>
-                </div>
+                </Flex>
               </TextContent>
             </SidebarContent>
             <SidebarPanel

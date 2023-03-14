@@ -155,7 +155,7 @@ exports[`<Landing/> should render correctly 1`] = `
                               Develop in the sandbox with the Red Hat Developer program
                             </h3>
                             <p
-                              class="pf-u-pb-sm pf-u-flex-grow-1"
+                              class="pf-u-flex-grow-1"
                               data-ouia-component-id="OUIA-Generated-Text-6"
                               data-ouia-component-type="PF4/Text"
                               data-ouia-safe="true"
@@ -163,9 +163,11 @@ exports[`<Landing/> should render correctly 1`] = `
                             >
                               Try Red Hat OpenShift technologies without setup or configuration for free with your Red Hat Developer account.
                             </p>
-                            <div>
+                            <div
+                              class="pf-l-flex pf-u-flex-direction-row-on-md"
+                            >
                               <p
-                                class="pf-u-pr-sm pf-u-mb-sm-on-sm"
+                                class="pf-u-pr-sm pf-u-mb-0"
                                 data-ouia-component-id="OUIA-Generated-Text-7"
                                 data-ouia-component-type="PF4/Text"
                                 data-ouia-safe="true"
@@ -176,7 +178,7 @@ exports[`<Landing/> should render correctly 1`] = `
                                 >
                                   <button
                                     aria-disabled="false"
-                                    class="pf-c-button pf-m-danger pf-u-pr-sm pf-u-mb-sm"
+                                    class="pf-c-button pf-m-danger pf-u-pr-sm"
                                     data-ouia-component-id="OUIA-Generated-Button-danger-2"
                                     data-ouia-component-type="PF4/Button"
                                     data-ouia-safe="true"
@@ -192,7 +194,6 @@ exports[`<Landing/> should render correctly 1`] = `
                                 data-ouia-component-type="PF4/Text"
                                 data-ouia-safe="true"
                                 data-pf-content="true"
-                                href="https://developers.redhat.com/about"
                               >
                                 <button
                                   aria-disabled="false"
