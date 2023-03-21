@@ -171,7 +171,7 @@ const SecondPanel = () => {
                   </Text>
                   <Text
                     component="a"
-                    href="https://console.redhat.com/edge/ansible-dashboard"
+                    href="https://console.redhat.com/ansible/ansible-dashboard"
                   >
                     Automate everything&nbsp;&nbsp;
                     <ArrowRightIcon />
