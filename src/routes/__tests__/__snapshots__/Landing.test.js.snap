@@ -6,7 +6,7 @@ exports[`<Landing/> should render correctly 1`] = `
     class="land-c-page-content pf-u-display-flex pf-u-flex-direction-column"
   >
     <section
-      class="pf-c-page__main-section pf-m-no-fill land-l-first-panel pf-u-px-xl pf-u-py-2xl"
+      class="pf-c-page__main-section pf-m-no-fill land-l-first-panel pf-u-px-xl pf-u-pt-lg pf-u-pb-xl"
     >
       <div
         class="pf-c-content"
@@ -25,7 +25,7 @@ exports[`<Landing/> should render correctly 1`] = `
         </h1>
       </div>
       <div
-        class="land-c-slick-slider-wrapper pf-u-mx-md-on-md"
+        class="land-c-slick-slider-wrapper pf-u-pb-sm"
       >
         <div
           class="slick-slider pf-u-p-sm pf-u-pb-0 slick-initialized"
@@ -114,7 +114,7 @@ exports[`<Landing/> should render correctly 1`] = `
                           </div>
                         </div>
                         <div
-                          class="pf-c-sidebar__panel pf-m-width-33 slide-1 pf-u-align-self-stretch pf-m-no-background ins-m-hide-on-md"
+                          class="pf-c-sidebar__panel pf-m-width-25 slide-1 pf-u-align-self-stretch pf-m-no-background ins-m-hide-on-md"
                         />
                       </div>
                     </div>
@@ -162,56 +162,43 @@ exports[`<Landing/> should render correctly 1`] = `
                               data-pf-content="true"
                             >
                               Try Red Hat OpenShift technologies without setup or configuration for free with your Red Hat Developer account.
-                            </p>
-                            <div
-                              class="pf-l-flex pf-u-flex-direction-row-on-md"
-                            >
-                              <p
-                                class="pf-u-pr-sm pf-u-mb-0"
+                              <a
+                                class="pf-u-active-color-400 pf-u-ml-sm"
                                 data-ouia-component-id="OUIA-Generated-Text-7"
                                 data-ouia-component-type="PF4/Text"
                                 data-ouia-safe="true"
                                 data-pf-content="true"
+                                href="https://developers.redhat.com/about"
                               >
-                                <a
-                                  href="/openshift/sandbox"
-                                >
-                                  <button
-                                    aria-disabled="false"
-                                    class="pf-c-button pf-m-danger pf-u-pr-sm"
-                                    data-ouia-component-id="OUIA-Generated-Button-danger-2"
-                                    data-ouia-component-type="PF4/Button"
-                                    data-ouia-safe="true"
-                                    type="button"
-                                  >
-                                    Build apps on the sandbox
-                                  </button>
-                                </a>
-                              </p>
+                                Learn about the program.
+                              </a>
+                            </p>
+                            <p
+                              class="pf-u-pr-sm pf-u-mb-0"
+                              data-ouia-component-id="OUIA-Generated-Text-8"
+                              data-ouia-component-type="PF4/Text"
+                              data-ouia-safe="true"
+                              data-pf-content="true"
+                            >
                               <a
-                                class=""
-                                data-ouia-component-id="OUIA-Generated-Text-8"
-                                data-ouia-component-type="PF4/Text"
-                                data-ouia-safe="true"
-                                data-pf-content="true"
+                                href="/openshift/sandbox"
                               >
                                 <button
                                   aria-disabled="false"
-                                  class="pf-c-button pf-m-tertiary land-c-button-custom"
-                                  data-ouia-component-id="OUIA-Generated-Button-tertiary-1"
+                                  class="pf-c-button pf-m-danger pf-u-pr-sm"
+                                  data-ouia-component-id="OUIA-Generated-Button-danger-2"
                                   data-ouia-component-type="PF4/Button"
                                   data-ouia-safe="true"
-                                  href="https://developers.redhat.com/about"
                                   type="button"
                                 >
-                                  Learn about the program
+                                  Build apps on the sandbox
                                 </button>
                               </a>
-                            </div>
+                            </p>
                           </div>
                         </div>
                         <div
-                          class="pf-c-sidebar__panel pf-m-width-33 slide-2 pf-u-align-self-stretch pf-m-no-background ins-m-hide-on-md"
+                          class="pf-c-sidebar__panel pf-m-width-25 slide-2 pf-u-align-self-stretch pf-m-no-background ins-m-hide-on-md"
                         />
                       </div>
                     </div>
@@ -285,7 +272,7 @@ exports[`<Landing/> should render correctly 1`] = `
                           </div>
                         </div>
                         <div
-                          class="pf-c-sidebar__panel pf-m-width-33 slide-3  pf-u-align-self-stretch pf-m-no-background ins-m-hide-on-md"
+                          class="pf-c-sidebar__panel pf-m-width-25 slide-3  pf-u-align-self-stretch pf-m-no-background ins-m-hide-on-md"
                         />
                       </div>
                     </div>
@@ -356,7 +343,7 @@ exports[`<Landing/> should render correctly 1`] = `
                           </div>
                         </div>
                         <div
-                          class="pf-c-sidebar__panel pf-m-width-33 slide-4  pf-u-align-self-stretch pf-m-no-background ins-m-hide-on-md"
+                          class="pf-c-sidebar__panel pf-m-width-25 slide-4  pf-u-align-self-stretch pf-m-no-background ins-m-hide-on-md"
                         />
                       </div>
                     </div>
