@@ -11,7 +11,7 @@ function FirstPanel() {
     <>
       <PageSection
         isFilled={false}
-        className="land-l-first-panel pf-u-px-xl pf-u-py-2xl"
+        className="land-l-first-panel pf-u-px-xl pf-u-pt-lg pf-u-pb-xl"
       >
         <TextContent>
           <Text component="h1" className="pf-u-pb-md pf-u-color-light-100">
