@@ -19,9 +19,9 @@ $slick-prev-character: "\f137";
 $slick-next-character: "\f138";
 $slick-dot-character: "\2022" !default;
 $slick-dot-size: 6px !default;
-$slick-opacity-default: 0.75 !default;
+$slick-opacity-default: 1;
 $slick-opacity-on-hover: 1 !default;
-$slick-opacity-not-active: 0.25 !default;
+$slick-opacity-not-active: 0.4 !default;
 
 @function slick-image-url($url) {
     @if function-exists(image-url) {

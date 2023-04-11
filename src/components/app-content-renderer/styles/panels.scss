@@ -10,7 +10,7 @@
     .land-c-slick-slider-wrapper {
       .pf-c-sidebar {
         border-top:  var(--pf-global--BorderWidth--lg) solid var(--pf-global--info-color--100);
-        height: 280px;
+        height: 240px;
         background-color: var(--pf-global--BackgroundColor--dark-300);
         &__main {
           height: 100%;
@@ -30,19 +30,18 @@
             background-image: url(https://console.redhat.com/apps/frontend-assets/console-landing/Marketplace_carousel-promo.svg);
           }
         }
-        .land-c-button-custom {
-          --pf-c-button--after--BorderColor: var(--pf-global--Color--light-100);
-          color: var(--pf-global--Color--light-100);
-        }
       }
-      .slick-dots {
-        li button:before {
-          font-size: var(--pf-global--FontSize--4xl);
-          color: var(--pf-global--Color--light-100);
+      .slick-dots{
+        bottom: -12px;
+        li.slick-active button:before{
+          content: "\002d" !important;
+          color: var(--pf-global--info-color--100);
+          font-size: 100px;
         }
-        li.slick-active button:before {
-          opacity: 1;
-          color: var(--pf-global--active-color--100);
+        li button:before{
+          content: "\002d";
+          color: var(--pf-global--info-color--100);
+          font-size: 100px;
         }
       }
     }
