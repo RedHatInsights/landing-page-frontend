@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom';
 import Slider from 'react-slick';
 import {
   Button,
-  Flex,
   Sidebar,
   SidebarContent,
   SidebarPanel,
@@ -23,7 +22,7 @@ function SimpleSlider() {
     slidesToScroll: 1,
   };
   return (
-    <div className="land-c-slick-slider-wrapper pf-u-mx-md-on-md">
+    <div className="land-c-slick-slider-wrapper pf-u-pb-sm">
       <Slider {...settings} className="pf-u-p-sm pf-u-pb-0">
         <div>
           <Sidebar orientation="split" hasGutter>
@@ -44,7 +43,7 @@ function SimpleSlider() {
               </TextContent>
             </SidebarContent>
             <SidebarPanel
-              width={{ default: 'width_33' }}
+              width={{ default: 'width_25' }}
               className="slide-1 pf-u-align-self-stretch pf-m-no-background ins-m-hide-on-md"
             ></SidebarPanel>
           </Sidebar>
@@ -60,29 +59,25 @@ function SimpleSlider() {
                 <Text component="p" className="pf-u-flex-grow-1">
                   Try Red Hat OpenShift technologies without setup or
                   configuration for free with your Red Hat Developer account.
+                  <Text
+                    component="a"
+                    className="pf-u-active-color-400 pf-u-ml-sm"
+                    href="https://developers.redhat.com/about"
+                  >
+                    Learn about the program.
+                  </Text>
                 </Text>
-                <Flex className="pf-u-flex-direction-row-on-md">
-                  <Text component="p" className="pf-u-pr-sm pf-u-mb-0">
-                    <Link to="/openshift/sandbox">
-                      <Button variant="danger" className="pf-u-pr-sm">
-                        Build apps on the sandbox
-                      </Button>
-                    </Link>
-                  </Text>
-                  <Text component="a">
-                    <Button
-                      href="https://developers.redhat.com/about"
-                      variant="tertiary"
-                      className="land-c-button-custom"
-                    >
-                      Learn about the program
+                <Text component="p" className="pf-u-pr-sm pf-u-mb-0">
+                  <Link to="/openshift/sandbox">
+                    <Button variant="danger" className="pf-u-pr-sm">
+                      Build apps on the sandbox
                     </Button>
-                  </Text>
-                </Flex>
+                  </Link>
+                </Text>
               </TextContent>
             </SidebarContent>
             <SidebarPanel
-              width={{ default: 'width_33' }}
+              width={{ default: 'width_25' }}
               className="slide-2 pf-u-align-self-stretch pf-m-no-background ins-m-hide-on-md"
             ></SidebarPanel>
           </Sidebar>
@@ -106,7 +101,7 @@ function SimpleSlider() {
               </TextContent>
             </SidebarContent>
             <SidebarPanel
-              width={{ default: 'width_33' }}
+              width={{ default: 'width_25' }}
               className="slide-3  pf-u-align-self-stretch pf-m-no-background ins-m-hide-on-md"
             ></SidebarPanel>
           </Sidebar>
@@ -126,7 +121,7 @@ function SimpleSlider() {
               </TextContent>
             </SidebarContent>
             <SidebarPanel
-              width={{ default: 'width_33' }}
+              width={{ default: 'width_25' }}
               className="slide-4  pf-u-align-self-stretch pf-m-no-background ins-m-hide-on-md"
             ></SidebarPanel>
           </Sidebar>
