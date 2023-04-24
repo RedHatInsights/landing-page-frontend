@@ -15,12 +15,14 @@ import {
 } from '@patternfly/react-core';
 import React from 'react';
 import { Link } from 'react-router-dom';
+import useChrome from '@redhat-cloud-services/frontend-components/useChrome';
 
 import ArrowRightIcon from '@patternfly/react-icons/dist/js/icons/arrow-right-icon';
 import StarIcon from '@patternfly/react-icons/dist/js/icons/star-icon';
 import RecentlyVisited from '../recently-visited/recently-visited';
 
 const SecondPanel = () => {
+  const { isBeta, isProd } = useChrome();
   return (
     <Sidebar className="land-c-sidebar pf-u-background-color-100">
       <SidebarContent className="pf-m-no-background pf-u-px-xl pf-u-pt-md pf-u-pb-2xl-on-md">
@@ -186,31 +188,35 @@ const SecondPanel = () => {
               </TextContent>
             </CardBody>
           </Card>
-          <Card isFlat>
-            <CardBody>
-              <TextContent className="pf-u-display-flex pf-u-flex-direction-column">
-                <img
-                  src="https://console.redhat.com/apps/frontend-assets/console-landing/acs.svg"
-                  alt="cluster security cloud service"
-                />
-                <Text component="p" className="pf-u-font-size-lg pf-u-mt-md">
-                  Red Hat Advanced Cluster Security Cloud Service
-                </Text>
-                <Text component="p" className="pf-u-flex-grow-1">
-                  Fully hosted software as a service for protecting cloud native
-                  applications and Kubernetes.
-                </Text>
-                <Text component={TextVariants.p}>
-                  <Link to="/application-services/acs/instances">
-                    Get Started Now
-                    <Icon className="pf-u-ml-sm" isInline>
-                      <ArrowRightIcon />
-                    </Icon>
-                  </Link>
-                </Text>
-              </TextContent>
-            </CardBody>
-          </Card>
+          {!isProd() || isBeta() ? (
+            <Card isFlat>
+              <CardBody>
+                <TextContent className="pf-u-display-flex pf-u-flex-direction-column">
+                  <img
+                    src="https://console.redhat.com/apps/frontend-assets/console-landing/acs.svg"
+                    alt="cluster security cloud service"
+                  />
+                  <Text component="p" className="pf-u-font-size-lg pf-u-mt-md">
+                    Red Hat Advanced Cluster Security Cloud Service
+                  </Text>
+                  <Text component="p" className="pf-u-flex-grow-1">
+                    Fully hosted software as a service for protecting cloud
+                    native applications and Kubernetes.
+                  </Text>
+                  <Text component={TextVariants.p}>
+                    <Link to="/application-services/acs/instances">
+                      Get Started Now
+                      <Icon className="pf-u-ml-sm" isInline>
+                        <ArrowRightIcon />
+                      </Icon>
+                    </Link>
+                  </Text>
+                </TextContent>
+              </CardBody>
+            </Card>
+          ) : (
+            ''
+          )}
         </Gallery>
       </SidebarContent>
       <SidebarPanel
