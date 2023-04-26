@@ -207,7 +207,7 @@ const SecondPanel = () => {
                   applications and Kubernetes.
                 </Text>
                 <Text component={TextVariants.p}>
-                  <ACSLink to="/application-services/acs/instances">
+                  <ACSLink to="/application-services/acs/overview">
                     Get Started Now
                     <Icon className="pf-u-ml-sm" isInline>
                       <ArrowRightIcon />
