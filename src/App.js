@@ -34,6 +34,8 @@ const App = () => {
   const [isOrgAdmin, setIsOrgAdmin] = useState();
   const chrome = useChrome();
 
+  chrome?.updateDocumentTitle?.('Hybrid Cloud Console Home', false);
+
   useEffect(() => {
     getRegistry().register({ contentStore });
     chrome.auth
