@@ -883,7 +883,7 @@ exports[`<Landing/> should render correctly 1`] = `
                     data-pf-content="true"
                   >
                     <a
-                      href="/application-services/acs/overview"
+                      href="/beta/application-services/acs/overview"
                     >
                       Get Started Now
                       <span
