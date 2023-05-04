@@ -618,7 +618,7 @@ exports[`<Landing/> should render correctly 1`] = `
                     <a
                       href="/openshift/insights"
                     >
-                      Openshift
+                      OpenShift
                     </a>
                   </p>
                 </div>

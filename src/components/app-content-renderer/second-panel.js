@@ -125,7 +125,7 @@ const SecondPanel = () => {
                   Manage&nbsp;
                   <Link to="/insights/">RHEL &nbsp;|&nbsp;</Link>
                   <Link to="/ansible/advisor">Ansible &nbsp;|&nbsp;</Link>
-                  <Link to="/openshift/insights">Openshift</Link>
+                  <Link to="/openshift/insights">OpenShift</Link>
                 </Text>
               </TextContent>
             </CardBody>
