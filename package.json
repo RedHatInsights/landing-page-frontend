@@ -53,7 +53,8 @@
     "postinstall": "rm -rf .cache",
     "start": "fec dev",
     "verify": "npm-run-all build lint test",
-    "nightly": "npm-run-all build lint && npm run test -- -u"
+    "nightly": "npm-run-all build lint && npm run test -- -u",
+    "static": "fec static --port 8888"
   },
   "repository": {
     "type": "git",

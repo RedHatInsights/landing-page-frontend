@@ -15,11 +15,12 @@ import {
 } from '@patternfly/react-core';
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-
 import ArrowRightIcon from '@patternfly/react-icons/dist/js/icons/arrow-right-icon';
 import StarIcon from '@patternfly/react-icons/dist/js/icons/star-icon';
 import RecentlyVisited from '../recently-visited/recently-visited';
 import { useChrome } from '@redhat-cloud-services/frontend-components/useChrome';
+import FavoritesSection from '../favoritesSection/favoritesSection';
+import AsyncComponent from '@redhat-cloud-services/frontend-components/AsyncComponent';
 
 const SecondPanel = () => {
   const {
@@ -43,6 +44,10 @@ const SecondPanel = () => {
   return (
     <Sidebar className="land-c-sidebar pf-u-background-color-100">
       <SidebarContent className="pf-m-no-background pf-u-px-xl pf-u-pt-md pf-u-pb-2xl-on-md">
+
+      {/* <AsyncComponent appName="chrome" module="./LandingNavFavorites" /> */}
+      <FavoritesSection />
+      
         <Title
           headingLevel="h3"
           size={TitleSizes['2xl']}
