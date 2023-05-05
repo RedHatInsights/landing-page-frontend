@@ -20,7 +20,7 @@ Checkout https://stage.foo.redhat.com:1337/ [Read more](https://github.com/RedHa
 
 ## Testing
 
-- `npm run test` tests
+- `npm run test` will run the tests
 - `npm run lint` will run the linter
 
 ## Deploying
