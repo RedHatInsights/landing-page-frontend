@@ -21,6 +21,7 @@ import RecentlyVisited from '../recently-visited/recently-visited';
 import { useChrome } from '@redhat-cloud-services/frontend-components/useChrome';
 import FavoritesSection from '../favoritesSection/favoritesSection';
 import AsyncComponent from '@redhat-cloud-services/frontend-components/AsyncComponent';
+import { ScalprumComponent } from '@scalprum/react-core';
 
 const SecondPanel = () => {
   const {

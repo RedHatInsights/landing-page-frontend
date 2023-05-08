@@ -13,6 +13,8 @@ module.exports = {
       './RootApp': path.resolve(__dirname, './src/moduleEntries/AppEntry.js'),
     },
     exclude: ['react-router-dom'],
-    shared: [{ 'react-router-dom': { singleton: true } }],
+    shared: [{
+      'react-router-dom': { singleton: true },
+      '@scalprum/react-core': { singleton: true, eager: true} , }],
   },
 };

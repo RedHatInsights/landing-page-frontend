@@ -1,14 +1,25 @@
 import React from 'react';
-import AsyncComponent from '@redhat-cloud-services/frontend-components/AsyncComponent';
+import { ScalprumProvider, ScalprumComponent } from '@scalprum/react-core';
 
-const favoritesSection = () => (
-  <AsyncComponent
-    appName="chrome"
-    module="./LandingNavFavorites"
-    />
-);
+const config = {
+  remoteModule: {
+    name: 'LandingNavFavorites',
+    manifestLocation: '/apps/chrome/js/fed-mods.json'
+  }
+}
 
-
+const favoritesSection = (props) => {
+  return (
+    <ScalprumProvider config={config}>
+      <ScalprumComponent
+        appName="chrome"
+        scope="chrome"
+        module="./LandingNavFavorites"
+        {...props}
+      />
+    </ScalprumProvider>
+  )
+}
 
 
 export default favoritesSection;
