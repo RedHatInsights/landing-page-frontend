@@ -220,13 +220,12 @@ const SecondPanel = () => {
           <Card isFlat>
             <CardBody>
               <TextContent className="pf-u-display-flex pf-u-flex-direction-column">
-                {/* Need correct asset for logo */}
                 <img
-                  src="https://console.redhat.com/apps/frontend-assets/console-landing/acs.svg"
+                  src="https://console.redhat.com/apps/frontend-assets/console-landing/generic.svg"
                   alt="quay"
                 />
                 <Text component="p" className="pf-u-font-size-lg pf-u-mt-md">
-                  Quay
+                  Quay.io
                 </Text>
                 <Text component="p" className="pf-u-flex-grow-1">
                   Build, analyze, and distribute your container images.

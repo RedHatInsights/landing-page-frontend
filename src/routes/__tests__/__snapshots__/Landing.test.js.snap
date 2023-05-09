@@ -927,7 +927,7 @@ exports[`<Landing/> should render correctly 1`] = `
                 >
                   <img
                     alt="quay"
-                    src="https://console.redhat.com/apps/frontend-assets/console-landing/acs.svg"
+                    src="https://console.redhat.com/apps/frontend-assets/console-landing/generic.svg"
                   />
                   <p
                     class="pf-u-font-size-lg pf-u-mt-md"
@@ -936,7 +936,7 @@ exports[`<Landing/> should render correctly 1`] = `
                     data-ouia-safe="true"
                     data-pf-content="true"
                   >
-                    Quay
+                    Quay.io
                   </p>
                   <p
                     class="pf-u-flex-grow-1"
