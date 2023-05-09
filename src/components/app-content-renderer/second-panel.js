@@ -30,9 +30,7 @@ const SecondPanel = () => {
   return (
     <Sidebar className="land-c-sidebar pf-u-background-color-100">
       <SidebarContent className="pf-m-no-background pf-u-px-xl pf-u-pt-md pf-u-pb-2xl-on-md">
-
-      <ScalprumComponent scope="chrome" module="./LandingNavFavorites" />
-      
+        <ScalprumComponent scope="chrome" module="./LandingNavFavorites" />
         <Title
           headingLevel="h3"
           size={TitleSizes['2xl']}
