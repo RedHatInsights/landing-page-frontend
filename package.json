@@ -53,8 +53,7 @@
     "postinstall": "rm -rf .cache",
     "start": "fec dev",
     "verify": "npm-run-all build lint test",
-    "nightly": "npm-run-all build lint && npm run test -- -u",
-    "static": "fec static --port 8888"
+    "nightly": "npm-run-all build lint && npm run test -- -u"
   },
   "repository": {
     "type": "git",
@@ -67,7 +66,6 @@
   },
   "homepage": "https://github.com/RedHatInsights/landing-page-frontend#readme",
   "dependencies": {
-    "@openshift/dynamic-plugin-sdk": "^4.0.0",
     "@patternfly/patternfly": "^4.224.2",
     "@patternfly/react-core": "4.276.6",
     "@patternfly/react-icons": "^4.93.6",
