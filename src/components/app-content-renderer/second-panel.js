@@ -13,7 +13,7 @@ import {
   Title,
   TitleSizes,
 } from '@patternfly/react-core';
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 import ArrowRightIcon from '@patternfly/react-icons/dist/js/icons/arrow-right-icon';
 import StarIcon from '@patternfly/react-icons/dist/js/icons/star-icon';
@@ -24,20 +24,7 @@ import AsyncComponent from '@redhat-cloud-services/frontend-components/AsyncComp
 import { ScalprumComponent } from '@scalprum/react-core';
 
 const SecondPanel = () => {
-  const {
-    isProd,
-    isBeta,
-    visibilityFunctions: { apiRequest },
-  } = useChrome();
-  const [quayVisible, setQuayVisible] = useState(false);
-
-  useEffect(() => {
-    apiRequest({
-      url: `/${isBeta() ? 'beta' : ''}/apps/quay/plugin-manifest.json`,
-      matcher: 'isNotEmpty',
-      accessor: 'version',
-    }).then((result) => setQuayVisible(result));
-  }, []);
+  const { isProd, isBeta } = useChrome();
   const redirectToBeta = isProd() && !isBeta();
   const ACSLink = redirectToBeta
     ? ({ to, children }) => <a href={`/beta${to}`}>{children}</a>
@@ -131,7 +118,7 @@ const SecondPanel = () => {
                   Manage&nbsp;
                   <Link to="/insights/">RHEL &nbsp;|&nbsp;</Link>
                   <Link to="/ansible/advisor">Ansible &nbsp;|&nbsp;</Link>
-                  <Link to="/openshift/insights">Openshift</Link>
+                  <Link to="/openshift/insights">OpenShift</Link>
                 </Text>
               </TextContent>
             </CardBody>
@@ -236,33 +223,30 @@ const SecondPanel = () => {
               </TextContent>
             </CardBody>
           </Card>
-          {quayVisible && (
-            <Card isFlat>
-              <CardBody>
-                <TextContent className="pf-u-display-flex pf-u-flex-direction-column">
-                  {/* Need correct asset for logo */}
-                  <img
-                    src="https://console.redhat.com/apps/frontend-assets/console-landing/acs.svg"
-                    alt="quay"
-                  />
-                  <Text component="p" className="pf-u-font-size-lg pf-u-mt-md">
-                    Quay
-                  </Text>
-                  <Text component="p" className="pf-u-flex-grow-1">
-                    Build, analyze, and distribute your container images.
-                  </Text>
-                  <Text component={TextVariants.p}>
-                    <Link to="/containers/quay/organization">
-                      Start managing your container images
-                      <Icon className="pf-u-ml-sm" isInline>
-                        <ArrowRightIcon />
-                      </Icon>
-                    </Link>
-                  </Text>
-                </TextContent>
-              </CardBody>
-            </Card>
-          )}
+          <Card isFlat>
+            <CardBody>
+              <TextContent className="pf-u-display-flex pf-u-flex-direction-column">
+                <img
+                  src="https://console.redhat.com/apps/frontend-assets/console-landing/generic.svg"
+                  alt="quay"
+                />
+                <Text component="p" className="pf-u-font-size-lg pf-u-mt-md">
+                  Quay.io
+                </Text>
+                <Text component="p" className="pf-u-flex-grow-1">
+                  Build, analyze, and distribute your container images.
+                </Text>
+                <Text component={TextVariants.p}>
+                  <Link to="/quay/organization">
+                    Start managing your container images
+                    <Icon className="pf-u-ml-sm" isInline>
+                      <ArrowRightIcon />
+                    </Icon>
+                  </Link>
+                </Text>
+              </TextContent>
+            </CardBody>
+          </Card>
         </Gallery>
       </SidebarContent>
       <SidebarPanel
