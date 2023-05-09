@@ -19,8 +19,6 @@ import ArrowRightIcon from '@patternfly/react-icons/dist/js/icons/arrow-right-ic
 import StarIcon from '@patternfly/react-icons/dist/js/icons/star-icon';
 import RecentlyVisited from '../recently-visited/recently-visited';
 import { useChrome } from '@redhat-cloud-services/frontend-components/useChrome';
-import FavoritesSection from '../favoritesSection/favoritesSection';
-import AsyncComponent from '@redhat-cloud-services/frontend-components/AsyncComponent';
 import { ScalprumComponent } from '@scalprum/react-core';
 
 const SecondPanel = () => {
@@ -33,8 +31,7 @@ const SecondPanel = () => {
     <Sidebar className="land-c-sidebar pf-u-background-color-100">
       <SidebarContent className="pf-m-no-background pf-u-px-xl pf-u-pt-md pf-u-pb-2xl-on-md">
 
-      {/* <AsyncComponent appName="chrome" module="./LandingNavFavorites" /> */}
-      <FavoritesSection />
+      <ScalprumComponent scope="chrome" module="./LandingNavFavorites" />
       
         <Title
           headingLevel="h3"

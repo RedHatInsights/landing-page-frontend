@@ -7,14 +7,11 @@ module.exports = {
   proxyVerbose: true,
   _unstableHotReload: true,
   plugins: [],
-  // localChrome: '/home/zsleiman/development/insights-chrome/build',
   moduleFederation: {
     exposes: {
       './RootApp': path.resolve(__dirname, './src/moduleEntries/AppEntry.js'),
     },
     exclude: ['react-router-dom'],
-    shared: [{
-      'react-router-dom': { singleton: true },
-      '@scalprum/react-core': { singleton: true, eager: true} , }],
+    shared: [{ 'react-router-dom': { singleton: true } }],
   },
 };
