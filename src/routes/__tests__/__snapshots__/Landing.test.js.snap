@@ -604,18 +604,23 @@ exports[`<Landing/> should render correctly 1`] = `
                     data-ouia-safe="true"
                     data-pf-content="true"
                   >
-                    Manage 
+                    Manage
                     <a
+                      class="pf-u-px-sm"
                       href="/insights/"
                     >
-                      RHEL  | 
+                      RHEL
                     </a>
+                    |
                     <a
+                      class="pf-u-px-sm"
                       href="/ansible/advisor"
                     >
-                      Ansible  | 
+                      Ansible
                     </a>
+                    |
                     <a
+                      class="pf-u-pl-sm"
                       href="/openshift/insights"
                     >
                       OpenShift

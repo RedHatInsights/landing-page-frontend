@@ -109,10 +109,18 @@ const SecondPanel = () => {
                   applications you scale from your Red Hat platforms.
                 </Text>
                 <Text component="p">
-                  Manage&nbsp;
-                  <Link to="/insights/">RHEL &nbsp;|&nbsp;</Link>
-                  <Link to="/ansible/advisor">Ansible &nbsp;|&nbsp;</Link>
-                  <Link to="/openshift/insights">OpenShift</Link>
+                  Manage
+                  <Link to="/insights/" className="pf-u-px-sm">
+                    RHEL
+                  </Link>
+                  |
+                  <Link to="/ansible/advisor" className="pf-u-px-sm">
+                    Ansible
+                  </Link>
+                  |
+                  <Link to="/openshift/insights" className="pf-u-pl-sm">
+                    OpenShift
+                  </Link>
                 </Text>
               </TextContent>
             </CardBody>
