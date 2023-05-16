@@ -1,6 +1,6 @@
 /* eslint-disable react/prop-types */
 import React from 'react';
-import { render } from '@testing-library/react';
+import { act, render } from '@testing-library/react';
 import { MemoryRouter } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import configureStore from 'redux-mock-store';
@@ -26,12 +26,16 @@ const LandingWrapper = ({ store, children }) => (
 );
 
 describe('<Landing/>', () => {
-  test('should render correctly', () => {
-    const { container } = render(
-      <LandingWrapper store={store}>
-        <Landing />
-      </LandingWrapper>
-    );
+  test('should render correctly', async () => {
+    let container;
+    await act(async () => {
+      const { container: c } = render(
+        <LandingWrapper store={store}>
+          <Landing />
+        </LandingWrapper>
+      );
+      container = c;
+    });
     expect(container).toMatchSnapshot();
   });
 });

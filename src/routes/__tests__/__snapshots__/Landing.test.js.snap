@@ -406,6 +406,7 @@ exports[`<Landing/> should render correctly 1`] = `
         <div
           class="pf-c-sidebar__content pf-m-no-background pf-u-px-xl pf-u-pt-md pf-u-pb-2xl-on-md"
         >
+          Scalprum Component Mock
           <h3
             class="pf-c-title pf-m-2xl pf-u-py-md"
             data-ouia-component-id="OUIA-Generated-Title-1"
