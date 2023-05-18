@@ -45,7 +45,7 @@
   "scripts": {
     "test": "jest --passWithNoTests",
     "analyze": "ANALYZE=true fec build",
-    "build": "fec build",
+    "build": "webpack -c webpack.config.js",
     "fixjs": "eslint src --fix",
     "lint": "npm-run-all lint:*",
     "lint:js": "eslint src",
@@ -100,6 +100,7 @@
     "@babel/plugin-transform-runtime": "^7.19.6",
     "@babel/preset-env": "^7.20.2",
     "@babel/preset-react": "^7.18.6",
+    "@module-federation/node": "^0.14.0",
     "@redhat-cloud-services/eslint-config-redhat-cloud-services": "^1.2.6",
     "@redhat-cloud-services/frontend-components-config": "^4.7.3",
     "@wojtekmaj/enzyme-adapter-react-17": "^0.8.0",
@@ -118,11 +119,13 @@
     "jest-fetch-mock": "^3.0.3",
     "joi": "^17.7.0",
     "js-cookie": "^3.0.1",
+    "mini-css-extract-plugin": "^2.7.5",
     "npm-run-all": "^4.1.5",
     "redux-mock-store": "^1.5.4",
     "stylelint": "^14.16.1",
     "stylelint-config-recommended-scss": "^8.0.0",
     "stylelint-scss": "^4.3.0",
+    "swc-loader": "^0.2.3",
     "webpack-bundle-analyzer": "^4.7.0"
   },
   "insights": {

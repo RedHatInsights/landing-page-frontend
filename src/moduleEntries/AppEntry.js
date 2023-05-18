@@ -5,9 +5,6 @@ import { init } from '../store';
 import App from '../App';
 import PropTypes from 'prop-types';
 
-const pathName = window.location.pathname.split('/');
-pathName.shift();
-
 const AppRoot = ({ logger }) => (
   <Provider store={init(logger).getStore()}>
     <React.Fragment>
