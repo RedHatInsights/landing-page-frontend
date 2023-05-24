@@ -19,14 +19,8 @@ import { Link } from 'react-router-dom';
 import ArrowRightIcon from '@patternfly/react-icons/dist/js/icons/arrow-right-icon';
 import StarIcon from '@patternfly/react-icons/dist/js/icons/star-icon';
 import RecentlyVisited from '../recently-visited/recently-visited';
-import { useChrome } from '@redhat-cloud-services/frontend-components/useChrome';
 
 const SecondPanel = () => {
-  const { isProd, isBeta } = useChrome();
-  const redirectToBeta = isProd() && !isBeta();
-  const ACSLink = redirectToBeta
-    ? ({ to, children }) => <a href={`/beta${to}`}>{children}</a>
-    : Link;
   return (
     <Sidebar className="land-c-sidebar pf-u-background-color-100">
       <SidebarContent className="pf-m-no-background pf-u-px-xl pf-u-pt-md pf-u-pb-2xl-on-md">
@@ -215,12 +209,12 @@ const SecondPanel = () => {
                   applications and Kubernetes.
                 </Text>
                 <Text component={TextVariants.p}>
-                  <ACSLink to="/application-services/acs/overview">
+                  <Link to="/application-services/acs/overview">
                     Get Started Now
                     <Icon className="pf-u-ml-sm" isInline>
                       <ArrowRightIcon />
                     </Icon>
-                  </ACSLink>
+                  </Link>
                 </Text>
               </TextContent>
             </CardBody>
