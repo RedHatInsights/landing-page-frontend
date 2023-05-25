@@ -10,10 +10,12 @@ import {
   TextContent,
 } from '@patternfly/react-core';
 
+import useCurrentUser from '../useCurrentUser';
 import './styles/slick.scss';
 import './styles/slick-theme.scss';
 
 function SimpleSlider() {
+  const { currentUser } = useCurrentUser();
   const settings = {
     dots: true,
     infinite: false,
@@ -22,7 +24,17 @@ function SimpleSlider() {
     slidesToScroll: 1,
   };
   return (
-    <div className="land-c-slick-slider-wrapper pf-u-pb-sm">
+    <div className="land-c-slick-slider-wrapper pf-u-pb-sm pf-u-px-xl-on-md">
+      <TextContent>
+        <Text
+          component="h1"
+          className="pf-u-pb-md pf-u-pl-sm pf-u-color-light-100"
+        >
+          Hi, {currentUser.username}.
+          <br />
+          Welcome to your Hybrid Cloud Console.
+        </Text>
+      </TextContent>
       <Slider {...settings} className="pf-u-p-sm pf-u-pb-0">
         <div>
           <Sidebar orientation="split" hasGutter>
