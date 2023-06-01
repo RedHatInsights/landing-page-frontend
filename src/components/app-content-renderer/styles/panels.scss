@@ -8,6 +8,8 @@
     background-size: cover !important;
 
     .land-c-slick-slider-wrapper {
+      margin: auto auto;
+      max-width: 1500px;
       .pf-c-sidebar {
         border-top:  var(--pf-global--BorderWidth--lg) solid var(--pf-global--info-color--100);
         height: 240px;
