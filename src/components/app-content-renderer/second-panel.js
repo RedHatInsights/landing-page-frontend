@@ -18,7 +18,6 @@ import { Link } from 'react-router-dom';
 import ArrowRightIcon from '@patternfly/react-icons/dist/js/icons/arrow-right-icon';
 import StarIcon from '@patternfly/react-icons/dist/js/icons/star-icon';
 import RecentlyVisited from '../recently-visited/recently-visited';
-import { useChrome } from '@redhat-cloud-services/frontend-components/useChrome';
 import { ScalprumComponent } from '@scalprum/react-core';
 
 const SecondPanel = () => {
