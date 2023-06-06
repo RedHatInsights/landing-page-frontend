@@ -47,7 +47,7 @@ IQE_PLUGINS="platform_ui"
 IQE_MARKER_EXPRESSION="smoke"
 # Exclude progressive profile tests
 # Exclude APIdocs tests
-IQE_FILTER_EXPRESSION="not test_progressive and not test_apidocs"
+IQE_FILTER_EXPRESSION="not (test_progressive or test_apidocs)"
 IQE_ENV="ephemeral"
 IQE_SELENIUM="true"
 IQE_CJI_TIMEOUT="30m"
