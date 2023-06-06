@@ -22,11 +22,6 @@ import { useChrome } from '@redhat-cloud-services/frontend-components/useChrome'
 import { ScalprumComponent } from '@scalprum/react-core';
 
 const SecondPanel = () => {
-  const { isProd, isBeta } = useChrome();
-  const redirectToBeta = isProd() && !isBeta();
-  const ACSLink = redirectToBeta
-    ? ({ to, children }) => <a href={`/beta${to}`}>{children}</a>
-    : Link;
   return (
     <Sidebar className="land-c-sidebar pf-u-background-color-100">
       <SidebarContent className="pf-m-no-background pf-u-px-xl pf-u-pt-md pf-u-pb-2xl-on-md">
@@ -110,10 +105,18 @@ const SecondPanel = () => {
                   applications you scale from your Red Hat platforms.
                 </Text>
                 <Text component="p">
-                  Manage&nbsp;
-                  <Link to="/insights/">RHEL &nbsp;|&nbsp;</Link>
-                  <Link to="/ansible/advisor">Ansible &nbsp;|&nbsp;</Link>
-                  <Link to="/openshift/insights">OpenShift</Link>
+                  Manage
+                  <Link to="/insights/" className="pf-u-px-sm">
+                    RHEL
+                  </Link>
+                  |
+                  <Link to="/ansible/advisor" className="pf-u-px-sm">
+                    Ansible
+                  </Link>
+                  |
+                  <Link to="/openshift/insights" className="pf-u-pl-sm">
+                    OpenShift
+                  </Link>
                 </Text>
               </TextContent>
             </CardBody>
@@ -208,12 +211,12 @@ const SecondPanel = () => {
                   applications and Kubernetes.
                 </Text>
                 <Text component={TextVariants.p}>
-                  <ACSLink to="/application-services/acs/overview">
+                  <Link to="/application-services/acs/overview">
                     Get Started Now
                     <Icon className="pf-u-ml-sm" isInline>
                       <ArrowRightIcon />
                     </Icon>
-                  </ACSLink>
+                  </Link>
                 </Text>
               </TextContent>
             </CardBody>

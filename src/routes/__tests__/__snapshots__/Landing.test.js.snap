@@ -9,24 +9,24 @@ exports[`<Landing/> should render correctly 1`] = `
       class="pf-c-page__main-section pf-m-no-fill land-l-first-panel pf-u-px-xl pf-u-pt-lg pf-u-pb-xl"
     >
       <div
-        class="pf-c-content"
+        class="land-c-slick-slider-wrapper pf-u-pb-sm pf-u-px-xl-on-md"
       >
-        <h1
-          class="pf-u-pb-md pf-u-color-light-100"
-          data-ouia-component-id="OUIA-Generated-Text-1"
-          data-ouia-component-type="PF4/Text"
-          data-ouia-safe="true"
-          data-pf-content="true"
+        <div
+          class="pf-c-content"
         >
-          Hi, 
-          .
-          <br />
-          Welcome to your Hybrid Cloud Console.
-        </h1>
-      </div>
-      <div
-        class="land-c-slick-slider-wrapper pf-u-pb-sm"
-      >
+          <h1
+            class="pf-u-pb-md pf-u-pl-sm pf-u-color-light-100"
+            data-ouia-component-id="OUIA-Generated-Text-1"
+            data-ouia-component-type="PF4/Text"
+            data-ouia-safe="true"
+            data-pf-content="true"
+          >
+            Hi, 
+            .
+            <br />
+            Welcome to your Hybrid Cloud Console.
+          </h1>
+        </div>
         <div
           class="slick-slider pf-u-p-sm pf-u-pb-0 slick-initialized"
           dir="ltr"
@@ -605,18 +605,23 @@ exports[`<Landing/> should render correctly 1`] = `
                     data-ouia-safe="true"
                     data-pf-content="true"
                   >
-                    Manage 
+                    Manage
                     <a
+                      class="pf-u-px-sm"
                       href="/insights/"
                     >
-                      RHEL  | 
+                      RHEL
                     </a>
+                    |
                     <a
+                      class="pf-u-px-sm"
                       href="/ansible/advisor"
                     >
-                      Ansible  | 
+                      Ansible
                     </a>
+                    |
                     <a
+                      class="pf-u-pl-sm"
                       href="/openshift/insights"
                     >
                       OpenShift
@@ -884,7 +889,7 @@ exports[`<Landing/> should render correctly 1`] = `
                     data-pf-content="true"
                   >
                     <a
-                      href="/beta/application-services/acs/overview"
+                      href="/application-services/acs/overview"
                     >
                       Get Started Now
                       <span
