@@ -40,7 +40,6 @@ export IMAGE_TAG=latest
 export DEPLOY_FRONTENDS=true
 source $CICD_ROOT/deploy_ephemeral_env.sh
 
-set +x
 # Run some tests with ClowdJobInvocation
 export IQE_IMAGE_TAG="platform-ui"
 IQE_PLUGINS="platform_ui"
