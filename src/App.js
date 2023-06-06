@@ -36,7 +36,6 @@ const App = () => {
   chrome?.updateDocumentTitle?.('Hybrid Cloud Console Home', false);
 
   useEffect(() => {
-    console.log(__webpack_share_scopes__.default);
     getRegistry().register({ contentStore });
     chrome.auth
       .getUser()
