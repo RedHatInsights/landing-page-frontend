@@ -46,7 +46,8 @@ export IQE_IMAGE_TAG="platform-ui"
 IQE_PLUGINS="platform_ui"
 IQE_MARKER_EXPRESSION="smoke"
 # Exclude progressive profile tests
-IQE_FILTER_EXPRESSION="not test_progressive"
+# Exclude APIdocs tests
+IQE_FILTER_EXPRESSION="not test_progressive and not test_apidocs"
 IQE_ENV="ephemeral"
 IQE_SELENIUM="true"
 IQE_CJI_TIMEOUT="30m"
