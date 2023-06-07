@@ -46,103 +46,91 @@ exports[`App component should render correctly 1`] = `
       }
     >
       <App>
-        <IntlProvider
-          defaultFormats={Object {}}
-          defaultLocale="en"
-          fallbackOnEmptyString={true}
-          formats={Object {}}
-          locale="en"
-          messages={Object {}}
-          onError={[Function]}
-          onWarn={[Function]}
-          textComponent={Symbol(react.fragment)}
-        >
-          <Suspense
-            fallback={
-              <Bullseye>
-                <Spinner
-                  size="xl"
-                />
-              </Bullseye>
-            }
-          >
-            <Routes>
-              <RenderedRoute
-                match={
-                  Object {
-                    "params": Object {},
-                    "pathname": "/",
-                    "pathnameBase": "/",
-                    "route": Object {
-                      "action": undefined,
-                      "caseSensitive": undefined,
-                      "element": <UNDEFINED />,
-                      "errorElement": undefined,
-                      "handle": undefined,
-                      "hasErrorBoundary": false,
-                      "id": "0",
-                      "index": undefined,
-                      "loader": undefined,
-                      "path": "/",
-                      "shouldRevalidate": undefined,
-                    },
-                  }
-                }
-                routeContext={
-                  Object {
-                    "matches": Array [
-                      Object {
-                        "params": Object {},
-                        "pathname": "/",
-                        "pathnameBase": "/",
-                        "route": Object {
-                          "action": undefined,
-                          "caseSensitive": undefined,
-                          "element": <UNDEFINED />,
-                          "errorElement": undefined,
-                          "handle": undefined,
-                          "hasErrorBoundary": false,
-                          "id": "0",
-                          "index": undefined,
-                          "loader": undefined,
-                          "path": "/",
-                          "shouldRevalidate": undefined,
-                        },
-                      },
-                    ],
-                    "outlet": null,
-                  }
-                }
-              />
-            </Routes>
+        <Suspense
+          fallback={
             <Bullseye>
-              <div
-                className="pf-l-bullseye"
+              <Spinner
+                size="xl"
+              />
+            </Bullseye>
+          }
+        >
+          <Routes>
+            <RenderedRoute
+              match={
+                Object {
+                  "params": Object {},
+                  "pathname": "/",
+                  "pathnameBase": "/",
+                  "route": Object {
+                    "action": undefined,
+                    "caseSensitive": undefined,
+                    "element": <UNDEFINED />,
+                    "errorElement": undefined,
+                    "handle": undefined,
+                    "hasErrorBoundary": false,
+                    "id": "0",
+                    "index": undefined,
+                    "loader": undefined,
+                    "path": "/",
+                    "shouldRevalidate": undefined,
+                  },
+                }
+              }
+              routeContext={
+                Object {
+                  "matches": Array [
+                    Object {
+                      "params": Object {},
+                      "pathname": "/",
+                      "pathnameBase": "/",
+                      "route": Object {
+                        "action": undefined,
+                        "caseSensitive": undefined,
+                        "element": <UNDEFINED />,
+                        "errorElement": undefined,
+                        "handle": undefined,
+                        "hasErrorBoundary": false,
+                        "id": "0",
+                        "index": undefined,
+                        "loader": undefined,
+                        "path": "/",
+                        "shouldRevalidate": undefined,
+                      },
+                    },
+                  ],
+                  "outlet": null,
+                }
+              }
+            />
+          </Routes>
+          <Bullseye>
+            <div
+              className="pf-l-bullseye"
+            >
+              <Spinner
+                size="xl"
               >
-                <Spinner
-                  size="xl"
+                <span
+                  aria-label="Contents"
+                  aria-valuetext="Loading..."
+                  className="pf-c-spinner pf-m-xl"
+                  role="progressbar"
                 >
                   <span
-                    aria-label="Contents"
-                    aria-valuetext="Loading..."
-                    className="pf-c-spinner pf-m-xl"
-                    role="progressbar"
-                  >
-                    <span
-                      className="pf-c-spinner__clipper"
-                    />
-                    <span
-                      className="pf-c-spinner__lead-ball"
-                    />
-                    <span
-                      className="pf-c-spinner__tail-ball"
-                    />
-                  </span>
-                </Spinner>
-              </div>
-            </Bullseye>
-          </Suspense>
-        </IntlProvider>
+                    className="pf-c-spinner__clipper"
+                  />
+                  <span
+                    className="pf-c-spinner__lead-ball"
+                  />
+                  <span
+                    className="pf-c-spinner__tail-ball"
+                  />
+                </span>
+              </Spinner>
+            </div>
+          </Bullseye>
+        </Suspense>
       </App>
     </Router>
   </BrowserRouter>
@@ -195,103 +183,91 @@ exports[`App component should render correctly 2`] = `
       }
     >
       <App>
-        <IntlProvider
-          defaultFormats={Object {}}
-          defaultLocale="en"
-          fallbackOnEmptyString={true}
-          formats={Object {}}
-          locale="en"
-          messages={Object {}}
-          onError={[Function]}
-          onWarn={[Function]}
-          textComponent={Symbol(react.fragment)}
-        >
-          <Suspense
-            fallback={
-              <Bullseye>
-                <Spinner
-                  size="xl"
-                />
-              </Bullseye>
-            }
-          >
-            <Routes>
-              <RenderedRoute
-                match={
-                  Object {
-                    "params": Object {},
-                    "pathname": "/",
-                    "pathnameBase": "/",
-                    "route": Object {
-                      "action": undefined,
-                      "caseSensitive": undefined,
-                      "element": <UNDEFINED />,
-                      "errorElement": undefined,
-                      "handle": undefined,
-                      "hasErrorBoundary": false,
-                      "id": "0",
-                      "index": undefined,
-                      "loader": undefined,
-                      "path": "/",
-                      "shouldRevalidate": undefined,
-                    },
-                  }
-                }
-                routeContext={
-                  Object {
-                    "matches": Array [
-                      Object {
-                        "params": Object {},
-                        "pathname": "/",
-                        "pathnameBase": "/",
-                        "route": Object {
-                          "action": undefined,
-                          "caseSensitive": undefined,
-                          "element": <UNDEFINED />,
-                          "errorElement": undefined,
-                          "handle": undefined,
-                          "hasErrorBoundary": false,
-                          "id": "0",
-                          "index": undefined,
-                          "loader": undefined,
-                          "path": "/",
-                          "shouldRevalidate": undefined,
-                        },
-                      },
-                    ],
-                    "outlet": null,
-                  }
-                }
-              />
-            </Routes>
+        <Suspense
+          fallback={
             <Bullseye>
-              <div
-                className="pf-l-bullseye"
+              <Spinner
+                size="xl"
+              />
+            </Bullseye>
+          }
+        >
+          <Routes>
+            <RenderedRoute
+              match={
+                Object {
+                  "params": Object {},
+                  "pathname": "/",
+                  "pathnameBase": "/",
+                  "route": Object {
+                    "action": undefined,
+                    "caseSensitive": undefined,
+                    "element": <UNDEFINED />,
+                    "errorElement": undefined,
+                    "handle": undefined,
+                    "hasErrorBoundary": false,
+                    "id": "0",
+                    "index": undefined,
+                    "loader": undefined,
+                    "path": "/",
+                    "shouldRevalidate": undefined,
+                  },
+                }
+              }
+              routeContext={
+                Object {
+                  "matches": Array [
+                    Object {
+                      "params": Object {},
+                      "pathname": "/",
+                      "pathnameBase": "/",
+                      "route": Object {
+                        "action": undefined,
+                        "caseSensitive": undefined,
+                        "element": <UNDEFINED />,
+                        "errorElement": undefined,
+                        "handle": undefined,
+                        "hasErrorBoundary": false,
+                        "id": "0",
+                        "index": undefined,
+                        "loader": undefined,
+                        "path": "/",
+                        "shouldRevalidate": undefined,
+                      },
+                    },
+                  ],
+                  "outlet": null,
+                }
+              }
+            />
+          </Routes>
+          <Bullseye>
+            <div
+              className="pf-l-bullseye"
+            >
+              <Spinner
+                size="xl"
               >
-                <Spinner
-                  size="xl"
+                <span
+                  aria-label="Contents"
+                  aria-valuetext="Loading..."
+                  className="pf-c-spinner pf-m-xl"
+                  role="progressbar"
                 >
                   <span
-                    aria-label="Contents"
-                    aria-valuetext="Loading..."
-                    className="pf-c-spinner pf-m-xl"
-                    role="progressbar"
-                  >
-                    <span
-                      className="pf-c-spinner__clipper"
-                    />
-                    <span
-                      className="pf-c-spinner__lead-ball"
-                    />
-                    <span
-                      className="pf-c-spinner__tail-ball"
-                    />
-                  </span>
-                </Spinner>
-              </div>
-            </Bullseye>
-          </Suspense>
-        </IntlProvider>
+                    className="pf-c-spinner__clipper"
+                  />
+                  <span
+                    className="pf-c-spinner__lead-ball"
+                  />
+                  <span
+                    className="pf-c-spinner__tail-ball"
+                  />
+                </span>
+              </Spinner>
+            </div>
+          </Bullseye>
+        </Suspense>
       </App>
     </Router>
   </BrowserRouter>

@@ -15,15 +15,16 @@ import {
 } from '@patternfly/react-core';
 import React from 'react';
 import { Link } from 'react-router-dom';
-
 import ArrowRightIcon from '@patternfly/react-icons/dist/js/icons/arrow-right-icon';
 import StarIcon from '@patternfly/react-icons/dist/js/icons/star-icon';
 import RecentlyVisited from '../recently-visited/recently-visited';
+import { ScalprumComponent } from '@scalprum/react-core';
 
 const SecondPanel = () => {
   return (
     <Sidebar className="land-c-sidebar pf-u-background-color-100">
       <SidebarContent className="pf-m-no-background pf-u-px-xl pf-u-pt-md pf-u-pb-2xl-on-md">
+        <ScalprumComponent scope="chrome" module="./LandingNavFavorites" />
         <Title
           headingLevel="h3"
           size={TitleSizes['2xl']}
