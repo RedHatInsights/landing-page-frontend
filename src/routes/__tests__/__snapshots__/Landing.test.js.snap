@@ -433,8 +433,8 @@ exports[`<Landing/> should render correctly 1`] = `
                   class="pf-c-content pf-u-display-flex pf-u-flex-direction-column"
                 >
                   <img
-                    alt="Application and Data Services"
-                    src="https://console.redhat.com/apps/frontend-assets/console-landing/services.svg"
+                    alt="Red Hat Insights"
+                    src="https://console.redhat.com/apps/frontend-assets/console-landing/insights.svg"
                   />
                   <p
                     class="pf-u-font-size-lg pf-u-mt-md"
@@ -443,7 +443,7 @@ exports[`<Landing/> should render correctly 1`] = `
                     data-ouia-safe="true"
                     data-pf-content="true"
                   >
-                    Application and Data Services
+                    Red Hat Insights
                   </p>
                   <p
                     class="pf-u-flex-grow-1"
@@ -452,7 +452,7 @@ exports[`<Landing/> should render correctly 1`] = `
                     data-ouia-safe="true"
                     data-pf-content="true"
                   >
-                    Configure, monitor, optimize, and orchestrate applications and data services on demand.
+                    Proactively assess, secure and stabilize the business-critical applications you scale from your Red Hat platforms.
                   </p>
                   <p
                     class=""
@@ -461,31 +461,26 @@ exports[`<Landing/> should render correctly 1`] = `
                     data-ouia-safe="true"
                     data-pf-content="true"
                   >
+                    Manage
                     <a
-                      href="/application-services/overview"
+                      class="pf-u-px-sm"
+                      href="/insights/"
                     >
-                      Explore services
-                      <span
-                        class="pf-c-icon pf-m-inline pf-u-ml-sm"
-                      >
-                        <span
-                          class="pf-c-icon__content"
-                        >
-                          <svg
-                            aria-hidden="true"
-                            fill="currentColor"
-                            height="1em"
-                            role="img"
-                            style="vertical-align: -0.125em;"
-                            viewBox="0 0 448 512"
-                            width="1em"
-                          >
-                            <path
-                              d="M190.5 66.9l22.2-22.2c9.4-9.4 24.6-9.4 33.9 0L441 239c9.4 9.4 9.4 24.6 0 33.9L246.6 467.3c-9.4 9.4-24.6 9.4-33.9 0l-22.2-22.2c-9.5-9.5-9.3-25 .4-34.3L311.4 296H24c-13.3 0-24-10.7-24-24v-32c0-13.3 10.7-24 24-24h287.4L190.9 101.2c-9.8-9.3-10-24.8-.4-34.3z"
-                            />
-                          </svg>
-                        </span>
-                      </span>
+                      RHEL
+                    </a>
+                    |
+                    <a
+                      class="pf-u-px-sm"
+                      href="/ansible/advisor"
+                    >
+                      Ansible
+                    </a>
+                    |
+                    <a
+                      class="pf-u-pl-sm"
+                      href="/openshift/insights"
+                    >
+                      OpenShift
                     </a>
                   </p>
                 </div>
@@ -505,8 +500,8 @@ exports[`<Landing/> should render correctly 1`] = `
                   class="pf-c-content pf-u-display-flex pf-u-flex-direction-column"
                 >
                   <img
-                    alt="OpenShift"
-                    src="https://console.redhat.com/apps/frontend-assets/console-landing/openshift.svg"
+                    alt="Application and Data Services"
+                    src="https://console.redhat.com/apps/frontend-assets/console-landing/services.svg"
                   />
                   <p
                     class="pf-u-font-size-lg pf-u-mt-md"
@@ -515,7 +510,7 @@ exports[`<Landing/> should render correctly 1`] = `
                     data-ouia-safe="true"
                     data-pf-content="true"
                   >
-                    Red Hat OpenShift
+                    Application and Data Services
                   </p>
                   <p
                     class="pf-u-flex-grow-1"
@@ -524,7 +519,7 @@ exports[`<Landing/> should render correctly 1`] = `
                     data-ouia-safe="true"
                     data-pf-content="true"
                   >
-                    Build, run, scale container-based applications - now with developer tools, CI/CD, and release management.
+                    Configure, monitor, optimize, and orchestrate applications and data services on demand.
                   </p>
                   <p
                     class=""
@@ -534,9 +529,9 @@ exports[`<Landing/> should render correctly 1`] = `
                     data-pf-content="true"
                   >
                     <a
-                      href="/openshift/overview"
+                      href="/application-services/overview"
                     >
-                      Scale your applications
+                      Explore services
                       <span
                         class="pf-c-icon pf-m-inline pf-u-ml-sm"
                       >
@@ -577,8 +572,8 @@ exports[`<Landing/> should render correctly 1`] = `
                   class="pf-c-content pf-u-display-flex pf-u-flex-direction-column"
                 >
                   <img
-                    alt="Red Hat Insights"
-                    src="https://console.redhat.com/apps/frontend-assets/console-landing/insights.svg"
+                    alt="OpenShift"
+                    src="https://console.redhat.com/apps/frontend-assets/console-landing/openshift.svg"
                   />
                   <p
                     class="pf-u-font-size-lg pf-u-mt-md"
@@ -587,7 +582,7 @@ exports[`<Landing/> should render correctly 1`] = `
                     data-ouia-safe="true"
                     data-pf-content="true"
                   >
-                    Red Hat Insights
+                    Red Hat OpenShift
                   </p>
                   <p
                     class="pf-u-flex-grow-1"
@@ -596,7 +591,7 @@ exports[`<Landing/> should render correctly 1`] = `
                     data-ouia-safe="true"
                     data-pf-content="true"
                   >
-                    Proactively assess, secure and stabilize the business-critical applications you scale from your Red Hat platforms.
+                    Build, run, scale container-based applications - now with developer tools, CI/CD, and release management.
                   </p>
                   <p
                     class=""
@@ -605,26 +600,31 @@ exports[`<Landing/> should render correctly 1`] = `
                     data-ouia-safe="true"
                     data-pf-content="true"
                   >
-                    Manage
                     <a
-                      class="pf-u-px-sm"
-                      href="/insights/"
+                      href="/openshift/overview"
                     >
-                      RHEL
-                    </a>
-                    |
-                    <a
-                      class="pf-u-px-sm"
-                      href="/ansible/advisor"
-                    >
-                      Ansible
-                    </a>
-                    |
-                    <a
-                      class="pf-u-pl-sm"
-                      href="/openshift/insights"
-                    >
-                      OpenShift
+                      Scale your applications
+                      <span
+                        class="pf-c-icon pf-m-inline pf-u-ml-sm"
+                      >
+                        <span
+                          class="pf-c-icon__content"
+                        >
+                          <svg
+                            aria-hidden="true"
+                            fill="currentColor"
+                            height="1em"
+                            role="img"
+                            style="vertical-align: -0.125em;"
+                            viewBox="0 0 448 512"
+                            width="1em"
+                          >
+                            <path
+                              d="M190.5 66.9l22.2-22.2c9.4-9.4 24.6-9.4 33.9 0L441 239c9.4 9.4 9.4 24.6 0 33.9L246.6 467.3c-9.4 9.4-24.6 9.4-33.9 0l-22.2-22.2c-9.5-9.5-9.3-25 .4-34.3L311.4 296H24c-13.3 0-24-10.7-24-24v-32c0-13.3 10.7-24 24-24h287.4L190.9 101.2c-9.8-9.3-10-24.8-.4-34.3z"
+                            />
+                          </svg>
+                        </span>
+                      </span>
                     </a>
                   </p>
                 </div>

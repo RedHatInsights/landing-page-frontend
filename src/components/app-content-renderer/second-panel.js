@@ -43,6 +43,37 @@ const SecondPanel = () => {
             <CardBody>
               <TextContent className="pf-u-display-flex pf-u-flex-direction-column">
                 <img
+                  src="https://console.redhat.com/apps/frontend-assets/console-landing/insights.svg"
+                  alt="Red Hat Insights"
+                />
+                <Text component="p" className="pf-u-font-size-lg pf-u-mt-md">
+                  Red Hat Insights
+                </Text>
+                <Text component="p" className="pf-u-flex-grow-1">
+                  Proactively assess, secure and stabilize the business-critical
+                  applications you scale from your Red Hat platforms.
+                </Text>
+                <Text component="p">
+                  Manage
+                  <Link to="/insights/" className="pf-u-px-sm">
+                    RHEL
+                  </Link>
+                  |
+                  <Link to="/ansible/advisor" className="pf-u-px-sm">
+                    Ansible
+                  </Link>
+                  |
+                  <Link to="/openshift/insights" className="pf-u-pl-sm">
+                    OpenShift
+                  </Link>
+                </Text>
+              </TextContent>
+            </CardBody>
+          </Card>
+          <Card isFlat>
+            <CardBody>
+              <TextContent className="pf-u-display-flex pf-u-flex-direction-column">
+                <img
                   src="https://console.redhat.com/apps/frontend-assets/console-landing/services.svg"
                   alt="Application and Data Services"
                 />
@@ -84,37 +115,6 @@ const SecondPanel = () => {
                     <Icon className="pf-u-ml-sm" isInline>
                       <ArrowRightIcon />
                     </Icon>
-                  </Link>
-                </Text>
-              </TextContent>
-            </CardBody>
-          </Card>
-          <Card isFlat>
-            <CardBody>
-              <TextContent className="pf-u-display-flex pf-u-flex-direction-column">
-                <img
-                  src="https://console.redhat.com/apps/frontend-assets/console-landing/insights.svg"
-                  alt="Red Hat Insights"
-                />
-                <Text component="p" className="pf-u-font-size-lg pf-u-mt-md">
-                  Red Hat Insights
-                </Text>
-                <Text component="p" className="pf-u-flex-grow-1">
-                  Proactively assess, secure and stabilize the business-critical
-                  applications you scale from your Red Hat platforms.
-                </Text>
-                <Text component="p">
-                  Manage
-                  <Link to="/insights/" className="pf-u-px-sm">
-                    RHEL
-                  </Link>
-                  |
-                  <Link to="/ansible/advisor" className="pf-u-px-sm">
-                    Ansible
-                  </Link>
-                  |
-                  <Link to="/openshift/insights" className="pf-u-pl-sm">
-                    OpenShift
                   </Link>
                 </Text>
               </TextContent>
