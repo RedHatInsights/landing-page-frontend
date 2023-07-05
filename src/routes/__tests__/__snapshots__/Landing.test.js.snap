@@ -404,11 +404,18 @@ exports[`<Landing/> should render correctly 1`] = `
         class="pf-c-sidebar__main"
       >
         <div
-          class="pf-c-sidebar__content pf-m-no-background pf-u-px-xl pf-u-pt-md pf-u-pb-2xl-on-md"
+          class="pf-c-sidebar__content pf-m-no-background pf-u-pt-md pf-u-pb-2xl-on-md"
         >
-          Scalprum Component Mock
+          <div
+            class="pf-u-mx-xl"
+          >
+            Scalprum Component Mock
+          </div>
+          <hr
+            class="pf-c-divider pf-u-mt-md"
+          />
           <h3
-            class="pf-c-title pf-m-2xl pf-u-py-md"
+            class="pf-c-title pf-m-2xl pf-u-px-xl pf-u-py-md"
             data-ouia-component-id="OUIA-Generated-Title-1"
             data-ouia-component-type="PF4/Title"
             data-ouia-safe="true"
@@ -416,7 +423,7 @@ exports[`<Landing/> should render correctly 1`] = `
             Get started with Hybrid Cloud Console capabilities
           </h3>
           <div
-            class="pf-l-gallery pf-m-gutter"
+            class="pf-l-gallery pf-m-gutter pf-u-px-xl"
             style="--pf-l-gallery--GridTemplateColumns--min: 100%; --pf-l-gallery--GridTemplateColumns--min-on-md: 350px;"
           >
             <article
@@ -996,52 +1003,11 @@ exports[`<Landing/> should render correctly 1`] = `
           class="pf-c-sidebar__panel pf-m-width-25-on-lg pf-m-width-33-on-md pf-m-width-100-on-sm pf-u-m-xl pf-u-m-0-on-md pf-u-background-color-200"
         >
           <div
-            class="pf-c-content pf-u-px-xl pf-u-py-lg"
-          >
-            <p
-              class=""
-              data-ouia-component-id="OUIA-Generated-Text-39"
-              data-ouia-component-type="PF4/Text"
-              data-ouia-safe="true"
-              data-pf-content="true"
-            >
-              <a
-                href="/favoritedservices"
-              >
-                <span
-                  class="pf-c-icon pf-m-inline pf-u-mr-sm"
-                >
-                  <span
-                    class="pf-c-icon__content"
-                  >
-                    <svg
-                      aria-hidden="true"
-                      fill="currentColor"
-                      height="1em"
-                      role="img"
-                      style="vertical-align: -0.125em;"
-                      viewBox="0 0 576 512"
-                      width="1em"
-                    >
-                      <path
-                        d="M259.3 17.8L194 150.2 47.9 171.5c-26.2 3.8-36.7 36.1-17.7 54.6l105.7 103-25 145.5c-4.5 26.3 23.2 46 46.4 33.7L288 439.6l130.7 68.7c23.2 12.2 50.9-7.4 46.4-33.7l-25-145.5 105.7-103c19-18.5 8.5-50.8-17.7-54.6L382 150.2 316.7 17.8c-11.7-23.6-45.6-23.9-57.4 0z"
-                      />
-                    </svg>
-                  </span>
-                </span>
-                View my favorite services
-              </a>
-            </p>
-          </div>
-          <hr
-            class="pf-c-divider"
-          />
-          <div
             class="pf-c-content pf-m-fill pf-u-px-xl pf-u-py-lg"
           >
             <h3
               class="pf-u-mb-lg"
-              data-ouia-component-id="OUIA-Generated-Text-40"
+              data-ouia-component-id="OUIA-Generated-Text-39"
               data-ouia-component-type="PF4/Text"
               data-ouia-safe="true"
               data-pf-content="true"
