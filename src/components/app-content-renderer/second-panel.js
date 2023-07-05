@@ -16,19 +16,21 @@ import {
 import React from 'react';
 import { Link } from 'react-router-dom';
 import ArrowRightIcon from '@patternfly/react-icons/dist/js/icons/arrow-right-icon';
-import StarIcon from '@patternfly/react-icons/dist/js/icons/star-icon';
 import RecentlyVisited from '../recently-visited/recently-visited';
 import { ScalprumComponent } from '@scalprum/react-core';
 
 const SecondPanel = () => {
   return (
     <Sidebar className="land-c-sidebar pf-u-background-color-100">
-      <SidebarContent className="pf-m-no-background pf-u-px-xl pf-u-pt-md pf-u-pb-2xl-on-md">
-        <ScalprumComponent scope="chrome" module="./LandingNavFavorites" />
+      <SidebarContent className="pf-m-no-background pf-u-pt-md pf-u-pb-2xl-on-md">
+        <div className="pf-u-mx-xl">
+          <ScalprumComponent scope="chrome" module="./LandingNavFavorites" />
+        </div>
+        <Divider component="hr" className="pf-u-mt-md" />
         <Title
           headingLevel="h3"
           size={TitleSizes['2xl']}
-          className="pf-u-py-md"
+          className="pf-u-px-xl pf-u-py-md"
         >
           Get started with Hybrid Cloud Console capabilities
         </Title>
@@ -38,6 +40,7 @@ const SecondPanel = () => {
             md: '350px',
           }}
           hasGutter
+          className="pf-u-px-xl"
         >
           <Card isFlat>
             <CardBody>
@@ -250,17 +253,6 @@ const SecondPanel = () => {
         width={{ lg: 'width_25', md: 'width_33', sm: 'width_100' }}
         className="pf-u-m-xl pf-u-m-0-on-md pf-u-background-color-200"
       >
-        <TextContent className="pf-u-px-xl pf-u-py-lg">
-          <Text component={TextVariants.p}>
-            <Link to="/favoritedservices">
-              <Icon className="pf-u-mr-sm" isInline>
-                <StarIcon />
-              </Icon>
-              View my favorite services
-            </Link>
-          </Text>
-        </TextContent>
-        <Divider component="hr" />
         <RecentlyVisited />
       </SidebarPanel>
     </Sidebar>
