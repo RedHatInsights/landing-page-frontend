@@ -412,7 +412,7 @@ exports[`<Landing/> should render correctly 1`] = `
             Scalprum Component Mock
           </div>
           <hr
-            class="pf-c-divider pf-u-mt-md"
+            class="pf-c-divider pf-u-mt-lg"
           />
           <h3
             class="pf-c-title pf-m-2xl pf-u-px-xl pf-u-py-md"

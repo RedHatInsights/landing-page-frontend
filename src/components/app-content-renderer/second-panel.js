@@ -26,7 +26,7 @@ const SecondPanel = () => {
         <div className="pf-u-mx-xl">
           <ScalprumComponent scope="chrome" module="./LandingNavFavorites" />
         </div>
-        <Divider component="hr" className="pf-u-mt-md" />
+        <Divider component="hr" className="pf-u-mt-lg" />
         <Title
           headingLevel="h3"
           size={TitleSizes['2xl']}
