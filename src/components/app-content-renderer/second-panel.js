@@ -15,19 +15,22 @@ import {
 } from '@patternfly/react-core';
 import React from 'react';
 import { Link } from 'react-router-dom';
-
 import ArrowRightIcon from '@patternfly/react-icons/dist/js/icons/arrow-right-icon';
-import StarIcon from '@patternfly/react-icons/dist/js/icons/star-icon';
 import RecentlyVisited from '../recently-visited/recently-visited';
+import { ScalprumComponent } from '@scalprum/react-core';
 
 const SecondPanel = () => {
   return (
     <Sidebar className="land-c-sidebar pf-u-background-color-100">
-      <SidebarContent className="pf-m-no-background pf-u-px-xl pf-u-pt-md pf-u-pb-2xl-on-md">
+      <SidebarContent className="pf-m-no-background pf-u-pt-md pf-u-pb-2xl-on-md">
+        <div className="pf-u-mx-xl">
+          <ScalprumComponent scope="chrome" module="./LandingNavFavorites" />
+        </div>
+        <Divider component="hr" className="pf-u-mt-md" />
         <Title
           headingLevel="h3"
           size={TitleSizes['2xl']}
-          className="pf-u-py-md"
+          className="pf-u-px-xl pf-u-py-md"
         >
           Get started with Hybrid Cloud Console capabilities
         </Title>
@@ -37,7 +40,39 @@ const SecondPanel = () => {
             md: '350px',
           }}
           hasGutter
+          className="pf-u-px-xl"
         >
+          <Card isFlat>
+            <CardBody>
+              <TextContent className="pf-u-display-flex pf-u-flex-direction-column">
+                <img
+                  src="https://console.redhat.com/apps/frontend-assets/console-landing/insights.svg"
+                  alt="Red Hat Insights"
+                />
+                <Text component="p" className="pf-u-font-size-lg pf-u-mt-md">
+                  Red Hat Insights
+                </Text>
+                <Text component="p" className="pf-u-flex-grow-1">
+                  Proactively assess, secure and stabilize the business-critical
+                  applications you scale from your Red Hat platforms.
+                </Text>
+                <Text component="p">
+                  Manage
+                  <Link to="/insights/" className="pf-u-px-sm">
+                    RHEL
+                  </Link>
+                  |
+                  <Link to="/ansible/advisor" className="pf-u-px-sm">
+                    Ansible
+                  </Link>
+                  |
+                  <Link to="/openshift/insights" className="pf-u-pl-sm">
+                    OpenShift
+                  </Link>
+                </Text>
+              </TextContent>
+            </CardBody>
+          </Card>
           <Card isFlat>
             <CardBody>
               <TextContent className="pf-u-display-flex pf-u-flex-direction-column">
@@ -83,37 +118,6 @@ const SecondPanel = () => {
                     <Icon className="pf-u-ml-sm" isInline>
                       <ArrowRightIcon />
                     </Icon>
-                  </Link>
-                </Text>
-              </TextContent>
-            </CardBody>
-          </Card>
-          <Card isFlat>
-            <CardBody>
-              <TextContent className="pf-u-display-flex pf-u-flex-direction-column">
-                <img
-                  src="https://console.redhat.com/apps/frontend-assets/console-landing/insights.svg"
-                  alt="Red Hat Insights"
-                />
-                <Text component="p" className="pf-u-font-size-lg pf-u-mt-md">
-                  Red Hat Insights
-                </Text>
-                <Text component="p" className="pf-u-flex-grow-1">
-                  Proactively assess, secure and stabilize the business-critical
-                  applications you scale from your Red Hat platforms.
-                </Text>
-                <Text component="p">
-                  Manage
-                  <Link to="/insights/" className="pf-u-px-sm">
-                    RHEL
-                  </Link>
-                  |
-                  <Link to="/ansible/advisor" className="pf-u-px-sm">
-                    Ansible
-                  </Link>
-                  |
-                  <Link to="/openshift/insights" className="pf-u-pl-sm">
-                    OpenShift
                   </Link>
                 </Text>
               </TextContent>
@@ -249,17 +253,6 @@ const SecondPanel = () => {
         width={{ lg: 'width_25', md: 'width_33', sm: 'width_100' }}
         className="pf-u-m-xl pf-u-m-0-on-md pf-u-background-color-200"
       >
-        <TextContent className="pf-u-px-xl pf-u-py-lg">
-          <Text component={TextVariants.p}>
-            <Link to="/favoritedservices">
-              <Icon className="pf-u-mr-sm" isInline>
-                <StarIcon />
-              </Icon>
-              View my favorite services
-            </Link>
-          </Text>
-        </TextContent>
-        <Divider component="hr" />
         <RecentlyVisited />
       </SidebarPanel>
     </Sidebar>

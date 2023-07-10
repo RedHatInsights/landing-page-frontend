@@ -10,7 +10,6 @@ import { Route, Routes } from 'react-router-dom';
 import { getRegistry } from '@redhat-cloud-services/frontend-components-utilities/Registry';
 import useChrome from '@redhat-cloud-services/frontend-components/useChrome';
 import { Bullseye, Spinner } from '@patternfly/react-core';
-import { IntlProvider } from 'react-intl';
 import contentStore from './store/contentReducer';
 
 const Landing = lazy(() =>
@@ -44,23 +43,21 @@ const App = () => {
   }, []);
 
   return (
-    <IntlProvider locale="en">
-      <PermissionContext.Provider value={{ isOrgAdmin }}>
-        <Suspense
-          fallback={
-            <Bullseye>
-              <Spinner size="xl" />
-            </Bullseye>
-          }
-        >
-          <Routes>
-            <Route path={routes.landing} element={<Landing />} />
-            <Route path={routes.maintenance} element={<Maintenance />} />
-            <Route path="*" element={<NotFound />} />
-          </Routes>
-        </Suspense>
-      </PermissionContext.Provider>
-    </IntlProvider>
+    <PermissionContext.Provider value={{ isOrgAdmin }}>
+      <Suspense
+        fallback={
+          <Bullseye>
+            <Spinner size="xl" />
+          </Bullseye>
+        }
+      >
+        <Routes>
+          <Route path={routes.landing} element={<Landing />} />
+          <Route path={routes.maintenance} element={<Maintenance />} />
+          <Route path="*" element={<NotFound />} />
+        </Routes>
+      </Suspense>
+    </PermissionContext.Provider>
   );
 };
 
