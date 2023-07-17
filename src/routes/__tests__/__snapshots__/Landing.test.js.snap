@@ -476,19 +476,7 @@ exports[`<Landing/> should render correctly 1`] = `
                       RHEL
                     </a>
                     |
-                    <a
-                      class="pf-u-px-sm"
-                      href="/ansible/advisor"
-                    >
-                      Ansible
-                    </a>
-                    |
-                    <a
-                      class="pf-u-pl-sm"
-                      href="/openshift/insights"
-                    >
-                      OpenShift
-                    </a>
+                    0
                   </p>
                 </div>
               </div>
