@@ -236,7 +236,7 @@ exports[`<Landing/> should render correctly 1`] = `
                               data-ouia-safe="true"
                               data-pf-content="true"
                             >
-                              Red Hat Insights
+                              Red Hat Insights for RHEL
                             </h3>
                             <p
                               class="pf-u-pb-sm pf-u-flex-grow-1"
