@@ -102,7 +102,7 @@ function SimpleSlider() {
           <Sidebar orientation="split" hasGutter>
             <SidebarContent className="pf-u-p-lg pf-u-h-100 pf-m-no-background">
               <TextContent className="pf-u-display-flex pf-u-flex-direction-column pf-u-h-100 pf-u-color-light-100">
-                <Text component="h3">Red Hat Insights</Text>
+                <Text component="h3">Red Hat Insights for RHEL</Text>
                 <Text component="p" className="pf-u-pb-sm pf-u-flex-grow-1">
                   With Red Hat Insights, you can continuously analyze platforms
                   and applications from the console to better manage your hybrid
