@@ -63,18 +63,17 @@ const SecondPanel = () => {
                     RHEL
                   </Link>
                   |
-                  {!isIntEnv
-                    ? (
-                        <Link to="/ansible/advisor" className="pf-u-px-sm">
-                          Ansible
-                        </Link>
-                      ) |
-                      (
-                        <Link to="/openshift/insights" className="pf-u-pl-sm">
-                          OpenShift
-                        </Link>
-                      )
-                    : ''}
+                  {!isIntEnv && (
+                    <>
+                      <Link to="/ansible/advisor" className="pf-u-px-sm">
+                        Ansible
+                      </Link>
+                      &nbsp;|&nbsp;
+                      <Link to="/openshift/insights" className="pf-u-pl-sm">
+                        OpenShift
+                      </Link>
+                    </>
+                  )}
                 </Text>
               </TextContent>
             </CardBody>
