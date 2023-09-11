@@ -610,7 +610,7 @@ exports[`<Landing/> should render correctly 1`] = `
                     <a
                       href="/openshift/overview"
                     >
-                      Scale your applications
+                      Scale your Manage Openshift Clusters
                       <span
                         class="pf-c-icon pf-m-inline pf-u-ml-sm"
                       >
