@@ -121,7 +121,7 @@ const SecondPanel = () => {
                 </Text>
                 <Text component="p">
                   <Link to={isIntEnv ? '/openshift' : '/openshift/overview'}>
-                    Scale your applications
+                    Manage Openshift Clusters
                     <Icon className="pf-u-ml-sm" isInline>
                       <ArrowRightIcon />
                     </Icon>
