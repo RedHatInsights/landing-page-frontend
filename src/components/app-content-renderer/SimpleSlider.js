@@ -24,6 +24,7 @@ function SimpleSlider() {
     slidesToShow: 1,
     slidesToScroll: 1,
   };
+
   return (
     <div className="land-c-slick-slider-wrapper pf-u-pb-sm pf-u-px-xl-on-md">
       <TextContent>
@@ -31,7 +32,10 @@ function SimpleSlider() {
           component="h1"
           className="pf-u-pb-md pf-u-pl-sm pf-u-color-light-100"
         >
-          Hi, {currentUser.username}.
+          Hi,
+          {currentUser.first_name && currentUser.last_name
+            ? ` ${currentUser.first_name} ${currentUser.last_name}`
+            : currentUser.username}
           <br />
           Welcome to your Hybrid Cloud Console.
         </Text>
