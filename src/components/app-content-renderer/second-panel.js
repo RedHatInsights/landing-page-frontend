@@ -89,22 +89,22 @@ const SecondPanel = () => {
                   <CardBody>
                     <TextContent className="pf-u-display-flex pf-u-flex-direction-column">
                       <img
-                        src="https://console.redhat.com/apps/frontend-assets/console-landing/services.svg"
-                        alt="Application and Data Services"
+                        src="https://console.redhat.com/apps/frontend-assets/console-landing/datascience.svg"
+                        alt="Red Hat Openshift AI"
                       />
                       <Text
                         component="p"
                         className="pf-u-font-size-lg pf-u-mt-md"
                       >
-                        Application and Data Services
+                        Red Hat Openshift AI
                       </Text>
                       <Text component="p" className="pf-u-flex-grow-1">
-                        Configure, monitor, optimize, and orchestrate
-                        applications and data services on demand.
+                        Create, train, and serve artificial intelligence and
+                        machine learning (AI/ML) models.
                       </Text>
                       <Text component="p">
-                        <Link to="/application-services/overview">
-                          Explore services
+                        <Link to="/application-services/data-science">
+                          Try it out now
                           <Icon className="pf-u-ml-sm" isInline>
                             <ArrowRightIcon />
                           </Icon>

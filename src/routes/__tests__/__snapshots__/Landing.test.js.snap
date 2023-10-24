@@ -509,8 +509,8 @@ exports[`<Landing/> should render correctly 1`] = `
                       class="pf-c-content pf-u-display-flex pf-u-flex-direction-column"
                     >
                       <img
-                        alt="Application and Data Services"
-                        src="https://console.redhat.com/apps/frontend-assets/console-landing/services.svg"
+                        alt="Red Hat Openshift AI"
+                        src="https://console.redhat.com/apps/frontend-assets/console-landing/datascience.svg"
                       />
                       <p
                         class="pf-u-font-size-lg pf-u-mt-md"
@@ -519,7 +519,7 @@ exports[`<Landing/> should render correctly 1`] = `
                         data-ouia-safe="true"
                         data-pf-content="true"
                       >
-                        Application and Data Services
+                        Red Hat Openshift AI
                       </p>
                       <p
                         class="pf-u-flex-grow-1"
@@ -528,7 +528,7 @@ exports[`<Landing/> should render correctly 1`] = `
                         data-ouia-safe="true"
                         data-pf-content="true"
                       >
-                        Configure, monitor, optimize, and orchestrate applications and data services on demand.
+                        Create, train, and serve artificial intelligence and machine learning (AI/ML) models.
                       </p>
                       <p
                         class=""
@@ -538,9 +538,9 @@ exports[`<Landing/> should render correctly 1`] = `
                         data-pf-content="true"
                       >
                         <a
-                          href="/application-services/overview"
+                          href="/application-services/data-science"
                         >
-                          Explore services
+                          Try it out now
                           <span
                             class="pf-c-icon pf-m-inline pf-u-ml-sm"
                           >
