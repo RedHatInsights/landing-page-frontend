@@ -4,4 +4,4 @@ const useChrome = () => ({
   visibilityFunctions: { apiRequest: () => Promise.resolve(true) },
 });
 
-module.exports.useChrome = useChrome;
+module.exports = useChrome;
