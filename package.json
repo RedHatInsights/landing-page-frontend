@@ -77,7 +77,7 @@
     "@redhat-cloud-services/chrome": "^0.0.5",
     "@redhat-cloud-services/frontend-components": "^3.9.29",
     "@redhat-cloud-services/frontend-components-notifications": "^3.2.12",
-    "@redhat-cloud-services/frontend-components-utilities": "^3.5.0",
+    "@redhat-cloud-services/frontend-components-utilities": "^4.0.2",
     "@scalprum/core": "^0.5.1",
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^12.1.5",
