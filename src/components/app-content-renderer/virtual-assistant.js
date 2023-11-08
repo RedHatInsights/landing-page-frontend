@@ -1,5 +1,5 @@
 import { useFlag } from '@unleash/proxy-client-react';
-import React from 'react';
+import React, { Fragment } from 'react';
 import { ScalprumComponent } from '@scalprum/react-core';
 
 import './virtual-assistant.scss';
@@ -22,7 +22,7 @@ function VirtualAssistant() {
         scope="virtualAssistant"
         module="./AstroVirtualAssistant"
         fallback={null}
-        ErrorComponent={null}
+        ErrorComponent={<Fragment />}
       />
     </div>
   );
