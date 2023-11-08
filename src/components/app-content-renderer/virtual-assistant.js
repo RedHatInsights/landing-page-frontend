@@ -12,7 +12,7 @@ function VirtualAssistant() {
   const chrome = useChrome();
 
   // Disable it for prod, any stable environment or if the feature flag is off
-  if (chrome.isProd() || !chrome.isBeta || !showVirtualAssistant) {
+  if (chrome.isProd() || !chrome.isBeta() || !showVirtualAssistant) {
     return null;
   }
 
@@ -22,6 +22,7 @@ function VirtualAssistant() {
         scope="virtualAssistant"
         module="./AstroVirtualAssistant"
         fallback={null}
+        ErrorComponent={null}
       />
     </div>
   );
