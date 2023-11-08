@@ -41,7 +41,10 @@
     "transformIgnorePatterns": [
       "/node_modules/(?!@redhat-cloud-services|@openshift|lodash-es|@scalprum)"
     ],
-    "testMatch": ["**/?(*.)+(test).ts?(x)", "**/?(*.)+(test).js?(x)"]
+    "testMatch": [
+      "**/?(*.)+(test).ts?(x)",
+      "**/?(*.)+(test).js?(x)"
+    ]
   },
   "scripts": {
     "test": "jest --passWithNoTests",
@@ -80,6 +83,7 @@
     "@testing-library/react": "^12.1.5",
     "@testing-library/react-hooks": "^7.0.2",
     "@testing-library/user-event": "^14.4.3",
+    "@unleash/proxy-client-react": "^3.6.0",
     "classnames": "^2.3.2",
     "lodash": "^4.17.21",
     "prop-types": "^15.8.1",
