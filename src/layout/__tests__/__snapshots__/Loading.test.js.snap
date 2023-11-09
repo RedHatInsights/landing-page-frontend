@@ -1,9 +1,0 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
-
-exports[`Hero component should render correctly 1`] = `
-<Main>
-  <Spinner
-    centered={true}
-  />
-</Main>
-`;
