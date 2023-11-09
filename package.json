@@ -7,45 +7,6 @@
     "node": ">=15.0.0",
     "npm": ">=7.0.0"
   },
-  "ojest": {
-    "testEnvironment": "jsdom",
-    "coverageDirectory": "./coverage/",
-    "collectCoverage": true,
-    "collectCoverageFrom": [
-      "src/**/*.js",
-      "!src/**/stories/*",
-      "!src/**/*/index.js"
-    ],
-    "coveragePathIgnorePatterns": [
-      "<rootDir>/src/entry.js",
-      "<rootDir>/src/entry-dev.js",
-      "<rootDir>/src/logout.js",
-      "<rootDir>/src/logout-dev.js",
-      "<rootDir>/src/not-found.js",
-      "<rootDir>/src/not-found-dev.js",
-      "<rootDir>/src/maintenance.js",
-      "<rootDir>/src/maintenance-dev.js",
-      "<rootDir>/src/moduledBootstraps/"
-    ],
-    "setupFiles": [
-      "<rootDir>/config/setupTests.js"
-    ],
-    "roots": [
-      "<rootDir>/src/"
-    ],
-    "moduleNameMapper": {
-      "\\.(css|scss)$": "identity-obj-proxy",
-      ".+\\.(svg|png|jpg)$": "identity-obj-proxy",
-      "\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$": "<rootDir>/src/__mocks__/fileMock.js"
-    },
-    "transformIgnorePatterns": [
-      "/node_modules/(?!@redhat-cloud-services|@openshift|lodash-es|@scalprum)"
-    ],
-    "testMatch": [
-      "**/?(*.)+(test).ts?(x)",
-      "**/?(*.)+(test).js?(x)"
-    ]
-  },
   "scripts": {
     "test": "jest --passWithNoTests",
     "analyze": "ANALYZE=true fec build",
