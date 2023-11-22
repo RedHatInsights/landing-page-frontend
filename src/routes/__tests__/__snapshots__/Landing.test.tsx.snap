@@ -97,7 +97,7 @@ exports[`<Landing/> should render correctly 1`] = `
                               data-pf-content="true"
                             >
                               <a
-                                href="/openshift/create/rosa/getstarted"
+                                href="/openshift/services/rosa/"
                               >
                                 <button
                                   aria-disabled="false"
