@@ -58,7 +58,7 @@ function SimpleSlider() {
                   interface.
                 </Text>
                 <Text component="p">
-                  <Link to="/openshift/services/rosa/">
+                  <Link to="/openshift/services/rosa/hands-on">
                     <Button variant="danger">Try out ROSA today</Button>
                   </Link>
                 </Text>
