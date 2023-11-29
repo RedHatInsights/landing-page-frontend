@@ -1,6 +1,6 @@
 .astro__landing-page {
   position: fixed;
-  bottom: 5px;
-  right: 5px;
+  bottom: var(--pf-global--spacer--lg);
+  right: var(--pf-global--spacer--lg);
   z-index: 1000;
 }
