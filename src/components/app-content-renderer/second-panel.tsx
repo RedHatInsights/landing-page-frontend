@@ -57,7 +57,7 @@ const SecondPanel = () => {
                 <CardBody>
                   <TextContent className="pf-v5-u-display-flex pf-v5-u-flex-direction-column">
                     <img
-                      src="https://console.redhat.com/apps/frontend-assets/console-landing/insights.svg"
+                      src="/apps/frontend-assets/console-landing/insights.svg"
                       alt="Red Hat Insights"
                     />
                     <Text
@@ -100,7 +100,7 @@ const SecondPanel = () => {
                   <CardBody>
                     <TextContent className="pf-v5-u-display-flex pf-v5-u-flex-direction-column">
                       <img
-                        src="https://console.redhat.com/apps/frontend-assets/console-landing/datascience.svg"
+                        src="/apps/frontend-assets/console-landing/datascience.svg"
                         alt="Red Hat Openshift AI"
                       />
                       <Text
@@ -129,7 +129,7 @@ const SecondPanel = () => {
                 <CardBody>
                   <TextContent className="pf-v5-u-display-flex pf-v5-u-flex-direction-column">
                     <img
-                      src="https://console.redhat.com/apps/frontend-assets/console-landing/openshift.svg"
+                      src="/apps/frontend-assets/console-landing/openshift.svg"
                       alt="OpenShift"
                     />
                     <Text
@@ -160,7 +160,7 @@ const SecondPanel = () => {
                   <CardBody>
                     <TextContent className="pf-v5-u-display-flex pf-v5-u-flex-direction-column">
                       <img
-                        src="https://console.redhat.com/apps/frontend-assets/console-landing/edge1.svg"
+                        src="/apps/frontend-assets/console-landing/edge1.svg"
                         alt="Edge Management"
                       />
                       <Text
@@ -191,7 +191,7 @@ const SecondPanel = () => {
                   <CardBody>
                     <TextContent className="pf-v5-u-display-flex pf-v5-u-flex-direction-column">
                       <img
-                        src="https://console.redhat.com/apps/frontend-assets/console-landing/ansible.svg"
+                        src="/apps/frontend-assets/console-landing/ansible.svg"
                         alt="Ansible Automation Platform"
                       />
                       <Text
@@ -221,7 +221,7 @@ const SecondPanel = () => {
                   <CardBody>
                     <TextContent className="pf-v5-u-display-flex pf-v5-u-flex-direction-column">
                       <img
-                        src="https://console.redhat.com/apps/frontend-assets/console-landing/subs.svg"
+                        src="/apps/frontend-assets/console-landing/subs.svg"
                         alt="subscription management"
                       />
                       <Text
@@ -250,7 +250,7 @@ const SecondPanel = () => {
                   <CardBody>
                     <TextContent className="pf-v5-u-display-flex pf-v5-u-flex-direction-column">
                       <img
-                        src="https://console.redhat.com/apps/frontend-assets/console-landing/acs.svg"
+                        src="/apps/frontend-assets/console-landing/acs.svg"
                         alt="cluster security cloud service"
                       />
                       <Text
@@ -280,7 +280,7 @@ const SecondPanel = () => {
                   <CardBody>
                     <TextContent className="pf-v5-u-display-flex pf-v5-u-flex-direction-column">
                       <img
-                        src="https://console.redhat.com/apps/frontend-assets/console-landing/generic.svg"
+                        src="/apps/frontend-assets/console-landing/generic.svg"
                         alt="quay"
                       />
                       <Text

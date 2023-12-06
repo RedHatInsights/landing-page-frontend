@@ -444,7 +444,7 @@ exports[`<Landing/> should render correctly 1`] = `
                     >
                       <img
                         alt="Red Hat Insights"
-                        src="https://console.redhat.com/apps/frontend-assets/console-landing/insights.svg"
+                        src="/apps/frontend-assets/console-landing/insights.svg"
                       />
                       <p
                         class="pf-v5-u-font-size-lg pf-v5-u-mt-md"
@@ -511,7 +511,7 @@ exports[`<Landing/> should render correctly 1`] = `
                     >
                       <img
                         alt="Red Hat Openshift AI"
-                        src="https://console.redhat.com/apps/frontend-assets/console-landing/datascience.svg"
+                        src="/apps/frontend-assets/console-landing/datascience.svg"
                       />
                       <p
                         class="pf-v5-u-font-size-lg pf-v5-u-mt-md"
@@ -583,7 +583,7 @@ exports[`<Landing/> should render correctly 1`] = `
                     >
                       <img
                         alt="OpenShift"
-                        src="https://console.redhat.com/apps/frontend-assets/console-landing/openshift.svg"
+                        src="/apps/frontend-assets/console-landing/openshift.svg"
                       />
                       <p
                         class="pf-v5-u-font-size-lg pf-v5-u-mt-md"
@@ -655,7 +655,7 @@ exports[`<Landing/> should render correctly 1`] = `
                     >
                       <img
                         alt="Edge Management"
-                        src="https://console.redhat.com/apps/frontend-assets/console-landing/edge1.svg"
+                        src="/apps/frontend-assets/console-landing/edge1.svg"
                       />
                       <p
                         class="pf-v5-u-font-size-lg pf-v5-u-mt-md"
@@ -727,7 +727,7 @@ exports[`<Landing/> should render correctly 1`] = `
                     >
                       <img
                         alt="Ansible Automation Platform"
-                        src="https://console.redhat.com/apps/frontend-assets/console-landing/ansible.svg"
+                        src="/apps/frontend-assets/console-landing/ansible.svg"
                       />
                       <p
                         class="pf-v5-u-font-size-lg pf-v5-u-mt-md"
@@ -799,7 +799,7 @@ exports[`<Landing/> should render correctly 1`] = `
                     >
                       <img
                         alt="subscription management"
-                        src="https://console.redhat.com/apps/frontend-assets/console-landing/subs.svg"
+                        src="/apps/frontend-assets/console-landing/subs.svg"
                       />
                       <p
                         class="pf-v5-u-font-size-lg pf-v5-u-mt-md"
@@ -871,7 +871,7 @@ exports[`<Landing/> should render correctly 1`] = `
                     >
                       <img
                         alt="cluster security cloud service"
-                        src="https://console.redhat.com/apps/frontend-assets/console-landing/acs.svg"
+                        src="/apps/frontend-assets/console-landing/acs.svg"
                       />
                       <p
                         class="pf-v5-u-font-size-lg pf-v5-u-mt-md"
@@ -943,7 +943,7 @@ exports[`<Landing/> should render correctly 1`] = `
                     >
                       <img
                         alt="quay"
-                        src="https://console.redhat.com/apps/frontend-assets/console-landing/generic.svg"
+                        src="/apps/frontend-assets/console-landing/generic.svg"
                       />
                       <p
                         class="pf-v5-u-font-size-lg pf-v5-u-mt-md"
