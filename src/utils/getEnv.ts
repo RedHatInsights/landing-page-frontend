@@ -1,2 +1,5 @@
-// eslint-disable-next-line rulesdir/no-chrome-api-call-from-window
-export const isIntEnv = window.insights.chrome.getEnvironment() === 'int';
+/* eslint-disable rulesdir/no-chrome-api-call-from-window */
+export const isRestrictedEnv = () =>
+  ['int', 'scr', 'frh', 'frhStage'].includes(
+    window.insights.chrome.getEnvironment()
+  );

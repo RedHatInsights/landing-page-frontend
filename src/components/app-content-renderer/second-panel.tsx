@@ -27,7 +27,7 @@ import { Link } from 'react-router-dom';
 import ArrowRightIcon from '@patternfly/react-icons/dist/js/icons/arrow-right-icon';
 import RecentlyVisited from '../recently-visited/recently-visited';
 import { ScalprumComponent } from '@scalprum/react-core';
-import { isIntEnv } from '../../utils/getEnv';
+import { isRestrictedEnv } from '../../utils/getEnv';
 
 const SecondPanel = () => {
   return (
@@ -77,7 +77,7 @@ const SecondPanel = () => {
                         RHEL
                       </Link>
                       |
-                      {!isIntEnv && (
+                      {!isRestrictedEnv() && (
                         <>
                           <Link to="/ansible/advisor" className="pf-v5-u-px-sm">
                             Ansible
@@ -95,7 +95,7 @@ const SecondPanel = () => {
                   </TextContent>
                 </CardBody>
               </Card>
-              {!isIntEnv && (
+              {!isRestrictedEnv() && (
                 <Card isFlat>
                   <CardBody>
                     <TextContent className="pf-v5-u-display-flex pf-v5-u-flex-direction-column">
@@ -144,7 +144,11 @@ const SecondPanel = () => {
                     </Text>
                     <Text component="p">
                       <Link
-                        to={isIntEnv ? '/openshift' : '/openshift/overview'}
+                        to={
+                          isRestrictedEnv()
+                            ? '/openshift'
+                            : '/openshift/overview'
+                        }
                       >
                         Manage Openshift Clusters
                         <Icon className="pf-v5-u-ml-sm" isInline>
@@ -155,7 +159,7 @@ const SecondPanel = () => {
                   </TextContent>
                 </CardBody>
               </Card>
-              {!isIntEnv && (
+              {!isRestrictedEnv() && (
                 <Card isFlat>
                   <CardBody>
                     <TextContent className="pf-v5-u-display-flex pf-v5-u-flex-direction-column">
@@ -186,7 +190,7 @@ const SecondPanel = () => {
                   </CardBody>
                 </Card>
               )}
-              {!isIntEnv && (
+              {!isRestrictedEnv() && (
                 <Card isFlat>
                   <CardBody>
                     <TextContent className="pf-v5-u-display-flex pf-v5-u-flex-direction-column">
@@ -216,7 +220,7 @@ const SecondPanel = () => {
                   </CardBody>
                 </Card>
               )}
-              {!isIntEnv && (
+              {!isRestrictedEnv() && (
                 <Card isFlat>
                   <CardBody>
                     <TextContent className="pf-v5-u-display-flex pf-v5-u-flex-direction-column">
@@ -245,7 +249,7 @@ const SecondPanel = () => {
                   </CardBody>
                 </Card>
               )}
-              {!isIntEnv && (
+              {!isRestrictedEnv() && (
                 <Card isFlat>
                   <CardBody>
                     <TextContent className="pf-v5-u-display-flex pf-v5-u-flex-direction-column">
@@ -275,7 +279,7 @@ const SecondPanel = () => {
                   </CardBody>
                 </Card>
               )}
-              {!isIntEnv && (
+              {!isRestrictedEnv() && (
                 <Card isFlat>
                   <CardBody>
                     <TextContent className="pf-v5-u-display-flex pf-v5-u-flex-direction-column">
