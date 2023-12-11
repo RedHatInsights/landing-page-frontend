@@ -27,7 +27,7 @@ import { Link } from 'react-router-dom';
 import ArrowRightIcon from '@patternfly/react-icons/dist/js/icons/arrow-right-icon';
 import RecentlyVisited from '../recently-visited/recently-visited';
 import { ScalprumComponent } from '@scalprum/react-core';
-import { isIntEnv } from '../../utils/getEnv';
+import { isRestrictedEnv } from '../../utils/getEnv';
 
 const SecondPanel = () => {
   return (
@@ -57,7 +57,7 @@ const SecondPanel = () => {
                 <CardBody>
                   <TextContent className="pf-v5-u-display-flex pf-v5-u-flex-direction-column">
                     <img
-                      src="https://console.redhat.com/apps/frontend-assets/console-landing/insights.svg"
+                      src="/apps/frontend-assets/console-landing/insights.svg"
                       alt="Red Hat Insights"
                     />
                     <Text
@@ -77,7 +77,7 @@ const SecondPanel = () => {
                         RHEL
                       </Link>
                       |
-                      {!isIntEnv && (
+                      {!isRestrictedEnv() && (
                         <>
                           <Link to="/ansible/advisor" className="pf-v5-u-px-sm">
                             Ansible
@@ -95,12 +95,12 @@ const SecondPanel = () => {
                   </TextContent>
                 </CardBody>
               </Card>
-              {!isIntEnv && (
+              {!isRestrictedEnv() && (
                 <Card isFlat>
                   <CardBody>
                     <TextContent className="pf-v5-u-display-flex pf-v5-u-flex-direction-column">
                       <img
-                        src="https://console.redhat.com/apps/frontend-assets/console-landing/datascience.svg"
+                        src="/apps/frontend-assets/console-landing/datascience.svg"
                         alt="Red Hat Openshift AI"
                       />
                       <Text
@@ -129,7 +129,7 @@ const SecondPanel = () => {
                 <CardBody>
                   <TextContent className="pf-v5-u-display-flex pf-v5-u-flex-direction-column">
                     <img
-                      src="https://console.redhat.com/apps/frontend-assets/console-landing/openshift.svg"
+                      src="/apps/frontend-assets/console-landing/openshift.svg"
                       alt="OpenShift"
                     />
                     <Text
@@ -144,7 +144,11 @@ const SecondPanel = () => {
                     </Text>
                     <Text component="p">
                       <Link
-                        to={isIntEnv ? '/openshift' : '/openshift/overview'}
+                        to={
+                          isRestrictedEnv()
+                            ? '/openshift'
+                            : '/openshift/overview'
+                        }
                       >
                         Manage Openshift Clusters
                         <Icon className="pf-v5-u-ml-sm" isInline>
@@ -155,12 +159,12 @@ const SecondPanel = () => {
                   </TextContent>
                 </CardBody>
               </Card>
-              {!isIntEnv && (
+              {!isRestrictedEnv() && (
                 <Card isFlat>
                   <CardBody>
                     <TextContent className="pf-v5-u-display-flex pf-v5-u-flex-direction-column">
                       <img
-                        src="https://console.redhat.com/apps/frontend-assets/console-landing/edge1.svg"
+                        src="/apps/frontend-assets/console-landing/edge1.svg"
                         alt="Edge Management"
                       />
                       <Text
@@ -186,12 +190,12 @@ const SecondPanel = () => {
                   </CardBody>
                 </Card>
               )}
-              {!isIntEnv && (
+              {!isRestrictedEnv() && (
                 <Card isFlat>
                   <CardBody>
                     <TextContent className="pf-v5-u-display-flex pf-v5-u-flex-direction-column">
                       <img
-                        src="https://console.redhat.com/apps/frontend-assets/console-landing/ansible.svg"
+                        src="/apps/frontend-assets/console-landing/ansible.svg"
                         alt="Ansible Automation Platform"
                       />
                       <Text
@@ -216,12 +220,12 @@ const SecondPanel = () => {
                   </CardBody>
                 </Card>
               )}
-              {!isIntEnv && (
+              {!isRestrictedEnv() && (
                 <Card isFlat>
                   <CardBody>
                     <TextContent className="pf-v5-u-display-flex pf-v5-u-flex-direction-column">
                       <img
-                        src="https://console.redhat.com/apps/frontend-assets/console-landing/subs.svg"
+                        src="/apps/frontend-assets/console-landing/subs.svg"
                         alt="subscription management"
                       />
                       <Text
@@ -245,12 +249,12 @@ const SecondPanel = () => {
                   </CardBody>
                 </Card>
               )}
-              {!isIntEnv && (
+              {!isRestrictedEnv() && (
                 <Card isFlat>
                   <CardBody>
                     <TextContent className="pf-v5-u-display-flex pf-v5-u-flex-direction-column">
                       <img
-                        src="https://console.redhat.com/apps/frontend-assets/console-landing/acs.svg"
+                        src="/apps/frontend-assets/console-landing/acs.svg"
                         alt="cluster security cloud service"
                       />
                       <Text
@@ -275,12 +279,12 @@ const SecondPanel = () => {
                   </CardBody>
                 </Card>
               )}
-              {!isIntEnv && (
+              {!isRestrictedEnv() && (
                 <Card isFlat>
                   <CardBody>
                     <TextContent className="pf-v5-u-display-flex pf-v5-u-flex-direction-column">
                       <img
-                        src="https://console.redhat.com/apps/frontend-assets/console-landing/generic.svg"
+                        src="/apps/frontend-assets/console-landing/generic.svg"
                         alt="quay"
                       />
                       <Text

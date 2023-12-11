@@ -15,7 +15,7 @@ import {
 import useCurrentUser from '../useCurrentUser';
 import './styles/slick.scss';
 import './styles/slick-theme.scss';
-import { isIntEnv } from '../../utils/getEnv';
+import { isRestrictedEnv } from '../../utils/getEnv';
 
 function SimpleSlider() {
   const { currentUser } = useCurrentUser();
@@ -73,7 +73,7 @@ function SimpleSlider() {
           </Sidebar>
         </div>
 
-        {!isIntEnv && (
+        {!isRestrictedEnv() && (
           <div>
             <Sidebar orientation="split" hasGutter>
               <SidebarContent className="pf-v5-u-p-lg pf-v5-u-h-100 pf-m-no-background">
@@ -140,7 +140,7 @@ function SimpleSlider() {
           </Sidebar>
         </div>
 
-        {!isIntEnv && (
+        {!isRestrictedEnv() && (
           <div>
             <Sidebar orientation="split" hasGutter>
               <SidebarContent className="pf-v5-u-p-lg pf-v5-u-h-100 pf-m-no-background">
