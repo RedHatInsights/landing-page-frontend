@@ -228,13 +228,13 @@ const SecondPanel = () => {
                         component="p"
                         className="pf-v5-u-font-size-lg pf-v5-u-mt-md"
                       >
-                        Subscription Management
+                        Subscription Services
                       </Text>
                       <Text component="p" className="pf-v5-u-flex-grow-1">
                         View and manage your Red Hat subscriptions.
                       </Text>
                       <Text component="p">
-                        <Link to="/insights/subscriptions/inventory#SIDs=&tags=">
+                        <Link to="/subscriptions/overview">
                           View all subscriptions
                           <Icon className="pf-v5-u-ml-sm" isInline>
                             <ArrowRightIcon />
