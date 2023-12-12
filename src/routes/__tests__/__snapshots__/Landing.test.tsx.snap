@@ -808,7 +808,7 @@ exports[`<Landing/> should render correctly 1`] = `
                         data-ouia-safe="true"
                         data-pf-content="true"
                       >
-                        Subscription Management
+                        Subscription Services
                       </p>
                       <p
                         class="pf-v5-u-flex-grow-1"
@@ -827,7 +827,7 @@ exports[`<Landing/> should render correctly 1`] = `
                         data-pf-content="true"
                       >
                         <a
-                          href="/insights/subscriptions/inventory#SIDs=&tags="
+                          href="/subscriptions/overview"
                         >
                           View all subscriptions
                           <span
