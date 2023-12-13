@@ -1,0 +1,1028 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Landing/> should render correctly 1`] = `
+<div>
+  <div
+    class="land-c-page-content pf-v5-u-display-flex pf-v5-u-flex-direction-column"
+  >
+    <section
+      class="pf-v5-c-page__main-section pf-m-no-fill land-l-first-panel pf-v5-u-px-xl pf-v5-u-pt-lg pf-v5-u-pb-xl"
+    >
+      <div
+        class="land-c-slick-slider-wrapper pf-v5-u-pb-sm pf-v5-u-px-xl-on-md"
+      >
+        <div
+          class="pf-v5-c-content"
+        >
+          <h1
+            class="pf-v5-u-pb-md pf-v5-u-pl-sm pf-v5-u-color-light-100"
+            data-ouia-component-id="OUIA-Generated-Text-1"
+            data-ouia-component-type="PF5/Text"
+            data-ouia-safe="true"
+            data-pf-content="true"
+          >
+            Hi,
+             John Doe
+            <br />
+            Welcome to your Hybrid Cloud Console.
+          </h1>
+        </div>
+        <div
+          class="slick-slider pf-v5-u-p-sm pf-v5-u-pb-0 slick-initialized"
+          dir="ltr"
+        >
+          <button
+            class="slick-arrow slick-prev slick-disabled"
+            data-role="none"
+            style="display: block;"
+            type="button"
+          >
+             
+            Previous
+          </button>
+          <div
+            class="slick-list"
+          >
+            <div
+              class="slick-track"
+              style="opacity: 1; transform: translate3d(0px, 0px, 0px);"
+            >
+              <div
+                aria-hidden="false"
+                class="slick-slide slick-active slick-current"
+                data-index="0"
+                style="outline: none; width: 0px;"
+                tabindex="-1"
+              >
+                <div>
+                  <div
+                    style="width: 100%; display: inline-block;"
+                    tabindex="-1"
+                  >
+                    <div
+                      class="pf-v5-c-sidebar pf-m-gutter pf-m-split"
+                    >
+                      <div
+                        class="pf-v5-c-sidebar__main"
+                      >
+                        <div
+                          class="pf-v5-c-sidebar__content pf-v5-u-p-lg pf-v5-u-h-100 pf-m-no-background"
+                        >
+                          <div
+                            class="pf-v5-c-content pf-v5-u-display-flex pf-v5-u-flex-direction-column pf-v5-u-h-100 pf-v5-u-color-light-100"
+                          >
+                            <h3
+                              class=""
+                              data-ouia-component-id="OUIA-Generated-Text-2"
+                              data-ouia-component-type="PF5/Text"
+                              data-ouia-safe="true"
+                              data-pf-content="true"
+                            >
+                              Red Hat OpenShift Service on AWS
+                            </h3>
+                            <p
+                              class="pf-v5-u-pb-sm pf-v5-u-flex-grow-1"
+                              data-ouia-component-id="OUIA-Generated-Text-3"
+                              data-ouia-component-type="PF5/Text"
+                              data-ouia-safe="true"
+                              data-pf-content="true"
+                            >
+                              Easily provision your ROSA cluster with AWS Security Token Service in the new web interface with the same secure and capable managed experience provided in the command-line interface.
+                            </p>
+                            <p
+                              class=""
+                              data-ouia-component-id="OUIA-Generated-Text-4"
+                              data-ouia-component-type="PF5/Text"
+                              data-ouia-safe="true"
+                              data-pf-content="true"
+                            >
+                              <a
+                                href="/openshift/services/rosa/hands-on"
+                              >
+                                <button
+                                  aria-disabled="false"
+                                  class="pf-v5-c-button pf-m-danger"
+                                  data-ouia-component-id="OUIA-Generated-Button-danger-1"
+                                  data-ouia-component-type="PF5/Button"
+                                  data-ouia-safe="true"
+                                  type="button"
+                                >
+                                  Try out ROSA today
+                                </button>
+                              </a>
+                            </p>
+                          </div>
+                        </div>
+                        <div
+                          class="pf-v5-c-sidebar__panel pf-m-width-25 slide-1 pf-v5-u-align-self-stretch pf-m-no-background ins-m-hide-on-md"
+                        />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div
+                aria-hidden="true"
+                class="slick-slide"
+                data-index="1"
+                style="outline: none; width: 0px;"
+                tabindex="-1"
+              >
+                <div>
+                  <div
+                    style="width: 100%; display: inline-block;"
+                    tabindex="-1"
+                  >
+                    <div
+                      class="pf-v5-c-sidebar pf-m-gutter pf-m-split"
+                    >
+                      <div
+                        class="pf-v5-c-sidebar__main"
+                      >
+                        <div
+                          class="pf-v5-c-sidebar__content pf-v5-u-p-lg pf-v5-u-h-100 pf-m-no-background"
+                        >
+                          <div
+                            class="pf-v5-c-content pf-v5-u-display-flex pf-v5-u-flex-direction-column pf-v5-u-h-100 pf-v5-u-color-light-100"
+                          >
+                            <h3
+                              class=""
+                              data-ouia-component-id="OUIA-Generated-Text-5"
+                              data-ouia-component-type="PF5/Text"
+                              data-ouia-safe="true"
+                              data-pf-content="true"
+                            >
+                              Develop in the sandbox with the Red Hat Developer program
+                            </h3>
+                            <p
+                              class="pf-v5-u-flex-grow-1"
+                              data-ouia-component-id="OUIA-Generated-Text-6"
+                              data-ouia-component-type="PF5/Text"
+                              data-ouia-safe="true"
+                              data-pf-content="true"
+                            >
+                              Try Red Hat OpenShift technologies without setup or configuration for free with your Red Hat Developer account.
+                              <a
+                                class="pf-v5-u-active-color-400 pf-v5-u-ml-sm"
+                                data-ouia-component-id="OUIA-Generated-Text-7"
+                                data-ouia-component-type="PF5/Text"
+                                data-ouia-safe="true"
+                                data-pf-content="true"
+                                href="https://developers.redhat.com/about"
+                              >
+                                Learn about the program.
+                              </a>
+                            </p>
+                            <p
+                              class="pf-v5-u-pr-sm pf-v5-u-mb-0"
+                              data-ouia-component-id="OUIA-Generated-Text-8"
+                              data-ouia-component-type="PF5/Text"
+                              data-ouia-safe="true"
+                              data-pf-content="true"
+                            >
+                              <a
+                                href="/openshift/sandbox"
+                              >
+                                <button
+                                  aria-disabled="false"
+                                  class="pf-v5-c-button pf-m-danger pf-v5-u-pr-sm"
+                                  data-ouia-component-id="OUIA-Generated-Button-danger-2"
+                                  data-ouia-component-type="PF5/Button"
+                                  data-ouia-safe="true"
+                                  type="button"
+                                >
+                                  Build apps on the sandbox
+                                </button>
+                              </a>
+                            </p>
+                          </div>
+                        </div>
+                        <div
+                          class="pf-v5-c-sidebar__panel pf-m-width-25 slide-2 pf-v5-u-align-self-stretch pf-m-no-background ins-m-hide-on-md"
+                        />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div
+                aria-hidden="true"
+                class="slick-slide"
+                data-index="2"
+                style="outline: none; width: 0px;"
+                tabindex="-1"
+              >
+                <div>
+                  <div
+                    style="width: 100%; display: inline-block;"
+                    tabindex="-1"
+                  >
+                    <div
+                      class="pf-v5-c-sidebar pf-m-gutter pf-m-split"
+                    >
+                      <div
+                        class="pf-v5-c-sidebar__main"
+                      >
+                        <div
+                          class="pf-v5-c-sidebar__content pf-v5-u-p-lg pf-v5-u-h-100 pf-m-no-background"
+                        >
+                          <div
+                            class="pf-v5-c-content pf-v5-u-display-flex pf-v5-u-flex-direction-column pf-v5-u-h-100 pf-v5-u-color-light-100"
+                          >
+                            <h3
+                              class=""
+                              data-ouia-component-id="OUIA-Generated-Text-9"
+                              data-ouia-component-type="PF5/Text"
+                              data-ouia-safe="true"
+                              data-pf-content="true"
+                            >
+                              Red Hat Insights for RHEL
+                            </h3>
+                            <p
+                              class="pf-v5-u-pb-sm pf-v5-u-flex-grow-1"
+                              data-ouia-component-id="OUIA-Generated-Text-10"
+                              data-ouia-component-type="PF5/Text"
+                              data-ouia-safe="true"
+                              data-pf-content="true"
+                            >
+                              With Red Hat Insights, you can continuously analyze platforms and applications from the console to better manage your hybrid cloud environments.
+                            </p>
+                            <p
+                              class=""
+                              data-ouia-component-id="OUIA-Generated-Text-11"
+                              data-ouia-component-type="PF5/Text"
+                              data-ouia-safe="true"
+                              data-pf-content="true"
+                            >
+                              <a
+                                href="/insights/dashboard"
+                              >
+                                <button
+                                  aria-disabled="false"
+                                  class="pf-v5-c-button pf-m-danger"
+                                  data-ouia-component-id="OUIA-Generated-Button-danger-3"
+                                  data-ouia-component-type="PF5/Button"
+                                  data-ouia-safe="true"
+                                  type="button"
+                                >
+                                  Identify and resolve risks
+                                </button>
+                              </a>
+                            </p>
+                          </div>
+                        </div>
+                        <div
+                          class="pf-v5-c-sidebar__panel pf-m-width-25 slide-3  pf-v5-u-align-self-stretch pf-m-no-background ins-m-hide-on-md"
+                        />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div
+                aria-hidden="true"
+                class="slick-slide"
+                data-index="3"
+                style="outline: none; width: 0px;"
+                tabindex="-1"
+              >
+                <div>
+                  <div
+                    style="width: 100%; display: inline-block;"
+                    tabindex="-1"
+                  >
+                    <div
+                      class="pf-v5-c-sidebar pf-m-gutter pf-m-split"
+                    >
+                      <div
+                        class="pf-v5-c-sidebar__main"
+                      >
+                        <div
+                          class="pf-v5-c-sidebar__content pf-v5-u-p-lg pf-v5-u-h-100 pf-m-no-background"
+                        >
+                          <div
+                            class="pf-v5-c-content pf-v5-u-display-flex pf-v5-u-flex-direction-column pf-v5-u-h-100 pf-v5-u-color-light-100"
+                          >
+                            <h3
+                              class=""
+                              data-ouia-component-id="OUIA-Generated-Text-12"
+                              data-ouia-component-type="PF5/Text"
+                              data-ouia-safe="true"
+                              data-pf-content="true"
+                            >
+                              Red Hat Marketplace
+                            </h3>
+                            <p
+                              class="pf-v5-u-pb-sm pf-v5-u-flex-grow-1"
+                              data-ouia-component-id="OUIA-Generated-Text-13"
+                              data-ouia-component-type="PF5/Text"
+                              data-ouia-safe="true"
+                              data-pf-content="true"
+                            >
+                              Try, purchase, and deploy software across clouds.
+                            </p>
+                            <a
+                              class=""
+                              data-ouia-component-id="OUIA-Generated-Text-14"
+                              data-ouia-component-type="PF5/Text"
+                              data-ouia-safe="true"
+                              data-pf-content="true"
+                              href="https://marketplace.redhat.com/en-us"
+                            >
+                              <button
+                                aria-disabled="false"
+                                class="pf-v5-c-button pf-m-danger"
+                                data-ouia-component-id="OUIA-Generated-Button-danger-4"
+                                data-ouia-component-type="PF5/Button"
+                                data-ouia-safe="true"
+                                type="button"
+                              >
+                                Learn more
+                              </button>
+                            </a>
+                          </div>
+                        </div>
+                        <div
+                          class="pf-v5-c-sidebar__panel pf-m-width-25 slide-4  pf-v5-u-align-self-stretch pf-m-no-background ins-m-hide-on-md"
+                        />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <button
+            class="slick-arrow slick-next"
+            data-role="none"
+            style="display: block;"
+            type="button"
+          >
+             
+            Next
+          </button>
+          <ul
+            class="slick-dots"
+            style="display: block;"
+          >
+            <li
+              class="slick-active"
+            >
+              <button>
+                1
+              </button>
+            </li>
+            <li
+              class=""
+            >
+              <button>
+                2
+              </button>
+            </li>
+            <li
+              class=""
+            >
+              <button>
+                3
+              </button>
+            </li>
+            <li
+              class=""
+            >
+              <button>
+                4
+              </button>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+    <div
+      class="pf-v5-c-sidebar land-c-sidebar pf-v5-u-background-color-100"
+    >
+      <div
+        class="pf-v5-c-sidebar__main"
+      >
+        <div
+          class="pf-v5-c-sidebar__content pf-v5-u-background-color-200 pf-v5-u-pt-md pf-v5-u-pb-2xl-on-md"
+        >
+          <div
+            class="pf-v5-l-stack"
+          >
+            <div
+              class="pf-v5-l-stack__item land-l-stack__item-favorites pf-v5-u-px-xl pf-v5-u-pb-lg"
+            >
+              Scalprum Component Mock
+            </div>
+            <div
+              class="pf-v5-l-stack__item pf-v5-u-background-color-100"
+            >
+              <h3
+                class="pf-v5-c-title pf-m-2xl pf-v5-u-px-xl pf-v5-u-py-md"
+                data-ouia-component-id="OUIA-Generated-Title-1"
+                data-ouia-component-type="PF5/Title"
+                data-ouia-safe="true"
+              >
+                Get started with Hybrid Cloud Console capabilities
+              </h3>
+              <div
+                class="pf-v5-l-gallery pf-m-gutter pf-v5-u-px-xl pf-v5-u-background-color-100"
+                style="--pf-v5-l-gallery--GridTemplateColumns--min: 100%; --pf-v5-l-gallery--GridTemplateColumns--min-on-md: 350px;"
+              >
+                <div
+                  class="pf-v5-c-card pf-m-flat"
+                  data-ouia-component-id="OUIA-Generated-Card-1"
+                  data-ouia-component-type="PF5/Card"
+                  data-ouia-safe="true"
+                  id=""
+                >
+                  <div
+                    class="pf-v5-c-card__body"
+                  >
+                    <div
+                      class="pf-v5-c-content pf-v5-u-display-flex pf-v5-u-flex-direction-column"
+                    >
+                      <img
+                        alt="Red Hat Insights"
+                        src="/apps/frontend-assets/console-landing/insights.svg"
+                      />
+                      <p
+                        class="pf-v5-u-font-size-lg pf-v5-u-mt-md"
+                        data-ouia-component-id="OUIA-Generated-Text-15"
+                        data-ouia-component-type="PF5/Text"
+                        data-ouia-safe="true"
+                        data-pf-content="true"
+                      >
+                        Red Hat Insights
+                      </p>
+                      <p
+                        class="pf-v5-u-flex-grow-1"
+                        data-ouia-component-id="OUIA-Generated-Text-16"
+                        data-ouia-component-type="PF5/Text"
+                        data-ouia-safe="true"
+                        data-pf-content="true"
+                      >
+                        Proactively assess, secure and stabilize the business-critical applications you scale from your Red Hat platforms.
+                      </p>
+                      <p
+                        class=""
+                        data-ouia-component-id="OUIA-Generated-Text-17"
+                        data-ouia-component-type="PF5/Text"
+                        data-ouia-safe="true"
+                        data-pf-content="true"
+                      >
+                        Manage
+                        <a
+                          class="pf-v5-u-px-sm"
+                          href="/insights/"
+                        >
+                          RHEL
+                        </a>
+                        |
+                        <a
+                          class="pf-v5-u-px-sm"
+                          href="/ansible/advisor"
+                        >
+                          Ansible
+                        </a>
+                         | 
+                        <a
+                          class="pf-v5-u-pl-sm"
+                          href="/openshift/insights"
+                        >
+                          OpenShift
+                        </a>
+                      </p>
+                    </div>
+                  </div>
+                </div>
+                <div
+                  class="pf-v5-c-card pf-m-flat"
+                  data-ouia-component-id="OUIA-Generated-Card-2"
+                  data-ouia-component-type="PF5/Card"
+                  data-ouia-safe="true"
+                  id=""
+                >
+                  <div
+                    class="pf-v5-c-card__body"
+                  >
+                    <div
+                      class="pf-v5-c-content pf-v5-u-display-flex pf-v5-u-flex-direction-column"
+                    >
+                      <img
+                        alt="Red Hat Openshift AI"
+                        src="/apps/frontend-assets/console-landing/datascience.svg"
+                      />
+                      <p
+                        class="pf-v5-u-font-size-lg pf-v5-u-mt-md"
+                        data-ouia-component-id="OUIA-Generated-Text-18"
+                        data-ouia-component-type="PF5/Text"
+                        data-ouia-safe="true"
+                        data-pf-content="true"
+                      >
+                        Red Hat Openshift AI
+                      </p>
+                      <p
+                        class="pf-v5-u-flex-grow-1"
+                        data-ouia-component-id="OUIA-Generated-Text-19"
+                        data-ouia-component-type="PF5/Text"
+                        data-ouia-safe="true"
+                        data-pf-content="true"
+                      >
+                        Create, train, and serve artificial intelligence and machine learning (AI/ML) models.
+                      </p>
+                      <p
+                        class=""
+                        data-ouia-component-id="OUIA-Generated-Text-20"
+                        data-ouia-component-type="PF5/Text"
+                        data-ouia-safe="true"
+                        data-pf-content="true"
+                      >
+                        <a
+                          href="/application-services/data-science"
+                        >
+                          Try it out now
+                          <span
+                            class="pf-v5-c-icon pf-m-inline pf-v5-u-ml-sm"
+                          >
+                            <span
+                              class="pf-v5-c-icon__content"
+                            >
+                              <svg
+                                aria-hidden="true"
+                                class="pf-v5-svg"
+                                fill="currentColor"
+                                height="1em"
+                                role="img"
+                                viewBox="0 0 448 512"
+                                width="1em"
+                              >
+                                <path
+                                  d="M190.5 66.9l22.2-22.2c9.4-9.4 24.6-9.4 33.9 0L441 239c9.4 9.4 9.4 24.6 0 33.9L246.6 467.3c-9.4 9.4-24.6 9.4-33.9 0l-22.2-22.2c-9.5-9.5-9.3-25 .4-34.3L311.4 296H24c-13.3 0-24-10.7-24-24v-32c0-13.3 10.7-24 24-24h287.4L190.9 101.2c-9.8-9.3-10-24.8-.4-34.3z"
+                                />
+                              </svg>
+                            </span>
+                          </span>
+                        </a>
+                      </p>
+                    </div>
+                  </div>
+                </div>
+                <div
+                  class="pf-v5-c-card pf-m-flat"
+                  data-ouia-component-id="OUIA-Generated-Card-3"
+                  data-ouia-component-type="PF5/Card"
+                  data-ouia-safe="true"
+                  id=""
+                >
+                  <div
+                    class="pf-v5-c-card__body"
+                  >
+                    <div
+                      class="pf-v5-c-content pf-v5-u-display-flex pf-v5-u-flex-direction-column"
+                    >
+                      <img
+                        alt="OpenShift"
+                        src="/apps/frontend-assets/console-landing/openshift.svg"
+                      />
+                      <p
+                        class="pf-v5-u-font-size-lg pf-v5-u-mt-md"
+                        data-ouia-component-id="OUIA-Generated-Text-21"
+                        data-ouia-component-type="PF5/Text"
+                        data-ouia-safe="true"
+                        data-pf-content="true"
+                      >
+                        Red Hat OpenShift
+                      </p>
+                      <p
+                        class="pf-v5-u-flex-grow-1"
+                        data-ouia-component-id="OUIA-Generated-Text-22"
+                        data-ouia-component-type="PF5/Text"
+                        data-ouia-safe="true"
+                        data-pf-content="true"
+                      >
+                        Build, run, scale container-based applications - now with developer tools, CI/CD, and release management.
+                      </p>
+                      <p
+                        class=""
+                        data-ouia-component-id="OUIA-Generated-Text-23"
+                        data-ouia-component-type="PF5/Text"
+                        data-ouia-safe="true"
+                        data-pf-content="true"
+                      >
+                        <a
+                          href="/openshift/overview"
+                        >
+                          Manage Openshift Clusters
+                          <span
+                            class="pf-v5-c-icon pf-m-inline pf-v5-u-ml-sm"
+                          >
+                            <span
+                              class="pf-v5-c-icon__content"
+                            >
+                              <svg
+                                aria-hidden="true"
+                                class="pf-v5-svg"
+                                fill="currentColor"
+                                height="1em"
+                                role="img"
+                                viewBox="0 0 448 512"
+                                width="1em"
+                              >
+                                <path
+                                  d="M190.5 66.9l22.2-22.2c9.4-9.4 24.6-9.4 33.9 0L441 239c9.4 9.4 9.4 24.6 0 33.9L246.6 467.3c-9.4 9.4-24.6 9.4-33.9 0l-22.2-22.2c-9.5-9.5-9.3-25 .4-34.3L311.4 296H24c-13.3 0-24-10.7-24-24v-32c0-13.3 10.7-24 24-24h287.4L190.9 101.2c-9.8-9.3-10-24.8-.4-34.3z"
+                                />
+                              </svg>
+                            </span>
+                          </span>
+                        </a>
+                      </p>
+                    </div>
+                  </div>
+                </div>
+                <div
+                  class="pf-v5-c-card pf-m-flat"
+                  data-ouia-component-id="OUIA-Generated-Card-4"
+                  data-ouia-component-type="PF5/Card"
+                  data-ouia-safe="true"
+                  id=""
+                >
+                  <div
+                    class="pf-v5-c-card__body"
+                  >
+                    <div
+                      class="pf-v5-c-content pf-v5-u-display-flex pf-v5-u-flex-direction-column"
+                    >
+                      <img
+                        alt="Edge Management"
+                        src="/apps/frontend-assets/console-landing/edge1.svg"
+                      />
+                      <p
+                        class="pf-v5-u-font-size-lg pf-v5-u-mt-md"
+                        data-ouia-component-id="OUIA-Generated-Text-24"
+                        data-ouia-component-type="PF5/Text"
+                        data-ouia-safe="true"
+                        data-pf-content="true"
+                      >
+                        Edge Management
+                      </p>
+                      <p
+                        class=""
+                        data-ouia-component-id="OUIA-Generated-Text-25"
+                        data-ouia-component-type="PF5/Text"
+                        data-ouia-safe="true"
+                        data-pf-content="true"
+                      >
+                        Keep your systems protected, available, and operating efficiently. Update all your RHEL for Edge systems with secure, over-the-air updates.
+                      </p>
+                      <p
+                        class=""
+                        data-ouia-component-id="OUIA-Generated-Text-26"
+                        data-ouia-component-type="PF5/Text"
+                        data-ouia-safe="true"
+                        data-pf-content="true"
+                      >
+                        <a
+                          href="/edge/fleet-management"
+                        >
+                          Manage at the edge
+                          <span
+                            class="pf-v5-c-icon pf-m-inline pf-v5-u-ml-sm"
+                          >
+                            <span
+                              class="pf-v5-c-icon__content"
+                            >
+                              <svg
+                                aria-hidden="true"
+                                class="pf-v5-svg"
+                                fill="currentColor"
+                                height="1em"
+                                role="img"
+                                viewBox="0 0 448 512"
+                                width="1em"
+                              >
+                                <path
+                                  d="M190.5 66.9l22.2-22.2c9.4-9.4 24.6-9.4 33.9 0L441 239c9.4 9.4 9.4 24.6 0 33.9L246.6 467.3c-9.4 9.4-24.6 9.4-33.9 0l-22.2-22.2c-9.5-9.5-9.3-25 .4-34.3L311.4 296H24c-13.3 0-24-10.7-24-24v-32c0-13.3 10.7-24 24-24h287.4L190.9 101.2c-9.8-9.3-10-24.8-.4-34.3z"
+                                />
+                              </svg>
+                            </span>
+                          </span>
+                        </a>
+                      </p>
+                    </div>
+                  </div>
+                </div>
+                <div
+                  class="pf-v5-c-card pf-m-flat"
+                  data-ouia-component-id="OUIA-Generated-Card-5"
+                  data-ouia-component-type="PF5/Card"
+                  data-ouia-safe="true"
+                  id=""
+                >
+                  <div
+                    class="pf-v5-c-card__body"
+                  >
+                    <div
+                      class="pf-v5-c-content pf-v5-u-display-flex pf-v5-u-flex-direction-column"
+                    >
+                      <img
+                        alt="Ansible Automation Platform"
+                        src="/apps/frontend-assets/console-landing/ansible.svg"
+                      />
+                      <p
+                        class="pf-v5-u-font-size-lg pf-v5-u-mt-md"
+                        data-ouia-component-id="OUIA-Generated-Text-27"
+                        data-ouia-component-type="PF5/Text"
+                        data-ouia-safe="true"
+                        data-pf-content="true"
+                      >
+                        Ansible Automation Platform
+                      </p>
+                      <p
+                        class="pf-v5-u-flex-grow-1"
+                        data-ouia-component-id="OUIA-Generated-Text-28"
+                        data-ouia-component-type="PF5/Text"
+                        data-ouia-safe="true"
+                        data-pf-content="true"
+                      >
+                        Create, share, and manage automations - from development and operations to security and network teams.
+                      </p>
+                      <p
+                        class=""
+                        data-ouia-component-id="OUIA-Generated-Text-29"
+                        data-ouia-component-type="PF5/Text"
+                        data-ouia-safe="true"
+                        data-pf-content="true"
+                      >
+                        <a
+                          href="/ansible/ansible-dashboard"
+                        >
+                          Automate everything
+                          <span
+                            class="pf-v5-c-icon pf-m-inline pf-v5-u-ml-sm"
+                          >
+                            <span
+                              class="pf-v5-c-icon__content"
+                            >
+                              <svg
+                                aria-hidden="true"
+                                class="pf-v5-svg"
+                                fill="currentColor"
+                                height="1em"
+                                role="img"
+                                viewBox="0 0 448 512"
+                                width="1em"
+                              >
+                                <path
+                                  d="M190.5 66.9l22.2-22.2c9.4-9.4 24.6-9.4 33.9 0L441 239c9.4 9.4 9.4 24.6 0 33.9L246.6 467.3c-9.4 9.4-24.6 9.4-33.9 0l-22.2-22.2c-9.5-9.5-9.3-25 .4-34.3L311.4 296H24c-13.3 0-24-10.7-24-24v-32c0-13.3 10.7-24 24-24h287.4L190.9 101.2c-9.8-9.3-10-24.8-.4-34.3z"
+                                />
+                              </svg>
+                            </span>
+                          </span>
+                        </a>
+                      </p>
+                    </div>
+                  </div>
+                </div>
+                <div
+                  class="pf-v5-c-card pf-m-flat"
+                  data-ouia-component-id="OUIA-Generated-Card-6"
+                  data-ouia-component-type="PF5/Card"
+                  data-ouia-safe="true"
+                  id=""
+                >
+                  <div
+                    class="pf-v5-c-card__body"
+                  >
+                    <div
+                      class="pf-v5-c-content pf-v5-u-display-flex pf-v5-u-flex-direction-column"
+                    >
+                      <img
+                        alt="subscription management"
+                        src="/apps/frontend-assets/console-landing/subs.svg"
+                      />
+                      <p
+                        class="pf-v5-u-font-size-lg pf-v5-u-mt-md"
+                        data-ouia-component-id="OUIA-Generated-Text-30"
+                        data-ouia-component-type="PF5/Text"
+                        data-ouia-safe="true"
+                        data-pf-content="true"
+                      >
+                        Subscription Services
+                      </p>
+                      <p
+                        class="pf-v5-u-flex-grow-1"
+                        data-ouia-component-id="OUIA-Generated-Text-31"
+                        data-ouia-component-type="PF5/Text"
+                        data-ouia-safe="true"
+                        data-pf-content="true"
+                      >
+                        View and manage your Red Hat subscriptions.
+                      </p>
+                      <p
+                        class=""
+                        data-ouia-component-id="OUIA-Generated-Text-32"
+                        data-ouia-component-type="PF5/Text"
+                        data-ouia-safe="true"
+                        data-pf-content="true"
+                      >
+                        <a
+                          href="/subscriptions/overview"
+                        >
+                          View all subscriptions
+                          <span
+                            class="pf-v5-c-icon pf-m-inline pf-v5-u-ml-sm"
+                          >
+                            <span
+                              class="pf-v5-c-icon__content"
+                            >
+                              <svg
+                                aria-hidden="true"
+                                class="pf-v5-svg"
+                                fill="currentColor"
+                                height="1em"
+                                role="img"
+                                viewBox="0 0 448 512"
+                                width="1em"
+                              >
+                                <path
+                                  d="M190.5 66.9l22.2-22.2c9.4-9.4 24.6-9.4 33.9 0L441 239c9.4 9.4 9.4 24.6 0 33.9L246.6 467.3c-9.4 9.4-24.6 9.4-33.9 0l-22.2-22.2c-9.5-9.5-9.3-25 .4-34.3L311.4 296H24c-13.3 0-24-10.7-24-24v-32c0-13.3 10.7-24 24-24h287.4L190.9 101.2c-9.8-9.3-10-24.8-.4-34.3z"
+                                />
+                              </svg>
+                            </span>
+                          </span>
+                        </a>
+                      </p>
+                    </div>
+                  </div>
+                </div>
+                <div
+                  class="pf-v5-c-card pf-m-flat"
+                  data-ouia-component-id="OUIA-Generated-Card-7"
+                  data-ouia-component-type="PF5/Card"
+                  data-ouia-safe="true"
+                  id=""
+                >
+                  <div
+                    class="pf-v5-c-card__body"
+                  >
+                    <div
+                      class="pf-v5-c-content pf-v5-u-display-flex pf-v5-u-flex-direction-column"
+                    >
+                      <img
+                        alt="cluster security cloud service"
+                        src="/apps/frontend-assets/console-landing/acs.svg"
+                      />
+                      <p
+                        class="pf-v5-u-font-size-lg pf-v5-u-mt-md"
+                        data-ouia-component-id="OUIA-Generated-Text-33"
+                        data-ouia-component-type="PF5/Text"
+                        data-ouia-safe="true"
+                        data-pf-content="true"
+                      >
+                        Red Hat Advanced Cluster Security Cloud Service
+                      </p>
+                      <p
+                        class="pf-v5-u-flex-grow-1"
+                        data-ouia-component-id="OUIA-Generated-Text-34"
+                        data-ouia-component-type="PF5/Text"
+                        data-ouia-safe="true"
+                        data-pf-content="true"
+                      >
+                        Fully hosted software as a service for protecting cloud native applications and Kubernetes.
+                      </p>
+                      <p
+                        class=""
+                        data-ouia-component-id="OUIA-Generated-Text-35"
+                        data-ouia-component-type="PF5/Text"
+                        data-ouia-safe="true"
+                        data-pf-content="true"
+                      >
+                        <a
+                          href="/application-services/acs/overview"
+                        >
+                          Get Started Now
+                          <span
+                            class="pf-v5-c-icon pf-m-inline pf-v5-u-ml-sm"
+                          >
+                            <span
+                              class="pf-v5-c-icon__content"
+                            >
+                              <svg
+                                aria-hidden="true"
+                                class="pf-v5-svg"
+                                fill="currentColor"
+                                height="1em"
+                                role="img"
+                                viewBox="0 0 448 512"
+                                width="1em"
+                              >
+                                <path
+                                  d="M190.5 66.9l22.2-22.2c9.4-9.4 24.6-9.4 33.9 0L441 239c9.4 9.4 9.4 24.6 0 33.9L246.6 467.3c-9.4 9.4-24.6 9.4-33.9 0l-22.2-22.2c-9.5-9.5-9.3-25 .4-34.3L311.4 296H24c-13.3 0-24-10.7-24-24v-32c0-13.3 10.7-24 24-24h287.4L190.9 101.2c-9.8-9.3-10-24.8-.4-34.3z"
+                                />
+                              </svg>
+                            </span>
+                          </span>
+                        </a>
+                      </p>
+                    </div>
+                  </div>
+                </div>
+                <div
+                  class="pf-v5-c-card pf-m-flat"
+                  data-ouia-component-id="OUIA-Generated-Card-8"
+                  data-ouia-component-type="PF5/Card"
+                  data-ouia-safe="true"
+                  id=""
+                >
+                  <div
+                    class="pf-v5-c-card__body"
+                  >
+                    <div
+                      class="pf-v5-c-content pf-v5-u-display-flex pf-v5-u-flex-direction-column"
+                    >
+                      <img
+                        alt="quay"
+                        src="/apps/frontend-assets/console-landing/generic.svg"
+                      />
+                      <p
+                        class="pf-v5-u-font-size-lg pf-v5-u-mt-md"
+                        data-ouia-component-id="OUIA-Generated-Text-36"
+                        data-ouia-component-type="PF5/Text"
+                        data-ouia-safe="true"
+                        data-pf-content="true"
+                      >
+                        Quay.io
+                      </p>
+                      <p
+                        class="pf-v5-u-flex-grow-1"
+                        data-ouia-component-id="OUIA-Generated-Text-37"
+                        data-ouia-component-type="PF5/Text"
+                        data-ouia-safe="true"
+                        data-pf-content="true"
+                      >
+                        Build, analyze, and distribute your container images.
+                      </p>
+                      <p
+                        class=""
+                        data-ouia-component-id="OUIA-Generated-Text-38"
+                        data-ouia-component-type="PF5/Text"
+                        data-ouia-safe="true"
+                        data-pf-content="true"
+                      >
+                        <a
+                          href="/quay/organization"
+                        >
+                          Start managing your container images
+                          <span
+                            class="pf-v5-c-icon pf-m-inline pf-v5-u-ml-sm"
+                          >
+                            <span
+                              class="pf-v5-c-icon__content"
+                            >
+                              <svg
+                                aria-hidden="true"
+                                class="pf-v5-svg"
+                                fill="currentColor"
+                                height="1em"
+                                role="img"
+                                viewBox="0 0 448 512"
+                                width="1em"
+                              >
+                                <path
+                                  d="M190.5 66.9l22.2-22.2c9.4-9.4 24.6-9.4 33.9 0L441 239c9.4 9.4 9.4 24.6 0 33.9L246.6 467.3c-9.4 9.4-24.6 9.4-33.9 0l-22.2-22.2c-9.5-9.5-9.3-25 .4-34.3L311.4 296H24c-13.3 0-24-10.7-24-24v-32c0-13.3 10.7-24 24-24h287.4L190.9 101.2c-9.8-9.3-10-24.8-.4-34.3z"
+                                />
+                              </svg>
+                            </span>
+                          </span>
+                        </a>
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          class="pf-v5-c-sidebar__panel pf-m-width-25-on-lg pf-m-width-33-on-md pf-m-width-100-on-sm pf-v5-u-m-xl pf-v5-u-m-0-on-md pf-v5-u-background-color-200"
+        >
+          <div
+            class="pf-v5-c-content pf-m-fill pf-v5-u-px-xl pf-v5-u-py-lg"
+          >
+            <h3
+              class="pf-v5-u-mb-lg"
+              data-ouia-component-id="OUIA-Generated-Text-39"
+              data-ouia-component-type="PF5/Text"
+              data-ouia-safe="true"
+              data-pf-content="true"
+            >
+              Recently visited
+            </h3>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
