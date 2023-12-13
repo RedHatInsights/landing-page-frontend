@@ -17,7 +17,7 @@ function VirtualAssistant() {
   }
 
   return (
-    <div className="virtualAssistant astro__landing-page pf-v5-u-mr-xs pf-v5-u-sm">
+    <div className="virtualAssistant astro__landing-page pf-v5-u-mr-xs">
       <ScalprumComponent
         scope="virtualAssistant"
         module="./AstroVirtualAssistant"
