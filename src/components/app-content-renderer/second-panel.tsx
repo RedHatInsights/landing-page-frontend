@@ -107,7 +107,7 @@ const SecondPanel = () => {
                         component="p"
                         className="pf-v5-u-font-size-lg pf-v5-u-mt-md"
                       >
-                        Red Hat Openshift AI
+                        Red Hat OpenShift AI
                       </Text>
                       <Text component="p" className="pf-v5-u-flex-grow-1">
                         Create, train, and serve artificial intelligence and
@@ -150,7 +150,7 @@ const SecondPanel = () => {
                             : '/openshift/overview'
                         }
                       >
-                        Manage Openshift Clusters
+                        Manage OpenShift Clusters
                         <Icon className="pf-v5-u-ml-sm" isInline>
                           <ArrowRightIcon />
                         </Icon>
