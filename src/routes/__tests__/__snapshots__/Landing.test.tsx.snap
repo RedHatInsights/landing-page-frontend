@@ -520,7 +520,7 @@ exports[`<Landing/> should render correctly 1`] = `
                         data-ouia-safe="true"
                         data-pf-content="true"
                       >
-                        Red Hat Openshift AI
+                        Red Hat OpenShift AI
                       </p>
                       <p
                         class="pf-v5-u-flex-grow-1"
@@ -613,7 +613,7 @@ exports[`<Landing/> should render correctly 1`] = `
                         <a
                           href="/openshift/overview"
                         >
-                          Manage Openshift Clusters
+                          Manage OpenShift Clusters
                           <span
                             class="pf-v5-c-icon pf-m-inline pf-v5-u-ml-sm"
                           >
