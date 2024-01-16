@@ -12,8 +12,8 @@
     "build": "fec build",
     "cypress": "cypress",
     "cypress:run": "cypress run --browser electron",
-    "fixjs": "eslint src --fix",
-    "lint": "eslint src",
+    "fixjs": "eslint src cypress --fix",
+    "lint": "eslint src cypress",
     "nightly": "npm-run-all build lint && npm run test -- -u",
     "postinstall": "ts-patch install && rm -rf .cache",
     "start": "fec dev",
@@ -65,8 +65,8 @@
     "@types/react-slick": "^0.23.12",
     "@typescript-eslint/eslint-plugin": "^6.10.0",
     "copy-webpack-plugin": "^11.0.0",
-    "cypress": "^13.3.0",
-    "cypress-localstorage-commands": "^2.2.3",
+    "cypress": "^13.6.1",
+    "cypress-localstorage-commands": "^2.2.5",
     "eslint": "^8.53.0",
     "eslint-plugin-react": "^7.33.2",
     "identity-obj-proxy": "^3.0.0",
@@ -81,7 +81,9 @@
     "ts-jest": "^29.1.1",
     "ts-patch": "^3.0.2",
     "typescript": "^5.2.2",
-    "webpack-bundle-analyzer": "^4.9.1"
+    "wait-on": "^7.2.0",
+    "webpack-bundle-analyzer": "^4.10.1",
+    "webpack-dev-server": "^4.15.1"
   },
   "insights": {
     "appname": "landing"

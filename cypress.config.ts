@@ -1,15 +1,11 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
 import { defineConfig } from 'cypress';
-const {
-  addMatchImageSnapshotPlugin,
-} = require('@simonsmith/cypress-image-snapshot/plugin');
 
 export default defineConfig({
   component: {
     specPattern: 'cypress/component/**/*.cy.{js,jsx,ts,tsx}',
     excludeSpecPattern: ['/snapshots/*', '/image_snapshots/*', '/src/*'],
     setupNodeEvents(on, config) {
-      addMatchImageSnapshotPlugin(on, config);
       on('before:browser:launch', (browser, launchOptions) => {
         if (browser.name === 'chrome' && browser.isHeadless) {
           launchOptions.args.push('--window-size=1280,720');
