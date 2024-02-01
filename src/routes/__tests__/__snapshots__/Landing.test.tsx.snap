@@ -601,7 +601,14 @@ exports[`<Landing/> should render correctly 1`] = `
                         data-ouia-safe="true"
                         data-pf-content="true"
                       >
-                        Build, run, scale container-based applications - now with developer tools, CI/CD, and release management.
+                        Build, run, and scale container-based applications with Red Hat OpenShift on
+                         
+                        <a
+                          href="/openshift/overview/rosa"
+                        >
+                          AWS (ROSA)
+                        </a>
+                        , Azure, IBM Cloud and more. Developer tools, CI/CD, and release management now available.
                       </p>
                       <p
                         class=""
@@ -613,7 +620,7 @@ exports[`<Landing/> should render correctly 1`] = `
                         <a
                           href="/openshift/overview"
                         >
-                          Manage OpenShift Clusters
+                          See all OpenShift Offerings
                           <span
                             class="pf-v5-c-icon pf-m-inline pf-v5-u-ml-sm"
                           >
