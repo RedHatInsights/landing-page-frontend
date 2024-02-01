@@ -139,8 +139,11 @@ const SecondPanel = () => {
                       Red Hat OpenShift
                     </Text>
                     <Text component="p" className="pf-v5-u-flex-grow-1">
-                      Build, run, scale container-based applications - now with
-                      developer tools, CI/CD, and release management.
+                      Build, run, and scale container-based applications with
+                      Red Hat OpenShift on{' '}
+                      <Link to="/openshift/overview/rosa">AWS (ROSA)</Link>,
+                      Azure, IBM Cloud and more. Developer tools, CI/CD, and
+                      release management now available.
                     </Text>
                     <Text component="p">
                       <Link
@@ -150,7 +153,7 @@ const SecondPanel = () => {
                             : '/openshift/overview'
                         }
                       >
-                        Manage OpenShift Clusters
+                        See all OpenShift Offerings
                         <Icon className="pf-v5-u-ml-sm" isInline>
                           <ArrowRightIcon />
                         </Icon>
