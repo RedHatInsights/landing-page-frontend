@@ -287,7 +287,7 @@ const SecondPanel = () => {
                   <CardBody>
                     <TextContent className="pf-v5-u-display-flex pf-v5-u-flex-direction-column">
                       <img
-                        src="/apps/frontend-assets/console-landing/generic.svg"
+                        src="/apps/frontend-assets/console-landing/quay-io.svg"
                         alt="quay"
                       />
                       <Text
