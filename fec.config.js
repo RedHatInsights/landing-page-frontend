@@ -11,6 +11,10 @@ module.exports = {
   moduleFederation: {
     exposes: {
       './RootApp': path.resolve(__dirname, './src/moduleEntries/AppEntry.tsx'),
+      './RecentlyVisited': path.resolve(
+        __dirname,
+        'src/components/widgets/recently-visited.tsx'
+      ),
     },
     exclude: ['react-router-dom'],
     shared: [{ 'react-router-dom': { singleton: true, version: '*' } }],
