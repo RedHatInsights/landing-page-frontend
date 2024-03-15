@@ -10,7 +10,7 @@ import React, { Fragment } from 'react';
 import { useLastVisited } from '@redhat-cloud-services/chrome';
 import useChrome from '@redhat-cloud-services/frontend-components/useChrome';
 import { Link } from 'react-router-dom';
-import './RecentlyVisited.scss';
+import './recently-visited.scss';
 
 const LinkWrapper = ({
   pathname,
