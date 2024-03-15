@@ -10,7 +10,7 @@ import { useLoadModule } from '@scalprum/react-core';
 import { PageSection } from '@patternfly/react-core/dist/dynamic/components/Page';
 
 const getWidgetLayoutLandingPage = () => {
-  const scope = 'frontendStarterApp';
+  const scope = 'widgetLayout';
   // eslint-disable-next-line @typescript-eslint/ban-ts-comment
   // @ts-ignore
   const [{ default: GridLayout }] = useLoadModule(
