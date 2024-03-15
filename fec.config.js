@@ -16,14 +16,15 @@ module.exports = {
       '/api/chrome-service/v1/dashboard-templates': {
         host: `http://localhost:${process.env.CONFIG_PORT}`,
       },
-      '/apps/frontend-starter-app': {
+    }),
+    ...(process.env.LOCAL_WIDGET_LAYOUT && {
+      '/apps/widget-layout': {
         host: `http://localhost:8003`,
       },
-      '/beta/apps/frontend-starter-app': {
+      '/beta/apps/widget-layout': {
         host: `http://localhost:8003`,
       },
     }),
-  },
   moduleFederation: {
     exposes: {
       './RootApp': path.resolve(__dirname, './src/moduleEntries/AppEntry.tsx'),
