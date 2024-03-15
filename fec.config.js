@@ -25,6 +25,7 @@ module.exports = {
         host: `http://localhost:8003`,
       },
     }),
+  }
   moduleFederation: {
     exposes: {
       './RootApp': path.resolve(__dirname, './src/moduleEntries/AppEntry.tsx'),
