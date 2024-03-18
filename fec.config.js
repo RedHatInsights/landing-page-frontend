@@ -29,6 +29,10 @@ module.exports = {
   moduleFederation: {
     exposes: {
       './RootApp': path.resolve(__dirname, './src/moduleEntries/AppEntry.tsx'),
+      './ExploreCapabilities': path.resolve(
+        __dirname,
+        'src/components/widgets/explore-capabilities.tsx'
+      ),
     },
     exclude: ['react-router-dom'],
     shared: [
