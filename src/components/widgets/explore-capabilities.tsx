@@ -91,7 +91,7 @@ export const ExploreCapabilities: React.FunctionComponent = () => {
       name: 'Configure your console',
       img: '/apps/frontend-assets/console-landing/widget-explore/Explore_configure.svg',
       title: 'Customize your notification settings',
-      body: 'With Notification Preferences, opt-in and out of receiving notifications.',
+      body: 'Opt-in and out of receiving notifications for your console services.',
       buttonName: 'Configure settings',
       url: 'https://console.redhat.com/settings/notifications',
     },
