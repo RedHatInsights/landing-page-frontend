@@ -118,7 +118,7 @@ export const ExploreCapabilities: React.FunctionComponent = () => {
                   {drawerData[activeItem].body}
                 </Text>
                 <Button
-                  size="sm"
+                  size="lg"
                   component="a"
                   href={drawerData[activeItem].url}
                   target="_blank"
