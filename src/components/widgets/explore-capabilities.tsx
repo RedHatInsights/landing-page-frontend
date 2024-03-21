@@ -9,8 +9,11 @@ import { SimpleList } from '@patternfly/react-core/dist/dynamic/components/Simpl
 import { SimpleListItem } from '@patternfly/react-core/dist/dynamic/components/SimpleList';
 import { Split } from '@patternfly/react-core/dist/dynamic/layouts/Split';
 import { SplitItem } from '@patternfly/react-core/dist/dynamic/layouts/Split';
-import { Title } from '@patternfly/react-core/dist/dynamic/components/Title';
 import './explore-capabilities.scss';
+import {
+  Text,
+  TextContent,
+} from '@patternfly/react-core/dist/dynamic/components/Text';
 
 export const ExploreCapabilities: React.FunctionComponent = () => {
   const [activeItem, setActiveItem] = React.useState(0);
@@ -63,6 +66,28 @@ export const ExploreCapabilities: React.FunctionComponent = () => {
     },
     {
       id: 'ex-toggle6',
+      name: 'Convert your CentOS systems to RHEL',
+      img: '/apps/frontend-assets/console-landing/widget-explore/Explore_CentOS-to-RHEL.svg',
+      title: 'Convert your CentOS systems to Red Hat Enterprise Linux (RHEL)',
+      body: (
+        <span>
+          On June 30, 2024, CentOS Linux 7 will reach End of Life (EOL), and
+          those systems will stop receiving updates, security pathes, and new
+          featues.
+          <br></br>
+          Red Hat can help.{' '}
+          <a href="https://www.redhat.com/en/technologies/linux-platforms/enterprise-linux/centos-migration">
+            Learn more
+          </a>{' '}
+          about migrating your CentOS Linux systems to RHEL, whether on-premise
+          or in the cloud.
+        </span>
+      ),
+      buttonName: 'Run a pre-conversion analysis',
+      url: 'https://console.redhat.com/insights/tasks?quickstart=insights-tasks-pre-conversion#SIDs=&tags=',
+    },
+    {
+      id: 'ex-toggle7',
       name: 'Configure your console',
       img: '/apps/frontend-assets/console-landing/widget-explore/Explore_configure.svg',
       title: 'Customize your notification settings',
@@ -82,20 +107,26 @@ export const ExploreCapabilities: React.FunctionComponent = () => {
         <DrawerPanelBody>
           <Split>
             <SplitItem isFilled>
-              <Title className="pf-v5-u-mb-sm" headingLevel="h2" size="xl">
-                {drawerData[activeItem].title}
-              </Title>
-              <p className="pf-v5-u-mb-sm">{drawerData[activeItem].body}</p>
-              <Button
-                variant="danger"
-                size="lg"
-                component="a"
-                href={drawerData[activeItem].url}
-                target="_blank"
-                className="pf-v5-u-mb-sm"
-              >
-                {drawerData[activeItem].buttonName}
-              </Button>
+              <TextContent>
+                <Text component="h2" className="pf-v5-u-mb-sm">
+                  {drawerData[activeItem].title}
+                </Text>
+                <Text
+                  component="p"
+                  className="pf-v5-u-font-size-md pf-v5-u-mb-sm"
+                >
+                  {drawerData[activeItem].body}
+                </Text>
+                <Button
+                  size="lg"
+                  component="a"
+                  href={drawerData[activeItem].url}
+                  target="_blank"
+                  className="pf-m-danger pf-v5-u-mb-sm"
+                >
+                  {drawerData[activeItem].buttonName}
+                </Button>
+              </TextContent>
             </SplitItem>
             <SplitItem className="pf-v5-u-pl-sm">
               <img src={drawerData[activeItem].img} />
@@ -124,6 +155,9 @@ export const ExploreCapabilities: React.FunctionComponent = () => {
         Connect to your subscriptions
       </SimpleListItem>
       <SimpleListItem onClick={() => setActiveItem(5)}>
+        Convert your CentOS systems to RHEL
+      </SimpleListItem>
+      <SimpleListItem onClick={() => setActiveItem(6)}>
         Configure your console
       </SimpleListItem>
     </SimpleList>
