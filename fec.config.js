@@ -33,6 +33,22 @@ module.exports = {
         __dirname,
         'src/components/widgets/explore-capabilities.tsx'
       ),
+      './EdgeWidget': path.resolve(
+        __dirname,
+        'src/components/widgets/edge-widget.tsx'
+      ),
+      './RhelWidget': path.resolve(
+        __dirname,
+        'src/components/widgets/rhel-widget.tsx'
+      ),
+      './AnsibleWidget': path.resolve(
+        __dirname,
+        'src/components/widgets/ansible-widget.tsx'
+      ),
+      './OpenShiftWidget': path.resolve(
+        __dirname,
+        'src/components/widgets/openshift-widget.tsx'
+      ),
     },
     exclude: ['react-router-dom'],
     shared: [
