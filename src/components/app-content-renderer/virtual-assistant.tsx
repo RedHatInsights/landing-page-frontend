@@ -6,13 +6,15 @@ import './virtual-assistant.scss';
 import useChrome from '@redhat-cloud-services/frontend-components/useChrome';
 
 function VirtualAssistant() {
-  const showVirtualAssistant = useFlag(
-    'platform.landing-page.virtual-assistant'
-  );
   const chrome = useChrome();
+  const showVirtualAssistant = useFlag(
+    chrome.isBeta()
+      ? 'platform.landing-page.virtual-assistant.preview'
+      : 'platform.landing-page.virtual-assistant.stable'
+  );
 
-  // Disable it for prod, any stable environment or if the feature flag is off
-  if (!showVirtualAssistant || (chrome.isProd() && !chrome.isBeta())) {
+  // Disable if the feature flag is off
+  if (!showVirtualAssistant) {
     return null;
   }
 
