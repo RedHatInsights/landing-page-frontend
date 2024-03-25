@@ -1,7 +1,7 @@
 import React from 'react';
 import { SimpleServiceWidget } from './simple-service-widget';
 
-export const AnsibleWidget: React.FunctionComponent = () => {
+const AnsibleWidget: React.FunctionComponent = () => {
   return (
     <>
       <SimpleServiceWidget
@@ -13,3 +13,5 @@ export const AnsibleWidget: React.FunctionComponent = () => {
     </>
   );
 };
+
+export default AnsibleWidget;

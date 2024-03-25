@@ -15,7 +15,7 @@ import {
   TextContent,
 } from '@patternfly/react-core/dist/dynamic/components/Text';
 
-export const ExploreCapabilities: React.FunctionComponent = () => {
+const ExploreCapabilities: React.FunctionComponent = () => {
   const [activeItem, setActiveItem] = React.useState(0);
 
   const drawerData = [
@@ -173,3 +173,5 @@ export const ExploreCapabilities: React.FunctionComponent = () => {
     </React.Fragment>
   );
 };
+
+export default ExploreCapabilities;
