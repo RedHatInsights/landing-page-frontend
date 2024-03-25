@@ -114,7 +114,7 @@ const SecondPanel = () => {
                         machine learning (AI/ML) models.
                       </Text>
                       <Text component="p">
-                        <Link to="/application-services/data-science">
+                        <Link to="https://developers.redhat.com/learn/openshift/how-create-natural-language-processing-nlp-application-using-red-hat-openshift-ai">
                           Try it out now
                           <Icon className="pf-v5-u-ml-sm" isInline>
                             <ArrowRightIcon />
