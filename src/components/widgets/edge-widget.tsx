@@ -1,7 +1,7 @@
 import React from 'react';
 import { SimpleServiceWidget } from './simple-service-widget';
 
-export const EdgeWidget: React.FunctionComponent = () => {
+const EdgeWidget: React.FunctionComponent = () => {
   return (
     <>
       <SimpleServiceWidget
@@ -13,3 +13,5 @@ export const EdgeWidget: React.FunctionComponent = () => {
     </>
   );
 };
+
+export default EdgeWidget;

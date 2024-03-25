@@ -1,7 +1,7 @@
 import React from 'react';
 import { SimpleServiceWidget } from './simple-service-widget';
 
-export const OpenShiftWidget: React.FunctionComponent = () => {
+const OpenShiftWidget: React.FunctionComponent = () => {
   return (
     <>
       <SimpleServiceWidget
@@ -13,3 +13,5 @@ export const OpenShiftWidget: React.FunctionComponent = () => {
     </>
   );
 };
+
+export default OpenShiftWidget;

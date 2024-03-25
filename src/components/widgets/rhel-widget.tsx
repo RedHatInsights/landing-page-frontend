@@ -1,7 +1,7 @@
 import React from 'react';
 import { SimpleServiceWidget } from './simple-service-widget';
 
-export const RhelWidget: React.FunctionComponent = () => {
+const RhelWidget: React.FunctionComponent = () => {
   return (
     <>
       <SimpleServiceWidget
@@ -13,3 +13,5 @@ export const RhelWidget: React.FunctionComponent = () => {
     </>
   );
 };
+
+export default RhelWidget;
