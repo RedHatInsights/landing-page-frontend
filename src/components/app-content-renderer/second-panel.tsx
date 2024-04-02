@@ -100,7 +100,7 @@ const SecondPanel = () => {
                   <CardBody>
                     <TextContent className="pf-v5-u-display-flex pf-v5-u-flex-direction-column">
                       <img
-                        src="/apps/frontend-assets/console-landing/datascience.svg"
+                        src="/apps/frontend-assets/console-landing/ai-technology.svg"
                         alt="Red Hat Openshift AI"
                       />
                       <Text
@@ -114,7 +114,7 @@ const SecondPanel = () => {
                         machine learning (AI/ML) models.
                       </Text>
                       <Text component="p">
-                        <Link to="https://developers.redhat.com/learn/openshift/how-create-natural-language-processing-nlp-application-using-red-hat-openshift-ai">
+                        <Link to="https://www.redhat.com/en/technologies/cloud-computing/openshift/openshift-ai/trial">
                           Try it out now
                           <Icon className="pf-v5-u-ml-sm" isInline>
                             <ArrowRightIcon />
