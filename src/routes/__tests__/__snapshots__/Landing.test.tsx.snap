@@ -511,7 +511,7 @@ exports[`<Landing/> should render correctly 1`] = `
                     >
                       <img
                         alt="Red Hat Openshift AI"
-                        src="/apps/frontend-assets/console-landing/datascience.svg"
+                        src="/apps/frontend-assets/console-landing/ai-technology.svg"
                       />
                       <p
                         class="pf-v5-u-font-size-lg pf-v5-u-mt-md"
@@ -539,7 +539,7 @@ exports[`<Landing/> should render correctly 1`] = `
                         data-pf-content="true"
                       >
                         <a
-                          href="https://developers.redhat.com/learn/openshift/how-create-natural-language-processing-nlp-application-using-red-hat-openshift-ai"
+                          href="https://www.redhat.com/en/technologies/cloud-computing/openshift/openshift-ai/trial"
                         >
                           Try it out now
                           <span
