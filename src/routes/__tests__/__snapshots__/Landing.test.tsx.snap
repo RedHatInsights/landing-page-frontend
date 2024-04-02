@@ -511,7 +511,7 @@ exports[`<Landing/> should render correctly 1`] = `
                     >
                       <img
                         alt="Red Hat Openshift AI"
-                        src="/apps/frontend-assets/console-landing/datascience.svg"
+                        src="/apps/frontend-assets/console-landing/ai-technology.svg"
                       />
                       <p
                         class="pf-v5-u-font-size-lg pf-v5-u-mt-md"
