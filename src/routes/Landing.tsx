@@ -5,7 +5,6 @@ import '../components/app-content-renderer/styles/panels.scss';
 
 import FirstPanel from '../components/app-content-renderer/first-panel';
 import SecondPanel from '../components/app-content-renderer/second-panel';
-import VirtualAssistant from '../components/app-content-renderer/virtual-assistant';
 import { useLoadModule } from '@scalprum/react-core';
 import { PageSection } from '@patternfly/react-core/dist/dynamic/components/Page';
 
@@ -51,7 +50,6 @@ const Landing = () => {
   return (
     <div className="land-c-page-content pf-v5-u-display-flex pf-v5-u-flex-direction-column">
       <Fragment>
-        <VirtualAssistant />
         {widgetLayoutLandingPageEnabled ? null : <FirstPanel />}
         {widgetLayoutLandingPageEnabled ? null : <SecondPanel />}
         {widgetLayoutLandingPageEnabled ? getWidgetLayoutLandingPage() : null}
