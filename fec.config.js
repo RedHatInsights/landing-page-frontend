@@ -53,6 +53,18 @@ module.exports = {
         __dirname,
         'src/components/widgets/openshift-widget.tsx'
       ),
+      './OpenShiftAiWidget': path.resolve(
+        __dirname,
+        'src/components/widgets/openshift-ai-widget.tsx'
+      ),
+      './QuayWidget': path.resolve(
+        __dirname,
+        'src/components/widgets/quay-widget.tsx'
+      ),
+      './AcsWidget': path.resolve(
+        __dirname,
+        'src/components/widgets/acs-widget.tsx'
+      ),
     },
     exclude: ['react-router-dom'],
     shared: [
