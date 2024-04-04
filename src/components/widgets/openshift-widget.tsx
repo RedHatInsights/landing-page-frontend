@@ -1,6 +1,6 @@
 import React from 'react';
 import { SimpleServiceWidget } from './simple-service-widget';
-import './simple-service-widget';
+import './simple-service-widget.scss';
 
 const OpenShiftWidget: React.FunctionComponent = () => {
   return (

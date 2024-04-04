@@ -1,6 +1,6 @@
 import React from 'react';
 import { SimpleServiceWidget } from './simple-service-widget';
-import './simple-service-widget';
+import './simple-service-widget.scss';
 
 const RhelWidget: React.FunctionComponent = () => {
   return (
