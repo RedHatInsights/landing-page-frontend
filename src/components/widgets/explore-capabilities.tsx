@@ -68,7 +68,7 @@ const ExploreCapabilities: React.FunctionComponent = () => {
       id: 'ex-toggle6',
       name: 'Convert your CentOS systems to RHEL',
       img: '/apps/frontend-assets/console-landing/widget-explore/Explore_CentOS-to-RHEL.svg',
-      title: 'Convert your CentOS systems to Red Hat Enterprise Linux (RHEL)',
+      title: 'Convert your CentOS systems to Red Hat Enterprise Linux',
       body: (
         <span>
           On June 30, 2024, CentOS Linux 7 will reach End of Life (EOL), and
