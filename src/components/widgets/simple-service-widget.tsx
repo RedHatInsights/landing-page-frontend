@@ -21,7 +21,7 @@ export const SimpleServiceWidget: React.FunctionComponent<
   SimpleServiceWidgetProps
 > = (props) => {
   return (
-    <Card>
+    <Card isPlain>
       <>
         <CardBody>
           <TextContent
