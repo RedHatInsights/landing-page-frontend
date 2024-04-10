@@ -8,6 +8,8 @@ import SecondPanel from '../components/app-content-renderer/second-panel';
 import VirtualAssistant from '../components/app-content-renderer/virtual-assistant';
 import { useLoadModule } from '@scalprum/react-core';
 
+import useChrome from '@redhat-cloud-services/frontend-components/useChrome';
+
 const getWidgetLayoutLandingPage = () => {
   const scope = 'widgetLayout';
   // eslint-disable-next-line @typescript-eslint/ban-ts-comment
@@ -23,9 +25,10 @@ const getWidgetLayoutLandingPage = () => {
 };
 
 const Landing = () => {
-  const widgetLayoutLandingPageEnabled = useFlag(
-    'platform.landing-page.widgetization'
-  );
+  const { isBeta } = useChrome();
+  const widgetLayoutLandingPageEnabled =
+    (isBeta() && useFlag('platform.landing-page.widgetization')) ||
+    (!isBeta() && useFlag('platform.landing-page.widgetization-stable'));
   return (
     <div className="land-c-page-content pf-v5-u-display-flex pf-v5-u-flex-direction-column">
       <Fragment>
