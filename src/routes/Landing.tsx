@@ -7,41 +7,19 @@ import FirstPanel from '../components/app-content-renderer/first-panel';
 import SecondPanel from '../components/app-content-renderer/second-panel';
 import VirtualAssistant from '../components/app-content-renderer/virtual-assistant';
 import { useLoadModule } from '@scalprum/react-core';
-import { PageSection } from '@patternfly/react-core/dist/dynamic/components/Page';
 
 const getWidgetLayoutLandingPage = () => {
   const scope = 'widgetLayout';
   // eslint-disable-next-line @typescript-eslint/ban-ts-comment
   // @ts-ignore
-  const [{ default: GridLayout }] = useLoadModule(
+  const [{ default: WidgetLayout }] = useLoadModule(
     { scope, module: './WidgetLayout' },
     {}
   );
-  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-  // @ts-ignore
-  const [{ default: AddWidgetDrawer }] = useLoadModule(
-    { scope, module: './WidgetDrawer' },
-    {}
-  );
-  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-  // @ts-ignore
-  const [{ default: Header }] = useLoadModule(
-    { scope, module: './WidgetHeader' },
-    {}
-  );
-  if (!GridLayout || !AddWidgetDrawer || !Header) {
+  if (!WidgetLayout) {
     return <></>;
   }
-  return (
-    <>
-      <Header />
-      <AddWidgetDrawer dismissible={false}>
-        <PageSection>
-          <GridLayout isLayoutLocked={false} />
-        </PageSection>
-      </AddWidgetDrawer>
-    </>
-  );
+  return <WidgetLayout isLayoutLocked={false} layoutType={'landingPage'} />;
 };
 
 const Landing = () => {
