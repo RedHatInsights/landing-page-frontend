@@ -72,7 +72,7 @@ const ExploreCapabilities: React.FunctionComponent = () => {
       body: (
         <span>
           On June 30, 2024, CentOS Linux 7 will reach End of Life (EOL), and
-          those systems will stop receiving updates, security pathes, and new
+          those systems will stop receiving updates, security patches, and new
           featues.
           <br></br>
           Red Hat can help.{' '}
