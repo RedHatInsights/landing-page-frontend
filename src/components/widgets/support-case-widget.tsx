@@ -28,7 +28,7 @@ export type Case = {
   isClosed: boolean;
 };
 
-const SupportIcon: React.FunctionComponent = () => (
+const HeadsetIcon: React.FunctionComponent = () => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
     height="1em"
@@ -63,7 +63,7 @@ const SupportCaseWidget: React.FunctionComponent = () => {
     <>
       {cases.length === 0 ? (
         <EmptyState variant={EmptyStateVariant.lg}>
-          <EmptyStateIcon icon={SupportIcon} />
+          <EmptyStateIcon icon={HeadsetIcon} />
           <Title headingLevel="h4" size="lg">
             No open support cases
           </Title>
