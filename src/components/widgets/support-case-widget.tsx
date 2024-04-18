@@ -19,10 +19,9 @@ import { Title } from '@patternfly/react-core/dist/dynamic/components/Title';
 import ExternalLinkAltIcon from '@patternfly/react-icons/dist/dynamic/icons/external-link-alt-icon';
 
 export type Case = {
-  createdById: string;
-  description: string;
+  caseId: string;
+  summary: string;
   lastmodifiedById: string;
-  productFamily: boolean;
   severity: string;
   status: string;
   isClosed: boolean;
@@ -44,10 +43,17 @@ const SupportCaseWidget: React.FunctionComponent = () => {
   const [cases, setCases] = useState<Case[]>([]);
 
   const fetchSupportCases = async () => {
+    const url = 'https://api.access.redhat.com/support/v1/cases/filter';
+    const options = {
+      method: 'POST',
+      headers: {
+        Authorization: `Bearer ${token}`,
+        'Content-Type': 'application/json',
+      },
+    };
+
     try {
-      const response = await fetch(
-        '/api.access.redhat.com/support/v1/cases'
-      );
+      const response = await fetch(url, options);
       const { data } = await response.json();
       setCases(data);
     } catch (error) {
@@ -98,7 +104,7 @@ const SupportCaseWidget: React.FunctionComponent = () => {
             </Tr>
           </Thead>
           <Tbody>
-            {cases.map((case) => (
+            {/* {cases.map((case) => (
               <Tr key={case.id}>
                 <Td dataLabel='Case ID'>
                   {case.createdById}
@@ -116,7 +122,7 @@ const SupportCaseWidget: React.FunctionComponent = () => {
                   {case.status}
                 </Td>
               </Tr>
-            ))}
+            ))} */}
           </Tbody>
         </Table>
       )}
