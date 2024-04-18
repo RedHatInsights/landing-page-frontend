@@ -41,13 +41,12 @@ const HeadsetIcon: React.FunctionComponent = () => (
 
 const SupportCaseWidget: React.FunctionComponent = () => {
   const [cases, setCases] = useState<Case[]>([]);
-  const MAX_ROWS = 10;
+  const MAX_ROWS = 5;
 
   const fetchSupportCases = async () => {
     // eslint-disable-next-line rulesdir/no-chrome-api-call-from-window
     const token = await window.insights.chrome.auth.getToken();
-    const url =
-      'https://api.access.redhat.com/support/v1/cases/filter?limit=10';
+    const url = 'https://api.access.redhat.com/support/v1/cases/filter?limit=5';
     const options = {
       method: 'POST',
       headers: {
