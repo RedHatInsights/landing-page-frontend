@@ -110,7 +110,17 @@ const SupportCaseWidget: React.FunctionComponent = () => {
           <Tbody>
             {cases?.slice(0, MAX_ROWS).map((c) => (
               <Tr key={c.accountNumberRef}>
-                <Td dataLabel="Case ID">{c.caseNumber}</Td>
+                <Td dataLabel="Case ID">
+                  <Button
+                    variant="link"
+                    icon={<ExternalLinkAltIcon />}
+                    iconPosition="end"
+                    component="a"
+                    href={`https://access.redhat.com/support/cases/#/case/${c.caseNumber}`}
+                  >
+                    {c.caseNumber}
+                  </Button>
+                </Td>
                 <Td dataLabel="Issue Summary">{c.summary}</Td>
                 <Td dataLabel="Modified by">{c.lastModifiedById}</Td>
                 <Td dataLabel="Severity">{c.severity}</Td>
