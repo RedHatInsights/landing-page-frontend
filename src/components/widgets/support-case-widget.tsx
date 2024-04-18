@@ -19,12 +19,12 @@ import { Title } from '@patternfly/react-core/dist/dynamic/components/Title';
 import ExternalLinkAltIcon from '@patternfly/react-icons/dist/dynamic/icons/external-link-alt-icon';
 
 export type Case = {
-  caseId: string;
+  accountNumberRef: string;
+  caseNumber: string;
   summary: string;
-  lastmodifiedById: string;
+  lastModifiedById: string;
   severity: string;
   status: string;
-  isClosed: boolean;
 };
 
 const HeadsetIcon: React.FunctionComponent = () => (
@@ -41,24 +41,26 @@ const HeadsetIcon: React.FunctionComponent = () => (
 
 const SupportCaseWidget: React.FunctionComponent = () => {
   const [cases, setCases] = useState<Case[]>([]);
+  const MAX_ROWS = 10;
 
   const fetchSupportCases = async () => {
     // eslint-disable-next-line rulesdir/no-chrome-api-call-from-window
     const token = await window.insights.chrome.auth.getToken();
-    const url = 'https://api.access.redhat.com/support/v1/cases/filter';
+    const url =
+      'https://api.access.redhat.com/support/v1/cases/filter?limit=10';
     const options = {
       method: 'POST',
       headers: {
         Authorization: `Bearer ${token}`,
         'Content-Type': 'application/json',
       },
+      body: JSON.stringify({}),
     };
 
     try {
       const response = await fetch(url, options);
       const { data } = await response.json();
       setCases(data);
-      console.log(data);
     } catch (error) {
       console.error('Unable to fetch support cases', error);
     }
@@ -70,7 +72,7 @@ const SupportCaseWidget: React.FunctionComponent = () => {
 
   return (
     <>
-      {cases.length === 0 ? (
+      {cases?.length === 0 ? (
         <EmptyState variant={EmptyStateVariant.lg}>
           <EmptyStateIcon icon={HeadsetIcon} />
           <Title headingLevel="h4" size="lg">
@@ -107,25 +109,15 @@ const SupportCaseWidget: React.FunctionComponent = () => {
             </Tr>
           </Thead>
           <Tbody>
-            {/* {cases.map((case) => (
-              <Tr key={case.id}>
-                <Td dataLabel='Case ID'>
-                  {case.createdById}
-                </Td>
-                <Td dataLabel='Issue Summary'>
-                  {case.description}
-                </Td>
-                <Td dataLabel='Modified by'>
-                  {case.lastmodifiedById}
-                </Td>
-                <Td dataLabel='Severity'>
-                  {case.severity}
-                </Td>
-                <Td dataLabel='Status'>
-                  {case.status}
-                </Td>
+            {cases?.slice(0, MAX_ROWS).map((c) => (
+              <Tr key={c.accountNumberRef}>
+                <Td dataLabel="Case ID">{c.caseNumber}</Td>
+                <Td dataLabel="Issue Summary">{c.summary}</Td>
+                <Td dataLabel="Modified by">{c.lastModifiedById}</Td>
+                <Td dataLabel="Severity">{c.severity}</Td>
+                <Td dataLabel="Status">{c.status}</Td>
               </Tr>
-            ))} */}
+            ))}
           </Tbody>
         </Table>
       )}
