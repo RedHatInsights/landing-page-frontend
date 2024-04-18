@@ -52,7 +52,6 @@ const SupportCaseWidget: React.FunctionComponent = () => {
         Authorization: `Bearer ${token}`,
         'Content-Type': 'application/json',
       },
-      body: '{"accountNumber":"string","accountNumbers":["string"],"associateSSOName":"string","caseNumbers":["string"],"commentIds":["string"],"contributor":false,"createdBySSOName":"string","endDate":"1970-01-01T00:00:00.000Z","ftsRole":false,"groupNumber":"string","groupNumbers":["string"],"id":"string","includeAllCustomerCases":false,"includeClosed":false,"includePrivate":false,"includeSecureSupport":false,"internalStatuses":["string"],"isLocked":false,"keyword":"string","maxDateOpened":"1970-01-01T00:00:00.000Z","maxResults":0,"maxSBT":0,"minDateOpened":"1970-01-01T00:00:00.000Z","minSBT":0,"offset":0,"only24X7":false,"only24X7HandoverReady":false,"onlyEscalated":false,"onlyUngrouped":false,"owner":false,"ownerSSOName":"string","product":"string","products":["string"],"recordType":"string","reducedInformation":false,"resourceType":"string","sbrs":["string"],"severities":["string"],"severity":"string","sortField":"string","sortOrder":"string","startDate":"1970-01-01T00:00:00.000Z","status":"string","statuses":["string"],"translator":false,"type":"string","uri":"string","versions":["string"],"view":"string","viewUri":"string"}',
     };
 
     try {
@@ -71,7 +70,7 @@ const SupportCaseWidget: React.FunctionComponent = () => {
 
   return (
     <>
-      {/* {cases.length === 0 ? (
+      {cases.length === 0 ? (
         <EmptyState variant={EmptyStateVariant.lg}>
           <EmptyStateIcon icon={HeadsetIcon} />
           <Title headingLevel="h4" size="lg">
@@ -93,22 +92,22 @@ const SupportCaseWidget: React.FunctionComponent = () => {
             Open a support case
           </Button>
         </EmptyState>
-      ) : ( */}
-      <Table
-        aria-label="Support case table widget"
-        variant={TableVariant.compact}
-      >
-        <Thead>
-          <Tr>
-            <Th>Case ID</Th>
-            <Th>Issue Summary</Th>
-            <Th>Modified by</Th>
-            <Th>Severity</Th>
-            <Th>Status</Th>
-          </Tr>
-        </Thead>
-        <Tbody>
-          {/* {cases.map((case) => (
+      ) : (
+        <Table
+          aria-label="Support case table widget"
+          variant={TableVariant.compact}
+        >
+          <Thead>
+            <Tr>
+              <Th>Case ID</Th>
+              <Th>Issue Summary</Th>
+              <Th>Modified by</Th>
+              <Th>Severity</Th>
+              <Th>Status</Th>
+            </Tr>
+          </Thead>
+          <Tbody>
+            {/* {cases.map((case) => (
               <Tr key={case.id}>
                 <Td dataLabel='Case ID'>
                   {case.createdById}
@@ -127,9 +126,9 @@ const SupportCaseWidget: React.FunctionComponent = () => {
                 </Td>
               </Tr>
             ))} */}
-        </Tbody>
-      </Table>
-      {/* )} */}
+          </Tbody>
+        </Table>
+      )}
     </>
   );
 };
