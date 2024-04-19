@@ -17,6 +17,7 @@ import { Stack } from '@patternfly/react-core/dist/dynamic/layouts/Stack';
 import { StackItem } from '@patternfly/react-core/dist/dynamic/layouts/Stack';
 import { Title } from '@patternfly/react-core/dist/dynamic/components/Title';
 import ExternalLinkAltIcon from '@patternfly/react-icons/dist/dynamic/icons/external-link-alt-icon';
+import { Label } from '@patternfly/react-core/dist/dynamic/components/Label';
 
 export type Case = {
   accountNumberRef: string;
@@ -25,6 +26,7 @@ export type Case = {
   lastModifiedById: string;
   severity: string;
   status: string;
+  isLoading: boolean;
 };
 
 const HeadsetIcon: React.FunctionComponent = () => (
@@ -46,7 +48,8 @@ const SupportCaseWidget: React.FunctionComponent = () => {
   const fetchSupportCases = async () => {
     // eslint-disable-next-line rulesdir/no-chrome-api-call-from-window
     const token = await window.insights.chrome.auth.getToken();
-    const url = 'https://api.access.redhat.com/support/v1/cases/filter?limit=5';
+    const url =
+      'https://api.access.redhat.com/support/v1/cases/filter?limit=5?';
     const options = {
       method: 'POST',
       headers: {
@@ -68,6 +71,20 @@ const SupportCaseWidget: React.FunctionComponent = () => {
   useEffect(() => {
     fetchSupportCases();
   }, []);
+
+  const labelColor = (severity: string) => {
+    switch (severity) {
+      case '1 (Urgent)':
+        return <Label color="red"></Label>;
+      case '2 (High)':
+        return <Label color="orange"></Label>;
+      case '3 (Normal)':
+        return <Label color="blue"></Label>;
+      case '4 (Low)':
+        return <Label color="grey"></Label>;
+      default:
+    }
+  };
 
   return (
     <>
@@ -101,7 +118,7 @@ const SupportCaseWidget: React.FunctionComponent = () => {
           <Thead>
             <Tr>
               <Th>Case ID</Th>
-              <Th>Issue Summary</Th>
+              <Th>Issue summary</Th>
               <Th>Modified by</Th>
               <Th>Severity</Th>
               <Th>Status</Th>
@@ -123,7 +140,9 @@ const SupportCaseWidget: React.FunctionComponent = () => {
                 </Td>
                 <Td dataLabel="Issue Summary">{c.summary}</Td>
                 <Td dataLabel="Modified by">{c.lastModifiedById}</Td>
-                <Td dataLabel="Severity">{c.severity}</Td>
+                <Td dataLabel="Severity">
+                  <Label {...labelColor(c.severity)}>{c.severity}</Label>
+                </Td>
                 <Td dataLabel="Status">{c.status}</Td>
               </Tr>
             ))}
