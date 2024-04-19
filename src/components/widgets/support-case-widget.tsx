@@ -20,7 +20,7 @@ import ExternalLinkAltIcon from '@patternfly/react-icons/dist/dynamic/icons/exte
 import { Label } from '@patternfly/react-core/dist/dynamic/components/Label';
 
 export type Case = {
-  accountNumberRef: string;
+  id: string;
   caseNumber: string;
   summary: string;
   lastModifiedById: string;
@@ -125,9 +125,10 @@ const SupportCaseWidget: React.FunctionComponent = () => {
           </Thead>
           <Tbody>
             {cases?.slice(0, MAX_ROWS).map((c) => (
-              <Tr key={c.accountNumberRef}>
+              <Tr key={c.id}>
                 <Td dataLabel="Case ID">
                   <Button
+                    className="pf-v5-u-pl-0"
                     variant="link"
                     icon={<ExternalLinkAltIcon />}
                     iconPosition="end"
