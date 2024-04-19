@@ -48,8 +48,7 @@ const SupportCaseWidget: React.FunctionComponent = () => {
   const fetchSupportCases = async () => {
     // eslint-disable-next-line rulesdir/no-chrome-api-call-from-window
     const token = await window.insights.chrome.auth.getToken();
-    const url =
-      'https://api.access.redhat.com/support/v1/cases/filter?limit=5?';
+    const url = 'https://api.access.redhat.com/support/v1/cases/filter';
     const options = {
       method: 'POST',
       headers: {
@@ -61,8 +60,8 @@ const SupportCaseWidget: React.FunctionComponent = () => {
 
     try {
       const response = await fetch(url, options);
-      const { data } = await response.json();
-      setCases(data);
+      const { cases } = await response.json();
+      setCases(cases);
     } catch (error) {
       console.error('Unable to fetch support cases', error);
     }
@@ -75,13 +74,13 @@ const SupportCaseWidget: React.FunctionComponent = () => {
   const labelColor = (severity: string) => {
     switch (severity) {
       case '1 (Urgent)':
-        return <Label color="red"></Label>;
+        return <Label color="red">{severity}</Label>;
       case '2 (High)':
-        return <Label color="orange"></Label>;
+        return <Label color="orange">{severity}</Label>;
       case '3 (Normal)':
-        return <Label color="blue"></Label>;
+        return <Label color="blue">{severity}</Label>;
       case '4 (Low)':
-        return <Label color="grey"></Label>;
+        return <Label color="grey">{severity}</Label>;
       default:
     }
   };
@@ -140,9 +139,7 @@ const SupportCaseWidget: React.FunctionComponent = () => {
                 </Td>
                 <Td dataLabel="Issue Summary">{c.summary}</Td>
                 <Td dataLabel="Modified by">{c.lastModifiedById}</Td>
-                <Td dataLabel="Severity">
-                  <Label {...labelColor(c.severity)}>{c.severity}</Label>
-                </Td>
+                <Td dataLabel="Severity">{labelColor(c.severity)}</Td>
                 <Td dataLabel="Status">{c.status}</Td>
               </Tr>
             ))}
