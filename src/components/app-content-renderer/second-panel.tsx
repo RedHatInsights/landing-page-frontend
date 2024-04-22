@@ -100,21 +100,21 @@ const SecondPanel = () => {
                   <CardBody>
                     <TextContent className="pf-v5-u-display-flex pf-v5-u-flex-direction-column">
                       <img
-                        src="/apps/frontend-assets/console-landing/datascience.svg"
+                        src="/apps/frontend-assets/console-landing/ai-technology.svg"
                         alt="Red Hat Openshift AI"
                       />
                       <Text
                         component="p"
                         className="pf-v5-u-font-size-lg pf-v5-u-mt-md"
                       >
-                        Red Hat Openshift AI
+                        Red Hat OpenShift AI
                       </Text>
                       <Text component="p" className="pf-v5-u-flex-grow-1">
                         Create, train, and serve artificial intelligence and
                         machine learning (AI/ML) models.
                       </Text>
                       <Text component="p">
-                        <Link to="/application-services/data-science">
+                        <Link to="https://www.redhat.com/en/technologies/cloud-computing/openshift/openshift-ai/trial">
                           Try it out now
                           <Icon className="pf-v5-u-ml-sm" isInline>
                             <ArrowRightIcon />
@@ -139,8 +139,11 @@ const SecondPanel = () => {
                       Red Hat OpenShift
                     </Text>
                     <Text component="p" className="pf-v5-u-flex-grow-1">
-                      Build, run, scale container-based applications - now with
-                      developer tools, CI/CD, and release management.
+                      Build, run, and scale container-based applications with
+                      Red Hat OpenShift on{' '}
+                      <Link to="/openshift/overview/rosa">AWS (ROSA)</Link>,
+                      Azure, IBM Cloud and more. Developer tools, CI/CD, and
+                      release management now available.
                     </Text>
                     <Text component="p">
                       <Link
@@ -150,7 +153,7 @@ const SecondPanel = () => {
                             : '/openshift/overview'
                         }
                       >
-                        Manage Openshift Clusters
+                        See all OpenShift Offerings
                         <Icon className="pf-v5-u-ml-sm" isInline>
                           <ArrowRightIcon />
                         </Icon>
@@ -284,7 +287,7 @@ const SecondPanel = () => {
                   <CardBody>
                     <TextContent className="pf-v5-u-display-flex pf-v5-u-flex-direction-column">
                       <img
-                        src="/apps/frontend-assets/console-landing/generic.svg"
+                        src="/apps/frontend-assets/console-landing/quay-io.svg"
                         alt="quay"
                       />
                       <Text

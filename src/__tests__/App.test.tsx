@@ -19,6 +19,7 @@ jest.mock('@redhat-cloud-services/frontend-components/useChrome', () => {
     // eslint-disable-next-line react/display-name
     ...actual,
     default: () => ({
+      on: () => {},
       auth: {
         getUser: () =>
           Promise.resolve({
