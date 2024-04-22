@@ -18,6 +18,8 @@ import { StackItem } from '@patternfly/react-core/dist/dynamic/layouts/Stack';
 import { Title } from '@patternfly/react-core/dist/dynamic/components/Title';
 import ExternalLinkAltIcon from '@patternfly/react-icons/dist/dynamic/icons/external-link-alt-icon';
 import { Label } from '@patternfly/react-core/dist/dynamic/components/Label';
+import HeadsetIcon from '@patternfly/react-icons/dist/dynamic/icons/headset-icon';
+import useCurrentUser from '../useCurrentUser';
 
 export type Case = {
   id: string;
@@ -27,23 +29,13 @@ export type Case = {
   severity: string;
   status: string;
   isLoading: boolean;
+  contactSSOName: string;
 };
-
-const HeadsetIcon: React.FunctionComponent = () => (
-  <svg
-    xmlns="http://www.w3.org/2000/svg"
-    height="1em"
-    viewBox="0 0 512 512"
-    fill="currentColor"
-    className="pf-c-empty-state__icon"
-  >
-    <path d="M192 208c0-17.7-14.3-32-32-32h-16c-35.4 0-64 28.7-64 64v48c0 35.4 28.7 64 64 64h16c17.7 0 32-14.3 32-32V208zm176 144c35.4 0 64-28.7 64-64v-48c0-35.4-28.7-64-64-64h-16c-17.7 0-32 14.3-32 32v112c0 17.7 14.3 32 32 32h16zM256 0C113.2 0 4.6 118.8 0 256v16c0 8.8 7.2 16 16 16h16c8.8 0 16-7.2 16-16v-16c0-114.7 93.3-208 208-208s208 93.3 208 208h-.1c.1 2.4 .1 165.7 .1 165.7 0 23.4-18.9 42.3-42.3 42.3H320c0-26.5-21.5-48-48-48h-32c-26.5 0-48 21.5-48 48s21.5 48 48 48h181.7c49.9 0 90.3-40.4 90.3-90.3V256C507.4 118.8 398.8 0 256 0z" />
-  </svg>
-);
 
 const SupportCaseWidget: React.FunctionComponent = () => {
   const [cases, setCases] = useState<Case[]>([]);
   const MAX_ROWS = 5;
+  const { currentUser } = useCurrentUser();
 
   const fetchSupportCases = async () => {
     // eslint-disable-next-line rulesdir/no-chrome-api-call-from-window
@@ -87,7 +79,7 @@ const SupportCaseWidget: React.FunctionComponent = () => {
 
   return (
     <>
-      {cases?.length === 0 ? (
+      {cases.length === 0 ? (
         <EmptyState variant={EmptyStateVariant.lg}>
           <EmptyStateIcon icon={HeadsetIcon} />
           <Title headingLevel="h4" size="lg">
