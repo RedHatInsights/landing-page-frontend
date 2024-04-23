@@ -54,6 +54,18 @@ DEPLOY_TIMEOUT="900"  # 15min
 DEPLOY_FRONTENDS="true"
 source $CICD_ROOT/cji_smoke_test.sh
 
+docker run -t \
+  -v $PWD:/e2e:ro,Z \
+  -w /e2e \
+  -e CHROME_ACCOUNT=$CHROME_ACCOUNT \
+  -e CHROME_PASSWORD=$CHROME_PASSWORD \
+  --add-host stage.foo.redhat.com:127.0.0.1 \
+  --add-host prod.foo.redhat.com:127.0.0.1 \
+  --entrypoint bash \
+  quay.io/cloudservices/cypress-e2e-image:971bc23 /e2e/run-e2e.sh
+
+echo "After docker run"
+
 # Stubbed out for now
 mkdir -p $WORKSPACE/artifacts
 cat << EOF > $WORKSPACE/artifacts/junit-dummy.xml

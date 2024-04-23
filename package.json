@@ -20,6 +20,8 @@
     "start": "fec dev",
     "static": "fec static",
     "test": "jest --passWithNoTests",
+    "test:e2e": "node scripts/e2e.js",
+    "test:ct": "node ./cypress/run-test.js",
     "verify": "npm-run-all build lint test"
   },
   "repository": {
