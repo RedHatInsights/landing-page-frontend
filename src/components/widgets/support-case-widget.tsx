@@ -29,7 +29,6 @@ export type Case = {
   severity: string;
   status: string;
   isLoading: boolean;
-  contactSSOName: string;
 };
 
 const SupportCaseWidget: React.FunctionComponent = () => {
@@ -40,14 +39,17 @@ const SupportCaseWidget: React.FunctionComponent = () => {
   const fetchSupportCases = async () => {
     // eslint-disable-next-line rulesdir/no-chrome-api-call-from-window
     const token = await window.insights.chrome.auth.getToken();
-    const url = 'https://api.access.redhat.com/support/v1/cases/filter';
+    const url = 'https://api.access.stage.redhat.com/support/v1/cases/filter';
     const options = {
       method: 'POST',
       headers: {
         Authorization: `Bearer ${token}`,
         'Content-Type': 'application/json',
+        Accept: 'application/json',
       },
-      body: JSON.stringify({}),
+      body: JSON.stringify({
+        createdBySSOName: `${currentUser?.username}`,
+      }),
     };
 
     try {
