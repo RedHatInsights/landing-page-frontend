@@ -51,6 +51,7 @@ addMatchImageSnapshotCommand({
 // with a <reference path="./component" /> at the top of your spec.
 declare global {
   interface Window {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     TestApp: any;
   }
   namespace Cypress {
