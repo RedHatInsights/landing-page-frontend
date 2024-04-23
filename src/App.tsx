@@ -70,7 +70,9 @@ const App = () => {
 
   useEffect(() => {
     const registry = getRegistry();
-    registry.register({ notifications: notificationsReducer as Reducer });
+    registry.register({
+      notifications: notificationsReducer as unknown as Reducer,
+    });
 
     const unregister = on('APP_NAVIGATION', (event) =>
       navigate(`/${event.navId}`)
