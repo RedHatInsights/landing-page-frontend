@@ -48,7 +48,7 @@ const SupportCaseWidget: React.FunctionComponent = () => {
         Accept: 'application/json',
       },
       body: JSON.stringify({
-        createdBySSOName: `${user.identity.user.username}`,
+        createdBySSOName: `${user?.identity.user?.username}`,
       }),
     };
 
