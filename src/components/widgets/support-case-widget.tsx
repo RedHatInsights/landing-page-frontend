@@ -19,7 +19,7 @@ import { Title } from '@patternfly/react-core/dist/dynamic/components/Title';
 import ExternalLinkAltIcon from '@patternfly/react-icons/dist/dynamic/icons/external-link-alt-icon';
 import { Label } from '@patternfly/react-core/dist/dynamic/components/Label';
 import HeadsetIcon from '@patternfly/react-icons/dist/dynamic/icons/headset-icon';
-import useCurrentUser from '../useCurrentUser';
+import useChrome from '@redhat-cloud-services/frontend-components/useChrome';
 
 export type Case = {
   id: string;
@@ -34,12 +34,12 @@ export type Case = {
 const SupportCaseWidget: React.FunctionComponent = () => {
   const [cases, setCases] = useState<Case[]>([]);
   const MAX_ROWS = 5;
-  const { currentUser } = useCurrentUser();
+  const chrome = useChrome();
 
   const fetchSupportCases = async () => {
-    // eslint-disable-next-line rulesdir/no-chrome-api-call-from-window
-    const token = await window.insights.chrome.auth.getToken();
-    const url = 'https://api.access.stage.redhat.com/support/v1/cases/filter';
+    const token = await chrome.auth.getToken();
+    const user = await chrome.auth.getUser();
+    const url = 'https://api.access.redhat.com/support/v1/cases/filter';
     const options = {
       method: 'POST',
       headers: {
@@ -48,7 +48,7 @@ const SupportCaseWidget: React.FunctionComponent = () => {
         Accept: 'application/json',
       },
       body: JSON.stringify({
-        createdBySSOName: `${currentUser?.username}`,
+        createdBySSOName: `${user.identity.user.username}`,
       }),
     };
 
