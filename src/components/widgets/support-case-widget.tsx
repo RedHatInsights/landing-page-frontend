@@ -20,6 +20,7 @@ import ExternalLinkAltIcon from '@patternfly/react-icons/dist/dynamic/icons/exte
 import { Label } from '@patternfly/react-core/dist/dynamic/components/Label';
 import HeadsetIcon from '@patternfly/react-icons/dist/dynamic/icons/headset-icon';
 import useChrome from '@redhat-cloud-services/frontend-components/useChrome';
+import SkeletonTable from '@patternfly/react-component-groups/dist/dynamic/SkeletonTable';
 
 export type Case = {
   id: string;
@@ -28,13 +29,21 @@ export type Case = {
   lastModifiedById: string;
   severity: string;
   status: string;
-  isLoading: boolean;
 };
 
 const SupportCaseWidget: React.FunctionComponent = () => {
   const [cases, setCases] = useState<Case[]>([]);
   const MAX_ROWS = 5;
   const chrome = useChrome();
+  const [isLoading, setIsLoading] = useState(false);
+
+  const columnNames = {
+    caseId: 'Case ID',
+    issueSummary: 'Issue summary',
+    modifiedBy: 'Modified by',
+    severity: 'Severity',
+    status: 'Status',
+  };
 
   const fetchSupportCases = async () => {
     const token = await chrome.auth.getToken();
@@ -56,12 +65,14 @@ const SupportCaseWidget: React.FunctionComponent = () => {
       const response = await fetch(url, options);
       const { cases } = await response.json();
       setCases(cases);
+      setIsLoading(false);
     } catch (error) {
       console.error('Unable to fetch support cases', error);
     }
   };
 
   useEffect(() => {
+    setIsLoading(true);
     fetchSupportCases();
   }, []);
 
@@ -81,7 +92,18 @@ const SupportCaseWidget: React.FunctionComponent = () => {
 
   return (
     <>
-      {cases.length === 0 ? (
+      {isLoading ? (
+        <SkeletonTable
+          rows={3}
+          columns={[
+            columnNames.caseId,
+            columnNames.issueSummary,
+            columnNames.modifiedBy,
+            columnNames.severity,
+            columnNames.status,
+          ]}
+        />
+      ) : cases.length === 0 ? (
         <EmptyState variant={EmptyStateVariant.lg}>
           <EmptyStateIcon icon={HeadsetIcon} />
           <Title headingLevel="h4" size="lg">
@@ -110,17 +132,17 @@ const SupportCaseWidget: React.FunctionComponent = () => {
         >
           <Thead>
             <Tr>
-              <Th>Case ID</Th>
-              <Th>Issue summary</Th>
-              <Th>Modified by</Th>
-              <Th>Severity</Th>
-              <Th>Status</Th>
+              <Th>{columnNames.caseId}</Th>
+              <Th>{columnNames.issueSummary}</Th>
+              <Th>{columnNames.modifiedBy}</Th>
+              <Th>{columnNames.severity}</Th>
+              <Th>{columnNames.status}</Th>
             </Tr>
           </Thead>
           <Tbody>
             {cases?.slice(0, MAX_ROWS).map((c) => (
               <Tr key={c.id}>
-                <Td dataLabel="Case ID">
+                <Td dataLabel={columnNames.caseId}>
                   <Button
                     className="pf-v5-u-pl-0"
                     variant="link"
@@ -132,10 +154,12 @@ const SupportCaseWidget: React.FunctionComponent = () => {
                     {c.caseNumber}
                   </Button>
                 </Td>
-                <Td dataLabel="Issue Summary">{c.summary}</Td>
-                <Td dataLabel="Modified by">{c.lastModifiedById}</Td>
-                <Td dataLabel="Severity">{labelColor(c.severity)}</Td>
-                <Td dataLabel="Status">{c.status}</Td>
+                <Td dataLabel={columnNames.issueSummary}>{c.summary}</Td>
+                <Td dataLabel={columnNames.modifiedBy}>{c.lastModifiedById}</Td>
+                <Td dataLabel={columnNames.severity}>
+                  {labelColor(c.severity)}
+                </Td>
+                <Td dataLabel={columnNames.status}>{c.status}</Td>
               </Tr>
             ))}
           </Tbody>
