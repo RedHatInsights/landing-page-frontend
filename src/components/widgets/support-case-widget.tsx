@@ -46,12 +46,19 @@ const SupportCaseWidget: React.FunctionComponent = () => {
     status: 'Status',
   };
 
+  const severityTypes = {
+    urgent: '1 (Urgent)',
+    high: '2 (High)',
+    normal: '3 (Normal)',
+    low: '4 (Low)',
+  };
+
   const labelColor = (severity: string) => {
     const severityMapper: Record<string, JSX.Element> = {
-      '1 (Urgent)': <Label color="red">{severity}</Label>,
-      '2 (High)': <Label color="orange">{severity}</Label>,
-      '3 (Normal)': <Label color="blue">{severity}</Label>,
-      '4 (Low)': <Label color="grey">{severity}</Label>,
+      [severityTypes.urgent]: <Label color="red">{severity}</Label>,
+      [severityTypes.high]: <Label color="orange">{severity}</Label>,
+      [severityTypes.normal]: <Label color="blue">{severity}</Label>,
+      [severityTypes.low]: <Label color="grey">{severity}</Label>,
     };
     return severityMapper[severity] ?? '';
   };
