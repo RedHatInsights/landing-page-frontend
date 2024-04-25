@@ -36,6 +36,7 @@ const SupportCaseWidget: React.FunctionComponent = () => {
   const MAX_ROWS = 5;
   const chrome = useChrome();
   const [isLoading, setIsLoading] = useState(false);
+  const url = 'https://api.access.stage.redhat.com/support/v1/cases/filter';
 
   const columnNames = {
     caseId: 'Case ID',
@@ -45,10 +46,19 @@ const SupportCaseWidget: React.FunctionComponent = () => {
     status: 'Status',
   };
 
+  const labelColor = (severity: string) => {
+    const severityMapper: Record<string, JSX.Element> = {
+      '1 (Urgent)': <Label color="red">{severity}</Label>,
+      '2 (High)': <Label color="orange">{severity}</Label>,
+      '3 (Normal)': <Label color="blue">{severity}</Label>,
+      '4 (Low)': <Label color="grey">{severity}</Label>,
+    };
+    return severityMapper[severity] ?? '';
+  };
+
   const fetchSupportCases = async () => {
     const token = await chrome.auth.getToken();
     const user = await chrome.auth.getUser();
-    const url = 'https://api.access.redhat.com/support/v1/cases/filter';
     const options = {
       method: 'POST',
       headers: {
@@ -75,20 +85,6 @@ const SupportCaseWidget: React.FunctionComponent = () => {
     setIsLoading(true);
     fetchSupportCases();
   }, []);
-
-  const labelColor = (severity: string) => {
-    switch (severity) {
-      case '1 (Urgent)':
-        return <Label color="red">{severity}</Label>;
-      case '2 (High)':
-        return <Label color="orange">{severity}</Label>;
-      case '3 (Normal)':
-        return <Label color="blue">{severity}</Label>;
-      case '4 (Low)':
-        return <Label color="grey">{severity}</Label>;
-      default:
-    }
-  };
 
   return (
     <>
