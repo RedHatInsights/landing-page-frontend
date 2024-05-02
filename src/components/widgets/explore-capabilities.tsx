@@ -73,10 +73,14 @@ const ExploreCapabilities: React.FunctionComponent = () => {
         <span>
           On June 30, 2024, CentOS Linux 7 will reach End of Life (EOL), and
           those systems will stop receiving updates, security patches, and new
-          featues.
+          features.
           <br></br>
           Red Hat can help.{' '}
-          <a href="https://www.redhat.com/en/technologies/linux-platforms/enterprise-linux/centos-migration">
+          <a
+            href="https://www.redhat.com/en/technologies/linux-platforms/enterprise-linux/centos-migration"
+            target="_blank"
+            rel="noreferrer"
+          >
             Learn more
           </a>{' '}
           about migrating your CentOS Linux systems to RHEL, whether on-premise
