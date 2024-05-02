@@ -17,10 +17,10 @@ import { Stack } from '@patternfly/react-core/dist/dynamic/layouts/Stack';
 import { StackItem } from '@patternfly/react-core/dist/dynamic/layouts/Stack';
 import { Title } from '@patternfly/react-core/dist/dynamic/components/Title';
 import ExternalLinkAltIcon from '@patternfly/react-icons/dist/dynamic/icons/external-link-alt-icon';
-import { Label } from '@patternfly/react-core/dist/dynamic/components/Label';
 import HeadsetIcon from '@patternfly/react-icons/dist/dynamic/icons/headset-icon';
 import useChrome from '@redhat-cloud-services/frontend-components/useChrome';
 import SkeletonTable from '@patternfly/react-component-groups/dist/dynamic/SkeletonTable';
+import { MAX_ROWS, columnNames, labelColor, url } from '../../utils/consts';
 
 export type Case = {
   id: string;
@@ -33,35 +33,8 @@ export type Case = {
 
 const SupportCaseWidget: React.FunctionComponent = () => {
   const [cases, setCases] = useState<Case[]>([]);
-  const MAX_ROWS = 5;
   const chrome = useChrome();
   const [isLoading, setIsLoading] = useState(false);
-  const url = 'https://api.access.stage.redhat.com/support/v1/cases/filter';
-
-  const columnNames = {
-    caseId: 'Case ID',
-    issueSummary: 'Issue summary',
-    modifiedBy: 'Modified by',
-    severity: 'Severity',
-    status: 'Status',
-  };
-
-  const severityTypes = {
-    urgent: '1 (Urgent)',
-    high: '2 (High)',
-    normal: '3 (Normal)',
-    low: '4 (Low)',
-  };
-
-  const labelColor = (severity: string) => {
-    const severityMapper: Record<string, JSX.Element> = {
-      [severityTypes.urgent]: <Label color="red">{severity}</Label>,
-      [severityTypes.high]: <Label color="orange">{severity}</Label>,
-      [severityTypes.normal]: <Label color="blue">{severity}</Label>,
-      [severityTypes.low]: <Label color="grey">{severity}</Label>,
-    };
-    return severityMapper[severity] ?? '';
-  };
 
   const fetchSupportCases = async () => {
     const token = await chrome.auth.getToken();
