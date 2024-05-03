@@ -7,7 +7,7 @@ const AcsWidget: React.FunctionComponent = () => {
       <SimpleServiceWidget
         id={5}
         body="Fully hosted software as a service for protecting cloud-native applications and Kubernetes."
-        linkTitle="Advanced Cluster Management"
+        linkTitle="RHACS Cloud Service"
         url="/application-services/acs/overview"
       />
     </>
