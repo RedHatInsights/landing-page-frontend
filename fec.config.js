@@ -65,6 +65,10 @@ module.exports = {
         __dirname,
         'src/components/widgets/acs-widget.tsx'
       ),
+      './SupportCaseWidget': path.resolve(
+        __dirname,
+        'src/components/widgets/support-case-widget.tsx'
+      ),
     },
     exclude: ['react-router-dom'],
     shared: [
