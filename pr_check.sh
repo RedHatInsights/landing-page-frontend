@@ -1,5 +1,5 @@
 #!/bin/bash
-
+#
 
 export COMPONENT="landing-page-frontend"
 export IMAGE="quay.io/cloudservices/$COMPONENT"
