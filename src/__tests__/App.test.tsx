@@ -34,6 +34,16 @@ jest.mock('@redhat-cloud-services/frontend-components/useChrome', () => {
   };
 });
 
+jest.mock('@unleash/proxy-client-react', () => {
+  const unleash = jest.requireActual('@unleash/proxy-client-react');
+  return {
+    __esModule: true,
+    ...unleash,
+    useFlag: () => false,
+    useFlagsStatus: () => ({ flagsReady: true }),
+  };
+});
+
 describe('App component', () => {
   it('should render correctly', async () => {
     let container: HTMLElement | undefined = undefined;
