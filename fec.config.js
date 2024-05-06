@@ -29,6 +29,7 @@ module.exports = {
   moduleFederation: {
     exposes: {
       './RootApp': path.resolve(__dirname, './src/moduleEntries/AppEntry.tsx'),
+      './PdfEntry': path.resolve(__dirname, './src/moduleEntries/PdfEntry.tsx'),
       './RecentlyVisited': path.resolve(
         __dirname,
         'src/components/widgets/recently-visited.tsx'
@@ -73,10 +74,7 @@ module.exports = {
     exclude: ['react-router-dom'],
     shared: [
       { 'react-router-dom': { singleton: true, version: '*' } },
-      { frontendStarterApp: { singleton: true, version: '*' } },
       { '@scalprum/react-core': { singleton: true, version: '*' } },
-      { '@patternfly/react-core': { singleton: true, version: '*' } },
-      { 'react-redux': { singleton: true, version: '*' } },
     ],
   },
 };
