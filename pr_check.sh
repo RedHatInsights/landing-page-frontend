@@ -1,6 +1,6 @@
 #!/bin/bash
 
-
+# hi
 export COMPONENT="landing-page-frontend"
 export IMAGE="quay.io/cloudservices/$COMPONENT"
 export WORKSPACE=${WORKSPACE:-$APP_ROOT}  # if running in jenkins, use the build's workspace
