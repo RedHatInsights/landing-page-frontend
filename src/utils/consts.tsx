@@ -2,8 +2,7 @@ import { Label } from '@patternfly/react-core/dist/dynamic/components/Label';
 import React from 'react';
 
 // for the support cases widget
-export const url =
-  'https://api.access.stage.redhat.com/support/v1/cases/filter';
+export const url = 'https://api.access.redhat.com/support/v1/cases/filter';
 
 export const MAX_ROWS = 5;
 
