@@ -26,7 +26,7 @@ async function runTests() {
   );
   await waitOn(options);
   execSync(
-    `NO_COLOR=1 E2E_USER=${process.env.CHROME_ACCOUNT} E2E_PASSWORD=${process.env.CHROME_PASSWORD} npm run cypress:run:e2e`,
+    `NO_COLOR=1 E2E_USER=${process.env.CHROME_ACCOUNT} E2E_PASSWORD=${process.env.CHROME_PASSWORD} npm run cypress run`,
     {
       encoding: 'utf-8',
       stdio: 'inherit',

@@ -10,6 +10,7 @@
   "scripts": {
     "analyze": "ANALYZE=true fec build",
     "build": "fec build",
+    "cypress": "cypress",
     "cypress:open": "cypress open",
     "cypress:run:e2e": "cypress run --browser electron",
     "cypress:run:cp": "cypress run --component",
