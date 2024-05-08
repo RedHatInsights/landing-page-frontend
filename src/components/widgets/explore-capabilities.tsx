@@ -26,7 +26,7 @@ const ExploreCapabilities: React.FunctionComponent = () => {
       title: 'Take a tour of the Console',
       body: "There's a lot to explore in the Hybrid Cloud Console, and understanding its capabilities will increase your efficiency.",
       buttonName: 'Start the guided tour',
-      url: '',
+      url: 'https://app.pendo.io/s/5300167311360000/guides/60TJ9PZKMXQ9tDS-WC6bMr46C-U?view=settings',
     },
     {
       id: 'ex-toggle2',
