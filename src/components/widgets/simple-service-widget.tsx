@@ -9,6 +9,7 @@ import {
 } from '@patternfly/react-core/dist/dynamic/components/Text';
 import ArrowRightIcon from '@patternfly/react-icons/dist/js/icons/arrow-right-icon';
 import { Link } from 'react-router-dom';
+import './simple-service-widget.scss';
 
 interface SimpleServiceWidgetProps {
   id: number;
