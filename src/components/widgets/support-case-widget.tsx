@@ -20,7 +20,7 @@ import ExternalLinkAltIcon from '@patternfly/react-icons/dist/dynamic/icons/exte
 import HeadsetIcon from '@patternfly/react-icons/dist/dynamic/icons/headset-icon';
 import useChrome from '@redhat-cloud-services/frontend-components/useChrome';
 import SkeletonTable from '@patternfly/react-component-groups/dist/dynamic/SkeletonTable';
-import { MAX_ROWS, columnNames, labelColor, url } from '../../utils/consts';
+import { MAX_ROWS, columnNames, getUrl, labelColor } from '../../utils/consts';
 import './support-case-widget.scss';
 
 export type Case = {
@@ -53,7 +53,7 @@ const SupportCaseWidget: React.FunctionComponent = () => {
     };
 
     try {
-      const response = await fetch(url, options);
+      const response = await fetch(getUrl(chrome.getEnvironment()), options);
       const { cases } = await response.json();
       setCases(cases);
       setIsLoading(false);
