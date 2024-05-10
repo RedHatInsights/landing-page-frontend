@@ -125,7 +125,6 @@ const ExploreCapabilities: React.FunctionComponent = () => {
                   size="lg"
                   component="a"
                   href={drawerData[activeItem].url}
-                  target="_blank"
                   className="pf-m-danger pf-v5-u-mb-sm"
                 >
                   {drawerData[activeItem].buttonName}
