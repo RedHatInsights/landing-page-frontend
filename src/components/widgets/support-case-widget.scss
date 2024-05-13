@@ -1,0 +1,9 @@
+.pf-v5-c-empty-state {
+    padding: var(--pf-global--spacer--md);
+    &__icon {
+      margin-bottom: 0;
+    }
+    &__body {
+      margin-top: var(--pf-global--spacer--sm);
+    }
+  }
