@@ -26,7 +26,7 @@ const ExploreCapabilities: React.FunctionComponent = () => {
       title: 'Take a tour of the Console',
       body: "There's a lot to explore in the Hybrid Cloud Console, and understanding its capabilities will increase your efficiency.",
       buttonName: 'Start the guided tour',
-      url: '',
+      url: 'https://app.pendo.io/s/5300167311360000/guides/60TJ9PZKMXQ9tDS-WC6bMr46C-U?view=settings',
     },
     {
       id: 'ex-toggle2',
@@ -73,10 +73,14 @@ const ExploreCapabilities: React.FunctionComponent = () => {
         <span>
           On June 30, 2024, CentOS Linux 7 will reach End of Life (EOL), and
           those systems will stop receiving updates, security patches, and new
-          featues.
+          features.
           <br></br>
           Red Hat can help.{' '}
-          <a href="https://www.redhat.com/en/technologies/linux-platforms/enterprise-linux/centos-migration">
+          <a
+            href="https://www.redhat.com/en/technologies/linux-platforms/enterprise-linux/centos-migration"
+            target="_blank"
+            rel="noreferrer"
+          >
             Learn more
           </a>{' '}
           about migrating your CentOS Linux systems to RHEL, whether on-premise
@@ -121,7 +125,6 @@ const ExploreCapabilities: React.FunctionComponent = () => {
                   size="lg"
                   component="a"
                   href={drawerData[activeItem].url}
-                  target="_blank"
                   className="pf-m-danger pf-v5-u-mb-sm"
                 >
                   {drawerData[activeItem].buttonName}
