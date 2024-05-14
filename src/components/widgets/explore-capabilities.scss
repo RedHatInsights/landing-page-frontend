@@ -6,21 +6,24 @@
   }
   .pf-v5-c-drawer__body {
     img {
-      width: 60px;
-      max-width: 60px;
+      width: 100px;
+      max-width: 100px;
     }
   }
   .pf-v5-c-simple-list {
-    --pf-v5-c-simple-list__item-link--PaddingBottom: 5px;
-    --pf-v5-c-simple-list__item-link--PaddingTop: 5.5px;
+        height: 100%;
+    --pf-v5-c-simple-list__item-link--PaddingBottom: ;
+    --pf-v5-c-simple-list__item-link--PaddingTop: ;
     --pf-v5-c-simple-list__item-link--m-current--FontWeight: var(--pf-v5-global--FontWeight--bold);
   }
   .pf-v5-c-simple-list__list {
     display: flex;
     flex-direction: column;
-    align-content: stretch;
+
+    height: 100%;
   }
   .pf-v5-c-simple-list__item {
+        vertical-align: middle;
     flex: 1;
     text-wrap: nowrap;
     border-bottom: 1px solid var(--pf-v5-global--palette--black-400);
@@ -28,9 +31,12 @@
       border-bottom: none;
     }
   }
+  .pf-v5-c-simple-list__item-link {
+    height: 100%;
+  }
 
   @container (width < 1000px) { 
-    .pf-v5-l-split__item img {
+    .widg-explore-image img {
       display: none;
     }
   }

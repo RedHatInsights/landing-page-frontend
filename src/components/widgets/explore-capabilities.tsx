@@ -1,5 +1,10 @@
 import React from 'react';
 import { Button } from '@patternfly/react-core/dist/dynamic/components/Button';
+import {
+  Card,
+  CardBody,
+  CardFooter,
+} from '@patternfly/react-core/dist/dynamic/components/Card';
 import { Drawer } from '@patternfly/react-core/dist/dynamic/components/Drawer';
 import { DrawerContent } from '@patternfly/react-core/dist/dynamic/components/Drawer';
 import { DrawerContentBody } from '@patternfly/react-core/dist/dynamic/components/Drawer';
@@ -9,6 +14,7 @@ import { SimpleList } from '@patternfly/react-core/dist/dynamic/components/Simpl
 import { SimpleListItem } from '@patternfly/react-core/dist/dynamic/components/SimpleList';
 import { Split } from '@patternfly/react-core/dist/dynamic/layouts/Split';
 import { SplitItem } from '@patternfly/react-core/dist/dynamic/layouts/Split';
+import { Flex, FlexItem } from '@patternfly/react-core/dist/dynamic/layouts/Split';
 import './explore-capabilities.scss';
 import {
   Text,
@@ -108,33 +114,38 @@ const ExploreCapabilities: React.FunctionComponent = () => {
         widths={{ default: 'width_66' }}
         colorVariant="no-background"
       >
-        <DrawerPanelBody>
-          <Split>
-            <SplitItem isFilled>
+        <DrawerPanelBody className="pf-v5-u-display-flex pf-v5-u-flex-direction-row">
+          <Card
+            className="pf-v5-u-align-self-stretch pf-v5-u-flex-fill"
+            isPlain
+          >
+            <CardBody className="pf-v5-u-p-0">
               <TextContent>
                 <Text component="h2" className="pf-v5-u-mb-sm">
                   {drawerData[activeItem].title}
                 </Text>
                 <Text
                   component="p"
-                  className="pf-v5-u-font-size-md pf-v5-u-mb-sm"
+                  className="pf-v5-u-font-size-sm pf-v5-u-mb-sm"
                 >
                   {drawerData[activeItem].body}
                 </Text>
-                <Button
-                  size="lg"
-                  component="a"
-                  href={drawerData[activeItem].url}
-                  className="pf-m-danger pf-v5-u-mb-sm"
-                >
-                  {drawerData[activeItem].buttonName}
-                </Button>
               </TextContent>
-            </SplitItem>
-            <SplitItem className="pf-v5-u-pl-sm">
-              <img src={drawerData[activeItem].img} />
-            </SplitItem>
-          </Split>
+            </CardBody>
+            <CardFooter className="pf-v5-u-p-0">
+              <Button
+                component="a"
+                href={drawerData[activeItem].url}
+                className="pf-m-danger pf-v5-u-mb-sm"
+              >
+                {drawerData[activeItem].buttonName}
+              </Button>
+            </CardFooter>
+          </Card>
+          <img
+            className="widg-explore-image pf-v5-u-align-self-flex-start pf-v5-u-flex-none pf-v5-u-ml-md"
+            src={drawerData[activeItem].img}
+          />
         </DrawerPanelBody>
       </DrawerPanelContent>
     </>
