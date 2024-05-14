@@ -906,7 +906,7 @@ exports[`<Landing/> should render correctly 1`] = `
                         data-pf-content="true"
                       >
                         <a
-                          href="/application-services/acs/overview"
+                          href="/openshift/acs/overview"
                         >
                           Get Started Now
                           <span

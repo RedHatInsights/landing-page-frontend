@@ -8,7 +8,7 @@ const AcsWidget: React.FunctionComponent = () => {
         id={5}
         body="Fully hosted software as a service for protecting cloud-native applications and Kubernetes."
         linkTitle="RHACS Cloud Service"
-        url="/application-services/acs/overview"
+        url="/openshift/acs/overview"
       />
     </>
   );

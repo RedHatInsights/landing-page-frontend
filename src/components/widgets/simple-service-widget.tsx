@@ -8,6 +8,7 @@ import {
   TextContent,
 } from '@patternfly/react-core/dist/dynamic/components/Text';
 import ArrowRightIcon from '@patternfly/react-icons/dist/js/icons/arrow-right-icon';
+import ExternalLinkAltIcon from '@patternfly/react-icons/dist/js/icons/external-link-alt-icon';
 import { Link } from 'react-router-dom';
 import './simple-service-widget.scss';
 
@@ -16,6 +17,7 @@ interface SimpleServiceWidgetProps {
   body: string;
   linkTitle: string;
   url: string;
+  isExternal?: boolean;
 }
 
 export const SimpleServiceWidget: React.FunctionComponent<
@@ -35,12 +37,21 @@ export const SimpleServiceWidget: React.FunctionComponent<
           </TextContent>
         </CardBody>
         <CardFooter>
-          <Link to={props.url}>
-            {props.linkTitle}
-            <Icon className="pf-v5-u-ml-sm" isInline>
-              <ArrowRightIcon />
-            </Icon>
-          </Link>
+          {props.isExternal ? (
+            <a href={props.url}>
+              {props.linkTitle}
+              <Icon className="pf-v5-u-ml-sm" isInline>
+                <ExternalLinkAltIcon />
+              </Icon>
+            </a>
+          ) : (
+            <Link to={props.url}>
+              {props.linkTitle}
+              <Icon className="pf-v5-u-ml-sm" isInline>
+                <ArrowRightIcon />
+              </Icon>
+            </Link>
+          )}
         </CardFooter>
       </>
     </Card>

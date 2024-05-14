@@ -271,7 +271,7 @@ const SecondPanel = () => {
                         native applications and Kubernetes.
                       </Text>
                       <Text component={TextVariants.p}>
-                        <Link to="/application-services/acs/overview">
+                        <Link to="/openshift/acs/overview">
                           Get Started Now
                           <Icon className="pf-v5-u-ml-sm" isInline>
                             <ArrowRightIcon />
