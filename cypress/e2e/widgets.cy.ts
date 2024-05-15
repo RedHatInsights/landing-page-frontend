@@ -18,23 +18,17 @@ describe('Widget Layout', () => {
 
   const getLayout = () => {
     return cy
-      .window()
-      .then((win) => {
-        const userString = win.localStorage.getItem(
-          'oidc.user:https://sso.stage.redhat.com/auth/:cloud-services'
-        );
-        if (!userString) {
-          throw new Error('User data not found in local storage.');
-        }
-        const user = JSON.parse(userString);
-        return user['id_token'];
-      })
+      .getCookie('cs_jwt')
+      .should('exist')
       .then((token) => {
+        if (!token || !token.value) {
+          throw new Error('JWT cookie not found.');
+        }
         return cy
           .request({
-            url: `https://stage.foo.redhat.com:1337/api/chrome-service/v1/dashboard-templates?dashboard=landingPage`,
+            url: 'https://stage.foo.redhat.com:1337/api/chrome-service/v1/dashboard-templates?dashboard=landingPage',
             headers: {
-              Authorization: `Bearer ${token}`,
+              Authorization: `Bearer ${token.value}`,
             },
             failOnStatusCode: false,
           })
