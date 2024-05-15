@@ -12,9 +12,6 @@ import { DrawerPanelBody } from '@patternfly/react-core/dist/dynamic/components/
 import { DrawerPanelContent } from '@patternfly/react-core/dist/dynamic/components/Drawer';
 import { SimpleList } from '@patternfly/react-core/dist/dynamic/components/SimpleList';
 import { SimpleListItem } from '@patternfly/react-core/dist/dynamic/components/SimpleList';
-import { Split } from '@patternfly/react-core/dist/dynamic/layouts/Split';
-import { SplitItem } from '@patternfly/react-core/dist/dynamic/layouts/Split';
-// import { Flex, FlexItem } from '@patternfly/react-core/dist/dynamic/layouts/Split';
 import './explore-capabilities.scss';
 import {
   Text,
