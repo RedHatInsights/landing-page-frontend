@@ -14,7 +14,7 @@ import { SimpleList } from '@patternfly/react-core/dist/dynamic/components/Simpl
 import { SimpleListItem } from '@patternfly/react-core/dist/dynamic/components/SimpleList';
 import { Split } from '@patternfly/react-core/dist/dynamic/layouts/Split';
 import { SplitItem } from '@patternfly/react-core/dist/dynamic/layouts/Split';
-import { Flex, FlexItem } from '@patternfly/react-core/dist/dynamic/layouts/Split';
+// import { Flex, FlexItem } from '@patternfly/react-core/dist/dynamic/layouts/Split';
 import './explore-capabilities.scss';
 import {
   Text,
@@ -111,7 +111,6 @@ const ExploreCapabilities: React.FunctionComponent = () => {
     <>
       <DrawerPanelContent
         key={drawerData[activeItem].id}
-        widths={{ default: 'width_66' }}
         colorVariant="no-background"
       >
         <DrawerPanelBody className="pf-v5-u-display-flex pf-v5-u-flex-direction-row">
@@ -119,9 +118,9 @@ const ExploreCapabilities: React.FunctionComponent = () => {
             className="pf-v5-u-align-self-stretch pf-v5-u-flex-fill"
             isPlain
           >
-            <CardBody className="pf-v5-u-p-0">
+            <CardBody className="pf-v5-u-p-0 ">
               <TextContent>
-                <Text component="h2" className="pf-v5-u-mb-sm">
+                <Text component="p" className="title pf-v5-u-mb-sm">
                   {drawerData[activeItem].title}
                 </Text>
                 <Text
@@ -135,6 +134,7 @@ const ExploreCapabilities: React.FunctionComponent = () => {
             <CardFooter className="pf-v5-u-p-0">
               <Button
                 component="a"
+                size="lg"
                 href={drawerData[activeItem].url}
                 className="pf-m-danger pf-v5-u-mb-sm"
               >
@@ -143,7 +143,7 @@ const ExploreCapabilities: React.FunctionComponent = () => {
             </CardFooter>
           </Card>
           <img
-            className="widg-explore-image pf-v5-u-align-self-flex-start pf-v5-u-flex-none pf-v5-u-ml-md"
+            className="widg-explore-image pf-v5-u-align-self-flex-start pf-v5-u-flex-none pf-v5-u-m-lg"
             src={drawerData[activeItem].img}
           />
         </DrawerPanelBody>
@@ -179,7 +179,7 @@ const ExploreCapabilities: React.FunctionComponent = () => {
 
   return (
     <React.Fragment>
-      <Drawer className="widget-explore pf-v5-u-mr-sm" isStatic>
+      <Drawer className="widget-explore" isStatic>
         <DrawerContent panelContent={panelContent}>
           <DrawerContentBody>{drawerContent}</DrawerContentBody>
         </DrawerContent>
