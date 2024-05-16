@@ -15,7 +15,7 @@ describe('Widget Landing Page', () => {
 
     // Reset layout to the default
     resetToDefaultLayout();
-    
+
     // Ensure that widgets are open and displayed (Number of items in grid expected to be numDefaultWidgets)
     const numDefaultWidgets = 9;
     cy.get(
@@ -27,7 +27,7 @@ describe('Widget Landing Page', () => {
 
     const cardActionsSelector =
       '.widgetLayout > section > div > .react-grid-layout > .react-grid-item > div > .pf-v5-c-card__header > .pf-v5-c-card__actions > div > button';
-    
+
     // Close all the widgets
     for (let i = 0; i < numDefaultWidgets; i++) {
       cy.get(cardActionsSelector)
