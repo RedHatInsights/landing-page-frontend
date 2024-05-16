@@ -8,11 +8,22 @@ export APP_ROOT=$(pwd)
 cat /etc/redhat-release
 COMMON_BUILDER=https://raw.githubusercontent.com/RedHatInsights/insights-frontend-builder-common/master
 
+set -e
+
+docker run -t \
+  -v $PWD:/e2e:ro,Z \
+  -w /e2e \
+  -e CHROME_ACCOUNT=$CHROME_ACCOUNT \
+  -e CHROME_PASSWORD=$CHROME_PASSWORD \
+  --add-host stage.foo.redhat.com:127.0.0.1 \
+  --add-host prod.foo.redhat.com:127.0.0.1 \
+  --entrypoint bash \
+  quay.io/cloudservices/cypress-e2e-image:b8480a8 /e2e/run-e2e.sh
+
 # ---------------------------
 # Build and Publish to Quay
 # ---------------------------
 
-set -ex
 # source is preferred to | bash -s in this case to avoid a subshell
 source <(curl -sSL $COMMON_BUILDER/src/frontend-build.sh)
 BUILD_RESULTS=$?
@@ -32,7 +43,7 @@ echo "Taking a short nap"
 sleep 60
 
 
-set -x
+set -e
 # Deploy to an ephemeral namespace for testing
 export IMAGE="quay.io/cloudservices/rbac"
 export GIT_COMMIT=master
@@ -53,6 +64,9 @@ IQE_CJI_TIMEOUT="30m"
 DEPLOY_TIMEOUT="900"  # 15min
 DEPLOY_FRONTENDS="true"
 source $CICD_ROOT/cji_smoke_test.sh
+
+
+echo "After docker run"
 
 # Stubbed out for now
 mkdir -p $WORKSPACE/artifacts

@@ -22,3 +22,7 @@ coverage
 # cache
 .cache
 .swc
+.cypress-cache
+
+# coverage output
+.nyc_output
