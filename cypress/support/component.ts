@@ -16,8 +16,6 @@
 
 // Import commands.js using ES2015 syntax:
 import './commands';
-import '../../src/sass/chrome.scss';
-import '../../src/sass/pf-5-assets.scss';
 import '@cypress/code-coverage/support';
 
 // Alternatively you can use CommonJS syntax:
@@ -29,22 +27,15 @@ import { mount } from 'cypress/react18';
 import '@patternfly/patternfly/patternfly.css';
 // Patternfly utilities
 import '@patternfly/patternfly/patternfly-addons.css';
-// Global theme CSS
-import '@patternfly/documentation-framework/global.css';
 
 // Augment the Cypress namespace to include type definitions for
 // your custom command.
 // Alternatively, can be defined in cypress/support/component.d.ts
 // with a <reference path="./component" /> at the top of your spec.
 declare global {
-  interface Window {
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    TestApp: any;
-  }
   namespace Cypress {
     interface Chainable {
       mount: typeof mount;
-      matchImageSnapshot: () => void;
       login(): Chainable<void>;
     }
   }

@@ -1,45 +1,6 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
 const path = require('path');
-const {
-  createJoinFunction,
-  createJoinImplementation,
-  asGenerator,
-  defaultJoinGenerator,
-} = require('resolve-url-loader');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const searchIgnoredStyles = require('@redhat-cloud-services/frontend-components-config-utilities/search-ignored-styles');
-
-// call default generator then pair different variations of uri with each base
-const PFGenerator = asGenerator((item, ...rest) => {
-  const defaultTuples = [...defaultJoinGenerator(item, ...rest)];
-  if (item.uri.includes('./assets')) {
-    return defaultTuples.map(([base]) => {
-      if (base.includes('pf-4-styles')) {
-        return [
-          base,
-          path.relative(
-            base,
-            path.resolve(__dirname, '../node_modules/pf-4-styles', item.uri)
-          ),
-        ];
-      }
-      if (base.includes('@patternfly/patternfly')) {
-        return [
-          base,
-          path.relative(
-            base,
-            path.resolve(
-              __dirname,
-              '../node_modules/@patternfly/patternfly',
-              item.uri
-            )
-          ),
-        ];
-      }
-    });
-  }
-  return defaultTuples;
-});
 
 /** @type { import("webpack").Configuration } */
 const JSConfig = {
@@ -55,11 +16,17 @@ const JSConfig = {
               experimental: {
                 plugins: [
                   [
+                    'swc-plugin-coverage-instrument',
                     {
                       compact: false,
                     },
                   ],
                 ],
+              },
+              transform: {
+                react: {
+                  runtime: 'automatic',
+                },
               },
               parser: {
                 syntax: 'typescript',
@@ -74,15 +41,6 @@ const JSConfig = {
         use: [
           MiniCssExtractPlugin.loader,
           'css-loader',
-          {
-            loader: 'resolve-url-loader',
-            options: {
-              join: createJoinFunction(
-                'myJoinFn',
-                createJoinImplementation(PFGenerator)
-              ),
-            },
-          },
           {
             loader: 'sass-loader',
             options: {
@@ -99,9 +57,6 @@ const JSConfig = {
   },
   resolve: {
     extensions: ['.tsx', '.ts', '.js'],
-    alias: {
-      ...searchIgnoredStyles(path.resolve(__dirname, '../')),
-    },
   },
   output: {
     filename: 'bundle.js',
