@@ -32,19 +32,6 @@ import '@patternfly/patternfly/patternfly-addons.css';
 // Global theme CSS
 import '@patternfly/documentation-framework/global.css';
 
-const {
-  addMatchImageSnapshotCommand,
-  // eslint-disable-next-line @typescript-eslint/no-var-requires
-} = require('@simonsmith/cypress-image-snapshot/command');
-
-// configure the matcher to be less precise to adjust between the headless and normal browser rendering differences
-addMatchImageSnapshotCommand({
-  failureThreshold: 0.03, // threshold for entire image
-  failureThresholdType: 'percent', // percent of image or number of pixels
-  customDiffConfig: { threshold: 0.1 }, // threshold for each pixel
-  capture: 'viewport', // capture viewport in screenshot
-});
-
 // Augment the Cypress namespace to include type definitions for
 // your custom command.
 // Alternatively, can be defined in cypress/support/component.d.ts

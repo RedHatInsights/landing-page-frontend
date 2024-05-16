@@ -1,5 +1,5 @@
 // Landing page has changed
-describe.skip('Landing page', () => {
+describe('Landing page', () => {
   it('visit landing page', () => {
     cy.login();
 
@@ -10,11 +10,12 @@ describe.skip('Landing page', () => {
     cy.contains('My favorite services').should('exist');
   });
 
-  it('tooltip is shown when hovering over the gear/question icon', () => {
+  it.skip('tooltip is shown when hovering over the gear/question icon', () => {
     cy.login();
 
     cy.visit('/');
     cy.wait(4000);
+    // This is not landing page element but chrome element. Landing page should ne testing for this.
     cy.get('.tooltip-button-settings-cy')
       .invoke('show')
       .trigger('mouseenter')

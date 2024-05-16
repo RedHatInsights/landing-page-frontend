@@ -34,6 +34,9 @@ async function runTests() {
   );
 }
 
+// check the cypress binary is installed
+execSync('npm run cypress install', { stdio: 'inherit' });
+
 runTests()
   .then(() => {
     child.kill();
