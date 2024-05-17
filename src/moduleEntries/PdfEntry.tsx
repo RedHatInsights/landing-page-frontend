@@ -3,21 +3,24 @@ import React from 'react';
 import type { AxiosRequestConfig } from 'axios';
 import { Table, Tbody, Td, Th, Thead, Tr } from '@patternfly/react-table';
 
-type CreateAxiosRequest<T = any> = (config: AxiosRequestConfig) => Promise<T>;
+type CreateAxiosRequest<T = any> = (
+  service: string,
+  config: AxiosRequestConfig
+) => Promise<T>;
 
 type FetchData = (createAsyncRequest: CreateAxiosRequest) => Promise<any>;
 
 export const fetchData: FetchData = async (createAsyncRequest) => {
-  const requestGenerated = createAsyncRequest({
+  const requestGenerated = createAsyncRequest('chrome-service', {
     method: 'GET',
     url: '/api/chrome-service/v1/static/beta/stage/services/services-generated.json',
   });
-  const requestStatic = createAsyncRequest({
+  const requestStatic = createAsyncRequest('chrome-service', {
     method: 'GET',
     url: '/api/chrome-service/v1/static/beta/stage/services/services.json',
   });
 
-  const requestWithAuth = createAsyncRequest({
+  const requestWithAuth = createAsyncRequest('chrome-service', {
     method: 'GET',
     url: '/api/chrome-service/v1/user',
   });
