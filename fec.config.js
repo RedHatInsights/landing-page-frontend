@@ -9,6 +9,11 @@ module.exports = {
   hotReload: true,
   plugins: [],
   routes: {
+    ...(process.env.LOCAL_PDF && {
+      '/api/crc-pdf-generator': {
+        host: 'http://localhost:8000',
+      },
+    }),
     ...(process.env.CONFIG_PORT && {
       '/api/chrome-service/v1/static': {
         host: `http://localhost:${process.env.CONFIG_PORT}`,

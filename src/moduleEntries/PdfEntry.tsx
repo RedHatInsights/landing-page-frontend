@@ -34,8 +34,6 @@ export const fetchData: FetchData = async (createAsyncRequest) => {
 };
 
 type AsyncState<T = any> = {
-  loading: boolean;
-  error: any;
   data: T;
 };
 
@@ -44,21 +42,11 @@ const PdfEntry = ({
 }: {
   asyncData: AsyncState<{ description: string }[][]>;
 }) => {
-  const { data, error, loading } = asyncData;
-  if (loading) {
-    return <div>Loading...</div>;
-  }
-
-  if (error) {
-    return (
-      <div>
-        Error: <pre>{JSON.stringify(error, null, 2)}</pre>
-      </div>
-    );
-  }
+  const { data } = asyncData;
 
   return (
     <>
+      <h1>Services</h1>
       <div className="pf-v5-u-m-xl">
         <Table>
           <Thead>
