@@ -1,3 +1,5 @@
+import '@4tw/cypress-drag-drop';
+
 function resetToDefaultLayout() {
   cy.get('button')
     .contains('Reset to default')
@@ -7,6 +9,15 @@ function resetToDefaultLayout() {
     .get("button[data-ouia-component-id='primary-confirm-button']")
     .click();
 }
+
+const moveWidget = (sourceIndex: number, targetIndex: number) => {
+  cy.get('.drag-handle')
+    .eq(sourceIndex)
+    .then((source) => {
+      const targetSelector = `.drag-handle:eq(${targetIndex})`;
+      cy.wrap(source).drag(targetSelector);
+    });
+};
 
 describe('Widget Landing Page', () => {
   it('closes all the widgets', () => {
@@ -43,5 +54,48 @@ describe('Widget Landing Page', () => {
 
     // Reset to default layout
     resetToDefaultLayout();
+  });
+
+  describe('Widget Layout', () => {
+    beforeEach(() => {
+      cy.login();
+      cy.visit('/');
+      cy.viewport(1280, 2000);
+      cy.get('.react-grid-item').should('be.visible');
+
+      cy.intercept(
+        'GET',
+        '**/api/chrome-service/v1/dashboard-templates?dashboard=landingPage'
+      ).as('resetLayout');
+      cy.intercept(
+        'PATCH',
+        '**/api/chrome-service/v1/dashboard-templates/*'
+      ).as('patchLayout');
+
+      resetToDefaultLayout();
+      cy.wait('@resetLayout').its('response.statusCode').should('eq', 200);
+    });
+
+    it('widgets can be dragged and dropped', () => {
+      moveWidget(0, 1);
+
+      cy.wait('@patchLayout').then(({ response }) => {
+        expect(response?.statusCode).to.eq(200);
+        const firstMove = response?.body?.data;
+        expect(firstMove).to.not.be.null;
+
+        moveWidget(2, 1);
+
+        cy.wait('@patchLayout').then(({ response }) => {
+          expect(response?.statusCode).to.eq(200);
+          const secondMove = response?.body?.data;
+          expect(secondMove).to.not.be.null;
+          expect(secondMove).to.not.deep.equal(firstMove);
+        });
+      });
+
+      resetToDefaultLayout();
+      cy.wait('@resetLayout').its('response.statusCode').should('eq', 200);
+    });
   });
 });
