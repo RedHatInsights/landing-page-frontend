@@ -37,6 +37,11 @@ declare global {
     interface Chainable {
       mount: typeof mount;
       login(): Chainable<void>;
+      resetToDefaultLayout(): Chainable<void>;
+      dragTotarget(
+        sourceSelector: string,
+        targetSelector: string
+      ): Chainable<void>;
     }
   }
 }

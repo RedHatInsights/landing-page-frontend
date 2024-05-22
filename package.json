@@ -61,7 +61,6 @@
     "redux-promise-middleware": "^6.1.2"
   },
   "devDependencies": {
-    "@4tw/cypress-drag-drop": "^2.2.5",
     "@cypress/code-coverage": "^3.12.9",
     "@redhat-cloud-services/eslint-config-redhat-cloud-services": "^2.0.3",
     "@redhat-cloud-services/frontend-components-config": "^6.0.14",
