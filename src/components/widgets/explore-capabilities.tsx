@@ -29,7 +29,7 @@ const ExploreCapabilities: React.FunctionComponent = () => {
       title: 'Take a tour of the Console',
       body: "There's a lot to explore in the Hybrid Cloud Console, and understanding its capabilities will increase your efficiency.",
       buttonName: 'Start the guided tour',
-      url: 'https://app.pendo.io/s/5300167311360000/guides/60TJ9PZKMXQ9tDS-WC6bMr46C-U?view=settings',
+      ouiaId: 'start-guided-tour-button',
     },
     {
       id: 'ex-toggle2',
@@ -134,6 +134,7 @@ const ExploreCapabilities: React.FunctionComponent = () => {
                 size="lg"
                 href={drawerData[activeItem].url}
                 className="pf-m-danger pf-v5-u-mb-sm"
+                ouiaId={drawerData[activeItem].ouiaId}
               >
                 {drawerData[activeItem].buttonName}
               </Button>
