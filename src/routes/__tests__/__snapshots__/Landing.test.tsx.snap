@@ -3,7 +3,7 @@
 exports[`<Landing/> should render correctly 1`] = `
 <div>
   <div
-    class="land-c-page-content pf-v5-u-display-flex pf-v5-u-flex-direction-column"
+    class="land-c-page-content pf-v5-u-background-color-200 pf-v5-u-display-flex pf-v5-u-flex-direction-column"
   >
     <section
       class="pf-v5-c-page__main-section pf-m-no-fill land-l-first-panel pf-v5-u-px-xl pf-v5-u-pt-lg pf-v5-u-pb-xl"
