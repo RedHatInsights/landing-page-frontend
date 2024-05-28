@@ -1,22 +1,7 @@
-import '@4tw/cypress-drag-drop';
-
-function resetToDefaultLayout() {
-  cy.get('button')
-    .contains('Reset to default')
-    .click()
-    .get('#warning-modal-check')
-    .click()
-    .get("button[data-ouia-component-id='primary-confirm-button']")
-    .click();
-}
-
-const moveWidget = (sourceIndex: number, targetIndex: number) => {
-  cy.get('.drag-handle')
-    .eq(sourceIndex)
-    .then((source) => {
-      const targetSelector = `.drag-handle:eq(${targetIndex})`;
-      cy.wrap(source).drag(targetSelector);
-    });
+const moveWidget = async (sourceIndex: number, targetIndex: number) => {
+  const sourceSelector = `.drag-handle:eq(${sourceIndex})`;
+  const targetSelector = `.drag-handle:eq(${targetIndex})`;
+  cy.dragTotarget(sourceSelector, targetSelector);
 };
 
 describe('Widget Landing Page', () => {
@@ -25,7 +10,7 @@ describe('Widget Landing Page', () => {
     cy.visit('/');
 
     // Reset layout to the default
-    resetToDefaultLayout();
+    cy.resetToDefaultLayout();
 
     // Ensure that widgets are open and displayed (Number of items in grid expected to be numDefaultWidgets)
     const numDefaultWidgets = 9;
@@ -53,7 +38,7 @@ describe('Widget Landing Page', () => {
     cy.get('h2').contains('No dashboard content');
 
     // Reset to default layout
-    resetToDefaultLayout();
+    cy.resetToDefaultLayout();
   });
 
   describe('Widget Layout', () => {
@@ -72,7 +57,7 @@ describe('Widget Landing Page', () => {
         '**/api/chrome-service/v1/dashboard-templates/*'
       ).as('patchLayout');
 
-      resetToDefaultLayout();
+      cy.resetToDefaultLayout();
       cy.wait('@resetLayout').its('response.statusCode').should('eq', 200);
     });
 
@@ -94,7 +79,7 @@ describe('Widget Landing Page', () => {
         });
       });
 
-      resetToDefaultLayout();
+      cy.resetToDefaultLayout();
       cy.wait('@resetLayout').its('response.statusCode').should('eq', 200);
     });
   });

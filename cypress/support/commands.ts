@@ -66,3 +66,38 @@ Cypress.Commands.add('login', () => {
     { cacheAcrossSpecs: true }
   );
 });
+
+Cypress.Commands.add('resetToDefaultLayout', () => {
+  cy.get('button')
+    .contains('Reset to default')
+    .click()
+    .get('#warning-modal-check')
+    .click()
+    .get("button[data-ouia-component-id='primary-confirm-button']")
+    .click();
+});
+
+Cypress.Commands.add('dragTotarget', (sourceSelector, targetSelector) => {
+  const source = Cypress.$(sourceSelector);
+  const target = Cypress.$(targetSelector);
+  const { x, y } = target[0].getBoundingClientRect();
+
+  cy.wrap(source)
+    .trigger('mousedown', {
+      which: 1,
+      button: 0,
+      eventConstructor: 'MouseEvent',
+    })
+    .trigger('pointerdown', { which: 1, button: 0 })
+    .trigger('dragstart', { eventConstructor: 'DragEvent', ...source })
+    .trigger('dragover', { eventConstructor: 'DragEvent', ...target })
+    .trigger('mousemove', {
+      clientX: x,
+      clientY: y,
+      eventConstructor: 'MouseEvent',
+      ...target,
+    })
+    .trigger('drop', { eventConstructor: 'DragEvent', ...target })
+    .trigger('mouseup', { which: 1, button: 0, force: true, ...target })
+    .trigger('pointerup', { which: 1, button: 0, ...target });
+});
