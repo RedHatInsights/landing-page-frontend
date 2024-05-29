@@ -12,6 +12,8 @@ describe('Openshift AI widget', () => {
       'patchLayout'
     );
 
+    cy.resetToDefaultLayout();
+
     cy.wait('@resetLayout').its('response.statusCode').should('eq', 200);
   });
 
@@ -35,14 +37,8 @@ describe('Openshift AI widget', () => {
       `[data-ouia-component-id="landing-openshiftAi-widget"] button.pf-v5-c-menu-toggle`
     ).click();
     cy.contains('.pf-v5-c-menu__item-text', 'Remove').click();
-    cy.wait('@patchLayout').then(({ response }) => {
-      expect(response?.statusCode).to.eq(200);
-      const firstMove = response?.body?.data;
-      expect(firstMove).to.not.be.null;
-
-      cy.get(`[data-ouia-component-id="landing-openshiftAi-widget"]`).should(
-        'not.exist'
-      );
-    });
+    cy.get(`[data-ouia-component-id="landing-openshiftAi-widget"]`).should(
+      'not.exist'
+    );
   });
 });

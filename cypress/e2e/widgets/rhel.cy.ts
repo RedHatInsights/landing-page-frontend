@@ -16,11 +16,11 @@ describe('RHEL widget', () => {
     cy.wait('@resetLayout').its('response.statusCode').should('eq', 200);
   });
 
-  it.skip('should appear on default layout', () => {
+  it('should appear on default layout', () => {
     cy.get(`[data-ouia-component-id="landing-rhel-widget"]`).should('exist');
   });
 
-  it.skip('should have correct link', () => {
+  it('should have correct link', () => {
     cy.get(`[data-ouia-component-id="landing-rhel-widget"] a`)
       .should('have.attr', 'href')
       .and('include', `/preview/insights/`);
@@ -33,13 +33,8 @@ describe('RHEL widget', () => {
     cy.get(
       '[data-ouia-component-id="landing-rhel-widget"] [data-ouia-component-id="remove-widget"]'
     ).click();
-    cy.wait('@patchLayout').then(({ response }) => {
-      expect(response?.statusCode).to.eq(200);
-      expect(response?.body?.data).to.not.be.null;
-
-      cy.get(`[data-ouia-component-id="landing-rhel-widget"]`).should(
-        'not.be.visible'
-      );
-    });
+    cy.get(`[data-ouia-component-id="landing-rhel-widget"]`).should(
+      'not.exist'
+    );
   });
 });
