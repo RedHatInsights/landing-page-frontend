@@ -29,7 +29,7 @@ const Landing = () => {
     (isBeta() && useFlag('platform.landing-page.widgetization')) ||
     (!isBeta() && useFlag('platform.landing-page.widgetization-stable'));
   return (
-    <div className="land-c-page-content pf-v5-u-display-flex pf-v5-u-flex-direction-column">
+    <div className="land-c-page-content pf-v5-u-background-color-200 pf-v5-u-display-flex pf-v5-u-flex-direction-column">
       <Fragment>
         {widgetLayoutLandingPageEnabled ? null : <FirstPanel />}
         {widgetLayoutLandingPageEnabled ? null : <SecondPanel />}
