@@ -26,7 +26,7 @@ export const SimpleServiceWidget: React.FunctionComponent<
   return (
     <Card isPlain>
       <>
-        <CardBody>
+        <CardBody className="pf-v5-u-p-md">
           <TextContent
             key={props.id}
             className="pf-v5-u-display-flex pf-v5-u-flex-direction-column"
@@ -36,7 +36,7 @@ export const SimpleServiceWidget: React.FunctionComponent<
             </Text>
           </TextContent>
         </CardBody>
-        <CardFooter>
+        <CardFooter className="pf-v5-u-p-md">
           {props.isExternal ? (
             <a href={props.url}>
               {props.linkTitle}
