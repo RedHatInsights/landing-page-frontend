@@ -68,6 +68,10 @@ Cypress.Commands.add('login', () => {
 });
 
 Cypress.Commands.add('resetToDefaultLayout', () => {
+  cy.intercept(
+    'POST',
+    '**/api/chrome-service/v1/dashboard-templates/*/reset'
+  ).as('resetLayout');
   cy.get('button')
     .contains('Reset to default')
     .click()
@@ -75,6 +79,7 @@ Cypress.Commands.add('resetToDefaultLayout', () => {
     .click()
     .get("button[data-ouia-component-id='primary-confirm-button']")
     .click();
+  cy.wait('@resetLayout').its('response.statusCode').should('eq', 200);
 });
 
 Cypress.Commands.add('dragTotarget', (sourceSelector, targetSelector) => {
@@ -100,4 +105,17 @@ Cypress.Commands.add('dragTotarget', (sourceSelector, targetSelector) => {
     .trigger('drop', { eventConstructor: 'DragEvent', ...target })
     .trigger('mouseup', { which: 1, button: 0, force: true, ...target })
     .trigger('pointerup', { which: 1, button: 0, ...target });
+});
+
+Cypress.Commands.add('loadLandingPage', () => {
+  cy.login();
+  cy.visit('/');
+
+  cy.intercept(
+    'GET',
+    '**/api/chrome-service/v1/dashboard-templates?dashboard=landingPage'
+  ).as('loadLayout');
+  cy.wait('@loadLayout').its('response.statusCode').should('eq', 200);
+
+  cy.resetToDefaultLayout();
 });
