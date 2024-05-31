@@ -1,3 +1,5 @@
+import '@4tw/cypress-drag-drop';
+
 const moveWidget = async (sourceIndex: number, targetIndex: number) => {
   const sourceSelector = `.drag-handle:eq(${sourceIndex})`;
   const targetSelector = `.drag-handle:eq(${targetIndex})`;
@@ -81,6 +83,33 @@ describe('Widget Landing Page', () => {
 
       cy.resetToDefaultLayout();
       cy.wait('@resetLayout').its('response.statusCode').should('eq', 200);
+    });
+
+    it.only('widgets can be resized', () => {
+      // cy.get(
+      //   '.widgetLayout > section > div > .react-grid-layout > .react-grid-item'
+      // ).as('reactGridLayout');
+      // let initialWidgetWidth: string | undefined;
+      // const widgetSizeClass = cy
+      //   .get(
+      //     '.widgetLayout > section > div > .react-grid-layout > .react-grid-item'
+      //   )
+      //   .invoke('attr', 'class')
+      //   .then((classList) => {
+      //     console.log(classList?.split(' '));
+      //     initialWidgetWidth = classList?.split(' ')[1];
+      //   });
+      // console.log(widgetSizeClass);
+      cy.get('[tabindex="0"]')
+        .get('[class="react-resizable-handle react-resizable-handle-ne"]')
+        .move({ deltaX: 420, force: true })
+        .then((success) => {
+          assert.isTrue(success);
+        });
+
+      cy.wait('@patchLayout').then(({ response }) => {
+        expect(response?.statusCode).to.eq(200);
+      });
     });
   });
 });
