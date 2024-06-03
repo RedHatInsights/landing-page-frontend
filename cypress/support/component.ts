@@ -42,6 +42,7 @@ declare global {
         sourceSelector: string,
         targetSelector: string
       ): Chainable<void>;
+      getElementHeight(elementSelector: string): Chainable<number>;
     }
   }
 }

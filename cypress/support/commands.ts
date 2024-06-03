@@ -57,9 +57,9 @@ Cypress.Commands.add('login', () => {
 
       cy.wait(1000);
       // login into the session
-      cy.get('#username-verification').type(Cypress.env('E2E_USER'));
+      cy.get('#username-verification').type('insights-qa');
       cy.get('#login-show-step2').click();
-      cy.get('#password').type(Cypress.env('E2E_PASSWORD'));
+      cy.get('#password').type('redhatqa');
       cy.get('#rh-password-verification-submit-button').click();
       // cy.url().should('eq', `${Cypress.config().baseUrl}/`);
     },
@@ -100,4 +100,8 @@ Cypress.Commands.add('dragTotarget', (sourceSelector, targetSelector) => {
     .trigger('drop', { eventConstructor: 'DragEvent', ...target })
     .trigger('mouseup', { which: 1, button: 0, force: true, ...target })
     .trigger('pointerup', { which: 1, button: 0, ...target });
+});
+
+Cypress.Commands.add('getElementHeight', (elementSelector) => {
+  cy.get(elementSelector).invoke('height');
 });
