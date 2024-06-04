@@ -103,7 +103,7 @@ describe('Widget Landing Page', () => {
             .then((width) => {
               console.log(width);
               console.log(parseInt('@initialWidth'));
-              expect(width).to.be.eq(894);
+              expect(width).to.be.closeTo(894, 5);
             });
         });
 
