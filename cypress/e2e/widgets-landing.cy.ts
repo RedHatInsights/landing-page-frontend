@@ -1,4 +1,4 @@
-import '@4tw/cypress-drag-drop';
+import 'cypress-real-events';
 
 const moveWidget = async (sourceIndex: number, targetIndex: number) => {
   const sourceSelector = `.drag-handle:eq(${sourceIndex})`;
@@ -86,30 +86,50 @@ describe('Widget Landing Page', () => {
     });
 
     it.only('widgets can be resized', () => {
-      // cy.get(
-      //   '.widgetLayout > section > div > .react-grid-layout > .react-grid-item'
-      // ).as('reactGridLayout');
-      // let initialWidgetWidth: string | undefined;
-      // const widgetSizeClass = cy
-      //   .get(
-      //     '.widgetLayout > section > div > .react-grid-layout > .react-grid-item'
-      //   )
-      //   .invoke('attr', 'class')
-      //   .then((classList) => {
-      //     console.log(classList?.split(' '));
-      //     initialWidgetWidth = classList?.split(' ')[1];
-      //   });
-      // console.log(widgetSizeClass);
       cy.get('[tabindex="0"]')
-        .get('[class="react-resizable-handle react-resizable-handle-ne"]')
-        .move({ deltaX: 420, force: true })
-        .then((success) => {
-          assert.isTrue(success);
+        .find('[class="react-resizable-handle react-resizable-handle-ne"]')
+        .realMouseDown()
+        .realMouseMove(500, 0)
+        .realMouseUp()
+        .then(() => {
+          cy.get('[tabindex="0"]')
+            .invoke('attr', 'class')
+            .then((classList) => {
+              const classes = classList ? classList.split(' ') : [];
+              expect('widget-columns-2').to.be.oneOf(classes);
+            });
+          cy.get('[tabindex="0"]')
+            .invoke('width')
+            .then((width) => {
+              console.log(width);
+              console.log(parseInt('@initialWidth'));
+              expect(width).to.be.eq(894);
+            });
         });
 
       cy.wait('@patchLayout').then(({ response }) => {
         expect(response?.statusCode).to.eq(200);
       });
+
+      cy.get('[tabindex="0"]')
+        .find('[class="react-resizable-handle react-resizable-handle-ne"]')
+        .realMouseDown()
+        .realMouseMove(-500, 0)
+        .realMouseUp();
+
+      cy.wait('@patchLayout').then(({ response }) => {
+        expect(response?.statusCode).to.eq(200);
+      });
+
+      cy.get('[tabindex="0"]')
+        .invoke('width')
+        .then((width) => {
+          console.log(width);
+          console.log(parseInt('@initialWidth'));
+          expect(width).to.be.eq(403);
+        });
+
+      cy.resetToDefaultLayout();
     });
   });
 });
