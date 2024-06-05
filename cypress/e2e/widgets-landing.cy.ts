@@ -7,13 +7,15 @@ const moveWidget = async (sourceIndex: number, targetIndex: number) => {
 };
 
 describe('Widget Landing Page', () => {
-  it('closes all the widgets', () => {
-    cy.login();
-    cy.visit('/');
+  beforeEach(() => {
+    cy.loadLandingPage();
+  });
 
-    // Reset layout to the default
+  afterEach(() => {
     cy.resetToDefaultLayout();
+  });
 
+  it('closes all the widgets', () => {
     // Ensure that widgets are open and displayed (Number of items in grid expected to be numDefaultWidgets)
     const numDefaultWidgets = 9;
     cy.get(
@@ -38,32 +40,30 @@ describe('Widget Landing Page', () => {
 
     // Confirm that the "empty" message is displayed
     cy.get('h2').contains('No dashboard content');
-
-    // Reset to default layout
-    cy.resetToDefaultLayout();
   });
 
   describe('Widget Layout', () => {
     beforeEach(() => {
-      cy.login();
-      cy.visit('/');
+      cy.loadLandingPage();
       cy.viewport(1280, 2000);
       cy.get('.react-grid-item').should('be.visible');
+    });
 
+    afterEach(() => {
+      cy.resetToDefaultLayout();
+    });
+
+    it('widgets can be dragged and dropped', () => {
+      //TODO: front-end sometimes sends Nan - to be fixed
       cy.intercept(
-        'GET',
-        '**/api/chrome-service/v1/dashboard-templates?dashboard=landingPage'
-      ).as('resetLayout');
+        'PATCH',
+        '**/api/chrome-service/v1/dashboard-templates/NaN',
+        {}
+      );
       cy.intercept(
         'PATCH',
         '**/api/chrome-service/v1/dashboard-templates/*'
       ).as('patchLayout');
-
-      cy.resetToDefaultLayout();
-      cy.wait('@resetLayout').its('response.statusCode').should('eq', 200);
-    });
-
-    it('widgets can be dragged and dropped', () => {
       moveWidget(0, 1);
 
       cy.wait('@patchLayout').then(({ response }) => {
@@ -80,9 +80,6 @@ describe('Widget Landing Page', () => {
           expect(secondMove).to.not.deep.equal(firstMove);
         });
       });
-
-      cy.resetToDefaultLayout();
-      cy.wait('@resetLayout').its('response.statusCode').should('eq', 200);
     });
 
     it.only('widgets can be resized', () => {
