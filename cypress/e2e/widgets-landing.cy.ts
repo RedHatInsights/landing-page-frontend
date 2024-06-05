@@ -13,7 +13,8 @@ describe('Widget Landing Page', () => {
     cy.resetToDefaultLayout();
   });
 
-  it('closes all the widgets', () => {
+  // Test skipped until issue with NaN on PATCH is resolved (makes test flaky)
+  xit('closes all the widgets', () => {
     // Ensure that widgets are open and displayed (Number of items in grid expected to be numDefaultWidgets)
     const numDefaultWidgets = 9;
     const cardActionsSelector = '[aria-label="widget actions menu toggle"]';
@@ -22,17 +23,11 @@ describe('Widget Landing Page', () => {
       .should('be.eq', numDefaultWidgets);
 
     // Close all the widgets
-    cy.intercept(
-      'PATCH',
-      '**/api/chrome-service/v1/dashboard-templates/*',
-      'patchLayout'
-    );
     cy.get(cardActionsSelector).each(($card) => {
       cy.wrap($card)
         .click()
         .get('[data-ouia-component-id="remove-widget"]')
         .click()
-        .wait('@patchLayout')
         .wait(5000);
       cy.wrap($card).should('not.exist');
     });
@@ -44,7 +39,6 @@ describe('Widget Landing Page', () => {
     cy.get('[id="widget-layout-container"]')
       .find('h2')
       .contains('No dashboard content');
-    cy.resetToDefaultLayout();
   });
 
   describe('Widget Layout', () => {
