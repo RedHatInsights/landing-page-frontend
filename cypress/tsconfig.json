@@ -13,7 +13,7 @@
     "forceConsistentCasingInFileNames": true,
     "resolveJsonModule": true,
     "baseUrl": "./",
-    "types": ["cypress", "node", "@t4w/cypress-drag-drop"],
+    "types": ["cypress", "node"],
     "allowJs": false
   },
   "include": ["./**/*.ts", "./**/*.tsx"],

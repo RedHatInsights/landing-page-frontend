@@ -1,19 +1,6 @@
 describe('RHEL widget', () => {
   beforeEach(() => {
-    cy.login();
-    cy.visit('/');
-
-    cy.intercept(
-      'GET',
-      '**/api/chrome-service/v1/dashboard-templates?dashboard=landingPage'
-    ).as('resetLayout');
-
-    cy.intercept('PATCH', '**/api/chrome-service/v1/dashboard-templates/*').as(
-      'patchLayout'
-    );
-
-    cy.resetToDefaultLayout();
-    cy.wait('@resetLayout').its('response.statusCode').should('eq', 200);
+    cy.loadLandingPage();
   });
 
   it('should appear on default layout', () => {
