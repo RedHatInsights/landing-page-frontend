@@ -1,5 +1,7 @@
 describe('Red Hat OpenShift Widget', () => {
   const widgetId = 'landing-openshift-widget';
+  // Jenkins runner seems to need this
+  const jenkinsWait = 3000;
   const removeWidget = (widgetId: string) => {
     // we're trying to use IDs instead of selectors, thus "within"
     cy.get(`[data-ouia-component-id="${widgetId}"]`).within(() => {
@@ -7,7 +9,8 @@ describe('Red Hat OpenShift Widget', () => {
     });
     cy.get('[data-ouia-component-id="remove-widget"]')
       .click()
-      .wait('@patchLayout');
+      .wait('@patchLayout')
+      .wait(jenkinsWait);
     cy.get(`[data-ouia-component-id="${widgetId}]`).should('not.exist');
   };
 
