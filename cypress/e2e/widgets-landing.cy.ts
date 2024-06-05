@@ -7,11 +7,6 @@ const moveWidget = async (sourceIndex: number, targetIndex: number) => {
 describe('Widget Landing Page', () => {
   beforeEach(() => {
     cy.loadLandingPage();
-    cy.intercept(
-      'PATCH',
-      '**/api/chrome-service/v1/dashboard-templates/*',
-      'patchLayout'
-    );
   });
 
   afterEach(() => {
@@ -27,6 +22,11 @@ describe('Widget Landing Page', () => {
       .should('be.eq', numDefaultWidgets);
 
     // Close all the widgets
+    cy.intercept(
+      'PATCH',
+      '**/api/chrome-service/v1/dashboard-templates/*',
+      'patchLayout'
+    );
     cy.get(cardActionsSelector).each(($card) => {
       cy.wrap($card)
         .click()
