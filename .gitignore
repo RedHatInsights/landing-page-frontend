@@ -26,3 +26,4 @@ coverage
 
 # coverage output
 .nyc_output
+cypress/screenshots/*
