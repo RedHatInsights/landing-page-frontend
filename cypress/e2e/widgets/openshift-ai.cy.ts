@@ -23,6 +23,7 @@ describe('Openshift AI widget', () => {
       `[data-ouia-component-id="landing-openshiftAi-widget"] button.pf-v5-c-menu-toggle`
     ).click();
     cy.contains('.pf-v5-c-menu__item-text', 'Remove').click();
+    cy.wait(3000);
     cy.get(`[data-ouia-component-id="landing-openshiftAi-widget"]`).should(
       'not.exist'
     );
