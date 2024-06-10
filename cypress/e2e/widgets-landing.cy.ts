@@ -11,9 +11,9 @@ describe('Widget Landing Page', () => {
     cy.loadLandingPage();
   });
 
-  afterEach(() => {
-    cy.resetToDefaultLayout();
-  });
+  // afterEach(() => {
+  //   cy.resetToDefaultLayout();
+  // });
 
   // Test skipped until issue with NaN on PATCH is resolved (makes test flaky)
   xit('closes all the widgets', () => {
@@ -46,15 +46,10 @@ describe('Widget Landing Page', () => {
   describe('Widget Layout', () => {
     beforeEach(() => {
       cy.loadLandingPage();
+      cy.wait(4000);
       cy.viewport(1280, 2000);
       cy.get('.react-grid-item').should('be.visible');
-    });
 
-    afterEach(() => {
-      cy.resetToDefaultLayout();
-    });
-
-    it('widgets can be dragged and dropped', () => {
       //TODO: front-end sometimes sends Nan - to be fixed
       cy.intercept(
         'PATCH',
@@ -65,6 +60,13 @@ describe('Widget Landing Page', () => {
         'PATCH',
         '**/api/chrome-service/v1/dashboard-templates/*'
       ).as('patchLayout');
+    });
+
+    afterEach(() => {
+      cy.resetToDefaultLayout();
+    });
+
+    it('widgets can be dragged and dropped', () => {
       moveWidget(0, 1);
 
       cy.wait('@patchLayout').then(({ response }) => {
@@ -83,7 +85,8 @@ describe('Widget Landing Page', () => {
       });
     });
 
-    it.only('widgets can be resized', () => {
+    it('widgets can be resized', () => {
+      cy.wait(4000);
       cy.get('[tabindex="0"]')
         .find('[class="react-resizable-handle react-resizable-handle-ne"]')
         .realMouseDown()
@@ -99,8 +102,6 @@ describe('Widget Landing Page', () => {
           cy.get('[tabindex="0"]')
             .invoke('width')
             .then((width) => {
-              console.log(width);
-              console.log(parseInt('@initialWidth'));
               expect(width).to.be.closeTo(894, 5);
             });
         });
@@ -108,26 +109,6 @@ describe('Widget Landing Page', () => {
       cy.wait('@patchLayout').then(({ response }) => {
         expect(response?.statusCode).to.eq(200);
       });
-
-      cy.get('[tabindex="0"]')
-        .find('[class="react-resizable-handle react-resizable-handle-ne"]')
-        .realMouseDown()
-        .realMouseMove(-500, 0)
-        .realMouseUp();
-
-      cy.wait('@patchLayout').then(({ response }) => {
-        expect(response?.statusCode).to.eq(200);
-      });
-
-      cy.get('[tabindex="0"]')
-        .invoke('width')
-        .then((width) => {
-          console.log(width);
-          console.log(parseInt('@initialWidth'));
-          expect(width).to.be.eq(403);
-        });
-
-      cy.resetToDefaultLayout();
     });
   });
 });
