@@ -9,9 +9,14 @@ describe('Widgets can lock and unlock', () => {
     cy.get('[aria-label="widget actions menu toggle"]').first().click();
     cy.get('[data-ouia-component-id="lock-widget"]').first().click();
 
-    // show that widget is locked
-    cy.get('[aria-label="move widget"]').trigger('mouseover');
-    cy.contains('Widget locked').should('be.visible');
+    // show that widget is can't move
+    cy.get('[data-ouia-component-id="landing-rhel-widget"] .drag-handle')
+      .invoke('show')
+      .trigger('mouseenter')
+      .wait(1000);
+    cy.get('[aria-label="Move widget"]')
+      .should('be.visible')
+      .and('contain', 'Widget locked');
 
     // unlock widget
     cy.get('[data-ouia-component-id="landing-rhel-widget"]');
