@@ -7,7 +7,8 @@ describe('Ansible Automation Platform Widget', () => {
   });
 
   it('appears in the default layout', () => {
-    cy.get(`[${widgetLoc}]`).should('be.visible');
+    // scroll into view for if the widget is lower on the page
+    cy.get(`[${widgetLoc}]`).scrollIntoView().should('be.visible');
   });
 
   it('has the correct link', () => {
