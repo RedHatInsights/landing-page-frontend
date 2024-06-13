@@ -9,7 +9,7 @@ describe('Widgets can lock and unlock', () => {
     cy.get('[aria-label="widget actions menu toggle"]').first().click();
     cy.get('[data-ouia-component-id="lock-widget"]').first().click();
 
-    // show that widget is can't move
+    // show that widget can't move
     cy.get('[data-ouia-component-id="landing-rhel-widget"] .drag-handle')
       .invoke('show')
       .trigger('mouseenter')
