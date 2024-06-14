@@ -27,3 +27,6 @@ coverage
 # coverage output
 .nyc_output
 cypress/screenshots/*
+
+# Ibutsu reports
+ibutsu-report

@@ -1,7 +1,14 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
 import { defineConfig } from 'cypress';
+const path = require('path');
 
 export default defineConfig({
+  reporter: path.resolve(__dirname, "node_modules/mocha-ibutsu-reporter"),
+  reporterOptions: {
+    project: "insights-qe",
+    component: "landing-page-frontend",
+    outputDir: path.resolve(__dirname, "ibutsu-report")
+  },
   component: {
     specPattern: 'cypress/component/**/*.cy.{js,jsx,ts,tsx}',
     excludeSpecPattern: ['/snapshots/*', '/image_snapshots/*', '/src/*'],
