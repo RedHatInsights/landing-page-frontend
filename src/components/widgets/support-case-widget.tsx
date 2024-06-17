@@ -22,6 +22,7 @@ import useChrome from '@redhat-cloud-services/frontend-components/useChrome';
 import SkeletonTable from '@patternfly/react-component-groups/dist/dynamic/SkeletonTable';
 import { MAX_ROWS, columnNames, getUrl, labelColor } from '../../utils/consts';
 import './support-case-widget.scss';
+import { SupportCaseWidgetTableFilter } from './support-case-table-filter';
 
 export type Case = {
   id: string;
@@ -30,6 +31,7 @@ export type Case = {
   lastModifiedById: string;
   severity: string;
   status: string;
+  productFamily: string;
 };
 
 const SupportCaseWidget: React.FunctionComponent = () => {
@@ -108,6 +110,7 @@ const SupportCaseWidget: React.FunctionComponent = () => {
           variant={TableVariant.compact}
         >
           <Thead>
+            <SupportCaseWidgetTableFilter />
             <Tr>
               <Th>{columnNames.caseId}</Th>
               <Th>{columnNames.issueSummary}</Th>
