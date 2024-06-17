@@ -13,6 +13,7 @@ import { Select } from '@patternfly/react-core/dist/dynamic/components/Select';
 import { SelectList } from '@patternfly/react-core/dist/dynamic/components/Select';
 import { SelectOption } from '@patternfly/react-core/dist/dynamic/components/Select';
 import FilterIcon from '@patternfly/react-icons/dist/esm/icons/filter-icon';
+import { severityTypes, statusTypes } from '../../utils/consts';
 
 export const SupportCaseWidgetTableFilter: React.FunctionComponent = () => {
   const [isProductFamilyExpanded, setIsProductFamilyExpanded] =
@@ -20,9 +21,9 @@ export const SupportCaseWidgetTableFilter: React.FunctionComponent = () => {
   const [isSeverityExpanded, setIsSeverityExpanded] = React.useState(false);
   const [isStatusExpanded, setIsStatusExpanded] = React.useState(false);
   const [filters, setFilters] = React.useState({
-    productFamily: ['Low'],
+    productFamily: [''],
     severity: [''],
-    status: ['New', 'Pending'],
+    status: [''],
   });
 
   const onSelect = (
@@ -43,7 +44,7 @@ export const SupportCaseWidgetTableFilter: React.FunctionComponent = () => {
   };
 
   const onProductFamilySelect = (
-    event: React.MouseEvent | React.ChangeEvent,
+    event: React.MouseEvent<Element, MouseEvent> | React.ChangeEvent<Element>,
     selection: string
   ) => {
     onSelect('productFamily', event, selection);
@@ -127,35 +128,27 @@ export const SupportCaseWidgetTableFilter: React.FunctionComponent = () => {
     <SelectList>
       <SelectOption
         hasCheckbox
-        key="statusNew"
-        value="New"
-        isSelected={filters.status.includes('New')}
+        key={statusTypes.closed}
+        value={statusTypes.closed}
+        isSelected={filters.status.includes(statusTypes.closed)}
       >
-        New
+        {statusTypes.closed}
       </SelectOption>
       <SelectOption
         hasCheckbox
-        key="statusPending"
-        value="Pending"
-        isSelected={filters.status.includes('Pending')}
+        key={statusTypes.customerWaiting}
+        value={statusTypes.customerWaiting}
+        isSelected={filters.status.includes(statusTypes.customerWaiting)}
       >
-        Pending
+        {statusTypes.customerWaiting}
       </SelectOption>
       <SelectOption
         hasCheckbox
-        key="statusRunning"
-        value="Running"
-        isSelected={filters.status.includes('Running')}
+        key={statusTypes.redHatWaiting}
+        value={statusTypes.redHatWaiting}
+        isSelected={filters.status.includes(statusTypes.redHatWaiting)}
       >
-        Running
-      </SelectOption>
-      <SelectOption
-        hasCheckbox
-        key="statusCancelled"
-        value="Cancelled"
-        isSelected={filters.status.includes('Cancelled')}
-      >
-        Cancelled
+        {statusTypes.redHatWaiting}
       </SelectOption>
     </SelectList>
   );
@@ -164,27 +157,35 @@ export const SupportCaseWidgetTableFilter: React.FunctionComponent = () => {
     <SelectList>
       <SelectOption
         hasCheckbox
-        key="riskLow"
-        value="Low"
-        isSelected={filters.risk.includes('Low')}
+        key={severityTypes.low}
+        value={severityTypes.low}
+        isSelected={filters.severity.includes(severityTypes.low)}
       >
-        Low
+        {severityTypes.low}
       </SelectOption>
       <SelectOption
         hasCheckbox
-        key="riskMedium"
-        value="Medium"
-        isSelected={filters.risk.includes('Medium')}
+        key={severityTypes.normal}
+        value={severityTypes.normal}
+        isSelected={filters.severity.includes(severityTypes.normal)}
       >
-        Medium
+        {severityTypes.normal}
       </SelectOption>
       <SelectOption
         hasCheckbox
-        key="riskHigh"
-        value="High"
-        isSelected={filters.risk.includes('High')}
+        key={severityTypes.high}
+        value={severityTypes.high}
+        isSelected={filters.severity.includes(severityTypes.high)}
       >
-        High
+        {severityTypes.high}
+      </SelectOption>
+      <SelectOption
+        hasCheckbox
+        key={severityTypes.urgent}
+        value={severityTypes.urgent}
+        isSelected={filters.severity.includes(severityTypes.urgent)}
+      >
+        {severityTypes.urgent}
       </SelectOption>
     </SelectList>
   );
@@ -224,43 +225,76 @@ export const SupportCaseWidgetTableFilter: React.FunctionComponent = () => {
             selected={filters.productFamily}
             isOpen={isProductFamilyExpanded}
             onOpenChange={(isOpen) => setIsProductFamilyExpanded(isOpen)}
-          >
-            {statusMenuItems}
-          </Select>
+          ></Select>
         </ToolbarFilter>
         <ToolbarFilter
-          chips={filters.risk}
+          chips={filters.severity}
           deleteChip={(category, chip) =>
             onDelete(category as string, chip as string)
           }
-          categoryName="Risk"
+          categoryName="Severity"
         >
           <Select
-            aria-label="Risk"
+            aria-label="Severity"
             role="menu"
             toggle={(toggleRef: React.Ref<MenuToggleElement>) => (
               <MenuToggle
                 ref={toggleRef}
-                onClick={onRiskToggle}
-                isExpanded={isRiskExpanded}
+                onClick={onSeverityToggle}
+                isExpanded={isSeverityExpanded}
                 style={
                   {
                     width: '140px',
                   } as React.CSSProperties
                 }
               >
-                Risk
-                {filters.risk.length > 0 && (
-                  <Badge isRead>{filters.risk.length}</Badge>
+                Severity
+                {filters.severity.length > 0 && (
+                  <Badge isRead>{filters.severity.length}</Badge>
                 )}
               </MenuToggle>
             )}
-            onSelect={onRiskSelect}
-            selected={filters.risk}
-            isOpen={isRiskExpanded}
-            onOpenChange={(isOpen) => setIsRiskExpanded(isOpen)}
+            onSelect={onSeveritySelect}
+            selected={filters.severity}
+            isOpen={isSeverityExpanded}
+            onOpenChange={(isOpen) => setIsSeverityExpanded(isOpen)}
           >
-            {riskMenuItems}
+            {severityMenuItems}
+          </Select>
+        </ToolbarFilter>
+        <ToolbarFilter
+          chips={filters.status}
+          deleteChip={(category, chip) =>
+            onDelete(category as string, chip as string)
+          }
+          categoryName="Status"
+        >
+          <Select
+            aria-label="Status"
+            role="menu"
+            toggle={(toggleRef: React.Ref<MenuToggleElement>) => (
+              <MenuToggle
+                ref={toggleRef}
+                onClick={onStatusToggle}
+                isExpanded={isStatusExpanded}
+                style={
+                  {
+                    width: '140px',
+                  } as React.CSSProperties
+                }
+              >
+                Status
+                {filters.status.length > 0 && (
+                  <Badge isRead>{filters.status.length}</Badge>
+                )}
+              </MenuToggle>
+            )}
+            onSelect={onStatusSelect}
+            selected={filters.status}
+            isOpen={isStatusExpanded}
+            onOpenChange={(isOpen) => setIsStatusExpanded(isOpen)}
+          >
+            {statusMenuItems}
           </Select>
         </ToolbarFilter>
       </ToolbarGroup>
