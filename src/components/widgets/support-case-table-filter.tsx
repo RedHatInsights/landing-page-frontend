@@ -4,7 +4,6 @@ import { ToolbarContent } from '@patternfly/react-core/dist/dynamic/components/T
 import { ToolbarFilter } from '@patternfly/react-core/dist/dynamic/components/Toolbar';
 import { ToolbarToggleGroup } from '@patternfly/react-core/dist/dynamic/components/Toolbar';
 import { ToolbarGroup } from '@patternfly/react-core/dist/dynamic/components/Toolbar';
-import { Badge } from '@patternfly/react-core/dist/dynamic/components/Badge';
 import {
   MenuToggle,
   MenuToggleElement,
@@ -216,9 +215,6 @@ export const SupportCaseWidgetTableFilter: React.FunctionComponent = () => {
                 }
               >
                 Product Family
-                {filters.productFamily.length > 0 && (
-                  <Badge isRead>{filters.productFamily.length}</Badge>
-                )}
               </MenuToggle>
             )}
             onSelect={onProductFamilySelect}
@@ -249,9 +245,6 @@ export const SupportCaseWidgetTableFilter: React.FunctionComponent = () => {
                 }
               >
                 Severity
-                {filters.severity.length > 0 && (
-                  <Badge isRead>{filters.severity.length}</Badge>
-                )}
               </MenuToggle>
             )}
             onSelect={onSeveritySelect}
@@ -284,9 +277,6 @@ export const SupportCaseWidgetTableFilter: React.FunctionComponent = () => {
                 }
               >
                 Status
-                {filters.status.length > 0 && (
-                  <Badge isRead>{filters.status.length}</Badge>
-                )}
               </MenuToggle>
             )}
             onSelect={onStatusSelect}
