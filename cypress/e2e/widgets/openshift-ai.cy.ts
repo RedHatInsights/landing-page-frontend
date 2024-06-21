@@ -19,6 +19,9 @@ describe('Openshift AI widget', () => {
   });
 
   it('should be removed if clicked on remove', () => {
+    cy.get('[data-ouia-component-id="landing-openshiftAi-widget"]').contains(
+      'Red Hat OpenShift AI'
+    ); // wait for the widget to fully load firest
     cy.get(
       `[data-ouia-component-id="landing-openshiftAi-widget"] button.pf-v5-c-menu-toggle`
     ).click();
