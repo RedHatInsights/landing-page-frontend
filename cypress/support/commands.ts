@@ -95,8 +95,13 @@ Cypress.Commands.add('dragTotarget', (sourceSelector, targetSelector) => {
     .trigger('pointerdown', { which: 1, button: 0 })
     .trigger('dragstart', { dataTransfer: new DataTransfer() })
     .trigger('dragover', { clientX: x, clientY: y })
-    .trigger('mousemove', { clientX: x, clientY: y })
-    .trigger('drop', { clientX: x, clientY: y })
+    .trigger('mousemove', { clientX: x, clientY: y });
+
+  cy.wrap(target)
+    .trigger('dragover', { clientX: x, clientY: y })
+    .trigger('drop', { clientX: x, clientY: y });
+
+  cy.wrap(source)
     .trigger('mouseup', { which: 1, button: 0 })
     .trigger('pointerup', { which: 1, button: 0 });
 });
