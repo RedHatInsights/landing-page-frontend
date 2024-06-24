@@ -53,7 +53,8 @@ describe('Widget Landing Page', () => {
     });
 
     it('widgets can be dragged and dropped', () => {
-      //TODO: front-end sometimes sends Nan - to be fixed
+      cy.get('.pf-v5-c-icon.drag-handle').should('be.visible');
+
       cy.intercept(
         'PATCH',
         '**/api/chrome-service/v1/dashboard-templates/NaN',

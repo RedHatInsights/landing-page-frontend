@@ -87,24 +87,18 @@ Cypress.Commands.add('dragTotarget', (sourceSelector, targetSelector) => {
   const target = Cypress.$(targetSelector);
   const { x, y } = target[0].getBoundingClientRect();
 
+  cy.get(sourceSelector).should('be.visible');
+  cy.get(targetSelector).should('be.visible');
+
   cy.wrap(source)
-    .trigger('mousedown', {
-      which: 1,
-      button: 0,
-      eventConstructor: 'MouseEvent',
-    })
+    .trigger('mousedown', { which: 1, button: 0 })
     .trigger('pointerdown', { which: 1, button: 0 })
-    .trigger('dragstart', { eventConstructor: 'DragEvent', ...source })
-    .trigger('dragover', { eventConstructor: 'DragEvent', ...target })
-    .trigger('mousemove', {
-      clientX: x,
-      clientY: y,
-      eventConstructor: 'MouseEvent',
-      ...target,
-    })
-    .trigger('drop', { eventConstructor: 'DragEvent', ...target })
-    .trigger('mouseup', { which: 1, button: 0, force: true, ...target })
-    .trigger('pointerup', { which: 1, button: 0, ...target });
+    .trigger('dragstart', { dataTransfer: new DataTransfer() })
+    .trigger('dragover', { clientX: x, clientY: y })
+    .trigger('mousemove', { clientX: x, clientY: y })
+    .trigger('drop', { clientX: x, clientY: y })
+    .trigger('mouseup', { which: 1, button: 0 })
+    .trigger('pointerup', { which: 1, button: 0 });
 });
 
 Cypress.Commands.add('loadLandingPage', () => {
