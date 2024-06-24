@@ -48,6 +48,9 @@
   .pf-v5-c-simple-list__item-link {
     height: 100%;
   }
+  .cta-button {
+    margin-top: var(--pf-v5-global--spacer--md);
+  }
   @container (width < 1080px) { 
     .title {
       font-size: var(--pf-v5-global--FontSize--lg);
