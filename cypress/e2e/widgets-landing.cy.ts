@@ -1,7 +1,20 @@
 const moveWidget = async (sourceIndex: number, targetIndex: number) => {
   const sourceSelector = `.drag-handle:eq(${sourceIndex})`;
   const targetSelector = `.drag-handle:eq(${targetIndex})`;
-  cy.dragTotarget(sourceSelector, targetSelector);
+
+  cy.get(sourceSelector, { timeout: 5000 })
+    .should('be.visible')
+    .then(($source) => {
+      cy.get(targetSelector, { timeout: 5000 })
+        .should('be.visible')
+        .then(($target) => {
+          cy.wrap($source).trigger('mousedown', { which: 1 });
+
+          cy.wrap($target)
+            .trigger('mousemove', { which: 1 })
+            .trigger('mouseup', { force: true });
+        });
+    });
 };
 
 describe('Widget Landing Page', () => {
