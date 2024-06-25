@@ -133,7 +133,7 @@ const ExploreCapabilities: React.FunctionComponent = () => {
                 component="a"
                 size="lg"
                 href={drawerData[activeItem].url}
-                className="pf-m-danger pf-v5-u-mb-sm cta-button"
+                className="pf-v5-u-mb-sm cta-button"
                 ouiaId={drawerData[activeItem].ouiaId}
               >
                 {drawerData[activeItem].buttonName}
