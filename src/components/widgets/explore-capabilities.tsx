@@ -3,7 +3,6 @@ import { Button } from '@patternfly/react-core/dist/dynamic/components/Button';
 import {
   Card,
   CardBody,
-  CardFooter,
 } from '@patternfly/react-core/dist/dynamic/components/Card';
 import { Drawer } from '@patternfly/react-core/dist/dynamic/components/Drawer';
 import { DrawerContent } from '@patternfly/react-core/dist/dynamic/components/Drawer';
@@ -73,25 +72,28 @@ const ExploreCapabilities: React.FunctionComponent = () => {
       img: '/apps/frontend-assets/console-landing/widget-explore/Explore_CentOS-to-RHEL.svg',
       title: 'Convert your CentOS systems to Red Hat Enterprise Linux',
       body: (
-        <span>
-          On June 30, 2024, CentOS Linux 7 will reach End of Life (EOL), and
-          those systems will stop receiving updates, security patches, and new
-          features.
-          <br></br>
-          Red Hat can help.{' '}
-          <a
-            href="https://www.redhat.com/en/technologies/linux-platforms/enterprise-linux/centos-migration"
-            target="_blank"
-            rel="noreferrer"
-          >
-            Learn more
-          </a>{' '}
-          about migrating your CentOS Linux systems to RHEL, whether on-premise
-          or in the cloud.
-        </span>
+        <div>
+          <p>
+            On June 30, 2024, CentOS Linux 7 will reach End of Life (EOL), and
+            those systems will stop receiving updates, security patches, and new
+            features.
+          </p>
+          <p>
+            Red Hat can help.{' '}
+            <a
+              href="https://www.redhat.com/en/technologies/linux-platforms/enterprise-linux/centos-migration"
+              target="_blank"
+              rel="noreferrer"
+            >
+              Learn more
+            </a>{' '}
+            about migrating your CentOS Linux systems to RHEL, whether
+            on-premise or in the cloud.
+          </p>
+        </div>
       ),
       buttonName: 'Run a pre-conversion analysis',
-      url: 'https://console.redhat.com/insights/tasks?quickstart=insights-tasks-pre-conversion#SIDs=&tags=',
+      url: 'https://console.redhat.com/insights/tasks/available/convert-to-rhel-preanalysis?quickstart=insights-tasks-pre-conversion',
     },
     {
       id: 'ex-toggle7',
@@ -127,18 +129,16 @@ const ExploreCapabilities: React.FunctionComponent = () => {
                   {drawerData[activeItem].body}
                 </Text>
               </TextContent>
-            </CardBody>
-            <CardFooter className="pf-v5-u-p-0">
               <Button
                 component="a"
                 size="lg"
                 href={drawerData[activeItem].url}
-                className="pf-m-danger pf-v5-u-mb-sm"
+                className="pf-v5-u-mb-sm cta-button"
                 ouiaId={drawerData[activeItem].ouiaId}
               >
                 {drawerData[activeItem].buttonName}
               </Button>
-            </CardFooter>
+            </CardBody>
           </Card>
           <img
             className="widg-explore-image pf-v5-u-align-self-flex-start pf-v5-u-flex-none pf-v5-u-m-lg"
