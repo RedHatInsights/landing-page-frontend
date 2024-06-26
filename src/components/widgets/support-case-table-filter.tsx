@@ -1,33 +1,38 @@
-import React from 'react';
-import { Toolbar } from '@patternfly/react-core/dist/dynamic/components/Toolbar';
-import { ToolbarContent } from '@patternfly/react-core/dist/dynamic/components/Toolbar';
-import { ToolbarFilter } from '@patternfly/react-core/dist/dynamic/components/Toolbar';
-import { ToolbarToggleGroup } from '@patternfly/react-core/dist/dynamic/components/Toolbar';
-import { ToolbarGroup } from '@patternfly/react-core/dist/dynamic/components/Toolbar';
+import React, { ChangeEvent, MouseEvent } from 'react';
+import {
+  Toolbar,
+  ToolbarContent,
+  ToolbarFilter,
+  ToolbarGroup,
+  ToolbarToggleGroup,
+} from '@patternfly/react-core/dist/dynamic/components/Toolbar';
 import {
   MenuToggle,
   MenuToggleElement,
 } from '@patternfly/react-core/dist/dynamic/components/MenuToggle';
-import { Select } from '@patternfly/react-core/dist/dynamic/components/Select';
-import { SelectList } from '@patternfly/react-core/dist/dynamic/components/Select';
-import { SelectOption } from '@patternfly/react-core/dist/dynamic/components/Select';
+import {
+  Select,
+  SelectList,
+  SelectOption,
+} from '@patternfly/react-core/dist/dynamic/components/Select';
 import FilterIcon from '@patternfly/react-icons/dist/esm/icons/filter-icon';
 import { severityTypes, statusTypes } from '../../utils/consts';
 
 export const SupportCaseWidgetTableFilter: React.FunctionComponent = () => {
-  const [isProductFamilyExpanded, setIsProductFamilyExpanded] =
-    React.useState(false);
+  // const [isProductFamilyExpanded, setIsProductFamilyExpanded] =
+  //   React.useState(false);
   const [isSeverityExpanded, setIsSeverityExpanded] = React.useState(false);
   const [isStatusExpanded, setIsStatusExpanded] = React.useState(false);
+
   const [filters, setFilters] = React.useState({
-    productFamily: [''],
+    // productFamily: [],
     severity: [''],
     status: [''],
   });
 
   const onSelect = (
     type: string,
-    event: React.MouseEvent<Element, MouseEvent> | React.ChangeEvent<Element>,
+    event: React.MouseEvent | React.ChangeEvent,
     selection: string
   ) => {
     const checked = (event.target as HTMLInputElement).checked;
@@ -42,78 +47,55 @@ export const SupportCaseWidgetTableFilter: React.FunctionComponent = () => {
     });
   };
 
-  const onProductFamilySelect = (
-    event: React.MouseEvent<Element, MouseEvent> | React.ChangeEvent<Element>,
-    selection: string
-  ) => {
-    onSelect('productFamily', event, selection);
-  };
+  // const onProductFamilySelect = (
+  //   event: React.MouseEvent<Element, MouseEvent> | React.ChangeEvent<Element>,
+  //   selection: string
+  // ) => {
+  //   onSelect('productFamily', event, selection);
+  // };
 
   const onSeveritySelect = (
-    event: React.MouseEvent | React.ChangeEvent,
+    event: MouseEvent | ChangeEvent,
     selection: string
   ) => {
     onSelect('severity', event, selection);
   };
 
   const onStatusSelect = (
-    event: React.MouseEvent | React.ChangeEvent,
+    event: MouseEvent | ChangeEvent,
     selection: string
   ) => {
     onSelect('status', event, selection);
   };
 
   const onDelete = (type: string, id: string) => {
-    if (type === 'Product Family') {
-      setFilters({
-        productFamily: filters.productFamily.filter(
-          (fil: string) => fil !== id
-        ),
-        severity: filters.severity,
-        status: filters.status,
-      });
-    } else if (type === 'Severity') {
-      setFilters({
-        productFamily: filters.productFamily,
-        severity: filters.severity.filter((fil: string) => fil !== id),
-        status: filters.status,
-      });
-    } else if (type === 'Status') {
-      setFilters({
-        productFamily: filters.productFamily,
-        severity: filters.severity,
-        status: filters.status.filter((fil: string) => fil !== id),
-      });
-    } else {
-      setFilters({ productFamily: [], severity: [], status: [] });
-    }
+    const filterTypes: { [key: string]: string[] } = {
+      // 'Product Family': filters.productFamily.filter(
+      //   (fil: string) => fil !== id
+      // ),
+      Severity: filters.severity.filter((fil: string) => fil !== id),
+      Status: filters.status.filter((fil: string) => fil !== id),
+    };
+    setFilters({
+      // productFamily:
+      //   type === 'Product Family' ? filterTypes[type] : filters.productFamily,
+      severity: type === 'Severity' ? filterTypes[type] : filters.severity,
+      status: type === 'Status' ? filterTypes[type] : filters.status,
+    });
   };
 
   const onDeleteGroup = (type: string) => {
-    if (type === 'Product Family') {
-      setFilters({
-        productFamily: [],
-        severity: filters.severity,
-        status: filters.status,
-      });
-    } else if (type === 'Severity') {
-      setFilters({
-        productFamily: filters.productFamily,
-        severity: [],
-        status: filters.status,
-      });
-    } else if (type === 'Status') {
-      setFilters({
-        productFamily: filters.productFamily,
-        severity: filters.severity,
-        status: [],
-      });
-    }
+    const newFilters = {
+      // productFamily: type === 'Product Family' ? [] : filters.productFamily,
+      severity: type === 'Severity' ? [] : filters.severity,
+      status: type === 'Status' ? [] : filters.status,
+    };
+    setFilters(newFilters);
   };
 
-  const onProductFamilyToggle = () => {
-    setIsProductFamilyExpanded(!isProductFamilyExpanded);
-  };
+  // const onProductFamilyToggle = () => {
+  //   setIsProductFamilyExpanded(!isProductFamilyExpanded);
+  // };
 
   const onSeverityToggle = () => {
     setIsSeverityExpanded(!isSeverityExpanded);
@@ -192,7 +174,7 @@ export const SupportCaseWidgetTableFilter: React.FunctionComponent = () => {
   const toggleGroupItems = (
     <React.Fragment>
       <ToolbarGroup variant="filter-group">
-        <ToolbarFilter
+        {/* <ToolbarFilter
           chips={filters.productFamily}
           deleteChip={(category, chip) =>
             onDelete(category as string, chip as string)
@@ -222,12 +204,13 @@ export const SupportCaseWidgetTableFilter: React.FunctionComponent = () => {
             isOpen={isProductFamilyExpanded}
             onOpenChange={(isOpen) => setIsProductFamilyExpanded(isOpen)}
           ></Select>
-        </ToolbarFilter>
+        </ToolbarFilter> */}
         <ToolbarFilter
           chips={filters.severity}
           deleteChip={(category, chip) =>
             onDelete(category as string, chip as string)
           }
+          deleteChipGroup={(category) => onDeleteGroup(category as string)}
           categoryName="Severity"
         >
           <Select
@@ -260,6 +243,7 @@ export const SupportCaseWidgetTableFilter: React.FunctionComponent = () => {
           deleteChip={(category, chip) =>
             onDelete(category as string, chip as string)
           }
+          deleteChipGroup={(category) => onDeleteGroup(category as string)}
           categoryName="Status"
         >
           <Select
@@ -304,7 +288,6 @@ export const SupportCaseWidgetTableFilter: React.FunctionComponent = () => {
       id="toolbar-with-filter"
       className="pf-m-toggle-group-container"
       collapseListedFiltersBreakpoint="xl"
-      clearAllFilters={() => onDelete('', '')}
     >
       <ToolbarContent>{toolbarItems}</ToolbarContent>
     </Toolbar>
