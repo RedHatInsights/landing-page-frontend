@@ -11,10 +11,6 @@ describe('Widget Landing Page', () => {
     cy.loadLandingPage();
   });
 
-  // afterEach(() => {
-  //   cy.resetToDefaultLayout();
-  // });
-
   // Test skipped until issue with NaN on PATCH is resolved (makes test flaky)
   xit('closes all the widgets', () => {
     // Ensure that widgets are open and displayed (Number of items in grid expected to be numDefaultWidgets)
