@@ -1,3 +1,5 @@
+import 'cypress-real-events';
+
 const moveWidget = async (sourceIndex: number, targetIndex: number) => {
   const sourceSelector = `.drag-handle:eq(${sourceIndex})`;
   const targetSelector = `.drag-handle:eq(${targetIndex})`;
@@ -7,10 +9,6 @@ const moveWidget = async (sourceIndex: number, targetIndex: number) => {
 describe('Widget Landing Page', () => {
   beforeEach(() => {
     cy.loadLandingPage();
-  });
-
-  afterEach(() => {
-    cy.resetToDefaultLayout();
   });
 
   // Test skipped until issue with NaN on PATCH is resolved (makes test flaky)
@@ -44,15 +42,10 @@ describe('Widget Landing Page', () => {
   describe('Widget Layout', () => {
     beforeEach(() => {
       cy.loadLandingPage();
+      cy.wait(4000);
       cy.viewport(1280, 2000);
       cy.get('.react-grid-item').should('be.visible');
-    });
 
-    afterEach(() => {
-      cy.resetToDefaultLayout();
-    });
-
-    it('widgets can be dragged and dropped', () => {
       //TODO: front-end sometimes sends Nan - to be fixed
       cy.intercept(
         'PATCH',
@@ -63,6 +56,13 @@ describe('Widget Landing Page', () => {
         'PATCH',
         '**/api/chrome-service/v1/dashboard-templates/*'
       ).as('patchLayout');
+    });
+
+    afterEach(() => {
+      cy.resetToDefaultLayout();
+    });
+
+    it('widgets can be dragged and dropped', () => {
       moveWidget(0, 1);
 
       cy.wait('@patchLayout').then(({ response }) => {
@@ -78,6 +78,32 @@ describe('Widget Landing Page', () => {
           expect(secondMove).to.not.be.null;
           expect(secondMove).to.not.deep.equal(firstMove);
         });
+      });
+    });
+
+    it('widgets can be resized', () => {
+      cy.wait(4000);
+      cy.get('[tabindex="0"]')
+        .find('[class="react-resizable-handle react-resizable-handle-ne"]')
+        .realMouseDown()
+        .realMouseMove(500, 0)
+        .realMouseUp()
+        .then(() => {
+          cy.get('[tabindex="0"]')
+            .invoke('attr', 'class')
+            .then((classList) => {
+              const classes = classList ? classList.split(' ') : [];
+              expect('widget-columns-2').to.be.oneOf(classes);
+            });
+          cy.get('[tabindex="0"]')
+            .invoke('width')
+            .then((width) => {
+              expect(width).to.be.closeTo(894, 5);
+            });
+        });
+
+      cy.wait('@patchLayout').then(({ response }) => {
+        expect(response?.statusCode).to.eq(200);
       });
     });
   });
