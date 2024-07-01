@@ -16,9 +16,16 @@ import {
   SelectOption,
 } from '@patternfly/react-core/dist/dynamic/components/Select';
 import FilterIcon from '@patternfly/react-icons/dist/esm/icons/filter-icon';
-import { severityTypes, statusTypes } from '../../utils/consts';
 
-export const SupportCaseWidgetTableFilter: React.FunctionComponent = () => {
+interface SupportCaseWidgetTableFilterProps {
+  productFamily: string;
+  severity: string;
+  status: string;
+}
+
+export const SupportCaseWidgetTableFilter: React.FunctionComponent<
+  SupportCaseWidgetTableFilterProps
+> = (props) => {
   // const [isProductFamilyExpanded, setIsProductFamilyExpanded] =
   //   React.useState(false);
   const [isSeverityExpanded, setIsSeverityExpanded] = React.useState(false);
@@ -73,8 +80,8 @@ export const SupportCaseWidgetTableFilter: React.FunctionComponent = () => {
       // 'Product Family': filters.productFamily.filter(
       //   (fil: string) => fil !== id
       // ),
-      Severity: filters.severity.filter((fil: string) => fil !== id),
-      Status: filters.status.filter((fil: string) => fil !== id),
+      severity: filters.severity.filter((fil: string) => fil !== id),
+      status: filters.status.filter((fil: string) => fil !== id),
     };
     setFilters({
       // productFamily:
@@ -105,31 +112,28 @@ export const SupportCaseWidgetTableFilter: React.FunctionComponent = () => {
     setIsStatusExpanded(!isStatusExpanded);
   };
 
+  // const productFamilyMenuItems = (
+  //   <SelectList>
+  //     <SelectOption
+  //       hasCheckbox
+  //       key={props.productFamily}
+  //       value={props.productFamily}
+  //       isSelected={filters.productFamily.includes(props.productFamily)}
+  //     >
+  //       {props.productFamily}
+  //     </SelectOption>
+  //   </SelectList>
+  // );
+
   const statusMenuItems = (
     <SelectList>
       <SelectOption
         hasCheckbox
-        key={statusTypes.closed}
-        value={statusTypes.closed}
-        isSelected={filters.status.includes(statusTypes.closed)}
+        key={props.status}
+        value={props.status}
+        isSelected={filters.status.includes(props.status)}
       >
-        {statusTypes.closed}
-      </SelectOption>
-      <SelectOption
-        hasCheckbox
-        key={statusTypes.customerWaiting}
-        value={statusTypes.customerWaiting}
-        isSelected={filters.status.includes(statusTypes.customerWaiting)}
-      >
-        {statusTypes.customerWaiting}
-      </SelectOption>
-      <SelectOption
-        hasCheckbox
-        key={statusTypes.redHatWaiting}
-        value={statusTypes.redHatWaiting}
-        isSelected={filters.status.includes(statusTypes.redHatWaiting)}
-      >
-        {statusTypes.redHatWaiting}
+        {props.status}
       </SelectOption>
     </SelectList>
   );
@@ -138,35 +142,11 @@ export const SupportCaseWidgetTableFilter: React.FunctionComponent = () => {
     <SelectList>
       <SelectOption
         hasCheckbox
-        key={severityTypes.low}
-        value={severityTypes.low}
-        isSelected={filters.severity.includes(severityTypes.low)}
+        key={props.severity}
+        value={props.severity}
+        isSelected={filters.severity.includes(props.severity)}
       >
-        {severityTypes.low}
-      </SelectOption>
-      <SelectOption
-        hasCheckbox
-        key={severityTypes.normal}
-        value={severityTypes.normal}
-        isSelected={filters.severity.includes(severityTypes.normal)}
-      >
-        {severityTypes.normal}
-      </SelectOption>
-      <SelectOption
-        hasCheckbox
-        key={severityTypes.high}
-        value={severityTypes.high}
-        isSelected={filters.severity.includes(severityTypes.high)}
-      >
-        {severityTypes.high}
-      </SelectOption>
-      <SelectOption
-        hasCheckbox
-        key={severityTypes.urgent}
-        value={severityTypes.urgent}
-        isSelected={filters.severity.includes(severityTypes.urgent)}
-      >
-        {severityTypes.urgent}
+        {props.severity}
       </SelectOption>
     </SelectList>
   );

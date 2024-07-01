@@ -182,24 +182,32 @@ const SupportCaseWidget: React.FunctionComponent<SupportCaseWidgetProps> = (
           variant={TableVariant.compact}
         >
           <Thead>
-            <SupportCaseWidgetTableFilter />
-            <Tr>
-              <Th sort={sortOptions[SupportCaseTableColumns.CASEID]}>
-                {columnNames.caseId}
-              </Th>
-              <Th sort={sortOptions[SupportCaseTableColumns.ISSUESUMARY]}>
-                {columnNames.issueSummary}
-              </Th>
-              <Th sort={sortOptions[SupportCaseTableColumns.MODIFIEDBY]}>
-                {columnNames.modifiedBy}
-              </Th>
-              <Th sort={sortOptions[SupportCaseTableColumns.SEVERITY]}>
-                {columnNames.severity}
-              </Th>
-              <Th sort={sortOptions[SupportCaseTableColumns.STATUS]}>
-                {columnNames.status}
-              </Th>
-            </Tr>
+            {cases.map((filterType) => (
+              <>
+                <SupportCaseWidgetTableFilter
+                  productFamily={filterType.productFamily}
+                  severity={filterType.severity}
+                  status={filterType.status}
+                />
+                <Tr>
+                  <Th sort={sortOptions[SupportCaseTableColumns.CASEID]}>
+                    {columnNames.caseId}
+                  </Th>
+                  <Th sort={sortOptions[SupportCaseTableColumns.ISSUESUMARY]}>
+                    {columnNames.issueSummary}
+                  </Th>
+                  <Th sort={sortOptions[SupportCaseTableColumns.MODIFIEDBY]}>
+                    {columnNames.modifiedBy}
+                  </Th>
+                  <Th sort={sortOptions[SupportCaseTableColumns.SEVERITY]}>
+                    {columnNames.severity}
+                  </Th>
+                  <Th sort={sortOptions[SupportCaseTableColumns.STATUS]}>
+                    {columnNames.status}
+                  </Th>
+                </Tr>
+              </>
+            ))}
           </Thead>
           <Tbody>
             {cases?.slice(0, MAX_ROWS).map((c) => (
