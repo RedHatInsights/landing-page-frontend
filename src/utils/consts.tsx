@@ -24,6 +24,12 @@ export const severityTypes = {
   low: '4 (Low)',
 };
 
+export const statusTypes = {
+  closed: 'Closed',
+  customerWaiting: 'Waiting on Customer',
+  redHatWaiting: 'Waiting on Red Hat',
+};
+
 export const labelColor = (severity: string) => {
   const severityMapper = {
     [severityTypes.urgent]: <Label color="red">{severity}</Label>,

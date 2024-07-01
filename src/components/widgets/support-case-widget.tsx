@@ -1,10 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import {
+  IExtraColumnData,
+  SortByDirection,
   Table,
   TableVariant,
   Tbody,
   Td,
   Th,
+  ThProps,
   Thead,
   Tr,
 } from '@patternfly/react-table';
@@ -22,6 +25,7 @@ import useChrome from '@redhat-cloud-services/frontend-components/useChrome';
 import SkeletonTable from '@patternfly/react-component-groups/dist/dynamic/SkeletonTable';
 import { MAX_ROWS, columnNames, getUrl, labelColor } from '../../utils/consts';
 import './support-case-widget.scss';
+import { SupportCaseWidgetTableFilter } from './support-case-table-filter';
 
 export type Case = {
   id: string;
@@ -30,12 +34,82 @@ export type Case = {
   lastModifiedById: string;
   severity: string;
   status: string;
+  productFamily: string;
 };
 
-const SupportCaseWidget: React.FunctionComponent = () => {
+export type SortDirection = 'asc' | 'desc';
+
+export enum SupportCaseTableColumns {
+  CASEID,
+  ISSUESUMARY,
+  MODIFIEDBY,
+  SEVERITY,
+  STATUS,
+}
+
+export interface SupportCaseWidgetProps {
+  sortBy: SupportCaseTableColumns;
+  sortDirection: SortDirection;
+  onSort: (column: SupportCaseTableColumns, direction: SortDirection) => void;
+}
+
+const SupportCaseWidget: React.FunctionComponent<SupportCaseWidgetProps> = (
+  props
+) => {
   const [cases, setCases] = useState<Case[]>([]);
   const chrome = useChrome();
   const [isLoading, setIsLoading] = useState(false);
+
+  const onSort = React.useCallback(
+    (
+      _event: React.MouseEvent,
+      columnIndex: number,
+      sortByDirection: SortByDirection,
+      // eslint-disable-next-line @typescript-eslint/no-unused-vars
+      _extraData: IExtraColumnData
+    ) => {
+      const externalOnSort = props.onSort;
+      externalOnSort(columnIndex, sortByDirection);
+    },
+    [props.onSort]
+  );
+
+  const sortOptions: Record<
+    SupportCaseTableColumns,
+    undefined | ThProps['sort']
+  > = React.useMemo(() => {
+    const sortBy = {
+      direction: props.sortDirection,
+      index: props.sortBy,
+    };
+    return {
+      [SupportCaseTableColumns.CASEID]: {
+        sortBy,
+        columnIndex: SupportCaseTableColumns.CASEID,
+        onSort,
+      },
+      [SupportCaseTableColumns.ISSUESUMARY]: {
+        sortBy,
+        columnIndex: SupportCaseTableColumns.ISSUESUMARY,
+        onSort,
+      },
+      [SupportCaseTableColumns.MODIFIEDBY]: {
+        sortBy,
+        columnIndex: SupportCaseTableColumns.MODIFIEDBY,
+        onSort,
+      },
+      [SupportCaseTableColumns.SEVERITY]: {
+        sortBy,
+        columnIndex: SupportCaseTableColumns.SEVERITY,
+        onSort,
+      },
+      [SupportCaseTableColumns.STATUS]: {
+        sortBy,
+        columnIndex: SupportCaseTableColumns.STATUS,
+        onSort,
+      },
+    };
+  }, [props.sortBy, props.sortDirection, onSort]);
 
   const fetchSupportCases = async () => {
     const token = await chrome.auth.getToken();
@@ -108,13 +182,32 @@ const SupportCaseWidget: React.FunctionComponent = () => {
           variant={TableVariant.compact}
         >
           <Thead>
-            <Tr>
-              <Th>{columnNames.caseId}</Th>
-              <Th>{columnNames.issueSummary}</Th>
-              <Th>{columnNames.modifiedBy}</Th>
-              <Th>{columnNames.severity}</Th>
-              <Th>{columnNames.status}</Th>
-            </Tr>
+            {cases.map((filterType) => (
+              <>
+                <SupportCaseWidgetTableFilter
+                  productFamily={filterType.productFamily}
+                  severity={filterType.severity}
+                  status={filterType.status}
+                />
+                <Tr>
+                  <Th sort={sortOptions[SupportCaseTableColumns.CASEID]}>
+                    {columnNames.caseId}
+                  </Th>
+                  <Th sort={sortOptions[SupportCaseTableColumns.ISSUESUMARY]}>
+                    {columnNames.issueSummary}
+                  </Th>
+                  <Th sort={sortOptions[SupportCaseTableColumns.MODIFIEDBY]}>
+                    {columnNames.modifiedBy}
+                  </Th>
+                  <Th sort={sortOptions[SupportCaseTableColumns.SEVERITY]}>
+                    {columnNames.severity}
+                  </Th>
+                  <Th sort={sortOptions[SupportCaseTableColumns.STATUS]}>
+                    {columnNames.status}
+                  </Th>
+                </Tr>
+              </>
+            ))}
           </Thead>
           <Tbody>
             {cases?.slice(0, MAX_ROWS).map((c) => (
