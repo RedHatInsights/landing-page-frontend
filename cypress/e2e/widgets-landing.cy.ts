@@ -12,6 +12,7 @@ describe('Widget Landing Page', () => {
   });
 
   // Test skipped until issue with NaN on PATCH is resolved (makes test flaky)
+  // Related JIRA issue: https://issues.redhat.com/browse/RHCLOUD-33743
   xit('closes all the widgets', () => {
     // Ensure that widgets are open and displayed (Number of items in grid expected to be numDefaultWidgets)
     const numDefaultWidgets = 9;
