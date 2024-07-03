@@ -75,7 +75,7 @@ Cypress.Commands.add('resetToDefaultLayout', () => {
   cy.get('button')
     .contains('Reset to default')
     .click()
-    .get('#warning-modal-check')
+    .get("[data-ouia-component-id='WarningModal-confirm-checkbox']")
     .click()
     .get("button[data-ouia-component-id='WarningModal-confirm-button']")
     .click();
