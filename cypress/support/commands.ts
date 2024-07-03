@@ -77,7 +77,7 @@ Cypress.Commands.add('resetToDefaultLayout', () => {
     .click()
     .get('#warning-modal-check')
     .click()
-    .get("button[data-ouia-component-id='primary-confirm-button']")
+    .get("button[data-ouia-component-id='WarningModal-confirm-button']")
     .click();
   cy.wait('@resetLayout').its('response.statusCode').should('eq', 200);
 });
