@@ -1,7 +1,15 @@
 describe('Dashboard with widgets is displayed', () => {
-  beforeEach(() => {
+  // we don't need to reset the layout every time, just once at the start
+  before(() => {
     cy.loadLandingPage();
+    cy.intercept(
+      'PATCH',
+      '**/api/chrome-service/v1/dashboard-templates/NaN'
+    ).log('PATCH NaN detected');
+    // wait for everything to render before testing for presence of widgets
+    cy.wait(5000);
   });
+
   it('should display dashboard with widgets', () => {
     const widgetIds = [
       'landing-rhel-widget',
@@ -16,6 +24,8 @@ describe('Dashboard with widgets is displayed', () => {
     ];
 
     widgetIds.forEach((id) => {
+      const widgetSelector = `[data-ouia-component-id="${id}"]`;
+      cy.get(widgetSelector).scrollIntoView();
       cy.get(`[data-ouia-component-id="${id}"]`).should('exist');
     });
   });
