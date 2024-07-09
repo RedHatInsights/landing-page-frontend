@@ -1,4 +1,4 @@
-import React, { ChangeEvent, MouseEvent } from 'react';
+import React, { MouseEvent } from 'react';
 import {
   Toolbar,
   ToolbarContent,
@@ -16,43 +16,45 @@ import {
   SelectOption,
 } from '@patternfly/react-core/dist/dynamic/components/Select';
 import FilterIcon from '@patternfly/react-icons/dist/esm/icons/filter-icon';
+import { severityTypes, statusTypes } from '../../utils/consts';
 
-interface SupportCaseWidgetTableFilterProps {
-  productFamily: string;
-  severity: string;
-  status: string;
-}
+// interface SupportCaseWidgetTableFilterProps {
+//   productFamily: string;
+//   severity: string | string[];
+//   status: string | string[];
+// }
 
-export const SupportCaseWidgetTableFilter: React.FunctionComponent<
-  SupportCaseWidgetTableFilterProps
-> = (props) => {
+export const SupportCaseWidgetTableFilter: React.FunctionComponent = () => {
   // const [isProductFamilyExpanded, setIsProductFamilyExpanded] =
   //   React.useState(false);
   const [isSeverityExpanded, setIsSeverityExpanded] = React.useState(false);
   const [isStatusExpanded, setIsStatusExpanded] = React.useState(false);
 
-  const [filters, setFilters] = React.useState({
+  const [filters, setFilters] = React.useState<Record<string, string[]>>({
     // productFamily: [],
-    severity: [''],
-    status: [''],
+    severity: [],
+    status: [],
   });
 
-  const onSelect = (
-    type: string,
-    event: React.MouseEvent | React.ChangeEvent,
-    selection: string
-  ) => {
-    const checked = (event.target as HTMLInputElement).checked;
-    setFilters((prev) => {
-      const prevSelections = prev[type];
-      return {
-        ...prev,
-        [type]: checked
-          ? [...prevSelections, selection]
-          : prevSelections.filter((value: string) => value !== selection),
-      };
-    });
-  };
+  const onSelect = React.useCallback(
+    (
+      type: string,
+      _event: React.MouseEvent<Element, MouseEvent>,
+      value: string
+    ) => {
+      const checked = (_event.target as HTMLInputElement).checked;
+      setFilters((prev) => {
+        const prevSelections = prev[type];
+        return {
+          ...prev,
+          [type]: checked
+            ? [...prevSelections, value]
+            : prevSelections.filter((value: string) => value !== value),
+        };
+      });
+    },
+    []
+  );
 
   // const onProductFamilySelect = (
   //   event: React.MouseEvent<Element, MouseEvent> | React.ChangeEvent<Element>,
@@ -62,17 +64,17 @@ export const SupportCaseWidgetTableFilter: React.FunctionComponent<
   // };
 
   const onSeveritySelect = (
-    event: MouseEvent | ChangeEvent,
-    selection: string
+    event: React.MouseEvent<Element, MouseEvent>,
+    value: string
   ) => {
-    onSelect('severity', event, selection);
+    onSelect('severity', event, value);
   };
 
   const onStatusSelect = (
-    event: MouseEvent | ChangeEvent,
-    selection: string
+    event: React.MouseEvent<Element, MouseEvent>,
+    value: string
   ) => {
-    onSelect('status', event, selection);
+    onSelect('status', event, value);
   };
 
   const onDelete = (type: string, id: string) => {
@@ -86,16 +88,16 @@ export const SupportCaseWidgetTableFilter: React.FunctionComponent<
     setFilters({
       // productFamily:
       //   type === 'Product Family' ? filterTypes[type] : filters.productFamily,
-      severity: type === 'Severity' ? filterTypes[type] : filters.severity,
-      status: type === 'Status' ? filterTypes[type] : filters.status,
+      severity: type === 'severity' ? filterTypes[type] : filters.severity,
+      status: type === 'status' ? filterTypes[type] : filters.status,
     });
   };
 
   const onDeleteGroup = (type: string) => {
     const newFilters = {
       // productFamily: type === 'Product Family' ? [] : filters.productFamily,
-      severity: type === 'Severity' ? [] : filters.severity,
-      status: type === 'Status' ? [] : filters.status,
+      severity: type === 'severity' ? [] : filters.severity,
+      status: type === 'status' ? [] : filters.status,
     };
     setFilters(newFilters);
   };
@@ -129,11 +131,27 @@ export const SupportCaseWidgetTableFilter: React.FunctionComponent<
     <SelectList>
       <SelectOption
         hasCheckbox
-        key={props.status}
-        value={props.status}
-        isSelected={filters.status.includes(props.status)}
+        key={statusTypes.closed}
+        value={statusTypes.closed}
+        isSelected={filters.status.includes(statusTypes.closed)}
       >
-        {props.status}
+        {statusTypes.closed}
+      </SelectOption>
+      <SelectOption
+        hasCheckbox
+        key={statusTypes.customerWaiting}
+        value={statusTypes.customerWaiting}
+        isSelected={filters.status.includes(statusTypes.customerWaiting)}
+      >
+        {statusTypes.customerWaiting}
+      </SelectOption>
+      <SelectOption
+        hasCheckbox
+        key={statusTypes.redHatWaiting}
+        value={statusTypes.redHatWaiting}
+        isSelected={filters.status.includes(statusTypes.redHatWaiting)}
+      >
+        {statusTypes.redHatWaiting}
       </SelectOption>
     </SelectList>
   );
@@ -142,11 +160,35 @@ export const SupportCaseWidgetTableFilter: React.FunctionComponent<
     <SelectList>
       <SelectOption
         hasCheckbox
-        key={props.severity}
-        value={props.severity}
-        isSelected={filters.severity.includes(props.severity)}
+        key={severityTypes.low}
+        value={severityTypes.low}
+        isSelected={filters.severity.includes(severityTypes.low)}
       >
-        {props.severity}
+        {severityTypes.low}
+      </SelectOption>
+      <SelectOption
+        hasCheckbox
+        key={severityTypes.normal}
+        value={severityTypes.normal}
+        isSelected={filters.severity.includes(severityTypes.normal)}
+      >
+        {severityTypes.normal}
+      </SelectOption>
+      <SelectOption
+        hasCheckbox
+        key={severityTypes.high}
+        value={severityTypes.high}
+        isSelected={filters.severity.includes(severityTypes.high)}
+      >
+        {severityTypes.high}
+      </SelectOption>
+      <SelectOption
+        hasCheckbox
+        key={severityTypes.urgent}
+        value={severityTypes.urgent}
+        isSelected={filters.severity.includes(severityTypes.urgent)}
+      >
+        {severityTypes.urgent}
       </SelectOption>
     </SelectList>
   );
