@@ -19,13 +19,10 @@ import FilterIcon from '@patternfly/react-icons/dist/esm/icons/filter-icon';
 import { severityTypes, statusTypes } from '../../utils/consts';
 
 export const SupportCaseWidgetTableFilter: React.FunctionComponent = () => {
-  // const [isProductFamilyExpanded, setIsProductFamilyExpanded] =
-  //   React.useState(false);
   const [isSeverityExpanded, setIsSeverityExpanded] = React.useState(false);
   const [isStatusExpanded, setIsStatusExpanded] = React.useState(false);
 
   const [filters, setFilters] = React.useState<Record<string, string[]>>({
-    // productFamily: [],
     severity: [],
     status: [],
   });
@@ -33,29 +30,26 @@ export const SupportCaseWidgetTableFilter: React.FunctionComponent = () => {
   const onSelect = React.useCallback(
     (
       type: string,
-      _event: React.MouseEvent<Element, MouseEvent>,
-      value: string
+      event?: React.MouseEvent<Element, MouseEvent> | undefined,
+      value?: string | undefined
     ) => {
-      const checked = (_event.target as HTMLInputElement).checked;
+      if (!event || typeof value !== 'string') {
+        return;
+      }
+
+      const checked = (event.target as HTMLInputElement).checked;
       setFilters((prev) => {
-        const prevSelections = prev[type];
+        const prevSelections = prev[type] || [];
         return {
           ...prev,
           [type]: checked
             ? [...prevSelections, value]
-            : prevSelections.filter((value: string) => value !== value),
+            : prevSelections.filter((v) => v !== v),
         };
       });
     },
     []
   );
-
-  // const onProductFamilySelect = (
-  //   event: React.MouseEvent<Element, MouseEvent> | React.ChangeEvent<Element>,
-  //   selection: string
-  // ) => {
-  //   onSelect('productFamily', event, selection);
-  // };
 
   const onSeveritySelect = (
     event: React.MouseEvent<Element, MouseEvent>,
@@ -73,32 +67,22 @@ export const SupportCaseWidgetTableFilter: React.FunctionComponent = () => {
 
   const onDelete = (type: string, id: string) => {
     const filterTypes: { [key: string]: string[] } = {
-      // 'Product Family': filters.productFamily.filter(
-      //   (fil: string) => fil !== id
-      // ),
       severity: filters.severity.filter((fil: string) => fil !== id),
       status: filters.status.filter((fil: string) => fil !== id),
     };
     setFilters({
-      // productFamily:
-      //   type === 'Product Family' ? filterTypes[type] : filters.productFamily,
-      severity: type === 'severity' ? filterTypes[type] : filters.severity,
-      status: type === 'status' ? filterTypes[type] : filters.status,
+      severity: type === 'Severity' ? filterTypes[type] : filters.severity,
+      status: type === 'Status' ? filterTypes[type] : filters.status,
     });
   };
 
   const onDeleteGroup = (type: string) => {
     const newFilters = {
-      // productFamily: type === 'Product Family' ? [] : filters.productFamily,
-      severity: type === 'severity' ? [] : filters.severity,
-      status: type === 'status' ? [] : filters.status,
+      severity: type === 'Severity' ? [] : filters.severity,
+      status: type === 'Status' ? [] : filters.status,
     };
     setFilters(newFilters);
   };
-
-  // const onProductFamilyToggle = () => {
-  //   setIsProductFamilyExpanded(!isProductFamilyExpanded);
-  // };
 
   const onSeverityToggle = () => {
     setIsSeverityExpanded(!isSeverityExpanded);
@@ -107,19 +91,6 @@ export const SupportCaseWidgetTableFilter: React.FunctionComponent = () => {
   const onStatusToggle = () => {
     setIsStatusExpanded(!isStatusExpanded);
   };
-
-  // const productFamilyMenuItems = (
-  //   <SelectList>
-  //     <SelectOption
-  //       hasCheckbox
-  //       key={props.productFamily}
-  //       value={props.productFamily}
-  //       isSelected={filters.productFamily.includes(props.productFamily)}
-  //     >
-  //       {props.productFamily}
-  //     </SelectOption>
-  //   </SelectList>
-  // );
 
   const statusMenuItems = (
     <SelectList>
@@ -190,37 +161,6 @@ export const SupportCaseWidgetTableFilter: React.FunctionComponent = () => {
   const toggleGroupItems = (
     <React.Fragment>
       <ToolbarGroup variant="filter-group">
-        {/* <ToolbarFilter
-          chips={filters.productFamily}
-          deleteChip={(category, chip) =>
-            onDelete(category as string, chip as string)
-          }
-          deleteChipGroup={(category) => onDeleteGroup(category as string)}
-          categoryName="Product Family"
-        >
-          <Select
-            aria-label="Product Family"
-            role="menu"
-            toggle={(toggleRef: React.Ref<MenuToggleElement>) => (
-              <MenuToggle
-                ref={toggleRef}
-                onClick={onProductFamilyToggle}
-                isExpanded={isProductFamilyExpanded}
-                style={
-                  {
-                    width: '140px',
-                  } as React.CSSProperties
-                }
-              >
-                Product Family
-              </MenuToggle>
-            )}
-            onSelect={onProductFamilySelect}
-            selected={filters.productFamily}
-            isOpen={isProductFamilyExpanded}
-            onOpenChange={(isOpen) => setIsProductFamilyExpanded(isOpen)}
-          ></Select>
-        </ToolbarFilter> */}
         <ToolbarFilter
           chips={filters.severity}
           deleteChip={(category, chip) =>
@@ -246,7 +186,12 @@ export const SupportCaseWidgetTableFilter: React.FunctionComponent = () => {
                 Severity
               </MenuToggle>
             )}
-            onSelect={onSeveritySelect}
+            onSelect={(event, value) =>
+              onSeveritySelect(
+                event as unknown as React.MouseEvent<Element, MouseEvent>,
+                value as string
+              )
+            }
             selected={filters.severity}
             isOpen={isSeverityExpanded}
             onOpenChange={(isOpen) => setIsSeverityExpanded(isOpen)}
@@ -279,7 +224,12 @@ export const SupportCaseWidgetTableFilter: React.FunctionComponent = () => {
                 Status
               </MenuToggle>
             )}
-            onSelect={onStatusSelect}
+            onSelect={(event, value) =>
+              onStatusSelect(
+                event as unknown as React.MouseEvent<Element, MouseEvent>,
+                value as string
+              )
+            }
             selected={filters.status}
             isOpen={isStatusExpanded}
             onOpenChange={(isOpen) => setIsStatusExpanded(isOpen)}
