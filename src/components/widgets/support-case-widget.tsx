@@ -1,13 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import {
-  IExtraColumnData,
+  ISortBy,
   SortByDirection,
   Table,
   TableVariant,
   Tbody,
   Td,
   Th,
-  ThProps,
   Thead,
   Tr,
 } from '@patternfly/react-table';
@@ -23,14 +22,7 @@ import ExternalLinkAltIcon from '@patternfly/react-icons/dist/dynamic/icons/exte
 import HeadsetIcon from '@patternfly/react-icons/dist/dynamic/icons/headset-icon';
 import useChrome from '@redhat-cloud-services/frontend-components/useChrome';
 import SkeletonTable from '@patternfly/react-component-groups/dist/dynamic/SkeletonTable';
-import {
-  MAX_ROWS,
-  columnNames,
-  getUrl,
-  labelColor,
-  severityTypes,
-  statusTypes,
-} from '../../utils/consts';
+import { MAX_ROWS, columnNames, getUrl, labelColor } from '../../utils/consts';
 import './support-case-widget.scss';
 import { SupportCaseWidgetTableFilter } from './support-case-table-filter';
 
@@ -44,79 +36,58 @@ export type Case = {
   productFamily: string;
 };
 
-export type SortDirection = 'asc' | 'desc';
-
-export enum SupportCaseTableColumns {
-  CASEID,
-  ISSUESUMARY,
-  MODIFIEDBY,
-  SEVERITY,
-  STATUS,
-}
-
-export interface SupportCaseWidgetProps {
-  sortBy: SupportCaseTableColumns;
-  sortDirection: SortDirection;
-  onSort: (column: SupportCaseTableColumns, direction: SortDirection) => void;
-}
-
-const SupportCaseWidget: React.FunctionComponent<SupportCaseWidgetProps> = (
-  props
-) => {
+const SupportCaseWidget: React.FunctionComponent = () => {
   const [cases, setCases] = useState<Case[]>([]);
   const chrome = useChrome();
   const [isLoading, setIsLoading] = useState(false);
 
-  const onSort = React.useCallback(
-    (
-      _event: React.MouseEvent,
-      columnIndex: number,
-      sortByDirection: SortByDirection,
-      // eslint-disable-next-line @typescript-eslint/no-unused-vars
-      _extraData: IExtraColumnData
-    ) => {
-      const externalOnSort = props.onSort;
-      externalOnSort(columnIndex, sortByDirection);
-    },
-    [props.onSort]
-  );
+  const [sortBy, setSortBy] = useState<ISortBy>({
+    index: 0,
+    direction: SortByDirection.asc,
+  });
 
-  const sortOptions: Record<
-    SupportCaseTableColumns,
-    undefined | ThProps['sort']
-  > = React.useMemo(() => {
-    const sortBy = {
-      direction: props.sortDirection,
-      index: props.sortBy,
-    };
-    return {
-      [SupportCaseTableColumns.CASEID]: {
-        sortBy,
-        columnIndex: SupportCaseTableColumns.CASEID,
-        onSort,
-      },
-      [SupportCaseTableColumns.ISSUESUMARY]: {
-        sortBy,
-        columnIndex: SupportCaseTableColumns.ISSUESUMARY,
-        onSort,
-      },
-      [SupportCaseTableColumns.MODIFIEDBY]: {
-        sortBy,
-        columnIndex: SupportCaseTableColumns.MODIFIEDBY,
-        onSort,
-      },
-      [SupportCaseTableColumns.SEVERITY]: {
-        sortBy,
-        columnIndex: SupportCaseTableColumns.SEVERITY,
-        onSort,
-      },
-      [SupportCaseTableColumns.STATUS]: {
-        sortBy,
-        columnIndex: SupportCaseTableColumns.STATUS,
-        onSort,
-      },
-    };
-  }, [props.sortBy, props.sortDirection, onSort]);
+  const columns = [
+    {
+      name: 'Case ID',
+      sort: (a: Case, b: Case) => a.caseNumber.localeCompare(b.caseNumber),
+    },
+    {
+      name: 'Issue summary',
+      sort: (a: Case, b: Case) => a.summary.localeCompare(b.summary),
+    },
+    {
+      name: 'Modified by',
+      sort: (a: Case, b: Case) =>
+        a.lastModifiedById.localeCompare(b.lastModifiedById),
+    },
+    {
+      name: 'Severity',
+      sort: (a: Case, b: Case) => a.severity.localeCompare(b.severity),
+    },
+    {
+      name: 'Status',
+      sort: (a: Case, b: Case) => a.status.localeCompare(b.status),
+    },
+  ];
+
+  const onSort = (
+    _event: React.MouseEvent,
+    index: number,
+    direction: SortByDirection
+  ) => {
+    setSortBy({ index, direction });
+
+    const sortedCases = [...cases].sort((a, b) => {
+      const sortFunc = columns[index].sort;
+
+      if (direction === SortByDirection.asc) {
+        return sortFunc(a, b);
+      } else {
+        return sortFunc(b, a);
+      }
+    });
+    setCases([...sortedCases]);
+  };
 
   const fetchSupportCases = async () => {
     const token = await chrome.auth.getToken();
@@ -192,21 +163,18 @@ const SupportCaseWidget: React.FunctionComponent<SupportCaseWidgetProps> = (
             <>
               <SupportCaseWidgetTableFilter />
               <Tr>
-                <Th sort={sortOptions[SupportCaseTableColumns.CASEID]}>
-                  {columnNames.caseId}
-                </Th>
-                <Th sort={sortOptions[SupportCaseTableColumns.ISSUESUMARY]}>
-                  {columnNames.issueSummary}
-                </Th>
-                <Th sort={sortOptions[SupportCaseTableColumns.MODIFIEDBY]}>
-                  {columnNames.modifiedBy}
-                </Th>
-                <Th sort={sortOptions[SupportCaseTableColumns.SEVERITY]}>
-                  {columnNames.severity}
-                </Th>
-                <Th sort={sortOptions[SupportCaseTableColumns.STATUS]}>
-                  {columnNames.status}
-                </Th>
+                {columns.map((col, index) => (
+                  <Th
+                    key={index}
+                    sort={{
+                      sortBy,
+                      onSort,
+                      columnIndex: index,
+                    }}
+                  >
+                    {col.name}
+                  </Th>
+                ))}
               </Tr>
             </>
           </Thead>

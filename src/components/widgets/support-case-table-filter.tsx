@@ -18,12 +18,6 @@ import {
 import FilterIcon from '@patternfly/react-icons/dist/esm/icons/filter-icon';
 import { severityTypes, statusTypes } from '../../utils/consts';
 
-// interface SupportCaseWidgetTableFilterProps {
-//   productFamily: string;
-//   severity: string | string[];
-//   status: string | string[];
-// }
-
 export const SupportCaseWidgetTableFilter: React.FunctionComponent = () => {
   // const [isProductFamilyExpanded, setIsProductFamilyExpanded] =
   //   React.useState(false);
