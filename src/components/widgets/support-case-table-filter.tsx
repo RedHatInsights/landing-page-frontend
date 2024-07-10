@@ -92,69 +92,46 @@ export const SupportCaseWidgetTableFilter: React.FunctionComponent = () => {
     setIsStatusExpanded(!isStatusExpanded);
   };
 
+  const statusVariants = [
+    statusTypes.closed,
+    statusTypes.customerWaiting,
+    statusTypes.redHatWaiting,
+  ];
+
+  const severityVariants = [
+    severityTypes.high,
+    severityTypes.low,
+    severityTypes.normal,
+    severityTypes.urgent,
+  ];
+
   const statusMenuItems = (
     <SelectList>
-      <SelectOption
-        hasCheckbox
-        key={statusTypes.closed}
-        value={statusTypes.closed}
-        isSelected={filters.status.includes(statusTypes.closed)}
-      >
-        {statusTypes.closed}
-      </SelectOption>
-      <SelectOption
-        hasCheckbox
-        key={statusTypes.customerWaiting}
-        value={statusTypes.customerWaiting}
-        isSelected={filters.status.includes(statusTypes.customerWaiting)}
-      >
-        {statusTypes.customerWaiting}
-      </SelectOption>
-      <SelectOption
-        hasCheckbox
-        key={statusTypes.redHatWaiting}
-        value={statusTypes.redHatWaiting}
-        isSelected={filters.status.includes(statusTypes.redHatWaiting)}
-      >
-        {statusTypes.redHatWaiting}
-      </SelectOption>
+      {statusVariants.map((statusType) => (
+        <SelectOption
+          hasCheckbox
+          key={statusType}
+          value={statusType}
+          isSelected={filters.status.includes(statusType)}
+        >
+          {statusType}
+        </SelectOption>
+      ))}
     </SelectList>
   );
 
   const severityMenuItems = (
     <SelectList>
-      <SelectOption
-        hasCheckbox
-        key={severityTypes.low}
-        value={severityTypes.low}
-        isSelected={filters.severity.includes(severityTypes.low)}
-      >
-        {severityTypes.low}
-      </SelectOption>
-      <SelectOption
-        hasCheckbox
-        key={severityTypes.normal}
-        value={severityTypes.normal}
-        isSelected={filters.severity.includes(severityTypes.normal)}
-      >
-        {severityTypes.normal}
-      </SelectOption>
-      <SelectOption
-        hasCheckbox
-        key={severityTypes.high}
-        value={severityTypes.high}
-        isSelected={filters.severity.includes(severityTypes.high)}
-      >
-        {severityTypes.high}
-      </SelectOption>
-      <SelectOption
-        hasCheckbox
-        key={severityTypes.urgent}
-        value={severityTypes.urgent}
-        isSelected={filters.severity.includes(severityTypes.urgent)}
-      >
-        {severityTypes.urgent}
-      </SelectOption>
+      {severityVariants.map((severityType) => (
+        <SelectOption
+          hasCheckbox
+          key={severityType}
+          value={severityType}
+          isSelected={filters.severity.includes(severityType)}
+        >
+          {severityType}
+        </SelectOption>
+      ))}
     </SelectList>
   );
 
