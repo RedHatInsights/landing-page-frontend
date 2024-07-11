@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import {
+  ISortBy,
+  SortByDirection,
   Table,
   TableVariant,
   Tbody,
@@ -22,6 +24,7 @@ import useChrome from '@redhat-cloud-services/frontend-components/useChrome';
 import SkeletonTable from '@patternfly/react-component-groups/dist/dynamic/SkeletonTable';
 import { MAX_ROWS, columnNames, getUrl, labelColor } from '../../utils/consts';
 import './support-case-widget.scss';
+import { SupportCaseWidgetTableFilter } from './support-case-table-filter';
 
 const SUPPORT_CASE_URL =
   'https://access.redhat.com/support/cases/#/case/new/get-support?caseCreate=true';
@@ -33,12 +36,61 @@ export type Case = {
   lastModifiedById: string;
   severity: string;
   status: string;
+  productFamily: string;
 };
 
 const SupportCaseWidget: React.FunctionComponent = () => {
   const [cases, setCases] = useState<Case[]>([]);
   const chrome = useChrome();
   const [isLoading, setIsLoading] = useState(false);
+
+  const [sortBy, setSortBy] = useState<ISortBy>({
+    index: 0,
+    direction: SortByDirection.asc,
+  });
+
+  const columns = [
+    {
+      name: 'Case ID',
+      sort: (a: Case, b: Case) => a.caseNumber.localeCompare(b.caseNumber),
+    },
+    {
+      name: 'Issue summary',
+      sort: (a: Case, b: Case) => a.summary.localeCompare(b.summary),
+    },
+    {
+      name: 'Modified by',
+      sort: (a: Case, b: Case) =>
+        a.lastModifiedById.localeCompare(b.lastModifiedById),
+    },
+    {
+      name: 'Severity',
+      sort: (a: Case, b: Case) => a.severity.localeCompare(b.severity),
+    },
+    {
+      name: 'Status',
+      sort: (a: Case, b: Case) => a.status.localeCompare(b.status),
+    },
+  ];
+
+  const onSort = (
+    _event: React.MouseEvent,
+    index: number,
+    direction: SortByDirection
+  ) => {
+    setSortBy({ index, direction });
+
+    const sortedCases = [...cases].sort((a, b) => {
+      const sortFunc = columns[index].sort;
+
+      if (direction === SortByDirection.asc) {
+        return sortFunc(a, b);
+      } else {
+        return sortFunc(b, a);
+      }
+    });
+    setCases([...sortedCases]);
+  };
 
   const fetchSupportCases = async () => {
     const token = await chrome.auth.getToken();
@@ -114,13 +166,23 @@ const SupportCaseWidget: React.FunctionComponent = () => {
           variant={TableVariant.compact}
         >
           <Thead>
-            <Tr>
-              <Th>{columnNames.caseId}</Th>
-              <Th>{columnNames.issueSummary}</Th>
-              <Th>{columnNames.modifiedBy}</Th>
-              <Th>{columnNames.severity}</Th>
-              <Th>{columnNames.status}</Th>
-            </Tr>
+            <>
+              <SupportCaseWidgetTableFilter />
+              <Tr>
+                {columns.map((col, index) => (
+                  <Th
+                    key={index}
+                    sort={{
+                      sortBy,
+                      onSort,
+                      columnIndex: index,
+                    }}
+                  >
+                    {col.name}
+                  </Th>
+                ))}
+              </Tr>
+            </>
           </Thead>
           <Tbody>
             {cases?.slice(0, MAX_ROWS).map((c) => (
