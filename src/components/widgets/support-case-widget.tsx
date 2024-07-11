@@ -23,6 +23,9 @@ import SkeletonTable from '@patternfly/react-component-groups/dist/dynamic/Skele
 import { MAX_ROWS, columnNames, getUrl, labelColor } from '../../utils/consts';
 import './support-case-widget.scss';
 
+const SUPPORT_CASE_URL =
+  'https://access.redhat.com/support/cases/#/case/new/get-support?caseCreate=true';
+
 export type Case = {
   id: string;
   caseNumber: string;
@@ -97,7 +100,10 @@ const SupportCaseWidget: React.FunctionComponent = () => {
             variant="link"
             icon={<ExternalLinkAltIcon />}
             iconPosition="end"
-            href="https://access.redhat.com/support/cases/#/case/new/get-support?caseCreate=true"
+            href={SUPPORT_CASE_URL}
+            onClick={() => {
+              window.open(SUPPORT_CASE_URL, '_blank');
+            }}
           >
             Open a support case
           </Button>
