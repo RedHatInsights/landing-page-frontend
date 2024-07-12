@@ -17,9 +17,7 @@ describe('RHEL widget', () => {
     cy.get(
       `[data-ouia-component-id="landing-rhel-widget"] button.pf-v5-c-menu-toggle`
     ).click();
-    cy.get(
-      '[data-ouia-component-id="landing-rhel-widget"] [data-ouia-component-id="remove-widget"]'
-    ).click();
+    cy.get('[data-ouia-component-id="remove-widget"]').click();
     cy.get(`[data-ouia-component-id="landing-rhel-widget"]`).should(
       'not.exist'
     );
