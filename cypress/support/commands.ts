@@ -121,8 +121,6 @@ Cypress.Commands.add('loadLandingPage', () => {
 });
 
 Cypress.Commands.add('removeWidget', (widgetId: string) => {
-  // runner on jenkins is a bit slow, wait for a long while
-  const jenkinsWait = 5000;
   cy.intercept('PATCH', '**/api/chrome-service/v1/dashboard-templates/*').as(
     'patchLayout'
   );
@@ -132,7 +130,6 @@ Cypress.Commands.add('removeWidget', (widgetId: string) => {
   });
   cy.get('[data-ouia-component-id="remove-widget"]')
     .click()
-    .wait('@patchLayout')
-    .wait(jenkinsWait);
+    .wait('@patchLayout');
   cy.get(`[data-ouia-component-id="${widgetId}]`).should('not.exist');
 });

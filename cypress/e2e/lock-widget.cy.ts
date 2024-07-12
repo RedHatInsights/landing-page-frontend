@@ -13,7 +13,14 @@ describe('Widgets can lock and unlock', () => {
     cy.get('[data-ouia-component-id="landing-rhel-widget"] .drag-handle')
       .invoke('show')
       .trigger('mouseenter')
-      .wait(1000);
+      .wait(5000);
+
+    // hovertext "Move" sticks on the page, click somewhere else within the widget to make it go away
+    // there's probably a better way to do this
+    cy.get('[data-ouia-component-id="landing-rhel-widget"]')
+      .contains('Red Hat Enterprise Linux')
+      .click();
+
     cy.get('[aria-label="Move widget"]')
       .should('be.visible')
       .and('contain', 'Widget locked');
