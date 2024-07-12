@@ -1,6 +1,7 @@
 describe('Openshift AI widget', () => {
   beforeEach(() => {
     cy.loadLandingPage();
+    cy.wait(5000);
   });
 
   it('should appear on default layout', () => {
