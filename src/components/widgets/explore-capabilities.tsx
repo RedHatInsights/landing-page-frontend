@@ -16,9 +16,11 @@ import {
   Text,
   TextContent,
 } from '@patternfly/react-core/dist/dynamic/components/Text';
+import useChrome from '@redhat-cloud-services/frontend-components/useChrome';
 
 const ExploreCapabilities: React.FunctionComponent = () => {
   const [activeItem, setActiveItem] = React.useState(0);
+  const { isProd } = useChrome();
 
   const drawerData = [
     {
@@ -37,7 +39,10 @@ const ExploreCapabilities: React.FunctionComponent = () => {
       title: 'Get started with Red Hat OpenShift Service on AWS (ROSA)',
       body: 'Quickly build, deploy, and scale applications with our fully-managed turnkey application platform.',
       buttonName: 'Try ROSA',
-      url: 'https://console.redhat.com/openshift/overview/rosa',
+      ouiaId: 'try-rosa-button',
+      url: isProd()
+        ? 'https://console.redhat.com/openshift/overview/rosa'
+        : 'https://console.stage.redhat.com/openshift/overview/rosa',
     },
     {
       id: 'ex-toggle3',
@@ -46,7 +51,10 @@ const ExploreCapabilities: React.FunctionComponent = () => {
       title: 'Develop in the sandbox with the Red Hat Developer program',
       body: "Try Red Hat's products and technologies without setup or configuration.",
       buttonName: 'Explore the sandbox',
-      url: 'https://console.redhat.com/openshift/sandbox',
+      ouiaId: 'explore-sandbox-button',
+      url: isProd()
+        ? 'https://console.redhat.com/openshift/sandbox'
+        : 'https://console.stage.redhat.com/openshift/sandbox',
     },
     {
       id: 'ex-toggle4',
@@ -55,7 +63,10 @@ const ExploreCapabilities: React.FunctionComponent = () => {
       title: 'Continuously analyze with Red Hat Insights',
       body: 'Analyze platforms and applications from the console to better manage your hybrid cloud environments.',
       buttonName: 'Identify and resolve risks',
-      url: 'https://console.redhat.com/insights/dashboard#SIDs=&tags=',
+      ouiaId: 'analyze-risk-button',
+      url: isProd()
+        ? 'https://console.redhat.com/insights/dashboard#SIDs=&tags='
+        : 'https://console.stage.redhat.com/insights/dashboard#SIDs=&tags=',
     },
     {
       id: 'ex-toggle5',
@@ -64,7 +75,10 @@ const ExploreCapabilities: React.FunctionComponent = () => {
       title: 'Empower your buying decisions with data',
       body: 'Subscription Services provides reporting to help you make data-driven subscription choices.',
       buttonName: 'Explore subscriptions',
-      url: 'https://console.redhat.com/insights/subscriptions/inventory#SIDs=&tags=',
+      ouiaId: 'explore-button',
+      url: isProd()
+        ? 'https://console.redhat.com/insights/subscriptions/inventory#SIDs=&tags='
+        : 'https://console.stage.redhat.com/insights/subscriptions/inventory#SIDs=&tags=',
     },
     {
       id: 'ex-toggle6',
@@ -93,7 +107,10 @@ const ExploreCapabilities: React.FunctionComponent = () => {
         </div>
       ),
       buttonName: 'Run a pre-conversion analysis',
-      url: 'https://console.redhat.com/insights/tasks/available/convert-to-rhel-preanalysis?quickstart=insights-tasks-pre-conversion',
+      ouiaId: 'cent-os-button',
+      url: isProd()
+        ? 'https://console.redhat.com/insights/tasks/available/convert-to-rhel-preanalysis?quickstart=insights-tasks-pre-conversion'
+        : 'https://console.stage.redhat.com/insights/tasks/available/convert-to-rhel-preanalysis?quickstart=insights-tasks-pre-conversion',
     },
     {
       id: 'ex-toggle7',
@@ -102,7 +119,10 @@ const ExploreCapabilities: React.FunctionComponent = () => {
       title: 'Customize your notification settings',
       body: 'Opt-in and out of receiving notifications for your console services.',
       buttonName: 'Configure settings',
-      url: 'https://console.redhat.com/settings/notifications',
+      ouiaId: 'configure-settings-button',
+      url: isProd()
+        ? 'https://console.redhat.com/settings/notifications'
+        : 'https://console.stage.redhat.com/settings/notifications',
     },
   ];
 
