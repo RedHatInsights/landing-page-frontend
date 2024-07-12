@@ -15,12 +15,8 @@ describe('RHEL widget', () => {
   });
 
   it('should be removed if clicked on remove', () => {
-    cy.get(
-      `[data-ouia-component-id="landing-rhel-widget"] button.pf-v5-c-menu-toggle`
-    ).click();
-    cy.get('[data-ouia-component-id="remove-widget"]').click();
-    cy.get(`[data-ouia-component-id="landing-rhel-widget"]`).should(
-      'not.exist'
-    );
+    const widgetId = 'landing-rhel-widget';
+    cy.get(`[data-ouia-component-id="${widgetId}"]`).should('be.visible');
+    cy.removeWidget(widgetId);
   });
 });
