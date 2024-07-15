@@ -1,29 +1,25 @@
 describe('Widgets can lock and unlock', () => {
   beforeEach(() => {
     cy.loadLandingPage();
+    cy.viewport(1920, 1080);
   });
 
   it('should lock widget, show that the ability to move is unavailable and return to menu to unlock widget', () => {
     // lock widget
-    cy.get('[data-ouia-component-id="landing-rhel-widget"]');
     cy.get('[aria-label="widget actions menu toggle"]').first().click();
-    cy.get('[data-ouia-component-id="lock-widget"]').first().click();
+    cy.get('[data-ouia-component-id="lock-widget"]').first().click().wait(2000);
 
-    // show that widget can't move
-    cy.get('[data-ouia-component-id="landing-rhel-widget"] .drag-handle')
-      .invoke('show')
-      .trigger('mouseenter')
-      .wait(5000);
+    // try moving the widget
+    const dragHandleLocator =
+      '[data-ouia-component-id="landing-rhel-widget"] .drag-handle';
 
-    // hovertext "Move" sticks on the page, click somewhere else within the widget to make it go away
-    // there's probably a better way to do this
-    cy.get('[data-ouia-component-id="landing-rhel-widget"]')
-      .contains('Red Hat Enterprise Linux')
-      .click();
+    const destLocator = '[data-ouia-component-id="landing-openshift-widget"]';
+    cy.dragTotarget(dragHandleLocator, destLocator);
 
-    cy.get('[aria-label="Move widget"]')
-      .should('be.visible')
-      .and('contain', 'Widget locked');
+    // indirectly check if the widget moved (should still be the first in the list of cards)
+    cy.get('[id="widget-layout-container"] .react-grid-item')
+      .first()
+      .contains('Red Hat Enterprise Linux');
 
     // unlock widget
     cy.get('[data-ouia-component-id="landing-rhel-widget"]');
