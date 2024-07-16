@@ -43,6 +43,7 @@ declare global {
         targetSelector: string
       ): Chainable<void>;
       loadLandingPage(): Chainable<void>;
+      removeWidget(widgetId: string): void;
     }
   }
 }

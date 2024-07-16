@@ -119,3 +119,17 @@ Cypress.Commands.add('loadLandingPage', () => {
 
   cy.resetToDefaultLayout();
 });
+
+Cypress.Commands.add('removeWidget', (widgetId: string) => {
+  cy.intercept('PATCH', '**/api/chrome-service/v1/dashboard-templates/*').as(
+    'patchLayout'
+  );
+
+  cy.get(`[data-ouia-component-id="${widgetId}"]`).within(() => {
+    cy.get('[aria-label="widget actions menu toggle"]').click();
+  });
+  cy.get('[data-ouia-component-id="remove-widget"]')
+    .click()
+    .wait('@patchLayout');
+  cy.get(`[data-ouia-component-id="${widgetId}]`).should('not.exist');
+});
