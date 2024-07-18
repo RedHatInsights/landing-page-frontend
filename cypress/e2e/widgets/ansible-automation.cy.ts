@@ -18,12 +18,8 @@ describe('Ansible Automation Platform Widget', () => {
   });
 
   it('is removed if the remove button is clicked', () => {
-    cy.get(`[${widgetLoc}]`).within(() => {
-      cy.get('[aria-label="widget actions menu toggle"]').click();
-      cy.get('[data-ouia-component-id="remove-widget"]').click();
-    });
-    cy.get(`[${widgetLoc}]`).should('not.exist');
-
+    cy.get(`[${widgetLoc}]`).should('be.visible');
+    cy.removeWidget(widgetID);
     // cleanup
     cy.resetToDefaultLayout();
   });
