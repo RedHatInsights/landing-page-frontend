@@ -110,7 +110,7 @@ const SupportCaseWidget: React.FunctionComponent = () => {
     try {
       const response = await fetch(getUrl(chrome.getEnvironment()), options);
       const { cases } = await response.json();
-      setCases(cases);
+      setCases(cases || []);
       setIsLoading(false);
     } catch (error) {
       console.error('Unable to fetch support cases', error);
