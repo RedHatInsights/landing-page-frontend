@@ -12,6 +12,18 @@ There is a [comprehensive quick start guide in the Storybook Documentation](http
 
 ## Getting started
 
+Prior to running npm, ensure that you have the appropriate local changes to your `/etc/hosts` file in-place. Here's an example:
+
+```
+127.0.0.1   prod.foo.redhat.com
+127.0.0.1   stage.foo.redhat.com
+127.0.0.1   qa.foo.redhat.com
+127.0.0.1   ci.foo.redhat.com
+127.0.0.1   dev.foo.redhat.com
+::1         prod.foo.redhat.com
+::1         stage.foo.redhat.com
+```
+
 1. ```npm install```
 
 2. ```npm run start```
