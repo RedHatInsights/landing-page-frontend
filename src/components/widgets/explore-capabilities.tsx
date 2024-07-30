@@ -98,7 +98,7 @@ const ExploreCapabilities: React.FunctionComponent = () => {
       ),
       buttonName: 'Run a pre-conversion analysis',
       ouiaId: 'cent-os-button',
-      url: '/insights/tasks/available/convert-to-rhel-preanalysis?quickstart=insights-tasks-pre-conversion',
+      url: '/insights/tasks/available/convert-to-rhel-analysis?quickstart=insights-tasks-pre-conversion',
     },
     {
       id: 'ex-toggle7',

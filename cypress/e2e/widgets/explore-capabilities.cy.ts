@@ -48,7 +48,7 @@ describe('Explore Capabilities widget', () => {
       tabHeading: 'Convert your CentOS systems to RHEL',
       contentHeader: 'Convert your CentOS systems to Red Hat Enterprise Linux',
       buttonText: 'Run a pre-conversion analysis',
-      expectedLinkDest: '/insights/tasks/available/convert-to-rhel-preanalysis',
+      expectedLinkDest: '/insights/tasks/available/convert-to-rhel-analysis',
     },
     {
       tabHeading: 'Configure your console',
