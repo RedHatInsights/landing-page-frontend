@@ -10,7 +10,7 @@ describe('RHEL widget', () => {
   it('should have correct link', () => {
     cy.get(`[data-ouia-component-id="landing-rhel-widget"] a`)
       .should('have.attr', 'href')
-      .and('include', `/preview/insights/`);
+      .and('include', `/insights/`);
   });
 
   it('should be removed if clicked on remove', () => {
