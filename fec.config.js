@@ -8,6 +8,8 @@ module.exports = {
   proxyVerbose: true,
   hotReload: true,
   plugins: [],
+  chromeHost: process.env.FEC_CHROME_HOST ?? undefined,
+  chromePort: process.env.FEC_CHROME_PORT ?? undefined,
   routes: {
     ...(process.env.LOCAL_PDF && {
       '/api/crc-pdf-generator': {
