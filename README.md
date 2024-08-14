@@ -23,7 +23,7 @@ Checkout https://stage.foo.redhat.com:1337/ [Read more](https://github.com/RedHa
 - `npm run test` tests
 - `npm run lint` will run the linter
 
-## Deploying
+## Deployment
 
 The following four branches are used
 
