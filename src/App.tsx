@@ -82,6 +82,8 @@ const App = () => {
     };
   }, []);
 
+  console.log('KONFLUX TEST SUCCESSFUL!');
+
   return (
     <Provider
       store={init(
