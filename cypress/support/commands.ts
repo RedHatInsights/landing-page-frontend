@@ -56,11 +56,21 @@ Cypress.Commands.add('login', () => {
       cy.setLocalStorage('chrome:segment:disable', 'true');
 
       cy.wait(1000);
-      // login into the session
-      cy.get('#username-verification').type(Cypress.env('E2E_USER'));
-      cy.get('#login-show-step2').click();
-      cy.get('#password').type(Cypress.env('E2E_PASSWORD'));
-      cy.get('#rh-password-verification-submit-button').click();
+
+      cy.get('#username-verification').then(($username) => {
+        if ($username.length) {
+          cy.get('#username-verification').type(Cypress.env('E2E_USER'));
+          cy.get('#login-show-step2').click();
+          cy.get('#password').type(Cypress.env('E2E_PASSWORD'));
+          cy.get('#rh-password-verification-submit-button').click();
+        } else {
+          // new login form
+          cy.get('#username-verification').type(Cypress.env('E2E_USER'));
+          cy.get('#password').type(Cypress.env('E2E_PASSWORD'));
+          cy.get('#submit').click();
+        }
+      });
+
       // cy.url().should('eq', `${Cypress.config().baseUrl}/`);
     },
     { cacheAcrossSpecs: true }
