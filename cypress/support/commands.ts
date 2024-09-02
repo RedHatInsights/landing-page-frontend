@@ -65,7 +65,7 @@ Cypress.Commands.add('login', () => {
           cy.get('#rh-password-verification-submit-button').click();
         } else {
           // new login form
-          cy.get('#username-verification').type(Cypress.env('E2E_USER'));
+          cy.get('#username').type(Cypress.env('E2E_USER'));
           cy.get('#password').type(Cypress.env('E2E_PASSWORD'));
           cy.get('#submit').click();
         }
