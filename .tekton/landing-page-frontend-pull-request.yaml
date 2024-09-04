@@ -328,7 +328,7 @@ spec:
             args:
               - use
               - $(params.SOURCE_ARTIFACT)=/var/workdir
-          - image: registry.access.redhat.com/ubi8/nodejs-20
+          - image: registry.access.redhat.com/ubi8/nodejs-18
             workingDir: /var/workdir
             name: unit-tests
             securityContext:
