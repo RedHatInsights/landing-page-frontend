@@ -19,8 +19,8 @@ CHROME_HOST=$(docker inspect -f '{{range.NetworkSettings.Networks}}{{.IPAddress}
 docker run -t \
   -v $PWD:/e2e:ro,Z \
   -w /e2e \
-  -e CHROME_ACCOUNT=$CHROME_ACCOUNT \
-  -e CHROME_PASSWORD=$CHROME_PASSWORD \
+  -e CHROME_ACCOUNT=$RBAC_FRONTEND_USER \
+  -e CHROME_PASSWORD=$RBAC_FRONTEND_PASSWORD \
   -e CHROME_HOST=$CHROME_HOST \
   --add-host stage.foo.redhat.com:127.0.0.1 \
   --add-host prod.foo.redhat.com:127.0.0.1 \
