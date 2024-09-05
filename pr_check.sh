@@ -61,6 +61,7 @@ source $CICD_ROOT/deploy_ephemeral_env.sh
 
 # Run some tests with ClowdJobInvocation
 export IQE_IMAGE_TAG="platform-ui"
+IQE_IBUTSU_SOURCE="landing-page-frontend-pr-check"
 IQE_PLUGINS="platform_ui"
 IQE_MARKER_EXPRESSION="smoke"
 # Exclude progressive profile tests
