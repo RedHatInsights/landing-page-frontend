@@ -44,7 +44,7 @@
     "@redhat-cloud-services/frontend-components": "^4.0.14",
     "@redhat-cloud-services/frontend-components-notifications": "^4.1.0",
     "@redhat-cloud-services/frontend-components-utilities": "^4.0.2",
-    "@redhat-cloud-services/types": "^1.0.3",
+    "@redhat-cloud-services/types": "^1.0.13",
     "@scalprum/core": "^0.5.1",
     "@testing-library/jest-dom": "^6.1.4",
     "@testing-library/react": "^14.1.0",
