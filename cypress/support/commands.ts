@@ -58,9 +58,8 @@ Cypress.Commands.add('login', () => {
       cy.wait(1000);
 
       cy.get('body').then(($body) => {
-        cy.get('body')
-          .invoke('html')
-          .then((val) => console.log(JSON.stringify(val)));
+        console.log(Cypress.$('body').html());
+
         if ($body.find('#username-verification').length > 0) {
           // old login form
           cy.get('#username-verification').type(Cypress.env('E2E_USER'));
