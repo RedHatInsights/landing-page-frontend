@@ -1,16 +1,12 @@
 /* eslint-disable @typescript-eslint/ban-ts-comment */
 import React from 'react';
-import type { AxiosRequestConfig } from 'axios';
 import { Table, Tbody, Td, Th, Thead, Tr } from '@patternfly/react-table';
+import { AsyncState, CreateAxiosRequest } from '@redhat-cloud-services/types';
+import { FetchData } from '@redhat-cloud-services/types';
 
-type CreateAxiosRequest<T = any> = (
-  service: string,
-  config: AxiosRequestConfig
-) => Promise<T>;
-
-type FetchData = (createAsyncRequest: CreateAxiosRequest) => Promise<any>;
-
-export const fetchData: FetchData = async (createAsyncRequest) => {
+export const fetchData: FetchData = async (
+  createAsyncRequest: CreateAxiosRequest
+) => {
   const requestGenerated = createAsyncRequest('chrome-service', {
     method: 'GET',
     url: '/api/chrome-service/v1/static/beta/stage/services/services-generated.json',
@@ -31,10 +27,6 @@ export const fetchData: FetchData = async (createAsyncRequest) => {
     requestWithAuth,
   ]);
   return data;
-};
-
-type AsyncState<T = any> = {
-  data: T;
 };
 
 const PdfEntry = ({
