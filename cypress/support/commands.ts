@@ -57,20 +57,23 @@ Cypress.Commands.add('login', () => {
 
       cy.wait(1000);
 
-      // cy.get('body').then(($body) => {
-      //   if ($body.find('#username-verification').length > 0) {
-      // old login form
-      cy.get('#username-verification').type(Cypress.env('E2E_USER'));
-      cy.get('#login-show-step2').click();
-      cy.get('#password').type(Cypress.env('E2E_PASSWORD'));
-      cy.get('#rh-password-verification-submit-button').click();
-      //   } else {
-      //     // new login form
-      //     cy.get('#username').type(Cypress.env('E2E_USER'));
-      //     cy.get('#password').type(Cypress.env('E2E_PASSWORD'));
-      //     cy.get('#submit').click();
-      //   }
-      // });
+      cy.get('body').then(($body) => {
+        cy.get('body')
+          .invoke('html')
+          .then((val) => console.log(JSON.stringify(val)));
+        if ($body.find('#username-verification').length > 0) {
+          // old login form
+          cy.get('#username-verification').type(Cypress.env('E2E_USER'));
+          cy.get('#login-show-step2').click();
+          cy.get('#password').type(Cypress.env('E2E_PASSWORD'));
+          cy.get('#rh-password-verification-submit-button').click();
+        } else {
+          // new login form
+          cy.get('#username').type(Cypress.env('E2E_USER'));
+          cy.get('#password').type(Cypress.env('E2E_PASSWORD'));
+          cy.get('#submit').click();
+        }
+      });
 
       // cy.url().should('eq', `${Cypress.config().baseUrl}/`);
     },
