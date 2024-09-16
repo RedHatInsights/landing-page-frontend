@@ -40,7 +40,8 @@ Cypress.Commands.add('login', () => {
   cy.session(
     `login-${Cypress.env('E2E_USER')}`,
     () => {
-      cy.intercept({ url: '/beta/apps/*', times: 1 }, {});
+      cy.intercept('GET', 'https://sso.stage.redhat.com/*').as('ssoPage');
+      cy.intercept({ url: '/apps/*', times: 1 }, {});
       cy.intercept({ url: '/api/', times: 4 }, {});
       // This JS file causes randomly an uncaught exception on login page which blocks the tests
       // Cannot read properties of undefined (reading 'setAttribute')
@@ -54,25 +55,28 @@ Cypress.Commands.add('login', () => {
       // disable analytics integrations
       cy.setLocalStorage('chrome:analytics:disable', 'true');
       cy.setLocalStorage('chrome:segment:disable', 'true');
+      // cy.wait('@ssoPage');
 
-      cy.wait(1000);
+      cy.wait(3000);
+      try {
+        cy.get('#username-verification').type(Cypress.env('E2E_USER'));
+        cy.get('#login-show-step2').click();
+        cy.get('#password').type(Cypress.env('E2E_PASSWORD'));
+        cy.get('#rh-password-verification-submit-button').click();
+      } catch (error) {
+        cy.get('#username').type(Cypress.env('E2E_USER'));
+        cy.get('#password').type(Cypress.env('E2E_PASSWORD'));
+        cy.get('#submit').click();
+      }
+      // cy.get('body').then(($body) => {
+      // console.log(Cypress.$('body').html());
 
-      cy.get('body').then(($body) => {
-        console.log(Cypress.$('body').html());
-
-        if ($body.find('#username-verification').length > 0) {
-          // old login form
-          cy.get('#username-verification').type(Cypress.env('E2E_USER'));
-          cy.get('#login-show-step2').click();
-          cy.get('#password').type(Cypress.env('E2E_PASSWORD'));
-          cy.get('#rh-password-verification-submit-button').click();
-        } else {
-          // new login form
-          cy.get('#username').type(Cypress.env('E2E_USER'));
-          cy.get('#password').type(Cypress.env('E2E_PASSWORD'));
-          cy.get('#submit').click();
-        }
-      });
+      // if ($body.find('#username-verification').length > 0) {
+      //   // old login form
+      // } else {
+      //   // new login form
+      // }
+      // });
 
       // cy.url().should('eq', `${Cypress.config().baseUrl}/`);
     },
