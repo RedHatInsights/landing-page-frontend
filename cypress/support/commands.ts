@@ -40,7 +40,6 @@ Cypress.Commands.add('login', () => {
   cy.session(
     `login-${Cypress.env('E2E_USER')}`,
     () => {
-      cy.intercept('GET', 'https://id.redhat.com/').as('ssoPage');
       cy.intercept({ url: '/apps/*', times: 1 }, {});
       cy.intercept({ url: '/api/', times: 4 }, {});
       // This JS file causes randomly an uncaught exception on login page which blocks the tests
@@ -49,12 +48,11 @@ Cypress.Commands.add('login', () => {
       // disable analytics integrations
       cy.setLocalStorage('chrome:analytics:disable', 'true');
       cy.setLocalStorage('chrome:segment:disable', 'true');
-      cy.wait('@ssoPage');
 
       cy.url().then((url) => console.log(`URL: ${url}`));
-      cy.document().then((doc) =>
-        console.log('HTML:', doc.documentElement.outerHTML)
-      );
+      // cy.document().then((doc) =>
+      //   // console.log('HTML:', doc.documentElement.outerHTML)
+      // );
 
       try {
         cy.get('#username-verification').type(Cypress.env('E2E_USER'));
@@ -66,6 +64,9 @@ Cypress.Commands.add('login', () => {
         cy.get('#password').type(Cypress.env('E2E_PASSWORD'));
         cy.get('#submit').click();
       }
+
+      cy.visit('/');
+      cy.url().should('include', '/foobar');
     },
     { cacheAcrossSpecs: true }
   );
