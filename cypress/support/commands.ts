@@ -51,6 +51,11 @@ Cypress.Commands.add('login', () => {
       cy.setLocalStorage('chrome:segment:disable', 'true');
       cy.wait('@ssoPage');
 
+      cy.url().then((url) => console.log(`URL: ${url}`));
+      cy.document().then((doc) =>
+        console.log('HTML:', doc.documentElement.outerHTML)
+      );
+
       try {
         cy.get('#username-verification').type(Cypress.env('E2E_USER'));
         cy.get('#login-show-step2').click();
