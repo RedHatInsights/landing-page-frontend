@@ -44,14 +44,21 @@ describe('My Favorite Services Widget', () => {
     // Reset layout to the default
     cy.resetToDefaultLayout();
 
-    cy.get(`[data-ouia-component-id="${widgetId}"]`).should('be.visible');
+    cy.get(`[data-ouia-component-id="${widgetId}"]`)
+      .scrollIntoView()
+      .should('be.visible');
     cy.resetToDefaultLayout();
   });
 
   it('disappears when removed from the layout', () => {
     cy.resetToDefaultLayout();
-    cy.get(`[data-ouia-component-id="${widgetId}"]`).should('be.visible');
+    cy.get(`[data-ouia-component-id="${widgetId}"]`)
+      .scrollIntoView()
+      .should('be.visible');
     cy.removeWidget(widgetId);
+    cy.get(`[data-ouia-component-id="${widgetId}"]`)
+      .scrollIntoView()
+      .should('not.be.visible');
   });
 
   it('displays the empty state when no favorites are set', () => {
@@ -59,6 +66,7 @@ describe('My Favorite Services Widget', () => {
     cy.wait('@getFavorites');
 
     cy.get(`[data-ouia-component-id="${widgetId}"]`)
+      .scrollIntoView()
       .should('be.visible')
       .within(() => {
         cy.get('h3').should('contain', 'No favorited services');
@@ -93,6 +101,7 @@ describe('My Favorite Services Widget', () => {
     cy.wait('@getFavorites');
 
     cy.get(`[data-ouia-component-id="${widgetId}"]`)
+      .scrollIntoView()
       .should('be.visible')
       .within(() => {
         cy.get('p').should('contain', 'Notifications');
