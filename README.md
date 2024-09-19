@@ -29,7 +29,7 @@ The following four branches are used
 
 - Stable
   - prod-stable -> releases to console.redhat.com
-  - master-stable -> releases to console.stage.redhat.com
+  - master-stable -> releases to console.stage.redhat.com 
 
 - Beta
   - prod-beta -> releases to console.redhat.com/beta
