@@ -10,7 +10,7 @@ COMMON_BUILDER=https://raw.githubusercontent.com/RedHatInsights/insights-fronten
 
 set -e
 
-CHROME_SHA=$(curl -X GET "https://quay.io/api/v1/repository/cloudservices/insights-chrome-frontend/tag/" | jq .tags\[0\].name -r)
+CHROME_SHA=$(curl -X GET "https://quay.io/api/v1/repository/cloudservices/insights-chrome-frontend/tag/?onlyActiveTags=true&limit=100" | jq '.tags | [.[] | select(.name | test("^[a-zA-Z0-9]{7,40}$"))] | .[0].name' -r)
 CHROME_CONTAINER_NAME=chrome-$CHROME_SHA
 
 docker run -d --name $CHROME_CONTAINER_NAME --replace --network bridge quay.io/cloudservices/insights-chrome-frontend:$CHROME_SHA
@@ -19,8 +19,8 @@ CHROME_HOST=$(docker inspect -f '{{range.NetworkSettings.Networks}}{{.IPAddress}
 docker run -t \
   -v $PWD:/e2e:ro,Z \
   -w /e2e \
-  -e CHROME_ACCOUNT=$CHROME_ACCOUNT \
-  -e CHROME_PASSWORD=$CHROME_PASSWORD \
+  -e CHROME_ACCOUNT=$RBAC_FRONTEND_USER \
+  -e CHROME_PASSWORD=$RBAC_FRONTEND_PASSWORD \
   -e CHROME_HOST=$CHROME_HOST \
   --add-host stage.foo.redhat.com:127.0.0.1 \
   --add-host prod.foo.redhat.com:127.0.0.1 \
