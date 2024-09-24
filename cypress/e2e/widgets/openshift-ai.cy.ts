@@ -1,5 +1,6 @@
 describe('Openshift AI widget', () => {
   beforeEach(() => {
+    cy.viewport(1280, 2000);
     cy.loadLandingPage();
   });
 

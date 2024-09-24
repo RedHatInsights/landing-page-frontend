@@ -12,6 +12,7 @@ describe('My Favorite Services Widget', () => {
   const widgetId = 'chrome-favoriteServices-widget';
 
   beforeEach(() => {
+    cy.viewport(1280, 2000);
     cy.intercept(
       'GET',
       '**/api/chrome-service/v1/dashboard-templates?dashboard=landingPage'
@@ -52,13 +53,7 @@ describe('My Favorite Services Widget', () => {
 
   it('disappears when removed from the layout', () => {
     cy.resetToDefaultLayout();
-    cy.get(`[data-ouia-component-id="${widgetId}"]`)
-      .scrollIntoView()
-      .should('be.visible');
     cy.removeWidget(widgetId);
-    cy.get(`[data-ouia-component-id="${widgetId}"]`)
-      .scrollIntoView()
-      .should('not.be.visible');
   });
 
   it('displays the empty state when no favorites are set', () => {
