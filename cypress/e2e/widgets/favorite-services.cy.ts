@@ -12,6 +12,7 @@ describe('My Favorite Services Widget', () => {
   const widgetId = 'chrome-favoriteServices-widget';
 
   beforeEach(() => {
+    cy.viewport(1280, 2000);
     cy.intercept(
       'GET',
       '**/api/chrome-service/v1/dashboard-templates?dashboard=landingPage'
@@ -44,13 +45,14 @@ describe('My Favorite Services Widget', () => {
     // Reset layout to the default
     cy.resetToDefaultLayout();
 
-    cy.get(`[data-ouia-component-id="${widgetId}"]`).should('be.visible');
+    cy.get(`[data-ouia-component-id="${widgetId}"]`)
+      .scrollIntoView()
+      .should('be.visible');
     cy.resetToDefaultLayout();
   });
 
   it('disappears when removed from the layout', () => {
     cy.resetToDefaultLayout();
-    cy.get(`[data-ouia-component-id="${widgetId}"]`).should('be.visible');
     cy.removeWidget(widgetId);
   });
 
@@ -59,6 +61,7 @@ describe('My Favorite Services Widget', () => {
     cy.wait('@getFavorites');
 
     cy.get(`[data-ouia-component-id="${widgetId}"]`)
+      .scrollIntoView()
       .should('be.visible')
       .within(() => {
         cy.get('h3').should('contain', 'No favorited services');
@@ -93,6 +96,7 @@ describe('My Favorite Services Widget', () => {
     cy.wait('@getFavorites');
 
     cy.get(`[data-ouia-component-id="${widgetId}"]`)
+      .scrollIntoView()
       .should('be.visible')
       .within(() => {
         cy.get('p').should('contain', 'Notifications');

@@ -1,15 +1,12 @@
 describe('Explore Capabilities widget', () => {
+  const capabilitiesWidgetSelector = `[data-ouia-component-id="landing-exploreCapabilities-widget"]`;
+
   before(() => {
-    cy.viewport(1920, 1080);
+    cy.viewport(1920, 1500);
     cy.loadLandingPage();
     // wait for the last widget in the sequence to load and render
-    cy.get(`[data-ouia-component-id="landing-acs-widget"]`)
-      .scrollIntoView()
-      .contains('Fully hosted software as a service')
-      .should('be.visible');
+    cy.get(capabilitiesWidgetSelector).scrollIntoView().should('be.visible');
   });
-
-  const capabilitiesWidgetSelector = `[data-ouia-component-id="landing-exploreCapabilities-widget"]`;
 
   const widgetTestData = [
     {
@@ -69,11 +66,13 @@ describe('Explore Capabilities widget', () => {
 
       // confirm content header is displayed properly
       cy.get(capabilitiesWidgetSelector)
+        .scrollIntoView()
         .contains(widgetDataItem.tabHeading)
         .should('be.visible')
         .click();
 
       cy.get(capabilitiesWidgetSelector)
+        .scrollIntoView()
         .contains(widgetDataItem.contentHeader)
         .should('be.visible');
 

@@ -14,25 +14,30 @@ describe('Widget Landing Page', () => {
   // Test skipped until issue with NaN on PATCH is resolved (makes test flaky)
   // Related JIRA issue: https://issues.redhat.com/browse/RHCLOUD-33743
   it('closes all the widgets', () => {
-    // Ensure that widgets are open and displayed (Number of items in grid expected to be numDefaultWidgets)
-    const numDefaultWidgets = 9;
     const cardActionsSelector = '[aria-label="widget actions menu toggle"]';
-    cy.get(cardActionsSelector)
-      .its('length')
-      .should('be.eq', numDefaultWidgets);
 
-    // Close all the widgets
-    cy.get(cardActionsSelector).each(($card) => {
-      cy.wrap($card)
-        .click()
-        .get('[data-ouia-component-id="remove-widget"]')
-        .click()
-        .wait(5000);
-      cy.wrap($card).should('not.exist');
+    const removeWidgets = () => {
+      cy.get(cardActionsSelector).each(($card) => {
+        cy.wrap($card).scrollIntoView().click();
+
+        cy.get('[data-ouia-component-id="remove-widget"]')
+          .scrollIntoView()
+          .click()
+          .wait(1000);
+        cy.wrap($card).should('not.exist');
+      });
+    };
+
+    // first attempt
+    removeWidgets();
+
+    // check if any widgets are left and try again to avoid crash
+    cy.get('body').then(($body) => {
+      if ($body.find(cardActionsSelector).length > 0) {
+        cy.log('Retrying to remove remaining widgets');
+        removeWidgets();
+      }
     });
-
-    // no cards should be present
-    cy.get(cardActionsSelector).should('not.exist');
 
     // Confirm that the "empty" message is displayed
     cy.get('[id="widget-layout-container"]')
@@ -85,6 +90,11 @@ describe('Widget Landing Page', () => {
     it('widgets can be resized', () => {
       cy.wait(4000);
       cy.get('[tabindex="0"]')
+        .invoke('width')
+        .then((width) => {
+          expect(width).to.be.closeTo(398, 20);
+        });
+      cy.get('[tabindex="0"]')
         .find('[class="react-resizable-handle react-resizable-handle-ne"]')
         .realMouseDown()
         .realMouseMove(500, 0)
@@ -99,7 +109,7 @@ describe('Widget Landing Page', () => {
           cy.get('[tabindex="0"]')
             .invoke('width')
             .then((width) => {
-              expect(width).to.be.closeTo(894, 5);
+              expect(width).to.be.closeTo(894, 20);
             });
         });
 

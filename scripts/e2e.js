@@ -16,17 +16,13 @@ let child;
 async function runTests() {
   process.env.NODE_TLS_REJECT_UNAUTHORIZED = '0';
   //start stage beta
-  child = spawn(
-    'npm',
-    ['run', 'start', '--', '--clouddotEnv=stage', '--uiEnv=beta'],
-    {
-      stdio: [process.stdout, process.stdout, process.stdout],
-      detached: false,
-    }
-  );
+  child = spawn('npm', ['run', 'start', '--', '--clouddotEnv=stage'], {
+    stdio: [process.stdout, process.stdout, process.stdout],
+    detached: false,
+  });
   await waitOn(options);
   execSync(
-    `NO_COLOR=1 E2E_USER=${process.env.CHROME_ACCOUNT} E2E_PASSWORD=${process.env.CHROME_PASSWORD} npm run cypress run`,
+    `NO_COLOR=1 ELECTRON_ENABLE_LOGGING=1 E2E_USER=${process.env.CHROME_ACCOUNT} E2E_PASSWORD=${process.env.CHROME_PASSWORD} npm run cypress run`,
     {
       encoding: 'utf-8',
       stdio: 'inherit',
