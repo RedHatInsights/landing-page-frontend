@@ -54,6 +54,10 @@ describe('My Favorite Services Widget', () => {
   it('disappears when removed from the layout', () => {
     cy.resetToDefaultLayout();
     cy.removeWidget(widgetId);
+    cy.get(`[data-ouia-component-id="${widgetId}"]`)
+      .wait(1000)
+      .scrollIntoView()
+      .should('not.be.visible');
   });
 
   it('displays the empty state when no favorites are set', () => {

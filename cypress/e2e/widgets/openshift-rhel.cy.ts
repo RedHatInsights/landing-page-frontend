@@ -36,5 +36,8 @@ describe('Red Hat OpenShift Widget', () => {
     cy.resetToDefaultLayout();
     cy.get(`[data-ouia-component-id="${widgetId}"]`).should('be.visible');
     cy.removeWidget(widgetId);
+    cy.get(`[data-ouia-component-id="${widgetId}"]`)
+      .wait(1000)
+      .should('be.visible');
   });
 });

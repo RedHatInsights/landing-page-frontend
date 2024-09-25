@@ -20,6 +20,10 @@ describe('Ansible Automation Platform Widget', () => {
   it('is removed if the remove button is clicked', () => {
     cy.get(`[${widgetLoc}]`).scrollIntoView().should('be.visible');
     cy.removeWidget(widgetID);
+    cy.get(`[${widgetLoc}]`)
+      .wait(1000)
+      .scrollIntoView()
+      .should('not.be.visible');
     // cleanup
     cy.resetToDefaultLayout();
   });

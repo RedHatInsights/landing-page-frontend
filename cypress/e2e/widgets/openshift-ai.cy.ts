@@ -25,5 +25,10 @@ describe('Openshift AI widget', () => {
       .scrollIntoView()
       .should('be.visible');
     cy.removeWidget('landing-openshiftAi-widget');
+    cy.get(`[data-ouia-component-id="${widgetId}"]`);
+    cy.get(`[data-ouia-component-id="${widgetId}"]`)
+      .wait(1000)
+      .scrollIntoView()
+      .should('not.be.visible');
   });
 });
