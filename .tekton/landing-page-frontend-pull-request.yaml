@@ -324,7 +324,7 @@ spec:
         sidecars:
         steps:
           - name: use-trusted-artifact
-            image: quay.io/redhat-appstudio/build-trusted-artifacts:latest@sha256:8391272c4e5011120e9e7fee2c1f339e9405366110bf239dadcbc21e953ce099
+            image: quay.io/redhat-appstudio/build-trusted-artifacts:latest@sha256:a83c92fc0a1e2c785937c6612dc8c8237818535543f00ecaf6b3b77a35f76259
             args:
               - use
               - $(params.SOURCE_ARTIFACT)=/var/workdir
