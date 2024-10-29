@@ -1,72 +1,21 @@
+
 .landing-exploreCapabilities {
-  container-type: inline-size;
-  .title {
-    font-size: var(--pf-v5-global--FontSize--2xl);
-    font-weight: bold;
-  }
-  .pf-v5-c-card__body {
-    background-color: transparent;
-  }
-  .pf-v5-c-drawer__content {
-    min-width: 300px;
-    flex-basis: 300px;
-  }
-  .pf-v5-c-drawer__panel {
-    flex: 1;
-  }
-  .pf-v5-c-drawer__body {
-    padding: 0;
-    img {
-      width: 100px;
-      max-width: 100px;
-    }
-  }
-  .pf-v5-c-card {
-    margin: var(--pf-v5-global--spacer--lg);
-  }
-  .pf-v5-c-simple-list {
-    height: 100%;
-    --pf-v5-c-simple-list__item-link--m-current--FontWeight: var(--pf-v5-global--FontWeight--bold);
-
-    --pf-v5-c-simple-list__item-link--BackgroundColor: var(--pf-v5-global--BackgroundColor--150);
-
-  }
-  .pf-v5-c-simple-list__list {
-    display: flex;
-    flex-direction: column;
-    height: 100%;
-  }
-  .pf-v5-c-simple-list__item {
-    vertical-align: middle;
-    flex: 1;
-    text-wrap: nowrap;
-    border-bottom: 1px solid var(--pf-v5-global--palette--black-400);
-    &:last-child {
-      border-bottom: none;
-    }
-  }
-  .pf-v5-c-simple-list__item-link {
-    height: 100%;
-  }
-  .cta-button {
-    margin-top: var(--pf-v5-global--spacer--md);
-  }
-  @container (width < 1080px) { 
-    .title {
-      font-size: var(--pf-v5-global--FontSize--lg);
+  overflow: auto;
+  .pf-v5-l-gallery {
+    --pf-v5-l-gallery--GridTemplateColumns--min: 280px;
+    grid-column-gap: 10px;
+    grid-row-gap: 10px;
+    a:hover {
+      text-decoration: none;
     }
     .pf-v5-c-card {
-      margin: var(--pf-v5-global--spacer--md);
+       --pf-v5-c-card--m-selectable-raised--hover--before--BackgroundColor: none;
+      img {
+        height: 36px;
+      }
     }
-    .widg-explore-image {
-      display: none;
-    }
-  }
-  @container (width < 768px) { 
-    .pf-v5-c-button {
-      padding: 6px var(--pf-v5-global--spacer--md) 6px var(--pf-v5-global--spacer--md);
-      font-size: var(--pf-v5-global--FontSize--sm);
-      font-weight: normal;
+    .land-c-card__body-explore:hover {
+      background-color: var(--pf-v5-global--BackgroundColor--150);
     }
   }
 }
