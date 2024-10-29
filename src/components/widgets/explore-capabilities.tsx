@@ -1,5 +1,4 @@
 import React from 'react';
-import { Button } from '@patternfly/react-core/dist/dynamic/components/Button';
 import {
   Card,
   CardBody,
@@ -21,6 +20,7 @@ const ExploreCapabilities: React.FunctionComponent = () => {
       title: 'Get started with a tour',
       body: "Take a quick guided tour to understand how the Red Hat Hybrid Cloud Console's capabilities will increase your efficiency.",
       ouiaId: 'start-guided-tour-button',
+      url: '',
     },
     {
       id: 'card2',
