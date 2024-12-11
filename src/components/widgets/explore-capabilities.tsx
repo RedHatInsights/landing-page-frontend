@@ -34,7 +34,7 @@ const ExploreCapabilities: React.FunctionComponent = () => {
       id: 'card3',
       img: '/apps/frontend-assets/console-landing/widget-explore/Logo-Red_Hat-Developer-A-Standard-RGB.svg',
       title: 'Try our products in the Developer Sandbox',
-      body: "The Developer Sandbox offers no-cost access to Red Hat products and technologies for trial use—no setup or configuration necessary.",
+      body: 'The Developer Sandbox offers no-cost access to Red Hat products and technologies for trial use—no setup or configuration necessary.',
       ouiaId: 'explore-sandbox-button',
       url: '/openshift/sandbox',
     },
