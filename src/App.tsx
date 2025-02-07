@@ -52,7 +52,7 @@ export const PermissionContext = createContext<{
   isOrgAdmin?: boolean;
 }>({});
 
-const App = () => {
+const App: React.FC<{ layoutType?: string }> = ({ layoutType }) => {
   const [isOrgAdmin, setIsOrgAdmin] = useState<boolean>(false);
   const chrome = useChrome();
   const navigate = useNavigate();
@@ -98,7 +98,10 @@ const App = () => {
           }
         >
           <Routes>
-            <Route path={routes.landing} element={<Landing />} />
+            <Route
+              path={routes.landing}
+              element={<Landing layoutType={layoutType} />}
+            />
             <Route path={routes.maintenance} element={<Maintenance />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
