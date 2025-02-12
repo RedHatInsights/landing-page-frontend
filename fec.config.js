@@ -49,6 +49,10 @@ module.exports = {
         __dirname,
         'src/components/widgets/edge-widget.tsx'
       ),
+      './ImageBuilderWidget': path.resolve(
+        __dirname,
+        'src/components/widgets/image-builder-widget.tsx'
+      ),
       './RhelWidget': path.resolve(
         __dirname,
         'src/components/widgets/rhel-widget.tsx'

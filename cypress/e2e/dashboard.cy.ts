@@ -19,7 +19,7 @@ describe('Dashboard with widgets is displayed', () => {
       'landing-recentlyVisited-widget',
       'chrome-favoriteServices-widget',
       'landing-openshiftAi-widget',
-      'landing-edge-widget',
+      'landing-imageBuilder-widget',
       'landing-acs-widget',
     ];
 
