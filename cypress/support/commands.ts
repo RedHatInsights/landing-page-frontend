@@ -93,17 +93,17 @@ Cypress.Commands.add('dragTotarget', (sourceSelector, targetSelector) => {
       eventConstructor: 'MouseEvent',
     })
     .trigger('pointerdown', { which: 1, button: 0 })
-    .trigger('dragstart', { eventConstructor: 'DragEvent', ...source})
-    .trigger('dragover', { eventConstructor: 'DragEvent', ...target})
+    .trigger('dragstart', { eventConstructor: 'DragEvent', ...source })
+    .trigger('dragover', { eventConstructor: 'DragEvent', ...target })
     .trigger('mousemove', {
       clientX: x,
       clientY: y,
       eventConstructor: 'MouseEvent',
       ...target,
     })
-    .trigger('drop', { eventConstructor: 'DragEvent', ...target})
+    .trigger('drop', { eventConstructor: 'DragEvent', ...target })
     .trigger('mouseup', { which: 1, button: 0, force: true, ...target })
-    .trigger('pointerup', { which: 1, button: 0, ...target});
+    .trigger('pointerup', { which: 1, button: 0, ...target });
 });
 
 Cypress.Commands.add('loadLandingPage', () => {
