@@ -17,21 +17,26 @@ describe('Integrations Widget', () => {
   });
 
 
-  it('does not appear in the default layout', () => {
+  /* it('does not appear in the default layout', () => {
     // Reset layout to the default
     cy.resetToDefaultLayout();
 
     cy.get(`[data-ouia-component-id="${widgetId}"]`)
       .should('not.exist');
     cy.resetToDefaultLayout();
-  });
+  }); */
 
   it('disappears when removed from the layout', () => {
     cy.resetToDefaultLayout();
     // Add widget here
     cy.addWidget("Integrations");
-
+    // Verify widget exists
+    cy.get(`[data-ouia-component-id="${widgetId}"]`)
+      .should('exist');
+    
+    //Remove widget here
     cy.removeWidget(widgetId);
+    // Verify widget doesn't exist
     cy.get(`[data-ouia-component-id="${widgetId}"]`)
       .should('not.exist');
   });

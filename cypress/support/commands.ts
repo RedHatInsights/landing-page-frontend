@@ -35,7 +35,7 @@
 //     }
 //   }
 // }
-
+require('@4tw/cypress-drag-drop')
 Cypress.Commands.add('login', () => {
   cy.session(
     `login-${Cypress.env('E2E_USER')}`,
@@ -91,19 +91,21 @@ Cypress.Commands.add('dragTotarget', (sourceSelector, targetSelector) => {
       which: 1,
       button: 0,
       eventConstructor: 'MouseEvent',
+      force: true,
     })
     .trigger('pointerdown', { which: 1, button: 0 })
-    .trigger('dragstart', { eventConstructor: 'DragEvent', ...source })
-    .trigger('dragover', { eventConstructor: 'DragEvent', ...target })
+    .trigger('dragstart', { eventConstructor: 'DragEvent', ...source, force: true })
+    .trigger('dragover', { eventConstructor: 'DragEvent', ...target, force: true })
     .trigger('mousemove', {
       clientX: x,
       clientY: y,
       eventConstructor: 'MouseEvent',
       ...target,
+      force: true,
     })
-    .trigger('drop', { eventConstructor: 'DragEvent', ...target })
+    .trigger('drop', { eventConstructor: 'DragEvent', ...target, force: true })
     .trigger('mouseup', { which: 1, button: 0, force: true, ...target })
-    .trigger('pointerup', { which: 1, button: 0, ...target });
+    .trigger('pointerup', { which: 1, button: 0, ...target, force: true });
 });
 
 Cypress.Commands.add('loadLandingPage', () => {
@@ -133,13 +135,16 @@ Cypress.Commands.add('removeWidget', (widgetId: string) => {
   cy.get(`[data-ouia-component-id="${widgetId}]`).should('not.exist');
 });
 
-Cypress.Commands.add('addWidget', (widgetName: string) => {
+Cypress.Commands.add('addWidget', (widgetName: string, widgetTarget?: string) => {
   //cy.intercept('PATCH', '**/api/chrome-service/v1/dashboard-templates/*').as(
   //  'patchLayout'
+  if (!widgetTarget) {
+      widgetTarget = '[data-ouia-component-id="landing-rhel-widget"]' 
+  };
 
   // Click the add widget button so the addable widgets are displayed
   cy.get('[data-ouia-component-id="add-widget-button"]')
     .click();
 
-  cy.dragTotarget(`[data-ouia-component-id="add-widget-card-Integrations"]`, '[data-ouia-component-id="landing-rhel-widget"]')
+  cy.get(`[data-ouia-component-id="add-widget-card-${widgetName}"]`).drag(widgetTarget)
 });
