@@ -132,3 +132,14 @@ Cypress.Commands.add('removeWidget', (widgetId: string) => {
     .wait('@patchLayout');
   cy.get(`[data-ouia-component-id="${widgetId}]`).should('not.exist');
 });
+
+Cypress.Commands.add('addWidget', (widgetName: string) => {
+  //cy.intercept('PATCH', '**/api/chrome-service/v1/dashboard-templates/*').as(
+  //  'patchLayout'
+
+  // Click the add widget button so the addable widgets are displayed
+  cy.get('[data-ouia-component-id="add-widget-button"]')
+    .click();
+
+  cy.dragTotarget(`[data-ouia-component-id="add-widget-card-Integrations"]`, '[data-ouia-component-id="landing-rhel-widget"]')
+});
