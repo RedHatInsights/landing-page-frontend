@@ -35,7 +35,7 @@
 //     }
 //   }
 // }
-require('@4tw/cypress-drag-drop')
+require('@4tw/cypress-drag-drop');
 Cypress.Commands.add('login', () => {
   cy.session(
     `login-${Cypress.env('E2E_USER')}`,
@@ -133,16 +133,20 @@ Cypress.Commands.add('removeWidget', (widgetId: string) => {
   cy.get(`[data-ouia-component-id="${widgetId}]`).should('not.exist');
 });
 
-Cypress.Commands.add('addWidget', (widgetName: string, widgetTarget?: string) => {
-  //cy.intercept('PATCH', '**/api/chrome-service/v1/dashboard-templates/*').as(
-  //  'patchLayout'
-  if (!widgetTarget) {
-      widgetTarget = '[data-ouia-component-id="landing-rhel-widget"]' 
-  };
+Cypress.Commands.add(
+  'addWidget',
+  (widgetName: string, widgetTarget?: string) => {
+    //cy.intercept('PATCH', '**/api/chrome-service/v1/dashboard-templates/*').as(
+    //  'patchLayout'
+    if (!widgetTarget) {
+      widgetTarget = '[data-ouia-component-id="landing-rhel-widget"]';
+    }
 
-  // Click the add widget button so the addable widgets are displayed
-  cy.get('[data-ouia-component-id="add-widget-button"]')
-    .click();
+    // Click the add widget button so the addable widgets are displayed
+    cy.get('[data-ouia-component-id="add-widget-button"]').click();
 
-  cy.get(`[data-ouia-component-id="add-widget-card-${widgetName}"]`).drag(widgetTarget)
-});
+    cy.get(`[data-ouia-component-id="add-widget-card-${widgetName}"]`).drag(
+      widgetTarget
+    );
+  }
+);
