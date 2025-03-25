@@ -136,8 +136,6 @@ Cypress.Commands.add('removeWidget', (widgetId: string) => {
 Cypress.Commands.add(
   'addWidget',
   (widgetName: string, widgetTarget?: string) => {
-    //cy.intercept('PATCH', '**/api/chrome-service/v1/dashboard-templates/*').as(
-    //  'patchLayout'
     if (!widgetTarget) {
       widgetTarget = '[data-ouia-component-id="landing-rhel-widget"]';
     }
