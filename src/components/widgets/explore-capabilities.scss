@@ -5,7 +5,7 @@
     --pf-v5-l-gallery--GridTemplateColumns--min: 280px;
     grid-column-gap: 10px;
     grid-row-gap: 10px;
-    a:hover {
+    a, a:hover {
       text-decoration: none;
     }
     .pf-v5-c-card {
