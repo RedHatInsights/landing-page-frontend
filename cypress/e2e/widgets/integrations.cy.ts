@@ -16,37 +16,70 @@ describe('Integrations Widget', () => {
     cy.wait('@resetLayout').its('response.statusCode').should('eq', 200);
   });
 
-
   it('does not appear in the default layout', () => {
     // Reset layout to the default
     cy.resetToDefaultLayout();
-
-    cy.get(`[data-ouia-component-id="${widgetId}"]`)
-      .should('not.exist');
+    // Check to see if the widget is not on the page
+    cy.get(`[data-ouia-component-id="${widgetId}"]`).should('not.exist');
     cy.resetToDefaultLayout();
   });
 
-  it('disappears when removed from the layout', () => {
+  it('can be added and removed from the layout', () => {
+    // Reset layout to the default
+    cy.resetToDefaultLayout();
+    // Add widget
+    cy.addWidget('Integrations');
+    // Check to see if widget is on the page
+    cy.get(`[data-ouia-component-id="${widgetId}"]`).should('exist');
+    // Remove the widget
+    cy.removeWidget(widgetId);
+    // Check to see if the widget is not on the page
+    cy.get(`[data-ouia-component-id="${widgetId}"]`).should('not.exist');
+  });
+  it('allows the expansion of the various categories', () => {
     cy.resetToDefaultLayout();
     // Add widget here
-    cy.addWidget("Integrations");
-
+    cy.addWidget('Integrations');
+    // Check to see if widget is on the page
+    cy.get(`[data-ouia-component-id="${widgetId}"]`).should('exist');
+    // Count the hidden body elements
+    cy.get(`[data-ouia-component-id="${widgetId}"] div[hidden]`).should(
+      'have.length.greaterThan',
+      0
+    );
+    // Expand the categories
+    cy.get(
+      `[data-ouia-component-id="${widgetId}"] [id^="expandable-section-toggle"][aria-expanded="false"]`
+    ).each(($el, index) => {
+      $el.click();
+    });
+    // Count the hidden body elements
+    cy.get(`[data-ouia-component-id="${widgetId}"] div[hidden]`).should(
+      'have.length',
+      0
+    );
+    // Remove the widget
     cy.removeWidget(widgetId);
-    cy.get(`[data-ouia-component-id="${widgetId}"]`)
-      .should('not.exist');
-  });
-
-/*
-  it('can be added to the layout with proper permissions', () => {
-      // stuff
-  });
-
-  it('allows the expansion of the various categories', () => {
-      // stuff
   });
 
   it('can create an integration', () => {
-      // stuff
+    cy.resetToDefaultLayout();
+    // Add widget here
+    cy.addWidget('Integrations');
+    // Check to see if widget is on the page
+    cy.get(`[data-ouia-component-id="${widgetId}"]`).within(() => {
+      cy.get('button').contains('Create Integration').click();
+    });
+    // Integration dropdown should be open now so select one
+    cy.get(`[data-ouia-component-id="${widgetId}"]`).within(() => {
+      cy.get('div[class="pf-v5-c-menu"]').within(() => {
+        cy.get('span[class="pf-v5-c-menu__item-text"]')
+          .contains('Red Hat')
+          .click();
+      });
+    });
+    // Integration wizard should be open now. Verify it exists and stop
+    cy.get('h2').contains('Add Red Hat integration').should('exist');
+    cy.get('div[name="wizard"] button[aria-label="Close wizard"]').click();
   });
-  */
 });
