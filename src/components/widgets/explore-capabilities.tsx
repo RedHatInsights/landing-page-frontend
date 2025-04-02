@@ -60,7 +60,7 @@ const ExploreCapabilities: React.FunctionComponent = () => {
     <>
       <div key={cardData.id} className="pf-v5-u-m-0">
         <Link to={cardData.url}>
-          <Card isFullHeight isFlat>
+          <Card ouiaId={cardData.ouiaId} isFullHeight isFlat>
             <CardBody className="pf-v5-u-p-md pf-v5-u-text-align-center land-c-card__body-explore">
               <img
                 className="pf-v5-u-justify-content-center"
