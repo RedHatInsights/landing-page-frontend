@@ -50,7 +50,7 @@ describe('Integrations Widget', () => {
     // Expand the categories
     cy.get(
       `[data-ouia-component-id="${widgetId}"] [id^="expandable-section-toggle"][aria-expanded="false"]`
-    ).each(($el, index) => {
+    ).each(($el) => {
       $el.click();
     });
     // Count the hidden body elements

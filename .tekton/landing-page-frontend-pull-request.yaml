@@ -275,6 +275,7 @@ spec:
               set -ex
               
               npm install
+              npm run lint
               npm test
     - name: build-container
       params:

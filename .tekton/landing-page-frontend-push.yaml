@@ -312,6 +312,7 @@ spec:
               set -ex
               
               npm install
+              npm run lint
               npm test
     - name: build-source-image
       params:
