@@ -8,6 +8,7 @@ objects:
     metadata:
       name: landing
     spec:
+      feoConfigEnabled: true
       envName: ${ENV_NAME}
       deploymentRepo: https://github.com/RedHatInsights/landing-page-frontend
       title: Landing
@@ -17,12 +18,7 @@ objects:
           - v1
       frontend:
         paths:
-          - /apps/langing
-      navItems:
-      - appId: landing
-        title: Red Hat Enterprise Linux
-        href: /
-        product: "Red Hat Enterprise Linux"
+          - /apps/landing
       module:
         manifestLocation: "/apps/landing/fed-mods.json"
         modules:

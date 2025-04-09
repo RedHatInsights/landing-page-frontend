@@ -10,6 +10,8 @@ module.exports = {
   plugins: [],
   chromeHost: process.env.FEC_CHROME_HOST ?? undefined,
   chromePort: process.env.FEC_CHROME_PORT ?? undefined,
+  frontendCRDPath: path.resolve(__dirname, './frontend.yml'),
+  publicPath: 'auto',
   routes: {
     ...(process.env.LOCAL_PDF && {
       '/api/crc-pdf-generator': {
