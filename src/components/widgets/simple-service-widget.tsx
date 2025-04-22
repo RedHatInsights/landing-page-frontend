@@ -26,7 +26,7 @@ export const SimpleServiceWidget: React.FunctionComponent<
   return (
     <Card isPlain>
       <>
-        <CardBody className="pf-v5-u-p-md">
+        <CardBody className="pf-v5-u-p-md pf-v5-u-pb-0">
           <TextContent
             key={props.id}
             className="pf-v5-u-display-flex pf-v5-u-flex-direction-column"
