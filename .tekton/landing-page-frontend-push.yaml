@@ -271,49 +271,52 @@ spec:
       workspaces:
       - name: basic-auth
         workspace: git-auth
-    - name: run-unit-tests
-      description: Validates frontend unit tests
+    - description: Validates frontend unit tests
+      name: run-unit-tests
       params:
-        - name: SOURCE_ARTIFACT
-          value: $(tasks.clone-repository-oci-ta.results.SOURCE_ARTIFACT)
+      - name: SOURCE_ARTIFACT
+        value: $(tasks.clone-repository-oci-ta.results.SOURCE_ARTIFACT)
       runAfter:
-        - clone-repository-oci-ta
+      - clone-repository-oci-ta
+      taskSpec:
+        metadata: {}
+        params:
+        - description: The Trusted Artifact URI pointing to the artifact with the
+            application source code.
+          name: SOURCE_ARTIFACT
+          type: string
+        spec: null
+        stepTemplate:
+          computeResources: {}
+          volumeMounts:
+          - mountPath: /var/workdir
+            name: workdir
+        steps:
+        - args:
+          - use
+          - $(params.SOURCE_ARTIFACT)=/var/workdir
+          computeResources: {}
+          image: quay.io/redhat-appstudio/build-trusted-artifacts:latest@sha256:9b180776a41d9a22a1c51539f1647c60defbbd55b44bbebdd4130e33512d8b0d
+          name: use-trusted-artifact
+        - computeResources: {}
+          image: registry.access.redhat.com/ubi8/nodejs-18
+          name: unit-tests
+          script: |
+            #!/bin/bash
+            set -ex
+
+            npm install
+            npm run lint
+            npm test
+          securityContext:
+            runAsUser: 0
+          workingDir: /var/workdir
+        volumes:
+        - emptyDir: {}
+          name: workdir
       workspaces:
       - name: basic-auth
         workspace: git-auth
-      taskSpec:
-        params:
-          - description: The Trusted Artifact URI pointing to the artifact with the application source code.
-            name: SOURCE_ARTIFACT
-            type: string
-        volumes:
-          # New volume to store a copy of the source code accessible only to this Task.
-          - name: workdir
-            emptyDir: {}
-        stepTemplate:
-          volumeMounts:
-            - mountPath: /var/workdir
-              name: workdir
-              readOnly: false
-        sidecars:
-        steps:
-          - name: use-trusted-artifact
-            image: quay.io/redhat-appstudio/build-trusted-artifacts:latest@sha256:9b180776a41d9a22a1c51539f1647c60defbbd55b44bbebdd4130e33512d8b0d
-            args:
-              - use
-              - $(params.SOURCE_ARTIFACT)=/var/workdir
-          - image: registry.access.redhat.com/ubi8/nodejs-18
-            workingDir: /var/workdir
-            name: unit-tests
-            securityContext:
-              runAsUser: 0
-            script: |
-              #!/bin/bash
-              set -ex
-              
-              npm install
-              npm run lint
-              npm test
     - name: build-source-image
       params:
       - name: BINARY_IMAGE
@@ -360,52 +363,52 @@ spec:
         resolver: bundles
     - name: sast-shell-check
       params:
-        - name: image-digest
-          value: $(tasks.build-container.results.IMAGE_DIGEST)
-        - name: image-url
-          value: $(tasks.build-container.results.IMAGE_URL)
+      - name: image-digest
+        value: $(tasks.build-container.results.IMAGE_DIGEST)
+      - name: image-url
+        value: $(tasks.build-container.results.IMAGE_URL)
       runAfter:
-        - build-container
+      - build-container
       taskRef:
         params:
-          - name: name
-            value: sast-shell-check
-          - name: bundle
-            value: quay.io/konflux-ci/tekton-catalog/task-sast-shell-check:0.1@sha256:188a4f6a582ac43d4de46c3998ded3c2a8ee237fb0604d90559a3b6e0aa62b0f
-          - name: kind
-            value: task
+        - name: name
+          value: sast-shell-check
+        - name: bundle
+          value: quay.io/konflux-ci/tekton-catalog/task-sast-shell-check:0.1@sha256:188a4f6a582ac43d4de46c3998ded3c2a8ee237fb0604d90559a3b6e0aa62b0f
+        - name: kind
+          value: task
         resolver: bundles
       when:
-        - input: $(params.skip-checks)
-          operator: in
-          values:
-            - "false"
+      - input: $(params.skip-checks)
+        operator: in
+        values:
+        - "false"
       workspaces:
-          - name: workspace
-            workspace: workspace
+      - name: workspace
+        workspace: workspace
     - name: sast-unicode-check
       params:
-        - name: image-url
-          value: $(tasks.build-container.results.IMAGE_URL)
+      - name: image-url
+        value: $(tasks.build-container.results.IMAGE_URL)
       runAfter:
-        - build-container
+      - build-container
       taskRef:
         params:
-          - name: name
-            value: sast-unicode-check
-          - name: bundle
-            value: quay.io/konflux-ci/tekton-catalog/task-sast-unicode-check:0.2@sha256:e4a5215b45b1886a185a9db8ab392f8440c2b0848f76d719885637cf8d2628ed
-          - name: kind
-            value: task
+        - name: name
+          value: sast-unicode-check
+        - name: bundle
+          value: quay.io/konflux-ci/tekton-catalog/task-sast-unicode-check:0.2@sha256:e4a5215b45b1886a185a9db8ab392f8440c2b0848f76d719885637cf8d2628ed
+        - name: kind
+          value: task
         resolver: bundles
       when:
-        - input: $(params.skip-checks)
-          operator: in
-          values:
-            - "false"
+      - input: $(params.skip-checks)
+        operator: in
+        values:
+        - "false"
       workspaces:
-          - name: workspace
-            workspace: workspace
+      - name: workspace
+        workspace: workspace
     - name: deprecated-base-image-check
       params:
       - name: IMAGE_URL
@@ -562,7 +565,8 @@ spec:
       optional: true
     - name: netrc
       optional: true
-  taskRunTemplate: {}
+  taskRunTemplate:
+    serviceAccountName: build-pipeline-landing-page-frontend
   workspaces:
   - name: workspace
     volumeClaimTemplate:
