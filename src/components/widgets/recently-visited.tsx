@@ -1,8 +1,7 @@
 import {
-  Text,
-  TextContent,
-  TextVariants,
-} from '@patternfly/react-core/dist/dynamic/components/Text';
+  Content,
+  ContentVariants,
+} from "@patternfly/react-core/dist/dynamic/components/Content";
 
 import { Gallery } from '@patternfly/react-core/dist/dynamic/layouts/Gallery';
 
@@ -34,10 +33,10 @@ const RecentlyVisited = () => {
     <Gallery hasGutter className="widget-recently-visited pf-v5-u-m-md">
       {lastVisitedData.map(({ bundle, pathname, title }, index) => (
         <Fragment key={index}>
-          <TextContent>
+          <Content>
             <LinkWrapper title={title} pathname={pathname} />
-            <Text component={TextVariants.small}>{bundle}</Text>
-          </TextContent>
+            <Content component={ContentVariants.small}>{bundle}</Content>
+          </Content>
         </Fragment>
       ))}
     </Gallery>
