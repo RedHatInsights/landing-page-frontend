@@ -3,13 +3,10 @@ import {
   EmptyState,
   EmptyStateBody,
   EmptyStateFooter,
-  EmptyStateHeader,
-  EmptyStateIcon,
   EmptyStateVariant,
 } from '@patternfly/react-core/dist/dynamic/components/EmptyState';
 import React from 'react';
 import IconHourglass from '../components/icon-hourglass';
-
 import './Maintenance.scss';
 
 const isBeta = () => {
@@ -18,12 +15,11 @@ const isBeta = () => {
 
 const Maintenance = () => (
   <section className="pf-v5-l-page__main-section pf-v5-c-page__main-section land-c-page__maintenance">
-    <EmptyState variant={EmptyStateVariant.lg}>
-      <EmptyStateHeader
-        titleText="Maintenance in progress"
-        icon={<EmptyStateIcon icon={IconHourglass} />}
-        headingLevel="h5"
-      />
+    <EmptyState
+      titleText="Maintenance in progress"
+      variant={EmptyStateVariant.lg}
+      icon={IconHourglass}
+    >
       <EmptyStateBody>
         <p>
           console.redhat.com is currently undergoing scheduled maintenance and

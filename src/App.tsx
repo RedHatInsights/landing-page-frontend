@@ -16,10 +16,10 @@ import promiseMiddleware from 'redux-promise-middleware';
 import notificationsMiddleware from '@redhat-cloud-services/frontend-components-notifications/notificationsMiddleware';
 import ReducerRegistry from '@redhat-cloud-services/frontend-components-utilities/ReducerRegistry';
 import { Middleware, Reducer } from 'redux';
-import NotificationsPortal from '@redhat-cloud-services/frontend-components-notifications/NotificationPortal';
 import { notificationsReducer } from '@redhat-cloud-services/frontend-components-notifications/redux';
 import { useNavigate } from 'react-router-dom';
 import logger from 'redux-logger';
+import NotificationsProvider from '@redhat-cloud-services/frontend-components-notifications/NotificationsProvider';
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export let registry: ReducerRegistry<any>;
@@ -89,7 +89,7 @@ const App: React.FC<{ layoutType?: string }> = ({ layoutType }) => {
       ).getStore()}
     >
       <PermissionContext.Provider value={{ isOrgAdmin }}>
-        <NotificationsPortal />
+        <NotificationsProvider />
         <Suspense
           fallback={
             <Bullseye>

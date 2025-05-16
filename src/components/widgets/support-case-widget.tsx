@@ -13,7 +13,7 @@ import {
 import { Button } from '@patternfly/react-core/dist/dynamic/components/Button';
 import { EmptyState } from '@patternfly/react-core/dist/dynamic/components/EmptyState';
 import { EmptyStateBody } from '@patternfly/react-core/dist/dynamic/components/EmptyState';
-import { EmptyStateIcon } from '@patternfly/react-core/dist/dynamic/components/EmptyState';
+
 import { EmptyStateVariant } from '@patternfly/react-core/dist/dynamic/components/EmptyState';
 import { Stack } from '@patternfly/react-core/dist/dynamic/layouts/Stack';
 import { StackItem } from '@patternfly/react-core/dist/dynamic/layouts/Stack';
@@ -136,11 +136,15 @@ const SupportCaseWidget: React.FunctionComponent = () => {
           ]}
         />
       ) : cases.length === 0 ? (
-        <EmptyState variant={EmptyStateVariant.lg}>
-          <EmptyStateIcon icon={HeadsetIcon} />
-          <Title headingLevel="h4" size="lg">
-            No open support cases
-          </Title>
+        <EmptyState
+          icon={HeadsetIcon}
+          titleText={
+            <Title headingLevel="h4" size="lg">
+              No open support cases
+            </Title>
+          }
+          variant={EmptyStateVariant.lg}
+        >
           <EmptyStateBody>
             <Stack>
               <StackItem>

@@ -3,10 +3,7 @@ import { CardBody } from '@patternfly/react-core/dist/dynamic/components/Card';
 import { CardFooter } from '@patternfly/react-core/dist/dynamic/components/Card';
 import { Icon } from '@patternfly/react-core/dist/dynamic/components/Icon';
 import React from 'react';
-import {
-  Text,
-  TextContent,
-} from '@patternfly/react-core/dist/dynamic/components/Text';
+import { Content } from '@patternfly/react-core/dist/dynamic/components/Content';
 import ArrowRightIcon from '@patternfly/react-icons/dist/js/icons/arrow-right-icon';
 import ExternalLinkAltIcon from '@patternfly/react-icons/dist/js/icons/external-link-alt-icon';
 import { Link } from 'react-router-dom';
@@ -27,14 +24,14 @@ export const SimpleServiceWidget: React.FunctionComponent<
     <Card isPlain>
       <>
         <CardBody className="pf-v5-u-p-md pf-v5-u-pb-0">
-          <TextContent
+          <Content
             key={props.id}
             className="pf-v5-u-display-flex pf-v5-u-flex-direction-column"
           >
-            <Text component="p" className="pf-v5-u-flex-grow-1">
+            <Content component="p" className="pf-v5-u-flex-grow-1">
               {props.body}{' '}
-            </Text>
-          </TextContent>
+            </Content>
+          </Content>
         </CardBody>
         <CardFooter className="pf-v5-u-p-md">
           {props.isExternal ? (

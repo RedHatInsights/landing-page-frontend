@@ -9,9 +9,9 @@ exports[`404 page should render correctly 1`] = `
       class="pf-v5-l-page__main-section pf-v5-c-page__main-section land-c-page__404"
     >
       <h1
-        class="pf-v5-c-title pf-m-3xl"
+        class="pf-v6-c-title pf-m-3xl"
         data-ouia-component-id="OUIA-Generated-Title-1"
-        data-ouia-component-type="PF5/Title"
+        data-ouia-component-type="PF6/Title"
         data-ouia-safe="true"
       >
         404: We lost that page
@@ -255,22 +255,26 @@ exports[`404 page should render correctly 1`] = `
         </g>
       </svg>
       <h2
-        class="pf-v5-c-title pf-m-xl land-c-text__sorry"
+        class="pf-v6-c-title pf-m-h2 land-c-text__sorry"
         data-ouia-component-id="OUIA-Generated-Title-2"
-        data-ouia-component-type="PF5/Title"
+        data-ouia-component-type="PF6/Title"
         data-ouia-safe="true"
       >
         Let's find you a new one. Try a new search or return home.
       </h2>
       <a
         aria-disabled="false"
-        class="pf-v5-c-button pf-m-link"
+        class="pf-v6-c-button pf-m-link"
         data-ouia-component-id="OUIA-Generated-Button-link-1"
-        data-ouia-component-type="PF5/Button"
+        data-ouia-component-type="PF6/Button"
         data-ouia-safe="true"
         href="http://localhost"
       >
-        Return to homepage
+        <span
+          class="pf-v6-c-button__text"
+        >
+          Return to homepage
+        </span>
       </a>
     </section>
   </div>
