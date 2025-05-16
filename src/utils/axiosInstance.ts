@@ -9,18 +9,28 @@ import {
 const axiosInstance = axios.create();
 axiosInstance.interceptors.request.use(authInterceptor);
 axiosInstance.interceptors.response.use(responseDataInterceptor);
+
 axiosInstance.interceptors.request.use(async (config) => {
   // eslint-disable-next-line rulesdir/no-chrome-api-call-from-window
   const token = await window.insights.chrome.auth.getToken();
-  const updatedCfg = { ...config };
-  if (token) {
-    updatedCfg.headers = {
-      ...updatedCfg.headers,
-      Authorization: `Bearer ${token}`,
-    };
+  if (token && config.headers) {
+    config.headers.set('Authorization', `Bearer ${token}`);
   }
-  return updatedCfg;
+  return config;
 });
+
+// axiosInstance.interceptors.request.use(async (config) => {
+//   // eslint-disable-next-line rulesdir/no-chrome-api-call-from-window
+//   const token = await window.insights.chrome.auth.getToken();
+//   const updatedCfg = { ...config };
+//   if (token) {
+//     updatedCfg.headers = {
+//       ...updatedCfg.headers,
+//       Authorization: `Bearer ${token}`,
+//     };
+//   }
+//   return updatedCfg;
+// });
 
 axiosInstance.interceptors.response.use(undefined, interceptor500);
 axiosInstance.interceptors.response.use(undefined, errorInterceptor);
