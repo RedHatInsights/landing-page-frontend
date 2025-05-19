@@ -1,21 +1,21 @@
 
 .landing-exploreCapabilities {
   overflow: auto;
-  .pf-v5-l-gallery {
-    --pf-v5-l-gallery--GridTemplateColumns--min: 280px;
+  .pf-v6-l-gallery {
+    --pf-v6-l-gallery--GridTemplateColumns--min: 280px;
     grid-column-gap: 10px;
     grid-row-gap: 10px;
     a, a:hover {
       text-decoration: none;
     }
-    .pf-v5-c-card {
-       --pf-v5-c-card--m-selectable-raised--hover--before--BackgroundColor: none;
+    .pf-v6-c-card {
+       --pf-v6-c-card--m-selectable-raised--hover--before--BackgroundColor: none;
       img {
         height: 36px;
       }
     }
     .land-c-card__body-explore:hover {
-      background-color: var(--pf-v5-global--BackgroundColor--150);
+      background-color: var(--pf-v6-global--BackgroundColor--150);
     }
   }
 }

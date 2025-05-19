@@ -55,10 +55,10 @@ const ExploreCapabilities: React.FunctionComponent = () => {
 
   const cardContent = cardData.map((cardData) => (
     <>
-      <div key={cardData.id} className="pf-v5-u-m-0">
+      <div key={cardData.id} className="pf-v6-u-m-0">
         <Link to={cardData.url}>
           <Card ouiaId={cardData.ouiaId} isFullHeight>
-            <CardBody className="pf-v5-u-p-md pf-v5-u-text-align-center land-c-card__body-explore">
+            <CardBody className="pf-v6-u-p-md pf-v6-u-text-align-center land-c-card__body-explore">
               <img
                 className="pf-v5-u-justify-content-center"
                 src={cardData.img}
@@ -66,11 +66,11 @@ const ExploreCapabilities: React.FunctionComponent = () => {
               <Content>
                 <Content
                   component="p"
-                  className="pf-v5-u-mb-0 pf-v5-u-font-size-sm"
+                  className="pf-v6-u-mb-0 pf-v6-u-font-size-sm"
                 >
                   {cardData.title}
                 </Content>
-                <Content component="small" className="pf-v5-u-font-size-xs">
+                <Content component="small" className="pf-v6-u-font-size-xs">
                   {cardData.body}
                 </Content>
               </Content>
@@ -83,7 +83,7 @@ const ExploreCapabilities: React.FunctionComponent = () => {
 
   return (
     <React.Fragment>
-      <Gallery className="widget-explore pf-v5-u-p-md">{cardContent}</Gallery>
+      <Gallery className="widget-explore pf-v6-u-p-md">{cardContent}</Gallery>
     </React.Fragment>
   );
 };
