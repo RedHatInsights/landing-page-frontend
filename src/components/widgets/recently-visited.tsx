@@ -1,7 +1,7 @@
 import {
   Content,
   ContentVariants,
-} from "@patternfly/react-core/dist/dynamic/components/Content";
+} from '@patternfly/react-core/dist/dynamic/components/Content';
 
 import { Gallery } from '@patternfly/react-core/dist/dynamic/layouts/Gallery';
 
