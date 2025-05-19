@@ -13,10 +13,8 @@ import { Spinner } from '@patternfly/react-core/dist/dynamic/components/Spinner'
 import { Provider } from 'react-redux';
 import { getRegistry } from '@redhat-cloud-services/frontend-components-utilities/Registry';
 import promiseMiddleware from 'redux-promise-middleware';
-import notificationsMiddleware from '@redhat-cloud-services/frontend-components-notifications/notificationsMiddleware';
 import ReducerRegistry from '@redhat-cloud-services/frontend-components-utilities/ReducerRegistry';
-import { Middleware, Reducer } from 'redux';
-import { notificationsReducer } from '@redhat-cloud-services/frontend-components-notifications/redux';
+import { Middleware } from 'redux';
 import { useNavigate } from 'react-router-dom';
 import logger from 'redux-logger';
 import NotificationsProvider from '@redhat-cloud-services/frontend-components-notifications/NotificationsProvider';
@@ -25,11 +23,7 @@ import NotificationsProvider from '@redhat-cloud-services/frontend-components-no
 export let registry: ReducerRegistry<any>;
 
 export function init(...middleware: Middleware[]) {
-  registry = getRegistry({}, [
-    promiseMiddleware,
-    notificationsMiddleware({ errorDescriptionKey: ['detail', 'stack'] }),
-    ...middleware,
-  ]);
+  registry = getRegistry({}, [promiseMiddleware, ...middleware]);
   return registry;
 }
 
@@ -69,11 +63,6 @@ const App: React.FC<{ layoutType?: string }> = ({ layoutType }) => {
   }, []);
 
   useEffect(() => {
-    const registry = getRegistry();
-    registry.register({
-      notifications: notificationsReducer as unknown as Reducer,
-    });
-
     const unregister = on('APP_NAVIGATION', (event) =>
       navigate(`/${event.navId}`)
     );
