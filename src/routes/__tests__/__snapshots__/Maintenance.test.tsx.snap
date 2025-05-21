@@ -6,16 +6,16 @@ exports[`Maintenance page should render correctly 1`] = `
     class="pf-v5-l-page__main-section pf-v5-c-page__main-section land-c-page__maintenance"
   >
     <div
-      class="pf-v5-c-empty-state pf-m-lg"
+      class="pf-v6-c-empty-state pf-m-lg"
     >
       <div
-        class="pf-v5-c-empty-state__content"
+        class="pf-v6-c-empty-state__content"
       >
         <div
-          class="pf-v5-c-empty-state__header"
+          class="pf-v6-c-empty-state__header"
         >
           <div
-            class="pf-v5-c-empty-state__icon"
+            class="pf-v6-c-empty-state__icon"
           >
             <svg
               class="IconHourglass"
@@ -160,17 +160,17 @@ exports[`Maintenance page should render correctly 1`] = `
             </svg>
           </div>
           <div
-            class="pf-v5-c-empty-state__title"
+            class="pf-v6-c-empty-state__title"
           >
-            <h5
-              class="pf-v5-c-empty-state__title-text"
+            <h1
+              class="pf-v6-c-empty-state__title-text"
             >
               Maintenance in progress
-            </h5>
+            </h1>
           </div>
         </div>
         <div
-          class="pf-v5-c-empty-state__body"
+          class="pf-v6-c-empty-state__body"
         >
           <p>
             console.redhat.com is currently undergoing scheduled maintenance and will be unavailable from 16:00 - 22:00 UTC (12:00 PM - 6:00 PM EST).
@@ -188,17 +188,21 @@ exports[`Maintenance page should render correctly 1`] = `
           </p>
         </div>
         <div
-          class="pf-v5-c-empty-state__footer"
+          class="pf-v6-c-empty-state__footer"
         >
           <a
             aria-disabled="false"
-            class="pf-v5-c-button pf-m-primary"
+            class="pf-v6-c-button pf-m-primary"
             data-ouia-component-id="OUIA-Generated-Button-primary-1"
-            data-ouia-component-type="PF5/Button"
+            data-ouia-component-type="PF6/Button"
             data-ouia-safe="true"
             href="http://localhost"
           >
-            Return to homepage
+            <span
+              class="pf-v6-c-button__text"
+            >
+              Return to homepage
+            </span>
           </a>
         </div>
       </div>
