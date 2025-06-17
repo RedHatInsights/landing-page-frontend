@@ -1,13 +1,19 @@
 .pf-v5-c-empty-state {
   height: 100%;
-  padding: var(--pf-global--spacer--md);
+  padding: var(--pf-t--global--spacer--md);
   &__icon {
     margin-bottom: 0;
   }
   &__body {
-    margin-top: var(--pf-global--spacer--sm);
+    margin-top: var(--pf-t--global--spacer--md);
   }
 }
 .landing-supportCases {
   overflow: auto;
+  .pf-v6-c-toolbar {
+    padding-block-start: var(--pf-t--global--spacer--md);
+    padding-block-end: 0;
+    padding-inline-start: var(--pf-t--global--spacer--md);
+    padding-inline-end: var(--pf-t--global--spacer--md);
+  }
 }
