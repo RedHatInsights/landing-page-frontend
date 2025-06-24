@@ -1,30 +1,34 @@
-import React, { Fragment } from 'react';
-import { useFlag } from '@unleash/proxy-client-react';
-import { ScalprumComponent } from '@scalprum/react-core';
-import useChrome from '@redhat-cloud-services/frontend-components/useChrome';
+/* eslint-disable rulesdir/forbid-pf-relative-imports */
+import React, { useMemo } from 'react';
+import {
+  ScalprumComponent,
+  ScalprumComponentProps,
+} from '@scalprum/react-core';
+import { Bullseye, Spinner } from '@patternfly/react-core';
+
+const Fallback = () => (
+  <Bullseye>
+    <Spinner />
+  </Bullseye>
+);
 
 const Landing: React.FC<{ layoutType?: string }> = ({ layoutType }) => {
-  const scope = 'widgetLayout';
-  const { isBeta } = useChrome();
-  const widgetLayoutLandingPageEnabled =
-    (isBeta() && useFlag('platform.landing-page.widgetization')) ||
-    (!isBeta() && useFlag('platform.landing-page.widgetization-stable'));
-  const props = {
-    ...(layoutType && { layoutType: layoutType }),
-  };
-  return (
-    <Fragment>
-      {widgetLayoutLandingPageEnabled ? (
-        <ScalprumComponent
-          fallback={null}
-          LoadingComponent={() => <></>}
-          scope={scope}
-          module="./WidgetLayout"
-          {...props}
-        />
-      ) : null}
-    </Fragment>
+  const props: ScalprumComponentProps<
+    Record<string, unknown>,
+    {
+      layoutType?: string;
+    }
+  > = useMemo(
+    () => ({
+      scope: 'widgetLayout',
+      module: './WidgetLayout',
+      layoutType,
+      fallback: <Fallback />,
+      LoadingComponent: Fallback,
+    }),
+    [layoutType]
   );
+  return <ScalprumComponent {...props} />;
 };
 
 export default Landing;
