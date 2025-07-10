@@ -1,0 +1,59 @@
+# Multi-stage build for hermetic frontend build
+# Stage 1: Build stage
+FROM registry.access.redhat.com/ubi9/nodejs-22:9.5-1746535891 AS builder
+
+# Copy package files first for better caching
+COPY package*.json ./
+
+# Install dependencies - detect airgapped environment and use appropriate npm ci flags
+# Skip Cypress binary download in hermetic environment
+
+RUN CYPRESS_INSTALL_BINARY=0 npm ci --offline --no-audit --no-fund
+
+# Copy source code
+COPY . .
+
+# Run the build process
+RUN npm run build
+
+# Run tests and linting
+RUN npm run test
+RUN npm run lint
+
+# Stage 2: Semi-minimal runtime image - contains only built files and minimal dependencies for the RH certification
+
+# To achieve a hermetic build with minimal container size, you can request an exception for the image to use a base image 
+# other than ubi-minimal. This will allow you to use a smaller base image like scratch or alpine.
+
+# Alternatively, you can use the `docker-build-multi-platform-oci-ta` pipeline, which supports building multi-arch 
+# container images while maintaining trust after pipeline customization. This pipeline uses OCI artifacts instead of 
+#Persistent Volume Claims, which may help reduce the container size.
+
+# You can also take a look at the workarounds:supportRedHatImageVersion preset for other available options.
+
+# For more information, please refer to the provided context and links.
+# sources used:
+# - https://konflux.pages.redhat.com/docs/users/getting-started/passing-ec.html
+# - https://konflux.pages.redhat.com/docs/users/installing/enabling-builds.html
+# - https://konflux.pages.redhat.com/docs/users/mintmaker/user.html
+
+FROM registry.access.redhat.com/ubi9/ubi-micro:latest
+
+# Required Red Hat labels for container compliance
+LABEL com.redhat.component="landing-page-frontend-hermetic" \
+      description="Red Hat Console Landing Page Frontend - Hermetic Build" \
+      distribution-scope="public" \
+      io.k8s.description="Red Hat Console Landing Page Frontend built with hermetic process" \
+      name="landing-page-frontend-hermetic" \
+      release="1" \
+      url="https://github.com/RedHatInsights/landing-page-frontend" \
+      vendor="Red Hat, Inc." \
+      version="1.0" \
+      maintainer="Red Hat Console Team <console@redhat.com>" \
+      summary="Red Hat Console Landing Page Frontend"
+
+# Create hermetic-build directory and copy built files from builder stage
+RUN mkdir -p /hermetic-build
+COPY --from=builder /opt/app-root/src/dist /hermetic-build/dist 
+COPY --from=builder /opt/app-root/src/package.json /hermetic-build/package.json 
+COPY --from=builder /opt/app-root/src/package-lock.json /hermetic-build/package-lock.json 

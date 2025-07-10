@@ -1,0 +1,15 @@
+node_modules
+npm-debug.log*
+.npm
+.cache
+.cypress-cache
+.git
+.gitignore
+README.md
+.DS_Store
+coverage
+.nyc_output
+cypress/screenshots
+cypress/videos
+dist
+extracted-dist 
