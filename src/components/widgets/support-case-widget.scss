@@ -8,7 +8,7 @@
     margin-top: var(--pf-t--global--spacer--md);
   }
 }
-.landing-supportCases {
+.landing-supportCases, [class*="landing-landing-./SupportCaseWidget"] {
   overflow: auto;
   .pf-v6-c-toolbar {
     padding-block-start: var(--pf-t--global--spacer--md);

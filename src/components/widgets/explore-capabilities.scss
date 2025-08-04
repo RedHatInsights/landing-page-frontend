@@ -1,5 +1,5 @@
 
-.landing-exploreCapabilities {
+.landing-exploreCapabilities, [class*="landing-landing-./ExploreCapabilities"] {
   overflow: auto;
   .pf-v6-l-gallery {
     --pf-v6-l-gallery--GridTemplateColumns--min: 280px;
