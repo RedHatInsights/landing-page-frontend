@@ -37,7 +37,7 @@ const ExploreCapabilities: React.FunctionComponent = () => {
     },
     {
       id: 'card4',
-      img: '/apps/frontend-assets/console-landing/widget-explore/Explore_Insights-analyze.svg',
+      img: '/apps/frontend-assets/technology-icons/insights.svg',
       title: 'Analyze RHEL environments',
       body: 'Analyze platforms and applications from the console to better manage your hybrid cloud environments.',
       ouiaId: 'analyze-risk-button',
@@ -45,7 +45,7 @@ const ExploreCapabilities: React.FunctionComponent = () => {
     },
     {
       id: 'card5',
-      img: '/apps/frontend-assets/console-landing/widget-explore/Explore_CentOS-to-RHEL.svg',
+      img: '/apps/frontend-assets/technology-icons/rhel.svg',
       title: 'Convert from CentOS to RHEL',
       body: 'CentOS Linux 7 has reached End of Life (EOL). Prep your systems from conversion from CentOS to RHEL.',
       ouiaId: 'cent-os-button',
