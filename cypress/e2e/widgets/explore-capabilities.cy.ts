@@ -27,7 +27,7 @@ describe('Explore Capabilities widget', () => {
       contentHeader:
         'Develop in the sandbox with the Red Hat Developer program',
       buttonText: 'Explore the sandbox',
-      expectedLinkDest: '/openshift/sandbox',
+      expectedLinkDest: 'https://sandbox.redhat.com',
     },
     {
       tabHeading: 'Analyze your environments',
