@@ -13,7 +13,7 @@ const ExploreCapabilities: React.FunctionComponent = () => {
   const cardData = [
     {
       id: 'card1',
-      img: '/apps/frontend-assets/console-landing/widget-explore/logo_hat-only.svg',
+      img: '/apps/frontend-assets/red-hat-logos/logo_hat-only.svg',
       title: 'Get started with a tour',
       body: "Take a quick guided tour to understand how the Red Hat Hybrid Cloud Console's capabilities will increase your efficiency.",
       ouiaId: 'start-guided-tour-button',
@@ -21,7 +21,7 @@ const ExploreCapabilities: React.FunctionComponent = () => {
     },
     {
       id: 'card2',
-      img: '/apps/frontend-assets/console-landing/widget-explore/Logo-Red_Hat-AWS-A-Standard-RGB.svg',
+      img: '/apps/frontend-assets/red-hat-logos/logo-red_hat-aws-a-standard-rgb.svg',
       title: 'Try OpenShift on AWS',
       body: 'Quickly build, deploy, and scale applications with Red Hat OpenShift Service on AWS (ROSA), our fully-managed turnkey application platform.',
       ouiaId: 'try-rosa-button',
@@ -29,7 +29,7 @@ const ExploreCapabilities: React.FunctionComponent = () => {
     },
     {
       id: 'card3',
-      img: '/apps/frontend-assets/console-landing/widget-explore/Logo-Red_Hat-Developer-A-Standard-RGB.svg',
+      img: '/apps/frontend-assets/red-hat-logos/logo-red_hat-developer-a-standard-rgb.svg',
       title: 'Try our products in the Developer Sandbox',
       body: 'The Developer Sandbox offers no-cost access to Red Hat products and technologies for trial use—no setup or configuration necessary.',
       ouiaId: 'explore-sandbox-button',
