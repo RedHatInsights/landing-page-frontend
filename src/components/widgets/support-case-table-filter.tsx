@@ -111,10 +111,10 @@ export const SupportCaseWidgetTableFilter: React.FunctionComponent<
   ];
 
   const severityVariants = [
-    severityTypes.high,
-    severityTypes.low,
-    severityTypes.normal,
     severityTypes.urgent,
+    severityTypes.high,
+    severityTypes.normal,
+    severityTypes.low,
   ];
 
   const statusMenuItems = (
