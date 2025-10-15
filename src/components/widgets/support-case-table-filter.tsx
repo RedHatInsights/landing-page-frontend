@@ -18,14 +18,21 @@ import {
 import FilterIcon from '@patternfly/react-icons/dist/esm/icons/filter-icon';
 import { severityTypes, statusTypes } from '../../utils/consts';
 
-export const SupportCaseWidgetTableFilter: React.FunctionComponent = () => {
+export interface SupportCaseFilters {
+  severity: string[];
+  status: string[];
+}
+
+interface SupportCaseWidgetTableFilterProps {
+  filters: SupportCaseFilters;
+  onFiltersChange: (filters: SupportCaseFilters) => void;
+}
+
+export const SupportCaseWidgetTableFilter: React.FunctionComponent<
+  SupportCaseWidgetTableFilterProps
+> = ({ filters, onFiltersChange }) => {
   const [isSeverityExpanded, setIsSeverityExpanded] = React.useState(false);
   const [isStatusExpanded, setIsStatusExpanded] = React.useState(false);
-
-  const [filters, setFilters] = React.useState<Record<string, string[]>>({
-    severity: [],
-    status: [],
-  });
 
   const onSelect = React.useCallback(
     (
@@ -38,17 +45,15 @@ export const SupportCaseWidgetTableFilter: React.FunctionComponent = () => {
       }
 
       const checked = (event.target as HTMLInputElement).checked;
-      setFilters((prev) => {
-        const prevSelections = prev[type] || [];
-        return {
-          ...prev,
-          [type]: checked
-            ? [...prevSelections, value]
-            : prevSelections.filter((v) => v !== v),
-        };
+      const prevSelections = filters[type as keyof SupportCaseFilters] || [];
+      onFiltersChange({
+        ...filters,
+        [type]: checked
+          ? [...prevSelections, value]
+          : prevSelections.filter((v) => v !== value),
       });
     },
-    []
+    [filters, onFiltersChange]
   );
 
   const onSeveritySelect = (
@@ -70,9 +75,9 @@ export const SupportCaseWidgetTableFilter: React.FunctionComponent = () => {
       severity: filters.severity.filter((fil: string) => fil !== id),
       status: filters.status.filter((fil: string) => fil !== id),
     };
-    setFilters({
-      severity: type === 'Severity' ? filterTypes[type] : filters.severity,
-      status: type === 'Status' ? filterTypes[type] : filters.status,
+    onFiltersChange({
+      severity: type === 'Severity' ? filterTypes.severity : filters.severity,
+      status: type === 'Status' ? filterTypes.status : filters.status,
     });
   };
 
@@ -81,7 +86,14 @@ export const SupportCaseWidgetTableFilter: React.FunctionComponent = () => {
       severity: type === 'Severity' ? [] : filters.severity,
       status: type === 'Status' ? [] : filters.status,
     };
-    setFilters(newFilters);
+    onFiltersChange(newFilters);
+  };
+
+  const onClearAllFilters = () => {
+    onFiltersChange({
+      severity: [],
+      status: [],
+    });
   };
 
   const onSeverityToggle = () => {
@@ -231,6 +243,7 @@ export const SupportCaseWidgetTableFilter: React.FunctionComponent = () => {
       id="toolbar-with-filter"
       className="pf-m-toggle-group-container"
       collapseListedFiltersBreakpoint="xl"
+      clearAllFilters={onClearAllFilters}
     >
       <ToolbarContent>{toolbarItems}</ToolbarContent>
     </Toolbar>

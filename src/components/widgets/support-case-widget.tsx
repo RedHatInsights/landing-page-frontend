@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useMemo, useState } from 'react';
 import {
   ISortBy,
   SortByDirection,
@@ -24,7 +24,10 @@ import useChrome from '@redhat-cloud-services/frontend-components/useChrome';
 import SkeletonTable from '@patternfly/react-component-groups/dist/dynamic/SkeletonTable';
 import { MAX_ROWS, columnNames, getUrl, labelColor } from '../../utils/consts';
 import './support-case-widget.scss';
-import { SupportCaseWidgetTableFilter } from './support-case-table-filter';
+import {
+  SupportCaseFilters,
+  SupportCaseWidgetTableFilter,
+} from './support-case-table-filter';
 
 const SUPPORT_CASE_URL =
   'https://access.redhat.com/support/cases/#/case/new/get-support?caseCreate=true';
@@ -47,6 +50,11 @@ const SupportCaseWidget: React.FunctionComponent = () => {
   const [sortBy, setSortBy] = useState<ISortBy>({
     index: 0,
     direction: SortByDirection.asc,
+  });
+
+  const [filters, setFilters] = useState<SupportCaseFilters>({
+    severity: [],
+    status: [],
   });
 
   const columns = [
@@ -91,6 +99,25 @@ const SupportCaseWidget: React.FunctionComponent = () => {
     });
     setCases([...sortedCases]);
   };
+
+  const filteredCases = useMemo(() => {
+    return cases.filter((c) => {
+      // Apply severity filter
+      if (
+        filters.severity.length > 0 &&
+        !filters.severity.includes(c.severity)
+      ) {
+        return false;
+      }
+
+      // Apply status filter
+      if (filters.status.length > 0 && !filters.status.includes(c.status)) {
+        return false;
+      }
+
+      return true;
+    });
+  }, [cases, filters]);
 
   const fetchSupportCases = async () => {
     const token = await chrome.auth.getToken();
@@ -171,7 +198,10 @@ const SupportCaseWidget: React.FunctionComponent = () => {
         >
           <Thead>
             <>
-              <SupportCaseWidgetTableFilter />
+              <SupportCaseWidgetTableFilter
+                filters={filters}
+                onFiltersChange={setFilters}
+              />
               <Tr>
                 {columns.map((col, index) => (
                   <Th
@@ -189,28 +219,43 @@ const SupportCaseWidget: React.FunctionComponent = () => {
             </>
           </Thead>
           <Tbody>
-            {cases?.slice(0, MAX_ROWS).map((c) => (
-              <Tr key={c.id}>
-                <Td dataLabel={columnNames.caseId}>
-                  <Button
-                    className="pf-v5-u-pl-0"
-                    variant="link"
-                    icon={<ExternalLinkAltIcon />}
-                    iconPosition="end"
-                    component="a"
-                    href={`https://access.redhat.com/support/cases/#/case/${c.caseNumber}`}
-                  >
-                    {c.caseNumber}
-                  </Button>
+            {filteredCases.length === 0 ? (
+              <Tr>
+                <Td colSpan={columns.length}>
+                  <EmptyState variant={EmptyStateVariant.sm}>
+                    <EmptyStateBody>
+                      No support cases match the selected filters. Adjust your
+                      filters to see more results.
+                    </EmptyStateBody>
+                  </EmptyState>
                 </Td>
-                <Td dataLabel={columnNames.issueSummary}>{c.summary}</Td>
-                <Td dataLabel={columnNames.modifiedBy}>{c.lastModifiedById}</Td>
-                <Td dataLabel={columnNames.severity}>
-                  {labelColor(c.severity)}
-                </Td>
-                <Td dataLabel={columnNames.status}>{c.status}</Td>
               </Tr>
-            ))}
+            ) : (
+              filteredCases?.slice(0, MAX_ROWS).map((c) => (
+                <Tr key={c.id}>
+                  <Td dataLabel={columnNames.caseId}>
+                    <Button
+                      className="pf-v5-u-pl-0"
+                      variant="link"
+                      icon={<ExternalLinkAltIcon />}
+                      iconPosition="end"
+                      component="a"
+                      href={`https://access.redhat.com/support/cases/#/case/${c.caseNumber}`}
+                    >
+                      {c.caseNumber}
+                    </Button>
+                  </Td>
+                  <Td dataLabel={columnNames.issueSummary}>{c.summary}</Td>
+                  <Td dataLabel={columnNames.modifiedBy}>
+                    {c.lastModifiedById}
+                  </Td>
+                  <Td dataLabel={columnNames.severity}>
+                    {labelColor(c.severity)}
+                  </Td>
+                  <Td dataLabel={columnNames.status}>{c.status}</Td>
+                </Tr>
+              ))
+            )}
           </Tbody>
         </Table>
       )}
