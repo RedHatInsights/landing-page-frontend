@@ -71,7 +71,7 @@
     "@testing-library/react": "^14.1.0",
     "@types/jest": "^29.5.8",
     "@types/redux-logger": "^3.0.9",
-    "@typescript-eslint/eslint-plugin": "^6.10.0",
+    "@typescript-eslint/eslint-plugin": "^8.0.0",
     "copy-webpack-plugin": "^11.0.0",
     "cypress": "^13.9.0",
     "cypress-localstorage-commands": "^2.2.5",
