@@ -37,7 +37,7 @@
   "homepage": "https://github.com/RedHatInsights/landing-page-frontend#readme",
   "dependencies": {
     "@patternfly/patternfly": "^6.0.0",
-    "@patternfly/react-core": "6.0.0",
+    "@patternfly/react-core": "6.4.0",
     "@patternfly/react-icons": "^6.0.0",
     "@patternfly/react-table": "^6.0.0",
     "@redhat-cloud-services/chrome": "^1.0.4",
