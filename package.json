@@ -51,8 +51,8 @@
     "@unleash/proxy-client-react": "^3.6.0",
     "classnames": "^2.3.2",
     "cypress-real-events": "^1.15.0",
-    "react": "^18.3.1",
-    "react-dom": "^18.3.1",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
     "react-intl": "^6.8.9",
     "react-router-dom": "^6.30.1"
   },
