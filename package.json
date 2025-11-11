@@ -64,7 +64,7 @@
     "@redhat-cloud-services/tsc-transform-imports": "^1.0.26",
     "@swc/core": "^1.15.1",
     "@swc/jest": "^0.2.39",
-    "@testing-library/react": "^14.3.1",
+    "@testing-library/react": "^16.0.0",
     "@types/jest": "^29.5.14",
     "@typescript-eslint/eslint-plugin": "^8.46.4",
     "cypress": "^13.9.0",
