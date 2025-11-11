@@ -5,11 +5,11 @@ describe('Integrations Widget', () => {
     cy.viewport(1280, 2000);
     cy.intercept(
       'GET',
-      '**/api/chrome-service/v1/dashboard-templates?dashboard=landingPage'
+      '**/api/chrome-service/v1/dashboard-templates?dashboard=landingPage',
     ).as('resetLayout');
 
     cy.intercept('PATCH', '**/api/chrome-service/v1/dashboard-templates/*').as(
-      'patchLayout'
+      'patchLayout',
     );
     cy.login();
     cy.visit('/');
@@ -45,18 +45,18 @@ describe('Integrations Widget', () => {
     // Count the hidden body elements
     cy.get(`[data-ouia-component-id="${widgetId}"] div[hidden]`).should(
       'have.length.greaterThan',
-      0
+      0,
     );
     // Expand the categories
     cy.get(
-      `[data-ouia-component-id="${widgetId}"] [id^="expandable-section-toggle"][aria-expanded="false"]`
+      `[data-ouia-component-id="${widgetId}"] [id^="expandable-section-toggle"][aria-expanded="false"]`,
     ).each(($el) => {
       $el.click();
     });
     // Count the hidden body elements
     cy.get(`[data-ouia-component-id="${widgetId}"] div[hidden]`).should(
       'have.length',
-      0
+      0,
     );
     // Remove the widget
     cy.removeWidget(widgetId);

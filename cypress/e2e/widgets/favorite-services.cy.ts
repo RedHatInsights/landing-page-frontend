@@ -15,11 +15,11 @@ describe('My Favorite Services Widget', () => {
     cy.viewport(1280, 2000);
     cy.intercept(
       'GET',
-      '**/api/chrome-service/v1/dashboard-templates?dashboard=landingPage'
+      '**/api/chrome-service/v1/dashboard-templates?dashboard=landingPage',
     ).as('resetLayout');
 
     cy.intercept('PATCH', '**/api/chrome-service/v1/dashboard-templates/*').as(
-      'patchLayout'
+      'patchLayout',
     );
     replaceFavorites([]);
 

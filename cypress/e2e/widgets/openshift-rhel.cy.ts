@@ -7,11 +7,11 @@ describe('Red Hat OpenShift Widget', () => {
 
     cy.intercept(
       'GET',
-      '**/api/chrome-service/v1/dashboard-templates?dashboard=landingPage'
+      '**/api/chrome-service/v1/dashboard-templates?dashboard=landingPage',
     ).as('resetLayout');
 
     cy.intercept('PATCH', '**/api/chrome-service/v1/dashboard-templates/*').as(
-      'patchLayout'
+      'patchLayout',
     );
 
     cy.wait('@resetLayout').its('response.statusCode').should('eq', 200);

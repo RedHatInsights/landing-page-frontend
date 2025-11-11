@@ -10,12 +10,12 @@ describe('Widgets can lock and unlock', () => {
     cy.loadLandingPage();
     cy.viewport(1920, 1080);
     cy.intercept('PATCH', '**/api/chrome-service/v1/dashboard-templates/*').as(
-      'patchLayout'
+      'patchLayout',
     );
     // waits until page content has rendered before proceeding
     cy.get('[id="widget-layout-container"] .react-grid-item')
       .contains(
-        'Proactively assess, secure, and stabilize the business-critical services that you scale from your RHEL systems.'
+        'Proactively assess, secure, and stabilize the business-critical services that you scale from your RHEL systems.',
       )
       .should('be.visible');
     // test started passing consistently once I added this wait. Weird.

@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-require-imports */
 /// <reference types="cypress" />
 // ***********************************************
 // This example commands.ts shows you how to
@@ -56,20 +57,21 @@ Cypress.Commands.add('login', () => {
         cy.get('#login-show-step2').click();
         cy.get('#password').type(Cypress.env('E2E_PASSWORD'));
         cy.get('#rh-password-verification-submit-button').click();
-      } catch (error) {
+        // eslint-disable-next-line @typescript-eslint/no-unused-vars
+      } catch (_error) {
         cy.get('#username').type(Cypress.env('E2E_USER'));
         cy.get('#password').type(Cypress.env('E2E_PASSWORD'));
         cy.get('#submit').click();
       }
     },
-    { cacheAcrossSpecs: true }
+    { cacheAcrossSpecs: true },
   );
 });
 
 Cypress.Commands.add('resetToDefaultLayout', () => {
   cy.intercept(
     'POST',
-    '**/api/chrome-service/v1/dashboard-templates/*/reset'
+    '**/api/chrome-service/v1/dashboard-templates/*/reset',
   ).as('resetLayout');
   cy.get('button')
     .contains('Reset to default')
@@ -112,7 +114,7 @@ Cypress.Commands.add('loadLandingPage', () => {
 
   cy.intercept(
     'GET',
-    '**/api/chrome-service/v1/dashboard-templates?dashboard=landingPage'
+    '**/api/chrome-service/v1/dashboard-templates?dashboard=landingPage',
   ).as('loadLayout');
   cy.wait('@loadLayout').its('response.statusCode').should('eq', 200);
 
@@ -121,7 +123,7 @@ Cypress.Commands.add('loadLandingPage', () => {
 
 Cypress.Commands.add('removeWidget', (widgetId: string) => {
   cy.intercept('PATCH', '**/api/chrome-service/v1/dashboard-templates/*').as(
-    'patchLayout'
+    'patchLayout',
   );
 
   cy.get(`[data-ouia-component-id="${widgetId}"]`).within(() => {
@@ -144,7 +146,7 @@ Cypress.Commands.add(
     cy.get('[data-ouia-component-id="add-widget-button"]').click();
 
     cy.get(`[data-ouia-component-id="add-widget-card-${widgetName}"]`).drag(
-      widgetTarget
+      widgetTarget,
     );
-  }
+  },
 );

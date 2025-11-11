@@ -263,7 +263,6 @@ exports[`404 page should render correctly 1`] = `
         Let's find you a new one. Try a new search or return home.
       </h2>
       <a
-        aria-disabled="false"
         class="pf-v6-c-button pf-m-link"
         data-ouia-component-id="OUIA-Generated-Button-link-1"
         data-ouia-component-type="PF6/Button"

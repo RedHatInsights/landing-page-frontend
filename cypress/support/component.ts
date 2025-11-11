@@ -35,12 +35,14 @@ import '@patternfly/patternfly/patternfly-addons.css';
 declare global {
   namespace Cypress {
     interface Chainable {
+      addWidget(widgetName: string, widgetTarget?: string): Chainable<void>;
+      drag(target: string): Chainable<void>;
       mount: typeof mount;
       login(): Chainable<void>;
       resetToDefaultLayout(): Chainable<void>;
       dragTotarget(
         sourceSelector: string,
-        targetSelector: string
+        targetSelector: string,
       ): Chainable<void>;
       loadLandingPage(): Chainable<void>;
       removeWidget(widgetId: string): void;

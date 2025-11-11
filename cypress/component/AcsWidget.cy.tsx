@@ -6,11 +6,11 @@ describe('<AcsWidget />', () => {
     cy.mount(
       <BrowserRouter>
         <AcsWidget />
-      </BrowserRouter>
+      </BrowserRouter>,
     );
     cy.get('p').should(
       'contain',
-      'Fully hosted software as a service for protecting cloud-native applications and Kubernetes.'
+      'Fully hosted software as a service for protecting cloud-native applications and Kubernetes.',
     );
   });
 });

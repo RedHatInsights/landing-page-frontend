@@ -84,7 +84,7 @@ const SupportCaseWidget: React.FunctionComponent = () => {
   const onSort = (
     _event: React.MouseEvent,
     index: number,
-    direction: SortByDirection
+    direction: SortByDirection,
   ) => {
     setSortBy({ index, direction });
 

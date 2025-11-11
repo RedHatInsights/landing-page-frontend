@@ -14,7 +14,6 @@ exports[`Logout component should render correctly 1`] = `
       You have logged out.
     </h1>
     <button
-      aria-disabled="false"
       class="pf-v6-c-button pf-m-link"
       data-ouia-component-id="OUIA-Generated-Button-link-1"
       data-ouia-component-type="PF6/Button"
