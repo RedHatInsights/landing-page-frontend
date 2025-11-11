@@ -1,4 +1,3 @@
-/* eslint-disable rulesdir/forbid-pf-relative-imports */
 import React, { useMemo } from 'react';
 import {
   ScalprumComponent,
@@ -26,7 +25,7 @@ const Landing: React.FC<{ layoutType?: string }> = ({ layoutType }) => {
       fallback: <Fallback />,
       LoadingComponent: Fallback,
     }),
-    [layoutType]
+    [layoutType],
   );
   return <ScalprumComponent {...props} />;
 };

@@ -1,12 +1,10 @@
 /* eslint-disable @typescript-eslint/ban-ts-comment */
 import React from 'react';
 import { Table, Tbody, Td, Th, Thead, Tr } from '@patternfly/react-table';
-import { AsyncState, CreateAxiosRequest } from '@redhat-cloud-services/types';
+import { AsyncState } from '@redhat-cloud-services/types';
 import { FetchData } from '@redhat-cloud-services/types';
 
-export const fetchData: FetchData = async (
-  createAsyncRequest: CreateAxiosRequest
-) => {
+export const fetchData: FetchData = async (createAsyncRequest) => {
   const requestGenerated = createAsyncRequest('chrome-service', {
     method: 'GET',
     url: '/api/chrome-service/v1/static/beta/stage/services/services-generated.json',
@@ -55,7 +53,7 @@ const PdfEntry = ({
                   <Td>{row?.id}</Td>
                   <Td>{row.description}</Td>
                 </Tr>
-              ))
+              )),
             )}
           </Tbody>
         </Table>

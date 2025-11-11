@@ -56,11 +56,11 @@ describe('Widget Landing Page', () => {
       cy.intercept(
         'PATCH',
         '**/api/chrome-service/v1/dashboard-templates/NaN',
-        {}
+        {},
       );
       cy.intercept(
         'PATCH',
-        '**/api/chrome-service/v1/dashboard-templates/*'
+        '**/api/chrome-service/v1/dashboard-templates/*',
       ).as('patchLayout');
     });
 
@@ -74,6 +74,7 @@ describe('Widget Landing Page', () => {
       cy.wait('@patchLayout').then(({ response }) => {
         expect(response?.statusCode).to.eq(200);
         const firstMove = response?.body?.data;
+        // eslint-disable-next-line @typescript-eslint/no-unused-expressions
         expect(firstMove).to.not.be.null;
 
         moveWidget(2, 1);
@@ -81,6 +82,7 @@ describe('Widget Landing Page', () => {
         cy.wait('@patchLayout').then(({ response }) => {
           expect(response?.statusCode).to.eq(200);
           const secondMove = response?.body?.data;
+          // eslint-disable-next-line @typescript-eslint/no-unused-expressions
           expect(secondMove).to.not.be.null;
           expect(secondMove).to.not.deep.equal(firstMove);
         });

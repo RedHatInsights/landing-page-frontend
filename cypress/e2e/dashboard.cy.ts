@@ -4,7 +4,7 @@ describe('Dashboard with widgets is displayed', () => {
     cy.loadLandingPage();
     cy.intercept(
       'PATCH',
-      '**/api/chrome-service/v1/dashboard-templates/NaN'
+      '**/api/chrome-service/v1/dashboard-templates/NaN',
     ).log('PATCH NaN detected');
     // wait for everything to render before testing for presence of widgets
     cy.wait(5000);

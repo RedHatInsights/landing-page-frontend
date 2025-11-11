@@ -6,7 +6,7 @@ describe('Openshift AI widget', () => {
 
   it('should appear on default layout', () => {
     cy.get(`[data-ouia-component-id="landing-openshiftAi-widget"]`).should(
-      'exist'
+      'exist',
     );
   });
 
@@ -15,7 +15,7 @@ describe('Openshift AI widget', () => {
       .should('have.attr', 'href')
       .and(
         'include',
-        'https://www.redhat.com/en/technologies/cloud-computing/openshift/openshift-ai/trial'
+        'https://www.redhat.com/en/technologies/cloud-computing/openshift/openshift-ai/trial',
       );
   });
 

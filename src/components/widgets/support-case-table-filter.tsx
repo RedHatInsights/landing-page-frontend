@@ -38,7 +38,7 @@ export const SupportCaseWidgetTableFilter: React.FunctionComponent<
     (
       type: string,
       event?: React.MouseEvent<Element, MouseEvent> | undefined,
-      value?: string | undefined
+      value?: string | undefined,
     ) => {
       if (!event || typeof value !== 'string') {
         return;
@@ -53,19 +53,19 @@ export const SupportCaseWidgetTableFilter: React.FunctionComponent<
           : prevSelections.filter((v) => v !== value),
       });
     },
-    [filters, onFiltersChange]
+    [filters, onFiltersChange],
   );
 
   const onSeveritySelect = (
     event: React.MouseEvent<Element, MouseEvent>,
-    value: string
+    value: string,
   ) => {
     onSelect('severity', event, value);
   };
 
   const onStatusSelect = (
     event: React.MouseEvent<Element, MouseEvent>,
-    value: string
+    value: string,
   ) => {
     onSelect('status', event, value);
   };
@@ -178,7 +178,7 @@ export const SupportCaseWidgetTableFilter: React.FunctionComponent<
             onSelect={(event, value) =>
               onSeveritySelect(
                 event as unknown as React.MouseEvent<Element, MouseEvent>,
-                value as string
+                value as string,
               )
             }
             selected={filters.severity}
@@ -216,7 +216,7 @@ export const SupportCaseWidgetTableFilter: React.FunctionComponent<
             onSelect={(event, value) =>
               onStatusSelect(
                 event as unknown as React.MouseEvent<Element, MouseEvent>,
-                value as string
+                value as string,
               )
             }
             selected={filters.status}

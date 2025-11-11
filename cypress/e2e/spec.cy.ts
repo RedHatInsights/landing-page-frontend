@@ -7,6 +7,6 @@ describe('Test environment init', () => {
     () => {
       // authenticate the session
       cy.login();
-    }
+    },
   );
 });

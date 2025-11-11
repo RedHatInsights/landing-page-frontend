@@ -6,17 +6,17 @@ import { render } from '@testing-library/react';
 
 jest.mock('../routes/Landing', () => ({
   __esModule: true,
-  // eslint-disable-next-line react/display-name
+
   default: () => <span>Landing</span>,
 }));
 
 jest.mock('@redhat-cloud-services/frontend-components/useChrome', () => {
   const actual = jest.requireActual(
-    '@redhat-cloud-services/frontend-components/useChrome'
+    '@redhat-cloud-services/frontend-components/useChrome',
   );
   return {
     __esModule: true,
-    // eslint-disable-next-line react/display-name
+
     ...actual,
     default: () => ({
       on: () => {},
@@ -51,7 +51,7 @@ describe('App component', () => {
       const { container: ci } = await render(
         <Router>
           <App />
-        </Router>
+        </Router>,
       );
       expect(ci).toMatchSnapshot();
       container = ci;

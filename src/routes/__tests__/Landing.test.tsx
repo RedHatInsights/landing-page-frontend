@@ -1,4 +1,3 @@
-/* eslint-disable react/prop-types */
 import React from 'react';
 import { act, render } from '@testing-library/react';
 import { MemoryRouter } from 'react-router-dom';
@@ -21,7 +20,7 @@ const LandingWrapper: React.FC<React.PropsWithChildren> = ({ children }) => {
             },
           }),
       }),
-    []
+    [],
   );
   return (
     <ScalprumProvider
@@ -48,7 +47,7 @@ describe('<Landing/>', () => {
       const { container: c } = render(
         <LandingWrapper>
           <Landing />
-        </LandingWrapper>
+        </LandingWrapper>,
       );
       container = c;
     });
