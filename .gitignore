@@ -27,3 +27,8 @@ coverage
 # coverage output
 .nyc_output
 cypress/screenshots/*
+
+# Playwright
+playwright-report/
+test-results/
+playwright/.auth/

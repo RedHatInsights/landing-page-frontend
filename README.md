@@ -45,6 +45,30 @@ If you want to use production site you can use just the URL
 URL=https://console.redhat.com E2E_USER=<your-e2e-user> E2E_PASSWORD=<your-e2e-password> npm run cypres -- open
 ```
 
+### Playwright
+
+Run the Playwright login smoke test (requires the same credentials as Cypress):
+
+```bash
+E2E_USER=<your-e2e-user> E2E_PASSWORD=<your-e2e-password> npm run test:playwright
+```
+
+To point at a specific environment, set `BASE` (or reuse `URL`):
+
+```bash
+BASE=https://cloud.redhat.com E2E_USER=<your-e2e-user> E2E_PASSWORD=<your-e2e-password> npm run test:playwright
+```
+
+If you see a **preprod lockdown page** when targeting stage, your Playwright browser likely isn’t on VPN. In that case, run with a proxy:
+
+```bash
+BASE=https://console.stage.redhat.com \
+HTTPS_PROXY=http://<your-corp-proxy>:<port> \
+NO_PROXY=localhost,127.0.0.1 \
+E2E_USER=<your-e2e-user> E2E_PASSWORD=<your-e2e-password> \
+npm run test:playwright
+```
+
 ## Deployment
 
 The following four branches are used
