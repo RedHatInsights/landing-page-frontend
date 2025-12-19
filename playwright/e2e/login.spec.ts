@@ -1,10 +1,9 @@
 import { expect, test } from '@playwright/test';
-import { login } from '../helpers/auth';
 
 test.describe('Authentication', () => {
   test('can login via RH SSO and reach the app', async ({ page }) => {
-    await login(page);
-
+    // Login is performed in `globalSetup` via `storageState`.
+    await page.goto('/', { waitUntil: 'domcontentloaded' });
     await expect(
       page.getByRole('button', { name: /User Avatar/i }),
     ).toBeVisible();

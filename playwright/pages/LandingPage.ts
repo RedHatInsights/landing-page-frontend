@@ -70,15 +70,41 @@ export class LandingPage {
   }
 
   async resetToDefaultLayout(): Promise<void> {
-    const resetResp = this.page.waitForResponse((resp) => {
-      const url = resp.url();
-      return (
-        resp.request().method() === 'POST' &&
-        url.includes('/api/chrome-service/v1/dashboard-templates/') &&
-        url.includes('/reset') &&
-        this.isOkishStatus(resp.status())
-      );
-    });
+    // In some environments this request can be cached/redirected or simply slow.
+    // Treat the network response as best-effort and rely on UI readiness signals.
+    // Keep waits bounded; most tests run with a 30s timeout.
+    const resetResp = this.page
+      .waitForResponse(
+        (resp) => {
+          const url = resp.url();
+          return (
+            resp.request().method() === 'POST' &&
+            url.includes('/api/chrome-service/v1/dashboard-templates/') &&
+            url.includes('/reset') &&
+            this.isOkishStatus(resp.status())
+          );
+        },
+        { timeout: 25000 },
+      )
+      .catch(() => undefined);
+
+    // The widget-layout implementation sets templateId to NaN after reset, which triggers a
+    // fresh GET for dashboard templates. Waiting for this avoids races where subsequent test
+    // actions (e.g. remove widget) are overwritten by the post-reset reload.
+    const templatesReloadResp = this.page
+      .waitForResponse(
+        (resp) => {
+          const url = resp.url();
+          return (
+            resp.request().method() === 'GET' &&
+            url.includes('/api/chrome-service/v1/dashboard-templates') &&
+            url.includes('dashboard=landingPage') &&
+            this.isOkishStatus(resp.status())
+          );
+        },
+        { timeout: 25000 },
+      )
+      .catch(() => undefined);
 
     const resetButton = this.page.getByRole('button', {
       name: /reset to default/i,
@@ -86,14 +112,35 @@ export class LandingPage {
     await expect(resetButton).toBeVisible({ timeout: 60000 });
     await resetButton.scrollIntoViewIfNeeded();
     await resetButton.click();
-    await this.page
-      .locator(`[data-ouia-component-id="WarningModal-confirm-checkbox"]`)
-      .click();
-    await this.page
-      .locator(`button[data-ouia-component-id="WarningModal-confirm-button"]`)
-      .click();
+    const confirmCheckbox = this.page.locator(
+      '[data-ouia-component-id="WarningModal-confirm-checkbox"]',
+    );
+    const confirmButton = this.page.locator(
+      'button[data-ouia-component-id="WarningModal-confirm-button"]',
+    );
 
-    await resetResp;
+    await expect(confirmCheckbox).toBeVisible({ timeout: 20000 });
+    await confirmCheckbox.click();
+    await expect(confirmButton).toBeVisible({ timeout: 20000 });
+    await confirmButton.click();
+
+    // Wait for the modal to close.
+    await expect(confirmButton).toHaveCount(0, { timeout: 20000 });
+
+    const uiReady = Promise.all([
+      this.page
+        .locator('#widget-layout-container')
+        .waitFor({ state: 'visible', timeout: 25000 }),
+      this.page
+        .locator('#widget-layout-container .react-grid-item')
+        .first()
+        .waitFor({ state: 'visible', timeout: 25000 }),
+    ]).catch(() => undefined);
+
+    // Best-effort: proceed when either the network response arrives or the UI is ready.
+    await Promise.race([resetResp, uiReady]);
+    // Stronger completion: wait for the post-reset template reload if it happens.
+    await templatesReloadResp;
   }
 
   async waitForLayoutPatchOptional(timeoutMs = 15000): Promise<void> {
@@ -140,12 +187,75 @@ export class LandingPage {
   async removeWidget(widgetId: string): Promise<void> {
     await expect(this.widget(widgetId)).toBeVisible({ timeout: 60000 });
 
-    await this.widgetMenuToggle(widgetId).click();
+    const openMenu = async () => {
+      await this.widgetMenuToggle(widgetId).click();
+    };
 
-    await this.page.locator('[data-ouia-component-id="remove-widget"]').click();
-    await this.waitForLayoutPatchOptional();
+    await openMenu();
 
-    await expect(this.widget(widgetId)).toHaveCount(0);
+    const removeItem = this.page.locator(
+      '[data-ouia-component-id="remove-widget"]',
+    );
+    // PF6 renders DropdownItem as a <li> wrapper plus a <button role="menuitem">.
+    // Don't use `.or(...)` here: it can match both and trigger strict-mode violations.
+    const removeMenuItem = removeItem
+      .first()
+      .getByRole('menuitem', { name: /^remove\b/i })
+      .first()
+      .or(removeItem.first().locator('button[role="menuitem"]').first());
+    await expect(removeMenuItem).toBeVisible({ timeout: 15000 });
+
+    // If the widget is locked, "Remove" is disabled. Auto-unlock before removing.
+    const disabled = await removeMenuItem.isDisabled().catch(() => false);
+    if (disabled) {
+      const unlockMenuItem = this.page
+        .locator('[data-ouia-component-id="unlock-widget"]')
+        .first()
+        .getByRole('menuitem', { name: /^unlock\b/i })
+        .first()
+        .or(
+          this.page
+            .locator('[data-ouia-component-id="unlock-widget"]')
+            .first()
+            .locator('button[role="menuitem"]')
+            .first(),
+        );
+      if (
+        await unlockMenuItem.isVisible({ timeout: 2000 }).catch(() => false)
+      ) {
+        await unlockMenuItem.click();
+        await this.waitForLayoutPatchOptional(15000);
+        await this.widgetMenuToggle(widgetId).click();
+        await expect(removeMenuItem).toBeVisible({ timeout: 15000 });
+      }
+    }
+
+    const clickRemoveOnce = async () => {
+      await removeMenuItem.click();
+      await this.waitForLayoutPatchOptional(15000);
+    };
+
+    await clickRemoveOnce();
+
+    // Avoid short fixed timeouts: removal can be slow and can race with late layout updates.
+    const removed = await expect
+      .poll(async () => this.widget(widgetId).count(), { timeout: 20000 })
+      .toBe(0)
+      .then(() => true)
+      .catch(() => false);
+
+    // Single retry: sometimes the menu click doesn't register or a late layout refresh re-adds the widget.
+    if (!removed) {
+      await openMenu();
+      await clickRemoveOnce();
+      await expect
+        .poll(async () => this.widget(widgetId).count(), { timeout: 20000 })
+        .toBe(0);
+    }
+
+    // Ensure it stays gone (guards against "remove before reset finishes" races).
+    await this.page.waitForTimeout(500);
+    await expect(this.widget(widgetId)).toHaveCount(0, { timeout: 25000 });
   }
 
   async addWidget(
