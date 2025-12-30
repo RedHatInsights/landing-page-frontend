@@ -62,11 +62,11 @@
     "@redhat-cloud-services/eslint-config-redhat-cloud-services": "^3.0.1",
     "@redhat-cloud-services/frontend-components-config": "^6.7.4",
     "@redhat-cloud-services/tsc-transform-imports": "^1.0.26",
-    "@swc/core": "^1.15.7",
+    "@swc/core": "^1.15.8",
     "@swc/jest": "^0.2.39",
     "@testing-library/react": "^14.3.1",
     "@types/jest": "^30.0.0",
-    "@typescript-eslint/eslint-plugin": "^8.50.1",
+    "@typescript-eslint/eslint-plugin": "^8.51.0",
     "cypress": "^13.17.0",
     "cypress-localstorage-commands": "^2.2.8",
     "eslint": "^9.39.2",
@@ -79,7 +79,7 @@
     "ts-jest": "^29.4.6",
     "ts-patch": "^3.3.0",
     "typescript": "^5.9.3",
-    "typescript-eslint": "^8.50.0",
+    "typescript-eslint": "^8.51.0",
     "wait-on": "^7.2.0"
   },
   "insights": {
