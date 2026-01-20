@@ -23,7 +23,13 @@
     "test": "jest --passWithNoTests",
     "test:e2e": "node scripts/e2e.js",
     "test:ct": "cypress run --component --browser electron",
-    "verify": "npm-run-all build lint test test:ct"
+    "verify": "npm-run-all build lint test test:ct",
+    "playwright": "playwright test",
+    "playwright:headed": "playwright test --headed",
+    "playwright:ui": "playwright test --ui",
+    "playwright:debug": "playwright test --debug",
+    "playwright:report": "playwright show-report",
+    "test:playwright": "playwright test"
   },
   "repository": {
     "type": "git",
@@ -59,6 +65,7 @@
   "devDependencies": {
     "@4tw/cypress-drag-drop": "^2.3.1",
     "@cypress/code-coverage": "^3.14.7",
+    "@playwright/test": "^1.57.0",
     "@redhat-cloud-services/eslint-config-redhat-cloud-services": "^3.0.12",
     "@redhat-cloud-services/frontend-components-config": "^6.7.21",
     "@redhat-cloud-services/tsc-transform-imports": "^1.0.37",
@@ -66,6 +73,7 @@
     "@swc/jest": "^0.2.39",
     "@testing-library/react": "^14.3.1",
     "@types/jest": "^30.0.0",
+    "@types/node": "^24.10.4",
     "@typescript-eslint/eslint-plugin": "^8.53.0",
     "cypress": "^13.17.0",
     "cypress-localstorage-commands": "^2.2.8",
