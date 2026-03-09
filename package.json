@@ -23,6 +23,7 @@
     "test": "jest --passWithNoTests",
     "test:e2e": "node scripts/e2e.js",
     "test:ct": "cypress run --component --browser electron",
+    "test:playwright": "playwright test",
     "verify": "npm-run-all build lint test test:ct"
   },
   "repository": {
@@ -62,6 +63,7 @@
   },
   "devDependencies": {
     "@cypress/code-coverage": "^3.12.9",
+    "@playwright/test": "^1.47.0",
     "@redhat-cloud-services/eslint-config-redhat-cloud-services": "^2.0.3",
     "@redhat-cloud-services/frontend-components-config": "^6.2.8",
     "@redhat-cloud-services/tsc-transform-imports": "^1.0.4",
