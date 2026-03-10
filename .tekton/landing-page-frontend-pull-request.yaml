@@ -64,7 +64,6 @@ spec:
     value: "8000"
 
   pipelineRef:
-    name: docker-build-run-all-tests
     resolver: git
     params:
       - name: url
