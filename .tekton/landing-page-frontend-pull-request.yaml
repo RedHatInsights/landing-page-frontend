@@ -7,9 +7,7 @@ metadata:
     build.appstudio.redhat.com/pull_request_number: '{{pull_request_number}}'
     build.appstudio.redhat.com/target_branch: '{{target_branch}}'
     pipelinesascode.tekton.dev/max-keep-runs: "3"
-    pipelinesascode.tekton.dev/on-cel-expression: event == "pull_request" && target_branch
-      == "master"
-    # UPDATED: Changed to use E2E pipeline with Playwright tests
+    pipelinesascode.tekton.dev/on-cel-expression: event == "pull_request" && target_branch == "master"
     pipelinesascode.tekton.dev/pipeline: https://github.com/RedHatInsights/konflux-pipelines/raw/main/pipelines/platform-ui/docker-build-run-all-tests.yaml
   creationTimestamp: null
   labels:
@@ -20,7 +18,7 @@ metadata:
   namespace: rh-platform-experien-tenant
 spec:
   params:
-  # Existing parameters - preserved from original
+  # Build configuration
   - name: git-url
     value: '{{source_url}}'
   - name: revision
@@ -32,42 +30,41 @@ spec:
   - name: dockerfile
     value: build-tools/Dockerfile
 
-  # E2E Testing Parameters
-  - name: test-app-name
-    value: "landing-page-frontend"
-
-  - name: test-app-port
-    value: "8000"
-
-  # CRITICAL: Playwright image version must match @playwright/test version in package.json
-  # If package.json has "@playwright/test": "^1.40.0", use v1.40.0-jammy
-  # If package.json has "@playwright/test": "^1.45.0", use v1.45.0-jammy
-  - name: playwright-image
-    value: "mcr.microsoft.com/playwright:v1.40.0-jammy"
-
-  - name: run-app-script
+  # Required test scripts
+  - name: unit-tests-script
     value: |
       #!/bin/bash
       set -ex
-      # Start Caddy to serve app assets on port 8000
-      caddy run --config /etc/caddy/Caddyfile --adapter caddyfile
-
-  - name: frontend-proxy-routes-configmap
-    value: "landing-page-frontend-dev-proxy-caddyfile"
+      npm run test
 
   - name: e2e-tests-script
     value: |
       #!/bin/bash
       set -ex
-      # Dependencies are installed during workspace setup
-      # This script only needs to run the tests
       npx playwright test
+
+  - name: run-app-script
+    value: |
+      #!/bin/bash
+      set -ex
+      caddy run --config /etc/caddy/Caddyfile --adapter caddyfile
+
+  # E2E configuration (technically have defaults but must be set correctly)
+  - name: e2e-playwright-image
+    value: "mcr.microsoft.com/playwright:v1.40.0-jammy"
+
+  - name: frontend-proxy-routes-configmap
+    value: "landing-page-frontend-dev-proxy-caddyfile"
 
   - name: e2e-credentials-secret
     value: "landing-page-frontend-credentials-secret"
 
-  # UPDATED: Changed pipelineRef to use docker-build-run-all-tests
+  # Optional (can omit to use defaults)
+  - name: e2e-app-port
+    value: "8000"
+
   pipelineRef:
+    name: docker-build-run-all-tests
     resolver: git
     params:
       - name: url
@@ -79,6 +76,7 @@ spec:
 
   taskRunTemplate:
     serviceAccountName: build-pipeline-landing-page-frontend
+
   workspaces:
   - name: workspace
     volumeClaimTemplate:
