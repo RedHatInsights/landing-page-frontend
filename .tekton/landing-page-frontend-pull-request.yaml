@@ -30,6 +30,16 @@ spec:
   - name: dockerfile
     value: build-tools/Dockerfile
 
+  # Workspace setup - install dependencies
+  - name: workspace-setup-script
+    value: |
+      #!/bin/bash
+      set -ex
+      # Install npm dependencies
+      npm ci
+      # Install Playwright browsers
+      npx playwright install --with-deps chromium
+
   # Required test scripts
   - name: unit-tests-script
     value: |
@@ -51,7 +61,7 @@ spec:
 
   # E2E configuration (technically have defaults but must be set correctly)
   - name: e2e-playwright-image
-    value: "mcr.microsoft.com/playwright:v1.40.0-jammy"
+    value: "mcr.microsoft.com/playwright:v1.47.0-jammy"
 
   - name: frontend-proxy-routes-configmap
     value: "landing-page-frontend-dev-proxy-caddyfile"
