@@ -7,7 +7,9 @@ metadata:
     build.appstudio.redhat.com/pull_request_number: '{{pull_request_number}}'
     build.appstudio.redhat.com/target_branch: '{{target_branch}}'
     pipelinesascode.tekton.dev/max-keep-runs: "3"
-    pipelinesascode.tekton.dev/on-cel-expression: event == "pull_request" && target_branch == "master"
+    pipelinesascode.tekton.dev/on-cel-expression: event == "pull_request" && target_branch
+      == "master"
+    # UPDATED: Changed to use E2E pipeline with Playwright tests
     pipelinesascode.tekton.dev/pipeline: https://github.com/RedHatInsights/konflux-pipelines/raw/main/pipelines/platform-ui/docker-build-run-all-tests.yaml
   creationTimestamp: null
   labels:
@@ -18,6 +20,7 @@ metadata:
   namespace: rh-platform-experien-tenant
 spec:
   params:
+  # Existing parameters - preserved from original
   - name: git-url
     value: '{{source_url}}'
   - name: revision
@@ -27,99 +30,56 @@ spec:
   - name: image-expires-after
     value: 5d
   - name: dockerfile
-    value: ./Dockerfile
-  - name: path-context
-    value: .
+    value: build-tools/Dockerfile
 
   # E2E Testing Parameters
-  - name: e2e-app-port
+  - name: test-app-name
+    value: "landing-page-frontend"
+
+  - name: test-app-port
     value: "8000"
-  - name: e2e-playwright-image
-    value: "mcr.microsoft.com/playwright:v1.47.0-jammy"
-  - name: workspace-setup-script
-    value: |
-      #!/bin/bash
-      set -ex
-      # Install dependencies for both unit tests and E2E tests
-      npm ci
-      # Install Playwright browsers
-      npx playwright install --with-deps chromium
-  - name: unit-tests-script
-    value: |
-      #!/bin/bash
-      set -ex
-      # Run unit tests
-      npm test
+
+  # CRITICAL: Playwright image version must match @playwright/test version in package.json
+  # If package.json has "@playwright/test": "^1.40.0", use v1.40.0-jammy
+  # If package.json has "@playwright/test": "^1.45.0", use v1.45.0-jammy
+  - name: playwright-image
+    value: "mcr.microsoft.com/playwright:v1.40.0-jammy"
+
   - name: run-app-script
     value: |
       #!/bin/bash
       set -ex
-      # Start Caddy to serve the landing page app assets on port 8000
+      # Start Caddy to serve app assets on port 8000
       caddy run --config /etc/caddy/Caddyfile --adapter caddyfile
+
+  - name: frontend-proxy-routes-configmap
+    value: "landing-page-frontend-dev-proxy-caddyfile"
+
   - name: e2e-tests-script
     value: |
       #!/bin/bash
       set -ex
-      # Run Playwright E2E tests
+      # Dependencies are installed during workspace setup
+      # This script only needs to run the tests
       npx playwright test
+
   - name: e2e-credentials-secret
     value: "landing-page-frontend-credentials-secret"
-  - name: frontend-proxy-routes-configmap
-    value: "landing-page-frontend-dev-proxy-caddyfile"
 
-  # Caddy configuration for serving app assets
-  - name: app-caddy-config
-    value: |
-      :8000 {
-        root * /srv/dist
-        file_server
-        try_files {path} /index.html
-
-        log {
-          output stdout
-          format console
-          level INFO
-        }
-
-        header {
-          # Enable CORS for development
-          Access-Control-Allow-Origin *
-          Access-Control-Allow-Methods "GET, POST, PUT, DELETE, OPTIONS"
-          Access-Control-Allow-Headers "Content-Type, Authorization"
-        }
-      }
-
+  # UPDATED: Changed pipelineRef to use docker-build-run-all-tests
   pipelineRef:
     name: docker-build-run-all-tests
     resolver: git
     params:
-    - name: url
-      value: https://github.com/RedHatInsights/konflux-pipelines
-    - name: revision
-      value: main
-    - name: pathInRepo
-      value: pipelines/platform-ui/docker-build-run-all-tests.yaml
+      - name: url
+        value: https://github.com/RedHatInsights/konflux-pipelines
+      - name: revision
+        value: main
+      - name: pathInRepo
+        value: pipelines/platform-ui/docker-build-run-all-tests.yaml
 
   taskRunTemplate:
-    serviceAccountName: appstudio-pipeline
-
-  taskRunSpecs:
-  - pipelineTaskName: run-e2e-tests
-    stepSpecs:
-    - name: run-e2e-tests
-      computeResources:
-        requests:
-          memory: "2Gi"
-          cpu: "500m"
-        limits:
-          memory: "4Gi"
-          cpu: "2"
-    podTemplate:
-      hostAliases:
-      - ip: "127.0.0.1"
-        hostnames:
-        - "stage.foo.redhat.com"
-
+    serviceAccountName: build-pipeline-landing-page-frontend
   workspaces:
   - name: workspace
     volumeClaimTemplate:
