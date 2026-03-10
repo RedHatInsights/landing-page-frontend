@@ -68,7 +68,6 @@ spec:
 
   # UPDATED: Changed pipelineRef to use docker-build-run-all-tests
   pipelineRef:
-    name: docker-build-run-all-tests
     resolver: git
     params:
       - name: url
