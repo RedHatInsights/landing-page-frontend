@@ -9,7 +9,7 @@ metadata:
     pipelinesascode.tekton.dev/max-keep-runs: "3"
     pipelinesascode.tekton.dev/on-cel-expression: event == "pull_request" && target_branch
       == "master"
-    pipelinesascode.tekton.dev/pipeline: https://github.com/RedHatInsights/konflux-pipelines/blob/main/pipelines/docker-build.yaml
+    pipelinesascode.tekton.dev/pipeline: https://github.com/RedHatInsights/konflux-pipelines/raw/main/pipelines/platform-ui/docker-build-run-all-tests.yaml
   creationTimestamp: null
   labels:
     appstudio.openshift.io/application: landing-page-frontend
@@ -29,10 +29,75 @@ spec:
     value: 5d
   - name: dockerfile
     value: build-tools/Dockerfile
+  - name: unit-tests-script
+    value: |
+      #!/bin/bash
+      set -ex
+      
+      npm run lint
+      npm test --  --runInBand --no-cache
+  - name: test-app-name
+    value: "landing-page-frontend"
+  - name: test-app-port
+    value: "8000"
+  - name: run-app-script
+    value: |
+      #!/bin/bash
+      set -ex
+      # Start Caddy to serve app assets on port 8000
+      caddy run --config /etc/caddy/Caddyfile --adapter caddyfile
+  - name: frontend-proxy-routes-configmap
+    value: "landing-page-frontend-dev-proxy-caddyfile"
+  - name: e2e-playwright-image
+    value: "mcr.microsoft.com/playwright:v1.58.2-noble"
+  - name: e2e-tests-script
+    value: |
+      #!/bin/bash
+      set -ex
+
+      # Set CI environment variable for Playwright config
+      export CI=true
+
+      # Wait for the application to be ready
+      echo "Waiting for application to be ready..."
+      for i in {1..120}; do
+        if curl -k -s https://stage.foo.redhat.com:1337 > /dev/null 2>&1; then
+          echo "Application is ready!"
+          break
+        fi
+        echo "Attempt $i/120: Application not ready yet..."
+        sleep 1
+      done
+
+      # Run Playwright tests
+      npm run test:playwright
+  - name: e2e-credentials-secret
+    value: "landing-page-frontend-credentials-secret"
+  - name: workspace-setup-script
+    value: |
+      #!/bin/bash
+      set -ex
+
+      npm install
   pipelineRef:
-    name: docker-build
+    resolver: git
+    params:
+      - name: url
+        value: https://github.com/RedHatInsights/konflux-pipelines
+      - name: revision
+        value: main
+      - name: pathInRepo
+        value: pipelines/platform-ui/docker-build-run-all-tests.yaml
   taskRunTemplate:
     serviceAccountName: build-pipeline-landing-page-frontend
+    podTemplate:
+      hostAliases:
+        - ip: "127.0.0.1"
+          hostnames:
+            - "stage.foo.redhat.com"
+        - ip: "::1"
+          hostnames:
+            - "stage.foo.redhat.com"
   workspaces:
   - name: workspace
     volumeClaimTemplate:
@@ -43,7 +108,7 @@ spec:
         - ReadWriteOnce
         resources:
           requests:
-            storage: 1Gi
+            storage: 2Gi
       status: {}
   - name: git-auth
     secret:
