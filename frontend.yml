@@ -38,94 +38,68 @@ objects:
               title: "View all activity"
               href: "/settings/activity"
           defaults:
-            sm:
-              w: 1
-              h: 2
-              maxH: 4
-              minH: 1
-            md:
-              w: 1
-              h: 2
-              maxH: 4
-              minH: 1
-            lg:
-              w: 1
-              h: 2
-              maxH: 4
-              minH: 1
-            xl:
-              w: 1
-              h: 2
-              maxH: 4
-              minH: 1
+            w: 1
+            h: 2
+            maxH: 4
+            minH: 1
       baseWidgetLayouts:
-        name: "landingDashboard"
-        displayName: "Landing Dashboard"
-        templateConfig:
-          sm:
-            - w: 1
-              h: 2
-              x: 0
-              y: 0
-              i: "recent-activity"
-              title: "Recent Activity"
-          md:
-            - w: 1
-              h: 2
-              x: 0
-              y: 0
-              i: "recent-activity"
-              title: "Recent Activity"
-            - w: 1
-              h: 2
-              x: 1
-              y: 0
-              i: "quick-links"
-              title: "Quick Links"
-          lg:
-            - w: 1
-              h: 2
-              x: 0
-              y: 0
-              i: "recent-activity"
-              title: "Recent Activity"
-            - w: 1
-              h: 2
-              x: 1
-              y: 0
-              i: "quick-links"
-              title: "Quick Links"
-            - w: 1
-              h: 2
-              x: 2
-              y: 0
-              i: "notifications"
-              title: "Notifications"
-          xl:
-            - w: 1
-              h: 2
-              x: 0
-              y: 0
-              i: "recent-activity"
-              title: "Recent Activity"
-            - w: 1
-              h: 2
-              x: 1
-              y: 0
-              i: "quick-links"
-              title: "Quick Links"
-            - w: 1
-              h: 2
-              x: 2
-              y: 0
-              i: "notifications"
-              title: "Notifications"
-            - w: 1
-              h: 2
-              x: 3
-              y: 0
-              i: "system-status"
-              title: "System Status"
+        - name: "landingDashboard"
+          displayName: "Landing Dashboard"
+          templateConfig:
+            sm:
+              - w: 1
+                h: 2
+                cx: 0
+                cy: 0
+                i: "recent-activity"
+            md:
+              - w: 1
+                h: 2
+                cx: 0
+                cy: 0
+                i: "recent-activity"
+              - w: 1
+                h: 2
+                cx: 1
+                cy: 0
+                i: "quick-links"
+            lg:
+              - w: 1
+                h: 2
+                cx: 0
+                cy: 0
+                i: "recent-activity"
+              - w: 1
+                h: 2
+                cx: 1
+                cy: 0
+                i: "quick-links"
+              - w: 1
+                h: 2
+                cx: 2
+                cy: 0
+                i: "notifications"
+            xl:
+              - w: 1
+                h: 2
+                cx: 0
+                cy: 0
+                i: "recent-activity"
+              - w: 1
+                h: 2
+                cx: 1
+                cy: 0
+                i: "quick-links"
+              - w: 1
+                h: 2
+                cx: 2
+                cy: 0
+                i: "notifications"
+              - w: 1
+                h: 2
+                cx: 3
+                cy: 0
+                i: "system-status"
 parameters:
   - name: ENV_NAME
     required: true
