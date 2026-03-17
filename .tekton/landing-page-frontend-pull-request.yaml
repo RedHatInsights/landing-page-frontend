@@ -61,7 +61,9 @@ spec:
       # Wait for the application to be ready
       echo "Waiting for application to be ready..."
       for i in {1..120}; do
-        if curl -k -s https://stage.foo.redhat.com:1337 > /dev/null 2>&1; then
+        # Check that both local app and proxied resources work
+        if curl -k -s https://stage.foo.redhat.com:1337/apps/landing/fed-mods.json > /dev/null 2>&1 && \
+           curl -k -s https://stage.foo.redhat.com:1337/apps/chrome/fed-mods.json > /dev/null 2>&1; then
           echo "Application is ready!"
           break
         fi

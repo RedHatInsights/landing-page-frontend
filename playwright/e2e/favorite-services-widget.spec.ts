@@ -2,7 +2,7 @@ import { type Locator, type Page, expect, test } from '@playwright/test';
 import { LandingPage } from '../pages/LandingPage';
 
 test.describe('My Favorite Services widget', () => {
-  const widgetId = 'chrome-favoriteServices-widget';
+  const widgetId = 'favoriteServices-widget';
 
   async function openServicesMenu(page: Page): Promise<Locator> {
     // This button toggles the All Services sidebar/dropdown in chrome.
