@@ -56,6 +56,14 @@ const ExploreCapabilities: React.FunctionComponent = () => {
       ouiaId: 'cent-os-button',
       url: '/insights/tasks/available/convert-to-rhel-analysis?quickstart=insights-tasks-pre-conversion',
     },
+    {
+      id: 'card6',
+      img: '/apps/frontend-assets/red-hat-logos/logo_hat-only.svg',
+      title: 'Migration Advisor: VMware to Openshift',
+      body: 'Discover your VMware environment, select a target cluster and create a migration plan.',
+      ouiaId: 'migration-assessment-button',
+      url: '/openshift/migration-assessment',
+    },
   ];
 
   const cardContent = cardData.map((cardData) => (
