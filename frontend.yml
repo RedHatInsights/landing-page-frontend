@@ -1,3 +1,4 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/RedHatInsights/frontend-components/refs/heads/master/packages/config-utils/src/feo/spec/frontend-crd.schema.json
 apiVersion: v1
 kind: Template
 metadata:
@@ -27,6 +28,78 @@ objects:
           routes:
           - pathname: /
             exact: true
+      widgetRegistry:
+        - scope: "landing"
+          module: "./LandingWidgetModule"
+          config:
+            icon: "CogIcon"
+            title: "Recent Activity"
+            headerLink:
+              title: "View all activity"
+              href: "/settings/activity"
+          defaults:
+            w: 1
+            h: 2
+            maxH: 4
+            minH: 1
+      baseWidgetLayouts:
+        - name: "landingDashboard"
+          displayName: "Landing Dashboard"
+          templateConfig:
+            sm:
+              - w: 1
+                h: 2
+                cx: 0
+                cy: 0
+                i: "recent-activity"
+            md:
+              - w: 1
+                h: 2
+                cx: 0
+                cy: 0
+                i: "recent-activity"
+              - w: 1
+                h: 2
+                cx: 1
+                cy: 0
+                i: "quick-links"
+            lg:
+              - w: 1
+                h: 2
+                cx: 0
+                cy: 0
+                i: "recent-activity"
+              - w: 1
+                h: 2
+                cx: 1
+                cy: 0
+                i: "quick-links"
+              - w: 1
+                h: 2
+                cx: 2
+                cy: 0
+                i: "notifications"
+            xl:
+              - w: 1
+                h: 2
+                cx: 0
+                cy: 0
+                i: "recent-activity"
+              - w: 1
+                h: 2
+                cx: 1
+                cy: 0
+                i: "quick-links"
+              - w: 1
+                h: 2
+                cx: 2
+                cy: 0
+                i: "notifications"
+              - w: 1
+                h: 2
+                cx: 3
+                cy: 0
+                i: "system-status"
 parameters:
   - name: ENV_NAME
     required: true
