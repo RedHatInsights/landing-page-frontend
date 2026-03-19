@@ -31,12 +31,12 @@ export class LandingPage {
   }
 
   widget(widgetId: string): Locator {
-    return this.page.locator(`[data-ouia-component-id="${widgetId}"]`);
+    return this.page.locator(`.react-grid-item > [data-ouia-component-id="${widgetId}"]`);
   }
 
   widgetMenuToggle(widgetId: string): Locator {
     return this.widget(widgetId).locator(
-      '[aria-label="widget actions menu toggle"]',
+      '[aria-label="Widget actions"]',
     );
   }
 
@@ -260,7 +260,7 @@ export class LandingPage {
 
   async addWidget(
     widgetName: string,
-    widgetTargetId = 'landing-rhel-widget',
+    widgetTargetId = 'rhel-widget',
   ): Promise<void> {
     await this.page
       .locator('[data-ouia-component-id="add-widget-button"]')

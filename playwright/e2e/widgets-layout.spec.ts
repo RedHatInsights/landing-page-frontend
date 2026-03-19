@@ -60,11 +60,11 @@ test.describe('Landing page widget layout operations', () => {
     // This mirrors the Cypress retry loop but without hard sleeps.
     while (
       (await page
-        .locator('[aria-label="widget actions menu toggle"]')
+        .locator('[aria-label="Widget actions"]')
         .count()) > 0
     ) {
       const toggle = page
-        .locator('[aria-label="widget actions menu toggle"]')
+        .locator('[aria-label="Widget actions"]')
         .first();
       const widgetId = await toggle
         .locator('xpath=ancestor::*[@data-ouia-component-id][1]')
@@ -82,7 +82,7 @@ test.describe('Landing page widget layout operations', () => {
   test('widgets can be dragged and dropped (layout PATCH changes)', async ({
     page,
   }) => {
-    const handles = page.locator('.drag-handle');
+    const handles = page.locator('.pf-v6-widget-drag-handle');
     await expect(handles.first()).toBeVisible();
 
     const firstPatch = page.waitForResponse((resp) => {
@@ -132,11 +132,7 @@ test.describe('Landing page widget layout operations', () => {
       .catch(() => undefined);
 
     // Use a stable widget identity; tabindex=0 is focus-dependent and can change after a reflow.
-    const widget = page
-      .locator(
-        '[data-ouia-component-id="landing-rhel-widget"] >> xpath=ancestor::*[contains(@class,"react-grid-item")][1]',
-      )
-      .first();
+    const widget = page.locator('.react-grid-item:has([data-ouia-component-id="rhel-widget"])');
     await expect(widget).toBeVisible();
 
     const getCols = async () => {
@@ -180,7 +176,7 @@ test.describe('Landing page widget layout operations', () => {
     await patch;
   });
 
-  test('autosize increases widget height', async ({ page }) => {
+  test('maximize increases widget height', async ({ page }) => {
     const widget = page.locator('.react-grid-item').first();
     await expect(widget).toBeVisible();
 
@@ -197,20 +193,22 @@ test.describe('Landing page widget layout operations', () => {
       );
     });
 
-    await page
-      .locator('[aria-label="widget actions menu toggle"]')
-      .first()
-      .click();
-    await page
-      .locator('[data-ouia-component-id="autosize-widget"]')
-      .first()
-      .click();
+    const menuToggle = page
+      .locator('[aria-label="Widget actions"]')
+      .first();
+    await menuToggle.click();
+
+    const maximizeItem = page
+      .locator('[data-ouia-component-id="maximize-widget"]')
+      .first();
+    await expect(maximizeItem).toBeVisible({ timeout: 15000 });
+    await maximizeItem.click();
     await patch;
 
     const after = await widget.boundingBox();
     expect(after?.height).toBeTruthy();
     if (before?.height && after?.height) {
-      // Autosize can be a no-op if the widget is already at its content height.
+      // Maximize can be a no-op if the widget is already at max height.
       expect(after.height).toBeGreaterThanOrEqual(before.height);
     }
   });
@@ -233,7 +231,7 @@ test.describe('Landing page widget layout operations', () => {
     });
 
     await page
-      .locator('[aria-label="widget actions menu toggle"]')
+      .locator('[aria-label="Widget actions"]')
       .first()
       .click();
     await page
@@ -254,11 +252,12 @@ test.describe('Landing page widget layout operations', () => {
     const landing = new LandingPage(page);
     await closeChromeOverlays(page);
 
-    const menuToggle = landing.widgetMenuToggle('landing-rhel-widget');
+    const menuToggle = landing.widgetMenuToggle('rhel-widget');
     await expect(menuToggle).toBeVisible();
 
     await openWidgetActionsMenu(page, menuToggle);
-    const widgetCard = landing.widget('landing-rhel-widget');
+    const widgetCard = landing.widget('rhel-widget');
+    const gridItem = page.locator('.react-grid-item:has([data-ouia-component-id="rhel-widget"])');
     const lockBtn = page
       .locator('[data-ouia-component-id="lock-widget"]')
       .first();
@@ -268,13 +267,13 @@ test.describe('Landing page widget layout operations', () => {
     await landing.waitForLayoutPatchOptional(20000);
     await expect(lockBtn).toHaveCount(0, { timeout: 60000 });
     // High-signal UI proof we are locked (GridTile adds `static` class when locked).
-    await expect(widgetCard).toHaveClass(/static/, { timeout: 60000 });
+    await expect(gridItem).toHaveClass(/static/, { timeout: 60000 });
 
     // Attempt move
     const dragHandle = landing
-      .widget('landing-rhel-widget')
-      .locator('.drag-handle');
-    const dest = landing.widget('landing-openshift-widget');
+      .widget('rhel-widget')
+      .locator('.pf-v6-widget-drag-handle');
+    const dest = landing.widget('openshift-widget');
     await dragHandle.dragTo(dest);
 
     // Indirect assertion: first card still contains "Red Hat Enterprise Linux"
@@ -297,7 +296,7 @@ test.describe('Landing page widget layout operations', () => {
     if (await unlockBtn.isVisible({ timeout: 1500 }).catch(() => false)) {
       await unlockBtn.click();
       await landing.waitForLayoutPatchOptional(20000);
-      await expect(widgetCard).not.toHaveClass(/static/, { timeout: 60000 });
+      await expect(gridItem).not.toHaveClass(/static/, { timeout: 60000 });
     } else if (!lockStillVisible) {
       // If neither lock nor unlock is visible, the dropdown likely closed; don't hard-fail cleanup.
       // The test's main assertion is that the widget couldn't be moved while "locked".
