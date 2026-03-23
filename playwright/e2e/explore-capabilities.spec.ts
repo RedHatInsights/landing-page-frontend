@@ -12,7 +12,7 @@ test.describe('Explore Capabilities widget', () => {
 
   test('shows correct content and CTAs for each tile', async ({ page }) => {
     const landing = new LandingPage(page);
-    const widget = landing.widget('landing-exploreCapabilities-widget');
+    const widget = landing.widget('exploreCapabilities-widget');
     await expect(widget).toBeVisible();
 
     const tileData = [

@@ -2,7 +2,7 @@ import { expect, test } from '@playwright/test';
 import { LandingPage } from '../pages/LandingPage';
 
 test.describe('Integrations widget', () => {
-  const widgetId = 'sources-integrations-widget';
+  const widgetId = 'integrations-widget';
 
   test.beforeEach(async ({ page }) => {
     await page.setViewportSize({ width: 1280, height: 2000 });
