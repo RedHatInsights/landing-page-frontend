@@ -29,7 +29,7 @@
     "playwright:ui": "playwright test --ui",
     "playwright:debug": "playwright test --debug",
     "playwright:report": "playwright show-report",
-    "test:playwright": "playwright test"
+    "test:playwright": "playwright test --max-failures=2"
   },
   "repository": {
     "type": "git",

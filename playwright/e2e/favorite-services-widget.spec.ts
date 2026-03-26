@@ -1,4 +1,5 @@
-import { type Locator, type Page, expect, test } from '@playwright/test';
+import { type Locator, type Page } from '@playwright/test';
+import { expect, test } from '../fixtures';
 import { LandingPage } from '../pages/LandingPage';
 
 test.describe('My Favorite Services widget', () => {
