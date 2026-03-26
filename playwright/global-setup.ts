@@ -17,6 +17,9 @@ export default async function globalSetup(config: FullConfig) {
   });
   const page = await context.newPage();
 
+  // Block all TrustArc consent tracking domains (consent.trustarc.com, consent-pref.trustarc.com, etc.)
+  await page.route('**://*.trustarc.com/**', (route) => route.abort());
+
   await login(page);
   await context.storageState({ path: storageStatePath });
 
