@@ -43,63 +43,293 @@ objects:
             maxH: 4
             minH: 1
       baseWidgetLayouts:
-        - name: "landingDashboard"
-          displayName: "Landing Dashboard"
+        - name: "landingPage"
+          displayName: "LandingPage"
           templateConfig:
             sm:
-              - w: 1
-                h: 2
-                cx: 0
+              - cx: 0
                 cy: 0
-                i: "recent-activity"
+                i: 'rhel#rhel'
+                w: 1
+                h: 4
+                maxH: 10
+                minH: 1
+              - cx: 0
+                cy: 1
+                i: 'openshift#openshift'
+                w: 1
+                h: 4
+                maxH: 10
+                minH: 1
+              - cx: 0
+                cy: 2
+                i: 'ansible#ansible'
+                w: 1
+                h: 4
+                maxH: 10
+                minH: 1
+              - cx: 0
+                cy: 3
+                i: 'recentlyVisited#recentlyVisited'
+                w: 1
+                h: 5
+                maxH: 10
+                minH: 1
+              - cx: 0
+                cy: 4
+                i: 'favoriteServices#favoriteServices'
+                w: 1
+                h: 4
+                maxH: 10
+                minH: 1
+              - cx: 0
+                cy: 5
+                i: 'subscriptions#subscriptions'
+                w: 1
+                h: 6
+                maxH: 10
+                minH: 1
+              - cx: 0
+                cy: 6
+                i: 'exploreCapabilities#exploreCapabilities'
+                w: 1
+                h: 13
+                maxH: 13
+                minH: 1
+              - cx: 0
+                cy: 7
+                i: 'openshiftAi#openshiftAi'
+                w: 1
+                h: 4
+                maxH: 10
+                minH: 1
+              - cx: 0
+                cy: 8
+                i: 'imageBuilder#imageBuilder'
+                w: 1
+                h: 4
+                maxH: 10
+                minH: 1
+              - cx: 0
+                cy: 9
+                i: 'acs#acs'
+                w: 1
+                h: 4
+                maxH: 10
+                minH: 1
             md:
-              - w: 1
-                h: 2
-                cx: 0
+              - cx: 0
                 cy: 0
-                i: "recent-activity"
-              - w: 1
-                h: 2
-                cx: 1
+                i: 'rhel#rhel'
+                w: 1
+                h: 4
+                maxH: 10
+                minH: 1
+              - cx: 0
+                cy: 1
+                i: 'openshift#openshift'
+                w: 1
+                h: 4
+                maxH: 10
+                minH: 1
+              - cx: 0
+                cy: 2
+                i: 'ansible#ansible'
+                w: 1
+                h: 4
+                maxH: 10
+                minH: 1
+              - cx: 1
                 cy: 0
-                i: "quick-links"
+                i: 'recentlyVisited#recentlyVisited'
+                w: 1
+                h: 3
+                maxH: 10
+                minH: 1
+              - cx: 1
+                cy: 1
+                i: 'favoriteServices#favoriteServices'
+                w: 1
+                h: 4
+                maxH: 10
+                minH: 1
+              - cx: 1
+                cy: 2
+                i: 'subscriptions#subscriptions'
+                w: 1
+                h: 5
+                maxH: 10
+                minH: 1
+              - cx: 0
+                cy: 3
+                i: 'exploreCapabilities#exploreCapabilities'
+                w: 2
+                h: 6
+                maxH: 10
+                minH: 1
+              - cx: 0
+                cy: 4
+                i: 'imageBuilder#imageBuilder'
+                w: 1
+                h: 4
+                maxH: 10
+                minH: 1
+              - cx: 1
+                cy: 4
+                i: 'openshiftAi#openshiftAi'
+                w: 1
+                h: 4
+                maxH: 10
+                minH: 1
+              - cx: 1
+                cy: 3
+                i: 'acs#acs'
+                w: 2
+                h: 3
+                maxH: 10
+                minH: 1
             lg:
-              - w: 1
-                h: 2
-                cx: 0
+              - cx: 0
                 cy: 0
-                i: "recent-activity"
-              - w: 1
-                h: 2
-                cx: 1
+                i: 'rhel#rhel'
+                w: 1
+                h: 4
+                maxH: 10
+                minH: 1
+              - cx: 1
                 cy: 0
-                i: "quick-links"
-              - w: 1
-                h: 2
-                cx: 2
+                i: 'openshift#openshift'
+                w: 1
+                h: 4
+                maxH: 10
+                minH: 1
+              - cx: 0
+                cy: 1
+                i: 'ansible#ansible'
+                w: 2
+                h: 4
+                maxH: 10
+                minH: 1
+              - cx: 0
+                cy: 4
+                i: 'exploreCapabilities#exploreCapabilities'
+                w: 2
+                h: 6
+                maxH: 10
+                minH: 1
+              - cx: 2
                 cy: 0
-                i: "notifications"
+                i: 'recentlyVisited#recentlyVisited'
+                w: 1
+                h: 4
+                maxH: 10
+                minH: 1
+              - cx: 2
+                cy: 2
+                i: 'favoriteServices#favoriteServices'
+                w: 1
+                h: 4
+                maxH: 10
+                minH: 1
+              - cx: 2
+                cy: 3
+                i: 'subscriptions#subscriptions'
+                w: 1
+                h: 6
+                maxH: 10
+                minH: 1
+              - cx: 0
+                cy: 4
+                i: 'openshiftAi#openshiftAi'
+                w: 1
+                h: 4
+                maxH: 10
+                minH: 1
+              - cx: 1
+                cy: 4
+                i: 'imageBuilder#imageBuilder'
+                w: 1
+                h: 4
+                maxH: 10
+                minH: 1
+              - cx: 2
+                cy: 4
+                i: 'acs#acs'
+                w: 1
+                h: 4
+                maxH: 10
+                minH: 1
             xl:
-              - w: 1
-                h: 2
-                cx: 0
+              - cx: 0
                 cy: 0
-                i: "recent-activity"
-              - w: 1
-                h: 2
-                cx: 1
+                i: 'rhel#rhel'
+                w: 1
+                h: 4
+                maxH: 10
+                minH: 1
+              - cx: 1
                 cy: 0
-                i: "quick-links"
-              - w: 1
-                h: 2
-                cx: 2
+                i: 'openshift#openshift'
+                w: 1
+                h: 4
+                maxH: 10
+                minH: 1
+              - cx: 2
                 cy: 0
-                i: "notifications"
-              - w: 1
-                h: 2
-                cx: 3
+                i: 'ansible#ansible'
+                w: 1
+                h: 4
+                maxH: 10
+                minH: 1
+              - cx: 0
+                cy: 2
+                i: 'exploreCapabilities#exploreCapabilities'
+                w: 3
+                h: 6
+                maxH: 10
+                minH: 1
+              - cx: 3
                 cy: 0
-                i: "system-status"
+                i: 'recentlyVisited#recentlyVisited'
+                w: 1
+                h: 3
+                maxH: 10
+                minH: 1
+              - cx: 3
+                cy: 1
+                i: 'favoriteServices#favoriteServices'
+                w: 1
+                h: 5
+                maxH: 10
+                minH: 1
+              - cx: 3
+                cy: 2
+                i: 'subscriptions#subscriptions'
+                w: 1
+                h: 6
+                maxH: 10
+                minH: 1
+              - cx: 0
+                cy: 3
+                i: 'openshiftAi#openshiftAi'
+                w: 1
+                h: 4
+                maxH: 10
+                minH: 1
+              - cx: 1
+                cy: 3
+                i: 'imageBuilder#imageBuilder'
+                w: 1
+                h: 4
+                maxH: 10
+                minH: 1
+              - cx: 2
+                cy: 3
+                i: 'acs#acs'
+                w: 1
+                h: 4
+                maxH: 10
+                minH: 1
 parameters:
   - name: ENV_NAME
     required: true
