@@ -6,11 +6,11 @@ import { test as base } from '@playwright/test';
  * from interfering with test execution.
  */
 export const test = base.extend({
-  page: async ({ page }, use) => {
-    // Block all TrustArc consent tracking domains (consent.trustarc.com, consent-pref.trustarc.com, etc.)
-    await page.route('**://*.trustarc.com/**', (route) => route.abort());
+  context: async ({ context }, use) => {
+    // Block all TrustArc consent tracking domains at context level
+    await context.route('**://*.trustarc.com/**', (route) => route.abort());
 
-    await use(page);
+    await use(context);
   },
 });
 

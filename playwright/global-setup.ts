@@ -14,11 +14,13 @@ export default async function globalSetup(config: FullConfig) {
   const context = await browser.newContext({
     baseURL: project.use.baseURL?.toString(),
     ignoreHTTPSErrors: Boolean(project.use.ignoreHTTPSErrors),
+    userAgent: 'ConsoleDotFrameworkLandingPageTests',
   });
-  const page = await context.newPage();
 
-  // Block all TrustArc consent tracking domains (consent.trustarc.com, consent-pref.trustarc.com, etc.)
-  await page.route('**://*.trustarc.com/**', (route) => route.abort());
+  // Block all TrustArc consent tracking domains at context level
+  await context.route('**://*.trustarc.com/**', (route) => route.abort());
+
+  const page = await context.newPage();
 
   await login(page);
   await context.storageState({ path: storageStatePath });
