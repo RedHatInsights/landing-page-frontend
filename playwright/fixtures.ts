@@ -45,6 +45,19 @@ export const test = base.extend({
 
     await use(context);
   },
+  page: async ({ page }, use) => {
+    // Hide TrustArc overlay DOM elements that intercept pointer events.
+    // Route blocking prevents iframe content from loading, but the TrustArc
+    // init script still injects overlay/iframe elements into the DOM.
+    await page.addInitScript(() => {
+      const style = document.createElement('style');
+      style.textContent =
+        '.truste_overlay, .truste_box_overlay, .truste_popframe { display: none !important; }';
+      (document.head || document.documentElement).appendChild(style);
+    });
+
+    await use(page);
+  },
 });
 
 export { expect } from '@playwright/test';
