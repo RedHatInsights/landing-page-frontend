@@ -1,4 +1,4 @@
-import { expect, test } from '@playwright/test';
+import { expect, test } from '../fixtures';
 
 test.describe('Authentication', () => {
   test('can login via RH SSO and reach the app', async ({ page }) => {
