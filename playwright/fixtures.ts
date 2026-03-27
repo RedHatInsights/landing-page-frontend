@@ -27,7 +27,10 @@ export const test = base.extend({
       let pending = Promise.resolve();
       await context.route('**/*', (route, request) => {
         if (!RATE_LIMITED_METHODS.has(request.method())) {
-          return route.continue();
+          // Use fallback() so the request can still be matched by earlier
+          // route handlers (e.g. the TrustArc abort handler above).
+          // continue() would bypass all other handlers and go to the network.
+          return route.fallback();
         }
         // Chain each rate-limited request so they execute sequentially
         pending = pending.then(
