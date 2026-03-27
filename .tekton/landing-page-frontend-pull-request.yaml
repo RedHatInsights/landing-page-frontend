@@ -80,7 +80,7 @@ spec:
       #!/bin/bash
       set -ex
 
-      npm install
+      npm ci
   pipelineRef:
     resolver: git
     params:

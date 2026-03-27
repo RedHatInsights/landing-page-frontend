@@ -31,6 +31,12 @@ spec:
     value: build-tools/Dockerfile
   - name: path-context
     value: .
+  - name: workspace-setup-script
+    value: |
+      #!/bin/bash
+      set -ex
+
+      npm ci
   pipelineRef:
     name: docker-build-oci-ta
   taskRunTemplate:
