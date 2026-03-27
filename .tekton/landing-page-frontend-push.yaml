@@ -26,6 +26,12 @@ spec:
     value: quay.io/redhat-user-workloads/rh-platform-experien-tenant/landing-page-frontend/landing-page-frontend:{{revision}}
   - name: dockerfile
     value: build-tools/Dockerfile
+  - name: workspace-setup-script
+    value: |
+      #!/bin/bash
+      set -ex
+
+      npm ci
   pipelineRef:
     name: docker-build
   taskRunTemplate:
