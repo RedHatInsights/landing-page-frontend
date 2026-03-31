@@ -98,6 +98,16 @@ objects:
             h: 4
             maxH: 10
             minH: 1
+        - scope: "landing"
+          module: "./QuayWidget"
+          config:
+            icon: "QuayIcon"
+            title: "Quay.io"
+          defaults:
+            w: 1
+            h: 4
+            maxH: 10
+            minH: 1
       baseWidgetLayouts:
         - name: "landingPage"
           displayName: "LandingPage"
