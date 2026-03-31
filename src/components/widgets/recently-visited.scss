@@ -1,5 +1,6 @@
 .landing-recentlyVisited, [class*="landing-landing-./RecentlyVisited"] {
   overflow-y: auto;
+  padding: var(--pf-t--global--spacer--md);
 }
 .widget-recently-visited {
     column-width: 300px;
