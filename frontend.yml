@@ -30,17 +30,73 @@ objects:
             exact: true
       widgetRegistry:
         - scope: "landing"
-          module: "./LandingWidgetModule"
+          module: "./ExploreCapabilities"
           config:
-            icon: "CogIcon"
-            title: "Recent Activity"
+            icon: "RocketIcon"
+            title: "Explore capabilities"
+          defaults:
+            w: 3
+            h: 5
+            maxH: 10
+            minH: 1
+        - scope: "chrome"
+          module: "./DashboardFavorites"
+          featureFlag: "widget.favoriteServices.enable"
+          config:
+            icon: "StarIcon"
+            title: "My favorite services"
             headerLink:
-              title: "View all activity"
-              href: "/settings/activity"
+              title: "View all services"
+              href: "/allservices"
           defaults:
             w: 1
-            h: 2
-            maxH: 4
+            h: 6
+            maxH: 10
+            minH: 1
+        - scope: "landing"
+          module: "./OpenShiftWidget"
+          featureFlag: "widget.openshift.enable"
+          config:
+            icon: "OpenShiftIcon"
+            title: "Red Hat OpenShift"
+          defaults:
+            w: 1
+            h: 4
+            maxH: 10
+            minH: 1
+        - scope: "landing"
+          module: "./OpenShiftAiWidget"
+          config:
+            icon: "OpenShiftAiIcon"
+            title: "Red Hat OpenShift AI"
+          defaults:
+            w: 1
+            h: 4
+            maxH: 10
+            minH: 1
+        - scope: "landing"
+          module: "./RecentlyVisited"
+          featureFlag: "widget.recentlyVisited.enable"
+          config:
+            icon: "HistoryIcon"
+            title: "Recently visited"
+          defaults:
+            w: 1
+            h: 7
+            maxH: 10
+            minH: 1
+        - scope: "landing"
+          module: "./SupportCaseWidget"
+          config:
+            icon: "HeadsetIcon"
+            title: "My support cases"
+            headerLink:
+              title: "Open a support case"
+              href: "https://access.redhat.com/support/cases/#/case/new/get-support?caseCreate=true"
+          defaults:
+            w: 2
+            h: 4
+            maxH: 10
             minH: 1
       baseWidgetLayouts:
         - name: "landingPage"
