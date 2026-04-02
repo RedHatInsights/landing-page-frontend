@@ -51,10 +51,6 @@ module.exports = {
         __dirname,
         'src/components/widgets/edge-widget.tsx'
       ),
-      './QuayWidget': path.resolve(
-        __dirname,
-        'src/components/widgets/quay-widget.tsx'
-      ),
       './SupportCaseWidget': path.resolve(
         __dirname,
         'src/components/widgets/support-case-widget.tsx'

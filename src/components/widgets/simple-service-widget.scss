@@ -1,5 +1,5 @@
 // non-scrollable widgets using flex
-.landing-edge, .landing-quay, [class*="landing-landing-./EdgeWidget"], [class*="landing-landing-./QuayWidget"] {
+.landing-edge, [class*="landing-landing-./EdgeWidget"] {
   display: flex; 
   overflow: hidden;
   a {
