@@ -51,33 +51,9 @@ module.exports = {
         __dirname,
         'src/components/widgets/edge-widget.tsx'
       ),
-      './ImageBuilderWidget': path.resolve(
-        __dirname,
-        'src/components/widgets/image-builder-widget.tsx'
-      ),
-      './RhelWidget': path.resolve(
-        __dirname,
-        'src/components/widgets/rhel-widget.tsx'
-      ),
-      './AnsibleWidget': path.resolve(
-        __dirname,
-        'src/components/widgets/ansible-widget.tsx'
-      ),
-      './OpenShiftWidget': path.resolve(
-        __dirname,
-        'src/components/widgets/openshift-widget.tsx'
-      ),
-      './OpenShiftAiWidget': path.resolve(
-        __dirname,
-        'src/components/widgets/openshift-ai-widget.tsx'
-      ),
       './QuayWidget': path.resolve(
         __dirname,
         'src/components/widgets/quay-widget.tsx'
-      ),
-      './AcsWidget': path.resolve(
-        __dirname,
-        'src/components/widgets/acs-widget.tsx'
       ),
       './SupportCaseWidget': path.resolve(
         __dirname,
