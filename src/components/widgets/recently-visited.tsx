@@ -30,7 +30,7 @@ const RecentlyVisited = () => {
   const lastVisited = useLastVisited();
   const lastVisitedData = lastVisited.slice(0, 10);
   return (
-    <Gallery hasGutter className="widget-recently-visited pf-v5-u-m-md">
+    <Gallery hasGutter className="widget-recently-visited pf-v6-u-m-md">
       {lastVisitedData.map(({ bundle, pathname, title }, index) => (
         <Fragment key={index}>
           <Content>

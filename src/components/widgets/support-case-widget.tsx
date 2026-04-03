@@ -235,7 +235,7 @@ const SupportCaseWidget: React.FunctionComponent = () => {
                 <Tr key={c.id}>
                   <Td dataLabel={columnNames.caseId}>
                     <Button
-                      className="pf-v5-u-pl-0"
+                      className="pf-v6-u-pl-0"
                       variant="link"
                       icon={<ExternalLinkAltIcon />}
                       iconPosition="end"

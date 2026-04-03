@@ -37,7 +37,7 @@ const PdfEntry = ({
   return (
     <>
       <h1>Services</h1>
-      <div className="pf-v5-u-m-xl">
+      <div className="pf-v6-u-m-xl">
         <Table>
           <Thead>
             <Tr>
