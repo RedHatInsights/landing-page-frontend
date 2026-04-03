@@ -14,7 +14,7 @@ const isBeta = () => {
 };
 
 const Maintenance = () => (
-  <section className="pf-v5-l-page__main-section pf-v5-c-page__main-section land-c-page__maintenance">
+  <section className="pf-v6-l-page__main-section pf-v6-c-page__main-section land-c-page__maintenance">
     <EmptyState
       titleText="Maintenance in progress"
       variant={EmptyStateVariant.lg}
