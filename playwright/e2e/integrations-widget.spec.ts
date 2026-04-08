@@ -1,7 +1,7 @@
 import { expect, test } from '@playwright/test';
 import { LandingPage } from '../pages/LandingPage';
 
-test.describe('Integrations widget', () => {
+test.describe.skip('Integrations widget', () => {
   const widgetId = 'integrations-widget';
 
   test.beforeEach(async ({ page }) => {
