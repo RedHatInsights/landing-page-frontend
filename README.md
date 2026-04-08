@@ -47,17 +47,26 @@ URL=https://console.redhat.com E2E_USER=<your-e2e-user> E2E_PASSWORD=<your-e2e-p
 
 ### Playwright
 
-Run the Playwright login smoke test (requires the same credentials as Cypress):
+Run the Playwright E2E tests. Authentication is handled automatically via the `@redhat-cloud-services/playwright-test-auth` package, which performs Red Hat SSO login once during global setup and reuses the authenticated session across all tests.
+
+**Requirements:**
+- `E2E_USER` and `E2E_PASSWORD` environment variables
+
+**Basic usage:**
 
 ```bash
 E2E_USER=<your-e2e-user> E2E_PASSWORD=<your-e2e-password> npm run test:playwright
 ```
 
-To point at a specific environment, set `BASE` (or reuse `URL`):
+**Targeting a specific environment:**
+
+Set `BASE` (or reuse `URL`) to point at different environments:
 
 ```bash
 BASE=https://cloud.redhat.com E2E_USER=<your-e2e-user> E2E_PASSWORD=<your-e2e-password> npm run test:playwright
 ```
+
+**Using a proxy:**
 
 If you see a **preprod lockdown page** when targeting stage, your Playwright browser likely isn’t on VPN. In that case, run with a proxy:
 
@@ -68,6 +77,12 @@ NO_PROXY=localhost,127.0.0.1 \
 E2E_USER=<your-e2e-user> E2E_PASSWORD=<your-e2e-password> \
 npm run test:playwright
 ```
+
+**How it works:**
+- Authentication happens once via global setup (before any tests run)
+- The authenticated session is stored in `playwright/.auth/user.json`
+- All tests automatically use this session, eliminating repetitive login steps
+- Cookie prompts are handled by importing `disableCookiePrompt` from the package
 
 ## Deployment
 
