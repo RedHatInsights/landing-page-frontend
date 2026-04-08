@@ -1,5 +1,6 @@
 import { expect } from '@playwright/test';
 import type { Locator, Page } from '@playwright/test';
+import { disableCookiePrompt } from '@redhat-cloud-services/playwright-test-auth';
 
 export type FavoritePage = {
   id: number;
@@ -18,12 +19,6 @@ export class LandingPage {
     this.page = page;
   }
 
-  private async acceptCookiesIfPresent(): Promise<void> {
-    const accept = this.page.getByRole('button', { name: /accept all/i });
-    if (await accept.isVisible({ timeout: 1500 }).catch(() => false)) {
-      await accept.click();
-    }
-  }
 
   private isOkishStatus(status: number): boolean {
     // Treat redirects/caching as OK for our network “presence” waits.
@@ -52,7 +47,7 @@ export class LandingPage {
     });
 
     await this.page.goto('/', { waitUntil: 'domcontentloaded' });
-    await this.acceptCookiesIfPresent();
+    await disableCookiePrompt(this.page);
 
     // Some environments cache this request; don’t hard-fail if it doesn’t fire.
     await Promise.race([

@@ -49,7 +49,7 @@ spec:
   - name: frontend-proxy-routes-configmap
     value: "landing-page-frontend-dev-proxy-caddyfile"
   - name: e2e-playwright-image
-    value: "mcr.microsoft.com/playwright:v1.58.2-noble"
+    value: "mcr.microsoft.com/playwright:v1.59.1-noble"
   - name: e2e-tests-script
     value: |
       #!/bin/bash
