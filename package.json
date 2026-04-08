@@ -65,9 +65,10 @@
   "devDependencies": {
     "@4tw/cypress-drag-drop": "^2.3.1",
     "@cypress/code-coverage": "^3.14.7",
-    "@playwright/test": "^1.58.2",
+    "@playwright/test": "^1.59.1",
     "@redhat-cloud-services/eslint-config-redhat-cloud-services": "^3.0.31",
     "@redhat-cloud-services/frontend-components-config": "^6.8.3",
+    "@redhat-cloud-services/playwright-test-auth": "^0.0.2",
     "@redhat-cloud-services/tsc-transform-imports": "^1.0.56",
     "@swc/core": "^1.15.18",
     "@swc/jest": "^0.2.39",

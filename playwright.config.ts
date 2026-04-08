@@ -34,7 +34,7 @@ export default defineConfig({
   },
 
   /* Global setup to run before all tests */
-  globalSetup: require.resolve('./playwright/global-setup.ts'),
+  globalSetup: require.resolve('@redhat-cloud-services/playwright-test-auth/global-setup'),
 
   /* Configure projects for major browsers */
   projects: [
