@@ -26,8 +26,8 @@ const RecentlyVisited = () => {
   const lastVisited = useLastVisited();
   const lastVisitedData = lastVisited.slice(0, 10);
   return (
-    <Content className="pf-m-fill pf-v5-u-px-xl pf-v5-u-py-lg">
-      <Content component={ContentVariants.h3} className="pf-v5-u-mb-lg">
+    <Content className="pf-m-fill pf-v6-u-px-xl pf-v6-u-py-lg">
+      <Content component={ContentVariants.h3} className="pf-v6-u-mb-lg">
         Recently visited
       </Content>
       {lastVisitedData.map(({ bundle, pathname, title }, index) => (

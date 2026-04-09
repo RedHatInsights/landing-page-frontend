@@ -12,7 +12,7 @@ const isBeta = () => {
 
 const NotFound = () => (
   <div className="landing">
-    <section className="pf-v5-l-page__main-section pf-v5-c-page__main-section land-c-page__404">
+    <section className="pf-v6-l-page__main-section pf-v6-c-page__main-section land-c-page__404">
       <Title headingLevel="h1" size="3xl">
         404: We lost that page
       </Title>

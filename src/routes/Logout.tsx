@@ -9,7 +9,7 @@ const onButtonClick = (url: string) => {
 };
 
 const Logout = () => (
-  <section className="pf-v5-l-page__main-section pf-v5-c-page__main-section land-c-page__logout">
+  <section className="pf-v6-l-page__main-section pf-v6-c-page__main-section land-c-page__logout">
     <Title headingLevel="h1" size="3xl">
       You have logged out.
     </Title>

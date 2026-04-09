@@ -1,9 +1,9 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
 
 exports[`Logout component should render correctly 1`] = `
 <div>
   <section
-    class="pf-v5-l-page__main-section pf-v5-c-page__main-section land-c-page__logout"
+    class="pf-v6-l-page__main-section pf-v6-c-page__main-section land-c-page__logout"
   >
     <h1
       class="pf-v6-c-title pf-m-3xl"

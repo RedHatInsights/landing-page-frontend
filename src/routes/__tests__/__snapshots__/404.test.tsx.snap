@@ -1,4 +1,4 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
 
 exports[`404 page should render correctly 1`] = `
 <div>
@@ -6,7 +6,7 @@ exports[`404 page should render correctly 1`] = `
     class="landing"
   >
     <section
-      class="pf-v5-l-page__main-section pf-v5-c-page__main-section land-c-page__404"
+      class="pf-v6-l-page__main-section pf-v6-c-page__main-section land-c-page__404"
     >
       <h1
         class="pf-v6-c-title pf-m-3xl"

@@ -73,7 +73,7 @@ const ExploreCapabilities: React.FunctionComponent = () => {
           <Card ouiaId={cardData.ouiaId} isFullHeight>
             <CardBody className="pf-v6-u-p-md pf-v6-u-text-align-center land-c-card__body-explore">
               <img
-                className="pf-v5-u-justify-content-center"
+                className="pf-v6-u-justify-content-center"
                 src={cardData.img}
                 alt={cardData.alt}
               />
