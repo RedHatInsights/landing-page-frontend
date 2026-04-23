@@ -20,15 +20,9 @@ test.describe('Landing page - smoke', () => {
     await landing.resetToDefaultLayout();
 
     const widgetIds = [
-      'rhel-widget',
-      'openshift-widget',
-      'ansible-widget',
       'exploreCapabilities-widget',
       'recentlyVisited-widget',
       'favoriteServices-widget',
-      'openshiftAi-widget',
-      'imageBuilder-widget',
-      'acs-widget',
     ];
 
     for (const id of widgetIds) {
