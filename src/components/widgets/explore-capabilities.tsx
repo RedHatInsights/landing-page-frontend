@@ -40,7 +40,7 @@ const ExploreCapabilities: React.FunctionComponent = () => {
     },
     {
       id: 'card4',
-      img: '/apps/frontend-assets/technology-icons/insights.svg',
+      img: '/apps/frontend-assets/technology-icons/lightspeed.svg',
       alt: 'Red Hat Lightspeed logo',
       title: 'Analyze RHEL environments',
       body: 'Analyze platforms and applications from the console to better manage your hybrid cloud environments.',
