@@ -132,7 +132,7 @@ test.describe('Landing page widget layout operations', () => {
       .catch(() => undefined);
 
     // Use a stable widget identity; tabindex=0 is focus-dependent and can change after a reflow.
-    const widget = page.locator('.react-grid-item:has([data-ouia-component-id="rhel-widget"])');
+    const widget = page.locator('.react-grid-item:has([data-ouia-component-id="edge-widget"])');
     await expect(widget).toBeVisible();
 
     const getCols = async () => {
@@ -252,12 +252,11 @@ test.describe('Landing page widget layout operations', () => {
     const landing = new LandingPage(page);
     await closeChromeOverlays(page);
 
-    const menuToggle = landing.widgetMenuToggle('rhel-widget');
+    const menuToggle = landing.widgetMenuToggle('edge-widget');
     await expect(menuToggle).toBeVisible();
 
     await openWidgetActionsMenu(page, menuToggle);
-    const widgetCard = landing.widget('rhel-widget');
-    const gridItem = page.locator('.react-grid-item:has([data-ouia-component-id="rhel-widget"])');
+    const gridItem = page.locator('.react-grid-item:has([data-ouia-component-id="edge-widget"])');
     const lockBtn = page
       .locator('[data-ouia-component-id="lock-widget"]')
       .first();
@@ -271,15 +270,15 @@ test.describe('Landing page widget layout operations', () => {
 
     // Attempt move
     const dragHandle = landing
-      .widget('rhel-widget')
+      .widget('edge-widget')
       .locator('.pf-v6-widget-drag-handle');
-    const dest = landing.widget('openshift-widget');
+    const dest = landing.widget('exploreCapabilities-widget');
     await dragHandle.dragTo(dest);
 
-    // Indirect assertion: first card still contains "Red Hat Enterprise Linux"
+    // Indirect assertion: first card still contains "Edge"
     await expect(
       page.locator('#widget-layout-container .react-grid-item').first(),
-    ).toContainText('Red Hat Enterprise Linux');
+    ).toContainText('Edge');
 
     // Unlock
     await closeChromeOverlays(page);

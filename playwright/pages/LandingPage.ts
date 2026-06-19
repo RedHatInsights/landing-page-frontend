@@ -255,7 +255,7 @@ export class LandingPage {
 
   async addWidget(
     widgetName: string,
-    widgetTargetId = 'rhel-widget',
+    widgetTargetId = 'edge-widget',
   ): Promise<void> {
     await this.page
       .locator('[data-ouia-component-id="add-widget-button"]')
