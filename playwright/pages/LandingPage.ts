@@ -3,12 +3,19 @@ import type { Locator, Page } from '@playwright/test';
 import { disableCookiePrompt } from '@redhat-cloud-services/playwright-test-auth';
 
 // Timeout constants for e2e tests
-const TIMEOUTS = {
+export const TIMEOUTS = {
   WIDGET_VISIBLE: 60000, // Time to wait for widget to appear in layout
   MENU_VISIBLE: 15000,   // Time to wait for dropdown menus
   LAYOUT_PATCH: 15000,   // Time to wait for layout save API call
   WIDGET_REMOVAL: 20000, // Time to wait for widget to be removed
   PAGE_INTERACTIVE: 60000, // Time to wait for page to become interactive
+} as const;
+
+// Test timeout constants (for test.setTimeout())
+export const TEST_TIMEOUTS = {
+  DEFAULT: 30000,         // Default Playwright test timeout
+  WIDGET_OPERATIONS: 90000, // Tests involving widget add/remove/reset operations
+  WITH_UI_INTERACTION: 90000, // Tests with complex UI interactions (favoriting, etc.)
 } as const;
 
 export type FavoritePage = {
@@ -280,34 +287,47 @@ export class LandingPage {
   }
 
   /**
+   * Checks if a feature flag is enabled in the current environment.
+   * Feature flags are managed by Unleash/Chrome services.
+   *
+   * @param flagName - The feature flag name (e.g., 'widget.favoriteServices.enable')
+   * @returns true if enabled, false if disabled or unavailable
+   */
+  async isFeatureFlagEnabled(flagName: string): Promise<boolean> {
+    return this.page.evaluate((flag) => {
+      // Check if chrome API is available
+      const chrome = (window as any).chrome;
+      if (!chrome) return false;
+
+      // Try to get the feature flag value from chrome's isBeta or unleash client
+      if (chrome.isBeta && typeof chrome.isBeta === 'function') {
+        // Some flags are exposed via isBeta
+        return chrome.isBeta(flag);
+      }
+
+      // Check if unleash client is available
+      if (chrome.getVisibilityFunctions) {
+        const visibilityFns = chrome.getVisibilityFunctions();
+        if (visibilityFns?.isVisible) {
+          return visibilityFns.isVisible(flag);
+        }
+      }
+
+      // Default to true if we can't determine (fail open for tests)
+      return true;
+    }, flagName);
+  }
+
+  /**
    * Ensures a widget is present in the layout by resetting to default layout if needed.
    * Always calls resetToDefaultLayout to ensure consistent state between tests.
    * Use this instead of API stubbing to establish UI state in e2e tests.
    *
    * @param widgetId - The OUIA component ID of the widget to ensure is present
-   * @param options - Optional configuration
-   * @param options.featureFlag - Feature flag name to check before asserting visibility.
-   *   If provided and the flag is off, the test will be skipped instead of failing.
    */
-  async ensureWidgetPresent(
-    widgetId: string,
-    options?: { featureFlag?: string }
-  ): Promise<void> {
+  async ensureWidgetPresent(widgetId: string): Promise<void> {
     // Always reset to ensure widget is present (handles cross-test state issues)
     await this.resetToDefaultLayout();
-
-    // If widget has a feature flag, check if it's enabled
-    if (options?.featureFlag) {
-      const isEnabled = await this.page.evaluate((flagName) => {
-        return (window as any).chrome?.getVisibilityFunctions?.()?.hasVisibilitySettings?.(flagName) ?? true;
-      }, options.featureFlag);
-
-      if (!isEnabled) {
-        // Widget is feature-flagged off, skip the expectation
-        return;
-      }
-    }
-
     await expect(this.widget(widgetId)).toBeVisible({ timeout: TIMEOUTS.WIDGET_VISIBLE });
   }
 

@@ -1,5 +1,5 @@
 import { type Locator, type Page, expect, test } from '@playwright/test';
-import { LandingPage } from '../pages/LandingPage';
+import { LandingPage, TEST_TIMEOUTS } from '../pages/LandingPage';
 
 test.describe('My Favorite Services widget', () => {
   // Updated OUIA ID format from favoriteServices-widget to chrome-./DashboardFavorites-widget
@@ -134,18 +134,25 @@ test.describe('My Favorite Services widget', () => {
   });
 
   test('appears in the default layout', async ({ page }) => {
+    test.setTimeout(TEST_TIMEOUTS.WIDGET_OPERATIONS);
     const landing = new LandingPage(page);
     await landing.gotoAndWaitForLayout();
-    await landing.ensureWidgetPresent(widgetId, { featureFlag: 'widget.favoriteServices.enable' });
 
+    const isEnabled = await landing.isFeatureFlagEnabled('widget.favoriteServices.enable');
+    test.skip(!isEnabled, 'Widget feature flag is disabled');
+
+    await landing.ensureWidgetPresent(widgetId);
     await expect(landing.widget(widgetId)).toBeVisible();
   });
 
   test('disappears when removed from the layout', async ({ page }) => {
-    test.setTimeout(90000); // Increase timeout to allow for removeWidget's internal waits
+    test.setTimeout(TEST_TIMEOUTS.WIDGET_OPERATIONS); // Increase timeout to allow for removeWidget's internal waits
     const landing = new LandingPage(page);
     await landing.gotoAndWaitForLayout();
-    await landing.ensureWidgetPresent(widgetId, { featureFlag: 'widget.favoriteServices.enable' });
+    const isEnabled = await landing.isFeatureFlagEnabled('widget.favoriteServices.enable');
+    test.skip(!isEnabled, 'Widget feature flag is disabled');
+
+    await landing.ensureWidgetPresent(widgetId);
 
     await landing.removeWidget(widgetId);
   });
@@ -163,7 +170,10 @@ test.describe('My Favorite Services widget', () => {
     });
 
     await landing.gotoAndWaitForLayout();
-    await landing.ensureWidgetPresent(widgetId, { featureFlag: 'widget.favoriteServices.enable' });
+    const isEnabled = await landing.isFeatureFlagEnabled('widget.favoriteServices.enable');
+    test.skip(!isEnabled, 'Widget feature flag is disabled');
+
+    await landing.ensureWidgetPresent(widgetId);
     await favoritesResp;
 
     await expect(landing.widget(widgetId)).toBeVisible();
@@ -174,10 +184,13 @@ test.describe('My Favorite Services widget', () => {
 
   test('shows favorites when they are set', async ({ page }) => {
     const landing = new LandingPage(page);
-    test.setTimeout(90000);
+    test.setTimeout(TEST_TIMEOUTS.WIDGET_OPERATIONS);
 
     await landing.gotoAndWaitForLayout();
-    await landing.ensureWidgetPresent(widgetId, { featureFlag: 'widget.favoriteServices.enable' });
+    const isEnabled = await landing.isFeatureFlagEnabled('widget.favoriteServices.enable');
+    test.skip(!isEnabled, 'Widget feature flag is disabled');
+
+    await landing.ensureWidgetPresent(widgetId);
 
     try {
       // Favoriting via UI avoids brittle stubbing and matches real user behavior.
