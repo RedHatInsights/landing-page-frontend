@@ -11,12 +11,12 @@ test.describe('Landing page widgets - basic presence and links', () => {
 
   test('RHEL widget exists', async ({ page }) => {
     const landing = new LandingPage(page);
-    await expect(landing.widget('rhel-widget')).toBeVisible();
+    await expect(landing.widget('landing-./RhelWidget-widget')).toBeVisible();
   });
 
   test('RHEL widget link targets Insights', async ({ page }) => {
     const landing = new LandingPage(page);
-    await expect(landing.widget('rhel-widget').locator('a')).toHaveAttribute(
+    await expect(landing.widget('landing-./RhelWidget-widget').locator('a')).toHaveAttribute(
       'href',
       /\/insights\//,
     );
@@ -24,17 +24,17 @@ test.describe('Landing page widgets - basic presence and links', () => {
 
   test('RHEL widget can be removed', async ({ page }) => {
     const landing = new LandingPage(page);
-    await landing.removeWidget('rhel-widget');
+    await landing.removeWidget('landing-./RhelWidget-widget');
   });
 
   test('Ansible widget appears in default layout', async ({ page }) => {
     const landing = new LandingPage(page);
-    await expect(landing.widget('ansible-widget')).toBeVisible();
+    await expect(landing.widget('landing-./AnsibleWidget-widget')).toBeVisible();
   });
 
   test('Ansible widget has correct link', async ({ page }) => {
     const landing = new LandingPage(page);
-    await expect(landing.widget('ansible-widget').locator('a')).toHaveAttribute(
+    await expect(landing.widget('landing-./AnsibleWidget-widget').locator('a')).toHaveAttribute(
       'href',
       /\/ansible\/ansible-dashboard/,
     );
@@ -42,31 +42,31 @@ test.describe('Landing page widgets - basic presence and links', () => {
 
   test('Ansible widget can be removed', async ({ page }) => {
     const landing = new LandingPage(page);
-    await landing.removeWidget('ansible-widget');
+    await landing.removeWidget('landing-./AnsibleWidget-widget');
     // cleanup: restore default layout for any following tests in the same worker run
     await landing.resetToDefaultLayout();
   });
 
   test('OpenShift widget exists and links to /openshift', async ({ page }) => {
     const landing = new LandingPage(page);
-    const widgetId = 'openshift-widget';
+    const widgetId = 'landing-./OpenShiftWidget-widget';
     await expect(landing.widget(widgetId)).toBeVisible();
     await expect(landing.widget(widgetId).locator('a')).toHaveAttribute('href', /\/openshift/);
   });
 
   test('OpenShift widget can be removed', async ({ page }) => {
     const landing = new LandingPage(page);
-    await landing.removeWidget('openshift-widget');
+    await landing.removeWidget('landing-./OpenShiftWidget-widget');
   });
 
   test('OpenShift AI widget exists', async ({ page }) => {
     const landing = new LandingPage(page);
-    await expect(landing.widget('openshiftAi-widget')).toBeVisible();
+    await expect(landing.widget('landing-./OpenShiftAiWidget-widget')).toBeVisible();
   });
 
   test('OpenShift AI widget link is correct', async ({ page }) => {
     const landing = new LandingPage(page);
-    await expect(landing.widget('openshiftAi-widget').locator('a')).toHaveAttribute(
+    await expect(landing.widget('landing-./OpenShiftAiWidget-widget').locator('a')).toHaveAttribute(
       'href',
       /redhat\.com\/en\/technologies\/cloud-computing\/openshift\/openshift-ai\/trial/,
     );
@@ -74,13 +74,13 @@ test.describe('Landing page widgets - basic presence and links', () => {
 
   test('OpenShift AI widget can be removed', async ({ page }) => {
     const landing = new LandingPage(page);
-    await landing.removeWidget('openshiftAi-widget');
+    await landing.removeWidget('landing-./OpenShiftAiWidget-widget');
   });
 
   test('ACS widget shows expected descriptive copy', async ({ page }) => {
     const landing = new LandingPage(page);
     // The Cypress source was a component test; here we validate the same copy via E2E widget.
-    await expect(landing.widget('acs-widget')).toContainText(
+    await expect(landing.widget('landing-./AcsWidget-widget')).toContainText(
       'Fully hosted software as a service for protecting cloud-native applications and Kubernetes.',
     );
   });

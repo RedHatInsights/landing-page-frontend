@@ -19,16 +19,17 @@ test.describe('Landing page - smoke', () => {
     await landing.gotoAndWaitForLayout();
     await landing.resetToDefaultLayout();
 
+    // Updated to new scoped OUIA ID format (see commit 392074c)
     const widgetIds = [
-      'rhel-widget',
-      'openshift-widget',
-      'ansible-widget',
-      'exploreCapabilities-widget',
-      'recentlyVisited-widget',
-      'favoriteServices-widget',
-      'openshiftAi-widget',
-      'imageBuilder-widget',
-      'acs-widget',
+      'landing-./RhelWidget-widget',
+      'landing-./OpenShiftWidget-widget',
+      'landing-./AnsibleWidget-widget',
+      'landing-./ExploreCapabilities-widget',
+      'landing-./RecentlyVisited-widget',
+      'chrome-./DashboardFavorites-widget',
+      'landing-./OpenShiftAiWidget-widget',
+      'landing-./ImageBuilderWidget-widget',
+      'landing-./AcsWidget-widget',
     ];
 
     for (const id of widgetIds) {

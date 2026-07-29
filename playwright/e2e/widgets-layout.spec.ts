@@ -132,7 +132,7 @@ test.describe('Landing page widget layout operations', () => {
       .catch(() => undefined);
 
     // Use a stable widget identity; tabindex=0 is focus-dependent and can change after a reflow.
-    const widget = page.locator('.react-grid-item:has([data-ouia-component-id="rhel-widget"])');
+    const widget = page.locator('.react-grid-item:has([data-ouia-component-id="landing-./RhelWidget-widget"])');
     await expect(widget).toBeVisible();
 
     const getCols = async () => {
@@ -257,7 +257,7 @@ test.describe('Landing page widget layout operations', () => {
 
     await openWidgetActionsMenu(page, menuToggle);
     const widgetCard = landing.widget('rhel-widget');
-    const gridItem = page.locator('.react-grid-item:has([data-ouia-component-id="rhel-widget"])');
+    const gridItem = page.locator('.react-grid-item:has([data-ouia-component-id="landing-./RhelWidget-widget"])');
     const lockBtn = page
       .locator('[data-ouia-component-id="lock-widget"]')
       .first();
@@ -273,7 +273,7 @@ test.describe('Landing page widget layout operations', () => {
     const dragHandle = landing
       .widget('rhel-widget')
       .locator('.pf-v6-widget-drag-handle');
-    const dest = landing.widget('openshift-widget');
+    const dest = landing.widget('landing-./OpenShiftWidget-widget');
     await dragHandle.dragTo(dest);
 
     // Indirect assertion: first card still contains "Red Hat Enterprise Linux"
