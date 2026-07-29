@@ -2,7 +2,9 @@ import { type Locator, type Page, expect, test } from '@playwright/test';
 import { LandingPage } from '../pages/LandingPage';
 
 test.describe('My Favorite Services widget', () => {
-  const widgetId = 'favoriteServices-widget';
+  // Updated OUIA ID format from favoriteServices-widget to chrome-./DashboardFavorites-widget
+  // See commit 392074c which changed widget IDs from shorthand to scoped format
+  const widgetId = 'chrome-./DashboardFavorites-widget';
 
   async function openServicesMenu(page: Page): Promise<Locator> {
     // This button toggles the All Services sidebar/dropdown in chrome.

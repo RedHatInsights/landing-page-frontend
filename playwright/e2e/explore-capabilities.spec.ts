@@ -12,7 +12,9 @@ test.describe('Explore Capabilities widget', () => {
 
   test('shows correct content and CTAs for each tile', async ({ page }) => {
     const landing = new LandingPage(page);
-    const widget = landing.widget('exploreCapabilities-widget');
+    // Updated OUIA ID format from exploreCapabilities-widget to landing-./ExploreCapabilities-widget
+    // See commit 392074c which changed widget IDs from shorthand to scoped format
+    const widget = landing.widget('landing-./ExploreCapabilities-widget');
     await expect(widget).toBeVisible();
 
     const tileData = [
