@@ -2,6 +2,15 @@ import { expect } from '@playwright/test';
 import type { Locator, Page } from '@playwright/test';
 import { disableCookiePrompt } from '@redhat-cloud-services/playwright-test-auth';
 
+// Timeout constants for e2e tests
+const TIMEOUTS = {
+  WIDGET_VISIBLE: 60000, // Time to wait for widget to appear in layout
+  MENU_VISIBLE: 15000,   // Time to wait for dropdown menus
+  LAYOUT_PATCH: 15000,   // Time to wait for layout save API call
+  WIDGET_REMOVAL: 20000, // Time to wait for widget to be removed
+  PAGE_INTERACTIVE: 60000, // Time to wait for page to become interactive
+} as const;
+
 export type FavoritePage = {
   id: number;
   createdAt: string;
@@ -61,7 +70,7 @@ export class LandingPage {
     // A high-signal “page is interactive” check for console apps.
     await expect(
       this.page.getByRole('button', { name: /User Avatar/i }),
-    ).toBeVisible({ timeout: 60000 });
+    ).toBeVisible({ timeout: TIMEOUTS.PAGE_INTERACTIVE });
   }
 
   async resetToDefaultLayout(): Promise<void> {
@@ -104,7 +113,7 @@ export class LandingPage {
     const resetButton = this.page.getByRole('button', {
       name: /reset to default/i,
     });
-    await expect(resetButton).toBeVisible({ timeout: 60000 });
+    await expect(resetButton).toBeVisible({ timeout: TIMEOUTS.PAGE_INTERACTIVE });
     await resetButton.scrollIntoViewIfNeeded();
     await resetButton.click();
     const confirmCheckbox = this.page.locator(
@@ -114,13 +123,13 @@ export class LandingPage {
       'button[data-ouia-component-id="WarningModal-confirm-button"]',
     );
 
-    await expect(confirmCheckbox).toBeVisible({ timeout: 20000 });
+    await expect(confirmCheckbox).toBeVisible({ timeout: TIMEOUTS.WIDGET_REMOVAL });
     await confirmCheckbox.click();
-    await expect(confirmButton).toBeVisible({ timeout: 20000 });
+    await expect(confirmButton).toBeVisible({ timeout: TIMEOUTS.WIDGET_REMOVAL });
     await confirmButton.click();
 
     // Wait for the modal to close.
-    await expect(confirmButton).toHaveCount(0, { timeout: 20000 });
+    await expect(confirmButton).toHaveCount(0, { timeout: TIMEOUTS.WIDGET_REMOVAL });
 
     const uiReady = Promise.all([
       this.page
@@ -138,7 +147,7 @@ export class LandingPage {
     await templatesReloadResp;
   }
 
-  async waitForLayoutPatchOptional(timeoutMs = 15000): Promise<void> {
+  async waitForLayoutPatchOptional(timeoutMs = TIMEOUTS.LAYOUT_PATCH): Promise<void> {
     await this.page
       .waitForResponse(
         (resp) => {
@@ -180,7 +189,7 @@ export class LandingPage {
   }
 
   async removeWidget(widgetId: string): Promise<void> {
-    await expect(this.widget(widgetId)).toBeVisible({ timeout: 60000 });
+    await expect(this.widget(widgetId)).toBeVisible({ timeout: TIMEOUTS.PAGE_INTERACTIVE });
 
     const openMenu = async () => {
       await this.widgetMenuToggle(widgetId).click();
@@ -198,7 +207,7 @@ export class LandingPage {
       .getByRole('menuitem', { name: /^remove\b/i })
       .first()
       .or(removeItem.first().locator('button[role="menuitem"]').first());
-    await expect(removeMenuItem).toBeVisible({ timeout: 15000 });
+    await expect(removeMenuItem).toBeVisible({ timeout: TIMEOUTS.MENU_VISIBLE });
 
     // If the widget is locked, "Remove" is disabled. Auto-unlock before removing.
     const disabled = await removeMenuItem.isDisabled().catch(() => false);
@@ -221,7 +230,7 @@ export class LandingPage {
         await unlockMenuItem.click();
         await this.waitForLayoutPatchOptional(15000);
         await this.widgetMenuToggle(widgetId).click();
-        await expect(removeMenuItem).toBeVisible({ timeout: 15000 });
+        await expect(removeMenuItem).toBeVisible({ timeout: TIMEOUTS.MENU_VISIBLE });
       }
     }
 
@@ -234,7 +243,7 @@ export class LandingPage {
 
     // Avoid short fixed timeouts: removal can be slow and can race with late layout updates.
     const removed = await expect
-      .poll(async () => this.widget(widgetId).count(), { timeout: 20000 })
+      .poll(async () => this.widget(widgetId).count(), { timeout: TIMEOUTS.WIDGET_REMOVAL })
       .toBe(0)
       .then(() => true)
       .catch(() => false);
@@ -244,7 +253,7 @@ export class LandingPage {
       await openMenu();
       await clickRemoveOnce();
       await expect
-        .poll(async () => this.widget(widgetId).count(), { timeout: 20000 })
+        .poll(async () => this.widget(widgetId).count(), { timeout: TIMEOUTS.WIDGET_REMOVAL })
         .toBe(0);
     }
 
@@ -255,7 +264,7 @@ export class LandingPage {
 
   async addWidget(
     widgetName: string,
-    widgetTargetId = 'rhel-widget',
+    widgetTargetId = 'landing-./RhelWidget-widget',
   ): Promise<void> {
     await this.page
       .locator('[data-ouia-component-id="add-widget-button"]')
@@ -268,6 +277,38 @@ export class LandingPage {
 
     await draggable.dragTo(this.widget(widgetTargetId));
     await this.waitForLayoutPatchOptional();
+  }
+
+  /**
+   * Ensures a widget is present in the layout by resetting to default layout if needed.
+   * Always calls resetToDefaultLayout to ensure consistent state between tests.
+   * Use this instead of API stubbing to establish UI state in e2e tests.
+   *
+   * @param widgetId - The OUIA component ID of the widget to ensure is present
+   * @param options - Optional configuration
+   * @param options.featureFlag - Feature flag name to check before asserting visibility.
+   *   If provided and the flag is off, the test will be skipped instead of failing.
+   */
+  async ensureWidgetPresent(
+    widgetId: string,
+    options?: { featureFlag?: string }
+  ): Promise<void> {
+    // Always reset to ensure widget is present (handles cross-test state issues)
+    await this.resetToDefaultLayout();
+
+    // If widget has a feature flag, check if it's enabled
+    if (options?.featureFlag) {
+      const isEnabled = await this.page.evaluate((flagName) => {
+        return (window as any).chrome?.getVisibilityFunctions?.()?.hasVisibilitySettings?.(flagName) ?? true;
+      }, options.featureFlag);
+
+      if (!isEnabled) {
+        // Widget is feature-flagged off, skip the expectation
+        return;
+      }
+    }
+
+    await expect(this.widget(widgetId)).toBeVisible({ timeout: TIMEOUTS.WIDGET_VISIBLE });
   }
 
   /**

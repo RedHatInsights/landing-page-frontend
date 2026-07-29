@@ -136,7 +136,7 @@ test.describe('My Favorite Services widget', () => {
   test('appears in the default layout', async ({ page }) => {
     const landing = new LandingPage(page);
     await landing.gotoAndWaitForLayout();
-    await landing.resetToDefaultLayout();
+    await landing.ensureWidgetPresent(widgetId, { featureFlag: 'widget.favoriteServices.enable' });
 
     await expect(landing.widget(widgetId)).toBeVisible();
   });
@@ -145,7 +145,7 @@ test.describe('My Favorite Services widget', () => {
     test.setTimeout(90000); // Increase timeout to allow for removeWidget's internal waits
     const landing = new LandingPage(page);
     await landing.gotoAndWaitForLayout();
-    await landing.resetToDefaultLayout();
+    await landing.ensureWidgetPresent(widgetId, { featureFlag: 'widget.favoriteServices.enable' });
 
     await landing.removeWidget(widgetId);
   });
@@ -163,7 +163,7 @@ test.describe('My Favorite Services widget', () => {
     });
 
     await landing.gotoAndWaitForLayout();
-    await landing.resetToDefaultLayout();
+    await landing.ensureWidgetPresent(widgetId, { featureFlag: 'widget.favoriteServices.enable' });
     await favoritesResp;
 
     await expect(landing.widget(widgetId)).toBeVisible();
@@ -177,7 +177,7 @@ test.describe('My Favorite Services widget', () => {
     test.setTimeout(90000);
 
     await landing.gotoAndWaitForLayout();
-    await landing.resetToDefaultLayout();
+    await landing.ensureWidgetPresent(widgetId, { featureFlag: 'widget.favoriteServices.enable' });
 
     try {
       // Favoriting via UI avoids brittle stubbing and matches real user behavior.
