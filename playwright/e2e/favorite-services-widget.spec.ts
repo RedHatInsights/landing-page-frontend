@@ -6,19 +6,6 @@ test.describe('My Favorite Services widget', () => {
   // See commit 392074c which changed widget IDs from shorthand to scoped format
   const widgetId = 'chrome-./DashboardFavorites-widget';
 
-  // Check feature flag once before all tests in this suite
-  test.beforeAll(async ({ browser }) => {
-    const context = await browser.newContext();
-    const page = await context.newPage();
-    const landing = new LandingPage(page);
-
-    await landing.gotoAndWaitForLayout();
-    const isEnabled = await landing.isFeatureFlagEnabled('widget.favoriteServices.enable');
-
-    await context.close();
-    test.skip(!isEnabled, 'Widget feature flag widget.favoriteServices.enable is disabled');
-  });
-
   async function openServicesMenu(page: Page): Promise<Locator> {
     // This button toggles the All Services sidebar/dropdown in chrome.
     const toggle = page.getByRole('button', {
@@ -191,6 +178,10 @@ test.describe('My Favorite Services widget', () => {
     test.setTimeout(TEST_TIMEOUTS.WIDGET_OPERATIONS);
 
     await landing.gotoAndWaitForLayout();
+
+    const isEnabled = await landing.isFeatureFlagEnabled('widget.favoriteServices.enable');
+    test.skip(!isEnabled, 'Widget feature flag widget.favoriteServices.enable is disabled');
+
     await landing.ensureWidgetPresent(widgetId);
 
     try {
