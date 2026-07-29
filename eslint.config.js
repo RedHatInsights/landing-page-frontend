@@ -53,4 +53,23 @@ module.exports = defineConfig(
       '@typescript-eslint/no-unused-vars': ['error', { ignoreRestSiblings: true, args: 'after-used' }],
     },
   },
+  {
+    files: ['playwright/e2e/**/*.ts', 'playwright/e2e/**/*.tsx'],
+    languageOptions: {
+      parser: tsParser,
+    },
+    rules: {
+      'no-restricted-syntax': [
+        'error',
+        {
+          selector: 'MemberExpression[object.name="page"][property.name="route"]',
+          message: 'Do not use page.route() for API stubbing in e2e tests. E2E tests should test real user workflows with real APIs. Use page.waitForResponse() to observe network traffic instead.',
+        },
+        {
+          selector: 'CallExpression[callee.property.name="stubFavoritePages"]',
+          message: 'Do not use stubFavoritePages() in e2e tests. E2E tests should test real user workflows with real APIs. Manipulate state through the UI instead.',
+        },
+      ],
+    },
+  },
 );

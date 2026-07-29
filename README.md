@@ -84,6 +84,15 @@ npm run test:playwright
 - All tests automatically use this session, eliminating repetitive login steps
 - Cookie prompts are handled by importing `disableCookiePrompt` from the package
 
+**E2E Test Best Practices:**
+- **NO API STUBBING**: E2E tests should test real user workflows with real APIs
+  - ❌ Do not use `page.route()` to intercept/mock API responses
+  - ❌ Do not use helper methods like `stubFavoritePages()` 
+  - ✅ Use `page.waitForResponse()` to observe real network traffic
+  - ✅ Manipulate state through the UI (click buttons, fill forms, etc.)
+- **Why**: API stubbing masks integration issues and makes tests brittle. E2E tests should verify the full stack works together.
+- **Note**: The ESLint configuration enforces this rule for files in `playwright/e2e/`
+
 ## Deployment
 
 The following four branches are used

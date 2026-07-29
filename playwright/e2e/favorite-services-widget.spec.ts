@@ -135,7 +135,6 @@ test.describe('My Favorite Services widget', () => {
 
   test('appears in the default layout', async ({ page }) => {
     const landing = new LandingPage(page);
-    await landing.stubFavoritePages([]);
     await landing.gotoAndWaitForLayout();
     await landing.resetToDefaultLayout();
 
@@ -143,8 +142,8 @@ test.describe('My Favorite Services widget', () => {
   });
 
   test('disappears when removed from the layout', async ({ page }) => {
+    test.setTimeout(90000); // Increase timeout to allow for removeWidget's internal waits
     const landing = new LandingPage(page);
-    await landing.stubFavoritePages([]);
     await landing.gotoAndWaitForLayout();
     await landing.resetToDefaultLayout();
 
@@ -153,7 +152,6 @@ test.describe('My Favorite Services widget', () => {
 
   test('shows empty state when no favorites are set', async ({ page }) => {
     const landing = new LandingPage(page);
-    await landing.stubFavoritePages([]);
 
     const favoritesResp = page.waitForResponse((resp) => {
       return (

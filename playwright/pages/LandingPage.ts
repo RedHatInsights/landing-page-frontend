@@ -270,6 +270,11 @@ export class LandingPage {
     await this.waitForLayoutPatchOptional();
   }
 
+  /**
+   * @deprecated Do not use in e2e tests. E2E tests should test real user workflows with real APIs.
+   * This method is only appropriate for component/unit tests.
+   * Manipulate favorite pages state through the UI instead of stubbing the API.
+   */
   async stubFavoritePages(favoritePages: FavoritePage[]): Promise<void> {
     await this.page.route('**/api/chrome-service/v1/user', async (route) => {
       const resp = await route.fetch();
