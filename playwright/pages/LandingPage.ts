@@ -123,10 +123,13 @@ export class LandingPage {
     await expect(confirmCheckbox).toBeVisible({
       timeout: TIMEOUTS.MODAL_VISIBLE,
     });
+    // Wait for PatternFly modal fade-in animation to complete (prevents "element not stable" errors)
+    await this.page.waitForTimeout(300);
     await confirmCheckbox.click();
     await expect(confirmButton).toBeVisible({
       timeout: TIMEOUTS.MODAL_VISIBLE,
     });
+    await this.page.waitForTimeout(100); // Let button become enabled/stable after checkbox click
     await confirmButton.click();
 
     await expect(confirmButton).toHaveCount(0, {
