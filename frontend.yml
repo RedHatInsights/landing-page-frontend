@@ -371,4 +371,4 @@ parameters:
   - name: IMAGE_TAG
     required: true
   - name: IMAGE
-    value: quay.io/redhat-user-workloads/rh-platform-experien-tenant/landing-page-frontend/landing-page-frontend
+    value: quay.io/redhat-services-prod/rh-platform-experien-tenant/landing-page-frontend
