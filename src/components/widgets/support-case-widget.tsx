@@ -22,8 +22,10 @@ import ExternalLinkAltIcon from '@patternfly/react-icons/dist/dynamic/icons/exte
 import HeadsetIcon from '@patternfly/react-icons/dist/dynamic/icons/headset-icon';
 import useChrome from '@redhat-cloud-services/frontend-components/useChrome';
 import SkeletonTable from '@patternfly/react-component-groups/dist/dynamic/SkeletonTable';
-import { MAX_ROWS, columnNames, getUrl, labelColor } from '../../utils/consts';
+import { MAX_ROWS, columnNames, labelColor } from '../../utils/consts';
 import './support-case-widget.scss';
+import { Alert } from '@patternfly/react-core/dist/dynamic/components/Alert';
+import { SupportCase, fetchSupportCases } from '../../utils/fetchSupportCases';
 import {
   SupportCaseFilters,
   SupportCaseWidgetTableFilter,
@@ -32,20 +34,13 @@ import {
 const SUPPORT_CASE_URL =
   'https://access.redhat.com/support/cases/#/case/new/get-support?caseCreate=true';
 
-export type Case = {
-  id: string;
-  caseNumber: string;
-  summary: string;
-  lastModifiedById: string;
-  severity: string;
-  status: string;
-  productFamily: string;
-};
+export type Case = SupportCase;
 
 const SupportCaseWidget: React.FunctionComponent = () => {
   const [cases, setCases] = useState<Case[]>([]);
   const chrome = useChrome();
-  const [isLoading, setIsLoading] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
+  const [hasError, setHasError] = useState(false);
 
   const [sortBy, setSortBy] = useState<ISortBy>({
     index: 0,
@@ -119,34 +114,27 @@ const SupportCaseWidget: React.FunctionComponent = () => {
     });
   }, [cases, filters]);
 
-  const fetchSupportCases = async () => {
-    const token = await chrome.auth.getToken();
-    const user = await chrome.auth.getUser();
-    const options = {
-      method: 'POST',
-      headers: {
-        Authorization: `Bearer ${token}`,
-        'Content-Type': 'application/json',
-        Accept: 'application/json',
-      },
-      body: JSON.stringify({
-        createdBySSOName: `${user?.identity.user?.username}`,
-      }),
-    };
-
-    try {
-      const response = await fetch(getUrl(chrome.getEnvironment()), options);
-      const { cases } = await response.json();
-      setCases(cases || []);
-      setIsLoading(false);
-    } catch (error) {
-      console.error('Unable to fetch support cases', error);
-    }
-  };
-
   useEffect(() => {
+    const controller = new AbortController();
     setIsLoading(true);
-    fetchSupportCases();
+    setHasError(false);
+    fetchSupportCases(chrome.auth, chrome.getEnvironment(), controller.signal)
+      .then((data) => {
+        if (!controller.signal.aborted)
+          setCases(
+            data.sort((a, b) => a.caseNumber.localeCompare(b.caseNumber)),
+          );
+      })
+      .catch((error) => {
+        if (!controller.signal.aborted) {
+          console.error('Unable to fetch support cases', error);
+          setHasError(true);
+        }
+      })
+      .finally(() => {
+        if (!controller.signal.aborted) setIsLoading(false);
+      });
+    return () => controller.abort();
   }, []);
 
   return (
@@ -161,6 +149,12 @@ const SupportCaseWidget: React.FunctionComponent = () => {
             columnNames.severity,
             columnNames.status,
           ]}
+        />
+      ) : hasError ? (
+        <Alert
+          variant="danger"
+          isInline
+          title="Unable to load support cases. Please try again later."
         />
       ) : cases.length === 0 ? (
         <EmptyState
@@ -192,72 +186,80 @@ const SupportCaseWidget: React.FunctionComponent = () => {
           </Button>
         </EmptyState>
       ) : (
-        <Table
-          aria-label="Support case table widget"
-          variant={TableVariant.compact}
-        >
-          <Thead>
-            <>
-              <SupportCaseWidgetTableFilter
-                filters={filters}
-                onFiltersChange={setFilters}
-              />
-              <Tr>
-                {columns.map((col, index) => (
-                  <Th
-                    key={index}
-                    sort={{
-                      sortBy,
-                      onSort,
-                      columnIndex: index,
-                    }}
-                  >
-                    {col.name}
-                  </Th>
-                ))}
-              </Tr>
-            </>
-          </Thead>
-          <Tbody>
-            {filteredCases.length === 0 ? (
-              <Tr>
-                <Td colSpan={columns.length}>
-                  <EmptyState variant={EmptyStateVariant.sm}>
-                    <EmptyStateBody>
-                      No support cases match the selected filters. Adjust your
-                      filters to see more results.
-                    </EmptyStateBody>
-                  </EmptyState>
-                </Td>
-              </Tr>
-            ) : (
-              filteredCases?.slice(0, MAX_ROWS).map((c) => (
-                <Tr key={c.id}>
-                  <Td dataLabel={columnNames.caseId}>
-                    <Button
-                      className="pf-v6-u-pl-0"
-                      variant="link"
-                      icon={<ExternalLinkAltIcon />}
-                      iconPosition="end"
-                      component="a"
-                      href={`https://access.redhat.com/support/cases/#/case/${c.caseNumber}`}
+        <>
+          <SupportCaseWidgetTableFilter
+            filters={filters}
+            statusOptions={[...new Set(cases.map((c) => c.status))]
+              .filter(Boolean)
+              .sort()}
+            severityOptions={[...new Set(cases.map((c) => c.severity))]
+              .filter(Boolean)
+              .sort()}
+            onFiltersChange={setFilters}
+          />
+          <Table
+            aria-label="Support case table widget"
+            variant={TableVariant.compact}
+          >
+            <Thead>
+              <>
+                <Tr>
+                  {columns.map((col, index) => (
+                    <Th
+                      key={index}
+                      sort={{
+                        sortBy,
+                        onSort,
+                        columnIndex: index,
+                      }}
                     >
-                      {c.caseNumber}
-                    </Button>
-                  </Td>
-                  <Td dataLabel={columnNames.issueSummary}>{c.summary}</Td>
-                  <Td dataLabel={columnNames.modifiedBy}>
-                    {c.lastModifiedById}
-                  </Td>
-                  <Td dataLabel={columnNames.severity}>
-                    {labelColor(c.severity)}
-                  </Td>
-                  <Td dataLabel={columnNames.status}>{c.status}</Td>
+                      {col.name}
+                    </Th>
+                  ))}
                 </Tr>
-              ))
-            )}
-          </Tbody>
-        </Table>
+              </>
+            </Thead>
+            <Tbody>
+              {filteredCases.length === 0 ? (
+                <Tr>
+                  <Td colSpan={columns.length}>
+                    <EmptyState variant={EmptyStateVariant.sm}>
+                      <EmptyStateBody>
+                        No support cases match the selected filters. Adjust your
+                        filters to see more results.
+                      </EmptyStateBody>
+                    </EmptyState>
+                  </Td>
+                </Tr>
+              ) : (
+                filteredCases?.slice(0, MAX_ROWS).map((c) => (
+                  <Tr key={c.id}>
+                    <Td dataLabel={columnNames.caseId}>
+                      <Button
+                        className="pf-v6-u-pl-0"
+                        variant="link"
+                        icon={<ExternalLinkAltIcon />}
+                        iconPosition="end"
+                        component="a"
+                        href={`https://access.redhat.com/support/cases/#/case/${c.caseNumber}`}
+                      >
+                        {c.caseNumber}
+                      </Button>
+                    </Td>
+                    <Td dataLabel={columnNames.issueSummary}>{c.summary}</Td>
+                    <Td dataLabel={columnNames.modifiedBy}>
+                      {c.lastModifiedById}
+                    </Td>
+                    <Td dataLabel={columnNames.severity}>
+                      {labelColor(c.severity)}
+                    </Td>
+                    <Td dataLabel={columnNames.status}>{c.status}</Td>
+                  </Tr>
+                ))
+              )}
+            </Tbody>
+          </Table>
+        </>
       )}
     </>
   );

@@ -15,8 +15,7 @@ import {
   SelectList,
   SelectOption,
 } from '@patternfly/react-core/dist/dynamic/components/Select';
-import FilterIcon from '@patternfly/react-icons/dist/esm/icons/filter-icon';
-import { severityTypes, statusTypes } from '../../utils/consts';
+import FilterIcon from '@patternfly/react-icons/dist/dynamic/icons/filter-icon';
 
 export interface SupportCaseFilters {
   severity: string[];
@@ -25,12 +24,14 @@ export interface SupportCaseFilters {
 
 interface SupportCaseWidgetTableFilterProps {
   filters: SupportCaseFilters;
+  statusOptions: string[];
+  severityOptions: string[];
   onFiltersChange: (filters: SupportCaseFilters) => void;
 }
 
 export const SupportCaseWidgetTableFilter: React.FunctionComponent<
   SupportCaseWidgetTableFilterProps
-> = ({ filters, onFiltersChange }) => {
+> = ({ filters, onFiltersChange, statusOptions, severityOptions }) => {
   const [isSeverityExpanded, setIsSeverityExpanded] = React.useState(false);
   const [isStatusExpanded, setIsStatusExpanded] = React.useState(false);
 
@@ -104,22 +105,9 @@ export const SupportCaseWidgetTableFilter: React.FunctionComponent<
     setIsStatusExpanded(!isStatusExpanded);
   };
 
-  const statusVariants = [
-    statusTypes.closed,
-    statusTypes.customerWaiting,
-    statusTypes.redHatWaiting,
-  ];
-
-  const severityVariants = [
-    severityTypes.urgent,
-    severityTypes.high,
-    severityTypes.normal,
-    severityTypes.low,
-  ];
-
   const statusMenuItems = (
     <SelectList>
-      {statusVariants.map((statusType) => (
+      {statusOptions.map((statusType) => (
         <SelectOption
           hasCheckbox
           key={statusType}
@@ -134,7 +122,7 @@ export const SupportCaseWidgetTableFilter: React.FunctionComponent<
 
   const severityMenuItems = (
     <SelectList>
-      {severityVariants.map((severityType) => (
+      {severityOptions.map((severityType) => (
         <SelectOption
           hasCheckbox
           key={severityType}

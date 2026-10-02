@@ -1,12 +1,6 @@
 import { Label } from '@patternfly/react-core/dist/dynamic/components/Label';
 import React from 'react';
 
-// for the support cases widget
-export const getUrl = (env: string) =>
-  `https://api.access${
-    env === 'stage' || env === 'frhStage' ? '.stage' : ''
-  }.redhat.com/support/v1/cases/filter`;
-
 export const MAX_ROWS = 5;
 
 export const columnNames = {
@@ -37,5 +31,5 @@ export const labelColor = (severity: string) => {
     [severityTypes.normal]: <Label color="blue">{severity}</Label>,
     [severityTypes.low]: <Label color="grey">{severity}</Label>,
   };
-  return severityMapper[severity] ?? '';
+  return severityMapper[severity] ?? <Label>{severity}</Label>;
 };
