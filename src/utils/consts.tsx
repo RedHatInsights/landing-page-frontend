@@ -5,7 +5,7 @@ import React from 'react';
 export const getUrl = (env: string) =>
   `https://api.access${
     env === 'stage' || env === 'frhStage' ? '.stage' : ''
-  }.redhat.com/support/v1/cases/filter`;
+  }.redhat.com/support/v3/cases/filter`;
 
 export const MAX_ROWS = 5;
 
