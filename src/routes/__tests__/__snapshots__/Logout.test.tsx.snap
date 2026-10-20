@@ -1,6 +1,6 @@
-// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`Logout component should render correctly 1`] = `
+exports[`Logout component > should render correctly 1`] = `
 <div>
   <section
     class="pf-v6-l-page__main-section pf-v6-c-page__main-section land-c-page__logout"

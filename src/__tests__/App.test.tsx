@@ -3,15 +3,16 @@ import { act } from 'react-dom/test-utils';
 import { BrowserRouter as Router } from 'react-router-dom';
 import App from '../App';
 import { render } from '@testing-library/react';
+import { vi } from 'vitest';
 
-jest.mock('../routes/Landing', () => ({
+vi.mock('../routes/Landing', () => ({
   __esModule: true,
 
   default: () => <span>Landing</span>,
 }));
 
-jest.mock('@redhat-cloud-services/frontend-components/useChrome', () => {
-  const actual = jest.requireActual(
+vi.mock('@redhat-cloud-services/frontend-components/useChrome', async () => {
+  const actual = await vi.importActual(
     '@redhat-cloud-services/frontend-components/useChrome',
   );
   return {
@@ -34,8 +35,8 @@ jest.mock('@redhat-cloud-services/frontend-components/useChrome', () => {
   };
 });
 
-jest.mock('@unleash/proxy-client-react', () => {
-  const unleash = jest.requireActual('@unleash/proxy-client-react');
+vi.mock('@unleash/proxy-client-react', async () => {
+  const unleash = await vi.importActual('@unleash/proxy-client-react');
   return {
     __esModule: true,
     ...unleash,

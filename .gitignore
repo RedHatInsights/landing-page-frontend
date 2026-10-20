@@ -32,3 +32,9 @@ cypress/screenshots/*
 playwright-report/
 test-results/
 playwright/.auth/
+
+# storybook build output
+storybook-static
+
+# vitest coverage
+coverage

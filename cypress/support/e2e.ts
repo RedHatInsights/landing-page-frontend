@@ -28,3 +28,23 @@ declare global {
     }
   }
 }
+
+// Type declarations for the custom commands defined in commands.ts.
+// (Previously carried by the CT support file component.ts, removed when
+// component testing was retired in favor of Storybook interaction tests.)
+declare global {
+  namespace Cypress {
+    interface Chainable {
+      addWidget(widgetName: string, widgetTarget?: string): Chainable<void>;
+      drag(target: string): Chainable<void>;
+      login(): Chainable<void>;
+      resetToDefaultLayout(): Chainable<void>;
+      dragTotarget(
+        sourceSelector: string,
+        targetSelector: string,
+      ): Chainable<void>;
+      loadLandingPage(): Chainable<void>;
+      removeWidget(widgetId: string): void;
+    }
+  }
+}

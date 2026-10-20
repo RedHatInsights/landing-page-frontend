@@ -1,6 +1,6 @@
-// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`404 page should render correctly 1`] = `
+exports[`404 page > should render correctly 1`] = `
 <div>
   <div
     class="landing"
@@ -267,7 +267,7 @@ exports[`404 page should render correctly 1`] = `
         data-ouia-component-id="OUIA-Generated-Button-link-1"
         data-ouia-component-type="PF6/Button"
         data-ouia-safe="true"
-        href="http://localhost"
+        href="http://localhost:3000"
       >
         <span
           class="pf-v6-c-button__text"
