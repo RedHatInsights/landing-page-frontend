@@ -1,5 +1,6 @@
 import React, { Suspense } from 'react';
 import useChrome from '@redhat-cloud-services/frontend-components/useChrome';
+import { defineMessages, useIntl } from 'react-intl';
 import { Bullseye } from '@patternfly/react-core/dist/dynamic/layouts/Bullseye';
 import { Spinner } from '@patternfly/react-core/dist/dynamic/components/Spinner';
 import '@patternfly/patternfly/utilities/Text/text.css';
@@ -13,10 +14,22 @@ import Landing from './features/landing/Landing';
  * it — there is nothing to route to in here. The app's entire job is the
  * Landing composition that mounts widgetLayout's layout engine.
  */
+const messages = defineMessages({
+  documentTitle: {
+    id: 'landing.documentTitle',
+    description: 'Browser tab title for the landing page',
+    defaultMessage: 'Hybrid Cloud Console Home',
+  },
+});
+
 const App: React.FC<{ layoutType?: string }> = ({ layoutType }) => {
   const chrome = useChrome();
+  const intl = useIntl();
 
-  chrome?.updateDocumentTitle?.('Hybrid Cloud Console Home', false);
+  chrome?.updateDocumentTitle?.(
+    intl.formatMessage(messages.documentTitle),
+    false,
+  );
 
   return (
     <Suspense

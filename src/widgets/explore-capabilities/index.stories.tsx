@@ -24,7 +24,28 @@ export const Default: Story = {
     await expect(
       canvas.getByText('Convert from CentOS to RHEL'),
     ).toBeInTheDocument();
-    // every card links somewhere
-    await expect(canvas.getAllByRole('link').length).toBeGreaterThanOrEqual(6);
+    // every card links to its destination, not just "some link exists"
+    await expect(
+      canvas.getByRole('link', { name: /Try OpenShift on AWS/ }),
+    ).toHaveAttribute('href', '/openshift/overview/rosa');
+    await expect(
+      canvas.getByRole('link', {
+        name: /Try our products in the Developer Sandbox/,
+      }),
+    ).toHaveAttribute('href', 'https://sandbox.redhat.com');
+    await expect(
+      canvas.getByRole('link', { name: /Analyze RHEL environments/ }),
+    ).toHaveAttribute('href', '/insights/dashboard#SIDs=&tags=');
+    await expect(
+      canvas.getByRole('link', { name: /Convert from CentOS to RHEL/ }),
+    ).toHaveAttribute(
+      'href',
+      '/insights/tasks/available/convert-to-rhel-analysis?quickstart=insights-tasks-pre-conversion',
+    );
+    await expect(
+      canvas.getByRole('link', {
+        name: /Migration Advisor: VMware to Openshift/,
+      }),
+    ).toHaveAttribute('href', '/openshift/migration-advisor');
   },
 };

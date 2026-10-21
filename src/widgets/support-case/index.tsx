@@ -23,6 +23,7 @@ import HeadsetIcon from '@patternfly/react-icons/dist/dynamic/icons/headset-icon
 import useChrome from '@redhat-cloud-services/frontend-components/useChrome';
 import SkeletonTable from '@patternfly/react-component-groups/dist/dynamic/SkeletonTable';
 import { MAX_ROWS, columnNames, getUrl, labelColor } from './consts';
+import { defineMessages, useIntl } from 'react-intl';
 import './index.scss';
 import {
   SupportCaseFilters,
@@ -42,7 +43,37 @@ export type Case = {
   productFamily: string;
 };
 
+const messages = defineMessages({
+  noOpenCases: {
+    id: 'supportCase.empty.title',
+    description: 'Support cases widget empty state title',
+    defaultMessage: 'No open support cases',
+  },
+  noOpenCasesBody: {
+    id: 'supportCase.empty.body',
+    description: 'Support cases widget empty state body',
+    defaultMessage: "We can't find any active support cases opened by you.",
+  },
+  openCase: {
+    id: 'supportCase.empty.openCase',
+    description: 'Support cases widget link to open a case',
+    defaultMessage: 'Open a support case',
+  },
+  noMatch: {
+    id: 'supportCase.filteredEmpty',
+    description: 'Support cases widget: no cases match the filters',
+    defaultMessage:
+      'No support cases match the selected filters. Adjust your filters to see more results.',
+  },
+  tableAria: {
+    id: 'supportCase.table.aria',
+    description: 'Support cases table accessible label',
+    defaultMessage: 'Support case table widget',
+  },
+});
+
 const SupportCaseWidget: React.FunctionComponent = () => {
+  const intl = useIntl();
   const [cases, setCases] = useState<Case[]>([]);
   const chrome = useChrome();
   const [isLoading, setIsLoading] = useState(false);
@@ -59,24 +90,24 @@ const SupportCaseWidget: React.FunctionComponent = () => {
 
   const columns = [
     {
-      name: 'Case ID',
+      name: intl.formatMessage(columnNames.caseId),
       sort: (a: Case, b: Case) => a.caseNumber.localeCompare(b.caseNumber),
     },
     {
-      name: 'Issue summary',
+      name: intl.formatMessage(columnNames.issueSummary),
       sort: (a: Case, b: Case) => a.summary.localeCompare(b.summary),
     },
     {
-      name: 'Modified by',
+      name: intl.formatMessage(columnNames.modifiedBy),
       sort: (a: Case, b: Case) =>
         a.lastModifiedById.localeCompare(b.lastModifiedById),
     },
     {
-      name: 'Severity',
+      name: intl.formatMessage(columnNames.severity),
       sort: (a: Case, b: Case) => a.severity.localeCompare(b.severity),
     },
     {
-      name: 'Status',
+      name: intl.formatMessage(columnNames.status),
       sort: (a: Case, b: Case) => a.status.localeCompare(b.status),
     },
   ];
@@ -155,11 +186,11 @@ const SupportCaseWidget: React.FunctionComponent = () => {
         <SkeletonTable
           rows={3}
           columns={[
-            columnNames.caseId,
-            columnNames.issueSummary,
-            columnNames.modifiedBy,
-            columnNames.severity,
-            columnNames.status,
+            intl.formatMessage(columnNames.caseId),
+            intl.formatMessage(columnNames.issueSummary),
+            intl.formatMessage(columnNames.modifiedBy),
+            intl.formatMessage(columnNames.severity),
+            intl.formatMessage(columnNames.status),
           ]}
         />
       ) : cases.length === 0 ? (
@@ -167,7 +198,7 @@ const SupportCaseWidget: React.FunctionComponent = () => {
           icon={HeadsetIcon}
           titleText={
             <Title headingLevel="h4" size="lg">
-              No open support cases
+              {intl.formatMessage(messages.noOpenCases)}
             </Title>
           }
           variant={EmptyStateVariant.lg}
@@ -175,7 +206,7 @@ const SupportCaseWidget: React.FunctionComponent = () => {
           <EmptyStateBody>
             <Stack>
               <StackItem>
-                We can&apos;t find any active support cases opened by you.
+                {intl.formatMessage(messages.noOpenCasesBody)}
               </StackItem>
             </Stack>
           </EmptyStateBody>
@@ -188,12 +219,12 @@ const SupportCaseWidget: React.FunctionComponent = () => {
               window.open(SUPPORT_CASE_URL, '_blank');
             }}
           >
-            Open a support case
+            {intl.formatMessage(messages.openCase)}
           </Button>
         </EmptyState>
       ) : (
         <Table
-          aria-label="Support case table widget"
+          aria-label={intl.formatMessage(messages.tableAria)}
           variant={TableVariant.compact}
         >
           <Thead>
@@ -224,8 +255,7 @@ const SupportCaseWidget: React.FunctionComponent = () => {
                 <Td colSpan={columns.length}>
                   <EmptyState variant={EmptyStateVariant.sm}>
                     <EmptyStateBody>
-                      No support cases match the selected filters. Adjust your
-                      filters to see more results.
+                      {intl.formatMessage(messages.noMatch)}
                     </EmptyStateBody>
                   </EmptyState>
                 </Td>
@@ -233,7 +263,7 @@ const SupportCaseWidget: React.FunctionComponent = () => {
             ) : (
               filteredCases?.slice(0, MAX_ROWS).map((c) => (
                 <Tr key={c.id}>
-                  <Td dataLabel={columnNames.caseId}>
+                  <Td dataLabel={intl.formatMessage(columnNames.caseId)}>
                     <Button
                       className="pf-v6-u-pl-0"
                       variant="link"
@@ -245,14 +275,18 @@ const SupportCaseWidget: React.FunctionComponent = () => {
                       {c.caseNumber}
                     </Button>
                   </Td>
-                  <Td dataLabel={columnNames.issueSummary}>{c.summary}</Td>
-                  <Td dataLabel={columnNames.modifiedBy}>
+                  <Td dataLabel={intl.formatMessage(columnNames.issueSummary)}>
+                    {c.summary}
+                  </Td>
+                  <Td dataLabel={intl.formatMessage(columnNames.modifiedBy)}>
                     {c.lastModifiedById}
                   </Td>
-                  <Td dataLabel={columnNames.severity}>
+                  <Td dataLabel={intl.formatMessage(columnNames.severity)}>
                     {labelColor(c.severity)}
                   </Td>
-                  <Td dataLabel={columnNames.status}>{c.status}</Td>
+                  <Td dataLabel={intl.formatMessage(columnNames.status)}>
+                    {c.status}
+                  </Td>
                 </Tr>
               ))
             )}

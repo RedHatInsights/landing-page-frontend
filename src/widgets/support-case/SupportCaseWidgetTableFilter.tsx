@@ -17,11 +17,25 @@ import {
 } from '@patternfly/react-core/dist/dynamic/components/Select';
 import FilterIcon from '@patternfly/react-icons/dist/esm/icons/filter-icon';
 import { severityTypes, statusTypes } from './consts';
+import { defineMessages, useIntl } from 'react-intl';
 
 export interface SupportCaseFilters {
   severity: string[];
   status: string[];
 }
+
+const messages = defineMessages({
+  severity: {
+    id: 'supportCase.filter.severity',
+    description: 'Support cases filter dropdown label',
+    defaultMessage: 'Severity',
+  },
+  status: {
+    id: 'supportCase.filter.status',
+    description: 'Support cases filter dropdown label',
+    defaultMessage: 'Status',
+  },
+});
 
 interface SupportCaseWidgetTableFilterProps {
   filters: SupportCaseFilters;
@@ -31,6 +45,7 @@ interface SupportCaseWidgetTableFilterProps {
 export const SupportCaseWidgetTableFilter: React.FunctionComponent<
   SupportCaseWidgetTableFilterProps
 > = ({ filters, onFiltersChange }) => {
+  const intl = useIntl();
   const [isSeverityExpanded, setIsSeverityExpanded] = React.useState(false);
   const [isStatusExpanded, setIsStatusExpanded] = React.useState(false);
 
@@ -76,15 +91,23 @@ export const SupportCaseWidgetTableFilter: React.FunctionComponent<
       status: filters.status.filter((fil: string) => fil !== id),
     };
     onFiltersChange({
-      severity: type === 'Severity' ? filterTypes.severity : filters.severity,
-      status: type === 'Status' ? filterTypes.status : filters.status,
+      severity:
+        type === intl.formatMessage(messages.severity)
+          ? filterTypes.severity
+          : filters.severity,
+      status:
+        type === intl.formatMessage(messages.status)
+          ? filterTypes.status
+          : filters.status,
     });
   };
 
   const onDeleteGroup = (type: string) => {
     const newFilters = {
-      severity: type === 'Severity' ? [] : filters.severity,
-      status: type === 'Status' ? [] : filters.status,
+      severity:
+        type === intl.formatMessage(messages.severity) ? [] : filters.severity,
+      status:
+        type === intl.formatMessage(messages.status) ? [] : filters.status,
     };
     onFiltersChange(newFilters);
   };
@@ -156,10 +179,10 @@ export const SupportCaseWidgetTableFilter: React.FunctionComponent<
             onDelete(category as string, chip as string)
           }
           deleteLabelGroup={(category) => onDeleteGroup(category as string)}
-          categoryName="Severity"
+          categoryName={intl.formatMessage(messages.severity)}
         >
           <Select
-            aria-label="Severity"
+            aria-label={intl.formatMessage(messages.severity)}
             role="menu"
             toggle={(toggleRef: React.Ref<MenuToggleElement>) => (
               <MenuToggle
@@ -172,7 +195,7 @@ export const SupportCaseWidgetTableFilter: React.FunctionComponent<
                   } as React.CSSProperties
                 }
               >
-                Severity
+                {intl.formatMessage(messages.severity)}
               </MenuToggle>
             )}
             onSelect={(event, value) =>
@@ -194,10 +217,10 @@ export const SupportCaseWidgetTableFilter: React.FunctionComponent<
             onDelete(category as string, chip as string)
           }
           deleteLabelGroup={(category) => onDeleteGroup(category as string)}
-          categoryName="Status"
+          categoryName={intl.formatMessage(messages.status)}
         >
           <Select
-            aria-label="Status"
+            aria-label={intl.formatMessage(messages.status)}
             role="menu"
             toggle={(toggleRef: React.Ref<MenuToggleElement>) => (
               <MenuToggle
@@ -210,7 +233,7 @@ export const SupportCaseWidgetTableFilter: React.FunctionComponent<
                   } as React.CSSProperties
                 }
               >
-                Status
+                {intl.formatMessage(messages.status)}
               </MenuToggle>
             )}
             onSelect={(event, value) =>

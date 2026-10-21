@@ -1,3 +1,4 @@
+import { defineMessages } from 'react-intl';
 import { Label } from '@patternfly/react-core/dist/dynamic/components/Label';
 import React from 'react';
 
@@ -9,13 +10,33 @@ export const getUrl = (env: string) =>
 
 export const MAX_ROWS = 5;
 
-export const columnNames = {
-  caseId: 'Case ID',
-  issueSummary: 'Issue summary',
-  modifiedBy: 'Modified by',
-  severity: 'Severity',
-  status: 'Status',
-};
+export const columnNames = defineMessages({
+  caseId: {
+    id: 'supportCase.column.caseId',
+    description: 'Support cases table column header',
+    defaultMessage: 'Case ID',
+  },
+  issueSummary: {
+    id: 'supportCase.column.issueSummary',
+    description: 'Support cases table column header',
+    defaultMessage: 'Issue summary',
+  },
+  modifiedBy: {
+    id: 'supportCase.column.modifiedBy',
+    description: 'Support cases table column header',
+    defaultMessage: 'Modified by',
+  },
+  severity: {
+    id: 'supportCase.column.severity',
+    description: 'Support cases table column header',
+    defaultMessage: 'Severity',
+  },
+  status: {
+    id: 'supportCase.column.status',
+    description: 'Support cases table column header',
+    defaultMessage: 'Status',
+  },
+});
 
 export const severityTypes = {
   urgent: '1 (Urgent)',

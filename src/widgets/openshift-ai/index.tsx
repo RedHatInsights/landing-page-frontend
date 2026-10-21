@@ -1,15 +1,32 @@
 import React from 'react';
+import { defineMessages, useIntl } from 'react-intl';
+
 import { SimpleServiceWidget } from '../simple-service-widget';
 
+const messages = defineMessages({
+  body: {
+    id: 'landing.openshift-ai.body',
+    description: 'Landing page OpenShift AI widget card body',
+    defaultMessage:
+      'Create, train, and serve artificial intelligence and machine learning (AI/ML) models.',
+  },
+  linkTitle: {
+    id: 'landing.openshift-ai.linkTitle',
+    description: 'Landing page OpenShift AI widget link label',
+    defaultMessage: 'OpenShift AI',
+  },
+});
+
 const OpenShiftAiWidget: React.FunctionComponent = () => {
+  const intl = useIntl();
   return (
     <>
       <SimpleServiceWidget
         id={6}
-        body="Create, train, and serve artificial intelligence and machine learning (AI/ML) models."
-        linkTitle="OpenShift AI"
-        url="https://www.redhat.com/en/technologies/cloud-computing/openshift/openshift-ai/trial"
+        body={intl.formatMessage(messages.body)}
+        linkTitle={intl.formatMessage(messages.linkTitle)}
         isExternal
+        url="https://www.redhat.com/en/technologies/cloud-computing/openshift/openshift-ai/trial"
       />
     </>
   );
