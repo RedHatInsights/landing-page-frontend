@@ -4,7 +4,7 @@ import { Bullseye } from '@patternfly/react-core/dist/dynamic/layouts/Bullseye';
 import { Spinner } from '@patternfly/react-core/dist/dynamic/components/Spinner';
 import '@patternfly/patternfly/utilities/Text/text.css';
 
-import Landing from './routes/Landing';
+import Landing from './features/landing/Landing';
 
 /**
  * The module chrome mounts at exactly `/` (CRD: app `landing`, module
