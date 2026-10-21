@@ -41,47 +41,35 @@ module.exports = {
       './PdfEntry': path.resolve(__dirname, './src/moduleEntries/PdfEntry.tsx'),
       './RecentlyVisited': path.resolve(
         __dirname,
-        'src/components/widgets/recently-visited.tsx'
+        'src/widgets/recently-visited/index.tsx',
       ),
       './ExploreCapabilities': path.resolve(
         __dirname,
-        'src/components/widgets/explore-capabilities.tsx'
+        'src/widgets/explore-capabilities/index.tsx',
       ),
-      './EdgeWidget': path.resolve(
-        __dirname,
-        'src/components/widgets/edge-widget.tsx'
-      ),
+      './EdgeWidget': path.resolve(__dirname, 'src/widgets/edge/index.tsx'),
       './ImageBuilderWidget': path.resolve(
         __dirname,
-        'src/components/widgets/image-builder-widget.tsx'
+        'src/widgets/image-builder/index.tsx',
       ),
-      './RhelWidget': path.resolve(
-        __dirname,
-        'src/components/widgets/rhel-widget.tsx'
-      ),
+      './RhelWidget': path.resolve(__dirname, 'src/widgets/rhel/index.tsx'),
       './AnsibleWidget': path.resolve(
         __dirname,
-        'src/components/widgets/ansible-widget.tsx'
+        'src/widgets/ansible/index.tsx',
       ),
       './OpenShiftWidget': path.resolve(
         __dirname,
-        'src/components/widgets/openshift-widget.tsx'
+        'src/widgets/openshift/index.tsx',
       ),
       './OpenShiftAiWidget': path.resolve(
         __dirname,
-        'src/components/widgets/openshift-ai-widget.tsx'
+        'src/widgets/openshift-ai/index.tsx',
       ),
-      './QuayWidget': path.resolve(
-        __dirname,
-        'src/components/widgets/quay-widget.tsx'
-      ),
-      './AcsWidget': path.resolve(
-        __dirname,
-        'src/components/widgets/acs-widget.tsx'
-      ),
+      './QuayWidget': path.resolve(__dirname, 'src/widgets/quay/index.tsx'),
+      './AcsWidget': path.resolve(__dirname, 'src/widgets/acs/index.tsx'),
       './SupportCaseWidget': path.resolve(
         __dirname,
-        'src/components/widgets/support-case-widget.tsx'
+        'src/widgets/support-case/index.tsx',
       ),
     },
     exclude: ['react-router-dom'],
