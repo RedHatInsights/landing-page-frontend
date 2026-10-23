@@ -4,7 +4,7 @@
   "description": "",
   "main": "src/entry.js",
   "engines": {
-    "node": ">=15.14.0",
+    "node": ">=22.12.0",
     "npm": ">=7.24.2"
   },
   "scripts": {
@@ -16,7 +16,6 @@
     "cypress:run:cp": "cypress run --component",
     "fixjs": "eslint src cypress --fix",
     "lint": "eslint src cypress .storybook",
-    "nightly": "npm-run-all build lint && npm run test -- -u",
     "postinstall": "ts-patch install && rm -rf .cache",
     "start": "fec dev",
     "static": "fec static",

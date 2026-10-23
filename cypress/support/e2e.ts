@@ -44,7 +44,7 @@ declare global {
         targetSelector: string,
       ): Chainable<void>;
       loadLandingPage(): Chainable<void>;
-      removeWidget(widgetId: string): void;
+      removeWidget(widgetId: string): Chainable<void>;
     }
   }
 }
