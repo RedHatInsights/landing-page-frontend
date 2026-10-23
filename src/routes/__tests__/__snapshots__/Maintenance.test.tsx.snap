@@ -1,6 +1,6 @@
-// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`Maintenance page should render correctly 1`] = `
+exports[`Maintenance page > should render correctly 1`] = `
 <div>
   <section
     class="pf-v6-l-page__main-section pf-v6-c-page__main-section land-c-page__maintenance"
@@ -210,7 +210,7 @@ exports[`Maintenance page should render correctly 1`] = `
             data-ouia-component-id="OUIA-Generated-Button-primary-1"
             data-ouia-component-type="PF6/Button"
             data-ouia-safe="true"
-            href="http://localhost"
+            href="http://localhost:3000"
           >
             <span
               class="pf-v6-c-button__text"

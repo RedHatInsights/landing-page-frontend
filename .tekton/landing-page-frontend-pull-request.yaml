@@ -35,7 +35,9 @@ spec:
       set -ex
       
       npm run lint
-      npm test --  --runInBand --no-cache
+      # unit tests only in the container: the storybook project needs browser
+      # binaries (playwright) that the hermetic image does not carry
+      npm run test:unit
   - name: test-app-name
     value: "landing-page-frontend"
   - name: test-app-port

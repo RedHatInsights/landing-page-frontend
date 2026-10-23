@@ -1,7 +1,11 @@
-// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`<Landing/> should render correctly 1`] = `
+exports[`<Landing/> > should render correctly 1`] = `
 <div>
-  Scalprum Component Mock
+  <div
+    data-module="./WidgetLayout"
+    data-scope="widgetLayout"
+    data-testid="scalprum-stub"
+  />
 </div>
 `;

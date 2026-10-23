@@ -15,7 +15,7 @@ module.exports = defineConfig(
         mount: 'readonly',
       },
     },
-    ignores: ['node_modules/*', 'dist/*'],
+    ignores: ['node_modules/*', 'dist/*', 'storybook-static/*', 'coverage/*', 'src/demoData/*'],
     rules: {
       '@typescript-eslint/no-explicit-any': 'warn',
       'sort-imports': [
