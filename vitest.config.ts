@@ -13,12 +13,6 @@ export default defineConfig({
     // its transform from the react-vite framework itself).
     jsx: 'automatic',
   },
-  resolve: {
-    alias: {
-      // Handle .js extensions in imports (ESM)
-      '^(\\.{1,2}/.*)\\.js$': '$1',
-    },
-  },
   css: {
     modules: {
       localsConvention: 'camelCase',

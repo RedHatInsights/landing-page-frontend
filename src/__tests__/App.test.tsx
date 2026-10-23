@@ -3,9 +3,10 @@ import { act } from 'react-dom/test-utils';
 import { BrowserRouter as Router } from 'react-router-dom';
 import App from '../App';
 import { render } from '@testing-library/react';
+import { IntlProvider } from 'react-intl';
 import { vi } from 'vitest';
 
-vi.mock('../routes/Landing', () => ({
+vi.mock('../features/landing/Landing', () => ({
   __esModule: true,
 
   default: () => <span>Landing</span>,
@@ -50,9 +51,11 @@ describe('App component', () => {
     let container: HTMLElement | undefined = undefined;
     await act(async () => {
       const { container: ci } = await render(
-        <Router>
-          <App />
-        </Router>,
+        <IntlProvider locale="en">
+          <Router>
+            <App />
+          </Router>
+        </IntlProvider>,
       );
       expect(ci).toMatchSnapshot();
       container = ci;

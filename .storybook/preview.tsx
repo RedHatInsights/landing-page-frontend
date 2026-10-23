@@ -7,6 +7,7 @@ import {
   HccStorybookProvider,
   hccPreviewDefaults,
 } from '@redhat-cloud-services/hcc-storybook-hub';
+import { IntlMessagesProvider } from '../src/i18n';
 
 const preview: Preview = {
   ...hccPreviewDefaults,
@@ -19,7 +20,9 @@ const preview: Preview = {
         featureFlags={parameters.featureFlags}
       >
         <MemoryRouter>
-          <Story />
+          <IntlMessagesProvider locale="en">
+            <Story />
+          </IntlMessagesProvider>
         </MemoryRouter>
       </HccStorybookProvider>
     ),

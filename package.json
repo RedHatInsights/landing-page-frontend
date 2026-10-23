@@ -4,7 +4,7 @@
   "description": "",
   "main": "src/entry.js",
   "engines": {
-    "node": ">=15.14.0",
+    "node": ">=22.12.0",
     "npm": ">=7.24.2"
   },
   "scripts": {
@@ -16,13 +16,12 @@
     "cypress:run:cp": "cypress run --component",
     "fixjs": "eslint src cypress --fix",
     "lint": "eslint src cypress .storybook",
-    "nightly": "npm-run-all build lint && npm run test -- -u",
     "postinstall": "ts-patch install && rm -rf .cache",
     "start": "fec dev",
     "static": "fec static",
     "test": "vitest run",
     "test:e2e": "node scripts/e2e.js",
-    "verify": "npm-run-all build lint test:unit",
+    "verify": "npm-run-all build lint test:unit lint:translations",
     "playwright": "playwright test",
     "playwright:headed": "playwright test --headed",
     "playwright:ui": "playwright test --ui",
@@ -33,7 +32,9 @@
     "test:storybook": "vitest run --project=storybook",
     "test:watch": "vitest --project=unit",
     "storybook": "storybook dev -p 6006",
-    "build-storybook": "storybook build"
+    "build-storybook": "storybook build",
+    "extract:messages": "npx @formatjs/cli extract 'src/**/*.{js,jsx,ts,tsx}' --ignore '**/*.stories.*' --ignore '**/*.test.*' --out-file ./translations/messages.json",
+    "lint:translations": "npm run extract:messages && git diff --exit-code ./translations/messages.json"
   },
   "repository": {
     "type": "git",
@@ -68,6 +69,7 @@
   },
   "devDependencies": {
     "@4tw/cypress-drag-drop": "^2.3.1",
+    "@formatjs/cli": "^6.7.4",
     "@playwright/test": "^1.59.1",
     "@redhat-cloud-services/eslint-config-redhat-cloud-services": "^3.0.31",
     "@redhat-cloud-services/frontend-components-config": "^6.8.3",
@@ -87,6 +89,7 @@
     "cypress": "^13.17.0",
     "cypress-localstorage-commands": "^2.3.0",
     "eslint": "^9.39.4",
+    "eslint-plugin-i18next": "^6.1.5",
     "eslint-plugin-storybook": "^10.6.3",
     "happy-dom": "^21.0.3",
     "identity-obj-proxy": "^3.0.0",
