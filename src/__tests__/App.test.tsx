@@ -5,7 +5,7 @@ import App from '../App';
 import { render } from '@testing-library/react';
 import { vi } from 'vitest';
 
-vi.mock('../routes/Landing', () => ({
+vi.mock('../features/landing/Landing', () => ({
   __esModule: true,
 
   default: () => <span>Landing</span>,
