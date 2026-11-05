@@ -1,0 +1,8 @@
+{
+  "preset": "hcc-ui",
+  "sourceCatalog": {
+    "path": "translations/messages.json",
+    "filename": "landing-page-frontend.ui.en.json"
+  },
+  "targetOutputPath": "messages/{locale}.json"
+}
