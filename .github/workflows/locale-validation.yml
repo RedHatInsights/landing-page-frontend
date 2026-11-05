@@ -7,7 +7,10 @@ on:
       - .github/i18n/**
       - translations/**
       - messages/**
-      - src/**/*.{js,jsx,ts,tsx}
+      - src/**/*.js
+      - src/**/*.jsx
+      - src/**/*.ts
+      - src/**/*.tsx
       - package.json
       - package-lock.json
 
