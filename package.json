@@ -34,7 +34,8 @@
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
     "extract:messages": "npx @formatjs/cli extract 'src/**/*.{js,jsx,ts,tsx}' --ignore '**/*.stories.*' --ignore '**/*.test.*' --out-file ./translations/messages.json",
-    "lint:translations": "npm run extract:messages && git diff --exit-code ./translations/messages.json"
+    "lint:translations": "npm run extract:messages && git diff --exit-code ./translations/messages.json",
+    "translations:validate": "i18n-pipeline validate-ci --mode error --config .github/i18n/catalog-validation.json"
   },
   "repository": {
     "type": "git",
