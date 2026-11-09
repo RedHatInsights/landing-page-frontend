@@ -49,7 +49,18 @@
       "uid": "TdDCfx6vPTGcaZ7fE6npO3",
       "innerId": "25",
       "status": "COMPLETED",
-      "providers": [],
+      "providers": [
+        {
+          "type": "USER",
+          "id": "1748316",
+          "uid": "c76VLadz5LpkcJhQaMNpT1",
+          "userName": "xhuan",
+          "firstName": "Xi",
+          "lastName": "Huang",
+          "email": "xhuan@redhat.com",
+          "active": true
+        }
+      ],
       "sourceLang": "en_us",
       "targetLang": "zh_cn",
       "workflowLevel": 1,
