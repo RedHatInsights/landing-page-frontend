@@ -48,7 +48,7 @@
     {
       "uid": "TdDCfx6vPTGcaZ7fE6npO3",
       "innerId": "25",
-      "status": "NEW",
+      "status": "COMPLETED",
       "providers": [],
       "sourceLang": "en_us",
       "targetLang": "zh_cn",
@@ -60,6 +60,7 @@
         "workflowLevel": 1
       },
       "filename": "landing-page-frontend.ui.en.json",
+      "fullFilename": "landing-page-frontend.ui.en.json",
       "dateDue": null,
       "wordsCount": 338,
       "beginIndex": 0,
@@ -70,7 +71,8 @@
       "dateCreated": "2026-11-06T08:40:38+0000",
       "jobReference": {
         "uid": "aGYgciE1c5ku4WnbOPSb90",
-        "filename": "landing-page-frontend.ui.en.json"
+        "filename": "landing-page-frontend.ui.en.json",
+        "fullFilename": "landing-page-frontend.ui.en.json"
       },
       "project": {
         "name": "hcc-ui",
@@ -92,8 +94,19 @@
     {
       "uid": "V380g9aRcnnzgGRY41rCU6",
       "innerId": "26",
-      "status": "NEW",
-      "providers": [],
+      "status": "ACCEPTED",
+      "providers": [
+        {
+          "type": "USER",
+          "id": "285168",
+          "uid": "2sHjdtUUmG8d39nW3yQ216",
+          "userName": "croe",
+          "firstName": "Corina",
+          "lastName": "Roe",
+          "email": "croe@redhat.com",
+          "active": true
+        }
+      ],
       "sourceLang": "en_us",
       "targetLang": "fr",
       "workflowLevel": 1,
@@ -104,6 +117,7 @@
         "workflowLevel": 1
       },
       "filename": "landing-page-frontend.ui.en.json",
+      "fullFilename": "landing-page-frontend.ui.en.json",
       "dateDue": null,
       "wordsCount": 338,
       "beginIndex": 0,
@@ -114,7 +128,8 @@
       "dateCreated": "2026-11-06T08:40:38+0000",
       "jobReference": {
         "uid": "pua28eikkUWqahhVMmm6g1",
-        "filename": "landing-page-frontend.ui.en.json"
+        "filename": "landing-page-frontend.ui.en.json",
+        "fullFilename": "landing-page-frontend.ui.en.json"
       },
       "project": {
         "name": "hcc-ui",
@@ -148,6 +163,7 @@
         "workflowLevel": 1
       },
       "filename": "landing-page-frontend.ui.en.json",
+      "fullFilename": "landing-page-frontend.ui.en.json",
       "dateDue": null,
       "wordsCount": 338,
       "beginIndex": 0,
@@ -158,7 +174,8 @@
       "dateCreated": "2026-11-06T08:40:38+0000",
       "jobReference": {
         "uid": "TTEMH0sOBPgLlyd99qC9k6",
-        "filename": "landing-page-frontend.ui.en.json"
+        "filename": "landing-page-frontend.ui.en.json",
+        "fullFilename": "landing-page-frontend.ui.en.json"
       },
       "project": {
         "name": "hcc-ui",
@@ -180,8 +197,19 @@
     {
       "uid": "gm3QtjivYXqZbJ3GJUlyo2",
       "innerId": "28",
-      "status": "NEW",
-      "providers": [],
+      "status": "ACCEPTED",
+      "providers": [
+        {
+          "type": "USER",
+          "id": "346709",
+          "uid": "MYSlpMIGEX95ax0xNc3sb1",
+          "userName": "kemorigu",
+          "firstName": "Keiko",
+          "lastName": "Moriguchi",
+          "email": "kemorigu@redhat.com",
+          "active": true
+        }
+      ],
       "sourceLang": "en_us",
       "targetLang": "ja",
       "workflowLevel": 1,
@@ -192,6 +220,7 @@
         "workflowLevel": 1
       },
       "filename": "landing-page-frontend.ui.en.json",
+      "fullFilename": "landing-page-frontend.ui.en.json",
       "dateDue": null,
       "wordsCount": 338,
       "beginIndex": 0,
@@ -202,7 +231,8 @@
       "dateCreated": "2026-11-06T08:40:38+0000",
       "jobReference": {
         "uid": "qB49WffrOlV25laFTAhYu2",
-        "filename": "landing-page-frontend.ui.en.json"
+        "filename": "landing-page-frontend.ui.en.json",
+        "fullFilename": "landing-page-frontend.ui.en.json"
       },
       "project": {
         "name": "hcc-ui",
