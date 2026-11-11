@@ -296,7 +296,7 @@
       "phase": "pending"
     },
     "ko": {
-      "phase": "pending"
+      "phase": "exporting"
     },
     "zh_cn": {
       "phase": "pr-created",
