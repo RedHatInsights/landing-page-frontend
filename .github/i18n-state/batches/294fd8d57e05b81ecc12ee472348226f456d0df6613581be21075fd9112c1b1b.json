@@ -277,7 +277,10 @@
   "warningCount": 0,
   "locales": {
     "fr": {
-      "phase": "exporting"
+      "phase": "exporting",
+      "toolingCommitShas": [
+        "731cb07b5c2cafee9b73e0119a9ee05a72ebbd66"
+      ]
     },
     "ja": {
       "phase": "pending"
