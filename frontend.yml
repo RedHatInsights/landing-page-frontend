@@ -28,6 +28,8 @@ objects:
           routes:
           - pathname: /
             exact: true
+            props:
+              layoutType: landing-landingPage
       widgetRegistry:
         - scope: "landing"
           module: "./ExploreCapabilities"
