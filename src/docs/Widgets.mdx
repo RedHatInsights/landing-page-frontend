@@ -1,0 +1,202 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+
+<Meta title="Documentation/Widgets" />
+
+# Widgets
+
+`src/widgets/` is this repo's primary surface. Each widget is independently
+exposed as a federated module and loaded at runtime by
+[`widget-layout`](https://github.com/RedHatInsights/widget-layout).
+
+See [Architecture](?path=/docs/documentation-architecture--documentation) for how the
+app is composed.
+
+---
+
+## Every widget has two exports
+
+This trips people up, so it comes first.
+
+```tsx
+// The component. Stories import this one.
+export const AcsWidget: React.FunctionComponent = () => {
+  const intl = useIntl();
+  return <SimpleServiceWidget body={intl.formatMessage(messages.body)} ... />;
+};
+
+// The federated entry point. widget-layout loads this one.
+const AcsWidgetEntry: React.FunctionComponent = () => {
+  const locale = useChromeLocale();
+  return (
+    <IntlMessagesProvider locale={locale}>
+      <AcsWidget />
+    </IntlMessagesProvider>
+  );
+};
+
+export default AcsWidgetEntry;
+```
+
+**Why:** a widget is mounted by `widget-layout`, not by `src/App.tsx`. It lands
+in a foreign React tree with no access to this app's providers. Each widget
+therefore carries its own `IntlMessagesProvider`, or every
+`intl.formatMessage` call inside it throws at runtime.
+
+The default export is the wrapped entry. The named export is the bare
+component — that is what stories render, since `.storybook/preview.tsx`
+already supplies the provider.
+
+`RecentlyVisited` is the one widget without this wrapper: it renders only data
+from `useLastVisited()` and has no translatable copy of its own. Add a string
+to it and you must add the wrapper too.
+
+---
+
+## Prefer SimpleServiceWidget
+
+Most widgets are thin configurations of `SimpleServiceWidget` — a plain card
+with body copy and a link:
+
+```ts
+interface SimpleServiceWidgetProps {
+  id: number;
+  body: string;
+  linkTitle: string;
+  url: string;
+  isExternal?: boolean;   // renders an external-link icon and a raw <a>
+}
+```
+
+`AcsWidget`, `AnsibleWidget`, `EdgeWidget`, `ImageBuilderWidget`,
+`OpenShiftWidget`, `OpenShiftAiWidget`, `QuayWidget` and `RhelWidget` are all
+this shape. Extend it rather than hand-rolling another card.
+
+The exceptions earn it: `ExploreCapabilities` is a static tile grid,
+`RecentlyVisited` reads chrome state, and `SupportCaseWidget` is the only
+widget in the repo that makes a network call.
+
+---
+
+## Registering a widget touches four places
+
+Miss one and the widget silently never appears. There is no error.
+
+**1. The component** — `src/widgets/<Name>.tsx`, with both exports above.
+
+**2. Expose it** — `fec.config.js`:
+
+```js
+moduleFederation: {
+  exposes: {
+    './AcsWidget': path.resolve(__dirname, 'src/widgets/AcsWidget.tsx'),
+  },
+}
+```
+
+**3. Register it** — `frontend.yml` → `widgetRegistry`. This makes it
+selectable in the "add widget" catalog:
+
+```yaml
+- scope: "landing"
+  module: "./SupportCaseWidget"
+  featureFlag: "widget.example.enable"   # optional
+  config:
+    icon: "HeadsetIcon"
+    title: "My support cases"
+    headerLink:
+      title: "Open a support case"
+      href: "https://..."
+  defaults: { w: 2, h: 4, maxH: 10, minH: 1 }
+```
+
+**4. Place it** — `frontend.yml` → `baseWidgetLayouts.templateConfig`. This puts
+it on the *default* dashboard, and must be done for **all four breakpoints**
+(`sm`, `md`, `lg`, `xl`), not just one:
+
+```yaml
+- cx: 0
+  cy: 0
+  i: 'landing-./AcsWidget#acs'
+  w: 1
+  h: 4
+  maxH: 10
+  minH: 1
+```
+
+Steps 3 and 4 are independent. Registry alone means "available to add but not
+there by default"; layouts alone means "on the default dashboard but not in
+the catalog". Most widgets want both.
+
+### Two ID formats, both load-bearing
+
+| Where | Format | Example |
+|---|---|---|
+| `baseWidgetLayouts` | `<scope>-<module>#<key>` | `landing-./AcsWidget#acs` |
+| Runtime DOM (OUIA) | `<scope>-<module>-widget` | `landing-./AcsWidget-widget` |
+
+Playwright specs select on the second via `LandingPage.widget(id)`.
+
+### Current wiring state
+
+| Widget | Exposed | Registry | Default layout |
+|---|---|---|---|
+| ExploreCapabilities | ✅ | ✅ | ✅ |
+| RecentlyVisited | ✅ | ✅ | ✅ |
+| SupportCaseWidget | ✅ | ✅ | — |
+| RhelWidget | ✅ | — | ✅ |
+| OpenShiftWidget | ✅ | — | ✅ |
+| AnsibleWidget | ✅ | — | ✅ |
+| OpenShiftAiWidget | ✅ | — | ✅ |
+| ImageBuilderWidget | ✅ | — | ✅ |
+| AcsWidget | ✅ | — | ✅ |
+| **EdgeWidget** | ✅ | **—** | **—** |
+| **QuayWidget** | ✅ | **—** | **—** |
+
+`EdgeWidget` and `QuayWidget` are built and shipped but reachable from
+nowhere. They are not examples of correct wiring.
+
+The default dashboard also hosts two widgets owned by other repos —
+`chrome-./DashboardFavorites` and
+`subscriptionInventory-./SubscriptionsWidget`. Bugs in those belong to their
+owning teams.
+
+---
+
+## Every widget needs a story
+
+A widget without an interaction test is not done. Stories import the **named**
+export, and the play function must exercise behaviour rather than assert that
+markup rendered:
+
+```tsx
+import { expect, userEvent, within } from 'storybook/test';
+import { AcsWidget } from './AcsWidget';
+```
+
+Network goes through typed handler factories in `src/data/mocks/`, never
+inline `http.get`/`http.post` — lint rejects importing `http` from `msw` in a
+story. `SupportCaseWidget.stories.tsx` is the worked example:
+
+```tsx
+import { supportCaseHandlers } from '../data/mocks/support-case.handlers';
+import { DEFAULT_SUPPORT_CASES } from '../data/mocks/support-case.fixtures';
+
+parameters: { msw: { handlers: supportCaseHandlers() } }
+```
+
+Reference seed constants (`DEFAULT_SUPPORT_CASES[0].caseNumber`) rather than
+hardcoding entity strings, so a fixture change fails the test instead of
+silently diverging from it.
+
+---
+
+## Data fetching
+
+`SupportCaseWidget` currently fetches with a raw `fetch()` inside a
+`useEffect`. **That is migration debt, not the pattern.** Direct `fetch()` in
+`src/` is a lint error with one documented suppression on that file.
+
+New data-fetching code uses TanStack Query against a client in `src/data/api/`,
+with the response type defined there and the mock factory typed against the
+same contract — so drift between mocks and reality fails type checking rather
+than producing a green test.

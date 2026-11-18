@@ -1,6 +1,52 @@
-# This is a comment.
-# Each line is a file pattern followed by one or more owners.
+# Code owners for landing-page-frontend.
+#
+# Feature work (src/widgets/, src/features/) is deliberately NOT listed. It
+# falls to the team alias. Gatekeeping everything would make the named
+# entries meaningless.
 
-# These owners will be the default owners for everything in
-# the repo. Unless a later match takes precedence.
-*       @RedHatInsights/experience-ui-committers
+# Default — team reviews all feature code
+*                           @RedHatInsights/experience-ui-committers
+
+# Agent guidance and lint governance — changes here alter the rules every
+# other change is held to.
+/AGENTS.md                  @InsaneZein @CodyWMitchell
+/CLAUDE.md                  @InsaneZein @CodyWMitchell
+/eslint.config.js           @InsaneZein @CodyWMitchell
+
+# Runtime composition
+# frontend.yml holds the widget registry and the default dashboard layouts;
+# fec.config.js holds the module federation exposes. A widget must be wired
+# in both or it silently never appears in the console. See AGENTS.md #1.
+/frontend.yml               @InsaneZein @CodyWMitchell
+/fec.config.js              @InsaneZein @CodyWMitchell
+
+# Structural / architectural gatekeeping — broad blast radius
+/.github/                   @InsaneZein @CodyWMitchell
+/.tekton/                   @InsaneZein @CodyWMitchell
+/.storybook/                @InsaneZein @CodyWMitchell
+/config/                    @InsaneZein @CodyWMitchell
+/scripts/                   @InsaneZein @CodyWMitchell
+/package.json               @InsaneZein @CodyWMitchell
+/package-lock.json          @InsaneZein @CodyWMitchell
+/tsconfig.json              @InsaneZein @CodyWMitchell
+/vitest.config.ts           @InsaneZein @CodyWMitchell
+/renovate.json              @InsaneZein @CodyWMitchell
+/.gitignore                 @InsaneZein @CodyWMitchell
+/.gitmodules                @InsaneZein @CodyWMitchell
+
+# App shell and federated entry points — the contract chrome and the PDF
+# generator service load this app through.
+/src/App.tsx                @InsaneZein @CodyWMitchell
+/src/moduleEntries/         @InsaneZein @CodyWMitchell
+
+# Data layer — API contracts and the mock factories typed against them.
+/src/data/                  @InsaneZein @CodyWMitchell
+
+# E2E
+/playwright/                @InsaneZein @CodyWMitchell
+/playwright.config.ts       @InsaneZein @CodyWMitchell
+
+# Frozen legacy — no new specs
+/cypress/                   @InsaneZein @CodyWMitchell
+/cypress.config.ts          @InsaneZein @CodyWMitchell
+/run-e2e.sh                 @InsaneZein @CodyWMitchell

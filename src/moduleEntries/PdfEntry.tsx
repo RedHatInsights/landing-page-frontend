@@ -1,6 +1,13 @@
 /* eslint-disable @typescript-eslint/ban-ts-comment */
 import React from 'react';
-import { Table, Tbody, Td, Th, Thead, Tr } from '@patternfly/react-table';
+import {
+  Table,
+  Tbody,
+  Td,
+  Th,
+  Thead,
+  Tr,
+} from '@patternfly/react-table/dist/dynamic/components/Table';
 import { AsyncState } from '@redhat-cloud-services/types';
 import { FetchData } from '@redhat-cloud-services/types';
 

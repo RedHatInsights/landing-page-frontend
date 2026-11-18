@@ -47,19 +47,21 @@ vi.mock('@unleash/proxy-client-react', async () => {
 });
 
 describe('App component', () => {
-  it('should render correctly', async () => {
-    let container: HTMLElement | undefined = undefined;
+  it('renders the Landing composition through the Suspense boundary', async () => {
+    let queries: ReturnType<typeof render> | undefined;
     await act(async () => {
-      const { container: ci } = await render(
+      queries = render(
         <IntlProvider locale="en">
           <Router>
             <App />
           </Router>
         </IntlProvider>,
       );
-      expect(ci).toMatchSnapshot();
-      container = ci;
     });
-    expect(container).toMatchSnapshot();
+
+    // Landing is mocked above — this asserts App resolves past its Suspense
+    // fallback and renders its child rather than getting stuck on the spinner.
+    // getByText throws when absent, so reaching the assertion is the signal.
+    expect(queries!.getByText('Landing')).toBeTruthy();
   });
 });

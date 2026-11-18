@@ -1,0 +1,135 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+
+<Meta title="Documentation/E2E Testing" />
+
+# E2E Testing
+
+Playwright specs in `playwright/e2e/`, run against live stage.
+
+Storybook interaction tests carry most behavioural coverage — they are fast and
+deterministic. Playwright is for what only a real environment can prove: SSO,
+chrome integration, and the federated layout engine actually loading. Build in
+Storybook first; graduate critical journeys here.
+
+---
+
+## Running them
+
+```bash
+E2E_USER=<user> E2E_PASSWORD=<password> npm run test:playwright
+```
+
+`@redhat-cloud-services/playwright-test-auth` performs the Red Hat SSO login
+once in global setup and reuses the session via `storageState` across specs.
+Target another environment with `PLAYWRIGHT_BASE_URL`; the default is
+`https://stage.foo.redhat.com:1337`.
+
+Variants: `playwright:headed`, `playwright:ui`, `playwright:debug`,
+`playwright:report`.
+
+In CI the whole suite runs in the Konflux PR pipeline
+(`.tekton/landing-page-frontend-pull-request.yaml`), which boots the built app
+behind Caddy, waits for `fed-mods.json` on both the app and chrome, then runs
+`npm run test:playwright` with credentials from a cluster secret.
+
+---
+
+## Current coverage
+
+**7 spec files, 13 active tests, 1 skipped.**
+
+| Spec | Tests | Covers |
+|---|---|---|
+| `widgets-layout.spec.ts` | 5 | drag/drop, resize, maximize, minimize, lock→unlock — each asserting the layout `PATCH` |
+| `favorite-services-widget.spec.ts` | 3 (+1 skipped) | appears in default layout, removal, empty state |
+| `widgets-basic.spec.ts` | 1 | all default widgets present, link targets, removal, restore on reset |
+| `explore-capabilities.spec.ts` | 1 | tile content and CTAs |
+| `chrome-tooltips.spec.ts` | 1 | settings and help icon tooltips |
+| `login.spec.ts` | 1 | SSO login reaches the app |
+| `session-init.spec.ts` | 1 | session initialises from `storageState` |
+
+### The skipped test
+
+`favorite-services-widget.spec.ts` → *"shows favorites when they are set"* is
+skipped pending **RHCLOUD-49898**: chrome's `DashboardFavorites` widget never
+displays favorites due to a lookup bug in `useFavoritedServices`.
+
+Do not "fix" it by stubbing the favorites API. That was tried — stubbing does
+not propagate into chrome's internal state for a federated widget, so a
+stub-based test passes while the product stays broken. The Cypress equivalent
+(`cypress/e2e/widgets/favorite-services.cy.ts`) does exactly this and is green
+over a real bug.
+
+---
+
+## Writing a spec
+
+**Use the page object.** `playwright/pages/LandingPage.ts` owns selectors and
+the fiddly waits:
+
+| Method | Purpose |
+|---|---|
+| `gotoAndWaitForLayout()` | navigate and wait for the grid to settle |
+| `resetToDefaultLayout()` | restore the default dashboard |
+| `widget(id)` | locate a widget card by OUIA id |
+| `widgetMenuToggle(id)` / `openWidgetActionsMenu(id)` | the kebab |
+| `removeWidget(id)` / `addWidget(...)` | layout mutation |
+| `dismissOverlays()` | cookie banners and HMR overlays |
+| `stubFavoritePages(...)` | favorites API stub |
+
+Widget ids use the runtime OUIA format — `landing-./RhelWidget-widget` — which
+is *not* the format used in `frontend.yml`. See
+[Widgets](?path=/docs/documentation-widgets--documentation).
+
+**Use the timeout constants.** `playwright/constants.ts` exports named
+`TIMEOUTS`. A raw millisecond value in a spec is a lint error.
+
+```ts
+await expect(widget).toBeVisible({ timeout: TIMEOUTS.WIDGET_VISIBLE });
+```
+
+**Prefer role and test-id queries.** A CSS class or ID selector couples the
+test to markup this app does not own. The suite still carries ~28
+`page.locator()` calls, some of them Cypress-era hooks
+(`.tooltip-button-settings-cy`) inherited during the migration — debt to pay
+down when you next touch the file, not a pattern to copy.
+
+`workers: 1` and `retries: 0` are deliberate: the tests mutate a single
+shared dashboard layout for one user, so parallelism would have them fight,
+and retries would mask real flakes.
+
+---
+
+## Known gaps
+
+Measured against the team E2E standard, this suite is missing:
+
+- **Structured docblocks.** No spec has one. Each should open with what it
+  tests, a decision tree for where new tests belong, personas, and data
+  prerequisites.
+- **A seed map.** Widget ids are inline literals — the `DEFAULT_WIDGETS` array
+  in `widgets-basic.spec.ts`, `const widgetId = '...'` in the favorites spec.
+  They should come from shared constants.
+- **Seed/cleanup lifecycle scripts.** `resetToDefaultLayout()` does this job
+  inside the page object instead of as an npm script.
+- **A persona matrix.** One `E2E_USER` only. No admin vs non-admin split, so
+  permission-denied paths are untested.
+- **Prefix-based isolation.** Currently sidestepped by `workers: 1`, which also
+  caps throughput.
+- **The add-widget-from-catalog flow.** `LandingPage.addWidget()` exists and no
+  spec calls it. The only coverage of adding a widget is in frozen Cypress
+  (`cypress/e2e/widgets/integrations.cy.ts`).
+
+---
+
+## Cypress is frozen
+
+`cypress/` holds 13 legacy specs and runs in **no** CI pipeline. Per team
+standards, existing Cypress tests do not count as E2E maturity, and no new
+ones may be written.
+
+It is kept as a porting reference, not as a statement of coverage. Of the 13
+specs, 11 have full Playwright equivalents; the two that do not are the
+favorites-when-populated case above and the Integrations widget
+(`sources-integrations-widget`), which is owned by sources-ui rather than this
+repo.
