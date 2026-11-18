@@ -4,6 +4,48 @@ const { defineConfig } = require('eslint/config');
 const fecPlugin = require('@redhat-cloud-services/eslint-config-redhat-cloud-services');
 const tsParser = require('@typescript-eslint/parser');
 const tseslint = require('typescript-eslint');
+const experienceUi = require('experience-ui-governance/eslint-plugin');
+
+// Shared Experience UI governance rules.
+// https://github.com/RedHatInsights/experience-ui-governance
+//
+// We take the PatternFly import restrictions and the story/test rules. The
+// other entries in `configs.recommended` (useChrome -> useAppServices,
+// Link -> AppLink, useFlag -> src/capabilities/) point at abstractions this
+// repo does not have, so enabling them here would emit errors whose fix
+// instructions lead nowhere. Revisit if those abstractions ever land.
+const patternflyImportPaths =
+  experienceUi.configs.recommended.restrictedImportPaths.filter((path) =>
+    path.name.startsWith('@patternfly/'),
+  );
+const storyImportPaths = experienceUi.configs.stories.restrictedImportPaths;
+
+// Repo-local restrictions. These two are team-wide in spirit — governance
+// asserts both in prose (standards/architecture.md, standards/data-layer.md)
+// but ships no rule for either — so they are candidates to upstream into
+// `configs/recommended` once they have proven out here.
+const localImportPaths = [
+  {
+    name: 'redux',
+    message:
+      'No global client state. This app has one chrome-owned route and no store; widget-local useState is sufficient. See AGENTS.md #14.',
+  },
+  {
+    name: 'react-redux',
+    message:
+      'No global client state. This app has one chrome-owned route and no store; widget-local useState is sufficient. See AGENTS.md #14.',
+  },
+  {
+    name: '@reduxjs/toolkit',
+    message:
+      'No global client state. This app has one chrome-owned route and no store; widget-local useState is sufficient. See AGENTS.md #14.',
+  },
+  {
+    name: 'redux-promise-middleware',
+    message:
+      'No global client state. This app has one chrome-owned route and no store; widget-local useState is sufficient. See AGENTS.md #14.',
+  },
+];
 
 module.exports = defineConfig(
   {
@@ -22,7 +64,7 @@ module.exports = defineConfig(
     },
     ignores: ['node_modules/*', 'dist/*', 'storybook-static/*', 'coverage/*', 'src/demoData/*'],
     rules: {
-      '@typescript-eslint/no-explicit-any': 'warn',
+      '@typescript-eslint/no-explicit-any': 'error',
       'sort-imports': [
         'error',
         {
@@ -40,7 +82,7 @@ module.exports = defineConfig(
     rules: {
       'react/prop-types': 'off',
       '@typescript-eslint/no-unused-vars': 'error',
-      '@typescript-eslint/no-explicit-any': 'warn',
+      '@typescript-eslint/no-explicit-any': 'error',
     },
   },
   {
@@ -87,6 +129,81 @@ module.exports = defineConfig(
           },
         },
       ],
+    },
+  },
+  {
+    // Global PatternFly imports pull the whole library into every federated
+    // bundle, and this repo ships 13 of them. Use dynamic sub-paths.
+    files: ['src/**/*.{js,jsx,ts,tsx}'],
+    rules: {
+      'no-restricted-imports': [
+        'error',
+        { paths: [...patternflyImportPaths, ...localImportPaths] },
+      ],
+    },
+  },
+  {
+    // Server state belongs in TanStack Query behind a client in src/data/api/,
+    // not hand-rolled fetch + useEffect + useState. See AGENTS.md #7.
+    files: ['src/**/*.{js,jsx,ts,tsx}'],
+    ignores: [
+      'src/**/__tests__/**',
+      '**/*.test.*',
+      '**/*.stories.*',
+      'src/data/mocks/**',
+    ],
+    rules: {
+      'no-restricted-syntax': [
+        'error',
+        {
+          selector: "CallExpression[callee.name='fetch']",
+          message:
+            'Do not call fetch() directly. Server state uses TanStack Query with a client in src/data/api/. See AGENTS.md #7.',
+        },
+      ],
+    },
+  },
+  {
+    // Stories need the PatternFly restrictions too — flat config replaces
+    // `no-restricted-imports` wholesale rather than merging, so both sets
+    // have to be spread here.
+    files: ['src/**/*.stories.{js,jsx,ts,tsx}'],
+    plugins: { 'experience-ui': experienceUi },
+    rules: {
+      'no-restricted-imports': [
+        'error',
+        {
+          paths: [
+            ...patternflyImportPaths,
+            ...localImportPaths,
+            ...storyImportPaths,
+          ],
+        },
+      ],
+      'experience-ui/enforce-story-patterns': 'error',
+    },
+  },
+  {
+    // Playwright specs were previously unlinted entirely. Waits use the named
+    // constants in playwright/constants.ts so timeout tuning happens in one
+    // place rather than drifting across specs. See AGENTS.md #12.
+    files: ['playwright/**/*.{ts,tsx}'],
+    rules: {
+      'no-restricted-syntax': [
+        'error',
+        {
+          selector: "Property[key.name='timeout'] > Literal[value>0]",
+          message:
+            'Use a named constant from playwright/constants.ts instead of a raw millisecond value. See AGENTS.md #12.',
+        },
+      ],
+    },
+  },
+  {
+    files: ['src/**/*.test.{js,jsx,ts,tsx}', 'src/**/__tests__/**/*.{js,jsx,ts,tsx}'],
+    plugins: { 'experience-ui': experienceUi },
+    rules: {
+      'experience-ui/no-jest-snapshot': 'error',
     },
   },
 );

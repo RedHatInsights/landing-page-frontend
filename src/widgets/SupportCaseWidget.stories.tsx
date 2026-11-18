@@ -1,8 +1,14 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
 import { expect, within } from 'storybook/test';
-import { HttpResponse, http } from 'msw';
 
+import {
+  supportCaseEmptyHandlers,
+  supportCaseHandlers,
+} from '../data/mocks/support-case.handlers';
+import { DEFAULT_SUPPORT_CASES } from '../data/mocks/support-case.fixtures';
 import SupportCaseWidget from './SupportCaseWidget';
+
+const [FIRST_CASE, SECOND_CASE] = DEFAULT_SUPPORT_CASES;
 
 const meta: Meta<typeof SupportCaseWidget> = {
   title: 'Widgets/SupportCaseWidget',
@@ -12,55 +18,24 @@ const meta: Meta<typeof SupportCaseWidget> = {
 export default meta;
 type Story = StoryObj<typeof SupportCaseWidget>;
 
-const cases = [
-  {
-    id: '1',
-    caseNumber: '03926115',
-    summary: 'Cannot access cluster',
-    lastModifiedById: 'jdoe',
-    severity: '2 (High)',
-    status: 'Waiting on Customer',
-    productFamily: 'OpenShift',
-  },
-  {
-    id: '2',
-    caseNumber: '03926189',
-    summary: 'Node flapping in cluster',
-    lastModifiedById: 'jdoe',
-    severity: '1 (Urgent)',
-    status: 'Waiting on Red Hat',
-    productFamily: 'OpenShift',
-  },
-];
-
 export const WithCases: Story = {
   parameters: {
-    msw: {
-      handlers: [
-        http.post('https://api.access.redhat.com/support/v3/cases/filter', () =>
-          HttpResponse.json({ cases }),
-        ),
-      ],
-    },
+    msw: { handlers: supportCaseHandlers() },
   },
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement);
     // the widget fetches cases async — findBy* polls until the table renders
-    await expect(await canvas.findByText('03926115')).toBeInTheDocument();
-    await expect(canvas.getByText('Cannot access cluster')).toBeInTheDocument();
-    await expect(canvas.getByText('Waiting on Red Hat')).toBeInTheDocument();
+    await expect(
+      await canvas.findByText(FIRST_CASE.caseNumber),
+    ).toBeInTheDocument();
+    await expect(canvas.getByText(FIRST_CASE.summary)).toBeInTheDocument();
+    await expect(canvas.getByText(SECOND_CASE.status)).toBeInTheDocument();
   },
 };
 
 export const NoCases: Story = {
   parameters: {
-    msw: {
-      handlers: [
-        http.post('https://api.access.redhat.com/support/v3/cases/filter', () =>
-          HttpResponse.json({ cases: [] }),
-        ),
-      ],
-    },
+    msw: { handlers: supportCaseEmptyHandlers() },
   },
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement);

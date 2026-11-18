@@ -1,0 +1,140 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+
+<Meta title="Documentation/Architecture" />
+
+# Architecture
+
+The Hybrid Cloud Console home page — what you see at `console.redhat.com/`.
+
+This doc covers the *why* and the boundaries. For how to build or register a
+widget, see [Widgets](?path=/docs/documentation-widgets--documentation).
+
+---
+
+## The one thing to know first
+
+**This repo does not own the dashboard.**
+
+What users think of as "the landing page" — the grid, drag-and-drop, resize,
+lock, expand/collapse, and the "add widget" drawer — all live in
+[`widget-layout`](https://github.com/RedHatInsights/widget-layout), a separate
+repo. This app contributes the *widgets* and a shell that mounts that layout
+engine.
+
+If a bug is about layout behaviour rather than what's inside a widget card, it
+is almost certainly not fixable here. Check before writing code.
+
+---
+
+## Render path
+
+Four hops from chrome to pixels:
+
+```text
+chrome
+  → ./RootApp              src/moduleEntries/AppEntry.tsx    wraps IntlMessagesProvider
+  → App                    src/App.tsx                       document title, Suspense boundary
+  → Landing                src/features/landing/Landing.tsx  <ScalprumComponent scope="widgetLayout" />
+  → WidgetLayout           widget-layout repo                the actual grid engine
+```
+
+`Landing.tsx` is ~30 lines and its entire job is pointing Scalprum at the right
+remote. `src/features/landing/Landing.test.tsx` asserts exactly that, because a
+drift in `scope` or `module` renders an empty dashboard in production with no
+error.
+
+## This app does not route
+
+Chrome mounts module `./RootApp` at `/` with `exact: true` (see `frontend.yml`
+→ `module.modules`). Any navigation away from `/` stops matching chrome's route
+and unmounts the app.
+
+There is nothing to route to inside this repo. Do not add a router, routes, or
+route guards. Likewise there is no global client state — no Redux, no store.
+Widget-local `useState` is sufficient, and anything more is a signal the change
+belongs in `widget-layout`.
+
+---
+
+## Module federation
+
+Everything this repo exports is a federated module, declared in
+`fec.config.js` under `moduleFederation.exposes`. There are two kinds:
+
+**Entry points** (`src/moduleEntries/`)
+
+| Module | File | Loaded by |
+|---|---|---|
+| `./RootApp` | `AppEntry.tsx` | chrome, as the landing page |
+| `./PdfEntry` | `PdfEntry.tsx` | the crc-pdf-generator service, standalone |
+
+`PdfEntry` is the awkward one. It runs outside chrome, in a host that does
+**not** provide react-intl. That is why it is excluded from the
+`i18next/no-literal-string` lint rule and must stay untranslated — wrapping its
+strings would crash the PDF service.
+
+**Widgets** (`src/widgets/`) — eleven modules consumed at runtime by
+`widget-layout`. See [Widgets](?path=/docs/documentation-widgets--documentation).
+
+`react-router-dom` and `@scalprum/react-core` are shared singletons; mismatched
+copies break navigation and remote loading respectively.
+
+---
+
+## Internationalisation
+
+Locale resolution is chrome's job. `useChromeLocale` (`src/i18n/`) is a
+deliberate shim — chrome will eventually publish a hook of the same name and
+signature, at which point the swap is mechanical: delete ours, import theirs
+(RHCLOUD-52203). Until then it reads `chrome.language` and falls back to `en`.
+
+`IntlMessagesProvider` lazy-loads the catalog for the active locale from
+`messages/` via dynamic import, so only the needed language ships.
+
+The pipeline has three enforced stages:
+
+1. **Authoring** — every user-facing string goes through `defineMessages` with
+   an id namespaced `landing.<area>.<key>`. Enforced at error by
+   `i18next/no-literal-string` over `src/**`.
+2. **Extraction** — `npm run extract:messages` regenerates
+   `translations/messages.json`. `npm run lint:translations` fails CI on drift
+   via `git diff --exit-code`.
+3. **Translation** — Phrase TMS produces `messages/{fr,ja,ko,zh-CN}.json`.
+   Never hand-edit these.
+
+---
+
+## Testing strategy
+
+Progressive confidence — fast and deterministic first, full-stack last.
+
+| Layer | Command | Runs in | Covers |
+|---|---|---|---|
+| Unit | `npm run test:unit` | Konflux PR pipeline | shell wiring, pure logic |
+| Storybook interaction | `npm run test:storybook` | GitHub Actions on PR | widget behaviour at the mock boundary |
+| Playwright E2E | `npm run test:playwright` | Konflux PR pipeline | real stage, real SSO |
+
+Storybook is the first-class artifact. Stories run in Vitest browser mode via
+`@storybook/addon-vitest` — directly in headless Chromium, no built Storybook
+and no dev server. Network is mocked with MSW at the boundary, using typed
+handler factories in `src/data/mocks/` rather than inline handlers.
+
+Cypress is frozen. The `cypress/` directory runs in no pipeline and is kept
+only as a porting reference. Per team standards, existing Cypress tests do not
+count as coverage. See [E2E Testing](?path=/docs/documentation-e2e-testing--documentation).
+
+---
+
+## CI
+
+Two active systems, both gating on PRs:
+
+- **Konflux/Tekton** (`.tekton/landing-page-frontend-pull-request.yaml`) —
+  builds the image, then runs `lint`, `lint:translations`, `test:unit`, then
+  boots the app behind Caddy on `stage.foo.redhat.com:1337` and runs the
+  Playwright suite against it with real credentials.
+- **GitHub Actions** (`.github/workflows/storybook.yml`) — builds Storybook and
+  runs the interaction tests. Separate because the Storybook project needs
+  browser binaries the hermetic build image does not carry.
+
+A third workflow, `locale-validation.yml`, runs on i18n-touching paths.

@@ -1,75 +1,96 @@
 # landing-page-frontend
 
-## Getting Started
+The Hybrid Cloud Console home page — what renders at `console.redhat.com/`.
 
-There is a [comprehensive quick start guide in the Storybook Documentation](https://github.com/RedHatInsights/insights-frontend-storybook/blob/master/src/docs/welcome/quickStart/DOC.md) to setting up an Insights environment complete with:
-
-- [Insights Frontend Starter App](https://github.com/RedHatInsights/insights-frontend-starter-app)
-- [Insights Chroming](https://github.com/RedHatInsights/insights-chrome)
-- [Insights Proxy](https://github.com/RedHatInsights/insights-proxy)
+This repo owns the **dashboard widgets** and a thin shell that mounts the
+layout engine. The grid itself — drag-and-drop, resize, lock, expand/collapse,
+and the "add widget" drawer — lives in
+[`widget-layout`](https://github.com/RedHatInsights/widget-layout). If you are
+chasing a layout bug rather than something inside a widget card, start there.
 
 ## Getting started
 
-1. ```npm install```
+```bash
+npm install
+npm run start
+```
 
-2. ```npm run start```
+Then open https://stage.foo.redhat.com:1337/.
 
-Checkout https://stage.foo.redhat.com:1337/ [Read more](https://github.com/RedHatInsights/frontend-components/tree/master/packages/config#useproxy).
+The dev server proxies to stage by default. A few optional env vars change
+what it talks to:
+
+| Variable | Effect |
+|---|---|
+| `LOCAL_WIDGET_LAYOUT` | proxy `/apps/widget-layout` to `localhost:8003` |
+| `CONFIG_PORT` | proxy chrome-service static + dashboard-template routes to a local chrome-service |
+| `LOCAL_PDF` | proxy `/api/crc-pdf-generator` to `localhost:8000` |
+
+## Documentation
+
+Architecture, the widget system, and E2E conventions are documented as
+Storybook pages under `src/docs/`:
+
+```bash
+npm run storybook
+```
+
+- **Documentation → Architecture** — render path, module federation, i18n, CI
+- **Documentation → Widgets** — widget anatomy and the four-place registration
+- **Documentation → E2E Testing** — Playwright conventions and current coverage
+
+[`AGENTS.md`](./AGENTS.md) carries the non-negotiable rules and a docs index,
+for both humans and AI agents.
 
 ## Testing
 
-- `npm run test` tests
-- `npm run lint` will run the linter
+| Command | What it runs |
+|---|---|
+| `npm run test` | everything (unit + Storybook) |
+| `npm run test:unit` | Vitest unit tests (happy-dom) |
+| `npm run test:storybook` | Storybook interaction tests in headless Chromium |
+| `npm run test:watch` | unit tests in watch mode |
+| `npm run lint` | ESLint over `src`, `cypress`, `.storybook`, `playwright` |
+| `npm run lint:translations` | re-extract messages and fail on drift |
 
-### Cypress
-
-Opens the Cypress GUI for running end-to-end tests. Similar to `npm test`, this script requires environment variables for authentication:
-
-```bash
-E2E_USER=<your-e2e-user> E2E_PASSWORD=<your-e2e-password> npm run cypress -- open
-```
-
-Replace the placeholders with appropriate values.
-
-This script requires running the application locally. If you want to use stage environment you have to provide `URL` and `HTTP_PROXY` variables
-
-```bash
-URL=https://console.stage.redhat.com HTTP_PROXY=<corporate-proxy-URL> E2E_USER=<your-e2e-user> E2E_PASSWORD=<your-e2e-password> npm run cypres -- open
-```
-
-If you want to use production site you can use just the URL
+Storybook interaction tests are the primary behavioural coverage. They run via
+Vitest browser mode — stories execute directly in Chromium, so there is no
+built Storybook and no dev server to start. For a single file during
+iteration:
 
 ```bash
-URL=https://console.redhat.com E2E_USER=<your-e2e-user> E2E_PASSWORD=<your-e2e-password> npm run cypres -- open
+npx vitest --project=storybook SupportCaseWidget
 ```
+
+> **Cypress is frozen.** `cypress/` runs in no pipeline and is kept only as a
+> porting reference. Do not add new `.cy.ts` specs — new E2E goes in
+> `playwright/e2e/`.
 
 ### Playwright
 
-Run the Playwright E2E tests. Authentication is handled automatically via the `@redhat-cloud-services/playwright-test-auth` package, which performs Red Hat SSO login once during global setup and reuses the authenticated session across all tests.
+Authentication is handled by `@redhat-cloud-services/playwright-test-auth`,
+which performs Red Hat SSO login once during global setup and reuses the
+session across all tests.
 
-**Requirements:**
-- `E2E_USER` and `E2E_PASSWORD` environment variables
-
-**Basic usage:**
+**Requirements:** `E2E_USER` and `E2E_PASSWORD`.
 
 ```bash
 E2E_USER=<your-e2e-user> E2E_PASSWORD=<your-e2e-password> npm run test:playwright
 ```
 
-**Targeting a specific environment:**
-
-Set `BASE` (or reuse `URL`) to point at different environments:
+**Targeting a specific environment** — set `PLAYWRIGHT_BASE_URL`:
 
 ```bash
-BASE=https://cloud.redhat.com E2E_USER=<your-e2e-user> E2E_PASSWORD=<your-e2e-password> npm run test:playwright
+PLAYWRIGHT_BASE_URL=https://console.stage.redhat.com \
+E2E_USER=<your-e2e-user> E2E_PASSWORD=<your-e2e-password> \
+npm run test:playwright
 ```
 
-**Using a proxy:**
-
-If you see a **preprod lockdown page** when targeting stage, your Playwright browser likely isn’t on VPN. In that case, run with a proxy:
+**Using a proxy** — if you see a preprod lockdown page when targeting stage,
+your Playwright browser likely isn't on VPN:
 
 ```bash
-BASE=https://console.stage.redhat.com \
+PLAYWRIGHT_BASE_URL=https://console.stage.redhat.com \
 HTTPS_PROXY=http://<your-corp-proxy>:<port> \
 NO_PROXY=localhost,127.0.0.1 \
 E2E_USER=<your-e2e-user> E2E_PASSWORD=<your-e2e-password> \
@@ -77,16 +98,35 @@ npm run test:playwright
 ```
 
 **How it works:**
-- Authentication happens once via global setup (before any tests run)
-- The authenticated session is stored in `playwright/.auth/user.json`
-- All tests automatically use this session, eliminating repetitive login steps
-- Cookie prompts are handled by importing `disableCookiePrompt` from the package
+- Authentication happens once via global setup, before any tests run
+- The session is stored in `playwright/.auth/user.json`
+- All tests reuse it, eliminating repetitive login steps
+- Cookie prompts are handled via `disableCookiePrompt` from the package
 
-## Local i18n validation
+Other variants: `playwright:headed`, `playwright:ui`, `playwright:debug`,
+`playwright:report`.
 
-The locale-validation workflow builds the i18n CLI, but `npm ci` in this repository does not
-install it. Until `@redhat-cloud-services/i18n-pipeline` is published, build the exact tooling
-revision pinned by `.github/workflows/locale-validation.yml` (currently
+## Internationalisation
+
+Every user-facing string goes through `react-intl` with an id namespaced
+`landing.<area>.<key>`. This is enforced at error by `i18next/no-literal-string`.
+
+After changing any message, re-extract and commit the result — CI fails on
+drift:
+
+```bash
+npm run extract:messages
+```
+
+`translations/messages.json` is generated. The locale catalogs under
+`messages/` come from Phrase TMS; never hand-edit them.
+
+### Local i18n validation
+
+The locale-validation workflow builds the i18n CLI, but `npm ci` in this
+repository does not install it. Until `@redhat-cloud-services/i18n-pipeline` is
+published, build the exact tooling revision pinned by
+`.github/workflows/locale-validation.yml` (currently
 `7228d32f08872f97c8de8d255b5690e77f484f1f`):
 
 ```bash
@@ -97,23 +137,23 @@ npm ci
 npm run build
 ```
 
-Then, from this repository, add that checkout's CLI to `PATH` for the validation command:
+Then, from this repository, add that checkout's CLI to `PATH`:
 
 ```bash
 PATH="/path/to/i18n-tooling/node_modules/.bin:$PATH" npm run translations:validate
 ```
 
-This CLI currently requires Node.js 22.14 or newer. If the workflow pin changes, use the new SHA in both the checkout and this instruction.
+This CLI requires Node.js 22.14 or newer. If the workflow pin changes, use the
+new SHA in both the checkout and this instruction.
 
 ## Deployment
 
-The following four branches are used
+Four branches:
 
-- Stable
-  - prod-stable -> releases to console.redhat.com
-  - master-stable -> releases to console.stage.redhat.com
+**Stable**
+- `prod-stable` → console.redhat.com
+- `master-stable` → console.stage.redhat.com
 
-- Beta
-  - prod-beta -> releases to console.redhat.com/beta
-  - master -> releases to console.stage.redhat.com/beta
-
+**Beta**
+- `prod-beta` → console.redhat.com/beta
+- `master` → console.stage.redhat.com/beta
