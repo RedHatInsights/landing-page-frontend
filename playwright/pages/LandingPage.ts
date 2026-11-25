@@ -37,8 +37,9 @@ export class LandingPage {
       this.initScriptInstalled = true;
       await this.page.addInitScript(() => {
         const tag = '__hmr_overlay_killer';
-        if ((window as any)[tag]) return;
-        (window as any)[tag] = true;
+        const flags = window as unknown as Record<string, boolean>;
+        if (flags[tag]) return;
+        flags[tag] = true;
         function kill() {
           const el = document.getElementById('react-refresh-overlay');
           if (el) el.remove();

@@ -5,7 +5,12 @@ import { createMainConfig } from '@redhat-cloud-services/hcc-storybook-hub/confi
 const dirname = path.dirname(fileURLToPath(import.meta.url));
 
 const config = createMainConfig({
-  stories: ['../src/**/*.stories.@(js|jsx|mjs|ts|tsx)'],
+  stories: [
+    // src/docs/*.mdx first so the Documentation section sorts ahead of the
+    // widgets — see the storySort order in preview.tsx.
+    '../src/docs/*.mdx',
+    '../src/**/*.stories.@(js|jsx|mjs|ts|tsx)',
+  ],
   msw: true,
   a11y: false,
   extraAliases: {

@@ -9,7 +9,7 @@ import {
   Th,
   Thead,
   Tr,
-} from '@patternfly/react-table';
+} from '@patternfly/react-table/dist/dynamic/components/Table';
 import { Button } from '@patternfly/react-core/dist/dynamic/components/Button';
 import { EmptyState } from '@patternfly/react-core/dist/dynamic/components/EmptyState';
 import { EmptyStateBody } from '@patternfly/react-core/dist/dynamic/components/EmptyState';
@@ -29,6 +29,7 @@ import {
   labelColor,
 } from './SupportCaseWidgetConsts';
 import { defineMessages, useIntl } from 'react-intl';
+import type { Case } from '../data/api/support-case.types';
 import { IntlMessagesProvider, useChromeLocale } from '../i18n';
 import './SupportCaseWidget.scss';
 import {
@@ -39,15 +40,7 @@ import {
 const SUPPORT_CASE_URL =
   'https://access.redhat.com/support/cases/#/case/new/get-support?caseCreate=true';
 
-export type Case = {
-  id: string;
-  caseNumber: string;
-  summary: string;
-  lastModifiedById: string;
-  severity: string;
-  status: string;
-  productFamily: string;
-};
+export type { Case };
 
 const messages = defineMessages({
   noOpenCases: {
@@ -172,6 +165,10 @@ export const SupportCaseWidget: React.FunctionComponent = () => {
     };
 
     try {
+      // Pre-dates the TanStack Query standard; the typed client and query hook
+      // land with RHCLOUD-49608. Do not copy this pattern — new data fetching
+      // goes through src/data/api/. See AGENTS.md #7.
+      // eslint-disable-next-line no-restricted-syntax -- documented migration debt
       const response = await fetch(getUrl(chrome.getEnvironment()), options);
       const { cases } = await response.json();
       setCases(cases || []);

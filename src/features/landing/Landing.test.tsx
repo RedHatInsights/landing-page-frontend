@@ -58,16 +58,20 @@ const LandingWrapper: React.FC<React.PropsWithChildren> = ({ children }) => {
 };
 
 describe('<Landing/>', () => {
-  test('should render correctly', async () => {
-    let container;
+  test('mounts the widgetLayout remote', async () => {
+    let queries: ReturnType<typeof render> | undefined;
     await act(async () => {
-      const { container: c } = render(
+      queries = render(
         <LandingWrapper>
           <Landing />
         </LandingWrapper>,
       );
-      container = c;
     });
-    expect(container).toMatchSnapshot();
+
+    // Landing's entire job is pointing Scalprum at the right remote module.
+    // If either of these drifts, the dashboard renders nothing in the console.
+    const stub = queries!.getByTestId('scalprum-stub');
+    expect(stub.getAttribute('data-scope')).toBe('widgetLayout');
+    expect(stub.getAttribute('data-module')).toBe('./WidgetLayout');
   });
 });
